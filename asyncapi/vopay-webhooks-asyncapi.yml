@@ -1,0 +1,718 @@
+# generated: 2026-07-24
+# method: searched
+# source: https://docs.vopay.com/docs/events
+asyncapi: 2.6.0
+info:
+  title: VoPay Webhooks
+  version: '2.0'
+  description: VoPay webhook (event notification) surface. VoPay delivers 24 event types via HTTP POST to the URL configured
+    with account/webhook-url or partner/webhook-url. Every payload carries a ValidationKey = sha1(apiSharedSecret + recordID)
+    that the receiver recomputes to authenticate the message. Outbound webhooks originate from IPs 15.156.104.253 and 52.60.226.121.
+  contact:
+    name: VoPay API Support
+    email: help@vopay.com
+    url: https://docs.vopay.com/docs/events
+defaultContentType: application/json
+channels:
+  transaction:
+    subscribe:
+      operationId: onTransactionEvent
+      summary: A transaction status has changed.
+      message:
+        $ref: '#/components/messages/TransactionEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  elinx:
+    subscribe:
+      operationId: onElinxEvent
+      summary: Customer completes (or declines) your eLinx request.
+      message:
+        $ref: '#/components/messages/ElinxEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  bankaccount:
+    subscribe:
+      operationId: onBankaccountEvent
+      summary: Bank account details are received from the financial institution.
+      message:
+        $ref: '#/components/messages/BankaccountEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  creditcard:
+    subscribe:
+      operationId: onCreditcardEvent
+      summary: Your customer successfully connected their credit card.
+      message:
+        $ref: '#/components/messages/CreditcardEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  debitcard:
+    subscribe:
+      operationId: onDebitcardEvent
+      summary: Your customer successfully connected their debit card.
+      message:
+        $ref: '#/components/messages/DebitcardEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  scheduledtransactions:
+    subscribe:
+      operationId: onScheduledtransactionsEvent
+      summary: A scheduled payment was created on the requested date.
+      message:
+        $ref: '#/components/messages/ScheduledtransactionsEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  batchrequest:
+    subscribe:
+      operationId: onBatchrequestEvent
+      summary: Each request in the batch has been processed.
+      message:
+        $ref: '#/components/messages/BatchrequestEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  batchdetail:
+    subscribe:
+      operationId: onBatchdetailEvent
+      summary: A transaction inside a batch request could not be created.
+      message:
+        $ref: '#/components/messages/BatchdetailEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  accountonboarding:
+    subscribe:
+      operationId: onAccountonboardingEvent
+      summary: A VoPay account status has changed.
+      message:
+        $ref: '#/components/messages/AccountonboardingEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  accountonboardingapplication:
+    subscribe:
+      operationId: onAccountonboardingapplicationEvent
+      summary: Import data to an onboarding application is complete.
+      message:
+        $ref: '#/components/messages/AccountonboardingapplicationEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  accountverifications:
+    subscribe:
+      operationId: onAccountverificationsEvent
+      summary: An account verification status update.
+      message:
+        $ref: '#/components/messages/AccountverificationsEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  contactverification:
+    subscribe:
+      operationId: onContactverificationEvent
+      summary: Verification status for account contacts.
+      message:
+        $ref: '#/components/messages/ContactverificationEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  accountbalance:
+    subscribe:
+      operationId: onAccountbalanceEvent
+      summary: Your VoPay account balance has dropped below the specified threshold.
+      message:
+        $ref: '#/components/messages/AccountbalanceEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  clientaccountbalance:
+    subscribe:
+      operationId: onClientaccountbalanceEvent
+      summary: A client account balance has dropped below the specified threshold.
+      message:
+        $ref: '#/components/messages/ClientaccountbalanceEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  accountlimit:
+    subscribe:
+      operationId: onAccountlimitEvent
+      summary: Your VoPay account has surpassed a specified threshold of your daily, weekly, or monthly transaction limits.
+      message:
+        $ref: '#/components/messages/AccountlimitEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  rollingreserve:
+    subscribe:
+      operationId: onRollingreserveEvent
+      summary: Your VoPay account rolling reserve has been updated.
+      message:
+        $ref: '#/components/messages/RollingreserveEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  dataenrichment:
+    subscribe:
+      operationId: onDataenrichmentEvent
+      summary: Data enrichment has been completed.
+      message:
+        $ref: '#/components/messages/DataenrichmentEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  transactiongroup:
+    subscribe:
+      operationId: onTransactiongroupEvent
+      summary: Transactions within a transaction group have been processed.
+      message:
+        $ref: '#/components/messages/TransactiongroupEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  clientaccountverification:
+    subscribe:
+      operationId: onClientaccountverificationEvent
+      summary: A client account verification has been completed.
+      message:
+        $ref: '#/components/messages/ClientaccountverificationEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  clientaccountinformationcomplete:
+    subscribe:
+      operationId: onClientaccountinformationcompleteEvent
+      summary: A client account/contact has been activated after completing KYC.
+      message:
+        $ref: '#/components/messages/ClientaccountinformationcompleteEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  paymentreceived:
+    subscribe:
+      operationId: onPaymentreceivedEvent
+      summary: Inbound payment has been received.
+      message:
+        $ref: '#/components/messages/PaymentreceivedEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  virtualtransaction:
+    subscribe:
+      operationId: onVirtualtransactionEvent
+      summary: A virtual transaction has been processed.
+      message:
+        $ref: '#/components/messages/VirtualtransactionEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  virtualaccountcreated:
+    subscribe:
+      operationId: onVirtualaccountcreatedEvent
+      summary: A virtual account has been created and assigned to a VoPay account.
+      message:
+        $ref: '#/components/messages/VirtualaccountcreatedEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+  accountblocked:
+    subscribe:
+      operationId: onAccountblockedEvent
+      summary: An account has been blocked or unblocked by the secured (DACA) account.
+      message:
+        $ref: '#/components/messages/AccountblockedEvent'
+    x-delivery: HTTP POST to your configured account/webhook-url or partner/webhook-url
+components:
+  messages:
+    TransactionEvent:
+      name: transaction
+      title: A transaction status has changed.
+      summary: A transaction status has changed.
+      x-webhook-type: transaction
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          ID:
+            type: string
+          TransactionAmount:
+            type: number
+          ClientReferenceNumber:
+            type: string
+          TransactionType:
+            type: string
+          AccountID:
+            type: string
+          ErrorCode:
+            type: string
+          FailureReason:
+            type: string
+          ValidationKey:
+            type: string
+    ElinxEvent:
+      name: elinx
+      title: Customer completes (or declines) your eLinx request.
+      summary: Customer completes (or declines) your eLinx request.
+      x-webhook-type: elinx
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          TransactionAmount:
+            type: number
+          TransactionType:
+            type: string
+          BankAccountToken:
+            type: string
+          Token:
+            type: string
+          AccountID:
+            type: string
+          ValidationKey:
+            type: string
+    BankaccountEvent:
+      name: bankaccount
+      title: Bank account details are received from the financial institution.
+      summary: Bank account details are received from the financial institution.
+      x-webhook-type: bankaccount
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          FinancialInstitutionNumber:
+            type: string
+          AccountNumber:
+            type: string
+          InstitutionName:
+            type: string
+          AccountHolderName:
+            type: string
+          Token:
+            type: string
+          TokenType:
+            type: string
+          ClientAccountID:
+            type: string
+          ValidationKey:
+            type: string
+    CreditcardEvent:
+      name: creditcard
+      title: Your customer successfully connected their credit card.
+      summary: Your customer successfully connected their credit card.
+      x-webhook-type: creditcard
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          AccountNumber:
+            type: string
+          CardBrand:
+            type: string
+          CardHolderName:
+            type: string
+          Token:
+            type: string
+          ClientAccountID:
+            type: string
+          ValidationKey:
+            type: string
+    DebitcardEvent:
+      name: debitcard
+      title: Your customer successfully connected their debit card.
+      summary: Your customer successfully connected their debit card.
+      x-webhook-type: debitcard
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          AccountNumber:
+            type: string
+          CardBrand:
+            type: string
+          CardHolderName:
+            type: string
+          Token:
+            type: string
+          ClientAccountID:
+            type: string
+          ValidationKey:
+            type: string
+    ScheduledtransactionsEvent:
+      name: scheduledtransactions
+      title: A scheduled payment was created on the requested date.
+      summary: A scheduled payment was created on the requested date.
+      x-webhook-type: scheduledtransactions
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          TransactionID:
+            type: string
+          ClientReferenceNumber:
+            type: string
+          EftType:
+            type: string
+          Amount:
+            type: number
+          Frequency:
+            type: string
+          Description:
+            type: string
+          ValidationKey:
+            type: string
+    BatchrequestEvent:
+      name: batchrequest
+      title: Each request in the batch has been processed.
+      summary: Each request in the batch has been processed.
+      x-webhook-type: batchrequest
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          TransactionType:
+            type: string
+          PaymentType:
+            type: string
+          NumRecords:
+            type: number
+          TotalAmount:
+            type: number
+          ValidationKey:
+            type: string
+    BatchdetailEvent:
+      name: batchdetail
+      title: A transaction inside a batch request could not be created.
+      summary: A transaction inside a batch request could not be created.
+      x-webhook-type: batchdetail
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          FailureReason:
+            type: string
+          BatchTransactionRequestID:
+            type: string
+          TransactionPayload:
+            type: string
+          ValidationKey:
+            type: string
+    AccountonboardingEvent:
+      name: accountonboarding
+      title: A VoPay account status has changed.
+      summary: A VoPay account status has changed.
+      x-webhook-type: accountonboarding
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          Key:
+            type: string
+          SharedSecret:
+            type: string
+          ValidationKey:
+            type: string
+    AccountonboardingapplicationEvent:
+      name: accountonboardingapplication
+      title: Import data to an onboarding application is complete.
+      summary: Import data to an onboarding application is complete.
+      x-webhook-type: accountonboardingapplication
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          Failures:
+            type: string
+          Link:
+            type: string
+          Progress:
+            type: number
+          NumRecordsUpdated:
+            type: number
+          ValidationKey:
+            type: string
+    AccountverificationsEvent:
+      name: accountverifications
+      title: An account verification status update.
+      summary: An account verification status update.
+      x-webhook-type: accountverifications
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          VerificationType:
+            type: string
+          FailureReason:
+            type: string
+          VerificationAttempts:
+            type: number
+          ClientReferenceNumber:
+            type: string
+          Notes:
+            type: string
+          ValidationKey:
+            type: string
+    ContactverificationEvent:
+      name: contactverification
+      title: Verification status for account contacts.
+      summary: Verification status for account contacts.
+      x-webhook-type: contactverification
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          VerificationStatus:
+            type: string
+          FullName:
+            type: string
+          DOB:
+            type: string
+          VerificationType:
+            type: string
+          EmailAddress:
+            type: string
+          PhoneNumber:
+            type: string
+          Address:
+            type: string
+          ValidationKey:
+            type: string
+    AccountbalanceEvent:
+      name: accountbalance
+      title: Your VoPay account balance has dropped below the specified threshold.
+      summary: Your VoPay account balance has dropped below the specified threshold.
+      x-webhook-type: accountbalance
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          AccountBalance:
+            type: number
+          PendingBalance:
+            type: number
+          Reserve:
+            type: number
+          AvailableBalance:
+            type: number
+          Currency:
+            type: string
+          ValidationKey:
+            type: string
+    ClientaccountbalanceEvent:
+      name: clientaccountbalance
+      title: A client account balance has dropped below the specified threshold.
+      summary: A client account balance has dropped below the specified threshold.
+      x-webhook-type: clientaccountbalance
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          AccountBalance:
+            type: number
+          PendingBalance:
+            type: number
+          Reserve:
+            type: number
+          AvailableBalance:
+            type: number
+          Currency:
+            type: string
+          ValidationKey:
+            type: string
+    AccountlimitEvent:
+      name: accountlimit
+      title: Your VoPay account has surpassed a specified threshold of your daily, weekly, or monthly transaction limits.
+      summary: Your VoPay account has surpassed a specified threshold of your daily, weekly, or monthly transaction limits.
+      x-webhook-type: accountlimit
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          LimitType:
+            type: string
+          LimitPercentExceeded:
+            type: number
+          Message:
+            type: string
+          ValidationKey:
+            type: string
+    RollingreserveEvent:
+      name: rollingreserve
+      title: Your VoPay account rolling reserve has been updated.
+      summary: Your VoPay account rolling reserve has been updated.
+      x-webhook-type: rollingreserve
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          PreviousBalance:
+            type: number
+          CurrentBalance:
+            type: number
+          Currency:
+            type: string
+          ValidationKey:
+            type: string
+    DataenrichmentEvent:
+      name: dataenrichment
+      title: Data enrichment has been completed.
+      summary: Data enrichment has been completed.
+      x-webhook-type: dataenrichment
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          ValidationKey:
+            type: string
+    TransactiongroupEvent:
+      name: transactiongroup
+      title: Transactions within a transaction group have been processed.
+      summary: Transactions within a transaction group have been processed.
+      x-webhook-type: transactiongroup
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          CollectedAmount:
+            type: number
+          FailedAmount:
+            type: number
+          ProcessedAmount:
+            type: number
+          SubmittedAmount:
+            type: number
+          ValidationKey:
+            type: string
+    ClientaccountverificationEvent:
+      name: clientaccountverification
+      title: A client account verification has been completed.
+      summary: A client account verification has been completed.
+      x-webhook-type: clientaccountverification
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          Message:
+            type: string
+          ValidationKey:
+            type: string
+    ClientaccountinformationcompleteEvent:
+      name: clientaccountinformationcomplete
+      title: A client account/contact has been activated after completing KYC.
+      summary: A client account/contact has been activated after completing KYC.
+      x-webhook-type: clientaccountinformationcomplete
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          Message:
+            type: string
+          ValidationKey:
+            type: string
+    PaymentreceivedEvent:
+      name: paymentreceived
+      title: Inbound payment has been received.
+      summary: Inbound payment has been received.
+      x-webhook-type: paymentreceived
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          TransactionAmount:
+            type: number
+          TransactionDate:
+            type: string
+          TransactionCurrency:
+            type: string
+          ClientReferenceNumber:
+            type: string
+          SenderName:
+            type: string
+          SenderIBAN:
+            type: string
+          ReceiverName:
+            type: string
+          ReceiverIBAN:
+            type: string
+          ValidationKey:
+            type: string
+    VirtualtransactionEvent:
+      name: virtualtransaction
+      title: A virtual transaction has been processed.
+      summary: A virtual transaction has been processed.
+      x-webhook-type: virtualtransaction
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          Amount:
+            type: number
+          ClientAccountID:
+            type: string
+          TransactionType:
+            type: string
+          AvailableBalance:
+            type: number
+          ValidationKey:
+            type: string
+    VirtualaccountcreatedEvent:
+      name: virtualaccountcreated
+      title: A virtual account has been created and assigned to a VoPay account.
+      summary: A virtual account has been created and assigned to a VoPay account.
+      x-webhook-type: virtualaccountcreated
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          VirtualAccountID:
+            type: string
+          AccountNumber:
+            type: string
+          Currency:
+            type: string
+          IBAN:
+            type: string
+          AccountHolderName:
+            type: string
+          ValidationKey:
+            type: string
+    AccountblockedEvent:
+      name: accountblocked
+      title: An account has been blocked or unblocked by the secured (DACA) account.
+      summary: An account has been blocked or unblocked by the secured (DACA) account.
+      x-webhook-type: accountblocked
+      payload:
+        type: object
+        properties:
+          EventID:
+            type: string
+          Status:
+            type: string
+          BlockedAccountStatus:
+            type: string
+          BlockedAccountMessage:
+            type: string
+          ValidationKey:
+            type: string
+  messageTraits:
+    ValidationKeyTrait:
+      headers:
+        type: object

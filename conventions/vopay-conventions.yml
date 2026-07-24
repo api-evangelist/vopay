@@ -1,0 +1,60 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.vopay.com/docs/api-overview
+docs:
+  - https://docs.vopay.com/docs/getting-started
+  - https://docs.vopay.com/docs/signature-verification
+  - https://docs.vopay.com/docs/api-error-codes
+authentication:
+  style: api-key + shared-secret SHA1 request signature
+  see: authentication/vopay-authentication.yml
+transport:
+  base_url: https://earthnode-dev.vopay.com/api/v2
+  methods: HTTP POST (form-encoded parameters) and GET
+  request_encoding: application/x-www-form-urlencoded
+  response_encoding: application/json
+  note: >-
+    All API methods accept standard HTTP POST form-encoded parameters (or GET query params)
+    and return JSON. Successful responses carry Success:true; failures carry Success:false
+    with ErrorCode and ErrorMessage.
+idempotency:
+  supported: true
+  parameter: IdempotencyKey
+  scope: money-movement operations (EFT/ACH/Interac/RTP funding and withdrawals, bill pay, remittance, refunds)
+  behavior: >-
+    A unique key supplied to prevent duplicate transactions. If a previous request with the
+    same IdempotencyKey succeeded, the current request returns the same response as the
+    original successful request rather than creating a new transaction.
+  documented_in:
+    - openapi/vopay-payment-rails-api-reference.json
+    - openapi/vopay-payment-method-api-reference.json
+    - openapi/vopay-bill-pay-references.json
+    - openapi/vopay-remittance-api-reference.json
+    - openapi/vopay-account-api-reference.json
+    - openapi/vopay-client-accounts.json
+    - openapi/vopay-transaction-management.json
+error_envelope:
+  success_field: Success
+  error_code_field: ErrorCode
+  error_message_field: ErrorMessage
+  transport_note: Application errors are returned as HTTP 200 with Success:false, not via HTTP status codes.
+  see: errors/vopay-error-codes.yml
+return_codes:
+  note: Failed/returned money-movement transactions surface EFT return codes (9xx) on the transaction webhook and status responses.
+  see: errors/vopay-decline-codes.yml
+webhooks:
+  supported: true
+  configure: account/webhook-url (or partner/webhook-url)
+  verification: ValidationKey = SHA1(SharedSecret + RecordID)
+  see: asyncapi/vopay-webhooks-asyncapi.yml
+versioning:
+  scheme: uri-path
+  current: v2
+  base_path: /api/v2
+  see: lifecycle/vopay-lifecycle.yml
+embedded_ui:
+  note: Bank-account/card connection and IQ11 verification are delivered as hosted iFrames via *GenerateEmbedURL endpoints.
+  see: components/vopay-components.yml
+sandbox:
+  note: Transaction outcomes in sandbox are driven by the cents portion of the amount.
+  see: sandbox/vopay-sandbox.yml

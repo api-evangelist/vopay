@@ -1,0 +1,83 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.vopay.com/docs/return-codes
+note: EFT return/reject codes surfaced on failed or returned transactions. Appear
+  on the transaction webhook (ErrorCode/FailureReason) and transaction status responses.
+  Complements errors/vopay-error-codes.yml (API-level errors).
+envelope_field: ErrorCode / FailureReason
+rails:
+- EFT
+- Interac e-Transfer
+- ACH
+- RTP
+decline_codes:
+- code: '900'
+  meaning: "Edit Reject \u2014 file failed validation (formatting, missing mandatory\
+    \ fields, invalid institution/transit/account number)."
+  action: Fix and resubmit
+- code: '901'
+  meaning: "NSF \u2014 non-sufficient funds (fund transactions only)."
+  action: Retry later or use another method
+- code: '902'
+  meaning: "Cannot Trace \u2014 original transaction could not be located."
+  action: Verify original transaction
+- code: '903'
+  meaning: Payment Stopped / Recalled.
+  action: Contact payer
+- code: '904'
+  meaning: "Post / Stale Dated \u2014 value date outside acceptable range."
+  action: Resubmit with valid date
+- code: '905'
+  meaning: Account Closed.
+  action: Obtain a new account
+- code: '907'
+  meaning: "No Debit Allowed \u2014 account does not permit debits."
+  action: Use a different account
+- code: '908'
+  meaning: "Funds Not Cleared \u2014 ledger balance exists but funds not yet available."
+  action: Retry later
+- code: '909'
+  meaning: Currency / Account Mismatch.
+  action: Correct account/currency
+- code: '910'
+  meaning: Payor / Payee Deceased.
+  action: Stop collection
+- code: '911'
+  meaning: Account Frozen.
+  action: Contact payer
+- code: '912'
+  meaning: Invalid / Incorrect Account Number.
+  action: Correct account number
+- code: '914'
+  meaning: Incorrect Payor / Payee Name.
+  action: Correct name
+- code: '915'
+  meaning: "PAD No Agreement Existed \u2013 Business / Personal."
+  action: Obtain PAD agreement
+- code: '916'
+  meaning: "PAD Not In Accordance with Agreement \u2013 Personal."
+  action: Review PAD agreement
+- code: '917'
+  meaning: "PAD Agreement Revoked \u2013 Personal."
+  action: Stop collection
+- code: '918'
+  meaning: "PAD No Pre-Notification \u2013 Personal."
+  action: Send pre-notification
+- code: '919'
+  meaning: "PAD Not In Accordance with Agreement \u2013 Business."
+  action: Review PAD agreement
+- code: '920'
+  meaning: "PAD Agreement Revoked \u2013 Business."
+  action: Stop collection
+- code: '921'
+  meaning: "PAD No Pre-Notification \u2013 Business."
+  action: Send pre-notification
+- code: '988'
+  meaning: Paylink Declined by Receiver.
+  action: Contact receiver
+- code: '989'
+  meaning: Information Not Provided by the Bank.
+  action: Retry / contact support
+- code: '990'
+  meaning: Institution in Default.
+  action: Use another institution

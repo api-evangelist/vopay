@@ -1,0 +1,30 @@
+generated: '2026-07-24'
+method: searched
+source: live /.well-known/* probes of vopay.com, docs.vopay.com, earthnode-dev.vopay.com
+hosts:
+- host: https://vopay.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: vopay-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: https://docs.vopay.com
+  documents:
+  - path: /llms.txt
+    status: 200
+    file: ../llms/vopay-llms.txt
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+- host: https://earthnode-dev.vopay.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /openapi.json
+    status: 404

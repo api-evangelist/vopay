@@ -1,0 +1,15 @@
+# OpenAPI Overlay 1.0.0 — API Evangelist enhancements (never mutates the source spec)
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for VoPay Payment Methods
+  version: 1.0.0
+extends: openapi/vopay-payment-method-api-reference.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-24'
+    x-apievangelist-provider: vopay
+    x-authentication: API key + shared-secret SHA1 request signature (see authentication/vopay-authentication.yml)
+    x-idempotency: IdempotencyKey parameter on money-movement operations (see conventions/vopay-conventions.yml)
+    x-webhooks: asyncapi/vopay-webhooks-asyncapi.yml
+    x-error-catalog: errors/vopay-error-codes.yml

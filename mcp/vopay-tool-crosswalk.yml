@@ -1,0 +1,106 @@
+generated: '2026-07-24'
+method: derived
+source: Binds the candidate MCP tool surface (mcp/vopay-mcp.yml, one tool per operationId)
+  to backing OpenAPI operationIds.
+surfaces:
+  openapi: openapi/*.json (23 specs, 403 operations)
+  graphql: null
+  mcp:
+    url: null
+    status: candidate
+    note: No hosted VoPay MCP server; tools derived 1:1 from REST operations, so every
+      tool binds to exactly one operationId.
+crosswalk:
+- tool: EftFundPost
+  category: payment-rails
+  rest:
+  - EftFundPost
+  binding: rest
+  confidence: high
+  note: 1:1 with openapi/vopay-payment-rails-api-reference.json#EftFundPost; inherits
+    that operation's parameters + requestBody as its inputSchema.
+- tool: EftWithdrawPost
+  category: payment-rails
+  rest:
+  - EftWithdrawPost
+  binding: rest
+  confidence: high
+  note: 1:1 with openapi/vopay-payment-rails-api-reference.json#EftWithdrawPost; inherits
+    that operation's parameters + requestBody as its inputSchema.
+- tool: EftFundStatusGet
+  category: payment-rails
+  rest:
+  - EftFundStatusGet
+  binding: rest
+  confidence: high
+  note: 1:1 with openapi/vopay-payment-rails-api-reference.json#EftFundStatusGet;
+    inherits that operation's parameters + requestBody as its inputSchema.
+- tool: Iq11TokenizePost
+  category: verification
+  rest:
+  - Iq11TokenizePost
+  binding: rest
+  confidence: high
+  note: 1:1 with openapi/vopay-iq11.json#Iq11TokenizePost; inherits that operation's
+    parameters + requestBody as its inputSchema.
+- tool: Iq11GenerateEmbedUrlPost
+  category: verification
+  rest:
+  - Iq11GenerateEmbedUrlPost
+  binding: rest
+  confidence: high
+  note: 1:1 with openapi/vopay-iq11.json#Iq11GenerateEmbedUrlPost; inherits that operation's
+    parameters + requestBody as its inputSchema.
+- tool: ContactAddPOST
+  category: contacts
+  rest:
+  - ContactAddPOST
+  binding: rest
+  confidence: high
+  note: 1:1 with openapi/vopay-contact.json#ContactAddPOST; inherits that operation's
+    parameters + requestBody as its inputSchema.
+- tool: BankAccountAddPOST
+  category: payment-methods
+  rest:
+  - BankAccountAddPOST
+  binding: rest
+  confidence: high
+  note: 1:1 with openapi/vopay-payment-method-api-reference.json#BankAccountAddPOST;
+    inherits that operation's parameters + requestBody as its inputSchema.
+- tool: AccountGET
+  category: accounts
+  rest:
+  - AccountGET
+  binding: rest
+  confidence: high
+  note: 1:1 with openapi/vopay-account-api-reference.json#AccountGET; inherits that
+    operation's parameters + requestBody as its inputSchema.
+- tool: PingPost
+  category: utilities
+  rest:
+  - PingPost
+  binding: rest
+  confidence: high
+  note: 1:1 with openapi/vopay-ping.json#PingPost; inherits that operation's parameters
+    + requestBody as its inputSchema.
+- tool: AuthPingPost
+  category: utilities
+  rest:
+  - AuthPingPost
+  binding: rest
+  confidence: high
+  note: 1:1 with openapi/vopay-ping.json#AuthPingPost; inherits that operation's parameters
+    + requestBody as its inputSchema.
+mcp_only: []
+rest_only:
+- capability: Everything else
+  note: The remaining ~393 operations map 1:1 to candidate tools of the same operationId;
+    only marquee flows are enumerated above.
+coverage:
+  tools_named: 403
+  tools_bound: 403
+  mcp_only: 0
+  rest_ops_total: 403
+  rest_ops_with_tool: 403
+  note: "Candidate 1:1 derivation \u2014 full binding by construction; confidence\
+    \ high for enumerated marquee rows, mechanical for the rest."

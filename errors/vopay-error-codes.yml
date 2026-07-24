@@ -1,0 +1,63 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.vopay.com/docs/api-error-codes
+envelope:
+  success_field: Success
+  error_code_field: ErrorCode
+  error_message_field: ErrorMessage
+  note: Failed requests return HTTP 200 with Success:false plus ErrorCode and a human
+    message.
+categories:
+  1xxx: Authentication
+  2xxx: Validation
+  3xxx: Permissions
+  9xxx: Internal
+errors:
+- code: '1000'
+  title: Auth Failed
+  meaning: The API credentials provided are incorrect or invalid.
+- code: '1001'
+  title: Incorrect Auth Type
+  meaning: The authentication method used is not supported. VoPay requires Basic Authentication.
+- code: '2000'
+  title: Missing Required Parameter
+  meaning: A required field is absent from the request.
+- code: '2001'
+  title: Invalid Parameter
+  meaning: A parameter value is invalid (malformed JSON, wrong date format, etc).
+- code: '2002'
+  title: Resource Not Found
+  meaning: Referenced resource doesn't exist.
+- code: '2003'
+  title: Resource Already Exists
+  meaning: An attempt was made to create a resource that already exists.
+- code: '2004'
+  title: Resource Inactive
+  meaning: Resource exists but is inactive.
+- code: '2005'
+  title: Invalid Action
+  meaning: The requested action cannot be performed in the current state.
+- code: '2006'
+  title: Invalid Transaction Status
+  meaning: Transaction state prevents the requested operation.
+- code: '3000'
+  title: Permission Not Enabled
+  meaning: Feature/payment rail not enabled for the account.
+- code: '3001'
+  title: Transaction Limit Exceeded
+  meaning: Amount exceeds balance or account limit.
+- code: '3002'
+  title: Invalid Access
+  meaning: Account lacks permission for the specified resource.
+- code: '9996'
+  title: Endpoint Not Found
+  meaning: API endpoint doesn't exist.
+- code: '9997'
+  title: Integration Error
+  meaning: External service communication failure.
+- code: '9998'
+  title: Internal Error
+  meaning: Unexpected VoPay system error.
+- code: '9999'
+  title: Unknown Error
+  meaning: Unclassified error occurred.

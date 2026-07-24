@@ -1,0 +1,46 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.vopay.com/docs/sandbox
+docs: https://docs.vopay.com/docs/getting-started
+signup: https://vopay.com/api-sandbox/
+environment:
+  separation: separate sandbox API keys (obtained at https://vopay.com/api-sandbox/)
+  base_host: https://earthnode-dev.vopay.com
+  two_factor_auth: not enforced in sandbox
+  bank_validation: Bank and routing information is NOT validated in the sandbox environment
+  fictitious_bank: An embedded "VoPay Bank" appears in iFrames generated in sandbox for connection flows
+status_simulation:
+  driver: The cents (decimal) portion of the transaction amount determines the simulated outcome
+  note: Statuses update automatically every minute until reaching a terminal state (failed, cancelled, or successful)
+  amount_cents_map:
+    - range: '.01-.09'
+      outcome: Immediate failure
+    - range: '.10-.19'
+      outcome: Fails after going in progress
+    - range: '.20-.29'
+      outcome: Fails after being marked successful
+    - range: '.30-.39'
+      outcome: Cancelled
+    - range: '.40-.49'
+      outcome: Cancelled after in progress (with specific bulk payout handling)
+    - range: '.50-.59'
+      outcome: Manual processing only; no automatic status changes
+    - range: '.60-.99 and integer amounts'
+      outcome: Automatically process to successful status
+account_activation:
+  default: Accounts auto-activate by default in sandbox
+  workflow_suffixes:
+    - suffix: '-WF0'
+      effect: customize onboarding/activation workflow behavior via account name suffix
+    - suffix: '-WF1'
+    - suffix: '-WF2'
+simulation_endpoints:
+  - operation: virtual-account/simulate-credit
+    spec: openapi/vopay-virtual-account-api-reference.json
+    description: Simulate a credit to a virtual account (add test funds) for testing.
+  - operation: account/webhook-url/test
+    spec: openapi/vopay-account-api-reference.json
+    description: Sends an example webhook payload to your configured URL.
+  - operation: partner/webhook-url/test
+    spec: openapi/vopay-account-api-reference.json
+    description: Sends an example partner webhook payload to your configured URL.

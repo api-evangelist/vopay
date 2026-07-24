@@ -1,0 +1,47 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.vopay.com/docs/signature-verification
+docs: https://docs.vopay.com/docs/getting-started
+summary:
+  types: [apiKey, signature]
+  api_key_in: [body]
+  oauth2_flows: []
+  note: >-
+    VoPay does not use OAuth. Every request is authenticated with an API Key plus a
+    request Signature computed from the account's shared secret. No securitySchemes are
+    declared in the OpenAPI; this profile is captured from the published docs.
+credentials:
+  - name: AccountID
+    description: The VoPay account identifier the request acts on.
+  - name: Key
+    description: The API Key ID associated with the account (managed via account/keys endpoints).
+  - name: SharedSecret
+    description: The account's shared secret. Never sent on the wire; used to compute the Signature. Regenerable from the account portal if compromised.
+request_signature:
+  algorithm: SHA1
+  formula: sha1(Key + SharedSecret + Date)
+  date_format: 'YYYY-MM-DD'
+  note: >-
+    The request Signature is a SHA1 hash of the API Key, the account's shared secret, and
+    the current date in YYYY-MM-DD format. Because the date is part of the hash, a signature
+    is valid only for the calendar day it was generated.
+webhook_verification:
+  algorithm: HMAC-SHA1
+  formula: sha1(SharedSecret + RecordID)
+  field: ValidationKey
+  record_id_examples: [TransactionID, ELinxRequestID, BankAccountToken, CreditCardToken]
+  note: >-
+    Each webhook payload carries a ValidationKey = SHA1(SharedSecret + RecordID). The
+    receiver recomputes it from their shared secret and the record id in the payload and
+    compares; a mismatch means the webhook should be ignored.
+  origin_ips: [15.156.104.253, 52.60.226.121]
+key_management:
+  endpoints:
+    - openapi/vopay-account-api-reference.json  # account/keys, account/keys/add, account/keys/retrieve, account/keys/edit, account/keys/delete
+  ip_whitelisting: true
+schemes:
+  - name: apiKeySignature
+    type: apiKey
+    in: body
+    scheme: shared-secret-signature
+    sources: [https://docs.vopay.com/docs/signature-verification]

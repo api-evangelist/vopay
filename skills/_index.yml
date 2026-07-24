@@ -1,0 +1,16 @@
+generated: '2026-07-24'
+method: generated
+source: OpenAPI operationIds grounded in openapi/*.json + conventions/errors artifacts
+skills:
+  - file: vopay-eft-collect-funds.md
+    name: Collect funds by EFT (Canada)
+    api: openapi/vopay-payment-rails-api-reference.json
+    operations: [AuthPingPost, EftFundPost, EftFundStatusGet, EftFundTransactionGet]
+  - file: vopay-verify-bank-account-iq11.md
+    name: Verify a bank account with IQ11
+    api: openapi/vopay-iq11.json
+    operations: [Iq11GenerateEmbedUrlPost, Iq11TokenInfoGet, Iq11BalanceGet, Iq11EnrichDataPOST, Iq11EnrichDataStatusGet]
+  - file: vopay-interac-request-money.md
+    name: Request money by Interac e-Transfer
+    api: openapi/vopay-payment-rails-api-reference.json
+    operations: [AuthPingPost, InteracMoneyRequestPost, InteracMoneyRequestTransactionGet, InteracMoneyRequestTransactionsCancelPost]

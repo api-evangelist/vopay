@@ -1,0 +1,21 @@
+generated: '2026-07-24'
+method: searched
+source: >-
+  Searched npm, PyPI, and GitHub for VoPay client libraries. VoPay publishes no first-party
+  SDK; only community/unofficial libraries exist. Official integration is direct REST
+  (HTTP POST form-encoded, JSON responses).
+packages:
+  - language: javascript
+    registry: github
+    name: ashwamegh/vopay-node
+    url: https://github.com/ashwamegh/vopay-node
+    install: npm install vopay-node
+    official: false
+    note: Unofficial Node.js helper library; author marks it "not in active development".
+  - language: multiple
+    registry: github
+    name: mavaddat/vopay_start
+    url: https://github.com/mavaddat/vopay_start
+    official: false
+    note: Community getting-started sample, not a packaged SDK.
+first_party_sdk: false

@@ -1,0 +1,39 @@
+generated: '2026-07-24'
+method: derived
+source: openapi/*.json + docs.vopay.com
+standards:
+- id: oauth2
+  conforms: false
+  evidence: VoPay uses API key + shared-secret SHA1 signature, not OAuth2.
+- id: openid-connect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors returned as HTTP 200 with Success:false + ErrorCode envelope, not
+    application/problem+json.
+- id: idempotency
+  conforms: true
+  evidence: IdempotencyKey parameter documented on money-movement operations across
+    7 specs.
+- id: webhooks
+  conforms: true
+  evidence: 24 documented webhook event types with HMAC-SHA1 ValidationKey; see asyncapi/vopay-webhooks-asyncapi.yml.
+- id: hmac-request-signing
+  conforms: true
+  evidence: SHA1(apiKey + sharedSecret + date) request signature; SHA1(sharedSecret
+    + recordID) webhook ValidationKey.
+- id: psd2
+  conforms: false
+  evidence: Canada/US market; not a PSD2 jurisdiction.
+- id: iso20022
+  conforms: false
+- id: nacha-ach
+  conforms: true
+  evidence: ACH rail with NACHA-style routing (ABA routing numbers) and return codes.
+- id: interac
+  conforms: true
+  evidence: Interac e-Transfer send/request/inbound rails.
+- id: payments-canada-eft
+  conforms: true
+  evidence: EFT rail over Payments Canada with institution/transit numbers and 9xx
+    return codes.

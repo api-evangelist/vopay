@@ -1,0 +1,11 @@
+generated: '2026-07-24'
+method: derived
+source: openapi/*.json 4xx/5xx responses
+format: vopay-envelope
+envelope:
+  success_field: Success
+  error_code_field: ErrorCode
+  error_message_field: ErrorMessage
+  note: VoPay signals application errors in a 200 JSON body (Success:false) rather
+    than HTTP status codes; HTTP 450 is used by some file/virtual-account endpoints.
+problems: []

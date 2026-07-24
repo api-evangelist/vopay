@@ -1,0 +1,45 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.vopay.com/docs/api-overview
+description: >-
+  VoPay ships hosted, embeddable connection and verification experiences delivered as
+  iFrames. A backend *GenerateEmbedURL endpoint returns a URL that the client embeds; the
+  end user completes bank/card connection or account verification inside VoPay-hosted UI,
+  and the resulting token/status is delivered back by webhook.
+families:
+  - name: IQ11 Bank Account Verification
+    type: hosted-iframe
+    loader: embed URL from Iq11GenerateEmbedUrlPost
+    spec: openapi/vopay-iq11.json
+    description: Embedded instant bank-account verification / connection experience (IQ11).
+    completion_event: bankaccount webhook
+  - name: Bank Account Connect
+    type: hosted-iframe
+    loader: embed URL from BankAccountGenerateEmbedUrlPost
+    spec: openapi/vopay-payment-method-api-reference.json
+    description: Embedded flow for a customer to connect and tokenize a bank account.
+    completion_event: bankaccount webhook
+  - name: Credit Card Connect
+    type: hosted-iframe
+    loader: embed URL from CreditCardGenerateEmbedURLPOST
+    spec: openapi/vopay-payment-method-api-reference.json
+    description: Embedded flow for a customer to connect and tokenize a credit card.
+    completion_event: creditcard webhook
+  - name: Debit Card Connect
+    type: hosted-iframe
+    loader: embed URL from DebtiCardGenerateEmbedURLPOST
+    spec: openapi/vopay-payment-method-api-reference.json
+    description: Embedded flow for a customer to connect and tokenize a debit card.
+    completion_event: debitcard webhook
+  - name: Client Account Embed
+    type: hosted-iframe
+    loader: embed URL from ClientAccountGenerateEmbedURLPOST
+    spec: openapi/vopay-contact.json
+    description: Embedded client-account / onboarding experience.
+  - name: eLinx Payment Link
+    type: hosted-payment-page
+    loader: link from ElinxPost
+    spec: openapi/vopay-elinx.json
+    description: Hosted payment-request link (eLinx) delivered by email/SMS/WhatsApp for a recipient to complete payment.
+    completion_event: elinx webhook
+sandbox_note: In sandbox, embedded iFrames present a fictitious "VoPay Bank" for testing.

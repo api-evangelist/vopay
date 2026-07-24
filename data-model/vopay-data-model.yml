@@ -1,0 +1,85 @@
+generated: '2026-07-24'
+method: derived
+source: openapi/*.json $ref + id-reference fields; object reference at docs.vopay.com
+entities:
+- name: Account
+  id_field: AccountID
+  description: A VoPay account (partner or sub-account) holding balances and permissions.
+- name: ClientAccount
+  id_field: ClientAccountID
+  belongs_to: Account
+  description: A sub-merchant / client account created under a partner account.
+- name: Contact
+  id_field: ContactID
+  belongs_to: ClientAccount
+  description: A payee/recipient with payment methods and notes.
+- name: PaymentMethod
+  id_field: Token
+  belongs_to: Contact
+  description: A tokenized bank account, credit card, or debit card.
+- name: Transaction
+  id_field: TransactionID
+  belongs_to: Account
+  description: A money-movement transaction on a payment rail (EFT/Interac/ACH/RTP/VoPay
+    Instant).
+- name: ScheduledTransaction
+  id_field: ScheduleID
+  belongs_to: Account
+  description: A recurring or future-dated transaction schedule.
+- name: VirtualAccount
+  id_field: VirtualAccountID
+  belongs_to: Account
+  description: A virtual (IBAN-addressable) account for treasury/global cash management.
+- name: ELinxRequest
+  id_field: ELinxRequestID
+  belongs_to: Account
+  description: A hosted payment-link (eLinx) request sent to a recipient.
+- name: Dispute
+  id_field: DisputeID
+  belongs_to: Transaction
+  description: A chargeback/dispute case tied to a transaction.
+- name: ApiKey
+  id_field: KeyID
+  belongs_to: Account
+  description: An API key + shared secret credential pair.
+relationships:
+- from: ClientAccount
+  to: Account
+  type: belongs_to
+  via: AccountID
+- from: Contact
+  to: ClientAccount
+  type: belongs_to
+  via: ClientAccountID
+- from: PaymentMethod
+  to: Contact
+  type: belongs_to
+  via: ContactID
+- from: Transaction
+  to: Account
+  type: belongs_to
+  via: AccountID
+- from: Transaction
+  to: PaymentMethod
+  type: has_one
+  via: Token
+- from: ScheduledTransaction
+  to: Account
+  type: belongs_to
+  via: AccountID
+- from: VirtualAccount
+  to: Account
+  type: belongs_to
+  via: AccountID
+- from: ELinxRequest
+  to: Account
+  type: belongs_to
+  via: AccountID
+- from: Dispute
+  to: Transaction
+  type: belongs_to
+  via: TransactionID
+- from: ApiKey
+  to: Account
+  type: belongs_to
+  via: AccountID
