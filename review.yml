@@ -1,0 +1,129 @@
+aid: vopay
+name: VoPay
+review:
+  question: Does VoPay expose a genuine public developer portal with downloadable OpenAPI, and what is its real API posture?
+  answer: true
+  date: '2026-07-24'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    VoPay (VoPay International Inc, Vancouver, Canada) runs a real, self-serve
+    developer portal at https://docs.vopay.com (ReadMe.io project "vopay-api",
+    version 2.0, HTTP 200). It is API-native: a sandbox, an OpenAPI-backed API
+    reference segmented by product, an llms.txt agent index, webhooks, and a
+    public GPT assistant. The API is a REST/HTTPS surface (over 250 endpoints
+    advertised) where all methods accept HTTP POST form-encoded parameters and
+    return JSON. Twenty-three (23) OpenAPI 3.0 definitions were harvested
+    verbatim from the ReadMe hub and saved to openapi/. Home market is Canada;
+    VoPay sits as an API layer over Interac e-Transfer, EFT, and Payments
+    Canada rails, extended to US ACH/RTP/FedNow/FedWire and cross-border.
+  homeMarket: Canada
+  developerPortal:
+    url: https://docs.vopay.com/
+    httpStatus: 200
+    platform: ReadMe.io (project vopay-api, branch/version 2.0)
+    confirmed: true
+  downloadableSpecs:
+    found: true
+    count: 23
+    format: OpenAPI 3.0.0 (one file 3.0.3), type "swagger" in ReadMe registry
+    urlPattern: https://docs.vopay.com/openapi/<filename>.json
+    provenance: |
+      Filenames enumerated from the apiDefinitions registry embedded in the
+      ReadMe reference page state; each downloaded verbatim from
+      https://docs.vopay.com/openapi/<filename> on 2026-07-24 (all HTTP 200).
+      Each parses as OpenAPI with declared paths and a servers[] entry.
+    files:
+      - openapi/vopay-account-api-reference.json          # Accounts (40 paths)
+      - openapi/vopay-account-onboarding.json             # Account Onboarding (9)
+      - openapi/vopay-bill-pay-references.json            # Bill Pay (8)
+      - openapi/vopay-blocked-accounts-api-reference.json # Blocked Accounts (3)
+      - openapi/vopay-branding-api-reference.json         # Branding (6)
+      - openapi/vopay-client-accounts.json                # Client Accounts (40)
+      - openapi/vopay-contact.json                        # Contact (15)
+      - openapi/vopay-convenience-fee-api-reference.json  # Convenience Fees (2)
+      - openapi/vopay-dispute-management-api-reference.json # Dispute Management (11)
+      - openapi/vopay-elinx.json                          # eLinx payment links (3)
+      - openapi/vopay-file-conversion-api-reference.json  # File Conversion (8)
+      - openapi/vopay-global-cash-management.json         # Global Cash Management (35)
+      - openapi/vopay-integrations-and-support.json       # Integrations and Support (32)
+      - openapi/vopay-iq11.json                           # IQ11 bank verification (7)
+      - openapi/vopay-payment-api-reference.json          # Payments (1)
+      - openapi/vopay-payment-method-api-reference.json   # Payment Methods (51)
+      - openapi/vopay-payment-rails-api-reference.json    # Payment Rails (85)
+      - openapi/vopay-ping.json                           # Ping (3)
+      - openapi/vopay-remittance-api-reference.json       # Remittance (1)
+      - openapi/vopay-scheduled-payments-api-reference.json # Scheduled Payments (5)
+      - openapi/vopay-transaction-management.json         # Transaction Management (7)
+      - openapi/vopay-verification.json                   # Verification (13)
+      - openapi/vopay-virtual-account-api-reference.json  # Virtual Accounts (5)
+  authModel:
+    scheme: API key + shared secret + request signature
+    detail: |
+      Requests carry an API key and a signature computed as
+      SHA1(apiKey + sharedSecret + currentDateYYYY-MM-DD). Only whitelisted IP
+      addresses are accepted. Keys/secrets are regenerated from the account
+      management portal. No OAuth2, no mTLS, and no securitySchemes were
+      declared inside the harvested OpenAPI files (auth is documented in prose).
+    source: https://docs.vopay.com/reference/getting-started-with-your-api
+  webhooksEvents:
+    present: true
+    detail: |
+      Webhooks are first-class: account/webhook-url and partner/webhook-url set
+      a callback; webhooks fire on transaction status, paylink status, account
+      status, account verification, bank-account creation, scheduled-transaction
+      creation, and batch processed/failed events. Signature verification and
+      re-trigger/resend endpoints are documented. No AsyncAPI is published.
+    eventsDoc: https://docs.vopay.com/docs/events
+  postman:
+    found: false
+    note: No public Postman workspace/collection URL was confirmed during review.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://earthnode-dev.vopay.com/api/v2
+      documented: true
+      note: Sandbox/dev host declared in servers[] of every harvested spec; POST form-encoded in, JSON out.
+    - protocol: REST
+      scheme: https
+      baseURL: https://earthnode-dev.vopay.com/api
+      documented: true
+      note: Payments spec (payment_api_reference) declares the /api base without /v2.
+    - protocol: Webhooks
+      scheme: https
+      documented: true
+      note: Outbound HTTP callbacks to a customer-registered URL with signature verification.
+sources:
+  - url: https://vopay.com/
+    type: Website
+    httpStatus: 200
+    note: API-First Embedded Finance platform; Fintech-as-a-Service suite; Canada.
+  - url: https://docs.vopay.com/
+    type: DeveloperPortal
+    httpStatus: 200
+    note: ReadMe.io hub, project vopay-api v2.0; sandbox, reference, webhooks, llms.txt.
+  - url: https://docs.vopay.com/llms.txt
+    type: Documentation
+    httpStatus: 200
+    note: Agent index (108 KB) listing guides and per-operation reference pages.
+  - url: https://docs.vopay.com/docs/api-overview
+    type: Documentation
+    httpStatus: 200
+    note: Auth model (API key + shared secret + SHA1 signature + IP whitelist).
+  - url: https://docs.vopay.com/reference/getting-started-with-your-api
+    type: APIReference
+    httpStatus: 200
+    note: Getting started + authentication reference.
+  - url: https://docs.vopay.com/openapi/ping.json
+    type: OpenAPI
+    httpStatus: 200
+    note: Representative verbatim spec download confirming the openapi/<filename> pattern.
+  - url: https://status.vopay.com/
+    type: StatusPage
+    httpStatus: 200
+  - url: https://vopay.com/pricing/
+    type: Pricing
+    httpStatus: 200
+  - url: https://blog.vopay.com/
+    type: Blog
+    httpStatus: 200
