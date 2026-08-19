@@ -1,0 +1,748 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "verification",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account Verification Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account-verification/bank-account/initiate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account-verification/bank-account/initiate",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "InstitutionNumber",
+                  "value": ""
+                },
+                {
+                  "name": "TransitNumber",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "value": ""
+                },
+                {
+                  "name": "SendEmail",
+                  "value": ""
+                },
+                {
+                  "name": "SenderEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiverEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "State",
+                  "value": ""
+                },
+                {
+                  "name": "ZipCode",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to intiate the micro deposit transaction. The bank routing information required will vary depending on the country. Currently only US and Canada are supported."
+        },
+        {
+          "info": {
+            "name": "account-verification/bank-account/confirm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account-verification/bank-account/confirm",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VerificationRequestID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to confirm the micro deposit transaction."
+        },
+        {
+          "info": {
+            "name": "account-verification/card",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account-verification/card",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VerificationTier",
+                  "value": ""
+                },
+                {
+                  "name": "CardToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to verify a credit or debit card."
+        },
+        {
+          "info": {
+            "name": "account-verification/interac",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account-verification/interac",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VerificationTier",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "AccountHolderName",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to verify an Interac email address."
+        },
+        {
+          "info": {
+            "name": "account-verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account-verification",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "VerificationRequestID",
+                "value": "",
+                "type": "query",
+                "description": "Value of the Account Verification Request ID"
+              },
+              {
+                "name": "RequestStatus",
+                "value": "",
+                "type": "query",
+                "description": "The account verification request status. Can be 'active' or 'expired'"
+              },
+              {
+                "name": "VerificationStatus",
+                "value": "",
+                "type": "query",
+                "description": "The vefification status of the account. Can be 'unverified', 'verified' or 'failed'"
+              },
+              {
+                "name": "VerificationType",
+                "value": "",
+                "type": "query",
+                "description": "The verification type. Can be 'bank' or 'interac'"
+              },
+              {
+                "name": "SearchText",
+                "value": "",
+                "type": "query",
+                "description": "A text string to search for in the email addresses used for Account Verification process."
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return micro deposit transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return micro deposit transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              },
+              {
+                "name": "Timezone",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch the details of a micro deposit transaction."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contact Verification Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "contact-verification/email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contact-verification/email",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "VerificationTier",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to intiate an email verification."
+        },
+        {
+          "info": {
+            "name": "contact-verification/email/confirm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contact-verification/email/confirm",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "OTP",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to confirm an email verification using an OTP sent to the email address."
+        },
+        {
+          "info": {
+            "name": "contact-verification/phone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contact-verification/phone",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "VerificationTier",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to intiate an phone SMS verification."
+        },
+        {
+          "info": {
+            "name": "contact-verification/phone/confirm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contact-verification/phone/confirm",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "OTP",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to confirm a phone verification using an OTP sent via SMS."
+        },
+        {
+          "info": {
+            "name": "contact-verification/id/non-doc",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contact-verification/id/non-doc",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "FullName",
+                  "value": ""
+                },
+                {
+                  "name": "DOB",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "TriggerAMLCheck",
+                  "value": ""
+                },
+                {
+                  "name": "TriggerManualIDVOnFailure",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to perform Non-Document ID verification on an individual. Currently only Canada is supported."
+        },
+        {
+          "info": {
+            "name": "contact-verification/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contact-verification/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "VerificationType",
+                  "value": ""
+                },
+                {
+                  "name": "StylesheetUrl",
+                  "value": ""
+                },
+                {
+                  "name": "Language",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint generates an embed URL for contact verification. The URL can be used to embed a verification iframe for address, basic ID, or enhanced ID verification."
+        },
+        {
+          "info": {
+            "name": "contact-verification/name-screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contact-verification/name-screen",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to verify contacts name"
+        },
+        {
+          "info": {
+            "name": "contact-verification/requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contact-verification",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "VerificationRequestID",
+                "value": "",
+                "type": "query",
+                "description": "Value of the Contact Verification Request ID"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID associated with this email. This is required if client account is enabled. Use ContactID instead if client account is not enabled."
+              },
+              {
+                "name": "ContactID",
+                "value": "",
+                "type": "query",
+                "description": "The contact ID associated with this email. This is required if client account is not enabled. Use ClientAccountID instead if client account is enabled."
+              },
+              {
+                "name": "SearchText",
+                "value": "",
+                "type": "query",
+                "description": "A text string to search for in the email addresses used for Account Verification process."
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              },
+              {
+                "name": "VerificationType",
+                "value": "",
+                "type": "query",
+                "description": "Filter by contact verification type. Can be 'email', 'phone', 'nondoc', 'name'."
+              },
+              {
+                "name": "VerificationTier",
+                "value": "",
+                "type": "query",
+                "description": "filter by tier of the verification request. Options are 'basic' and 'enhanced'."
+              },
+              {
+                "name": "VerificationStatus",
+                "value": "",
+                "type": "query",
+                "description": "filter by Status of the verification request. Options are 'unverified', 'verified', 'failed'."
+              },
+              {
+                "name": "Timezone",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC."
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return contact verification requests that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return contact verification requests that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch results of the contact verification requests."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

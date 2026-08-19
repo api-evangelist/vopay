@@ -1,0 +1,299 @@
+{
+  "item": [
+    {
+      "id": "8d08b079-8e08-4995-9c32-f397926bd9f7",
+      "name": "Ping Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "076d9b4c-9257-41e8-9e74-2b75cb73cc0a",
+          "name": "ping",
+          "request": {
+            "name": "ping",
+            "description": {
+              "content": "This endpoint allows you to validate the connectivity between your application and the VoPay platform.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03c501a8-5984-48b3-b2eb-8b40848dfe62",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b02e85c1-dc6d-4912-b9db-8445a6e70535",
+          "name": "auth/ping",
+          "request": {
+            "name": "auth/ping",
+            "description": {
+              "content": "This endpoint allows you to ping our server and validate your credentials on VoPay platform.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth",
+                "ping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cb020916-81b1-419c-8aa8-270824ce782c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "ping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41e5750d-d282-43c6-90a2-b9b98b71f5c1",
+          "name": "partner/auth/ping",
+          "request": {
+            "name": "partner/auth/ping",
+            "description": {
+              "content": "This endpoint allows you to ping our server and validate your partner credentials on VoPay platform.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "auth",
+                "ping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1622b006-e4f4-4292-b9e3-c29cdb4e0ceb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "auth",
+                    "ping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://earthnode-dev.vopay.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "10c055dd-7747-4227-acc0-e1b5d23e6205",
+    "name": "Ping",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ping API allows you to validate the connectivity between your application and the VoPay platform.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+      "type": "text/plain"
+    }
+  }
+}

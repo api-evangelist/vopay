@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ping",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ping Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ping",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/ping"
+          },
+          "docs": "This endpoint allows you to validate the connectivity between your application and the VoPay platform."
+        },
+        {
+          "info": {
+            "name": "auth/ping",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/auth/ping",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to ping our server and validate your credentials on VoPay platform."
+        },
+        {
+          "info": {
+            "name": "partner/auth/ping",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/auth/ping",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to ping our server and validate your partner credentials on VoPay platform."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

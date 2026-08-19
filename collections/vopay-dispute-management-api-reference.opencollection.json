@@ -1,0 +1,452 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dispute Management Endpoints",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dispute Management Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "dispute-management/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/dispute-management/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "StylesheetUrl",
+                  "value": ""
+                },
+                {
+                  "name": "Language",
+                  "value": ""
+                },
+                {
+                  "name": "DarkMode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint generates a unique URL to embed into your application using an iFrame."
+        },
+        {
+          "info": {
+            "name": "dispute-management/list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/dispute-management/list",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "DisputeStatus",
+                "value": "",
+                "type": "query",
+                "description": "Filters results by status: UnderReview, WitMerchant, or Closed. Default is null (i.e., all disputes are returned)."
+              },
+              {
+                "name": "DisputeStage",
+                "value": "",
+                "type": "query",
+                "description": "Filters results by stage. Default is null (i.e., all disputes are returned)."
+              },
+              {
+                "name": "DisputeID",
+                "value": "",
+                "type": "query",
+                "description": "Filters results by dispute ID"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "Filters results by currency. Default is null (i.e., all disputes are returned)."
+              },
+              {
+                "name": "CardBrand",
+                "value": "",
+                "type": "query",
+                "description": "Filters results by card brand: visa, mastercard, amex, discover. Default is null (i.e., all disputes are returned)."
+              },
+              {
+                "name": "FromDate",
+                "value": "",
+                "type": "query",
+                "description": "Filters results that occurred on or after this date/time. Must be specified in YYYY-MM-DD format. Default is 30 days ago."
+              },
+              {
+                "name": "ToDate",
+                "value": "",
+                "type": "query",
+                "description": "Filters results that occurred on or before this date/time. Must be specified in either YYYY-MM-DD format. Default is the current date/time."
+              }
+            ]
+          },
+          "docs": "This endpoint allows you to fetch a list of your disputes and chargebacks."
+        },
+        {
+          "info": {
+            "name": "dispute-management/detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/dispute-management/detail",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "DisputeID",
+                "value": "",
+                "type": "query",
+                "description": "The ID associated with the dispute"
+              }
+            ]
+          },
+          "docs": "This endpoint allows you to fetch details for a dispute."
+        },
+        {
+          "info": {
+            "name": "dispute-management/document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/dispute-management/document",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "DisputeID",
+                "value": "",
+                "type": "query",
+                "description": "The ID associated with the dispute"
+              },
+              {
+                "name": "DocumentID",
+                "value": "",
+                "type": "query",
+                "description": "The ID associated with the document"
+              }
+            ]
+          },
+          "docs": "This endpoint allows you to fetch the document for a dispute."
+        },
+        {
+          "info": {
+            "name": "dispute-management/accept",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/dispute-management/accept",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DisputeID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to accept a dispute."
+        },
+        {
+          "info": {
+            "name": "dispute-management/challenge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/dispute-management/challenge",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DisputeID",
+                  "value": ""
+                },
+                {
+                  "name": "Document",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to challenge a dispute."
+        },
+        {
+          "info": {
+            "name": "dispute-management/respond",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/dispute-management/respond",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DisputeID",
+                  "value": ""
+                },
+                {
+                  "name": "Document",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to respond to a retrieval request."
+        },
+        {
+          "info": {
+            "name": "dispute-management/add-note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/dispute-management/add-note",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DisputeID",
+                  "value": ""
+                },
+                {
+                  "name": "Note",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to add a note to a dispute."
+        },
+        {
+          "info": {
+            "name": "dispute-management/report/dispute-overview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/dispute-management/report/dispute-overview",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "API signature for the account"
+              }
+            ]
+          },
+          "docs": "This endpoint returns a summary overview of all disputes and chargebacks."
+        },
+        {
+          "info": {
+            "name": "dispute-management/report/dispute-reasons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/dispute-management/report/dispute-reasons",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "API signature for the account"
+              }
+            ]
+          },
+          "docs": "This endpoint returns a summary of all current dispute reasons."
+        },
+        {
+          "info": {
+            "name": "dispute-management/report/dispute-stages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/dispute-management/report/dispute-stages",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "API signature for the account"
+              }
+            ]
+          },
+          "docs": "This endpoint returns a summary of all current dispute stages."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

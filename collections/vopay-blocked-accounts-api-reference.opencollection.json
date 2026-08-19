@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Blocked Accounts",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Blocked Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Block account(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/blocked-account/block",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VopayAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "TransferAvailableFunds",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Blocks one or all sub-accounts under the authenticated secured account. Optionally transfers any available funds out of the blocked account(s). Requires the ManageBlockedAccounts permission."
+        },
+        {
+          "info": {
+            "name": "Unblock account(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/blocked-account/unblock",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VopayAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Unblocks one or all previously blocked sub-accounts under the authenticated secured account. Requires the ManageBlockedAccounts permission."
+        },
+        {
+          "info": {
+            "name": "Set auto-unblock threshold",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/blocked-account/set-autounblock-threshold",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VopayAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "AutoUnblockThreshold",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Sets the AutoUnblockThreshold on a sub-account's blocked account settings. When the sub-account's balance reaches this threshold, it will be automatically unblocked. Pass an empty value to clear the threshold. Requires the ManageBlockedAccounts permission."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

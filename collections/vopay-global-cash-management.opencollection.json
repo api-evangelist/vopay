@@ -1,0 +1,1961 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Global Cash Management",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Recipient Contact Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "gcm/recipient-contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/recipient-contacts",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit of how many recipient contacts to return"
+              },
+              {
+                "name": "AccountStatus",
+                "value": "",
+                "type": "query",
+                "description": "If the account status is active or not"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID that the recipients belong to"
+              }
+            ]
+          },
+          "docs": "Get a list of recipient contacts for the account."
+        },
+        {
+          "info": {
+            "name": "gcm/recipient-contacts/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/recipient-contacts/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "ContactClientType",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientContactID",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "DateOfBirth",
+                  "value": ""
+                },
+                {
+                  "name": "Nationality",
+                  "value": ""
+                },
+                {
+                  "name": "Language",
+                  "value": ""
+                },
+                {
+                  "name": "SourceOfIncome",
+                  "value": ""
+                },
+                {
+                  "name": "Occupation",
+                  "value": ""
+                },
+                {
+                  "name": "RelationshipWithBeneficiary",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Add a recipient contact. All name, address, and phone fields must comply with Mastercard Cross-Border Services Data Quality Standards (effective April 20, 2026)."
+        },
+        {
+          "info": {
+            "name": "gcm/recipient-contacts/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/recipient-contacts/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientContactID",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "DateOfBirth",
+                  "value": ""
+                },
+                {
+                  "name": "Nationality",
+                  "value": ""
+                },
+                {
+                  "name": "SourceOfIncome",
+                  "value": ""
+                },
+                {
+                  "name": "Occupation",
+                  "value": ""
+                },
+                {
+                  "name": "RelationshipWithBeneficiary",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Edit a recipient contact. Any fields provided must comply with Mastercard Cross-Border Services Data Quality Standards (effective April 20, 2026)."
+        },
+        {
+          "info": {
+            "name": "gcm/recipient-contacts/favorites/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/recipient-contacts/favorites/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientContactID",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Add a recipient to your favorites."
+        },
+        {
+          "info": {
+            "name": "gcm/recipient-contacts/favorites/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/recipient-contacts/favorites/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientContactID",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Delete a recipient from your favorites."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Delivery Method Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "gcm/countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/countries",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "UseCase",
+                "value": "",
+                "type": "query",
+                "description": "Valid values are B2B, B2P, P2B, P2P"
+              }
+            ]
+          },
+          "docs": "Get a list of all the available countries for a specific use case that support cross border transactions."
+        },
+        {
+          "info": {
+            "name": "gcm/delivery-methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/delivery-methods",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "RecipientContactID",
+                "value": "",
+                "type": "query",
+                "description": "The recipient contact ID"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              },
+              {
+                "name": "DeliveryChannelID",
+                "value": "",
+                "type": "query",
+                "description": "The delivery channel ID"
+              }
+            ]
+          },
+          "docs": "Get a list of all the stored delivery methods for a certain recipient contact and corridor delivery method (optional)."
+        },
+        {
+          "info": {
+            "name": "gcm/delivery-methods/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/delivery-methods/add",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "RecipientContactID",
+                "value": "",
+                "type": "query",
+                "description": "The recipient contact ID"
+              },
+              {
+                "name": "DeliveryChannelID",
+                "value": "",
+                "type": "query",
+                "description": "The delivery channel ID"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              },
+              {
+                "name": "AccountType",
+                "value": "",
+                "type": "query",
+                "description": "The account type"
+              },
+              {
+                "name": "BankAccountNumber",
+                "value": "",
+                "type": "query",
+                "description": "The bank account number"
+              },
+              {
+                "name": "BankIdentifierCode",
+                "value": "",
+                "type": "query",
+                "description": "The bank identifier code"
+              },
+              {
+                "name": "InternationalBankAccountNumber",
+                "value": "",
+                "type": "query",
+                "description": "The international bank account number"
+              },
+              {
+                "name": "EWalletID",
+                "value": "",
+                "type": "query",
+                "description": "The e-wallet ID"
+              },
+              {
+                "name": "ServiceProvider",
+                "value": "",
+                "type": "query",
+                "description": "The service provider"
+              },
+              {
+                "name": "TelephoneNumber",
+                "value": "",
+                "type": "query",
+                "description": "The telephone number"
+              },
+              {
+                "name": "BankName",
+                "value": "",
+                "type": "query",
+                "description": "The bank name"
+              },
+              {
+                "name": "BankCode",
+                "value": "",
+                "type": "query",
+                "description": "The bank code"
+              },
+              {
+                "name": "BranchName",
+                "value": "",
+                "type": "query",
+                "description": "The branch name"
+              }
+            ]
+          },
+          "docs": "Add a new delivery method for a certain recipient contact and corridor delivery method."
+        },
+        {
+          "info": {
+            "name": "gcm/delivery-methods/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/delivery-methods/edit",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "DeliveryMethodToken",
+                "value": "",
+                "type": "query",
+                "description": "The token of the delivery method to be edited"
+              },
+              {
+                "name": "AccountType",
+                "value": "",
+                "type": "query",
+                "description": "The account type"
+              },
+              {
+                "name": "BankAccountNumber",
+                "value": "",
+                "type": "query",
+                "description": "The bank account number"
+              },
+              {
+                "name": "BankIdentifierCode",
+                "value": "",
+                "type": "query",
+                "description": "The bank identifier code"
+              },
+              {
+                "name": "InternationalBankAccountNumber",
+                "value": "",
+                "type": "query",
+                "description": "The international bank account number"
+              },
+              {
+                "name": "EWalletID",
+                "value": "",
+                "type": "query",
+                "description": "The e-wallet ID"
+              },
+              {
+                "name": "ServiceProvider",
+                "value": "",
+                "type": "query",
+                "description": "The service provider"
+              },
+              {
+                "name": "TelephoneNumber",
+                "value": "",
+                "type": "query",
+                "description": "The telephone number"
+              },
+              {
+                "name": "BankName",
+                "value": "",
+                "type": "query",
+                "description": "The bank name"
+              },
+              {
+                "name": "BankCode",
+                "value": "",
+                "type": "query",
+                "description": "The bank code"
+              },
+              {
+                "name": "BranchName",
+                "value": "",
+                "type": "query",
+                "description": "The branch name"
+              }
+            ]
+          },
+          "docs": "Edit an existing delivery method for a certain recipient contact and corridor delivery method."
+        },
+        {
+          "info": {
+            "name": "gcm/delivery-methods/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/delivery-methods/delete",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "RecipientContactID",
+                "value": "",
+                "type": "query",
+                "description": "The recipient contact ID"
+              },
+              {
+                "name": "DeliveryMethodToken",
+                "value": "",
+                "type": "query",
+                "description": "The token of the delivery method to be deleted"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              }
+            ]
+          },
+          "docs": "Delete a delivery method for a certain recipient contact."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Delivery Channel Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "gcm/delivery-channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/delivery-channels",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "CorridorID",
+                "value": "",
+                "type": "query",
+                "description": "The corridor ID"
+              },
+              {
+                "name": "UseCase",
+                "value": "",
+                "type": "query",
+                "description": "Valid values are B2B, B2P, P2B, P2P"
+              }
+            ]
+          },
+          "docs": "Get a list of all the available delivery methods available for a certain corridor and use case."
+        },
+        {
+          "info": {
+            "name": "gcm/delivery-channels/fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/delivery-channels/fields",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "DeliveryChannelID",
+                "value": "",
+                "type": "query",
+                "description": "The delivery channel ID"
+              },
+              {
+                "name": "FieldFor",
+                "value": "",
+                "type": "query",
+                "description": "The field for which the details are required"
+              }
+            ]
+          },
+          "docs": "Get a list of all the fields required for a certain delivery method."
+        },
+        {
+          "info": {
+            "name": "gcm/delivery-channels/fields/data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/delivery-channels/fields/data",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              },
+              {
+                "name": "RecipientContactID",
+                "value": "",
+                "type": "query",
+                "description": "The recipient contact ID"
+              }
+            ]
+          },
+          "docs": "Get a list of all the data currently stored against a client account, contact, or recipient contact."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Government Identifier Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "gcm/government-identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/government-identifier",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "CorridorID",
+                "value": "",
+                "type": "query",
+                "description": "The corridor ID"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              },
+              {
+                "name": "RecipientContactID",
+                "value": "",
+                "type": "query",
+                "description": "The recipient contact ID"
+              }
+            ]
+          },
+          "docs": "Get a list of all the stored government identifiers for a certain client account and corridor."
+        },
+        {
+          "info": {
+            "name": "gcm/government-identifier/schemas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/government-identifier/schemas",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "Get a list of all the available government identifier schemas."
+        },
+        {
+          "info": {
+            "name": "gcm/government-identifier/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/government-identifier/add",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "CorridorID",
+                "value": "",
+                "type": "query",
+                "description": "The corridor ID"
+              },
+              {
+                "name": "GovernmentIdentifierSchema",
+                "value": "",
+                "type": "query",
+                "description": "The government identifier schema"
+              },
+              {
+                "name": "IDNumber",
+                "value": "",
+                "type": "query",
+                "description": "The ID number"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              },
+              {
+                "name": "RecipientContactID",
+                "value": "",
+                "type": "query",
+                "description": "The recipient contact ID"
+              },
+              {
+                "name": "Country",
+                "value": "",
+                "type": "query",
+                "description": "The country"
+              },
+              {
+                "name": "ExpirationDate",
+                "value": "",
+                "type": "query",
+                "description": "The expiration date"
+              },
+              {
+                "name": "IssueDate",
+                "value": "",
+                "type": "query",
+                "description": "The issue date"
+              }
+            ]
+          },
+          "docs": "Add a new government identifier for a certain client account and corridor."
+        },
+        {
+          "info": {
+            "name": "gcm/government-identifier/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/government-identifier/delete",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "GovernmentIdentifierToken",
+                "value": "",
+                "type": "query",
+                "description": "The token of the government identifier to be deleted"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              },
+              {
+                "name": "RecipientContactID",
+                "value": "",
+                "type": "query",
+                "description": "The recipient contact ID"
+              }
+            ]
+          },
+          "docs": "Delete a government identifier for a certain client account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Watchlist Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "gcm/watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/watchlist",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              }
+            ]
+          },
+          "docs": "Get a list of all the watchlisted corridors for a certain client account."
+        },
+        {
+          "info": {
+            "name": "gcm/watchlist/rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/watchlist/rates",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "The currency you want to get rates for"
+              },
+              {
+                "name": "LookBack",
+                "value": "",
+                "type": "query",
+                "description": "The lookback period, valid values are: day, week, month, year. Default is day"
+              },
+              {
+                "name": "Processor",
+                "value": "",
+                "type": "query",
+                "description": "The processor"
+              }
+            ]
+          },
+          "docs": "Get a list of fx rates for a wacthlisted currency."
+        },
+        {
+          "info": {
+            "name": "gcm/watchlist/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/watchlist/add",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "The currency abbreviation"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              }
+            ]
+          },
+          "docs": "Add a new watchlisted corridor for a certain client account."
+        },
+        {
+          "info": {
+            "name": "gcm/watchlist/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/watchlist/delete",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "The Currency you want to delete"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              }
+            ]
+          },
+          "docs": "Delete a watchlisted corridor for a certain client account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Withdraw Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "gcm/withdraw/quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/withdraw/quote",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "DeliveryChannelID",
+                "value": "",
+                "type": "query",
+                "description": "The delivery channel ID"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              },
+              {
+                "name": "BuyAmount",
+                "value": "",
+                "type": "query",
+                "description": "The amount to be bought"
+              },
+              {
+                "name": "SellAmount",
+                "value": "",
+                "type": "query",
+                "description": "The amount to be sold"
+              },
+              {
+                "name": "FeesIncluded",
+                "value": "",
+                "type": "query",
+                "description": "Whether fees are included"
+              }
+            ]
+          },
+          "docs": "Get a quote for a certain amount to be sold or bought using a certain corridor delivery method."
+        },
+        {
+          "info": {
+            "name": "gcm/withdraw/quotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/withdraw/quotes",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              },
+              {
+                "name": "CrossborderQuoteID",
+                "value": "",
+                "type": "query",
+                "description": "The crossborder quote ID"
+              },
+              {
+                "name": "IsActive",
+                "value": "",
+                "type": "query",
+                "description": "Whether the quote is active"
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit of quotes to fetch"
+              }
+            ]
+          },
+          "docs": "Get a list of withdraw quotes for a certain client account."
+        },
+        {
+          "info": {
+            "name": "gcm/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/withdraw",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "CrossborderQuoteID",
+                "value": "",
+                "type": "query",
+                "description": "The crossborder quote ID"
+              },
+              {
+                "name": "DeliveryMethodToken",
+                "value": "",
+                "type": "query",
+                "description": "The delivery method token"
+              },
+              {
+                "name": "PurposeOfPayment",
+                "value": "",
+                "type": "query",
+                "description": "The purpose of the payment"
+              },
+              {
+                "name": "RelationshipWithBeneficiary",
+                "value": "",
+                "type": "query",
+                "description": "The relationship with the beneficiary"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create a crossborder withdrawal transaction from a provided quote."
+        },
+        {
+          "info": {
+            "name": "gcm/withdraw/confirm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/withdraw/confirm",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The transaction ID"
+              }
+            ]
+          },
+          "docs": "Confirm a partially complete crossborder withdrawal transaction."
+        },
+        {
+          "info": {
+            "name": "gcm/withdraw/cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/withdraw/cancel",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The transaction ID"
+              },
+              {
+                "name": "CancellationReason",
+                "value": "",
+                "type": "query",
+                "description": "A customer provided reason for the cancellation, this will show up in the transaction details."
+              }
+            ]
+          },
+          "docs": "Cancel a partially complete crossborder withdrawal transaction."
+        },
+        {
+          "info": {
+            "name": "gcm/withdraw/transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/withdraw/transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "The start date and time for the transactions"
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "The end date and time for the transactions"
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit of transactions to fetch"
+              },
+              {
+                "name": "Timezone ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC."
+              }
+            ]
+          },
+          "docs": "Get a list of crossborder withdraw transactions."
+        },
+        {
+          "info": {
+            "name": "gcm/withdraw/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/withdraw/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The transaction ID"
+              },
+              {
+                "name": "Timezone ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC."
+              }
+            ]
+          },
+          "docs": "Get the details for a crossborder withdraw transaction."
+        },
+        {
+          "info": {
+            "name": "gcm/recall/request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/recall/request",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The transaction ID"
+              },
+              {
+                "name": "RecallExplanation",
+                "value": "",
+                "type": "query",
+                "description": "A customer provided explanation for the recall."
+              },
+              {
+                "name": "RecallReason",
+                "value": "",
+                "type": "query",
+                "description": "The reason for the recall, acceptable values are: Duplicate Transaction, Incorrect Recipient Information, Incorrect Amount, Suspected Fraud, Money did not arrive to the recipient's account."
+              }
+            ]
+          },
+          "docs": "Create a recall request for the provided transaction id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Embedded Experience Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "gcm/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/generate-embed-url",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The client account ID"
+              },
+              {
+                "name": "ClientName",
+                "value": "",
+                "type": "query",
+                "description": "The client name"
+              },
+              {
+                "name": "ClientReferenceNumber",
+                "value": "",
+                "type": "query",
+                "description": "The client reference number"
+              },
+              {
+                "name": "DarkMode",
+                "value": "",
+                "type": "query",
+                "description": "Whether to enable dark mode"
+              },
+              {
+                "name": "Language",
+                "value": "",
+                "type": "query",
+                "description": "The language"
+              },
+              {
+                "name": "StylesheetUrl",
+                "value": "",
+                "type": "query",
+                "description": "The stylesheet URL"
+              }
+            ]
+          },
+          "docs": "Generate link to the crossborder iframe."
+        },
+        {
+          "info": {
+            "name": "gcm/recipient-contacts/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/recipient-contacts/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ContactClientType",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "SendEmail",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiverEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "SendSMS",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiverPhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "RequiredPaymentMethods",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Generate a link to the cross-border iframe for onboarding recipient contacts."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Recipient Lookup Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "gcm/banks/names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/banks/names",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Get a list of supported bank names."
+        },
+        {
+          "info": {
+            "name": "gcm/banks/cities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/banks/cities",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "BankName",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Get a list of supported bank cities."
+        },
+        {
+          "info": {
+            "name": "gcm/banks/branches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/banks/branches",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "BankName",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Get a list of supported bank branches."
+        },
+        {
+          "info": {
+            "name": "gcm/banks/locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/gcm/banks/locations",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "BankName",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "BranchName",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Get a list of supported bank locations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

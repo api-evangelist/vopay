@@ -1,0 +1,1406 @@
+{
+  "item": [
+    {
+      "id": "156df3a9-8cf2-4bf9-bf4d-94121ec90c0b",
+      "name": "Bill Pay Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2366c3e0-37c6-4ca8-852d-2fb282d13956",
+          "name": "bill-pay/create",
+          "request": {
+            "name": "bill-pay/create",
+            "description": {
+              "content": "This endpoint is used to create a bill pay transaction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bill-pay",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "AccountBillPayMerchantID",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the account bill pay merchant."
+                },
+                {
+                  "disabled": false,
+                  "key": "Amount",
+                  "value": "<number>",
+                  "description": "(Required) The amount of the transaction."
+                },
+                {
+                  "disabled": false,
+                  "key": "ClientAccountID",
+                  "value": "<string>",
+                  "description": "The Client Account ID to associate the transaction with."
+                },
+                {
+                  "disabled": false,
+                  "key": "Currency",
+                  "value": "<string>",
+                  "description": "The currency of the transaction. Defaults to CAD."
+                },
+                {
+                  "disabled": false,
+                  "key": "ClientReferenceNumber",
+                  "value": "<string>",
+                  "description": "An optional reference number for the client."
+                },
+                {
+                  "disabled": false,
+                  "key": "Notes",
+                  "value": "<string>",
+                  "description": "Optional notes for the transaction."
+                },
+                {
+                  "disabled": false,
+                  "key": "IdempotencyKey",
+                  "value": "<string>",
+                  "description": "A unique key to prevent duplicate transactions."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "de810393-fe87-413a-9b65-cf5b5468e6d8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bill-pay",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The ID of the account bill pay merchant.",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountBillPayMerchantID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The amount of the transaction.",
+                        "type": "text/plain"
+                      },
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client Account ID to associate the transaction with.",
+                        "type": "text/plain"
+                      },
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The currency of the transaction. Defaults to CAD.",
+                        "type": "text/plain"
+                      },
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An optional reference number for the client.",
+                        "type": "text/plain"
+                      },
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Optional notes for the transaction.",
+                        "type": "text/plain"
+                      },
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A unique key to prevent duplicate transactions.",
+                        "type": "text/plain"
+                      },
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"TransactionID\": \"3141128\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "943791fd-4210-45ec-83a7-12709fbe7776",
+          "name": "bill-pay/cancel",
+          "request": {
+            "name": "bill-pay/cancel",
+            "description": {
+              "content": "This endpoint is used to cancel a bill pay transaction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bill-pay",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "TransactionID",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the transaction to cancel."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "94cae671-f63f-48c1-8755-92a0a215261a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bill-pay",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The ID of the transaction to cancel.",
+                        "type": "text/plain"
+                      },
+                      "key": "TransactionID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64e5bd92-2359-4284-ad71-1ced6e6792b9",
+          "name": "bill-pay/transaction",
+          "request": {
+            "name": "bill-pay/transaction",
+            "description": {
+              "content": "This endpoint is used to fetch a bill pay transaction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bill-pay",
+                "transaction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "TransactionID",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the transaction to fetch."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4c045a4-195a-45fe-9fa1-0c9069d66dd6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bill-pay",
+                    "transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TransactionID",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"TransactionID\": \"12345\",\n  \"TransactionStatus\": \"Completed\",\n  \"TransactionDateTime\": \"2025-07-25 12:00:00\",\n  \"Amount\": 100,\n  \"Currency\": \"CAD\",\n  \"LastModified\": \"2025-07-25 12:00:00\",\n  \"MerchantID\": \"M123\",\n  \"MerchantName\": \"Merchant Name\",\n  \"MerchantCategory\": \"Utilities\",\n  \"PaymentAccountFormat\": \"123456789\",\n  \"CreditInstitution\": \"Bank of Montreal\",\n  \"CreditCategory\": \"Credit Card\",\n  \"CanadianCreditorIdentificationNumber\": \"123456789\",\n  \"Nickname\": \"My Hydro Bill\",\n  \"PaymentAccount\": \"123456789\",\n  \"AdditionalInformation\": \"Additional Info\",\n  \"ClientReferenceNumber\": \"CRN123\",\n  \"Note\": \"Payment for July\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af7a7d05-e528-4461-801a-36a27689ff4c",
+          "name": "bill-pay/merchants",
+          "request": {
+            "name": "bill-pay/merchants",
+            "description": {
+              "content": "This endpoint is used to fetch bill pay merchants.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bill-pay",
+                "merchants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "SearchText",
+                  "value": "<string>",
+                  "description": "Text to search for in merchant names."
+                },
+                {
+                  "disabled": false,
+                  "key": "Limit",
+                  "value": "<integer>",
+                  "description": "The maximum number of merchants to return. Default is 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "Offset",
+                  "value": "<integer>",
+                  "description": "The number of merchants to skip. Default is 0."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "160aa93a-7800-4646-b26c-1eb1ef6a623c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bill-pay",
+                    "merchants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SearchText",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"Merchants\": {\n    \"0\": {\n      \"BillPayMerchantID\": \"169\",\n      \"MerchantID\": \"340\",\n      \"MerchantName\": \"ACCESS MOORE DECOR\",\n      \"MerchantCategory\": \"\",\n      \"PaymentAccountFormat\": \"\",\n      \"CreditInstitution\": \"2\",\n      \"CreditCategory\": \"5\",\n      \"CanadianCreditorIdentificationNumber\": \"90109403\"\n    }\n  },\n  \"PaginationMetaData\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "575bc0a3-2282-49f1-9cfa-6c3f2c404a70",
+          "name": "bill-pay/account/merchants/add",
+          "request": {
+            "name": "bill-pay/account/merchants/add",
+            "description": {
+              "content": "This endpoint is used to add a merchant to an account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bill-pay",
+                "account",
+                "merchants",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "BillPayMerchantID",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the bill pay merchant to add."
+                },
+                {
+                  "disabled": false,
+                  "key": "Nickname",
+                  "value": "<string>",
+                  "description": "A nickname for the merchant."
+                },
+                {
+                  "disabled": false,
+                  "key": "PaymentAccount",
+                  "value": "<string>",
+                  "description": "The payment account number."
+                },
+                {
+                  "disabled": false,
+                  "key": "AdditionalInformation",
+                  "value": "<string>",
+                  "description": "Additional information for the merchant."
+                },
+                {
+                  "disabled": false,
+                  "key": "ClientAccountID",
+                  "value": "<string>",
+                  "description": "The Client Account ID to associate the merchant with."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4091e135-5a46-4e2f-a44d-98abb888cc9d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bill-pay",
+                    "account",
+                    "merchants",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The ID of the bill pay merchant to add.",
+                        "type": "text/plain"
+                      },
+                      "key": "BillPayMerchantID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A nickname for the merchant.",
+                        "type": "text/plain"
+                      },
+                      "key": "Nickname",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The payment account number.",
+                        "type": "text/plain"
+                      },
+                      "key": "PaymentAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Additional information for the merchant.",
+                        "type": "text/plain"
+                      },
+                      "key": "AdditionalInformation",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client Account ID to associate the merchant with.",
+                        "type": "text/plain"
+                      },
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"AccountBillPayMerchantID\": \"3\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "938b4ec4-315c-4b92-aadd-7b1e83211c5a",
+          "name": "bill-pay/account/merchants/edit",
+          "request": {
+            "name": "bill-pay/account/merchants/edit",
+            "description": {
+              "content": "This endpoint is used to edit an account-level merchant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bill-pay",
+                "account",
+                "merchants",
+                "edit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "AccountBillPayMerchantID",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the account bill pay merchant to edit."
+                },
+                {
+                  "disabled": false,
+                  "key": "Nickname",
+                  "value": "<string>",
+                  "description": "A new nickname for the merchant."
+                },
+                {
+                  "disabled": false,
+                  "key": "PaymentAccount",
+                  "value": "<string>",
+                  "description": "A new payment account number."
+                },
+                {
+                  "disabled": false,
+                  "key": "AdditionalInformation",
+                  "value": "<string>",
+                  "description": "New additional information for the merchant."
+                },
+                {
+                  "disabled": false,
+                  "key": "ClientAccountID",
+                  "value": "<string>",
+                  "description": "The Client Account ID associated with the merchant."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5739d1cf-33f6-42f0-a2c8-56f6737fd2e5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bill-pay",
+                    "account",
+                    "merchants",
+                    "edit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The ID of the account bill pay merchant to edit.",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountBillPayMerchantID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A new nickname for the merchant.",
+                        "type": "text/plain"
+                      },
+                      "key": "Nickname",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A new payment account number.",
+                        "type": "text/plain"
+                      },
+                      "key": "PaymentAccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "New additional information for the merchant.",
+                        "type": "text/plain"
+                      },
+                      "key": "AdditionalInformation",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client Account ID associated with the merchant.",
+                        "type": "text/plain"
+                      },
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"AccountMerchantID\": \"3\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01aca94d-85bb-4c42-8875-dba438dd0265",
+          "name": "bill-pay/account/merchants",
+          "request": {
+            "name": "bill-pay/account/merchants",
+            "description": {
+              "content": "This endpoint is used to fetch bill pay merchants for an account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bill-pay",
+                "account",
+                "merchants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "ClientAccountID",
+                  "value": "<string>",
+                  "description": "The Client Account ID to fetch merchants for."
+                },
+                {
+                  "disabled": false,
+                  "key": "SearchText",
+                  "value": "<string>",
+                  "description": "Text to search for in merchant names."
+                },
+                {
+                  "disabled": false,
+                  "key": "Limit",
+                  "value": "<integer>",
+                  "description": "The maximum number of merchants to return. Default is 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "Offset",
+                  "value": "<integer>",
+                  "description": "The number of merchants to skip. Default is 0."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62d25362-f52c-4702-94da-e5ad4bb52f82",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bill-pay",
+                    "account",
+                    "merchants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SearchText",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"AccountBillPayMerchantID\": {\n    \"0\": {\n      \"BillPayMerchantID\": \"169\",\n      \"AccountBillPayMerchantID\": \"3\",\n      \"MerchantName\": \"ACCESS MOORE DECOR\",\n      \"Nickname\": \"AMD\",\n      \"PaymentAccount\": \"\",\n      \"AdditionalInformation\": \"\",\n      \"LastModified\": \"2025-07-26\"\n    }\n  },\n  \"PaginationMetaData\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3da0ef4b-71de-44a8-925e-3273aa3e6ce3",
+          "name": "bill-pay/generate-embed-url",
+          "request": {
+            "name": "bill-pay/generate-embed-url",
+            "description": {
+              "content": "This endpoint is used to generate a URL to create a bill pay iframe.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bill-pay",
+                "generate-embed-url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "ClientAccountID",
+                  "value": "<string>",
+                  "description": "The Client Account ID to associate the iframe with."
+                },
+                {
+                  "disabled": false,
+                  "key": "StylesheetUrl",
+                  "value": "<string>",
+                  "description": "A URL to a stylesheet to customize the iframe."
+                },
+                {
+                  "disabled": false,
+                  "key": "Language",
+                  "value": "<string>",
+                  "description": "The language for the iframe. 'en' for English, 'fr' for French. Defaults to 'en'."
+                },
+                {
+                  "disabled": false,
+                  "key": "DarkMode",
+                  "value": "<boolean>",
+                  "description": "Whether to use dark mode for the iframe. Defaults to false."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fd5a2592-ef7b-4a1f-8063-83e02059396f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bill-pay",
+                    "generate-embed-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Client Account ID to associate the iframe with.",
+                        "type": "text/plain"
+                      },
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A URL to a stylesheet to customize the iframe.",
+                        "type": "text/plain"
+                      },
+                      "key": "StylesheetUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The language for the iframe. 'en' for English, 'fr' for French. Defaults to 'en'.",
+                        "type": "text/plain"
+                      },
+                      "key": "Language",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Whether to use dark mode for the iframe. Defaults to false.",
+                        "type": "text/plain"
+                      },
+                      "key": "DarkMode",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"Link\": \"https://earthnode-dev.vopay.com/bill-pay/embed/2htisa9c21s083inhqsdh0ukg43qsmphyelg00w3\",\n  \"IframeKey\": \"2htisa9c21s083inhqsdh0ukg43qsmphyelg00w3\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://earthnode-dev.vopay.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1fd6ec8b-6c35-4843-a96e-f651d67703a7",
+    "name": "Bill Pay",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Bill Pay API allows you to create and manage bill payments.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+      "type": "text/plain"
+    }
+  }
+}

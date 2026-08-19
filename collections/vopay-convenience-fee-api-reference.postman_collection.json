@@ -1,0 +1,794 @@
+{
+  "item": [
+    {
+      "id": "6e8ce26e-a56a-46b3-91aa-e18d238383d6",
+      "name": "Convenience Fees",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "633c0cf5-c1e1-4156-9a57-94c77d27d921",
+          "name": "Get convenience fee settings",
+          "request": {
+            "name": "Get convenience fee settings",
+            "description": {
+              "content": "Returns all convenience fee settings configured for the authenticated account. Each setting defines the transaction fee and processing fee applied for a specific payment rail. Requires the ViewConvenienceFees permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "convenience-fees",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11553d59-4fc5-4ed9-b222-41a007258b47",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "convenience-fees",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"FeeSettings\": [\n    {\n      \"SettingID\": 12,\n      \"TransactionTypeID\": 3,\n      \"TransactionType\": \"EFT\",\n      \"TransactionFee\": \"1.50\",\n      \"ProcessingFee\": \"0.25\"\n    },\n    {\n      \"SettingID\": 12,\n      \"TransactionTypeID\": 3,\n      \"TransactionType\": \"EFT\",\n      \"TransactionFee\": \"1.50\",\n      \"ProcessingFee\": \"0.25\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6c5fb01-aa3a-4970-886b-be20102f1baf",
+          "name": "Create or update a convenience fee setting",
+          "request": {
+            "name": "Create or update a convenience fee setting",
+            "description": {
+              "content": "Creates or updates a convenience fee setting for a specific transaction type. If a setting already exists for the given TransactionTypeID it will be updated; otherwise a new setting is created. Requires the ManageConvenienceFees permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "convenience-fees",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "TransactionTypeID",
+                  "value": "<integer>",
+                  "description": "(Required) The ID of the transaction type to configure a convenience fee for"
+                },
+                {
+                  "disabled": false,
+                  "key": "TransactionFee",
+                  "value": "<float>",
+                  "description": "Flat fee charged per transaction"
+                },
+                {
+                  "disabled": false,
+                  "key": "ProcessingFee",
+                  "value": "<float>",
+                  "description": "Percentage-based processing fee applied to the transaction amount"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f07d67e2-f5e4-41df-b9af-11ad6ddb08a8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "convenience-fees",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The ID of the transaction type to configure a convenience fee for",
+                        "type": "text/plain"
+                      },
+                      "key": "TransactionTypeID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Flat fee charged per transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "TransactionFee",
+                      "value": "<float>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Percentage-based processing fee applied to the transaction amount",
+                        "type": "text/plain"
+                      },
+                      "key": "ProcessingFee",
+                      "value": "<float>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"SettingID\": 12\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db4076ad-6cc8-43df-a0ad-0c42fcdcc293",
+          "name": "Delete a convenience fee setting",
+          "request": {
+            "name": "Delete a convenience fee setting",
+            "description": {
+              "content": "Deletes a convenience fee setting by ID. The setting must belong to the authenticated account. Requires the ManageConvenienceFees permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "convenience-fees",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "SettingID",
+                  "value": "<integer>",
+                  "description": "(Required) The ID of the convenience fee setting to delete"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11787b17-cbbc-4a1f-bc44-084f1b70e2e2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "convenience-fees",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SettingID",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b76d8fdc-2b7f-4b2a-a5ad-bf618b0c0407",
+          "name": "Get convenience fee rules",
+          "request": {
+            "name": "Get convenience fee rules",
+            "description": {
+              "content": "Returns all jurisdiction rules configured for the authenticated account. Each rule defines a jurisdiction (province/state) where convenience fees will not be collected. Requires the ViewConvenienceFees permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "convenience-fees",
+                "rules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e684fe7-489b-4241-8d7d-4c50ca1fb07a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "convenience-fees",
+                    "rules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"Rules\": [\n    {\n      \"RuleID\": 5,\n      \"Jurisdiction\": \"BC\",\n      \"Country\": \"CA\"\n    },\n    {\n      \"RuleID\": 5,\n      \"Jurisdiction\": \"BC\",\n      \"Country\": \"CA\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "752da18f-61d1-4cde-a9a7-5dd76a4a7f24",
+          "name": "Add a convenience fee rule",
+          "request": {
+            "name": "Add a convenience fee rule",
+            "description": {
+              "content": "Adds a jurisdiction rule for the authenticated account. Convenience fees will not be collected for transactions originating from the specified jurisdiction. Requires the ManageConvenienceFees permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "convenience-fees",
+                "rules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Jurisdiction",
+                  "value": "<string>",
+                  "description": "(Required) The province or state abbreviation to add as a rule (e.g. BC, ON, AB)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2d6aae83-3b52-4a9d-aaa3-821ca2aa1d6f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "convenience-fees",
+                    "rules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The province or state abbreviation to add as a rule (e.g. BC, ON, AB)",
+                        "type": "text/plain"
+                      },
+                      "key": "Jurisdiction",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"RuleID\": 5\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04757263-8fab-49e1-93ae-2befec855654",
+          "name": "Delete a convenience fee rule",
+          "request": {
+            "name": "Delete a convenience fee rule",
+            "description": {
+              "content": "Deletes a jurisdiction rule by ID. The rule must belong to the authenticated account. Requires the ManageConvenienceFees permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "convenience-fees",
+                "rules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "RuleID",
+                  "value": "<integer>",
+                  "description": "(Required) The ID of the jurisdiction rule to delete"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f02f7d68-68a7-439d-81c4-21fd25403cd1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "convenience-fees",
+                    "rules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RuleID",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://earthnode-dev.vopay.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d246fb30-b3a2-4fbb-a0f6-ab2ba0980767",
+    "name": "Convenience Fees",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Convenience Fee API provides endpoints for managing convenience fee settings and jurisdiction rules for a VoPay account. Fee settings define the transaction and processing fees applied per payment rail, and rules define the jurisdictions where convenience fees are not collected. All endpoints require the account to have ConvenienceFeeEnabled.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+      "type": "text/plain"
+    }
+  }
+}

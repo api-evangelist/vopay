@@ -1,0 +1,773 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Contact",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contact Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "contacts/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "Nationality",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksLoginID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "MxProcessorToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to add a new contact record for the given account. If Flinks, Plaid or Mx credentials are provided, we will fetch all personal and bank account details from those providers."
+        },
+        {
+          "info": {
+            "name": "contacts/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "Nationality",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to add a new contact record for the given account."
+        },
+        {
+          "info": {
+            "name": "contacts/deactivate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/deactivate",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to deactivate a contact"
+        },
+        {
+          "info": {
+            "name": "contacts/activate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/activate",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to activate a contact"
+        },
+        {
+          "info": {
+            "name": "contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ContactID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the contact to retrieve. If this is not provided, all contacts will be returned."
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              },
+              {
+                "name": "SearchText",
+                "value": "",
+                "type": "query",
+                "description": "A text string to search for in the email addresses, names and business number."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to get a list of contacts associated with the account."
+        },
+        {
+          "info": {
+            "name": "contacts/payment-methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/payment-methods",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ContactID",
+                "value": "",
+                "type": "query",
+                "description": "The Contact ID that the payment methods belong to."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up all the payment methods for the given contact."
+        },
+        {
+          "info": {
+            "name": "contacts/transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "ContactID",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by Contact ID"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD)."
+              },
+              {
+                "name": "TransactionType",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'."
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist."
+              },
+              {
+                "name": "ClientReferenceNumber",
+                "value": "",
+                "type": "query",
+                "description": "Searches for transactions with the specified client reference number."
+              },
+              {
+                "name": "ScheduledTransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Id of the schedule transaction to search"
+              },
+              {
+                "name": "IsFlagged",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client."
+              },
+              {
+                "name": "IsRefunded",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of transactions to only include transactions that have been refunded."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to get a list of transactions associated with a contact."
+        },
+        {
+          "info": {
+            "name": "account/contact/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/contact/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "SendEmail",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiverEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "SendSMS",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiverPhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "RequiredPaymentMethods",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Use this endpoint to generate a unique URL to onboard a new contact. To send an email containing the URL to the recipient, set SendEmail = true, and provide both the email address and full name of the recipient."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contact Notes Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "contacts/notes/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/notes/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to add a note to your contact."
+        },
+        {
+          "info": {
+            "name": "contacts/notes/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/notes/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "NoteID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to edit a note associated with your contact."
+        },
+        {
+          "info": {
+            "name": "contacts/notes/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/notes/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "NoteID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to delete a note record from you contact."
+        },
+        {
+          "info": {
+            "name": "contacts/notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/notes",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ContactID",
+                "value": "",
+                "type": "query",
+                "description": "Contact ID"
+              },
+              {
+                "name": "NoteID",
+                "value": "",
+                "type": "query",
+                "description": "The ID for a specific getting a specific note"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up all the notes associated with the given contact."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contact Labels Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "contacts/label",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/label",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ContactID",
+                "value": "",
+                "type": "query",
+                "description": "Contact ID of customer who's labels you want to retrieve"
+              }
+            ]
+          },
+          "docs": "This endpoint returns all the created Labels for the given Contact."
+        },
+        {
+          "info": {
+            "name": "contacts/label/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/label/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to create a Label."
+        },
+        {
+          "info": {
+            "name": "contacts/label/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/contacts/label/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete a Label."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

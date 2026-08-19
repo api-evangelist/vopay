@@ -1,0 +1,252 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Branding",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Branding Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/branding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/branding",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Product",
+                  "value": ""
+                },
+                {
+                  "name": "PrimaryColor",
+                  "value": ""
+                },
+                {
+                  "name": "SecondaryColor",
+                  "value": ""
+                },
+                {
+                  "name": "Logo",
+                  "value": ""
+                },
+                {
+                  "name": "SmallLogo",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to apply your branding to all VoPay portals, UIs and emails."
+        },
+        {
+          "info": {
+            "name": "account/branding-details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/branding-details",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Product",
+                "value": "",
+                "type": "query",
+                "description": "The product you want to fetch branding details for. Valid options are: portal, email, elinx, onboarding, asp."
+              }
+            ]
+          },
+          "docs": "This endpoint allows you to fetch your existing branding details."
+        },
+        {
+          "info": {
+            "name": "account/branding/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/branding/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Product",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete your branding."
+        },
+        {
+          "info": {
+            "name": "partner/branding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/branding",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Product",
+                  "value": ""
+                },
+                {
+                  "name": "PrimaryColor",
+                  "value": ""
+                },
+                {
+                  "name": "SecondaryColor",
+                  "value": ""
+                },
+                {
+                  "name": "Logo",
+                  "value": ""
+                },
+                {
+                  "name": "SmallLogo",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to apply your branding to all VoPay portals, UIs and emails."
+        },
+        {
+          "info": {
+            "name": "partner/branding-details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/branding-details",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Product",
+                "value": "",
+                "type": "query",
+                "description": "The product you want to fetch branding details for. Valid options are: portal, email, elinx, onboarding, asp."
+              }
+            ]
+          },
+          "docs": "This endpoint allows you to fetch your existing branding details."
+        },
+        {
+          "info": {
+            "name": "partner/branding/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/branding/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Product",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete your branding."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

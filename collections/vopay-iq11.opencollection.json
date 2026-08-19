@@ -1,0 +1,490 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IQ11",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "IQ11 Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "iq11/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/iq11/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectURL",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "Language",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectMethod",
+                  "value": ""
+                },
+                {
+                  "name": "AccountSelectionMethod",
+                  "value": ""
+                },
+                {
+                  "name": "PaymentSelectionMethod",
+                  "value": ""
+                },
+                {
+                  "name": "ClientControlled",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "RequireDebitAuthorityAgreement",
+                  "value": ""
+                },
+                {
+                  "name": "Verify",
+                  "value": ""
+                },
+                {
+                  "name": "CardTypeValidation",
+                  "value": ""
+                },
+                {
+                  "name": "Trigger3DS",
+                  "value": ""
+                },
+                {
+                  "name": "AcceptedCardBrands",
+                  "value": ""
+                },
+                {
+                  "name": "AccountHolderType",
+                  "value": ""
+                },
+                {
+                  "name": "DarkMode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from. For additional details on iQ11 and RedirectMethod, please visit our [Iq11 Overview](https://docs.vopay.com/docs/iq11-overview)"
+        },
+        {
+          "info": {
+            "name": "iq11/token-info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/iq11/token-info",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Token",
+                "value": "",
+                "type": "query",
+                "description": "iQ11 token"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to return the payment details associated with an iQ11 Token."
+        },
+        {
+          "info": {
+            "name": "iq11/tokenize",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/iq11/tokenize",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "AccountHolderName",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FinancialInstitutionNumber",
+                  "value": ""
+                },
+                {
+                  "name": "BranchTransitNumber",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksLoginID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "MxProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "State",
+                  "value": ""
+                },
+                {
+                  "name": "ZipCode",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "VerifyAccount",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Question",
+                  "value": ""
+                },
+                {
+                  "name": "Answer",
+                  "value": ""
+                },
+                {
+                  "name": "Language",
+                  "value": ""
+                },
+                {
+                  "name": "Message",
+                  "value": ""
+                },
+                {
+                  "name": "ClientControlled",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Type",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to submit payment method details (bank account, email address), and will return a token which can be used to perform transactions."
+        },
+        {
+          "info": {
+            "name": "iq11/transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/iq11/transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Token",
+                "value": "",
+                "type": "query",
+                "description": "Your iQ11 Token that has been generated using Custom iFrame."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to return the transaction history associated with an iQ11 Token."
+        },
+        {
+          "info": {
+            "name": "iq11/balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/iq11/balance",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Token",
+                "value": "",
+                "type": "query",
+                "description": "Your iQ11 Token that has been generated using Custom iFrame."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to return the bank account balance associated with an iQ11 Token."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "IQ11 Data Enrichment Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "iq11/enrich-data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/iq11/enrich-data",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Token",
+                "value": "",
+                "type": "query",
+                "description": "Your iQ11 Token that has enriched data associated with it."
+              },
+              {
+                "name": "EnrichedDataType",
+                "value": "",
+                "type": "query",
+                "description": "The type of report you want to generate, valid types are: credit-transactions, employment-credit-transactions, government-credit-transactions, tax-credit-transactions, debit-transactions, rent-debit-transactions, utility-debit-transactions, telecom-debit-transactions, loan-debit-transactions, insurance-debit-transactions, bank-fee-transactions, subscription-debit-transactions, nsf-fee-transactions, transaction-report, risk-report."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch transaction reports generated from the enriched data."
+        },
+        {
+          "info": {
+            "name": "iq11/enrich-data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/iq11/enrich-data",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Token",
+                "value": "",
+                "type": "query",
+                "description": "Your iQ11 Token that has associated transactions to be enriched."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to enrich transaction data associated with a iQ11 Token."
+        },
+        {
+          "info": {
+            "name": "iq11/enrich-data/status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/iq11/enrich-data/status",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "RequestID",
+                "value": "",
+                "type": "query",
+                "description": "The unique identifier returned from the /iq11/enrich-data POST call"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to check the status of a data enrichment request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

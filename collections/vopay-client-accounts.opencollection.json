@@ -1,0 +1,2464 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Client Accounts",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Client Account Creation Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/client-accounts/individual",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/individual",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "Nationality",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "DOB",
+                  "value": ""
+                },
+                {
+                  "name": "SINLastDigits",
+                  "value": ""
+                },
+                {
+                  "name": "IdentificationNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksLoginID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "MxProcessorToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Use this endpoint to create a new individual client account. If Flinks, Plaid or Mx credentials are provided, we will fetch all personal and bank account details from those providers."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/business",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/business",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "Nationality",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessNumber",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessTypeID",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessTypeCategoryID",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessWebsite",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessPhone",
+                  "value": ""
+                },
+                {
+                  "name": "IdentificationNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksLoginID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "MxProcessorToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Use this endpoint to create a new business client account. If Flinks, Plaid or Mx credentials are provided, we will fetch all business and bank account details from those providers."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/receive-only",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/receive-only",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "Nationality",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "IdentificationNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksLoginID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "MxProcessorToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Use this endpoint to create a new receive-only client account. If Flinks, Plaid or Mx credentials are provided, we will fetch all personal and bank account details from those providers. Otherwise, must provide either FirstName/LastName or BusinessName"
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/standard",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/standard",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "Nationality",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "IdentificationNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksLoginID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "MxProcessorToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Use this endpoint to create a new standard client account. If Flinks, Plaid or Mx credentials are provided, we will fetch all personal and bank account details from those providers. Otherwise, must provide either FirstName/LastName or BusinessName"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Client Account Management Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/client-accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientType",
+                "value": "",
+                "type": "query",
+                "description": "Type of account to be filtered. Use either 'individual', 'business' or 'receive-only'"
+              },
+              {
+                "name": "AccountStatus",
+                "value": "",
+                "type": "query",
+                "description": "Filter by account status. Use true for active accounts and false for inactive."
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the Client account ID"
+              },
+              {
+                "name": "Label",
+                "value": "",
+                "type": "query",
+                "description": "Filter by the Label"
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              },
+              {
+                "name": "SearchText",
+                "value": "",
+                "type": "query",
+                "description": "A text string to search for in the email addresses, names and business number."
+              }
+            ]
+          },
+          "docs": "This endpoint returns a list of the available client accounts and some of its details.\n\nIt is also possible to filter the list of client accounts by ClientAccountID, its status (active or inactive), and client type (business, individual, receive-only)."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/balance",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Client account ID of customer who's balance you want to retrieve"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD)."
+              }
+            ]
+          },
+          "docs": "This endpoint returns details on the current account balance and available funds for the given Client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessNumber",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessTypeID",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessTypeCategoryID",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessWebsite",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "Nationality",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "IdentificationNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                },
+                {
+                  "name": "InteracEtransferPreference",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to edit the KYC info of the given Client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will delete an active client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/deactivate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/deactivate",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will deactivate an active client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/activate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/activate",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will activate an inactive client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientType",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "SendEmail",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiverEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "SendSMS",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiverPhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "RequiredPaymentMethods",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Use this endpoint to generate a unique URL to onboard a new client account. To send an email containing the URL to the recipient, set SendEmail = true, and provide both the email address and full name of the recipient."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/payment-methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/payment-methods",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The Client Account ID that the payment methods are associated with."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up all the payment smethods for the given client account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Client Account Labels Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/client-accounts/label",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/label",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Client account ID of customer who's labels you want to retrieve"
+              }
+            ]
+          },
+          "docs": "This endpoint returns all the created Labels for the given Client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/label/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/label/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to create a Label."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/label/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/label/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete a Label."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Client Account Notes Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/client-accounts/notes/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/notes/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to add a note to your client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/notes/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/notes/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "NoteID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to edit a note associated with your client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/notes/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/notes/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "NoteID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to delete a note record from you client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/notes",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Client Account ID"
+              },
+              {
+                "name": "NoteID",
+                "value": "",
+                "type": "query",
+                "description": "The ID for a specific getting a specific note"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up all the notes associated with the given client account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Client Account Transfer Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/client-accounts/transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/transfer",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will transfer money directly from the debitor client account to the recipient client account. Both client accounts must be active."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/fund-transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/fund-transfer",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountIDSplit",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "FundingRail",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ReverseOnFailure",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabel",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "WalletID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will fund the Debitor client account using their default bank account, and then trigger an account transfer to the recipient client account once the funds have been cleared. \n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/transfer-withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/transfer-withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountIDSplit",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "FundingRail",
+                  "value": ""
+                },
+                {
+                  "name": "WithdrawRail",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ReverseOnFailure",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabel",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will transfer money from the debitor client account to the recipient client account, and then immediately withdraw the money from the recipient client account into their default bank account. \n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/fund-transfer-withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/fund-transfer-withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountIDSplit",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "FundingRail",
+                  "value": ""
+                },
+                {
+                  "name": "WithdrawRail",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ReverseOnFailure",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabel",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will fund the debitor client account using their default bank account, and then transfer the money to the recipient client account once the funds have been cleared. Once the funds are transferred, a withdraw transaction will be triggered to send the funds to the recipient client account's default bank account. \n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by Client account ID"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD)."
+              },
+              {
+                "name": "TransactionType",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'."
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist."
+              },
+              {
+                "name": "ClientReferenceNumber",
+                "value": "",
+                "type": "query",
+                "description": "Searches for transactions with the specified client reference number."
+              },
+              {
+                "name": "ScheduledTransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Id of the schedule transaction to search"
+              },
+              {
+                "name": "WalletID",
+                "value": "",
+                "type": "query",
+                "description": "Id of the wallet that the transactions should belong to"
+              },
+              {
+                "name": "IsFlagged",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client."
+              },
+              {
+                "name": "IsRefunded",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of transactions to only include transactions that have been refunded."
+              }
+            ]
+          },
+          "docs": "This endpoint returns a list all of the transactions which affect the account balance. This endpoint only returns basic information on the transactions. More detailed information on individual transactions is available from other API endpoints."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/fund-transfer/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/fund-transfer/schedule",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountIDSplit",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "FundingRail",
+                  "value": ""
+                },
+                {
+                  "name": "ReverseOnFailure",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabel",
+                  "value": ""
+                },
+                {
+                  "name": "Frequency",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleEndDate",
+                  "value": ""
+                },
+                {
+                  "name": "EndingAfterPayments",
+                  "value": ""
+                },
+                {
+                  "name": "SemiMonthlyFrequencyType",
+                  "value": ""
+                },
+                {
+                  "name": "Description",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to schedule a fund-transfer between two client accounts."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/transfer-withdraw/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/transfer-withdraw/schedule",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountIDSplit",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "FundingRail",
+                  "value": ""
+                },
+                {
+                  "name": "WithdrawRail",
+                  "value": ""
+                },
+                {
+                  "name": "ReverseOnFailure",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabel",
+                  "value": ""
+                },
+                {
+                  "name": "Frequency",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleEndDate",
+                  "value": ""
+                },
+                {
+                  "name": "EndingAfterPayments",
+                  "value": ""
+                },
+                {
+                  "name": "SemiMonthlyFrequencyType",
+                  "value": ""
+                },
+                {
+                  "name": "Description",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to schedule a transfer-withdraw between two client accounts."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/fund-transfer-withdraw/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/fund-transfer-withdraw/schedule",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountIDSplit",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "FundingRail",
+                  "value": ""
+                },
+                {
+                  "name": "WithdrawRail",
+                  "value": ""
+                },
+                {
+                  "name": "ReverseOnFailure",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabel",
+                  "value": ""
+                },
+                {
+                  "name": "Frequency",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleEndDate",
+                  "value": ""
+                },
+                {
+                  "name": "EndingAfterPayments",
+                  "value": ""
+                },
+                {
+                  "name": "SemiMonthlyFrequencyType",
+                  "value": ""
+                },
+                {
+                  "name": "Description",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to schedule a fund-transfer-withdraw between two client accounts."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/transfer/schedule/cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/transfer/schedule/cancel",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduledTransferID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to cancel a scheduled client account transfer and all remaining payments belonging to that scheduled transfer. Only scheduled transfers with the status in progress can be cancelled."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/scheduled-transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/scheduled-transfers",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ScheduledTransferID",
+                "value": "",
+                "type": "query",
+                "description": "ID of the schedule transfer (if this value is present, we list the details of the scheduled tranfser)"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The Client Account ID that the scheduled transactions belong to"
+              },
+              {
+                "name": "StartDate",
+                "value": "",
+                "type": "query",
+                "description": "Return Client account transfers scheduled for or after this date/time. Can be specified in YYYY-MM-DD format."
+              },
+              {
+                "name": "EndDate",
+                "value": "",
+                "type": "query",
+                "description": "Return Client account transfers scheduled for or before this date/time. Can be specified in YYYY-MM-DD format."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up either the list of all scheduled client account transfers, or to list the details of a single scheduled client account transfer. \n\n If the value ScheduledTransferID is present, we only list the details of that scheduled client account transfer."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Client Account Wallets Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/client-accounts/wallets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/wallets",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "WalletID",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "IsOffbook",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to retrieve a list of wallets belong to a client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/wallets/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/wallets/create",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "WalletName",
+                  "value": ""
+                },
+                {
+                  "name": "WalletID",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "IsOffbook",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to create a new wallet for your client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/wallets/transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/wallets/transfer",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorWalletID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientWalletID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to transfer funds between two wallets. Both wallet IDs must belong to the provided client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/wallets/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/wallets/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "WalletID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete a wallet if the wallet balance is 0."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/wallets/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/wallets/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "WalletID",
+                  "value": ""
+                },
+                {
+                  "name": "WalletName",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to edit a wallet for your client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/wallets/deactivate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/wallets/deactivate",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "WalletID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to deactivate a wallet for your client account."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/wallets/activate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/wallets/activate",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "WalletID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to activate a wallet for your client account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Client Account Auto Balance Transfer Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/client-accounts/auto-balance-transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/auto-balance-transfer",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The Client Account ID to which the wallet belongs"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to retrieve the information of your auto balance transfer. \n\n This option requires special permissions."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/auto-balance-transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/auto-balance-transfer",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "TypeOfFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "AutoBalanceTransferAmount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to set up an auto-balance transfer from your VoPay account to your default operational bank account. The frequency available to set the auto-transfer can be daily, weekly, bi-weekly or monthly. \n\nThis option requires special permission."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/auto-balance-transfer-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/auto-balance-transfer-list",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The Client Account ID to which the wallet belongs"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to retrieve a list of all your auto balance transfers. \n\n This option requires special permissions."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/auto-balance-transfer/cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/auto-balance-transfer/cancel",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to cancel an auto balance transfer. \n\n This option requires special permissions."
+        },
+        {
+          "info": {
+            "name": "account/client-accounts/auto-balance-transfer/report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/client-accounts/auto-balance-transfer/report",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The Client Account ID to which the wallet belongs"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Transaction ID of the auto-balance transfer transaction"
+              }
+            ]
+          },
+          "docs": "This endpoint returns the list of transactions associated with an auto balance transfer. \n\nThe sum of all debits/credits should match the amount on the auto-balance transfer."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

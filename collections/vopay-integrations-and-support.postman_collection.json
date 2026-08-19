@@ -1,0 +1,4412 @@
+{
+  "item": [
+    {
+      "id": "f43c569a-e392-4798-8ada-ce371a0b0622",
+      "name": "Integration Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db68b759-50a8-4d78-89f1-bdddfa0d82a2",
+          "name": "account/set-plaid-credentials",
+          "request": {
+            "name": "account/set-plaid-credentials",
+            "description": {
+              "content": "This endpoint is used to configure the optional integration with a Plaid account. For more information please visit [our integration section](https://docs.vopay.com/docs/plaid-integration).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "set-plaid-credentials"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "PlaidClientID",
+                  "value": "<string>",
+                  "description": "(Required) The unique client ID from Plaid"
+                },
+                {
+                  "disabled": false,
+                  "key": "PlaidSecretKey",
+                  "value": "<string>",
+                  "description": "(Required) The unique secret key from Plaid"
+                },
+                {
+                  "disabled": false,
+                  "key": "PlaidUrl",
+                  "value": "<string>",
+                  "description": "(Required) The URL defines the Plaid environment. For example https://sandbox.plaid.com for sandbox, https://development.plaid.com for development, and https://production.plaid.com for production."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d9195029-57a9-4c5b-937b-1f56fa5bf9d1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "set-plaid-credentials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The unique client ID from Plaid",
+                        "type": "text/plain"
+                      },
+                      "key": "PlaidClientID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The unique secret key from Plaid",
+                        "type": "text/plain"
+                      },
+                      "key": "PlaidSecretKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The URL defines the Plaid environment. For example https://sandbox.plaid.com for sandbox, https://development.plaid.com for development, and https://production.plaid.com for production.",
+                        "type": "text/plain"
+                      },
+                      "key": "PlaidUrl",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"PlaidClientID\": \"{PlaidClientID}\",\n  \"PlaidSecretKey\": \"{PlaidSecretKey}\",\n  \"PlaidUrl\": \"{PlaidUrl}\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "326c184a-9fee-4ec5-9d0a-4869abbfdc17",
+          "name": "account/set-flinks-credentials",
+          "request": {
+            "name": "account/set-flinks-credentials",
+            "description": {
+              "content": "This endpoint is used to configure the optional integration with a Flinks account. For more information please visit [our integration section](https://docs.vopay.com/docs/flinks-integration).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "set-flinks-credentials"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "FlinksUrl",
+                  "value": "<string>",
+                  "description": "(Required) The unique API URL from Flinks"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6bc8d6dd-6ce7-479b-9130-ae08bb0b9c2b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "set-flinks-credentials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The unique API URL from Flinks",
+                        "type": "text/plain"
+                      },
+                      "key": "FlinksUrl",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"FlinksUrl\": \"{FlinksUrl}\",\n  \"Status\": \"{Status}\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1dbb0edf-6ac1-4325-ad1a-89c03a8533b3",
+          "name": "account/set-inverite-credentials",
+          "request": {
+            "name": "account/set-inverite-credentials",
+            "description": {
+              "content": "This endpoint is used to configure the optional integration with a Inverite account. For more information please visit [our integration section](https://docs.vopay.com/docs/inverite-integration).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "set-inverite-credentials"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "InveriteAPIKey",
+                  "value": "<string>",
+                  "description": "(Required) The unique API Key from Inverite"
+                },
+                {
+                  "disabled": false,
+                  "key": "InveriteUrl",
+                  "value": "<string>",
+                  "description": "(Required) The unique API URL from Inverite (Sandbox or Production)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c432762c-8d26-4842-bce3-a2bb633a393d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "set-inverite-credentials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The unique API Key from Inverite",
+                        "type": "text/plain"
+                      },
+                      "key": "InveriteAPIKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The unique API URL from Inverite (Sandbox or Production)",
+                        "type": "text/plain"
+                      },
+                      "key": "InveriteUrl",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"InveriteAPIKey\": \"{InveriteAPIKey}\",\n  \"InveriteUrl\": \"{InveriteUrl}\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bea8c70-d3fb-489a-9a4b-85cabdde2aa0",
+          "name": "account/set-global-pay-credentials",
+          "request": {
+            "name": "account/set-global-pay-credentials",
+            "description": {
+              "content": "This endpoint is used to configure the optional integration with a Global Pay account. For more information please visit [our integration section](https://docs.vopay.com/docs/global-pay-integration).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "set-global-pay-credentials"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "GlobalPayAppID",
+                  "value": "<string>",
+                  "description": "(Required) Your unique Global Pay app ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "GlobalPaySharedSecret",
+                  "value": "<string>",
+                  "description": "(Required) Your unique Global Pay shared secret"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fcc29358-7f97-4e41-b28a-159be5f1a761",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "set-global-pay-credentials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your unique Global Pay app ID",
+                        "type": "text/plain"
+                      },
+                      "key": "GlobalPayAppID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your unique Global Pay shared secret",
+                        "type": "text/plain"
+                      },
+                      "key": "GlobalPaySharedSecret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"GlobalPayAppID\": \"{GlobalPayAppID}\",\n  \"GlobalPaySharedSecret\": \"{GlobalPaySharedSecret}\",\n  \"Status\": \"Updated\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3f159e8b-8c86-4038-b4ad-6c0284fad918",
+      "name": "Support Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bbaa3268-5271-4116-a96a-8907dcea739a",
+          "name": "account/tickets",
+          "request": {
+            "name": "account/tickets",
+            "description": {
+              "content": "This endpoint is used to fetch a list of support tickets via our API. If no email address is passed in then it will fetch all tickets for the account. If an email address is passed in, it will fetch all tickets for the account that have been submitted, including CC'd, by that email.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "tickets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Email",
+                  "value": "<string>",
+                  "description": "An email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "Limit ",
+                  "value": "<integer>",
+                  "description": "Limit the number of records that are returned. The limit and default value is 100. This parameter can only be used with Email parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "Offset ",
+                  "value": "<integer>",
+                  "description": "Use this parameter to set the starting point in the dataset. This parameter can only be used with Email parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "StartDate",
+                  "value": "<string>",
+                  "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "EndDate",
+                  "value": "<string>",
+                  "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "470e985f-8c08-44c8-b078-4c6a129cc467",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "StartDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EndDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"Tickets\": {\n    \"0\": {\n      \"id\": \"\",\n      \"subject\": \"\",\n      \"status\": \"\",\n      \"dateAdded\": \"\",\n      \"lastUpdated\": \"\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"1000\",\n    \"Offset\": \"1000\",\n    \"Limit\": \"1000\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "735be311-2fdf-45f1-b3ac-e047d6a5dbec",
+          "name": "account/submit-ticket",
+          "request": {
+            "name": "account/submit-ticket",
+            "description": {
+              "content": "This endpoint is used to submit support tickets via our API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "submit-ticket"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "SenderEmailAddress",
+                  "value": "<string>",
+                  "description": "(Required) Your email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketRequesterName",
+                  "value": "<string>",
+                  "description": "(Required) The full name of the submitter of your ticket"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketSubject",
+                  "value": "<string>",
+                  "description": "(Required) The subject of your ticket"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketContent",
+                  "value": "<string>",
+                  "description": "(Required) The body of your ticket"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketCategory",
+                  "value": "<string>",
+                  "description": "(Required) The category of your ticket. Valid values are: Client Onboarding,Product Issues,Billing Issues,Feature Request,General Inquiry,Account Limits,General Feedback,Transaction Inquiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "TransactionID",
+                  "value": "<string>",
+                  "description": "If the issue pertains to a specific transaction, you can use this input to provide the unique transaction ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "CcEmails",
+                  "value": "<string>",
+                  "description": "A comma-delimited list of CC email addresses to include on the ticket. These email addresses will be included on the correspondence"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9b0d5ac7-f576-4bad-a3a0-299f16784745",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "submit-ticket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your email address",
+                        "type": "text/plain"
+                      },
+                      "key": "SenderEmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The full name of the submitter of your ticket",
+                        "type": "text/plain"
+                      },
+                      "key": "TicketRequesterName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The subject of your ticket",
+                        "type": "text/plain"
+                      },
+                      "key": "TicketSubject",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The body of your ticket",
+                        "type": "text/plain"
+                      },
+                      "key": "TicketContent",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The category of your ticket. Valid values are: Client Onboarding,Product Issues,Billing Issues,Feature Request,General Inquiry,Account Limits,General Feedback,Transaction Inquiry",
+                        "type": "text/plain"
+                      },
+                      "key": "TicketCategory",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "If the issue pertains to a specific transaction, you can use this input to provide the unique transaction ID",
+                        "type": "text/plain"
+                      },
+                      "key": "TransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A comma-delimited list of CC email addresses to include on the ticket. These email addresses will be included on the correspondence",
+                        "type": "text/plain"
+                      },
+                      "key": "CcEmails",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"TicketID\": 387\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49ad01f4-036d-4a9f-aa66-66f616c3291e",
+          "name": "account/submit-ticket-comment",
+          "request": {
+            "name": "account/submit-ticket-comment",
+            "description": {
+              "content": "This endpoint is used to submit a comment on an existing support tickets via our API. Ticket comments represent the conversation between user and support team. Use the TicketID (obtained from /account/submit-ticket endpoint) to identify the ticket you want to attach the comment to",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "submit-ticket-comment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketAuthor",
+                  "value": "<string>",
+                  "description": "(Required) The full name of the submitter of your ticket"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketComment",
+                  "value": "<string>",
+                  "description": "(Required) Comment"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketID",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the ticket"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a3ed1366-9025-4453-8583-861a85469ab5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "submit-ticket-comment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "232486fe-a283-4b89-b26c-bde7a784fc8d",
+          "name": "account/ticket-attachment",
+          "request": {
+            "name": "account/ticket-attachment",
+            "description": {
+              "content": "You can upload a file and attach it to an existing support tickets via our API. Use the TicketID (obtained from /account/submit-ticket endpoint) to identify the ticket you want to attach the file to. Here are some rules regarding the document requirements:\n\n* The maximum allowed file size is 10Mb\n\n* Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64\n\n*",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "ticket-attachment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketAttachment",
+                  "value": "<string>",
+                  "description": "(Required) Base64 code of the attachment content"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketID",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the ticket"
+                },
+                {
+                  "disabled": false,
+                  "key": "AttachmentFileName",
+                  "value": "<string>",
+                  "description": "The name of the file being attached. It defaults to attachment if the name is not provided."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e504ade1-0a47-42c6-8aca-585d9f5b2035",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "ticket-attachment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ad03f79-eed0-4936-ba1f-41fd069e19d0",
+          "name": "partner/tickets",
+          "request": {
+            "name": "partner/tickets",
+            "description": {
+              "content": "This endpoint is used to fetch a list of support tickets via our API. If no email address is passed in then it will fetch all tickets for the account. If an email address is passed in, it will fetch all tickets for the account that have been submitted, including CC'd, by that email.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "tickets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Email",
+                  "value": "<string>",
+                  "description": "An email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "Limit ",
+                  "value": "<integer>",
+                  "description": "Limit the number of records that are returned. The limit and default value is 100. This parameter can only be used with Email parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "Offset ",
+                  "value": "<integer>",
+                  "description": "Use this parameter to set the starting point in the dataset. This parameter can only be used with Email parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "StartDate",
+                  "value": "<string>",
+                  "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "EndDate",
+                  "value": "<string>",
+                  "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ed8f5a3-ff63-41a2-b49c-d5324ced7024",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "tickets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "StartDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EndDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"Tickets\": {\n    \"0\": {\n      \"id\": \"\",\n      \"subject\": \"\",\n      \"status\": \"\",\n      \"dateAdded\": \"\",\n      \"lastUpdated\": \"\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"1000\",\n    \"Offset\": \"1000\",\n    \"Limit\": \"1000\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54e8a674-bdbb-4184-93a9-95f193a127bd",
+          "name": "partner/submit-ticket",
+          "request": {
+            "name": "partner/submit-ticket",
+            "description": {
+              "content": "This endpoint is used to submit support tickets via our API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "submit-ticket"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "SenderEmailAddress",
+                  "value": "<string>",
+                  "description": "(Required) Your email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketRequesterName",
+                  "value": "<string>",
+                  "description": "(Required) The full name of the submitter of your ticket"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketSubject",
+                  "value": "<string>",
+                  "description": "(Required) The subject of your ticket"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketContent",
+                  "value": "<string>",
+                  "description": "(Required) The body of your ticket"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketCategory",
+                  "value": "<string>",
+                  "description": "(Required) The category of your ticket. Valid values are: Client Onboarding,Product Issues,Billing Issues,Feature Request,General Inquiry,Account Limits,General Feedback,Transaction Inquiry"
+                },
+                {
+                  "disabled": false,
+                  "key": "AccountName",
+                  "value": "<string>",
+                  "description": "The name of the account that's impacted by this issue, if applicable."
+                },
+                {
+                  "disabled": false,
+                  "key": "TransactionID",
+                  "value": "<string>",
+                  "description": "If the issue pertains to a specific transaction, you can use this input to provide the unique transaction ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "CcEmails",
+                  "value": "<string>",
+                  "description": "A comma-delimited list of CC email addresses to include on the ticket. These email addresses will be included on the correspondence"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5d815339-7fa4-4f59-9b1f-4994724ad4c9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "submit-ticket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your email address",
+                        "type": "text/plain"
+                      },
+                      "key": "SenderEmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The full name of the submitter of your ticket",
+                        "type": "text/plain"
+                      },
+                      "key": "TicketRequesterName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The subject of your ticket",
+                        "type": "text/plain"
+                      },
+                      "key": "TicketSubject",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The body of your ticket",
+                        "type": "text/plain"
+                      },
+                      "key": "TicketContent",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The category of your ticket. Valid values are: Client Onboarding,Product Issues,Billing Issues,Feature Request,General Inquiry,Account Limits,General Feedback,Transaction Inquiry",
+                        "type": "text/plain"
+                      },
+                      "key": "TicketCategory",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The name of the account that's impacted by this issue, if applicable.",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "If the issue pertains to a specific transaction, you can use this input to provide the unique transaction ID",
+                        "type": "text/plain"
+                      },
+                      "key": "TransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A comma-delimited list of CC email addresses to include on the ticket. These email addresses will be included on the correspondence",
+                        "type": "text/plain"
+                      },
+                      "key": "CcEmails",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"TicketID\": 387\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74a7b601-deb6-4b55-8d73-2914da42e6d1",
+          "name": "partner/submit-ticket-comment",
+          "request": {
+            "name": "partner/submit-ticket-comment",
+            "description": {
+              "content": "This endpoint is used to submit a comment on an existing support tickets via our API. Ticket comments represent the conversation between user and support team. Use the TicketID (obtained from /partner/submit-ticket endpoint) to identify the ticket you want to add the comment to.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "submit-ticket-comment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketAuthor",
+                  "value": "<string>",
+                  "description": "(Required) The full name of the submitter of your ticket"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketComment",
+                  "value": "<string>",
+                  "description": "(Required) Comment"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketID",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the ticket"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8cb990ad-c56c-407b-bfc4-d0db13e92a22",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "submit-ticket-comment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "630335b3-1db4-4801-bdb0-50c67d5fb389",
+          "name": "partner/ticket-attachment",
+          "request": {
+            "name": "partner/ticket-attachment",
+            "description": {
+              "content": "You can upload a file and attach it to an existing support tickets via our API. Use the TicketID (obtained from /partner/submit-ticket endpoint) to identify the ticket you want to attach the file to. Here are some rules regarding the document requirements:\n\n* The maximum allowed file size is 10Mb\n\n* Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64\n\n*",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "ticket-attachment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketAttachment",
+                  "value": "<string>",
+                  "description": "(Required) Base64 code of the attachment content"
+                },
+                {
+                  "disabled": false,
+                  "key": "TicketID",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the ticket"
+                },
+                {
+                  "disabled": false,
+                  "key": "AttachmentFileName",
+                  "value": "<string>",
+                  "description": "The name of the file being attached. It defaults to attachment if the name is not provided."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "435a9221-2786-459f-bc7a-6bc14506df06",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "ticket-attachment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cbf912b0-90ba-439d-bf20-63cec38c8bc2",
+      "name": "Webhook Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ffa7368c-2ea3-404e-9311-cb13c50eec7d",
+          "name": "account/webhook-url",
+          "request": {
+            "name": "account/webhook-url",
+            "description": {
+              "content": "This endpoint will allow the user to add or modify a webhook URL.\n\nThe purpose of the webhook URL is to notify users of any changes in transaction status, paylink status, account status, account verification status, as well as bank account creation, scheduled transaction creation, batch request processed, and batch request failed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "webhook-url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "WebHookUrl",
+                  "value": "<string>",
+                  "description": "URL where the users want us to send their notifications. This parameter has to be a valid URL. If the field Disabled is added, this field can be optional; otherwise, it will consider as mandatory"
+                },
+                {
+                  "disabled": false,
+                  "key": "Type",
+                  "value": "<string>",
+                  "description": "The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction, virtualaccountcreated. If left blank changes will be applied to all webhook types."
+                },
+                {
+                  "disabled": false,
+                  "key": "Disabled",
+                  "value": "<boolean>",
+                  "description": "If this parameter is present WebHookUrl is not mandatory."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ccf220cd-c27a-417b-b037-3ff996962e44",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "webhook-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "URL where the users want us to send their notifications. This parameter has to be a valid URL. If the field Disabled is added, this field can be optional; otherwise, it will consider as mandatory",
+                        "type": "text/plain"
+                      },
+                      "key": "WebHookUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction, virtualaccountcreated. If left blank changes will be applied to all webhook types.",
+                        "type": "text/plain"
+                      },
+                      "key": "Type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "If this parameter is present WebHookUrl is not mandatory.",
+                        "type": "text/plain"
+                      },
+                      "key": "Disabled",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aec39800-c749-48b2-bdd5-59121dd3cf3b",
+          "name": "account/webhook-url/info",
+          "request": {
+            "name": "account/webhook-url/info",
+            "description": {
+              "content": "This endpoint will retrieve your webhook URL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "webhook-url",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "058350d2-d5e5-4b62-905a-891246590a70",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "webhook-url",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Webhooks\": {\n    \"0\": {\n      \"Event\": \"\",\n      \"Url\": \"\"\n    }\n  },\n  \"WebHookURL\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d5f9058-fc31-438b-aab0-dae05c8795b2",
+          "name": "account/webhook-url/test",
+          "request": {
+            "name": "account/webhook-url/test",
+            "description": {
+              "content": "In this endpoint, you will be able to test your webhook URL. We will send you an example of the payload that you will receive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "webhook-url",
+                "test"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Type",
+                  "value": "<string>",
+                  "description": "The type of webhook notification you wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction. Default is transaction."
+                },
+                {
+                  "disabled": false,
+                  "key": "Payload",
+                  "value": "<string>",
+                  "description": "A custom JSON payload to send to the webhook URL. If not provided, a sample payload will be generated based on the Type parameter."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8208d156-1d71-4708-8051-fb2a1f72c212",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "webhook-url",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The type of webhook notification you wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction. Default is transaction.",
+                        "type": "text/plain"
+                      },
+                      "key": "Type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A custom JSON payload to send to the webhook URL. If not provided, a sample payload will be generated based on the Type parameter.",
+                        "type": "text/plain"
+                      },
+                      "key": "Payload",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c096a1d9-cc78-498a-a107-ab22f8ccba4f",
+          "name": "account/webhooks",
+          "request": {
+            "name": "account/webhooks",
+            "description": {
+              "content": "This endpoint can be used to fetch a list of sent webhook notifications. Maximum date range is 1 month. If no date range is provided, it will default to the past 30 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Type",
+                  "value": "<string>",
+                  "description": "The type of webhook notification you wish to fetch. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction."
+                },
+                {
+                  "disabled": false,
+                  "key": "WebhookID",
+                  "value": "<string>",
+                  "description": "The ID of webhook notifications you wish to fetch."
+                },
+                {
+                  "disabled": false,
+                  "key": "NotificationStatus",
+                  "value": "<string>",
+                  "description": "Filter webhook notification by status. Possible values are: new, processed, failed, deprecated."
+                },
+                {
+                  "disabled": false,
+                  "key": "StartDate",
+                  "value": "<string>",
+                  "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "EndDate",
+                  "value": "<string>",
+                  "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "000db9d2-4afd-4080-8286-662336795029",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "WebhookID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NotificationStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StartDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EndDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"Webhooks\": {\n    \"0\": {\n      \"EventID\": 4848,\n      \"Event\": \"transaction\",\n      \"Module\": \"achfunding\",\n      \"WebhookID\": \"12314\",\n      \"Status\": \"in progress\",\n      \"NotificationStatus\": \"new\",\n      \"DateSent\": \"2024-01-01 12:34:56\",\n      \"WebhookUrl\": \"https://example.com/webhook\",\n      \"ResponseText\": \"request caught\",\n      \"ResponseStatusCode\": \"200\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f52bc9da-5d5b-4873-9076-fd5e26dffe6f",
+          "name": "account/webhook/resend",
+          "request": {
+            "name": "account/webhook/resend",
+            "description": {
+              "content": "This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.\n\n The event ID can be fetched using the [GET /account/webhooks endpoint](https://docs.vopay.com/reference/accountwebhooksget).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "webhook",
+                "resend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "EventID",
+                  "value": "<string>",
+                  "description": "(Required) The event ID of the webhook notification you wish to resend. This ID can be fetched using the GET /account/webhooks endpoint."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cf8e1883-7fa2-4606-a5a9-04e956ac9032",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "webhook",
+                    "resend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The event ID of the webhook notification you wish to resend. This ID can be fetched using the GET /account/webhooks endpoint.",
+                        "type": "text/plain"
+                      },
+                      "key": "EventID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19ca3070-21a4-4a6c-a061-03231a188484",
+          "name": "partner/webhook-url",
+          "request": {
+            "name": "partner/webhook-url",
+            "description": {
+              "content": "This endpoint will allow the user to modify the webhook URL.\n\nThe purpose of the webhook URL is to notify users of any changes in the status of the accounts you create.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "webhook-url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "WebHookUrl",
+                  "value": "<string>",
+                  "description": "URL where the users want us to send their notifications. This parameter has to be a valid URL. If the field Disabled is added, this field can be optional; otherwise, it will consider as mandatory"
+                },
+                {
+                  "disabled": false,
+                  "key": "Type",
+                  "value": "<string>",
+                  "description": "The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction. If left blank it will apply to all types."
+                },
+                {
+                  "disabled": false,
+                  "key": "Disabled",
+                  "value": "<boolean>",
+                  "description": "If this parameter is present WebHookUrl is not mandatory."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e262c962-365a-494f-ab35-ddb2a620a857",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "webhook-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "URL where the users want us to send their notifications. This parameter has to be a valid URL. If the field Disabled is added, this field can be optional; otherwise, it will consider as mandatory",
+                        "type": "text/plain"
+                      },
+                      "key": "WebHookUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction. If left blank it will apply to all types.",
+                        "type": "text/plain"
+                      },
+                      "key": "Type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "If this parameter is present WebHookUrl is not mandatory.",
+                        "type": "text/plain"
+                      },
+                      "key": "Disabled",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc788120-2f5e-4503-b07a-f72a1c06c2a6",
+          "name": "partner/webhook-url/info",
+          "request": {
+            "name": "partner/webhook-url/info",
+            "description": {
+              "content": "This endpoint will retrieve your webhook URL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "webhook-url",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c567b7a-8b48-4b98-afc4-35fc7f9eaeb4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "webhook-url",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"WebHookURL\": \"\",\n  \"Webhooks\": {\n    \"0\": {\n      \"Event\": \"\",\n      \"Url\": \"\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ac2cdc0-1a46-4e0b-a2cd-8562b96f783b",
+          "name": "partner/webhook-url/test",
+          "request": {
+            "name": "partner/webhook-url/test",
+            "description": {
+              "content": "In this endpoint, you will be able to test your webhook URL. We will send you an example of the payload that you will receive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "webhook-url",
+                "test"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17e5063e-fa82-40d6-b7bd-586578883085",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "webhook-url",
+                    "test"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bec46a5-cd5c-4e9a-b5c3-beb5228a151d",
+          "name": "partner/webhooks",
+          "request": {
+            "name": "partner/webhooks",
+            "description": {
+              "content": "This endpoint can be used to fetch a list of sent webhook notifications. Maximum date range is 1 month. If no date range is provided, it will default to the past 30 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "WebhookID",
+                  "value": "<string>",
+                  "description": "The ID of webhook notifications you wish to fetch."
+                },
+                {
+                  "disabled": false,
+                  "key": "StartDate",
+                  "value": "<string>",
+                  "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "EndDate",
+                  "value": "<string>",
+                  "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4159abd2-ca4e-4712-9af5-9c7cde15b736",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "WebhookID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StartDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "EndDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"Webhooks\": {\n    \"0\": {\n      \"EventID\": 6577,\n      \"Event\": \"transaction\",\n      \"Module\": \"achfunding\",\n      \"WebhookID\": \"12314\",\n      \"Status\": \"in progress\",\n      \"DateSent\": \"2024-01-01 12:34:56\",\n      \"WebhookUrl\": \"https://example.com/webhook\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b489dae-ebf7-4605-97e4-69e0eab09ccb",
+          "name": "partner/webhook/resend",
+          "request": {
+            "name": "partner/webhook/resend",
+            "description": {
+              "content": "This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.\n\n The event ID can be fetched using the [GET /partner/webhooks endpoint](https://docs.vopay.com/reference/partnerwebhooksget).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "webhook",
+                "resend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "EventID",
+                  "value": "<string>",
+                  "description": "(Required) The event ID of the webhook notification you wish to resend. This ID can be fetched using the GET /partner/webhooks endpoint."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e6a46eed-47fd-47f1-b077-dc01877ace27",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "webhook",
+                    "resend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The event ID of the webhook notification you wish to resend. This ID can be fetched using the GET /partner/webhooks endpoint.",
+                        "type": "text/plain"
+                      },
+                      "key": "EventID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "719b2959-2f68-4f0b-acb3-6afcf0eb8355",
+      "name": "API Key Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dafb78ef-5132-413f-9a2b-00636ed1693e",
+          "name": "account/keys",
+          "request": {
+            "name": "account/keys",
+            "description": {
+              "content": "This endpoint allows the user to fetch the API key IDs associated with their account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eeefee23-e9ea-4684-a510-7f37cda7a909",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Keys\": {\n    \"0\": {\n      \"KeyID\": 5859,\n      \"Label\": \"\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "690efbbf-99f5-419e-ab90-19f17f870fd7",
+          "name": "account/keys/retrieve",
+          "request": {
+            "name": "account/keys/retrieve",
+            "description": {
+              "content": "This endpoint allows the user to fetch a particular API key associated with their account including sensitive information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "keys",
+                "retrieve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "KeyID",
+                  "value": "<integer>",
+                  "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cee7152d-3612-4a1d-b0c6-ddc6bff18f4e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "keys",
+                    "retrieve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": 132,\n      \"Label\": \"\",\n      \"Key\": \"\",\n      \"Secret\": \"\",\n      \"AccessScope\": \"\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c6062ba-70ec-46da-8980-932ef59a242d",
+          "name": "account/keys/add",
+          "request": {
+            "name": "account/keys/add",
+            "description": {
+              "content": "This endpoint allows the user to add an API key associated to their account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "keys",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Label",
+                  "value": "<string>",
+                  "description": "(Required) The label you want associated with the key"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "943041be-dfcc-45b9-9b79-7e2095097100",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "keys",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": 132,\n      \"Label\": \"\",\n      \"Key\": \"\",\n      \"Secret\": \"\",\n      \"AccessScope\": \"\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "713d4f16-df46-48d3-9948-b7ccb6202165",
+          "name": "account/keys/edit",
+          "request": {
+            "name": "account/keys/edit",
+            "description": {
+              "content": "This endpoint allows the user to edit an API key's label associated to their account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "keys",
+                "edit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "KeyID",
+                  "value": "<integer>",
+                  "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint"
+                },
+                {
+                  "disabled": false,
+                  "key": "Label",
+                  "value": "<string>",
+                  "description": "(Required) The label you want associated with the key"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ebaddce7-0206-4de1-a181-8548657ee9d2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "keys",
+                    "edit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": 132,\n      \"Label\": \"\",\n      \"Key\": \"\",\n      \"Secret\": \"\",\n      \"AccessScope\": \"\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa2b9359-794f-465c-b351-fc12795bb740",
+          "name": "account/keys/delete",
+          "request": {
+            "name": "account/keys/delete",
+            "description": {
+              "content": "This endpoint allows the user to delete a particular API key associated with their account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "keys",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "KeyID",
+                  "value": "<integer>",
+                  "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e40ff08e-fabb-4ffa-a84f-f1eee323a61a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "keys",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29d84a57-94af-461c-ae14-f9fe0b077c4f",
+          "name": "partner/keys",
+          "request": {
+            "name": "partner/keys",
+            "description": {
+              "content": "This endpoint allows the user to fetch the API key IDs associated with their partner account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1de87409-f284-403e-a1eb-a5babd9b4c80",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Keys\": {\n    \"0\": {\n      \"KeyID\": 5859,\n      \"Label\": \"\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a79e1cb-3c54-4523-bf50-1c76093fe115",
+          "name": "partner/keys/retrieve",
+          "request": {
+            "name": "partner/keys/retrieve",
+            "description": {
+              "content": "This endpoint allows the user to fetch a particular API key associated with their partner account including sensitive information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "keys",
+                "retrieve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "KeyID",
+                  "value": "<integer>",
+                  "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "74410ea6-8bea-4870-9393-6177306423f3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "keys",
+                    "retrieve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": 132,\n      \"Label\": \"\",\n      \"Key\": \"\",\n      \"Secret\": \"\",\n      \"AccessScope\": \"\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "760908ad-c192-404f-bd06-e67d9f5a3902",
+          "name": "partner/keys/add",
+          "request": {
+            "name": "partner/keys/add",
+            "description": {
+              "content": "This endpoint allows the user to add an API key associated to their partner account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "keys",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Label",
+                  "value": "<string>",
+                  "description": "(Required) The label you want associated with the key"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "799db9d3-8744-43a7-8fb0-885c7fd1bbec",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "keys",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": 132,\n      \"Label\": \"\",\n      \"Key\": \"\",\n      \"Secret\": \"\",\n      \"AccessScope\": \"\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2849322-a77e-4faf-8c06-69fd03190805",
+          "name": "partner/keys/edit",
+          "request": {
+            "name": "partner/keys/edit",
+            "description": {
+              "content": "This endpoint allows the user to edit an API key's label associated to their partner account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "keys",
+                "edit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "KeyID",
+                  "value": "<integer>",
+                  "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint"
+                },
+                {
+                  "disabled": false,
+                  "key": "Label",
+                  "value": "<string>",
+                  "description": "(Required) The label you want associated with the key"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "63a4dd66-f387-4a05-8430-ef8655197e10",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "keys",
+                    "edit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": 132,\n      \"Label\": \"\",\n      \"Key\": \"\",\n      \"Secret\": \"\",\n      \"AccessScope\": \"\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3186cd40-fa2f-4c4e-8f3b-0ddeaf98420d",
+          "name": "partner/keys/delete",
+          "request": {
+            "name": "partner/keys/delete",
+            "description": {
+              "content": "This endpoint allows the user to delete a particular API key associated with their partner account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "keys",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "KeyID",
+                  "value": "<integer>",
+                  "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "37524cad-993a-48aa-b4c1-004c9034c667",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "keys",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://earthnode-dev.vopay.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "52c35bf9-2888-47a7-aac5-c197e29f9fd5",
+    "name": "Integrations and Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Integrations and Support API defines endpoints for configuring integrations with  Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also  includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for  account and partner accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+      "type": "text/plain"
+    }
+  }
+}

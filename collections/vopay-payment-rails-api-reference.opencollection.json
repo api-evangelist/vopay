@@ -1,0 +1,5000 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Payment Rails",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EFT Endpoint",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "eft/fund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/fund",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FinancialInstitutionNumber",
+                  "value": ""
+                },
+                {
+                  "name": "BranchTransitNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "Iq11VerificationLevelID",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksLoginID",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidPublicToken",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidAccessToken",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "MxAuthorizationCode",
+                  "value": ""
+                },
+                {
+                  "name": "InveriteRequestGUID",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabel",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "WalletID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to fund your VoPay account by debiting funds from the specified customer's bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided. \n\n If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required. \n\n If the bank information is provided (Fin"
+        },
+        {
+          "info": {
+            "name": "eft/fund/status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/fund/status",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The unique ID of the transaction"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up the status of a fund transaction."
+        },
+        {
+          "info": {
+            "name": "eft/fund/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/fund/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The unique ID of the fund transaction"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up and return the full details on a single fund transaction. Fund transactions take money out of the customer's bank account and deposit them into your account."
+        },
+        {
+          "info": {
+            "name": "eft/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FinancialInstitutionNumber",
+                  "value": ""
+                },
+                {
+                  "name": "BranchTransitNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksLoginID",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidPublicToken",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidAccessToken",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "MxAuthorizationCode",
+                  "value": ""
+                },
+                {
+                  "name": "InveriteRequestGUID",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabel",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to take funds out of your VoPay account, and deposit them to the specified recipient's bank account. In the below endpoint, either CompanyName OR FirstName and LastName must be provided. \n\n If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, then the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required. \n\n If the bank information"
+        },
+        {
+          "info": {
+            "name": "eft/withdraw/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/withdraw/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID of the withdraw transaction"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up details on a single withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's account."
+        },
+        {
+          "info": {
+            "name": "eft/withdraw/status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/withdraw/status",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The unique ID of the withdraw transaction"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up the status of a withdraw transaction."
+        },
+        {
+          "info": {
+            "name": "eft/fund/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/fund/schedule",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Frequency",
+                  "value": ""
+                },
+                {
+                  "name": "NameOfFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleEndDate",
+                  "value": ""
+                },
+                {
+                  "name": "EndingAfterPayments",
+                  "value": ""
+                },
+                {
+                  "name": "SemiMonthlyFrequencyType",
+                  "value": ""
+                },
+                {
+                  "name": "Description",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FinancialInstitutionNumber",
+                  "value": ""
+                },
+                {
+                  "name": "BranchTransitNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksLoginID",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidPublicToken",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidAccessToken",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "MxAuthorizationCode",
+                  "value": ""
+                },
+                {
+                  "name": "InveriteRequestGUID",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment. \n\nEither CompanyName OR FirstName and LastName must be provided. \n\n If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required. \n\n If the bank information is provided (FinancialInstitutionNu"
+        },
+        {
+          "info": {
+            "name": "eft/withdraw/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/withdraw/schedule",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Frequency",
+                  "value": ""
+                },
+                {
+                  "name": "NameOfFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleEndDate",
+                  "value": ""
+                },
+                {
+                  "name": "EndingAfterPayments",
+                  "value": ""
+                },
+                {
+                  "name": "SemiMonthlyFrequencyType",
+                  "value": ""
+                },
+                {
+                  "name": "Description",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FinancialInstitutionNumber",
+                  "value": ""
+                },
+                {
+                  "name": "BranchTransitNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksLoginID",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidPublicToken",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidAccessToken",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "MxAuthorizationCode",
+                  "value": ""
+                },
+                {
+                  "name": "InveriteRequestGUID",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment. \n\nEither CompanyName OR FirstName and LastName must be provided. \n\n If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required. \n\n If the bank information is provided (FinancialInstitutionNu"
+        },
+        {
+          "info": {
+            "name": "eft/fund/schedule/cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/fund/schedule/cancel",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduledTransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to cancel a scheduled transaction and all remaining payments belonging to that scheduled tranaction. Only scheduled transactions with the status in progress can be cancelled. \n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+        },
+        {
+          "info": {
+            "name": "eft/withdraw/schedule/cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/withdraw/schedule/cancel",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduledTransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to cancel a scheduled transaction and all remaining payments belonging to that scheduled tranaction. Only scheduled transactions with the status in progress can be cancelled. \n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+        },
+        {
+          "info": {
+            "name": "eft/fund/schedule/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/fund/schedule/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduledTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "UpcomingPayment",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to edit or cancel an upcoming payment (only the amount can be edited). \n\nNotes. If the field amount is set as 0 or it is not provided, we consider the upcoming payment as cancelled. \n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+        },
+        {
+          "info": {
+            "name": "eft/withdraw/schedule/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/withdraw/schedule/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduledTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "UpcomingPayment",
+                  "value": ""
+                },
+                {
+                  "name": "NewDate",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to edit or cancel an upcoming payment (only the amount can be edited). \n\nNotes. If the field amount is set as 0 or it is not provided, we consider the upcoming payment as cancelled. \n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+        },
+        {
+          "info": {
+            "name": "eft/scheduled-transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/scheduled-transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Client Account ID"
+              },
+              {
+                "name": "ScheduledTransactionID",
+                "value": "",
+                "type": "query",
+                "description": "ID of the schedule Transaction (If this value is present, we list the details of the scheduled transactions)"
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up the list of all scheduled transactions, or you can list the details of a single scheduled transaction. \n\n If the value ScheduledTransactionID is present, we only list the details of that scheduled transaction.  \n\n * Either the response will be Company name or First name and Last name"
+        },
+        {
+          "info": {
+            "name": "eft/failures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/eft/failures",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Start of date range to query for any failed transactions"
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "End of date range to query for any failed transactions"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to retrieve a list of transactions which failed during a specific date range. This endpoint is queried based on the date that a failure occurred on, not on the date when the transaction originally occurred."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Credit Card Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "credit-card/charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/credit-card/charge",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "CreditCardToken",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabel",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is to create a credit card transaction to fund your VoPay account, charging the amount specified to the credit card linked to the provided CreditCardToken.\n\n If a ClientAccountID is provided, the client account's default credit card will be used for the transaction.\n\nNote: You must first generate a CreditCardToken using the /credit-card/generate-embed-url endpoint."
+        },
+        {
+          "info": {
+            "name": "credit-card/void",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/credit-card/void",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to void a completed credit card transaction."
+        },
+        {
+          "info": {
+            "name": "credit-card/charge/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/credit-card/charge/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Account transaction ID"
+              }
+            ]
+          },
+          "docs": "This method is used to look up and return the full details on a single credit card transaction. Credit card transactions take money out of the customer's credit card and deposit them into your VoPay account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Debit Card Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "debit-card/oct/push-funds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/debit-card/oct/push-funds",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "CardToken",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to instantly send funds from your VoPay account to the debit card linked to the provided CardToken.\n\n If a ClientAccountID is provided, the client account's default card will be used for the transaction.\n\nNote: You must first generate a CardToken using the /debit-card/generate-embed-url endpoint."
+        },
+        {
+          "info": {
+            "name": "debit-card/oct/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/debit-card/oct/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Account transaction ID"
+              }
+            ]
+          },
+          "docs": "This method is used to look up and return the full details on a single OCT transaction. OCT transactions sends money from your VoPay account directly onto the customer's debit card."
+        },
+        {
+          "info": {
+            "name": "debit-card/aft/pull-funds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/debit-card/aft/pull-funds",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "CardToken",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to instantly pull funds from your debit card linked to the provided CardToken to fund your VoPay account.\n\n If a ClientAccountID is provided, the client account's default card will be used for the transaction.\n\nNote: You must first generate a CardToken using the /debit-card/generate-embed-url endpoint."
+        },
+        {
+          "info": {
+            "name": "debit-card/aft/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/debit-card/aft/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Account transaction ID"
+              }
+            ]
+          },
+          "docs": "This method is used to look up and return the full details on a single AFT transaction. AFT transactions pull money from you debit card directly into your VoPay account ."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Interac Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "interac/money-request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/money-request",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientName",
+                  "value": ""
+                },
+                {
+                  "name": "MessageForRecipient",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "GenerateURL",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This API endpoint is used to create a new Interac money request transaction.\n\n If a ClientAccountID is provided, the client account's first/last name, and email address will be used for the transaction."
+        },
+        {
+          "info": {
+            "name": "interac/money-request/transaction/request-cancellation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/money-request/transaction/request-cancellation",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to attempt to cancel an in progress money request transaction. Note that the cancellation request will fail if the recipient has already fulfilled the request. A successful cancellation using this endpoint will incur an Interac network cancellation fee."
+        },
+        {
+          "info": {
+            "name": "interac/money-request/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/money-request/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID of the withdraw transaction. Either this or ClientReferenceNumber is required."
+              },
+              {
+                "name": "ClientReferenceNumber",
+                "value": "",
+                "type": "query",
+                "description": "An optional reference number which was associated with the transaction. This can only be used to look up the transaction if it was a unique ID."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up details on a single Interac money request transaction. This endpoint can be used to return transactions created with the API, or transactions submitted via SFTP batch file."
+        },
+        {
+          "info": {
+            "name": "interac/bulk-payout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/bulk-payout",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "SenderName",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientName",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Language",
+                  "value": ""
+                },
+                {
+                  "name": "CancellationPeriod",
+                  "value": ""
+                },
+                {
+                  "name": "Memo",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Question",
+                  "value": ""
+                },
+                {
+                  "name": "Answer",
+                  "value": ""
+                },
+                {
+                  "name": "HashSalt",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to create an Interac e-Transfer bulk payout transaction for sending funds.\n\n If a ClientAccountID is provided, the client account's first/last name, and email address will be used for the transaction."
+        },
+        {
+          "info": {
+            "name": "interac/bulk-payout/transaction/request-cancellation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/bulk-payout/transaction/request-cancellation",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to attempt to cancel an in progress bulk payout transaction. Note that the cancellation request will fail if the recipient has already deposited the funds, and successful cancellation using this endpoint will incur an Interac network cancellation fee."
+        },
+        {
+          "info": {
+            "name": "interac/bulk-payout/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/bulk-payout/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the e-transfer"
+              },
+              {
+                "name": "ClientReferenceNumber",
+                "value": "",
+                "type": "query",
+                "description": "An optional reference number which was associated with the transaction."
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID of the fund transaction. Either this or ClientReferenceNumber is required."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up details on an Interac e-Transfer bulk payout transaction."
+        },
+        {
+          "info": {
+            "name": "interac/inbound/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/inbound/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID of the Inbound E transaction."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up details of Inbound ETransfer transactions."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Vopay Instant Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "rtr/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/rtr/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FinancialInstitutionNumber",
+                  "value": ""
+                },
+                {
+                  "name": "BranchTransitNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to instantly send funds out of your VoPay account and deposit them to the specified recipient's bank account. \n\n Either an iq11 Token or FinancialInstitutionNumber/BranchTransitNumber/AccountNumber is required. \n\n If a ClientAccountID is provided, the client account's first/last name and default bank account will be used for the transaction."
+        },
+        {
+          "info": {
+            "name": "rtr/withdraw/transaction/request-cancellation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/rtr/withdraw/transaction/request-cancellation",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to attempt to cancel an in progress Vopay Instant transaction. Note that the cancellation request will fail if the recipient has already deposited the funds."
+        },
+        {
+          "info": {
+            "name": "rtr/withdraw/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/rtr/withdraw/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID of the withdraw transaction. Must provide either a TransactionID or ClientReferenceNumber."
+              },
+              {
+                "name": "ClientReferenceNumber",
+                "value": "",
+                "type": "query",
+                "description": "A reference number to use to search the transaction. Must provide either a TransactionID or ClientReferenceNumber."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up details on a single VoPay Instant withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ACH Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ach/fund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/ach/fund",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "IdentificationNumber",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "State",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "ZipCode",
+                  "value": ""
+                },
+                {
+                  "name": "IPAddress",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                },
+                {
+                  "name": "SecCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabel",
+                  "value": ""
+                },
+                {
+                  "name": "WalletID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to fund your US VoPay account by debiting funds from the specified customer's bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.\n\n If a ClientAccountID is provided, the client account's first/last name, address, phone number, identification number and default bank account will be used for the transaction."
+        },
+        {
+          "info": {
+            "name": "ach/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/ach/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "IdentificationNumber",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "State",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "ZipCode",
+                  "value": ""
+                },
+                {
+                  "name": "IPAddress",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                },
+                {
+                  "name": "SecCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabel",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to send funds to a specified customer's US Bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.\n\n If a ClientAccountID is provided, the client account's first/last name, address, phone number, identification number and default bank account will be used for the transaction."
+        },
+        {
+          "info": {
+            "name": "ach/fund/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/ach/fund/schedule",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Frequency",
+                  "value": ""
+                },
+                {
+                  "name": "NameOfFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleEndDate",
+                  "value": ""
+                },
+                {
+                  "name": "EndingAfterPayments",
+                  "value": ""
+                },
+                {
+                  "name": "SemiMonthlyFrequencyType",
+                  "value": ""
+                },
+                {
+                  "name": "Description",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "IdentificationNumber",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "State",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "ZipCode",
+                  "value": ""
+                },
+                {
+                  "name": "IPAddress",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment. \n\nEither CompanyName OR FirstName and LastName must be provided. \n\n If the Token is provided, the ABARoutingNumber, and AccountNumber will not be required. \n\n If the bank information is provided (ABARoutingNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.\n\n If a ClientAccountID is provided, the client account's first/last name, add"
+        },
+        {
+          "info": {
+            "name": "ach/withdraw/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/ach/withdraw/schedule",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Frequency",
+                  "value": ""
+                },
+                {
+                  "name": "NameOfFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleEndDate",
+                  "value": ""
+                },
+                {
+                  "name": "EndingAfterPayments",
+                  "value": ""
+                },
+                {
+                  "name": "SemiMonthlyFrequencyType",
+                  "value": ""
+                },
+                {
+                  "name": "Description",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "IdentificationNumber",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "State",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "ZipCode",
+                  "value": ""
+                },
+                {
+                  "name": "IPAddress",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment. \n\nEither CompanyName OR FirstName and LastName must be provided. \n\n If the Token is provided, the ABARoutingNumber, and AccountNumber will not be required. \n\n If the bank information is provided (ABARoutingNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.\n\n If a ClientAccountID is provided, the client account's first/last name, add"
+        },
+        {
+          "info": {
+            "name": "ach/void",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/ach/void",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This method is used to void a previously created ACH transaction. Note, you can only void a transaction if it has not yet settled. If the transaction has already settled, then you can use the /ach/refund endpoint to reverse the transaction."
+        },
+        {
+          "info": {
+            "name": "ach/fund/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/ach/fund/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The unique ID of the fund transaction"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up and return the full details on a single ACH fund transaction."
+        },
+        {
+          "info": {
+            "name": "ach/withdraw/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/ach/withdraw/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID of the withdraw transaction"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up details on a single ACH withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's bank account."
+        },
+        {
+          "info": {
+            "name": "ach/scheduled-transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/ach/scheduled-transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ScheduledTransactionID",
+                "value": "",
+                "type": "query",
+                "description": "ID of the schedule Transaction (If this value is present, we list the details of the scheduled transactions)"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Client Account ID"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up the list of all scheduled transactions, or you can list the details of a single scheduled transaction. \n\n If the value ScheduledTransactionID is present, we only list the details of that scheduled transaction.  \n\n * Either the response will be Company name or First name and Last name"
+        },
+        {
+          "info": {
+            "name": "ach/failures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/ach/failures",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Start of date range to query for any failed transactions"
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "End of date range to query for any failed transactions"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to retrieve a list of transactions which failed during a specific date range. This endpoint is queried based on the date that a failure occurred on, not on the date when the transaction originally occurred."
+        },
+        {
+          "info": {
+            "name": "ach/validate-nacha",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/ach/validate-nacha",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "Address",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "State",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "ZipCode",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to trigger a NACHA validation on the provided bank account. In the endpoint below, either Token or ABARoutingNumber/AccountNumber are required. Either a CompanyName OR FirstName and LastName must be provided."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fedwire Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "fedwire/fund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/fedwire/fund",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "State",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "ZipCode",
+                  "value": ""
+                },
+                {
+                  "name": "IPAddress",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                },
+                {
+                  "name": "WalletID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to fund your US Bank account by debiting funds from the specified customer's bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.\n\n If a ClientAccountID is provided, the client account's first/last name, address, phone number, and default bank account will be used for the transaction."
+        },
+        {
+          "info": {
+            "name": "fedwire/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/fedwire/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "State",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "ZipCode",
+                  "value": ""
+                },
+                {
+                  "name": "IPAddress",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to send funds to a specified customer's US Bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.\n\n If a ClientAccountID is provided, the client account's first/last name, address, phone number, and default bank account will be used for the transaction."
+        },
+        {
+          "info": {
+            "name": "fedwire/void",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/fedwire/void",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This method is used to void a previously created Fedwire transaction. Note, you can only void a transaction if it has not yet settled. If the transaction has already settled, then you can use the /fedwire/refund endpoint to reverse the transaction."
+        },
+        {
+          "info": {
+            "name": "fedwire/refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/fedwire/refund",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This method is used to refund a previously created Fedwire transaction."
+        },
+        {
+          "info": {
+            "name": "fedwire/fund/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/fedwire/fund/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The unique ID of the fund transaction"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up and return the full details on a single Fedwire fund transaction."
+        },
+        {
+          "info": {
+            "name": "fedwire/withdraw/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/fedwire/withdraw/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID of the withdraw transaction"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up details on a single Fedwire withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's bank account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "RTP Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "rtp/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/rtp/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientName",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to instantly send funds out of your VoPay account and deposit them to the specified recipient's bank account. \n\n Either an iq11 Token or ABARoutingNumber/AccountNumber is required.\n\n If a ClientAccountID is provided, the client account's first/last name and default bank account will be used for the transaction."
+        },
+        {
+          "info": {
+            "name": "rtp/withdraw/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/rtp/withdraw/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID of the RTP withdraw transaction."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up details on a single RTP withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fednow Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "fednow/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/fednow/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientName",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to instantly send funds out of your VoPay account and deposit them to the specified recipient's bank account. \n\n Either an iq11 Token or ABARoutingNumber/AccountNumber is required.\n\n If a ClientAccountID is provided, the client account's first/last name and default bank account will be used for the transaction."
+        },
+        {
+          "info": {
+            "name": "fednow/withdraw/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/fednow/withdraw/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID of the Fednow withdraw transaction."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up details on a single Fednow withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Digital Wallet Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "google-pay/charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/google-pay/charge",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "GooglePayToken",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is to create a Google Pay transaction to fund your VoPay account, charging the amount specified to the card linked to the provided Google Pay Token.\n\n If a ClientAccountID is provided, the client account's default Google Pay wallet will be used for the transaction.\n\nNote: You must first generate a GooglePayToken using the /google-pay/generate-embed-url endpoint."
+        },
+        {
+          "info": {
+            "name": "google-pay/void",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/google-pay/void",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to void a completed Google Pay transaction."
+        },
+        {
+          "info": {
+            "name": "google-pay/charge/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/google-pay/charge/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Account transaction ID"
+              }
+            ]
+          },
+          "docs": "This method is used to look up and return the full details on a single Google Pay transaction. Google Pay transactions take money out of the customer's card and deposit them into your VoPay account."
+        },
+        {
+          "info": {
+            "name": "apple-pay/charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/apple-pay/charge",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "ApplePayToken",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is to create a Apple Pay transaction to fund your VoPay account, charging the amount specified to the card linked to the provided Apple Pay Token.\n\n If a ClientAccountID is provided, the client account's default Apple Pay wallet will be used for the transaction.\n\nNote: You must first generate a ApplePayToken using the /apple-pay/generate-embed-url endpoint."
+        },
+        {
+          "info": {
+            "name": "apple-pay/void",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/apple-pay/void",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to void a completed Apple Pay transaction."
+        },
+        {
+          "info": {
+            "name": "apple-pay/charge/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/apple-pay/charge/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Account transaction ID"
+              }
+            ]
+          },
+          "docs": "This method is used to look up and return the full details on a single Apple Pay transaction. Apple Pay transactions take money out of the customer's card and deposit them into your VoPay account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "PayPal Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "paypal/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/paypal/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "PayPalToken",
+                  "value": ""
+                },
+                {
+                  "name": "PayPalRecipientType",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientName",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to send funds from your VoPay account to a PayPal account.\n\n If a ClientAccountID is provided, the client account's default PayPal wallet will be used for the transaction."
+        },
+        {
+          "info": {
+            "name": "paypal/withdraw/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/paypal/withdraw/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Account transaction ID"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up and return the full details on a single PayPal withdraw transaction. PayPal withdraw send funds from your VoPay account to the customer's PayPal account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Venmo Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "venmo/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/venmo/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "VenmoToken",
+                  "value": ""
+                },
+                {
+                  "name": "VenmoRecipientType",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientName",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to send funds from your VoPay account to a Venmo account.\n\n If a ClientAccountID is provided, the client account's default Venmo wallet will be used for the transaction."
+        },
+        {
+          "info": {
+            "name": "venmo/withdraw/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/venmo/withdraw/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Account transaction ID"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to look up and return the full details on a single Venmo withdraw transaction. Venmo withdraw send funds from your VoPay account to the customer's Venmo account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Batch Request Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "batch/contacts/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/contacts/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple contact creation requests to VoPay. Each object in the batch is processed against the /contacts/add endpoint: EmailAddress and PhoneNumber are always required, and either BusinessName or both FirstName and LastName must be provided."
+        },
+        {
+          "info": {
+            "name": "batch/eft/fund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/eft/fund",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple EFT fund transaction requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/eft/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/eft/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple EFT withdraw transaction requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/interac/money-request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/interac/money-request",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple Interac money request transaction requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/interac/bulk-payout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/interac/bulk-payout",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple Interac bulk-payout transaction requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/rtr/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/rtr/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple VoPay Instant transaction requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/elinx",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/elinx",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple eLinx beneficiary requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/debit-card/push-funds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/debit-card/push-funds",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple debit card oct push funds requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/ach/fund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/ach/fund",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple ACH Fund requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/ach/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/ach/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple ACH Withdraw requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/credit-card/charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/credit-card/charge",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple Credit Card Charge requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/rtp/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/rtp/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple RTP Withdraw requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/fednow/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/fednow/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple Fednow Withdraw requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/fedwire/fund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/fedwire/fund",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple Fedwire Fund requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch/fedwire/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/fedwire/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BatchName",
+                  "value": ""
+                },
+                {
+                  "name": "BatchData",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit multiple Fedwire Withdraw requests to VoPay."
+        },
+        {
+          "info": {
+            "name": "batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionType",
+                "value": "",
+                "type": "query",
+                "description": "Filters results by transaction type: EFT, Interac, or Paylink. Default is '' (i.e., batch transaction requests of all transaction types are returned)."
+              },
+              {
+                "name": "PaymentType",
+                "value": "",
+                "type": "query",
+                "description": "Filters results by payment type: Credit or Debit. Default is '' (i.e., batch transaction requests of all payment types are returned)."
+              },
+              {
+                "name": "FromDate",
+                "value": "",
+                "type": "query",
+                "description": "Returns all batch transaction requests submitted after this date. Date format is YYYY-MM-DD."
+              },
+              {
+                "name": "ToDate",
+                "value": "",
+                "type": "query",
+                "description": "Returns all batch transaction requests submitted before this date. Date format is YYYY-MM-DD."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch a listing of all your batch transaction requests"
+        },
+        {
+          "info": {
+            "name": "batch/details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/batch/details",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "BatchTransactionRequestID",
+                "value": "",
+                "type": "query",
+                "description": "Unique ID of the batch transaction request you want to fetch the details for."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch the details of a specific batch transaction request"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Journal Entry Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "journal-entry/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/journal-entry/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "CreditAmount",
+                  "value": ""
+                },
+                {
+                  "name": "DebitAmount",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionDate",
+                  "value": ""
+                },
+                {
+                  "name": "FullName",
+                  "value": ""
+                },
+                {
+                  "name": "Status",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to add journal entry into the VoPay platform. Journals do not represent real funds. They are considered offbook funds, and are designed to represent transactions that have occured outside the VoPay platform."
+        },
+        {
+          "info": {
+            "name": "journal-entry/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/journal-entry/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "JournalEntryID",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "CreditAmount",
+                  "value": ""
+                },
+                {
+                  "name": "DebitAmount",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionDate",
+                  "value": ""
+                },
+                {
+                  "name": "FullName",
+                  "value": ""
+                },
+                {
+                  "name": "Status",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to edit journal entry that was previously saved the VoPay platform."
+        },
+        {
+          "info": {
+            "name": "journal-entry/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/journal-entry/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "JournalEntryID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete journal entry that was previously saved the VoPay platform."
+        },
+        {
+          "info": {
+            "name": "journal-entry/transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/journal-entry/transfer",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to transfer offbook funds between VoPay accounts and/or Client accounts. This endpoint will create two journal entries, one to debit the source account and one to credit the destination account."
+        },
+        {
+          "info": {
+            "name": "journal-entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/journal-entry",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "JournalEntryID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to get the journal entry that was previously saved the VoPay platform."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SEPA Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "sepa/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/sepa/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientName",
+                  "value": ""
+                },
+                {
+                  "name": "IBAN",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint debits your account by sending a SEPA Instant payment to a creditor's IBAN. Only EUR currency is supported. Requires SEPAInstantWithdrawEnabled permission and an active EUR virtual account."
+        },
+        {
+          "info": {
+            "name": "sepa/withdraw/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/sepa/withdraw/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The unique ID of the SEPA withdrawal transaction to retrieve"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves full details for a single SEPA Instant withdrawal transaction. Requires SEPAInstantWithdrawEnabled permission."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

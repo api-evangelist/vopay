@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Remittance API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Remittance Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "remittance/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/remittance/create",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "TaxRemittanceType",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "TaxAccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "TaxPeriodEndDate",
+                  "value": ""
+                },
+                {
+                  "name": "PayerName",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "Details",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to create a tax remittance transaction."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

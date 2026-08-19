@@ -1,0 +1,726 @@
+{
+  "item": [
+    {
+      "id": "b3d07de7-a5eb-4ea0-949d-3a487776b25b",
+      "name": "Branding Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8eb141eb-1997-444b-8ab3-272813763c02",
+          "name": "account/branding",
+          "request": {
+            "name": "account/branding",
+            "description": {
+              "content": "This endpoint allows you to apply your branding to all VoPay portals, UIs and emails.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "branding"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Product",
+                  "value": "<string>",
+                  "description": "(Required) The product you want to set branding for. Valid options are: portal, email, elinx, onboarding, asp."
+                },
+                {
+                  "disabled": false,
+                  "key": "PrimaryColor",
+                  "value": "<string>",
+                  "description": "Hex value for the primary color"
+                },
+                {
+                  "disabled": false,
+                  "key": "SecondaryColor",
+                  "value": "<string>",
+                  "description": "Hex value for the secondary color"
+                },
+                {
+                  "disabled": false,
+                  "key": "Logo",
+                  "value": "<string>",
+                  "description": "Base64 encoded logo image. Only SVG is supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "SmallLogo",
+                  "value": "<string>",
+                  "description": "Base64 encoded logo image. Only SVG is supported."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "36665c26-251c-4154-88ef-b87c6e806e8c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "branding"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79cd5e74-bb81-49ff-b874-0e652a43817a",
+          "name": "account/branding-details",
+          "request": {
+            "name": "account/branding-details",
+            "description": {
+              "content": "This endpoint allows you to fetch your existing branding details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "branding-details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Product",
+                  "value": "<string>",
+                  "description": "(Required) The product you want to fetch branding details for. Valid options are: portal, email, elinx, onboarding, asp."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18bdc399-ba8f-4630-9d11-d7753fa8d67f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "branding-details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Product",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"BrandingDetails\": {\n    \"PrimaryColor\": \"#FF0000\",\n    \"SecondaryColor\": \"#FF0000\",\n    \"TextColor\": \"#FF0000\",\n    \"ButtonTextColor\": \"#FF0000\",\n    \"Product\": \"portal\"\n  },\n  \"Logo\": \"SGVsbG8gV29ybGQh\",\n  \"LogoUrl\": \"https://example.com/logo.svg\",\n  \"SmallLogo\": \"SGVsbG8gV29ybGQh\",\n  \"SmallLogoUrl\": \"https://example.com/logo.svg\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45cc1da6-804f-4bf0-a8e3-04fe637106c4",
+          "name": "account/branding/delete",
+          "request": {
+            "name": "account/branding/delete",
+            "description": {
+              "content": "This endpoint allows you to delete your branding.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "branding",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Product",
+                  "value": "<string>",
+                  "description": "(Required) The product you want to delete branding for. Valid options are: portal, email, elinx, onboarding, asp."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "469f4d96-df59-4f3b-b534-a9b5893b2a0f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "branding",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ecc3c3da-2830-463a-8eef-f7e779c60136",
+          "name": "partner/branding",
+          "request": {
+            "name": "partner/branding",
+            "description": {
+              "content": "This endpoint allows you to apply your branding to all VoPay portals, UIs and emails.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "branding"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Product",
+                  "value": "<string>",
+                  "description": "(Required) The product you want to set branding for. Valid options are: portal, email, elinx, onboarding, asp."
+                },
+                {
+                  "disabled": false,
+                  "key": "PrimaryColor",
+                  "value": "<string>",
+                  "description": "Hex value for the primary color"
+                },
+                {
+                  "disabled": false,
+                  "key": "SecondaryColor",
+                  "value": "<string>",
+                  "description": "Hex value for the secondary color"
+                },
+                {
+                  "disabled": false,
+                  "key": "Logo",
+                  "value": "<string>",
+                  "description": "Base64 encoded logo image. Only SVG is supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "SmallLogo",
+                  "value": "<string>",
+                  "description": "Base64 encoded logo image. Only SVG is supported."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e646ca5d-9736-4d2d-a59b-c5d56443fafd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "branding"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a24cfd9-513c-4183-913d-091865d2b72b",
+          "name": "partner/branding-details",
+          "request": {
+            "name": "partner/branding-details",
+            "description": {
+              "content": "This endpoint allows you to fetch your existing branding details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "branding-details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Product",
+                  "value": "<string>",
+                  "description": "(Required) The product you want to fetch branding details for. Valid options are: portal, email, elinx, onboarding, asp."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fafba85-6241-41cc-bb38-5d54b806d3f7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "branding-details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Product",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"BrandingDetails\": {\n    \"PrimaryColor\": \"#FF0000\",\n    \"SecondaryColor\": \"#FF0000\",\n    \"TextColor\": \"#FF0000\",\n    \"ButtonTextColor\": \"#FF0000\",\n    \"Product\": \"portal\"\n  },\n  \"Logo\": \"SGVsbG8gV29ybGQh\",\n  \"LogoUrl\": \"https://example.com/logo.svg\",\n  \"SmallLogo\": \"SGVsbG8gV29ybGQh\",\n  \"SmallLogoUrl\": \"https://example.com/logo.svg\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54595a1e-5491-4e5b-b711-2ba4033d4923",
+          "name": "partner/branding/delete",
+          "request": {
+            "name": "partner/branding/delete",
+            "description": {
+              "content": "This endpoint allows you to delete your branding.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "partner",
+                "branding",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "Product",
+                  "value": "<string>",
+                  "description": "(Required) The product you want to delete branding for. Valid options are: portal, email, elinx, onboarding, asp."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0e08288b-d6c1-471f-b712-ab8a9c29b3b6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partner",
+                    "branding",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://earthnode-dev.vopay.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5ee50713-43d7-45eb-b4fe-a1271b49b6c2",
+    "name": "Branding",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Branding API allows you to apply your branding to all VoPay portals, UIs and emails.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+      "type": "text/plain"
+    }
+  }
+}

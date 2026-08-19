@@ -1,0 +1,1287 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Integrations and Support",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integration Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/set-plaid-credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/set-plaid-credentials",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidClientID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidSecretKey",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidUrl",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to configure the optional integration with a Plaid account. For more information please visit [our integration section](https://docs.vopay.com/docs/plaid-integration)."
+        },
+        {
+          "info": {
+            "name": "account/set-flinks-credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/set-flinks-credentials",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksUrl",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to configure the optional integration with a Flinks account. For more information please visit [our integration section](https://docs.vopay.com/docs/flinks-integration)."
+        },
+        {
+          "info": {
+            "name": "account/set-inverite-credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/set-inverite-credentials",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "InveriteAPIKey",
+                  "value": ""
+                },
+                {
+                  "name": "InveriteUrl",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to configure the optional integration with a Inverite account. For more information please visit [our integration section](https://docs.vopay.com/docs/inverite-integration)."
+        },
+        {
+          "info": {
+            "name": "account/set-global-pay-credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/set-global-pay-credentials",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "GlobalPayAppID",
+                  "value": ""
+                },
+                {
+                  "name": "GlobalPaySharedSecret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to configure the optional integration with a Global Pay account. For more information please visit [our integration section](https://docs.vopay.com/docs/global-pay-integration)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Support Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/tickets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/tickets",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Email",
+                "value": "",
+                "type": "query",
+                "description": "An email address"
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned. The limit and default value is 100. This parameter can only be used with Email parameter."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset. This parameter can only be used with Email parameter."
+              },
+              {
+                "name": "StartDate",
+                "value": "",
+                "type": "query",
+                "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD"
+              },
+              {
+                "name": "EndDate",
+                "value": "",
+                "type": "query",
+                "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch a list of support tickets via our API. If no email address is passed in then it will fetch all tickets for the account. If an email address is passed in, it will fetch all tickets for the account that have been submitted, including CC'd, by that email."
+        },
+        {
+          "info": {
+            "name": "account/submit-ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/submit-ticket",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "SenderEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "TicketRequesterName",
+                  "value": ""
+                },
+                {
+                  "name": "TicketSubject",
+                  "value": ""
+                },
+                {
+                  "name": "TicketContent",
+                  "value": ""
+                },
+                {
+                  "name": "TicketCategory",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "CcEmails",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit support tickets via our API."
+        },
+        {
+          "info": {
+            "name": "account/submit-ticket-comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/submit-ticket-comment",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TicketAuthor",
+                  "value": ""
+                },
+                {
+                  "name": "TicketComment",
+                  "value": ""
+                },
+                {
+                  "name": "TicketID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit a comment on an existing support tickets via our API. Ticket comments represent the conversation between user and support team. Use the TicketID (obtained from /account/submit-ticket endpoint) to identify the ticket you want to attach the comment to"
+        },
+        {
+          "info": {
+            "name": "account/ticket-attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/ticket-attachment",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TicketAttachment",
+                  "value": ""
+                },
+                {
+                  "name": "TicketID",
+                  "value": ""
+                },
+                {
+                  "name": "AttachmentFileName",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "You can upload a file and attach it to an existing support tickets via our API. Use the TicketID (obtained from /account/submit-ticket endpoint) to identify the ticket you want to attach the file to. Here are some rules regarding the document requirements:\n\n* The maximum allowed file size is 10Mb\n\n* Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64\n\n*"
+        },
+        {
+          "info": {
+            "name": "partner/tickets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/tickets",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Email",
+                "value": "",
+                "type": "query",
+                "description": "An email address"
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned. The limit and default value is 100. This parameter can only be used with Email parameter."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset. This parameter can only be used with Email parameter."
+              },
+              {
+                "name": "StartDate",
+                "value": "",
+                "type": "query",
+                "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD"
+              },
+              {
+                "name": "EndDate",
+                "value": "",
+                "type": "query",
+                "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch a list of support tickets via our API. If no email address is passed in then it will fetch all tickets for the account. If an email address is passed in, it will fetch all tickets for the account that have been submitted, including CC'd, by that email."
+        },
+        {
+          "info": {
+            "name": "partner/submit-ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/submit-ticket",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "SenderEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "AccountName",
+                  "value": ""
+                },
+                {
+                  "name": "TicketRequesterName",
+                  "value": ""
+                },
+                {
+                  "name": "TicketSubject",
+                  "value": ""
+                },
+                {
+                  "name": "TicketContent",
+                  "value": ""
+                },
+                {
+                  "name": "TicketCategory",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "CcEmails",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit support tickets via our API."
+        },
+        {
+          "info": {
+            "name": "partner/submit-ticket-comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/submit-ticket-comment",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TicketAuthor",
+                  "value": ""
+                },
+                {
+                  "name": "TicketComment",
+                  "value": ""
+                },
+                {
+                  "name": "TicketID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to submit a comment on an existing support tickets via our API. Ticket comments represent the conversation between user and support team. Use the TicketID (obtained from /partner/submit-ticket endpoint) to identify the ticket you want to add the comment to."
+        },
+        {
+          "info": {
+            "name": "partner/ticket-attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/ticket-attachment",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TicketAttachment",
+                  "value": ""
+                },
+                {
+                  "name": "TicketID",
+                  "value": ""
+                },
+                {
+                  "name": "AttachmentFileName",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "You can upload a file and attach it to an existing support tickets via our API. Use the TicketID (obtained from /partner/submit-ticket endpoint) to identify the ticket you want to attach the file to. Here are some rules regarding the document requirements:\n\n* The maximum allowed file size is 10Mb\n\n* Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64\n\n*"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Webhook Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/webhook-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/webhook-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "WebHookUrl",
+                  "value": ""
+                },
+                {
+                  "name": "Type",
+                  "value": ""
+                },
+                {
+                  "name": "Disabled",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will allow the user to add or modify a webhook URL.\n\nThe purpose of the webhook URL is to notify users of any changes in transaction status, paylink status, account status, account verification status, as well as bank account creation, scheduled transaction creation, batch request processed, and batch request failed."
+        },
+        {
+          "info": {
+            "name": "account/webhook-url/info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/webhook-url/info",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint will retrieve your webhook URL."
+        },
+        {
+          "info": {
+            "name": "account/webhook-url/test",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/webhook-url/test",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Type",
+                  "value": ""
+                },
+                {
+                  "name": "Payload",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "In this endpoint, you will be able to test your webhook URL. We will send you an example of the payload that you will receive."
+        },
+        {
+          "info": {
+            "name": "account/webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/webhooks",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Type",
+                "value": "",
+                "type": "query",
+                "description": "The type of webhook notification you wish to fetch. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction."
+              },
+              {
+                "name": "WebhookID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of webhook notifications you wish to fetch."
+              },
+              {
+                "name": "NotificationStatus",
+                "value": "",
+                "type": "query",
+                "description": "Filter webhook notification by status. Possible values are: new, processed, failed, deprecated."
+              },
+              {
+                "name": "StartDate",
+                "value": "",
+                "type": "query",
+                "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD"
+              },
+              {
+                "name": "EndDate",
+                "value": "",
+                "type": "query",
+                "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD"
+              }
+            ]
+          },
+          "docs": "This endpoint can be used to fetch a list of sent webhook notifications. Maximum date range is 1 month. If no date range is provided, it will default to the past 30 days."
+        },
+        {
+          "info": {
+            "name": "account/webhook/resend",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/webhook/resend",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "EventID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.\n\n The event ID can be fetched using the [GET /account/webhooks endpoint](https://docs.vopay.com/reference/accountwebhooksget)."
+        },
+        {
+          "info": {
+            "name": "partner/webhook-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/webhook-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "WebHookUrl",
+                  "value": ""
+                },
+                {
+                  "name": "Type",
+                  "value": ""
+                },
+                {
+                  "name": "Disabled",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will allow the user to modify the webhook URL.\n\nThe purpose of the webhook URL is to notify users of any changes in the status of the accounts you create."
+        },
+        {
+          "info": {
+            "name": "partner/webhook-url/info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/webhook-url/info",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint will retrieve your webhook URL."
+        },
+        {
+          "info": {
+            "name": "partner/webhook-url/test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/webhook-url/test",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "In this endpoint, you will be able to test your webhook URL. We will send you an example of the payload that you will receive."
+        },
+        {
+          "info": {
+            "name": "partner/webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/webhooks",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "WebhookID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of webhook notifications you wish to fetch."
+              },
+              {
+                "name": "StartDate",
+                "value": "",
+                "type": "query",
+                "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD"
+              },
+              {
+                "name": "EndDate",
+                "value": "",
+                "type": "query",
+                "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD"
+              }
+            ]
+          },
+          "docs": "This endpoint can be used to fetch a list of sent webhook notifications. Maximum date range is 1 month. If no date range is provided, it will default to the past 30 days."
+        },
+        {
+          "info": {
+            "name": "partner/webhook/resend",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/webhook/resend",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "EventID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.\n\n The event ID can be fetched using the [GET /partner/webhooks endpoint](https://docs.vopay.com/reference/partnerwebhooksget)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "API Key Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/keys",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows the user to fetch the API key IDs associated with their account."
+        },
+        {
+          "info": {
+            "name": "account/keys/retrieve",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/keys/retrieve",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "KeyID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows the user to fetch a particular API key associated with their account including sensitive information."
+        },
+        {
+          "info": {
+            "name": "account/keys/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/keys/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows the user to add an API key associated to their account"
+        },
+        {
+          "info": {
+            "name": "account/keys/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/keys/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "KeyID",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows the user to edit an API key's label associated to their account"
+        },
+        {
+          "info": {
+            "name": "account/keys/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/keys/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "KeyID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows the user to delete a particular API key associated with their account"
+        },
+        {
+          "info": {
+            "name": "partner/keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/keys",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows the user to fetch the API key IDs associated with their partner account."
+        },
+        {
+          "info": {
+            "name": "partner/keys/retrieve",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/keys/retrieve",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "KeyID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows the user to fetch a particular API key associated with their partner account including sensitive information."
+        },
+        {
+          "info": {
+            "name": "partner/keys/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/keys/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows the user to add an API key associated to their partner account"
+        },
+        {
+          "info": {
+            "name": "partner/keys/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/keys/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "KeyID",
+                  "value": ""
+                },
+                {
+                  "name": "Label",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows the user to edit an API key's label associated to their partner account"
+        },
+        {
+          "info": {
+            "name": "partner/keys/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/keys/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "KeyID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows the user to delete a particular API key associated with their partner account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

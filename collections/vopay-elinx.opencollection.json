@@ -1,0 +1,378 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "eLinx",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "eLinx Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "elinx",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/elinx",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ELinxRequestType",
+                "value": "",
+                "type": "query",
+                "description": "Filters results by eLinx request type: scheduled, transaction or beneficiary. Default is '' (i.e., all eLinx requests are returned)."
+              },
+              {
+                "name": "ELinxRequestID",
+                "value": "",
+                "type": "query",
+                "description": "Filters results by eLinx request ID"
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Filters results that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format. Default is 30 days ago."
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Filters results that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format. Default is the current date/time."
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              },
+              {
+                "name": "Timezone ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to retrieve a listing of all eLinx requests."
+        },
+        {
+          "info": {
+            "name": "elinx",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/elinx",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "SenderName",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiverName",
+                  "value": ""
+                },
+                {
+                  "name": "PaymentType",
+                  "value": ""
+                },
+                {
+                  "name": "BankingPaymentRail",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Frequency",
+                  "value": ""
+                },
+                {
+                  "name": "NameOfFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleEndDate",
+                  "value": ""
+                },
+                {
+                  "name": "EndingAfterPayments",
+                  "value": ""
+                },
+                {
+                  "name": "SemiMonthlyFrequencyType",
+                  "value": ""
+                },
+                {
+                  "name": "InvoiceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "DocumentID",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Note",
+                  "value": ""
+                },
+                {
+                  "name": "SendNotification",
+                  "value": ""
+                },
+                {
+                  "name": "NotificationMethod",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiverEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiverPhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "IframeKey",
+                  "value": ""
+                },
+                {
+                  "name": "FlexiblePaymentOptions",
+                  "value": ""
+                },
+                {
+                  "name": "MinimumPaymentAccepted",
+                  "value": ""
+                },
+                {
+                  "name": "RemainderPaymentDate",
+                  "value": ""
+                },
+                {
+                  "name": "NumberOfInstallments",
+                  "value": ""
+                },
+                {
+                  "name": "InstallmentFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "SendReminder",
+                  "value": ""
+                },
+                {
+                  "name": "ReminderFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientMessage",
+                  "value": ""
+                },
+                {
+                  "name": "PaymentMethodDisplayOptions",
+                  "value": ""
+                },
+                {
+                  "name": "OTPRequired",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to create an eLinx request. Once the eLinx request is created successfully, the request link will be sent through an email to the recipient.\n\nNotes:\n\n* If you do not wish to send an eLinx request via an email, sms or whatsapp, then simply set SendNotification = false\n\n* Before sending an eLinx request, you must set your default email address using the /elinx/setup-sender-email endpoint."
+        },
+        {
+          "info": {
+            "name": "elinx/cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/elinx/cancel",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ELinxRequestID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to cancel an incomplete eLinx request"
+        },
+        {
+          "info": {
+            "name": "elinx/settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/elinx/settings",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to retrieve a list of all eLinx settings."
+        },
+        {
+          "info": {
+            "name": "elinx/settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/elinx/settings",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ELinxSenderEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "DefaultNotificationMethod",
+                  "value": ""
+                },
+                {
+                  "name": "ELinxReminderFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "ELinxExpirationTime",
+                  "value": ""
+                },
+                {
+                  "name": "EnableELinxDecline",
+                  "value": ""
+                },
+                {
+                  "name": "SenderNotificationsEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiverNotificationsEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "ELinxReminderEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "OTPRequired",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to update the eLinx settings for an account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

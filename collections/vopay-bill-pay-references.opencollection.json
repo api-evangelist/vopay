@@ -1,0 +1,387 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bill Pay",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bill Pay Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "bill-pay/create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bill-pay/create",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "AccountBillPayMerchantID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to create a bill pay transaction."
+        },
+        {
+          "info": {
+            "name": "bill-pay/cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bill-pay/cancel",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to cancel a bill pay transaction."
+        },
+        {
+          "info": {
+            "name": "bill-pay/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bill-pay/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the transaction to fetch."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch a bill pay transaction."
+        },
+        {
+          "info": {
+            "name": "bill-pay/merchants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bill-pay/merchants",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "SearchText",
+                "value": "",
+                "type": "query",
+                "description": "Text to search for in merchant names."
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of merchants to return. Default is 50."
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of merchants to skip. Default is 0."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch bill pay merchants."
+        },
+        {
+          "info": {
+            "name": "bill-pay/account/merchants/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bill-pay/account/merchants/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "BillPayMerchantID",
+                  "value": ""
+                },
+                {
+                  "name": "Nickname",
+                  "value": ""
+                },
+                {
+                  "name": "PaymentAccount",
+                  "value": ""
+                },
+                {
+                  "name": "AdditionalInformation",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to add a merchant to an account."
+        },
+        {
+          "info": {
+            "name": "bill-pay/account/merchants/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bill-pay/account/merchants/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "AccountBillPayMerchantID",
+                  "value": ""
+                },
+                {
+                  "name": "Nickname",
+                  "value": ""
+                },
+                {
+                  "name": "PaymentAccount",
+                  "value": ""
+                },
+                {
+                  "name": "AdditionalInformation",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to edit an account-level merchant."
+        },
+        {
+          "info": {
+            "name": "bill-pay/account/merchants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bill-pay/account/merchants",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The Client Account ID to fetch merchants for."
+              },
+              {
+                "name": "SearchText",
+                "value": "",
+                "type": "query",
+                "description": "Text to search for in merchant names."
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of merchants to return. Default is 50."
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of merchants to skip. Default is 0."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch bill pay merchants for an account."
+        },
+        {
+          "info": {
+            "name": "bill-pay/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bill-pay/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "StylesheetUrl",
+                  "value": ""
+                },
+                {
+                  "name": "Language",
+                  "value": ""
+                },
+                {
+                  "name": "DarkMode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to generate a URL to create a bill pay iframe."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

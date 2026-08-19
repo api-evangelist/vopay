@@ -1,0 +1,430 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "File Conversion",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "File Conversion Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "file-conversion/upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/file-conversion/upload",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "SourceFileName",
+                  "value": ""
+                },
+                {
+                  "name": "SourceFile",
+                  "value": ""
+                },
+                {
+                  "name": "Service",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a file for conversion or submission to a banking partner."
+        },
+        {
+          "info": {
+            "name": "file-conversion/submit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/file-conversion/submit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "FileConversionID",
+                  "value": ""
+                },
+                {
+                  "name": "FileConversionConfigurationID",
+                  "value": ""
+                },
+                {
+                  "name": "ValueDate",
+                  "value": ""
+                },
+                {
+                  "name": "PaymentRail",
+                  "value": ""
+                },
+                {
+                  "name": "AlternatePaymentRail",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Submit an uploaded file for processing and transmission to a banking partner."
+        },
+        {
+          "info": {
+            "name": "file-conversion/download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/file-conversion/download",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "FileConversionID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the file conversion job"
+              },
+              {
+                "name": "FileConversionConfigurationID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the file conversion configuration used for conversion"
+              },
+              {
+                "name": "ValueDate",
+                "value": "",
+                "type": "query",
+                "description": "The value date for the transactions (YYYY-MM-DD). Defaults to current date if not provided"
+              },
+              {
+                "name": "PaymentRail",
+                "value": "",
+                "type": "query",
+                "description": "The payment rail used for conversion"
+              },
+              {
+                "name": "AlternatePaymentRail",
+                "value": "",
+                "type": "query",
+                "description": "An alternate payment rail used for conversion"
+              }
+            ]
+          },
+          "docs": "Download the converted target file for a specific file conversion."
+        },
+        {
+          "info": {
+            "name": "file-conversion/download-source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/file-conversion/download-source",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "FileConversionID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the file conversion job"
+              }
+            ]
+          },
+          "docs": "Download the original source file that was uploaded for conversion."
+        },
+        {
+          "info": {
+            "name": "file-conversion/configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/file-conversion/configurations",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "Get available file conversion configurations and supported payment rails for your account."
+        },
+        {
+          "info": {
+            "name": "file-conversion/history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/file-conversion/history",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Processor",
+                "value": "",
+                "type": "query",
+                "description": "Filter by processor/banking partner"
+              },
+              {
+                "name": "ConversionStatus",
+                "value": "",
+                "type": "query",
+                "description": "Filter by conversion status"
+              },
+              {
+                "name": "PaymentRail",
+                "value": "",
+                "type": "query",
+                "description": "Filter by payment rail"
+              },
+              {
+                "name": "Service",
+                "value": "",
+                "type": "query",
+                "description": "Filter by service type"
+              },
+              {
+                "name": "StartDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter by start date (YYYY-MM-DD)"
+              },
+              {
+                "name": "EndDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter by end date (YYYY-MM-DD)"
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination"
+              },
+              {
+                "name": "Timezone",
+                "value": "",
+                "type": "query",
+                "description": "Timezone for date filtering (e.g., America/Toronto)"
+              }
+            ]
+          },
+          "docs": "Get file conversion history for your account with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "file-conversion/preprocessing/configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/file-conversion/preprocessing/configurations",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "SourceFormat",
+                "value": "",
+                "type": "query",
+                "description": "Filter configurations by source format (e.g., xml, json)"
+              },
+              {
+                "name": "SourceFile",
+                "value": "",
+                "type": "query",
+                "description": "Source file content to analyze for configuration options, base64 encoded"
+              }
+            ]
+          },
+          "docs": "Get preprocessing configurations for the authenticated account."
+        },
+        {
+          "info": {
+            "name": "file-conversion/transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/file-conversion/transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "FileConversionID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the file conversion job"
+              },
+              {
+                "name": "Processor",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions formatted for a specific processor"
+              },
+              {
+                "name": "IsFailed",
+                "value": "",
+                "type": "query",
+                "description": "Filter to show only failed transactions"
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return (default: 50)"
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination (default: 0)"
+              },
+              {
+                "name": "Timezone",
+                "value": "",
+                "type": "query",
+                "description": "Timezone for date formatting (e.g., America/Toronto)"
+              }
+            ]
+          },
+          "docs": "Get formatted transactions for a specific file conversion. Optionally filter by processor to view transactions in the format they would be sent to that provider."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

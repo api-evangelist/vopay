@@ -1,0 +1,470 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Account Onboarding",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account Onboarding Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/submit-extended-info/shareholder-info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/submit-extended-info/shareholder-info",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint will return a full list of all shareholder information."
+        },
+        {
+          "info": {
+            "name": "account/submit-extended-info/shareholder-info/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/submit-extended-info/shareholder-info/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderFullName",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderDOB",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderOwnership",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderOccupation",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderAddress1",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderAddress2",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderCity",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderProvince",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderCountry",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderPostalCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to insert the shareholder information for a newly created VoPay account."
+        },
+        {
+          "info": {
+            "name": "account/submit-extended-info/shareholder-info/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/submit-extended-info/shareholder-info/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ShareHolderID",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderFullName",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderDOB",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderOwnership",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderOccupation",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderAddress1",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderAddress2",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderCity",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderProvince",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderCountry",
+                  "value": ""
+                },
+                {
+                  "name": "ShareholderPostalCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to edit an existing shareholder linked to your VoPay account. You will need to provide the Shareholder ID, which you can  get from the GET /account/shareholder-info endpoint"
+        },
+        {
+          "info": {
+            "name": "account/submit-extended-info/signing-authority-info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/submit-extended-info/signing-authority-info",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint will return a full list of all signing-authority information."
+        },
+        {
+          "info": {
+            "name": "account/submit-extended-info/signing-authority-info/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/submit-extended-info/signing-authority-info/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedFullLegalName",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedDOB",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedOccupation",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedAddress1",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedAddress2",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedCity",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedProvince",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedCountry",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedPostalCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to insert the signing authority information for a newly created VoPay account."
+        },
+        {
+          "info": {
+            "name": "account/submit-extended-info/signing-authority-info/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/submit-extended-info/signing-authority-info/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "SigningAuthorityID",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedFullLegalName",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedDOB",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedOccupation",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedAddress1",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedAddress2",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedCity",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedProvince",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedCountry",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedPostalCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to edit an existing signing authority linked to your VoPay account. You will need to provide the Signing Authority ID, which you can  get from the GET /account/signing-authority-info endpoint"
+        },
+        {
+          "info": {
+            "name": "account/business-types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/business-types",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint can be used to return a list of industries and categories under which a company can be classified. The response will be an array of industry types nested within an array of sub categories."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Document Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/document",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DocumentName",
+                  "value": ""
+                },
+                {
+                  "name": "DocumentContent",
+                  "value": ""
+                },
+                {
+                  "name": "DocumentType",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to upload account documents.Only one document can be uploaded by request. You must provide the document name and its content. Here are some rules regarding the document requirements:\n\n* The types accepted are: PDF, PNG or JPEG\n\n* The maximum allowed file size is 10Mb\n\n* Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64\n\n* The same document cannot be uploaded twice with the same name"
+        },
+        {
+          "info": {
+            "name": "document/[DocumentID]",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/document/[:DocumentID]",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "To retrieve a document once it is uploaded, send a request to this endpoint. It will return the document URL so you can have direct access to it. Replace the {DocumentID} in the endpoint with the DocumentID returned from the document list endpoint or the one returned by the upload endpoint. The returned URL is valid for 60 mins."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

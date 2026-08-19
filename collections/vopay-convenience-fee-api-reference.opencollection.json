@@ -1,0 +1,226 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Convenience Fees",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Convenience Fees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get convenience fee settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/convenience-fees/settings",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "Returns all convenience fee settings configured for the authenticated account. Each setting defines the transaction fee and processing fee applied for a specific payment rail. Requires the ViewConvenienceFees permission."
+        },
+        {
+          "info": {
+            "name": "Create or update a convenience fee setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/convenience-fees/settings",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeID",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionFee",
+                  "value": ""
+                },
+                {
+                  "name": "ProcessingFee",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Creates or updates a convenience fee setting for a specific transaction type. If a setting already exists for the given TransactionTypeID it will be updated; otherwise a new setting is created. Requires the ManageConvenienceFees permission."
+        },
+        {
+          "info": {
+            "name": "Delete a convenience fee setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/convenience-fees/settings",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "SettingID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the convenience fee setting to delete"
+              }
+            ]
+          },
+          "docs": "Deletes a convenience fee setting by ID. The setting must belong to the authenticated account. Requires the ManageConvenienceFees permission."
+        },
+        {
+          "info": {
+            "name": "Get convenience fee rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/convenience-fees/rules",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "Returns all jurisdiction rules configured for the authenticated account. Each rule defines a jurisdiction (province/state) where convenience fees will not be collected. Requires the ViewConvenienceFees permission."
+        },
+        {
+          "info": {
+            "name": "Add a convenience fee rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/convenience-fees/rules",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Jurisdiction",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Adds a jurisdiction rule for the authenticated account. Convenience fees will not be collected for transactions originating from the specified jurisdiction. Requires the ManageConvenienceFees permission."
+        },
+        {
+          "info": {
+            "name": "Delete a convenience fee rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/convenience-fees/rules",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "RuleID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the jurisdiction rule to delete"
+              }
+            ]
+          },
+          "docs": "Deletes a jurisdiction rule by ID. The rule must belong to the authenticated account. Requires the ManageConvenienceFees permission."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

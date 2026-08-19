@@ -1,0 +1,235 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Virtual Accounts",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Virtual Account Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "virtual-account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/virtual-account",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Status",
+                "value": "",
+                "type": "query",
+                "description": "The status of the virtual account"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "Currency abbreviation (e.g., USD, CAD, EUR)"
+              }
+            ]
+          },
+          "docs": "Retrieve information about virtual accounts associated with your account."
+        },
+        {
+          "info": {
+            "name": "virtual-account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/virtual-account",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create a new virtual account."
+        },
+        {
+          "info": {
+            "name": "virtual-account/close",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/virtual-account/close",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VirtualAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Close (deactivate) a virtual account. The virtual account balance must be zero (both the available balance and any pending balance) before it can be closed."
+        },
+        {
+          "info": {
+            "name": "virtual-account/balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/virtual-account/balance",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "VirtualAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the virtual account to retrieve the balance for"
+              }
+            ]
+          },
+          "docs": "Retrieve the balance for a specific virtual account."
+        },
+        {
+          "info": {
+            "name": "virtual-account/transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/virtual-account/transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "VirtualAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the virtual account to retrieve transactions for"
+              }
+            ]
+          },
+          "docs": "Retrieve the transaction history for a specific virtual account."
+        },
+        {
+          "info": {
+            "name": "virtual-account/simulate-credit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/virtual-account/simulate-credit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VirtualAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Simulate a credit to a virtual account. This endpoint is used for testing purposes to add funds to a virtual account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

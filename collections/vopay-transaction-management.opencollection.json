@@ -1,0 +1,274 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Transaction Management",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transaction Management Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/transaction/resubmit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transaction/resubmit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "PaymentRail",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint creates a new transaction from an existing one, reusing the original recipient and bank account details. It is useful for retrying a failed or returned transaction without re-entering the payment information.\n\nBy default the new transaction is created on the same payment rail as the original. To resubmit on a different rail, supply the optional PaymentRail parameter (for example, resubmitting a returned EFT withdrawal as ACH). The target rail must be supported for the transaction's"
+        },
+        {
+          "info": {
+            "name": "account/transactions/cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transactions/cancel",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows a recently created transaction to be cancelled. Once a transaction has begun being processed it can no longer be canceled through this endpoint.\n\nPaylink can also be cancelled using this endpoint and can only be cancelled if it is in a pending status. Once the paylink is cancelled successfully, the cancellation email will be sent to the recipient as a cancellation confirmation."
+        },
+        {
+          "info": {
+            "name": "account/transactions/refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transactions/refund",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to refund a completed transaction (EFT, ACH, Interac, and credit card). The payment information provided in the original transaction is used in the refund."
+        },
+        {
+          "info": {
+            "name": "account/transaction/return",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transaction/return",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "ReturnReason",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to return a transaction. A return can be initiated for EFT and ACH transactions that need to be returned (e.g., insufficient funds, account closed, or invalid account). The original transaction must be in a completed state to be returned."
+        },
+        {
+          "info": {
+            "name": "account/transaction/confirm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transaction/confirm",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows users to confirm a flagged transaction. Confirming a flagged transaction permits the transaction to be processed. Unconfirmed flagged transactions will not be processed."
+        },
+        {
+          "info": {
+            "name": "account/transaction/hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transaction/hold",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint creates a hold on funds in your account. The held amount is reserved and will not be available for other transactions until the hold is released or the hold transaction is cancelled."
+        },
+        {
+          "info": {
+            "name": "account/transaction/hold/release",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transaction/hold/release",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint releases an existing hold transaction, making the previously held funds available again. The hold must be in a pending status to be released."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

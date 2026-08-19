@@ -1,14 +1,13 @@
 generated: '2026-07-24'
 method: derived
 status: candidate
-source: Derived one tool per OpenAPI operationId; no official VoPay MCP server was
-  found as of this round.
+source: Derived one tool per OpenAPI operationId; no official VoPay MCP server was found as of this round.
 server:
   name: vopay
   transport: http
   url: null
-  note: No hosted/remote VoPay MCP server published. This is a candidate tool surface
-    an MCP wrapper could expose over the REST API.
+  note: No hosted/remote VoPay MCP server published. This is a candidate tool surface an MCP wrapper could
+    expose over the REST API.
 auth:
   model: API key + shared-secret SHA1 signature
   see: authentication/vopay-authentication.yml
@@ -194,3 +193,9 @@ tools:
 - name: BillPayAccountMerchantsGet
   description: bill-pay/account/merchants
   source_operation: openapi/vopay-bill-pay-references.json#BillPayAccountMerchantsGet
+deployment:
+  mode: none
+  verified: derived
+  tools: 403
+  checked: '2026-08-12'
+  source: catalog MCP census

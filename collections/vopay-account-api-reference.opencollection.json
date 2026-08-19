@@ -1,0 +1,3062 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Accounts",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Partner Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "partner/account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              },
+              {
+                "name": "IncludeBalances",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes balance data for each account. Defaults to true."
+              },
+              {
+                "name": "IncludeExtendedInfo",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes signing authorities, beneficial owners, and other KYC fields for each account. Defaults to true."
+              },
+              {
+                "name": "IncludeChildAccounts",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes nested sub-accounts for each account. Defaults to true."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to get a list of accounts created using a partner account. It will return the accounts data including shareholder, signing authority and balance information"
+        },
+        {
+          "info": {
+            "name": "partner/account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Name",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountsEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "ParentAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "CreateVirtualAccount",
+                  "value": ""
+                },
+                {
+                  "name": "VopayAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "PrimaryContactName",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to create a VoPay account. You will need to sign-up as a partner account in order to use this endpoint and start creating VoPay accounts for your users."
+        },
+        {
+          "info": {
+            "name": "partner/account/business-case",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account/business-case",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VopayAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessEmail",
+                  "value": ""
+                },
+                {
+                  "name": "DoingBusinessAs",
+                  "value": ""
+                },
+                {
+                  "name": "WebsiteURL",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessModel",
+                  "value": ""
+                },
+                {
+                  "name": "MSB",
+                  "value": ""
+                },
+                {
+                  "name": "NumberofYearsInBusiness",
+                  "value": ""
+                },
+                {
+                  "name": "InteracETransferCurrent",
+                  "value": ""
+                },
+                {
+                  "name": "VisaMastercardProcessingCurrent",
+                  "value": ""
+                },
+                {
+                  "name": "VisaDirectMCSendCurrent",
+                  "value": ""
+                },
+                {
+                  "name": "EFTCurrent",
+                  "value": ""
+                },
+                {
+                  "name": "VirtualAccountsCurrent",
+                  "value": ""
+                },
+                {
+                  "name": "NoneOfTheAboveCurrent",
+                  "value": ""
+                },
+                {
+                  "name": "EFTiQ11Required",
+                  "value": ""
+                },
+                {
+                  "name": "EFTRequired",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferBulkPayoutRequired",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferMoneyRequestRequired",
+                  "value": ""
+                },
+                {
+                  "name": "VisaDirectMCSendRequired",
+                  "value": ""
+                },
+                {
+                  "name": "VisaMastercardProcessingRequired",
+                  "value": ""
+                },
+                {
+                  "name": "InboundEtransferRequired",
+                  "value": ""
+                },
+                {
+                  "name": "VirtualAccountsRequired",
+                  "value": ""
+                },
+                {
+                  "name": "OtherRequired",
+                  "value": ""
+                },
+                {
+                  "name": "OtherRequiredServies",
+                  "value": ""
+                },
+                {
+                  "name": "EFTPushTotalTransactionCount",
+                  "value": ""
+                },
+                {
+                  "name": "EFTPushTotalTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "EFTPushTransactionAverage",
+                  "value": ""
+                },
+                {
+                  "name": "EFTPushMinimumTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "EFTPushMaximumTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "EFTPullTotalTransactionCount",
+                  "value": ""
+                },
+                {
+                  "name": "EFTPullTotalTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "EFTPullAverageTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "EFTPullMinimumTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "EFTPullMaximumTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferSendTotalTransactionCount",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferSendTotalTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferSendAverageTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferSendMinimumTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferSendMaximumTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferRequestDailyTransactionCount",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferRequestDailyTransactionTotal",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferRequestAverageTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferRequestMinimumTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "ETransferRequestMaximumTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "DomesticDebitPayoutAnnualTransactionCount",
+                  "value": ""
+                },
+                {
+                  "name": "DomesticDebitPayoutAnnualTransactionAmountTotal",
+                  "value": ""
+                },
+                {
+                  "name": "DomesticDebitPayoutAnnualAverageTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "DomesticDebitPayoutAnnualMaximumTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "DomesticDebitPayInsAnnualTransactionCount",
+                  "value": ""
+                },
+                {
+                  "name": "DomesticDebitPayInsAnnualTransactionAmountTotal",
+                  "value": ""
+                },
+                {
+                  "name": "DomesticDebitPayInsAnnualAverageTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "DomesticDebitPayInsAnnualMaximumTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "RegisteredISO",
+                  "value": ""
+                },
+                {
+                  "name": "NumberOfMerchant",
+                  "value": ""
+                },
+                {
+                  "name": "CardProcessingAnnualTransactionCount",
+                  "value": ""
+                },
+                {
+                  "name": "CardProcessingAnnualTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "CardProcessingAverageTransactionAmount",
+                  "value": ""
+                },
+                {
+                  "name": "NumberofVirtualAccounts",
+                  "value": ""
+                },
+                {
+                  "name": "NumberofDebitorCreditTransactionsPerAccount",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to provide the use cases for the VoPay account you are onboarding."
+        },
+        {
+          "info": {
+            "name": "partner/account/set-permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account/set-permissions",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VopayAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ApplyToAll",
+                  "value": ""
+                },
+                {
+                  "name": "GCMEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "EFTCollectEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "EFTSendEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "USDEFTCollectEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "USDEFTSendEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "RTRWithdrawEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "PushToCardEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "AFTEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "InteracMoneyRequestEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionApprovalWorkflowEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "IQ11Enabled",
+                  "value": ""
+                },
+                {
+                  "name": "IQ11StandardEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "IQ11BoostEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "IQ11PlusEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "IQ11AdvantageEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "DebitAuthorityAgreementsRequired",
+                  "value": ""
+                },
+                {
+                  "name": "InteracBulkPayoutEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionLabelOverrideEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "AutoBalanceTransferEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "PayLinkEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "MicroDepositBankAccountVerificationEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "InteracBasicVerificationEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "InteracEnhancedVerificationEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "CardBasicVerificationEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "CardEnhancedVerificationEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountsEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "ThirdPartyClientAccountTransactionsEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "AccountTransferEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "FailNSFTransactions",
+                  "value": ""
+                },
+                {
+                  "name": "FlagDuplicateTransactions",
+                  "value": ""
+                },
+                {
+                  "name": "CreditCardEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "ACHFundEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "ACHWithdrawEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "SameDayACHFundEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "SameDayACHWithdrawEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "FedwireFundEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "FedwireWithdrawEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "CPAFileGenerationEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "UniversalClientAccountsEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "MoneyRequestGenerateUrlEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "AccountingSoftwareIntegrationEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "AutoRecoverNSFEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "VirtualAccountsEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "InboundEtransferEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "ACHHoldReleaseIQ11",
+                  "value": ""
+                },
+                {
+                  "name": "ACHHoldRelease",
+                  "value": ""
+                },
+                {
+                  "name": "RTPWithdrawEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "FednowWithdrawEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "CrossborderInclusive",
+                  "value": ""
+                },
+                {
+                  "name": "BrandingEmailEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "BrandingELinxEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "BrandingPortalEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "BrandingOnboardingEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "FlagHighRiskIp",
+                  "value": ""
+                },
+                {
+                  "name": "LowBalanceAlertEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "JournalEntryEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "InterestAccountEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "MaxFundEFTAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxWithdrawEFTAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxACHFundAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxACHWithdrawAmount",
+                  "value": ""
+                },
+                {
+                  "name": "SameDayMaxACHFundAmount",
+                  "value": ""
+                },
+                {
+                  "name": "SameDayMaxACHWithdrawAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxFedwireFundAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxFedwireWithdrawAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxGCMAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxInteracMoneyAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxInteracBulkPayoutAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxPushToCardAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxAFTAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxFundMyAccountAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxWithdrawMyAccountAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxRTRWithdrawAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxRTPWithdrawAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxFednowWithdrawAmount",
+                  "value": ""
+                },
+                {
+                  "name": "AutoBalanceTransferAmount",
+                  "value": ""
+                },
+                {
+                  "name": "EFTHoldReleaseNonIQ11",
+                  "value": ""
+                },
+                {
+                  "name": "BusinessAccountTransactionLimit",
+                  "value": ""
+                },
+                {
+                  "name": "IndividualAccountTransactionLimit",
+                  "value": ""
+                },
+                {
+                  "name": "ReceiveOnlyAccountTransactionLimit",
+                  "value": ""
+                },
+                {
+                  "name": "StandardAccountTransactionLimit",
+                  "value": ""
+                },
+                {
+                  "name": "InteracHoldRelease",
+                  "value": ""
+                },
+                {
+                  "name": "MaxCrossborderWithdrawAmount",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitInboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitAmountInboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitInboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitAmountInboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitInboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitAmountInboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitInboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitAmountInboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitInboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitAmountInboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitInboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitAmountInboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitInboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitAmountInboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitInboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitAmountInboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitInboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitAmountInboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitInboundCreditCard",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitAmountInboundCreditCard",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitInboundCreditCard",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitAmountInboundCreditCard",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitInboundCreditCard",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitAmountInboundCreditCard",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitOutboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitAmountOutboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitOutboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitAmountOutboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitOutboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitAmountOutboundBankAccount",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitOutboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitAmountOutboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitOutboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitAmountOutboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitOutboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitAmountOutboundEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitOutboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitAmountOutboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitOutboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitAmountOutboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitOutboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitAmountOutboundDebitCard",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitInboundAmount",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitInboundAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitInboundAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyInboundTransactionLimit",
+                  "value": ""
+                },
+                {
+                  "name": "DailyLimitOutboundAmount",
+                  "value": ""
+                },
+                {
+                  "name": "WeeklyLimitOutboundAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyLimitOutboundAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MonthlyOutboundTransactionLimit",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will allow a partner to modify the permissions and the maximum amounts for their accounts."
+        },
+        {
+          "info": {
+            "name": "partner/billing-packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/billing-packages",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to retrieve the list of billing packages that you can assign to an account."
+        },
+        {
+          "info": {
+            "name": "partner/invoice-details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/invoice-details",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "VopayAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Only returns billing info for this VoPay account"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "query",
+                "description": "Billing cycle month (eg: 03). Defaults to current month"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Billing cycle year (eg: 2021). Defaults to current year"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to retrieve the invoice-details (number of transactions, rates, etc) for a given billing cycle. If no month/year is provided, the current month/year is used."
+        },
+        {
+          "info": {
+            "name": "partner/account/transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account/transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "VopayAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your VoPay account ID"
+              },
+              {
+                "name": "TransactionType",
+                "value": "",
+                "type": "query",
+                "description": "The transaction type for the account"
+              },
+              {
+                "name": "FromDate",
+                "value": "",
+                "type": "query",
+                "description": "Transaction start date"
+              },
+              {
+                "name": "ToDate",
+                "value": "",
+                "type": "query",
+                "description": "Transaction end date"
+              },
+              {
+                "name": "SettlementDate",
+                "value": "",
+                "type": "query",
+                "description": "Transaction settlement date"
+              },
+              {
+                "name": "Status",
+                "value": "",
+                "type": "query",
+                "description": "The transaction status."
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "The transaction currency."
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The transaction ID"
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned. Use the off-set parameter to set the starting point in the data-set."
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              },
+              {
+                "name": "IncludeSubaccountTransactions",
+                "value": "",
+                "type": "query",
+                "description": "Fetch transactions for subaccounts as well."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch all the transactions belonging to your accounts"
+        },
+        {
+          "info": {
+            "name": "partner/account/transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account/transfer",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to transfer funds between VoPay accounts."
+        },
+        {
+          "info": {
+            "name": "partner/account/fund-transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account/fund-transfer",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will fund the Debitor account using their default bank account, and then trigger an account transfer to the recipient account once the funds have been cleared.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+        },
+        {
+          "info": {
+            "name": "partner/account/transfer-withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account/transfer-withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will transfer money from the debitor account to the recipient account, and then immediately withdraw the money from the recipient account into their default bank account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+        },
+        {
+          "info": {
+            "name": "partner/account/fund-transfer-withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account/fund-transfer-withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will fund the debitor account using their default bank account, and then transfer the money to the recipient account once the funds have been cleared. Once the funds are transferred, a withdraw transaction will be triggered to send the funds to the recipient account's default bank account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+        },
+        {
+          "info": {
+            "name": "partner/account/onboarding-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account/onboarding-url",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "VopayAccountID",
+                "value": "",
+                "type": "query",
+                "description": "The account ID for whom you are requesting the onboarding URL"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch the onboarding URL for an account in the Application Pending stage"
+        },
+        {
+          "info": {
+            "name": "partner/create-partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/create-partner",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Name",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "PartnerAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows Technology partner accounts to create new partner accounts. Only partner accounts with PartnerCreationEnabled and a Technology account type can use this endpoint."
+        },
+        {
+          "info": {
+            "name": "partner/account/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VopayAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "LegalBusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to edit a VoPay account that belongs to your partner account."
+        },
+        {
+          "info": {
+            "name": "partner/account/deactivate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/partner/account/deactivate",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VopayAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to deactivate a VoPay account that belongs to your partner account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/balance",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD)."
+              },
+              {
+                "name": "AsOfDate",
+                "value": "",
+                "type": "query",
+                "description": "A date in ISO 8601 format (yyyy-mm-dd) representing the date for which you want to retrieve the balance. If not provided, the current balance will be returned."
+              }
+            ]
+          },
+          "docs": "This endpoint returns details on your current account balance and available funds."
+        },
+        {
+          "info": {
+            "name": "account/balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/balances",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "AsOfDate",
+                "value": "",
+                "type": "query",
+                "description": "A date in ISO 8601 format (yyyy-mm-dd) representing the date for which you want to retrieve the balances. If not provided, the current balances will be returned."
+              }
+            ]
+          },
+          "docs": "This endpoint returns details on your current account balances and available funds for all currencies associated with your account. Unlike /account/balance which returns a single currency, this endpoint returns an array of balances for each currency your account has records for."
+        },
+        {
+          "info": {
+            "name": "account/fund-my-account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/fund-my-account",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will fund your VoPay account by debiting your default bank account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+        },
+        {
+          "info": {
+            "name": "account/fund-my-account/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/fund-my-account/schedule",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Frequency",
+                  "value": ""
+                },
+                {
+                  "name": "NameOfFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleEndDate",
+                  "value": ""
+                },
+                {
+                  "name": "EndingAfterPayments",
+                  "value": ""
+                },
+                {
+                  "name": "SemiMonthlyFrequencyType",
+                  "value": ""
+                },
+                {
+                  "name": "Description",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will create a scheduled transaction to fund your VoPay account by debiting your default bank account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+        },
+        {
+          "info": {
+            "name": "account/withdraw-my-account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/withdraw-my-account",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will credit your default bank account by withdarwing funds from your VoPay account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+        },
+        {
+          "info": {
+            "name": "account/withdraw-my-account/schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/withdraw-my-account/schedule",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Frequency",
+                  "value": ""
+                },
+                {
+                  "name": "NameOfFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleEndDate",
+                  "value": ""
+                },
+                {
+                  "name": "EndingAfterPayments",
+                  "value": ""
+                },
+                {
+                  "name": "SemiMonthlyFrequencyType",
+                  "value": ""
+                },
+                {
+                  "name": "Description",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will create a scheduled transaction to credit your default bank account by withdarwing funds from your VoPay account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+        },
+        {
+          "info": {
+            "name": "account/transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "SettlementDate",
+                "value": "",
+                "type": "query",
+                "description": "Return transactions that settled on this date. YYYY-MM-DD format."
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by Client account ID"
+              },
+              {
+                "name": "ContactID",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by Contact ID"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD)."
+              },
+              {
+                "name": "TransactionType",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'."
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist."
+              },
+              {
+                "name": "ClientReferenceNumber",
+                "value": "",
+                "type": "query",
+                "description": "Searches for transactions with the specified client reference number."
+              },
+              {
+                "name": "ScheduledTransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Id of the schedule transaction to search"
+              },
+              {
+                "name": "WalletID",
+                "value": "",
+                "type": "query",
+                "description": "Id of the wallet that the transactions should belong to"
+              },
+              {
+                "name": "IsFlagged",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client."
+              },
+              {
+                "name": "IsRefunded",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of transactions to only include transactions that have been refunded."
+              },
+              {
+                "name": "TransactionStatus",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of transactions by transaction status (ex. 'pending')."
+              },
+              {
+                "name": "IncludeSubaccountTransactions",
+                "value": "",
+                "type": "query",
+                "description": "Fetch transactions for subaccounts as well."
+              }
+            ]
+          },
+          "docs": "This endpoint returns a list all of the transactions which affect the account balance. This endpoint only returns basic information on the transactions. More detailed information on individual transactions is available from other API endpoints."
+        },
+        {
+          "info": {
+            "name": "account/transactions/codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transactions/codes",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint returns a list all of transaction codes that can be assigned to transactions."
+        },
+        {
+          "info": {
+            "name": "account/transactions/gl-codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transactions/gl-codes",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint returns a list all of your GL codes that can be assigned to transactions. Note, you must connect your accounting software to your account in order to use this endpoint."
+        },
+        {
+          "info": {
+            "name": "account/remaining-limit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/remaining-limit",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Date",
+                "value": "",
+                "type": "query",
+                "description": "A future date (in Y-m-d format) to check the remaining limits for. If not specified, the current date will be used."
+              }
+            ]
+          },
+          "docs": "This endpoint returns the remaining daily, weekly and monthly transaction limits for your VoPay account. If not limits are currently set for your VoPay account, N/A will be returned for each."
+        },
+        {
+          "info": {
+            "name": "account/transfer-to",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transfer-to",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to transfer funds between VoPay accounts and/or Client accounts."
+        },
+        {
+          "info": {
+            "name": "account/transfer-from",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transfer-from",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "DebitorAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to transfer funds from a pre-authorized VoPay account to your VoPay or client account."
+        },
+        {
+          "info": {
+            "name": "account/auto-balance-transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/auto-balance-transfer",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to retrieve the information of your auto balance transfer. \n\n This option requires special permissions."
+        },
+        {
+          "info": {
+            "name": "account/auto-balance-transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/auto-balance-transfer",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduleStartDate",
+                  "value": ""
+                },
+                {
+                  "name": "TypeOfFrequency",
+                  "value": ""
+                },
+                {
+                  "name": "AutoBalanceTransferAmount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to set up an auto-balance transfer from your VoPay account to your default operational bank account. The frequency available to set the auto-transfer can be daily, weekly, bi-weekly or monthly. \n\nThis option requires special permission."
+        },
+        {
+          "info": {
+            "name": "account/transactions/recent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transactions/recent",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by Client account ID. This is required if client account is enabled. Use ContactID instead if client account is not enabled."
+              },
+              {
+                "name": "ContactID",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by Contact ID. This is required if client account is not enabled. Use ClientAccountID instead if client account is enabled."
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned. Use the off-set parameter to set the starting point in the data-set. Default limit is 1,000 and maximum limit is 10,000."
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              }
+            ]
+          },
+          "docs": "This endpoint returns a list of recent transactions for a specific contact or client account."
+        },
+        {
+          "info": {
+            "name": "account/auto-balance-transfer-list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/auto-balance-transfer-list",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint is used to retrieve a list of all your auto balance transfers. \n\n This option requires special permissions."
+        },
+        {
+          "info": {
+            "name": "account/auto-balance-transfer/cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/auto-balance-transfer/cancel",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to cancel an auto balance transfer. \n\n This option requires special permissions."
+        },
+        {
+          "info": {
+            "name": "account/auto-balance-transfer/report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/auto-balance-transfer/report",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Transaction ID of the auto-balance transfer transaction"
+              }
+            ]
+          },
+          "docs": "This endpoint returns the list of transactions associated with an auto balance transfer. \n\nThe sum of all debits/credits should match the amount on the auto-balance transfer."
+        },
+        {
+          "info": {
+            "name": "account/authorized-ips",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/authorized-ips",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves an account's authorized IP addresses."
+        },
+        {
+          "info": {
+            "name": "account/authorized-ips",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/authorized-ips",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "AuthorizedIPs",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows an account's authorized IP addresses to be updated. As updating the authorized IP addresses will overwrite the existing list, GET the list prior to issuing a POST if you wish to append a value."
+        },
+        {
+          "info": {
+            "name": "account/set-default-payment-method",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/set-default-payment-method",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "PaymentMethod",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to set your account's default payment method. This payment method will be used when collecting money for you monthly invoice. The default payment method is your VoPay account."
+        },
+        {
+          "info": {
+            "name": "account/transaction/history",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/transaction/history",
+            "params": [
+              {
+                "name": "Timezone ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Retrieves the history for a specific transaction."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sub-Account Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "account/subaccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/subaccount",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              },
+              {
+                "name": "IncludeBalances",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes balance data for each account. Defaults to true."
+              },
+              {
+                "name": "IncludeExtendedInfo",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes signing authorities, beneficial owners, and other KYC fields for each account. Defaults to true."
+              },
+              {
+                "name": "IncludeChildAccounts",
+                "value": "",
+                "type": "query",
+                "description": "When true, includes nested sub-accounts for each account. Defaults to true."
+              }
+            ]
+          },
+          "docs": "This endpoint will return a list of all of the sub-accounts managed by the main account."
+        },
+        {
+          "info": {
+            "name": "account/subaccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/subaccount",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "LegalBusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "SendWelcomeEmail",
+                  "value": ""
+                },
+                {
+                  "name": "SubaccountID",
+                  "value": ""
+                },
+                {
+                  "name": "CreateVirtualAccount",
+                  "value": ""
+                },
+                {
+                  "name": "PrimaryContactName",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "Address2",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to create a new sub-account."
+        },
+        {
+          "info": {
+            "name": "account/subaccount/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/subaccount/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "SubaccountID",
+                  "value": ""
+                },
+                {
+                  "name": "LegalBusinessName",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to edit a sub-account."
+        },
+        {
+          "info": {
+            "name": "account/subaccount/transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/subaccount/transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format."
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by Client account ID"
+              },
+              {
+                "name": "ContactID",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by Contact ID"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD)."
+              },
+              {
+                "name": "TransactionType",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'."
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist."
+              },
+              {
+                "name": "ClientReferenceNumber",
+                "value": "",
+                "type": "query",
+                "description": "Searches for transactions with the specified client reference number."
+              },
+              {
+                "name": "ScheduledTransactionID",
+                "value": "",
+                "type": "query",
+                "description": "Id of the schedule transaction to search"
+              },
+              {
+                "name": "WalletID",
+                "value": "",
+                "type": "query",
+                "description": "Id of the wallet that the transactions should belong to"
+              },
+              {
+                "name": "IsFlagged",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client."
+              },
+              {
+                "name": "IsRefunded",
+                "value": "",
+                "type": "query",
+                "description": "Filter the list of transactions to only include transactions that have been refunded."
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned. Use the off-set parameter to set the starting point in the data-set. Default limit is 1,000 and maximum limit is 10,000."
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              }
+            ]
+          },
+          "docs": "This endpoint will return a list of all of the transactions for sub-accounts, and its sub-accounts transaction."
+        },
+        {
+          "info": {
+            "name": "account/subaccount/set-permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/subaccount/set-permissions",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ApplyToAll",
+                  "value": ""
+                },
+                {
+                  "name": "SubaccountID",
+                  "value": ""
+                },
+                {
+                  "name": "EFTCollectEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "EFTSendEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "USDEFTCollectEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "USDEFTSendEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "RTRWithdrawEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "InteracMoneyRequestEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "InteracBulkPayoutEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "GCMEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "VisaDirectEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "MaxFundEFTAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxWithdrawEFTAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxRTRWithdrawAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxInteracMoneyAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxInteracBulkPayoutAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxGCMAmount",
+                  "value": ""
+                },
+                {
+                  "name": "MaxVisaDirectAmount",
+                  "value": ""
+                },
+                {
+                  "name": "PortalTransactionCreation",
+                  "value": ""
+                },
+                {
+                  "name": "AutoBalanceTransferEnabled",
+                  "value": ""
+                },
+                {
+                  "name": "PayLinkEnabled",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will allow the user to modify the permissions and the maximum amounts to their sub-accounts in the API.  \n\n The main account will be able to only modify the permission that he has, For Example, if the user does not have ETCCollect permission, the account won't be able to assign that permission to their sub-account."
+        },
+        {
+          "info": {
+            "name": "account/subaccount/send-onboarding-application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/subaccount/send-onboarding-application",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "SubaccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint will allow the user to resend an application to the sub-account. The sub-account must be in Application Pending status for the applicattion to be sent."
+        },
+        {
+          "info": {
+            "name": "account/subaccount/deactivate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/account/subaccount/deactivate",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "SubaccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to deactivate a sub-account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

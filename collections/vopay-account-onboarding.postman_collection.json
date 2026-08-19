@@ -1,0 +1,1793 @@
+{
+  "item": [
+    {
+      "id": "67026e20-aed6-4f2b-a32a-99a42e4d659a",
+      "name": "Account Onboarding Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5df73df1-0922-47c9-bbf9-51812e6521fb",
+          "name": "account/submit-extended-info/shareholder-info",
+          "request": {
+            "name": "account/submit-extended-info/shareholder-info",
+            "description": {
+              "content": "This endpoint will return a full list of all shareholder information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "submit-extended-info",
+                "shareholder-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eac983d7-76f8-4e8b-acb7-deeea0704eaa",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "submit-extended-info",
+                    "shareholder-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"AccountName\": \"\",\n  \"ShareHolders\": {\n    \"0\": {\n      \"FullName\": \"Share holder name\",\n      \"Ownership\": \"20\",\n      \"Occupation\": \"\",\n      \"HomeAddress\": \"123 address st, Vancouver\",\n      \"DateAdded\": \"2015-04-24\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a539ba1-ce8d-45bb-842a-a6fa55f2de5b",
+          "name": "account/submit-extended-info/shareholder-info/add",
+          "request": {
+            "name": "account/submit-extended-info/shareholder-info/add",
+            "description": {
+              "content": "This endpoint is used to insert the shareholder information for a newly created VoPay account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "submit-extended-info",
+                "shareholder-info",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderFullName",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder First name and last name"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderOwnership",
+                  "value": "<integer>",
+                  "description": "(Required) Percentage of ownership only if is greater than 20%"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderOccupation",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's occupation"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderAddress1",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's address line 1"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderCity",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's city"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderProvince",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's province specified using two character abbreviations (eg. BC, AB)"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderCountry",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's country specified using full country name or ISO 3166-1 alpha-2 code."
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderPostalCode",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's postal code"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderDOB",
+                  "value": "<string>",
+                  "description": "Shareholder's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderAddress2",
+                  "value": "<string>",
+                  "description": "Shareholder's address line 2"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "04936a09-8110-49bf-8a68-d2531c5b4d38",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "submit-extended-info",
+                    "shareholder-info",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder First name and last name",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderFullName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Percentage of ownership only if is greater than 20%",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderOwnership",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's occupation",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderOccupation",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's address line 1",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderAddress1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's city",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderCity",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's province specified using two character abbreviations (eg. BC, AB)",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderProvince",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderCountry",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's postal code",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderPostalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Shareholder's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderDOB",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Shareholder's address line 2",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderAddress2",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Message\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31017cc5-b0ae-41c1-b597-77124451d40e",
+          "name": "account/submit-extended-info/shareholder-info/edit",
+          "request": {
+            "name": "account/submit-extended-info/shareholder-info/edit",
+            "description": {
+              "content": "This endpoint is used to edit an existing shareholder linked to your VoPay account. You will need to provide the Shareholder ID, which you can  get from the GET /account/shareholder-info endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "submit-extended-info",
+                "shareholder-info",
+                "edit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareHolderID",
+                  "value": "<string>",
+                  "description": "(Required) Unique ID of your shareholder"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderFullName",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder First name and last name"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderDOB",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderOwnership",
+                  "value": "<integer>",
+                  "description": "(Required) Percentage of ownership only if is greater than 20%"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderOccupation",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's occupation"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderAddress1",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's address line 1"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderCity",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's city"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderProvince",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's province specified using two character abbreviations (eg. BC, AB)"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderCountry",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's country specified using full country name or ISO 3166-1 alpha-2 code."
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderPostalCode",
+                  "value": "<string>",
+                  "description": "(Required) Shareholder's postal code"
+                },
+                {
+                  "disabled": false,
+                  "key": "ShareholderAddress2",
+                  "value": "<string>",
+                  "description": "Shareholder's address line 2"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c09a5f65-1a0e-40ab-b50f-2c933a726f3f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "submit-extended-info",
+                    "shareholder-info",
+                    "edit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Unique ID of your shareholder",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareHolderID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder First name and last name",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderFullName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderDOB",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Percentage of ownership only if is greater than 20%",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderOwnership",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's occupation",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderOccupation",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's address line 1",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderAddress1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's city",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderCity",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's province specified using two character abbreviations (eg. BC, AB)",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderProvince",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderCountry",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Shareholder's postal code",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderPostalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Shareholder's address line 2",
+                        "type": "text/plain"
+                      },
+                      "key": "ShareholderAddress2",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Message\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b10fdf29-1ccf-4b0c-be20-7429aed8c97c",
+          "name": "account/submit-extended-info/signing-authority-info",
+          "request": {
+            "name": "account/submit-extended-info/signing-authority-info",
+            "description": {
+              "content": "This endpoint will return a full list of all signing-authority information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "submit-extended-info",
+                "signing-authority-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7fd7c0f-b9d8-43dc-8125-3ea9f813e23f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "submit-extended-info",
+                    "signing-authority-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"AccountName\": \"\",\n  \"SigningAuthority\": {\n    \"0\": {\n      \"FullName\": \"Share holder name\",\n      \"Occupation\": \"\",\n      \"EmailAddress\": \"\",\n      \"HomeAddress\": \"123 address st, Vancouver\",\n      \"DateAdded\": \"1973-06-23\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea66fbfb-d7fb-4195-8484-666c88811347",
+          "name": "account/submit-extended-info/signing-authority-info/add",
+          "request": {
+            "name": "account/submit-extended-info/signing-authority-info/add",
+            "description": {
+              "content": "This endpoint is used to insert the signing authority information for a newly created VoPay account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "submit-extended-info",
+                "signing-authority-info",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedFullLegalName",
+                  "value": "<string>",
+                  "description": "(Required) Authorized Authority's First name and last name"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedDOB",
+                  "value": "<string>",
+                  "description": "(Required) Authorized Authority's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedOccupation",
+                  "value": "<string>",
+                  "description": "(Required) Authorized Authority's occupation"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedEmailAddress",
+                  "value": "<string>",
+                  "description": "(Required) Authorized Authority's email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedAddress1",
+                  "value": "<string>",
+                  "description": "(Required) Authorized Authority's address line 1"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedCity",
+                  "value": "<string>",
+                  "description": "(Required) Authorized Authority's city"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedProvince",
+                  "value": "<string>",
+                  "description": "(Required) Authorized Authority's province specified using two character abbreviations (eg. BC, AB)"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedCountry",
+                  "value": "<string>",
+                  "description": "(Required) Authorized Authority's country specified using full country name or ISO 3166-1 alpha-2 code"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedPostalCode",
+                  "value": "<string>",
+                  "description": "(Required) Authorized Authority's postal code"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedAddress2",
+                  "value": "<string>",
+                  "description": "Authorized Authority's address line 2"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "04e80a92-a2e3-42cf-aec4-908c70866a14",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "submit-extended-info",
+                    "signing-authority-info",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Authorized Authority's First name and last name",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedFullLegalName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Authorized Authority's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedDOB",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Authorized Authority's occupation",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedOccupation",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Authorized Authority's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedEmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Authorized Authority's address line 1",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedAddress1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Authorized Authority's city",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedCity",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Authorized Authority's province specified using two character abbreviations (eg. BC, AB)",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedProvince",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Authorized Authority's country specified using full country name or ISO 3166-1 alpha-2 code",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedCountry",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Authorized Authority's postal code",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedPostalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorized Authority's address line 2",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedAddress2",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Message\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "663a454e-aad0-4a35-a4f3-784c823cbf0f",
+          "name": "account/submit-extended-info/signing-authority-info/edit",
+          "request": {
+            "name": "account/submit-extended-info/signing-authority-info/edit",
+            "description": {
+              "content": "This endpoint is used to edit an existing signing authority linked to your VoPay account. You will need to provide the Signing Authority ID, which you can  get from the GET /account/signing-authority-info endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "submit-extended-info",
+                "signing-authority-info",
+                "edit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "SigningAuthorityID",
+                  "value": "<string>",
+                  "description": "(Required) Unique ID of your Signing authority"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedCity",
+                  "value": "<string>",
+                  "description": "(Required) Authorized Authority's city"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedFullLegalName",
+                  "value": "<string>",
+                  "description": "Authorized Authority's First name and last name"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedDOB",
+                  "value": "<string>",
+                  "description": "Authorized Authority's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedOccupation",
+                  "value": "<string>",
+                  "description": "Authorized Authority's occupation"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedEmailAddress",
+                  "value": "<string>",
+                  "description": "Authorized Authority's email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedAddress1",
+                  "value": "<string>",
+                  "description": "Authorized Authority's address line 1"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedAddress2",
+                  "value": "<string>",
+                  "description": "Authorized Authority's address line 2"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedProvince",
+                  "value": "<string>",
+                  "description": "Authorized Authority's province specified using two character abbreviations (eg. BC, AB)"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedCountry",
+                  "value": "<string>",
+                  "description": "Authorized Authority's country specified using full country name or ISO 3166-1 alpha-2 code"
+                },
+                {
+                  "disabled": false,
+                  "key": "AuthorizedPostalCode",
+                  "value": "<string>",
+                  "description": "Authorized Authority's postal code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cd1d505f-a06c-447a-a84a-5ee743fcbb7a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "submit-extended-info",
+                    "signing-authority-info",
+                    "edit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Unique ID of your Signing authority",
+                        "type": "text/plain"
+                      },
+                      "key": "SigningAuthorityID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Authorized Authority's city",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedCity",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorized Authority's First name and last name",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedFullLegalName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorized Authority's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedDOB",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorized Authority's occupation",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedOccupation",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorized Authority's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedEmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorized Authority's address line 1",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedAddress1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorized Authority's address line 2",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedAddress2",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorized Authority's province specified using two character abbreviations (eg. BC, AB)",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedProvince",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorized Authority's country specified using full country name or ISO 3166-1 alpha-2 code",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedCountry",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorized Authority's postal code",
+                        "type": "text/plain"
+                      },
+                      "key": "AuthorizedPostalCode",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Message\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d2c11c5-b727-4b2b-9cbe-b7529f3caf18",
+          "name": "account/business-types",
+          "request": {
+            "name": "account/business-types",
+            "description": {
+              "content": "This endpoint can be used to return a list of industries and categories under which a company can be classified. The response will be an array of industry types nested within an array of sub categories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "business-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71cdc25f-00a4-4938-b7ad-e58e8ff8750d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "business-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"BusinessTypes\": {\n    \"0\": {\n      \"BusinessTypeID\": 5575,\n      \"Industry\": \"\",\n      \"Categories\": {\n        \"0\": {\n          \"BusinessTypeCategoryID\": 950,\n          \"Category\": \"\"\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "96c06bff-f7c2-4c35-89ee-208b7c632414",
+      "name": "Document Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c96ccb8-bfa8-40ce-9b97-d65f2c921787",
+          "name": "document",
+          "request": {
+            "name": "document",
+            "description": {
+              "content": "This endpoint is used to upload account documents.Only one document can be uploaded by request. You must provide the document name and its content. Here are some rules regarding the document requirements:\n\n* The types accepted are: PDF, PNG or JPEG\n\n* The maximum allowed file size is 10Mb\n\n* Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64\n\n* The same document cannot be uploaded twice with the same name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "document"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "DocumentName",
+                  "value": "<string>",
+                  "description": "(Required) Document description"
+                },
+                {
+                  "disabled": false,
+                  "key": "DocumentContent",
+                  "value": "<string>",
+                  "description": "(Required) Base64 code of the document content. Allowed content types: PDF, JPG, PNG."
+                },
+                {
+                  "disabled": false,
+                  "key": "DocumentType",
+                  "value": "<string>",
+                  "description": "(Required) String that identify the document type: 'kyc' or 'invoice'."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9a0f0aa5-e509-4700-bce8-0992cbf8fe5d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Document description",
+                        "type": "text/plain"
+                      },
+                      "key": "DocumentName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Base64 code of the document content. Allowed content types: PDF, JPG, PNG.",
+                        "type": "text/plain"
+                      },
+                      "key": "DocumentContent",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) String that identify the document type: 'kyc' or 'invoice'.",
+                        "type": "text/plain"
+                      },
+                      "key": "DocumentType",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"DocumentID\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "789f1c2d-0c74-4b5c-bfaa-e5b909c7a948",
+          "name": "document/[DocumentID]",
+          "request": {
+            "name": "document/[DocumentID]",
+            "description": {
+              "content": "To retrieve a document once it is uploaded, send a request to this endpoint. It will return the document URL so you can have direct access to it. Replace the {DocumentID} in the endpoint with the DocumentID returned from the document list endpoint or the one returned by the upload endpoint. The returned URL is valid for 60 mins.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "document",
+                "[:DocumentID]"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "762b20bd-d5bb-44cf-af78-d1bab8ba6d3e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "[:DocumentID]"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"Document\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://earthnode-dev.vopay.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f1939e36-2184-4a23-8a67-ba2f9e900ab3",
+    "name": "Account Onboarding",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Account Onboarding endpoints are used to onboard new VoPay accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+      "type": "text/plain"
+    }
+  }
+}

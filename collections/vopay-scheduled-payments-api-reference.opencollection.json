@@ -1,0 +1,345 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Scheduled Payments",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scheduled Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Scheduled Payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/scheduled-payment",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ScheduledPaymentsID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of a specific scheduled payment to retrieve. If omitted, returns all scheduled payments."
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset"
+              },
+              {
+                "name": "Repeats",
+                "value": "",
+                "type": "query",
+                "description": "Filter by repeat frequency"
+              },
+              {
+                "name": "PaymentType",
+                "value": "",
+                "type": "query",
+                "description": "Filter by payment type"
+              },
+              {
+                "name": "Currency",
+                "value": "",
+                "type": "query",
+                "description": "Filter by currency code"
+              },
+              {
+                "name": "PaymentRail",
+                "value": "",
+                "type": "query",
+                "description": "Filter by payment rail"
+              },
+              {
+                "name": "Token",
+                "value": "",
+                "type": "query",
+                "description": "Filter by payment token"
+              },
+              {
+                "name": "GLCode",
+                "value": "",
+                "type": "query",
+                "description": "Filter by general ledger code"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Filter by client account ID"
+              },
+              {
+                "name": "StartDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter by start date (inclusive)"
+              },
+              {
+                "name": "EndDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter by end date (inclusive)"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a single scheduled payment or all scheduled payments for the account."
+        },
+        {
+          "info": {
+            "name": "Create Scheduled Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/scheduled-payment",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "PaymentType",
+                  "value": ""
+                },
+                {
+                  "name": "PaymentRail",
+                  "value": ""
+                },
+                {
+                  "name": "StartDateTime",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "Repeats",
+                  "value": ""
+                },
+                {
+                  "name": "Interval",
+                  "value": ""
+                },
+                {
+                  "name": "ByDay",
+                  "value": ""
+                },
+                {
+                  "name": "NumberOfPayments",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create a new scheduled transaction to be processed on a particular time depending on the frequency."
+        },
+        {
+          "info": {
+            "name": "Cancel Scheduled Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/scheduled-payment/cancel",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduledPaymentsID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Cancel a scheduled payment and all its future occurrences."
+        },
+        {
+          "info": {
+            "name": "Cancel Upcoming Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/scheduled-payment/upcoming-payment/cancel",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduledPaymentDetailsID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Cancel a single upcoming scheduled payment without affecting other occurrences."
+        },
+        {
+          "info": {
+            "name": "Edit Scheduled Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/scheduled-payment/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduledPaymentsID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Modify a scheduled payment by updating the amount. This affects all upcoming occurrences of the scheduled payment."
+        },
+        {
+          "info": {
+            "name": "Edit Upcoming Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/scheduled-payment/upcoming-payment/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ScheduledPaymentDetailsID",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "Date",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Modify a single upcoming scheduled payment by updating the amount and/or date. This only affects the specific upcoming occurrence."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

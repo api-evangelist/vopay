@@ -1,0 +1,1336 @@
+{
+  "item": [
+    {
+      "id": "4ceefb42-6d8c-430a-9de6-40b4a57cb17d",
+      "name": "eLinx Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b741bd08-90b1-402b-9b7a-d9776c59da6d",
+          "name": "elinx",
+          "request": {
+            "name": "elinx",
+            "description": {
+              "content": "This endpoint is used to create an eLinx request. Once the eLinx request is created successfully, the request link will be sent through an email to the recipient.\n\nNotes:\n\n* If you do not wish to send an eLinx request via an email, sms or whatsapp, then simply set SendNotification = false\n\n* Before sending an eLinx request, you must set your default email address using the /elinx/setup-sender-email endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "elinx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "SenderName",
+                  "value": "<string>",
+                  "description": "(Required) Sender's full name. This is the name of the person who is sending the eLinx request to the recipient."
+                },
+                {
+                  "disabled": false,
+                  "key": "ReceiverName",
+                  "value": "<string>",
+                  "description": "(Required) Receiver's full name. This is the name of the person receiving the eLinx request."
+                },
+                {
+                  "disabled": false,
+                  "key": "ClientAccountID",
+                  "value": "<string>",
+                  "description": "Client Account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "PaymentType",
+                  "value": "<string>",
+                  "description": "Only required if you are requesting banking info for the purposes of a payment. Valid options are fund or withdraw. Choose fund if you are sending an eLinx request to collect money, and withdraw if you sending an eLinx request to send money."
+                },
+                {
+                  "disabled": false,
+                  "key": "BankingPaymentRail",
+                  "value": "<string>",
+                  "description": "Determines the payment rail to use for transactions involving banking rails. Possible values: eft, vopayinstant, ach, rtp, fednow, fedwire"
+                },
+                {
+                  "disabled": false,
+                  "key": "Amount",
+                  "value": "<number>",
+                  "description": "The amount of the payment you are requesting in the eLinx. If an amount is specified, a transaction will be created once the eLinx request is fulfilled by the recipient."
+                },
+                {
+                  "disabled": false,
+                  "key": "Frequency",
+                  "value": "<string>",
+                  "description": "Only required if you are requesting banking info for a scheduled/recurring payment. Valid options are single or recurring."
+                },
+                {
+                  "disabled": false,
+                  "key": "NameOfFrequency",
+                  "value": "<string>",
+                  "description": "Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: daily, weekdays, weekly, bi-weekly, semi-monthly, monthly, quarterly, semi-annually, annually. Required if you are sending an eLinx request for a recurring payment."
+                },
+                {
+                  "disabled": false,
+                  "key": "ScheduleStartDate",
+                  "value": "<string>",
+                  "description": "Date from which the schedule will be started in YYYY-MM-DD format. Required if you are sending an eLinx for a recurring/scheduled payment."
+                },
+                {
+                  "disabled": false,
+                  "key": "ScheduleEndDate",
+                  "value": "<string>",
+                  "description": "Date when the transaction processing will end (Only for recurring option). Either provide ScheduleEndDate or EndingAfterPayments. One is required if you are sending an eLinx for a recurring payment."
+                },
+                {
+                  "disabled": false,
+                  "key": "EndingAfterPayments",
+                  "value": "<integer>",
+                  "description": "Number of payments after which the transaction processing will end (Only for recurring option). Either provide ScheduleEndDate or EndingAfterPayments. One is required if you are sending an eLinx for a recurring payment."
+                },
+                {
+                  "disabled": false,
+                  "key": "SemiMonthlyFrequencyType",
+                  "value": "<integer>",
+                  "description": "Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast."
+                },
+                {
+                  "disabled": false,
+                  "key": "InvoiceNumber",
+                  "value": "<string>",
+                  "description": "Invoice number of the payment"
+                },
+                {
+                  "disabled": false,
+                  "key": "DocumentID",
+                  "value": "<integer>",
+                  "description": "ID of the document you want to include in the eLinx email. You must first upload a document using the POST /document endpoint, and then pass in the resulting DocumentID into this endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "ClientReferenceNumber",
+                  "value": "<string>",
+                  "description": "An optional reference number which was associated with the eLinx request."
+                },
+                {
+                  "disabled": false,
+                  "key": "Note",
+                  "value": "<string>",
+                  "description": "An optional note to associate with the transaction."
+                },
+                {
+                  "disabled": false,
+                  "key": "SendNotification",
+                  "value": "<boolean>",
+                  "description": "This option is used to send an eLinx through email, sms, or whatsapp which later on can be used by a recipient to make the payment. A valid ReceiverPhoneNumber or ReceiverEmailAddress must be provided"
+                },
+                {
+                  "disabled": false,
+                  "key": "NotificationMethod",
+                  "value": "<string>",
+                  "description": "Use this optional parameter to override the account-level setting for the eLinx delivery method. If not provided, the account-level setting will be used. Possible values: email, sms, whatsapp."
+                },
+                {
+                  "disabled": false,
+                  "key": "ReceiverEmailAddress",
+                  "value": "<string>",
+                  "description": "Customer's email address - Must be a valid email. Only required if SendNotification is true and NotificationMethod = email."
+                },
+                {
+                  "disabled": false,
+                  "key": "ReceiverPhoneNumber",
+                  "value": "<string>",
+                  "description": "Customer's phone number - Must be a valid number. Only required if SendNotification is true and NotificationMethod = sms or whatsapp."
+                },
+                {
+                  "disabled": false,
+                  "key": "IframeKey",
+                  "value": "<string>",
+                  "description": "An iFrame key generated from /iq11/generate-embed-url. If provided, the settings applied to this iFrame will be used when the customer provides their bank account information. If not provided, the default iFrame settings will be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "FlexiblePaymentOptions",
+                  "value": "<string>",
+                  "description": "This will inform the end user of the flexible payment options that they can choose from. Input can be a comma-delimited list. The possible values are: multiple, partial, installments."
+                },
+                {
+                  "disabled": false,
+                  "key": "MinimumPaymentAccepted",
+                  "value": "<number>",
+                  "description": "This is the minimum amount that can be accepted for a 'partial' payment option. Example, if total eLinx amount is 100.00, and MinimumPaymentAccepted is 25.00, the user will be able to choose a partial payment of 25.00 (or more). This is required if 'partial' is included in FlexiblePaymentOptions."
+                },
+                {
+                  "disabled": false,
+                  "key": "RemainderPaymentDate",
+                  "value": "<string>",
+                  "description": "This will specify the date the remainder of the total amount should be paid if 'partial' payment is selected. This is optional if 'partial' is included in FlexiblePaymentOptions."
+                },
+                {
+                  "disabled": false,
+                  "key": "NumberOfInstallments",
+                  "value": "<number>",
+                  "description": "This will specify the number of installments that the payments will be split into. This is required if 'installments' is included in FlexiblePaymentOptions."
+                },
+                {
+                  "disabled": false,
+                  "key": "InstallmentFrequency",
+                  "value": "<string>",
+                  "description": "This will specify the frequency of installments. This is required if 'installments' is included in FlexiblePaymentOptions. The possible values are: weekly, biweekly, monthly."
+                },
+                {
+                  "disabled": false,
+                  "key": "SendReminder",
+                  "value": "<boolean>",
+                  "description": "Use this optional parameter to override the account-level setting for sending reminders to recipient. If not provided, the account-level setting will be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "ReminderFrequency",
+                  "value": "<integer>",
+                  "description": "Use this optional parameter to override the account-level setting for the eLinx reminder frequency (in days). If not provided, the account-level setting will be used."
+                },
+                {
+                  "disabled": false,
+                  "key": "RecipientMessage",
+                  "value": "<string>",
+                  "description": "Use this optional parameter to provide a message to the recipient."
+                },
+                {
+                  "disabled": false,
+                  "key": "PaymentMethodDisplayOptions",
+                  "value": "<string>",
+                  "description": "This optional parameter can be added to ensure that the recipient is using an existing payment method, adding a new payment method or whether the client has access to both. Valid options include - New, Existing or Both. Defaults to New."
+                },
+                {
+                  "disabled": false,
+                  "key": "OTPRequired",
+                  "value": "<boolean>",
+                  "description": "This optional parameter can be added to configure when to send an OTP for eLinx. By default OTP will be sent for existing payment methods only."
+                },
+                {
+                  "disabled": false,
+                  "key": "GLCode",
+                  "value": "<string>",
+                  "description": "An optional GL code to associate with the transaction created from this eLinx request."
+                },
+                {
+                  "disabled": false,
+                  "key": "TransactionTypeCode",
+                  "value": "<string>",
+                  "description": "An optional transaction type code to associate with the transaction created from this eLinx request."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d60bd8a0-99ae-4e02-89ea-43298820b3e8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "elinx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Sender's full name. This is the name of the person who is sending the eLinx request to the recipient.",
+                        "type": "text/plain"
+                      },
+                      "key": "SenderName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Receiver's full name. This is the name of the person receiving the eLinx request.",
+                        "type": "text/plain"
+                      },
+                      "key": "ReceiverName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Client Account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Only required if you are requesting banking info for the purposes of a payment. Valid options are fund or withdraw. Choose fund if you are sending an eLinx request to collect money, and withdraw if you sending an eLinx request to send money.",
+                        "type": "text/plain"
+                      },
+                      "key": "PaymentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Determines the payment rail to use for transactions involving banking rails. Possible values: eft, vopayinstant, ach, rtp, fednow, fedwire",
+                        "type": "text/plain"
+                      },
+                      "key": "BankingPaymentRail",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The amount of the payment you are requesting in the eLinx. If an amount is specified, a transaction will be created once the eLinx request is fulfilled by the recipient.",
+                        "type": "text/plain"
+                      },
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Only required if you are requesting banking info for a scheduled/recurring payment. Valid options are single or recurring.",
+                        "type": "text/plain"
+                      },
+                      "key": "Frequency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: daily, weekdays, weekly, bi-weekly, semi-monthly, monthly, quarterly, semi-annually, annually. Required if you are sending an eLinx request for a recurring payment.",
+                        "type": "text/plain"
+                      },
+                      "key": "NameOfFrequency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Date from which the schedule will be started in YYYY-MM-DD format. Required if you are sending an eLinx for a recurring/scheduled payment.",
+                        "type": "text/plain"
+                      },
+                      "key": "ScheduleStartDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Date when the transaction processing will end (Only for recurring option). Either provide ScheduleEndDate or EndingAfterPayments. One is required if you are sending an eLinx for a recurring payment.",
+                        "type": "text/plain"
+                      },
+                      "key": "ScheduleEndDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of payments after which the transaction processing will end (Only for recurring option). Either provide ScheduleEndDate or EndingAfterPayments. One is required if you are sending an eLinx for a recurring payment.",
+                        "type": "text/plain"
+                      },
+                      "key": "EndingAfterPayments",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast.",
+                        "type": "text/plain"
+                      },
+                      "key": "SemiMonthlyFrequencyType",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Invoice number of the payment",
+                        "type": "text/plain"
+                      },
+                      "key": "InvoiceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "ID of the document you want to include in the eLinx email. You must first upload a document using the POST /document endpoint, and then pass in the resulting DocumentID into this endpoint.",
+                        "type": "text/plain"
+                      },
+                      "key": "DocumentID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An optional reference number which was associated with the eLinx request.",
+                        "type": "text/plain"
+                      },
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An optional note to associate with the transaction.",
+                        "type": "text/plain"
+                      },
+                      "key": "Note",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This option is used to send an eLinx through email, sms, or whatsapp which later on can be used by a recipient to make the payment. A valid ReceiverPhoneNumber or ReceiverEmailAddress must be provided",
+                        "type": "text/plain"
+                      },
+                      "key": "SendNotification",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Use this optional parameter to override the account-level setting for the eLinx delivery method. If not provided, the account-level setting will be used. Possible values: email, sms, whatsapp.",
+                        "type": "text/plain"
+                      },
+                      "key": "NotificationMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's email address - Must be a valid email. Only required if SendNotification is true and NotificationMethod = email.",
+                        "type": "text/plain"
+                      },
+                      "key": "ReceiverEmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's phone number - Must be a valid number. Only required if SendNotification is true and NotificationMethod = sms or whatsapp.",
+                        "type": "text/plain"
+                      },
+                      "key": "ReceiverPhoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An iFrame key generated from /iq11/generate-embed-url. If provided, the settings applied to this iFrame will be used when the customer provides their bank account information. If not provided, the default iFrame settings will be used.",
+                        "type": "text/plain"
+                      },
+                      "key": "IframeKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This will inform the end user of the flexible payment options that they can choose from. Input can be a comma-delimited list. The possible values are: multiple, partial, installments.",
+                        "type": "text/plain"
+                      },
+                      "key": "FlexiblePaymentOptions",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This is the minimum amount that can be accepted for a 'partial' payment option. Example, if total eLinx amount is 100.00, and MinimumPaymentAccepted is 25.00, the user will be able to choose a partial payment of 25.00 (or more). This is required if 'partial' is included in FlexiblePaymentOptions.",
+                        "type": "text/plain"
+                      },
+                      "key": "MinimumPaymentAccepted",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This will specify the date the remainder of the total amount should be paid if 'partial' payment is selected. This is optional if 'partial' is included in FlexiblePaymentOptions.",
+                        "type": "text/plain"
+                      },
+                      "key": "RemainderPaymentDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This will specify the number of installments that the payments will be split into. This is required if 'installments' is included in FlexiblePaymentOptions.",
+                        "type": "text/plain"
+                      },
+                      "key": "NumberOfInstallments",
+                      "value": "<number>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This will specify the frequency of installments. This is required if 'installments' is included in FlexiblePaymentOptions. The possible values are: weekly, biweekly, monthly.",
+                        "type": "text/plain"
+                      },
+                      "key": "InstallmentFrequency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Use this optional parameter to override the account-level setting for sending reminders to recipient. If not provided, the account-level setting will be used.",
+                        "type": "text/plain"
+                      },
+                      "key": "SendReminder",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Use this optional parameter to override the account-level setting for the eLinx reminder frequency (in days). If not provided, the account-level setting will be used.",
+                        "type": "text/plain"
+                      },
+                      "key": "ReminderFrequency",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Use this optional parameter to provide a message to the recipient.",
+                        "type": "text/plain"
+                      },
+                      "key": "RecipientMessage",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This optional parameter can be added to ensure that the recipient is using an existing payment method, adding a new payment method or whether the client has access to both. Valid options include - New, Existing or Both. Defaults to New.",
+                        "type": "text/plain"
+                      },
+                      "key": "PaymentMethodDisplayOptions",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This optional parameter can be added to configure when to send an OTP for eLinx. By default OTP will be sent for existing payment methods only.",
+                        "type": "text/plain"
+                      },
+                      "key": "OTPRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An optional GL code to associate with the transaction created from this eLinx request.",
+                        "type": "text/plain"
+                      },
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An optional transaction type code to associate with the transaction created from this eLinx request.",
+                        "type": "text/plain"
+                      },
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\",\n  \"ELinxRequestID\": 9750,\n  \"Link\": \"https://request.vopay.com/{Token}\",\n  \"Status\": \"pending\",\n  \"Amount\": 5957.643900613577,\n  \"ReceiverName\": \"John\",\n  \"ReceiverEmailAddress\": \"john.doe@vopay.com\",\n  \"SenderName\": \"John\",\n  \"SenderEmailAddress\": \"jane.doe@vopay.com\",\n  \"InvoiceNumber\": \"ABC1234\",\n  \"Note\": \"eLinx requested to the client 123\",\n  \"ClientReferenceNumber\": \"123ABC-XYZ\",\n  \"ELinxRequestType\": \"transaction\",\n  \"Frequency\": \"recurring\",\n  \"NameOfFrequency\": \"weekly\",\n  \"SemiMonthlyFrequencyType\": 6496,\n  \"ScheduleStartDate\": \"2020-01-01\",\n  \"ScheduleEndDate\": \"2021-01-01\",\n  \"EndingAfterPayments\": 1814,\n  \"PaymentType\": \"fund\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8852c56-bed7-49cd-a974-d9bdc3bf3d84",
+          "name": "elinx",
+          "request": {
+            "name": "elinx",
+            "description": {
+              "content": "This endpoint is used to retrieve a listing of all eLinx requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "elinx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "ELinxRequestType",
+                  "value": "<string>",
+                  "description": "Filters results by eLinx request type: scheduled, transaction or beneficiary. Default is '' (i.e., all eLinx requests are returned)."
+                },
+                {
+                  "disabled": false,
+                  "key": "ELinxRequestID",
+                  "value": "<string>",
+                  "description": "Filters results by eLinx request ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "StartDateTime",
+                  "value": "<dateTime>",
+                  "description": "Filters results that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format. Default is 30 days ago."
+                },
+                {
+                  "disabled": false,
+                  "key": "EndDateTime",
+                  "value": "<dateTime>",
+                  "description": "Filters results that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format. Default is the current date/time."
+                },
+                {
+                  "disabled": false,
+                  "key": "Limit ",
+                  "value": "<integer>",
+                  "description": "Limit the number of records that are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "Offset ",
+                  "value": "<integer>",
+                  "description": "Use this parameter to set the starting point in the dataset."
+                },
+                {
+                  "disabled": false,
+                  "key": "Timezone ",
+                  "value": "<string>",
+                  "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cdf4e15a-34a5-4efd-b8bd-2cf4a4de04f5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "elinx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ELinxRequestType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ELinxRequestID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StartDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "EndDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Timezone ",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"ELinxRequests\": {\n    \"0\": {\n      \"AcceptedCardBrands\": \"amex,discover,mastercard,unionpay\",\n      \"CardTypeValidation\": 9635,\n      \"ELinxRequestID\": 7169,\n      \"ReceiverName\": \"John Smith\",\n      \"ReceiverEmailAddress\": \"john.doe@vopay.com\",\n      \"SenderName\": \"Jane Doe\",\n      \"SenderEmailAddress\": \"jane.doe@vopay.com\",\n      \"Status\": \"pending\",\n      \"RequestDate\": \"2020-05-25\",\n      \"Link\": \"https://request.vopay.com/{Token}\",\n      \"Note\": \"eLinx requested to the client 123\",\n      \"ClientReferenceNumber\": \"123ABC-XYZ\",\n      \"Amount\": 7437.815186297292,\n      \"Currency\": \"CAD\",\n      \"TransactionID\": 372,\n      \"ScheduledPaymentsID\": 3068,\n      \"TransactionTypes\": \"1234\",\n      \"ELinxRequestType\": \"1234\",\n      \"IQ11Token\": \"\",\n      \"Institution\": \"CIBC\",\n      \"FinancialInstitutionNumber\": \"010\",\n      \"BranchTransitNumber\": \"03900\",\n      \"AccountNumber\": \"1234567\",\n      \"CreditCardToken\": \"\",\n      \"CreditCardNumber\": \"**** **** **** 1234\",\n      \"CreditCardExpiryYear\": \"2023\",\n      \"CreditCardExpiryMonth\": \"12\",\n      \"CreditCardBrand\": \"visa\",\n      \"FlexiblePaymentOptions\": {},\n      \"PaymentType\": {},\n      \"TransactionIDs\": \"12345,12346,12347\",\n      \"RecipientMessage\": \"A message for the recipient.\",\n      \"ClientAccountID\": \"client_account_1\",\n      \"GLCode\": \"GL-1234\",\n      \"TransactionTypeCode\": \"203\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"1000\",\n    \"Offset\": \"1000\",\n    \"Limit\": \"1000\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "841b9577-e6f9-4738-a347-7466f014a2e4",
+          "name": "elinx/cancel",
+          "request": {
+            "name": "elinx/cancel",
+            "description": {
+              "content": "This endpoint is used to cancel an incomplete eLinx request",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "elinx",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "ELinxRequestID",
+                  "value": "<string>",
+                  "description": "(Required) The unique ID of the eLinx request you want to cancel"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6dde751c-e1ad-44fa-8499-17d13ba291be",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "elinx",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The unique ID of the eLinx request you want to cancel",
+                        "type": "text/plain"
+                      },
+                      "key": "ELinxRequestID",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": false,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe4ac3d2-39b4-4a4b-b4ad-141b57feb1f0",
+          "name": "elinx/settings",
+          "request": {
+            "name": "elinx/settings",
+            "description": {
+              "content": "This endpoint is used to update the eLinx settings for an account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "elinx",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                },
+                {
+                  "disabled": false,
+                  "key": "ELinxSenderEmailAddress",
+                  "value": "<string>",
+                  "description": "The email address used as the sender for all eLinx notifications sent from your account"
+                },
+                {
+                  "disabled": false,
+                  "key": "DefaultNotificationMethod",
+                  "value": "<string>",
+                  "description": "The default method used to deliver eLinx requests. Possible values: email, sms"
+                },
+                {
+                  "disabled": false,
+                  "key": "ELinxReminderFrequency",
+                  "value": "<integer>",
+                  "description": "How often (in days) to send reminders for pending eLinx requests"
+                },
+                {
+                  "disabled": false,
+                  "key": "ELinxExpirationTime",
+                  "value": "<integer>",
+                  "description": "How many days until an eLinx request expires if not completed. Set to 0 for no expiration"
+                },
+                {
+                  "disabled": false,
+                  "key": "EnableELinxDecline",
+                  "value": "<boolean>",
+                  "description": "Whether recipients can decline eLinx requests"
+                },
+                {
+                  "disabled": false,
+                  "key": "SenderNotificationsEnabled",
+                  "value": "<boolean>",
+                  "description": "Whether to send notifications to the sender when eLinx requests are completed or declined"
+                },
+                {
+                  "disabled": false,
+                  "key": "ReceiverNotificationsEnabled",
+                  "value": "<boolean>",
+                  "description": "Whether to send notifications to the receiver for eLinx requests"
+                },
+                {
+                  "disabled": false,
+                  "key": "ELinxReminderEnabled",
+                  "value": "<boolean>",
+                  "description": "Whether to send reminder notifications for pending eLinx requests"
+                },
+                {
+                  "disabled": false,
+                  "key": "OTPRequired",
+                  "value": "<boolean>",
+                  "description": "When to send an OTP for eLinx. By default OTP will be sent for existing payment methods only."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "04c8117f-f834-45f8-8cf5-4b5e0810bdc8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "elinx",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your account ID",
+                        "type": "text/plain"
+                      },
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) API key for the account",
+                        "type": "text/plain"
+                      },
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Hashed signature for the request",
+                        "type": "text/plain"
+                      },
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The email address used as the sender for all eLinx notifications sent from your account",
+                        "type": "text/plain"
+                      },
+                      "key": "ELinxSenderEmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The default method used to deliver eLinx requests. Possible values: email, sms",
+                        "type": "text/plain"
+                      },
+                      "key": "DefaultNotificationMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "How often (in days) to send reminders for pending eLinx requests",
+                        "type": "text/plain"
+                      },
+                      "key": "ELinxReminderFrequency",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "How many days until an eLinx request expires if not completed. Set to 0 for no expiration",
+                        "type": "text/plain"
+                      },
+                      "key": "ELinxExpirationTime",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Whether recipients can decline eLinx requests",
+                        "type": "text/plain"
+                      },
+                      "key": "EnableELinxDecline",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Whether to send notifications to the sender when eLinx requests are completed or declined",
+                        "type": "text/plain"
+                      },
+                      "key": "SenderNotificationsEnabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Whether to send notifications to the receiver for eLinx requests",
+                        "type": "text/plain"
+                      },
+                      "key": "ReceiverNotificationsEnabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Whether to send reminder notifications for pending eLinx requests",
+                        "type": "text/plain"
+                      },
+                      "key": "ELinxReminderEnabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When to send an OTP for eLinx. By default OTP will be sent for existing payment methods only.",
+                        "type": "text/plain"
+                      },
+                      "key": "OTPRequired",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "296e985e-bcd7-473c-b252-f7a5fc5faca6",
+          "name": "elinx/settings",
+          "request": {
+            "name": "elinx/settings",
+            "description": {
+              "content": "This endpoint is used to retrieve a list of all eLinx settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "elinx",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "AccountID",
+                  "value": "<string>",
+                  "description": "(Required) Your account ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "Key",
+                  "value": "<string>",
+                  "description": "(Required) API key for the account"
+                },
+                {
+                  "disabled": false,
+                  "key": "Signature",
+                  "value": "<string>",
+                  "description": "(Required) Hashed signature for the request"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8463952-8f07-4cfb-911f-e7e93fab70bf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "elinx",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Success\": true,\n  \"ErrorMessage\": \"\",\n  \"ELinxSettings\": {\n    \"0\": {\n      \"DefaultNotificationMethod\": \"email\",\n      \"EnableELinxDecline\": false,\n      \"ELinxExpirationTime\": 6578,\n      \"ELinxSenderEmailAddress\": \"john.doe@gmail.com\",\n      \"ELinxReminderEnabled\": false,\n      \"SenderNotificationsEnabled\": false,\n      \"ReceiverNotificationsEnabled\": true,\n      \"ELinxReminderFrequency\": 2352,\n      \"OTPRequired\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://earthnode-dev.vopay.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "72f9bace-1676-44f0-9742-65c74111afee",
+    "name": "eLinx",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The eLinx API allows you to create and manage elinx.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+      "type": "text/plain"
+    }
+  }
+}

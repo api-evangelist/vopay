@@ -1,0 +1,2448 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Payment Methods",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Credit Card Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "credit-card/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/credit-card/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectURL",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectMethod",
+                  "value": ""
+                },
+                {
+                  "name": "ClientControlled",
+                  "value": ""
+                },
+                {
+                  "name": "CardTypeValidation",
+                  "value": ""
+                },
+                {
+                  "name": "Trigger3DS",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to provide their credit card information, which can be used in the /credit-card/charge endpoint."
+        },
+        {
+          "info": {
+            "name": "credit-card/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/credit-card/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "CreditCardToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete a credit card associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "credit-card",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/credit-card",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "CreditCardToken",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will only return the credit card associated with this token"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will only return credit cards associated with this Client Account ID"
+              },
+              {
+                "name": "ClientControlled",
+                "value": "",
+                "type": "query",
+                "description": "When set to true, this endpoint will only return credit cards linked to your VoPay account. When set to false, it will return a list of your customer's credit cards."
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves a list of credit cards associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "credit-card/set-my-credit-card",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/credit-card/set-my-credit-card",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "CreditCardToken",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "SetAsDefault",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to identify a credit card as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a credit card as being the VoPay account holder's default credit card. Note, a VoPay account can only have one default credit card."
+        },
+        {
+          "info": {
+            "name": "credit-card/default-credit-card",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/credit-card/default-credit-card",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will return the default credit card associated with this Client Account ID"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves the default credit card associated with your VoPay account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Debit Card Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "debit-card/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/debit-card/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectURL",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectMethod",
+                  "value": ""
+                },
+                {
+                  "name": "ClientControlled",
+                  "value": ""
+                },
+                {
+                  "name": "CardTypeValidation",
+                  "value": ""
+                },
+                {
+                  "name": "Trigger3DS",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to provide their card information, which can be used in the /debit-card/oct/push-funds and /debit-card/aft/pull-funds endpoint."
+        },
+        {
+          "info": {
+            "name": "debit-card/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/debit-card/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "CardToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete a debit card associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "debit-card",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/debit-card",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "DebitCardToken",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will only return the debit card associated with this token"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will only return debit cards associated with this Client Account ID"
+              },
+              {
+                "name": "ClientControlled",
+                "value": "",
+                "type": "query",
+                "description": "When set to true, this endpoint will only return debit cards linked to your VoPay account. When set to false, it will return a list of your customer's debit cards."
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves a list of debit cards associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "debit-card/set-debit-card",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/debit-card/set-debit-card",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "CardToken",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "SetAsDefault",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to identify a debit card as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a debit card as being the VoPay account holder's default debit card. Note, a VoPay account can only have one default debit card."
+        },
+        {
+          "info": {
+            "name": "debit-card/default-debit-card",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/debit-card/default-debit-card",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will return the default debit card associated with this Client Account ID"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves the default debit card associated with your VoPay account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bank Account Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "bank-account/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bank-account/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectURL",
+                  "value": ""
+                },
+                {
+                  "name": "CompanyName",
+                  "value": ""
+                },
+                {
+                  "name": "Language",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectMethod",
+                  "value": ""
+                },
+                {
+                  "name": "AccountSelectionMethod",
+                  "value": ""
+                },
+                {
+                  "name": "ClientControlled",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "TermsAndConditions",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                },
+                {
+                  "name": "WithTransactions",
+                  "value": ""
+                },
+                {
+                  "name": "RequireDebitAuthorityAgreement",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from. For additional details on iQ11 and RedirectMethod, please visit our [Iq11 Overview](https://docs.vopay.com/docs/iq11-overview)"
+        },
+        {
+          "info": {
+            "name": "bank-account/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bank-account/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "AccountHolderName",
+                  "value": ""
+                },
+                {
+                  "name": "AccountNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FinancialInstitutionNumber",
+                  "value": ""
+                },
+                {
+                  "name": "BranchTransitNumber",
+                  "value": ""
+                },
+                {
+                  "name": "ABARoutingNumber",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "FlinksLoginID",
+                  "value": ""
+                },
+                {
+                  "name": "PlaidProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "MxProcessorToken",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "Address1",
+                  "value": ""
+                },
+                {
+                  "name": "City",
+                  "value": ""
+                },
+                {
+                  "name": "State",
+                  "value": ""
+                },
+                {
+                  "name": "ZipCode",
+                  "value": ""
+                },
+                {
+                  "name": "Province",
+                  "value": ""
+                },
+                {
+                  "name": "PostalCode",
+                  "value": ""
+                },
+                {
+                  "name": "Country",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to add a bank account to your VoPay account"
+        },
+        {
+          "info": {
+            "name": "bank-account/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bank-account/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete a bank account associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "bank-account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bank-account",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "Token",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will only return the bank account associated with this token"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will only return bank accounts associated with this Client Account ID"
+              },
+              {
+                "name": "ClientControlled",
+                "value": "",
+                "type": "query",
+                "description": "When set to true, this endpoint will only return bank accounts linked to your VoPay account. When set to false, it will return a list of your customer's bank accounts."
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              },
+              {
+                "name": "SearchText",
+                "value": "",
+                "type": "query",
+                "description": "A text string to search for account holder name."
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves a list of bank accounts associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "bank-account/set-my-bank-account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bank-account/set-my-bank-account",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "SetAsDefault",
+                  "value": ""
+                },
+                {
+                  "name": "Purpose",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to identify a bank account as belonging to the VoPay account holder.\n\n Optionally, you can use this endpoint to identify a bank account as being the VoPay account holder's default operational and/or billing bank account. The VoPay account holder's default operational bank account is used in the /account/fund-my-account and /account/withdraw-my-account endpoints. The VoPay account holder's default billing bank account is used to collect monthly invoices. Note, a VoPay acc"
+        },
+        {
+          "info": {
+            "name": "bank-account/default-bank-account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/bank-account/default-bank-account",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will return the default bank account associated with this Client Account ID"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves the default bank account associated with your VoPay account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Interac Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "interac/email/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/email/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientName",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientPhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                },
+                {
+                  "name": "Question",
+                  "value": ""
+                },
+                {
+                  "name": "Answer",
+                  "value": ""
+                },
+                {
+                  "name": "Message",
+                  "value": ""
+                },
+                {
+                  "name": "Language",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "ClientControlled",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to add an Interac email to your VoPay account. Optionally, you can use this enpoint to also set the email as default for the VoPay account."
+        },
+        {
+          "info": {
+            "name": "interac/email/edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/email/edit",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientName",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientEmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientPhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "Question",
+                  "value": ""
+                },
+                {
+                  "name": "Answer",
+                  "value": ""
+                },
+                {
+                  "name": "Message",
+                  "value": ""
+                },
+                {
+                  "name": "Language",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "ClientControlled",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to update an Interac email associated with your VoPay account."
+        },
+        {
+          "info": {
+            "name": "interac/email/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/email/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete an Interac email associated with your VoPay account."
+        },
+        {
+          "info": {
+            "name": "interac/email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/email",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "Client Account ID"
+              },
+              {
+                "name": "SearchText",
+                "value": "",
+                "type": "query",
+                "description": "A text string to search for in the email addresses"
+              },
+              {
+                "name": "RecipientName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the recipient associated with this email"
+              },
+              {
+                "name": "RecipientEmailAddress",
+                "value": "",
+                "type": "query",
+                "description": "The Email address to be associated with the account."
+              },
+              {
+                "name": "RecipientPhoneNumber",
+                "value": "",
+                "type": "query",
+                "description": "The Phone number to be associated with the account."
+              },
+              {
+                "name": "ClientReferenceNumber",
+                "value": "",
+                "type": "query",
+                "description": "An optional reference number to associate with the transactions"
+              },
+              {
+                "name": "ClientControlled",
+                "value": "",
+                "type": "query",
+                "description": "When set to true, the connected email will be linked to your VoPay account. Default is false."
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves a list of Interac emails associated with your VoPay account."
+        },
+        {
+          "info": {
+            "name": "interac/email/set-my-email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/email/set-my-email",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Token",
+                  "value": ""
+                },
+                {
+                  "name": "SetAsDefault",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to identify an Interac email as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify an Interac email as being the VoPay account holder's default email. Note, a VoPay account can only have one default Interac email."
+        },
+        {
+          "info": {
+            "name": "interac/email/default-email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/email/default-email",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will return the default email associated with this Client Account ID"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves the default Interac email associated with your VoPay account."
+        },
+        {
+          "info": {
+            "name": "interac/auto-deposit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/interac/auto-deposit",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "EmailAddress",
+                "value": "",
+                "type": "query",
+                "description": "The email address to fetch Interac auto-deposit status for."
+              }
+            ]
+          },
+          "docs": "This endpoint is used to fetch Interac auto-deposit status."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Digital Wallet Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "google-pay/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/google-pay/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectURL",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectMethod",
+                  "value": ""
+                },
+                {
+                  "name": "ClientControlled",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their Google account and generate a token, which can be used in the /google-pay/charge endpoint."
+        },
+        {
+          "info": {
+            "name": "google-pay/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/google-pay/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "GooglePayToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete a Google Pay token associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "google-pay",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/google-pay",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "GooglePayToken",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will only return the Google Pay credit cards associated with this token"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will only return Google Pay credit cards associated with this Client Account ID"
+              },
+              {
+                "name": "ClientControlled",
+                "value": "",
+                "type": "query",
+                "description": "When set to true, this endpoint will only return Google Pay credit cards linked to your VoPay account. When set to false, it will return a list of your customer's Google Pay tokens."
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves a list of Google Pay credit cards associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "google-pay/set-my-google-pay",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/google-pay/set-my-google-pay",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "GooglePayToken",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "SetAsDefault",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to identify a Google Pay credit card as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a Google Pay credit card as being the VoPay account holder's default Google Pay credit card. Note, a VoPay account can only have one default Google Pay credit card."
+        },
+        {
+          "info": {
+            "name": "google-pay/default-google-pay",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/google-pay/default-google-pay",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will return the default Google Pay credit card associated with this Client Account ID"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves the default Google Pay credit card associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "apple-pay/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/apple-pay/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectURL",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectMethod",
+                  "value": ""
+                },
+                {
+                  "name": "ClientControlled",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their Apple account and generate a token, which can be used in the /apple-pay/charge endpoint."
+        },
+        {
+          "info": {
+            "name": "apple-pay/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/apple-pay/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ApplePayToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete a Apple Pay token associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "apple-pay",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/apple-pay",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ApplePayToken",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will only return the Apple Pay credit cards associated with this token"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will only return Apple Pay credit cards associated with this Client Account ID"
+              },
+              {
+                "name": "ClientControlled",
+                "value": "",
+                "type": "query",
+                "description": "When set to true, this endpoint will only return Apple Pay credit cards linked to your VoPay account. When set to false, it will return a list of your customer's Apple Pay tokens."
+              },
+              {
+                "name": "Limit ",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset ",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves a list of Apple Pay credit cards associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "apple-pay/set-my-apple-pay",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/apple-pay/set-my-apple-pay",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ApplePayToken",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "SetAsDefault",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to identify a Apple Pay credit card as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a Apple Pay credit card as being the VoPay account holder's default Apple Pay credit card. Note, a VoPay account can only have one default Apple Pay credit card."
+        },
+        {
+          "info": {
+            "name": "apple-pay/default-apple-pay",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/apple-pay/default-apple-pay",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will return the default Apple Pay credit card associated with this Client Account ID"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves the default Apple Pay credit card associated with your VoPay account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "PayPal Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "paypal/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/paypal/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "PayPalRecipientType",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientName",
+                  "value": ""
+                },
+                {
+                  "name": "Currency",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to add a PayPal account to your VoPay account"
+        },
+        {
+          "info": {
+            "name": "paypal/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/paypal/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "PayPalToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete a PayPal account from your VoPay account"
+        },
+        {
+          "info": {
+            "name": "paypal/recipients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/paypal/recipients",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientControlled",
+                "value": "",
+                "type": "query",
+                "description": "When set to true, this endpoint will only return PayPal accounts linked to your VoPay account. When set to false, it will return a list of your customer's PayPal accounts."
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              }
+            ]
+          },
+          "docs": "This endpoint allows you fetch a list all of your PayPal recipients"
+        },
+        {
+          "info": {
+            "name": "paypal/set-my-recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/paypal/set-my-recipient",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "PayPalToken",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "SetAsDefault",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to identify a PayPal recipient as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a PayPal recipient as being the VoPay account holder's default PayPal recipient. Note, a VoPay account can only have one default PayPal recipient."
+        },
+        {
+          "info": {
+            "name": "paypal/default-recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/paypal/default-recipient",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will return the default PayPal recipient associated with this Client Account ID"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves the default PayPal recipient associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "paypal/withdraw/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/paypal/withdraw/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectURL",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectMethod",
+                  "value": ""
+                },
+                {
+                  "name": "ClientControlled",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their PayPal account and generate a token, which can be used in the /paypal/withdraw endpoint."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Venmo Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "venmo/add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/venmo/add",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ContactID",
+                  "value": ""
+                },
+                {
+                  "name": "VenmoRecipientType",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientID",
+                  "value": ""
+                },
+                {
+                  "name": "RecipientName",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to add a Venmo account to your VoPay account"
+        },
+        {
+          "info": {
+            "name": "venmo/delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/venmo/delete",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VenmoToken",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to delete a Venmo account from your VoPay account"
+        },
+        {
+          "info": {
+            "name": "venmo/recipients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/venmo/recipients",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientControlled",
+                "value": "",
+                "type": "query",
+                "description": "When set to true, this endpoint will only return Venmo accounts linked to your VoPay account. When set to false, it will return a list of your customer's Venmo accounts."
+              },
+              {
+                "name": "Limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records that are returned."
+              },
+              {
+                "name": "Offset",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to set the starting point in the dataset."
+              }
+            ]
+          },
+          "docs": "This endpoint allows you fetch a list all of your Venmo recipients"
+        },
+        {
+          "info": {
+            "name": "venmo/set-my-recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/venmo/set-my-recipient",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "VenmoToken",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "SetAsDefault",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint allows you to identify a Venmo recipient as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a Venmo recipient as being the VoPay account holder's default Venmo recipient. Note, a VoPay account can only have one default Venmo recipient."
+        },
+        {
+          "info": {
+            "name": "venmo/default-recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/venmo/default-recipient",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "ClientAccountID",
+                "value": "",
+                "type": "query",
+                "description": "When provided, this endpoint will return the default Venmo recipient associated with this Client Account ID"
+              }
+            ]
+          },
+          "docs": "This endpoint retrieves the default Venmo recipient associated with your VoPay account"
+        },
+        {
+          "info": {
+            "name": "venmo/withdraw/generate-embed-url",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/venmo/withdraw/generate-embed-url",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectURL",
+                  "value": ""
+                },
+                {
+                  "name": "RedirectMethod",
+                  "value": ""
+                },
+                {
+                  "name": "ClientControlled",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their Venmo account and generate a token, which can be used in the /venmo/withdraw endpoint."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Zelle Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "zelle/withdraw",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/zelle/withdraw",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "FirstName",
+                  "value": ""
+                },
+                {
+                  "name": "LastName",
+                  "value": ""
+                },
+                {
+                  "name": "Amount",
+                  "value": ""
+                },
+                {
+                  "name": "EmailAddress",
+                  "value": ""
+                },
+                {
+                  "name": "PhoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "PriorityType",
+                  "value": ""
+                },
+                {
+                  "name": "Notes",
+                  "value": ""
+                },
+                {
+                  "name": "ClientAccountID",
+                  "value": ""
+                },
+                {
+                  "name": "ClientReferenceNumber",
+                  "value": ""
+                },
+                {
+                  "name": "IdempotencyKey",
+                  "value": ""
+                },
+                {
+                  "name": "GLCode",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionTypeCode",
+                  "value": ""
+                },
+                {
+                  "name": "ParentTransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Initiate a Zelle B2C payment to a recipient identified by email address or mobile phone number."
+        },
+        {
+          "info": {
+            "name": "zelle/withdraw/transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/zelle/withdraw/transaction",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "TransactionID",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the Zelle transaction to retrieve"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific Zelle withdrawal transaction."
+        },
+        {
+          "info": {
+            "name": "zelle/withdraw/transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/zelle/withdraw/transactions",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              },
+              {
+                "name": "StartDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Start of the date range to filter transactions (e.g. 2024-01-01 or 2024-01-01 00:00:00)"
+              },
+              {
+                "name": "EndDateTime",
+                "value": "",
+                "type": "query",
+                "description": "End of the date range to filter transactions (e.g. 2024-01-31 or 2024-01-31 23:59:59)"
+              }
+            ]
+          },
+          "docs": "List Zelle withdrawal transactions for the account within a specified date range."
+        },
+        {
+          "info": {
+            "name": "zelle/cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/zelle/cancel",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Cancel a pending Zelle withdrawal transaction. If the transaction has already been submitted to the processor, a cancellation request will be sent."
+        },
+        {
+          "info": {
+            "name": "zelle/withdraw/name-match",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://earthnode-dev.vopay.com/api/v2/zelle/withdraw/name-match",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "AccountID",
+                  "value": ""
+                },
+                {
+                  "name": "Key",
+                  "value": ""
+                },
+                {
+                  "name": "Signature",
+                  "value": ""
+                },
+                {
+                  "name": "TransactionID",
+                  "value": ""
+                },
+                {
+                  "name": "Decision",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Approve or reject a Zelle payment that is pending name match verification. When the recipient's registered name does not match the name provided, the payment is held for manual review."
+        },
+        {
+          "info": {
+            "name": "zelle/recipients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://earthnode-dev.vopay.com/api/v2/zelle/recipients",
+            "params": [
+              {
+                "name": "AccountID",
+                "value": "",
+                "type": "query",
+                "description": "Your account ID"
+              },
+              {
+                "name": "Key",
+                "value": "",
+                "type": "query",
+                "description": "API key for the account"
+              },
+              {
+                "name": "Signature",
+                "value": "",
+                "type": "query",
+                "description": "Hashed signature for the request"
+              }
+            ]
+          },
+          "docs": "List saved Zelle recipients for the account. Recipients are automatically saved when a Zelle payment is submitted."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
