@@ -48,387 +48,884 @@ created: '2026-07-24'
 modified: '2026-07-24'
 specificationVersion: '0.23'
 apis:
-- aid: vopay:vopay-account-api-reference
-  name: VoPay Accounts API
-  description: VoPay's Accounts API — 44 documented operation(s) across 40 path(s) on VoPay's API-first embedded
-    finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-account-endpoints-api
+  name: VoPay Account Endpoints API
+  description: The Account Endpoints API from VoPay — 20 operation(s) for account endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Account
-  - Ledger
-  tags_raw:
-  - Accounts
-  - Ledger
+  - Account Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-account-api-reference.json
+    url: openapi/vopay-account-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-account-onboarding
-  name: VoPay Account Onboarding API
-  description: VoPay's Account Onboarding API — 9 documented operation(s) across 9 path(s) on VoPay's API-first
-    embedded finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-account-onboarding-endpoints-api
+  name: VoPay Account Onboarding Endpoints API
+  description: >-
+    The Account Onboarding Endpoints API from VoPay — 7 operation(s) for account onboarding endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Onboarding
-  - KYC
+  - Account Onboarding Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-account-onboarding.json
+    url: openapi/vopay-account-onboarding-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-bill-pay-references
-  name: VoPay Bill Pay API
-  description: VoPay's Bill Pay API — 8 documented operation(s) across 8 path(s) on VoPay's API-first embedded finance
-    platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-account-verification-endpoints-api
+  name: VoPay Account Verification Endpoints API
+  description: >-
+    The Account Verification Endpoints API from VoPay — 5 operation(s) for account verification endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Bill Pay
-  - Payments
+  - Account Verification Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-bill-pay-references.json
+    url: openapi/vopay-account-verification-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-blocked-accounts-api-reference
+- aid: vopay:vopay-ach-endpoints-api
+  name: VoPay ACH Endpoints API
+  description: The ACH Endpoints API from VoPay — 10 operation(s) for ach endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - ACH Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-ach-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-api-key-endpoints-api
+  name: VoPay API Key Endpoints API
+  description: The API Key Endpoints API from VoPay — 10 operation(s) for api key endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - API Key Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-api-key-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-bank-account-endpoints-api
+  name: VoPay Bank Account Endpoints API
+  description: The Bank Account Endpoints API from VoPay — 6 operation(s) for bank account endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Bank Account Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-bank-account-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-batch-request-endpoints-api
+  name: VoPay Batch Request Endpoints API
+  description: >-
+    The Batch Request Endpoints API from VoPay — 17 operation(s) for batch request endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Batch Request Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-batch-request-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-bill-pay-endpoints-api
+  name: VoPay Bill Pay Endpoints API
+  description: The Bill Pay Endpoints API from VoPay — 8 operation(s) for bill pay endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Bill Pay Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-bill-pay-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-blocked-accounts-api
   name: VoPay Blocked Accounts API
-  description: VoPay's Blocked Accounts API — 3 documented operation(s) across 3 path(s) on VoPay's API-first embedded
-    finance platform for Canadian and cross-border money movement.
+  description: The Blocked Accounts API from VoPay — 3 operation(s) for blocked accounts.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Risk
-  - Compliance
+  - Blocked Accounts
   properties:
   - type: OpenAPI
-    url: openapi/vopay-blocked-accounts-api-reference.json
+    url: openapi/vopay-blocked-accounts-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-branding-api-reference
-  name: VoPay Branding API
-  description: VoPay's Branding API — 6 documented operation(s) across 6 path(s) on VoPay's API-first embedded finance
-    platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-branding-endpoints-api
+  name: VoPay Branding Endpoints API
+  description: The Branding Endpoints API from VoPay — 6 operation(s) for branding endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Branding
-  - White Label
+  - Branding Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-branding-api-reference.json
+    url: openapi/vopay-branding-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-client-accounts
-  name: VoPay Client Accounts API
-  description: VoPay's Client Accounts API — 41 documented operation(s) across 40 path(s) on VoPay's API-first embedded
-    finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-client-account-auto-balance-transfer-endpoints-api
+  name: VoPay Client Account Auto Balance Transfer Endpoints API
+  description: >-
+    The Client Account Auto Balance Transfer Endpoints API from VoPay — 4 operation(s) for client account
+    auto balance transfer endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Client Accounts
-  - Subaccounts
-  tags_raw:
-  - Client Accounts
-  - Sub-Accounts
+  - Client Account Auto Balance Transfer Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-client-accounts.json
+    url: openapi/vopay-client-account-auto-balance-transfer-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-contact
-  name: VoPay Contact API
-  description: VoPay's Contact API — 15 documented operation(s) across 15 path(s) on VoPay's API-first embedded
-    finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-client-account-creation-endpoints-api
+  name: VoPay Client Account Creation Endpoints API
+  description: >-
+    The Client Account Creation Endpoints API from VoPay — 4 operation(s) for client account creation
+    endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Contacts
-  - Recipients
+  - Client Account Creation Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-contact.json
+    url: openapi/vopay-client-account-creation-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-convenience-fee-api-reference
+- aid: vopay:vopay-client-account-labels-endpoints-api
+  name: VoPay Client Account Labels Endpoints API
+  description: >-
+    The Client Account Labels Endpoints API from VoPay — 3 operation(s) for client account labels endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Client Account Labels Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-client-account-labels-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-client-account-management-endpoints-api
+  name: VoPay Client Account Management Endpoints API
+  description: >-
+    The Client Account Management Endpoints API from VoPay — 8 operation(s) for client account management
+    endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Client Account Management Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-client-account-management-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-client-account-notes-endpoints-api
+  name: VoPay Client Account Notes Endpoints API
+  description: >-
+    The Client Account Notes Endpoints API from VoPay — 4 operation(s) for client account notes endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Client Account Notes Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-client-account-notes-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-client-account-transfer-endpoints-api
+  name: VoPay Client Account Transfer Endpoints API
+  description: >-
+    The Client Account Transfer Endpoints API from VoPay — 10 operation(s) for client account transfer
+    endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Client Account Transfer Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-client-account-transfer-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-client-account-wallets-endpoints-api
+  name: VoPay Client Account Wallets Endpoints API
+  description: >-
+    The Client Account Wallets Endpoints API from VoPay — 7 operation(s) for client account wallets endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Client Account Wallets Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-client-account-wallets-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-contact-endpoints-api
+  name: VoPay Contact Endpoints API
+  description: The Contact Endpoints API from VoPay — 8 operation(s) for contact endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Contact Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-contact-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-contact-labels-endpoints-api
+  name: VoPay Contact Labels Endpoints API
+  description: >-
+    The Contact Labels Endpoints API from VoPay — 3 operation(s) for contact labels endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Contact Labels Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-contact-labels-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-contact-notes-endpoints-api
+  name: VoPay Contact Notes Endpoints API
+  description: The Contact Notes Endpoints API from VoPay — 4 operation(s) for contact notes endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Contact Notes Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-contact-notes-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-contact-verification-endpoints-api
+  name: VoPay Contact Verification Endpoints API
+  description: >-
+    The Contact Verification Endpoints API from VoPay — 8 operation(s) for contact verification endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Contact Verification Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-contact-verification-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-convenience-fees-api
   name: VoPay Convenience Fees API
-  description: VoPay's Convenience Fees API — 6 documented operation(s) across 2 path(s) on VoPay's API-first embedded
-    finance platform for Canadian and cross-border money movement.
+  description: The Convenience Fees API from VoPay — 2 operation(s) for convenience fees.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Fees
-  - Billing
+  - Convenience Fees
   properties:
   - type: OpenAPI
-    url: openapi/vopay-convenience-fee-api-reference.json
+    url: openapi/vopay-convenience-fees-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-dispute-management-api-reference
+- aid: vopay:vopay-credit-card-endpoints-api
+  name: VoPay Credit Card Endpoints API
+  description: The Credit Card Endpoints API from VoPay — 8 operation(s) for credit card endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Credit Card Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-credit-card-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-debit-card-endpoints-api
+  name: VoPay Debit Card Endpoints API
+  description: The Debit Card Endpoints API from VoPay — 9 operation(s) for debit card endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Debit Card Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-debit-card-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-delivery-channel-endpoints-api
+  name: VoPay Delivery Channel Endpoints API
+  description: >-
+    The Delivery Channel Endpoints API from VoPay — 3 operation(s) for delivery channel endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Delivery Channel Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-delivery-channel-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-delivery-method-endpoints-api
+  name: VoPay Delivery Method Endpoints API
+  description: >-
+    The Delivery Method Endpoints API from VoPay — 5 operation(s) for delivery method endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Delivery Method Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-delivery-method-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-digital-wallet-endpoints-api
+  name: VoPay Digital Wallet Endpoints API
+  description: >-
+    The Digital Wallet Endpoints API from VoPay — 16 operation(s) for digital wallet endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Digital Wallet Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-digital-wallet-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-dispute-management-endpoints-api
   name: VoPay Dispute Management Endpoints API
-  description: VoPay's Dispute Management Endpoints API — 11 documented operation(s) across 11 path(s) on VoPay's
-    API-first embedded finance platform for Canadian and cross-border money movement.
+  description: >-
+    The Dispute Management Endpoints API from VoPay — 11 operation(s) for dispute management endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Disputes
-  - Chargebacks
+  - Dispute Management Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-dispute-management-api-reference.json
+    url: openapi/vopay-dispute-management-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-elinx
-  name: VoPay eLinx API
-  description: VoPay's eLinx API — 5 documented operation(s) across 3 path(s) on VoPay's API-first embedded finance
-    platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-document-endpoints-api
+  name: VoPay Document Endpoints API
+  description: The Document Endpoints API from VoPay — 2 operation(s) for document endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Payment Links
-  - eLinx
+  - Document Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-elinx.json
+    url: openapi/vopay-document-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-file-conversion-api-reference
-  name: VoPay File Conversion API
-  description: VoPay's File Conversion API — 8 documented operation(s) across 8 path(s) on VoPay's API-first embedded
-    finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-eft-endpoint-api
+  name: VoPay EFT Endpoint API
+  description: The EFT Endpoint API from VoPay — 14 operation(s) for eft endpoint.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - File
-  - Utilities
-  tags_raw:
-  - Files
-  - Utilities
+  - EFT Endpoint
   properties:
   - type: OpenAPI
-    url: openapi/vopay-file-conversion-api-reference.json
+    url: openapi/vopay-eft-endpoint-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-global-cash-management
-  name: VoPay Global Cash Management API
-  description: VoPay's Global Cash Management API — 35 documented operation(s) across 35 path(s) on VoPay's API-first
-    embedded finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-elinx-endpoints-api
+  name: VoPay eLinx Endpoints API
+  description: The eLinx Endpoints API from VoPay — 3 operation(s) for elinx endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Cross-Border
-  - Treasury
+  - eLinx Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-global-cash-management.json
+    url: openapi/vopay-elinx-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-integrations-and-support
-  name: VoPay Integrations and Support API
-  description: VoPay's Integrations and Support API — 32 documented operation(s) across 32 path(s) on VoPay's API-first
-    embedded finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-embedded-experience-endpoints-api
+  name: VoPay Embedded Experience Endpoints API
+  description: >-
+    The Embedded Experience Endpoints API from VoPay — 2 operation(s) for embedded experience endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Integration
-  - Support
-  tags_raw:
-  - Integrations
-  - Support
+  - Embedded Experience Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-integrations-and-support.json
+    url: openapi/vopay-embedded-experience-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-iq11
-  name: VoPay IQ11 API
-  description: VoPay's IQ11 API — 8 documented operation(s) across 7 path(s) on VoPay's API-first embedded finance
-    platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-fednow-endpoints-api
+  name: VoPay Fednow Endpoints API
+  description: The Fednow Endpoints API from VoPay — 2 operation(s) for fednow endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Bank Account Verification
-  - IQ11
+  - Fednow Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-iq11.json
+    url: openapi/vopay-fednow-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-payment-api-reference
+- aid: vopay:vopay-fedwire-endpoints-api
+  name: VoPay Fedwire Endpoints API
+  description: The Fedwire Endpoints API from VoPay — 6 operation(s) for fedwire endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Fedwire Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-fedwire-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-file-conversion-endpoints-api
+  name: VoPay File Conversion Endpoints API
+  description: >-
+    The File Conversion Endpoints API from VoPay — 8 operation(s) for file conversion endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - File Conversion Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-file-conversion-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-government-identifier-endpoints-api
+  name: VoPay Government Identifier Endpoints API
+  description: >-
+    The Government Identifier Endpoints API from VoPay — 4 operation(s) for government identifier endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Government Identifier Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-government-identifier-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-integration-endpoints-api
+  name: VoPay Integration Endpoints API
+  description: The Integration Endpoints API from VoPay — 4 operation(s) for integration endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Integration Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-integration-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-interac-endpoints-api
+  name: VoPay Interac Endpoints API
+  description: The Interac Endpoints API from VoPay — 14 operation(s) for interac endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Interac Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-interac-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-iq11-data-enrichment-endpoints-api
+  name: VoPay IQ11 Data Enrichment Endpoints API
+  description: >-
+    The IQ11 Data Enrichment Endpoints API from VoPay — 2 operation(s) for iq11 data enrichment endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - IQ11 Data Enrichment Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-iq11-data-enrichment-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-iq11-endpoints-api
+  name: VoPay IQ11 Endpoints API
+  description: The IQ11 Endpoints API from VoPay — 5 operation(s) for iq11 endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - IQ11 Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-iq11-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-journal-entry-endpoints-api
+  name: VoPay Journal Entry Endpoints API
+  description: The Journal Entry Endpoints API from VoPay — 5 operation(s) for journal entry endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Journal Entry Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-journal-entry-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-partner-endpoints-api
+  name: VoPay Partner Endpoints API
+  description: The Partner Endpoints API from VoPay — 14 operation(s) for partner endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Partner Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-partner-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-payments-api
   name: VoPay Payments API
-  description: VoPay's Payments API — 1 documented operation(s) across 1 path(s) on VoPay's API-first embedded finance
-    platform for Canadian and cross-border money movement.
+  description: The Payments API from VoPay — 1 operation(s) for payments.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
-  baseURL: https://earthnode-dev.vopay.com/api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
   - Payments
   properties:
   - type: OpenAPI
-    url: openapi/vopay-payment-api-reference.json
+    url: openapi/vopay-payments-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-payment-method-api-reference
-  name: VoPay Payment Methods API
-  description: VoPay's Payment Methods API — 51 documented operation(s) across 51 path(s) on VoPay's API-first embedded
-    finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-paypal-endpoints-api
+  name: VoPay PayPal Endpoints API
+  description: The PayPal Endpoints API from VoPay — 8 operation(s) for paypal endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Payment Methods
-  - Bank Accounts
+  - PayPal Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-payment-method-api-reference.json
+    url: openapi/vopay-paypal-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-payment-rails-api-reference
-  name: VoPay Payment Rails API
-  description: VoPay's Payment Rails API — 85 documented operation(s) across 85 path(s) on VoPay's API-first embedded
-    finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-ping-endpoints-api
+  name: VoPay Ping Endpoints API
+  description: The Ping Endpoints API from VoPay — 3 operation(s) for ping endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Payment Rails
-  - EFT
-  - Interac
-  - ACH
-  - RTP
+  - Ping Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-payment-rails-api-reference.json
+    url: openapi/vopay-ping-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-ping
-  name: VoPay Ping API
-  description: VoPay's Ping API — 3 documented operation(s) across 3 path(s) on VoPay's API-first embedded finance
-    platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-recipient-contact-endpoints-api
+  name: VoPay Recipient Contact Endpoints API
+  description: >-
+    The Recipient Contact Endpoints API from VoPay — 5 operation(s) for recipient contact endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Utilities
-  - Health
+  - Recipient Contact Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-ping.json
+    url: openapi/vopay-recipient-contact-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-remittance-api-reference
-  name: VoPay Remittance API API
-  description: VoPay's Remittance API API — 1 documented operation(s) across 1 path(s) on VoPay's API-first embedded
-    finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-recipient-lookup-endpoints-api
+  name: VoPay Recipient Lookup Endpoints API
+  description: >-
+    The Recipient Lookup Endpoints API from VoPay — 4 operation(s) for recipient lookup endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Remittance
-  - Cross-Border
+  - Recipient Lookup Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-remittance-api-reference.json
+    url: openapi/vopay-recipient-lookup-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-scheduled-payments-api-reference
+- aid: vopay:vopay-remittance-endpoints-api
+  name: VoPay Remittance Endpoints API
+  description: The Remittance Endpoints API from VoPay — 1 operation(s) for remittance endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Remittance Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-remittance-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-rtp-endpoints-api
+  name: VoPay RTP Endpoints API
+  description: The RTP Endpoints API from VoPay — 2 operation(s) for rtp endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - RTP Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-rtp-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-scheduled-payments-api
   name: VoPay Scheduled Payments API
-  description: VoPay's Scheduled Payments API — 6 documented operation(s) across 5 path(s) on VoPay's API-first
-    embedded finance platform for Canadian and cross-border money movement.
+  description: The Scheduled Payments API from VoPay — 5 operation(s) for scheduled payments.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
   - Scheduled Payments
-  - Recurring
   properties:
   - type: OpenAPI
-    url: openapi/vopay-scheduled-payments-api-reference.json
+    url: openapi/vopay-scheduled-payments-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-transaction-management
-  name: VoPay Transaction Management API
-  description: VoPay's Transaction Management API — 7 documented operation(s) across 7 path(s) on VoPay's API-first
-    embedded finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-sepa-endpoints-api
+  name: VoPay SEPA Endpoints API
+  description: The SEPA Endpoints API from VoPay — 2 operation(s) for sepa endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Transaction
-  - Reporting
-  tags_raw:
-  - Transactions
-  - Reporting
+  - SEPA Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-transaction-management.json
+    url: openapi/vopay-sepa-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-verification
-  name: VoPay Verification API
-  description: VoPay's Verification API — 13 documented operation(s) across 13 path(s) on VoPay's API-first embedded
-    finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-sub-account-endpoints-api
+  name: VoPay Sub-Account Endpoints API
+  description: The Sub-Account Endpoints API from VoPay — 6 operation(s) for sub-account endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Verification
-  - KYC
+  - Sub-Account Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-verification.json
+    url: openapi/vopay-sub-account-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
-- aid: vopay:vopay-virtual-account-api-reference
-  name: VoPay Virtual Accounts API
-  description: VoPay's Virtual Accounts API — 6 documented operation(s) across 5 path(s) on VoPay's API-first embedded
-    finance platform for Canadian and cross-border money movement.
+- aid: vopay:vopay-support-endpoints-api
+  name: VoPay Support Endpoints API
+  description: The Support Endpoints API from VoPay — 8 operation(s) for support endpoints.
   humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
   baseURL: https://earthnode-dev.vopay.com/api/v2
   tags:
-  - Virtual Accounts
-  - Treasury
+  - Support Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/vopay-virtual-account-api-reference.json
+    url: openapi/vopay-support-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-transaction-management-endpoints-api
+  name: VoPay Transaction Management Endpoints API
+  description: >-
+    The Transaction Management Endpoints API from VoPay — 7 operation(s) for transaction management endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Transaction Management Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-transaction-management-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-venmo-endpoints-api
+  name: VoPay Venmo Endpoints API
+  description: The Venmo Endpoints API from VoPay — 8 operation(s) for venmo endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Venmo Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-venmo-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-virtual-account-endpoints-api
+  name: VoPay Virtual Account Endpoints API
+  description: >-
+    The Virtual Account Endpoints API from VoPay — 5 operation(s) for virtual account endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Virtual Account Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-virtual-account-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-vopay-instant-endpoints-api
+  name: VoPay Vopay Instant Endpoints API
+  description: The Vopay Instant Endpoints API from VoPay — 3 operation(s) for vopay instant endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Vopay Instant Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-vopay-instant-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-watchlist-endpoints-api
+  name: VoPay Watchlist Endpoints API
+  description: The Watchlist Endpoints API from VoPay — 4 operation(s) for watchlist endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Watchlist Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-watchlist-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-webhook-endpoints-api
+  name: VoPay Webhook Endpoints API
+  description: The Webhook Endpoints API from VoPay — 10 operation(s) for webhook endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Webhook Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-webhook-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-withdraw-endpoints-api
+  name: VoPay Withdraw Endpoints API
+  description: The Withdraw Endpoints API from VoPay — 8 operation(s) for withdraw endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Withdraw Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-withdraw-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.vopay.com/docs/api-overview
+  - type: APIReference
+    url: https://docs.vopay.com/reference/getting-started-with-your-api
+- aid: vopay:vopay-zelle-endpoints-api
+  name: VoPay Zelle Endpoints API
+  description: The Zelle Endpoints API from VoPay — 6 operation(s) for zelle endpoints.
+  humanURL: https://docs.vopay.com/reference/getting-started-with-your-api
+  baseURL: https://earthnode-dev.vopay.com/api/v2
+  tags:
+  - Zelle Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/vopay-zelle-endpoints-api-openapi.yml
   - type: Documentation
     url: https://docs.vopay.com/docs/api-overview
   - type: APIReference
