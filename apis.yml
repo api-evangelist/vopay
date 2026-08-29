@@ -11,6 +11,17 @@ description: VoPay is a Vancouver, Canada based fintech offering an API-first em
   API reference segmented by product, webhooks for transaction and account events, and API-key-plus-shared-secret
   signature authentication with IP whitelisting. Its home market is Canada, where it operates as an API-native money-movement
   layer over Interac and Payments Canada rails.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Payments
@@ -931,6 +942,9 @@ apis:
   - type: APIReference
     url: https://docs.vopay.com/reference/getting-started-with-your-api
 common:
+- type: CapabilityMap
+  url: capabilities/vopay-capability-edges.yml
+  name: VoPay Business Capability Map
 - type: Overlay
   url: overlays/vopay-account-api-reference-overlay.yaml
 - type: VulnerabilityDisclosure
