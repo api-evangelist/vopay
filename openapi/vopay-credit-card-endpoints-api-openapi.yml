@@ -1,0 +1,772 @@
+openapi: 3.2.0
+info:
+  title: Vopay Credit Card Endpoints API
+  version: '2.0'
+  contact:
+    name: API Support
+    email: help@vopay.com
+  description: 'Operations tagged Credit Card Endpoints across 2 of this provider''s published API definitions: vopay-payment-method-api-reference.json, vopay-payment-rails-api-reference.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Credit Card Endpoints
+paths:
+  /credit-card/generate-embed-url:
+    post:
+      description: This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to provide their credit card information, which can be used in the /credit-card/charge endpoint.
+      summary: credit-card/generate-embed-url
+      tags:
+      - Credit Card Endpoints
+      operationId: CreditCardGenerateEmbedURLPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: When provided, the credit card added will be attached to the Client Account ID
+                  type: string
+                RedirectURL:
+                  description: URL to redirect the user to after a credit card is added.
+                  type: string
+                RedirectMethod:
+                  description: This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.
+                  type: string
+                ClientControlled:
+                  description: When set to true, the credit card added will be linked to your VoPay account. Default is false.
+                  type: boolean
+                CardTypeValidation:
+                  description: When set to true, the card type will be validated to ensure the entered information represents a credit card. Default is false.
+                  type: boolean
+                Trigger3DS:
+                  description: When set to true, 3DS authentication will be triggered during the card addition process. Default is false.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - RedirectURL
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  EmbedURL:
+                    type: string
+                    description: Custom generated iQ11 iframe url for users to use
+                    example: https://earthnode-dev.vopay.com/iq11/embed/{Key Returned by Vopay}
+                  IframeKey:
+                    type: string
+                    description: Unique key attached to the generated iFrame
+                    example: a1b2c3
+                required:
+                - Success
+                - ErrorMessage
+                - EmbedURL
+                - IframeKey
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /credit-card/delete:
+    post:
+      description: This endpoint allows you to delete a credit card associated with your VoPay account
+      summary: credit-card/delete
+      tags:
+      - Credit Card Endpoints
+      operationId: CreditCardDeletePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                CreditCardToken:
+                  description: Credit card token
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - CreditCardToken
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /credit-card:
+    get:
+      description: This endpoint retrieves a list of credit cards associated with your VoPay account
+      summary: credit-card
+      tags:
+      - Credit Card Endpoints
+      operationId: CreditCardGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: CreditCardToken
+        in: query
+        required: false
+        description: When provided, this endpoint will only return the credit card associated with this token
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: When provided, this endpoint will only return credit cards associated with this Client Account ID
+        schema:
+          type: string
+      - name: ClientControlled
+        in: query
+        required: false
+        description: When set to true, this endpoint will only return credit cards linked to your VoPay account. When set to false, it will return a list of your customer's credit cards.
+        schema:
+          type: boolean
+      - name: 'Limit '
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: 'Offset '
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  CreditCards:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Collection of the credit cards belonging to the account or client account'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          CreditCardHolderName:
+                            type: string
+                            description: Credit card holder's name.
+                            example: John Smith
+                          CreditCardNumber:
+                            type: string
+                            description: Masked credit card number.
+                            example: '*****1234'
+                          CreditCardExpiryYear:
+                            type: string
+                            description: Expiry year of the credit card
+                            example: '2023'
+                          CreditCardExpiryMonth:
+                            type: string
+                            description: Expiry month of the credit card
+                            example: '12'
+                          CreditCardBrand:
+                            type: string
+                            description: Credit card brand
+                            example: visa
+                          CreditCardToken:
+                            type: string
+                            description: Credit card token.
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          IsDefault:
+                            type: boolean
+                            description: Is this the VoPay account holder's default credit card
+                            example: true
+                          ClientAccountID:
+                            type: string
+                            description: ClientAccountID attached to the credit card.
+                            example: ClientAccount1
+                          SendingEligibility:
+                            type: string
+                            description: This credit card's eligibility to send funds.
+                            example: '1'
+                          ReceivingEligibility:
+                            type: string
+                            description: This credit card's eligibility to receive funds.
+                            example: '1'
+                          Type:
+                            type: string
+                            description: Verified card type.
+                            example: credit
+                          Brand:
+                            type: string
+                            description: Verified card brand.
+                            example: mastercard
+                          FundsAvailability:
+                            type: string
+                            description: Funds availability time frame after receiving a payment transaction.
+                            example: immediate
+                          InstitutionName:
+                            type: string
+                            description: Financial institution name.
+                            example: bankcorp bank, the
+                          InstitutionCountry:
+                            type: string
+                            description: Financial institution country.
+                            example: usa
+                          AccountStatementCurrency:
+                            type: string
+                            description: Currency of cardholder's account statement
+                            example: usd
+                          AcceptanceBrand:
+                            type: string
+                            description: Acceptance Brand
+                            example: mcc
+                          ProductType:
+                            type: string
+                            description: Product Type
+                            example: consumer
+                        required:
+                        - CreditCardHolderName
+                        - CreditCardNumber
+                        - CreditCardExpiryYear
+                        - CreditCardExpiryMonth
+                        - CreditCardBrand
+                        - CreditCardToken
+                        - IsDefault
+                        - ClientAccountID
+                        - SendingEligibility
+                        - ReceivingEligibility
+                        - Type
+                        - Brand
+                        - FundsAvailability
+                        - InstitutionName
+                        - InstitutionCountry
+                        - AccountStatementCurrency
+                        - AcceptanceBrand
+                        - ProductType
+                    x-list-of: inline
+                    x-empty-when: no credit cards match
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of credit card records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+                    x-absent-when: response uses PaginationMetaData; present only when pagination is requested
+                    required:
+                    - TotalRecords
+                    - Offset
+                    - Limit
+                required:
+                - Success
+                - ErrorMessage
+                - CreditCards
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /credit-card/set-my-credit-card:
+    post:
+      description: This endpoint allows you to identify a credit card as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a credit card as being the VoPay account holder's default credit card. Note, a VoPay account can only have one default credit card.
+      summary: credit-card/set-my-credit-card
+      tags:
+      - Credit Card Endpoints
+      operationId: CreditCardSetMyCreditCardPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                CreditCardToken:
+                  description: Credit Card token
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                SetAsDefault:
+                  description: Identify credit card as default crdit card
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - CreditCardToken
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  CreditCardToken:
+                    type: string
+                    description: Credit Card token
+                    example: ACBDF-GAFSHD-AHBS-123456
+                  IsDefault:
+                    type: boolean
+                    description: Is this the VoPay account holder's default credit card
+                    example: true
+                required:
+                - Success
+                - ErrorMessage
+                - CreditCardToken
+                - IsDefault
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /credit-card/default-credit-card:
+    get:
+      description: This endpoint retrieves the default credit card associated with your VoPay account
+      summary: credit-card/default-credit-card
+      tags:
+      - Credit Card Endpoints
+      operationId: CreditCardDefaultCreditCardGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: When provided, this endpoint will return the default credit card associated with this Client Account ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DefaultCreditCard:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Default credit card associated with the Account or Client Account'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          CreditCardToken:
+                            type: string
+                            description: A unique token associated with the credit card.
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          CreditCardHolderName:
+                            type: string
+                            description: Credit card holder name.
+                            example: Natalie Merchant
+                          CreditCardNumber:
+                            type: string
+                            description: Masked credit card number.
+                            example: '**** **** **** 1234'
+                          CreditCardExpiryYear:
+                            type: string
+                            description: Expiry year of credit card.
+                            example: '2022'
+                          CreditCardExpiryMonth:
+                            type: string
+                            description: Expiry month of credit card.
+                            example: '03'
+                          CreditCardBrand:
+                            type: string
+                            description: Credit card brand
+                            example: visa
+                        required:
+                        - CreditCardToken
+                        - CreditCardHolderName
+                        - CreditCardNumber
+                        - CreditCardExpiryYear
+                        - CreditCardExpiryMonth
+                        - CreditCardBrand
+                    x-list-of: inline
+                    x-empty-when: no default credit card
+                required:
+                - Success
+                - ErrorMessage
+                - DefaultCreditCard
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /credit-card/charge:
+    post:
+      description: "This endpoint is to create a credit card transaction to fund your VoPay account, charging the amount specified to the credit card linked to the provided CreditCardToken.\n\n If a ClientAccountID is provided, the client account's default credit card will be used for the transaction.\n\nNote: You must first generate a CreditCardToken using the /credit-card/generate-embed-url endpoint."
+      summary: credit-card/charge
+      tags:
+      - Credit Card Endpoints
+      operationId: CreditCardChargePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.
+                  type: string
+                CreditCardToken:
+                  description: The token identifying the credit card to charge (returned from /credit-card/generate-embed-url).
+                  type: string
+                Amount:
+                  description: The amount to charge from the customer's credit card.
+                  type: number
+                Currency:
+                  description: 3 character currency code for the currency to be charged into the customer credit card. If this is not specified the transaction will use the account's local currency (CAD).
+                  type: string
+                Country:
+                  description: Customer's country specified using full country name or ISO 3166-1 alpha-2 code. If this is not specified the transaction will use the local country (CA).
+                  type: string
+                ClientReferenceNumber:
+                  description: Optional reference number for the transaction.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                TransactionTypeCode:
+                  description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                  type: string
+                TransactionLabel:
+                  description: Statement descriptor. Max 25 chars.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - CreditCardToken
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction that was just submitted.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /credit-card/void:
+    post:
+      description: This endpoint allows you to void a completed credit card transaction.
+      summary: credit-card/void
+      tags:
+      - Credit Card Endpoints
+      operationId: CreditCardVoidPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/CreditCardVoidPost'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID for the void transaction
+                    example: '1124'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /credit-card/charge/transaction:
+    get:
+      description: This method is used to look up and return the full details on a single credit card transaction. Credit card transactions take money out of the customer's credit card and deposit them into your VoPay account.
+      summary: credit-card/charge/transaction
+      tags:
+      - Credit Card Endpoints
+      operationId: CreditCardChargeTransactionsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: Account transaction ID
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: successful, failed, cancelled, settled'
+                    example: pending
+                  TransactionDateTime:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was created
+                    example: '2019-11-01 12:00:00'
+                  Amount:
+                    type: number
+                    description: The dollar amount of the credit card transaction. This is the amount that was withdrawn from the customer's credit card.
+                    example: '2000'
+                  Currency:
+                    type: string
+                    description: The currency for the transaction.
+                    example: CAD
+                  CreditCardToken:
+                    type: string
+                    description: A unique token who has the credit card information. Note. For security purposes we do not store the customer credit card information.
+                    example: ACBDF-GAFSHD-AHBS-123456
+                  Country:
+                    type: string
+                    description: Customer's Country specified using full country name or ISO 3166-1 alpha-2 code.
+                    example: CA
+                  GLCode:
+                    type: string
+                    description: General ledger code.
+                    example: '4300'
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: This timestamp indicates when the transaction record was last modified. In normal circumstances the transaction record will only be modified when the status of the transaction changes or the HoldAmount is changed.
+                    example: '2019-11-03 01:00:00'
+                  TransactionTypeCode:
+                    type: string
+                    description: CPA transaction code.
+                    example: '999'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - TransactionDateTime
+                - Amount
+                - Currency
+                - CreditCardToken
+                - Country
+                - GLCode
+                - LastModified
+                - TransactionTypeCode
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+components:
+  requestBodies:
+    CreditCardVoidPost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              TransactionID:
+                description: The unique ID for the transaction you want to void
+                type: integer
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - TransactionID
+      required: true
+x-refined-from:
+- vopay-payment-method-api-reference.json
+- vopay-payment-rails-api-reference.json

@@ -1,0 +1,835 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Payment Methods Bank Account Endpoints API
+  description: The Payment Methods API allows you to manage your payment methods.  You can add, delete, and set default payment methods.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Bank Account Endpoints
+paths:
+  /bank-account/generate-embed-url:
+    post:
+      description: This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from. For additional details on iQ11 and RedirectMethod, please visit our [Iq11 Overview](https://docs.vopay.com/docs/iq11-overview)
+      summary: bank-account/generate-embed-url
+      tags:
+      - Bank Account Endpoints
+      operationId: BankAccountGenerateEmbedUrlPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: When provided, the bank account submitted will be attached to the Client Account ID
+                  type: string
+                RedirectURL:
+                  description: URL to redirect to after the customer logs in to their online banking account. The bank account token will be passed as a GET parameter, for example https://redirect.com/page?Token=1234
+                  type: string
+                CompanyName:
+                  description: Name of the Company
+                  type: string
+                Language:
+                  description: Language of iQ11 iFrame- en (English) or fr (French). Default value is en (English)
+                  type: string
+                RedirectMethod:
+                  description: This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.
+                  type: string
+                AccountSelectionMethod:
+                  description: This parameter accepts any, online and manual as parameter values. Defaults to any.
+                  type: string
+                ClientControlled:
+                  description: When set to true, the connected bank account will be linked to your VoPay account. Default is false.
+                  type: boolean
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the bank account.
+                  type: string
+                TermsAndConditions:
+                  description: Used to add your own terms and conditions
+                  type: string
+                Country:
+                  description: This parameter accepts country codes [CA, US]. Default is CA
+                  type: string
+                WithTransactions:
+                  description: Request transaction history when connecting a bank account online. Default is false.
+                  type: boolean
+                RequireDebitAuthorityAgreement:
+                  description: This parameter will determine if we display a debit authority agreement to the end-user before the connect their payment method. You must request this feature to be enabled for your account. Default is true.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - RedirectURL
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  EmbedURL:
+                    type: string
+                    description: Custom generated iQ11 iframe url for users to use
+                    example: https://earthnode-dev.vopay.com/visa_direct/embed/{Key Returned by Vopay}
+                  IframeKey:
+                    type: string
+                    description: Unique key attached to the generated iFrame
+                    example: a1b2c3
+                required:
+                - Success
+                - ErrorMessage
+                - EmbedURL
+                - IframeKey
+  /bank-account/add:
+    post:
+      description: This endpoint allows you to add a bank account to your VoPay account
+      summary: bank-account/add
+      tags:
+      - Bank Account Endpoints
+      operationId: BankAccountAddPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: Contact ID.
+                  type: string
+                AccountHolderName:
+                  description: String that defines the account holder name.
+                  type: string
+                AccountNumber:
+                  description: Customer's bank account number.
+                  type: string
+                FinancialInstitutionNumber:
+                  description: Three digit institution number for a Canadian bank account.
+                  type: string
+                BranchTransitNumber:
+                  description: Five digit branch transit number for a Canadian bank account.
+                  type: string
+                ABARoutingNumber:
+                  description: Nine digit ABA Routing number of a US bank account.
+                  type: string
+                FlinksAccountID:
+                  description: Flinks Account ID. Must be accompanied by a FlinksLoginID. VoPay will fetch the associated bank account details from Flinks.
+                  type: string
+                FlinksLoginID:
+                  description: Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated bank account details from Flinks.
+                  type: string
+                PlaidProcessorToken:
+                  description: Plaid Processor Token. VoPay will fetch the associated bank account details from Plaid.
+                  type: string
+                MxProcessorToken:
+                  description: Mx Processor Token. VoPay will fetch the associated bank account details from Mx.
+                  type: string
+                Currency:
+                  description: Three letter currency code.
+                  type: string
+                Address1:
+                  description: 'First line of the address. Ex: 123 Main St.'
+                  type: string
+                City:
+                  description: City
+                  type: string
+                State:
+                  description: State
+                  type: string
+                ZipCode:
+                  description: Zip code
+                  type: string
+                Province:
+                  description: Province
+                  type: string
+                PostalCode:
+                  description: Postal code
+                  type: string
+                Country:
+                  description: Two letter country code.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+  /bank-account/delete:
+    post:
+      description: This endpoint allows you to delete a bank account associated with your VoPay account
+      summary: bank-account/delete
+      tags:
+      - Bank Account Endpoints
+      operationId: BankAccountDeletePOSt
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Token:
+                  description: Bank account token
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Token
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+  /bank-account:
+    get:
+      description: This endpoint retrieves a list of bank accounts associated with your VoPay account
+      summary: bank-account
+      tags:
+      - Bank Account Endpoints
+      operationId: BankAccountGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Token
+        in: query
+        required: false
+        description: When provided, this endpoint will only return the bank account associated with this token
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: When provided, this endpoint will only return bank accounts associated with this Client Account ID
+        schema:
+          type: string
+      - name: ClientControlled
+        in: query
+        required: false
+        description: When set to true, this endpoint will only return bank accounts linked to your VoPay account. When set to false, it will return a list of your customer's bank accounts.
+        schema:
+          type: boolean
+      - name: 'Limit '
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: 'Offset '
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      - name: SearchText
+        in: query
+        required: false
+        description: A text string to search for account holder name.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BankAccounts:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Collection of the bank accounts belonging to the account or client account'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          AccountHolderName:
+                            type: string
+                            description: Account Holder's name.
+                            example: John Smith
+                          InstitutionName:
+                            type: string
+                            description: Financial institution name.
+                            example: CIBC
+                          FinancialInstituionNumber:
+                            type: string
+                            description: Financial Instituion Number of the bank account.
+                            example: '010'
+                          BranchTransitNumber:
+                            type: string
+                            description: Branch Transit Number of the bank account
+                            example: 00390
+                          AccountNumber:
+                            type: string
+                            description: Masked account number of the bank account.
+                            example: '*****1234'
+                          Currency:
+                            type: string
+                            description: Currency of bank account.
+                            example: CAD
+                          Token:
+                            type: string
+                            description: Bank account token.
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          FlinksAccountID:
+                            type: string
+                            description: Set for clients with a Flinks account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          FlinksLoginID:
+                            type: string
+                            description: Set for clients with a Flinks account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          PlaidAccountID:
+                            type: string
+                            description: Set for clients with a Plaid account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          InveriteRequestGUID:
+                            type: string
+                            description: Used by clients with an Inverite account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          ClientControlledBankAccount:
+                            type: boolean
+                            description: Set to 1 if the bank account is linked to your VoPay account
+                            example: true
+                          IsDefault:
+                            type: boolean
+                            description: Is this the VoPay account holder's default bank account
+                            example: true
+                          ClientAccountID:
+                            type: string
+                            description: ClientAccountID attached to the bank account.
+                            example: ClientAccount1
+                          ClientReferenceNumber:
+                            type: string
+                            description: ClientReferenceNumber attached to the bank account.
+                            example: ABC123
+                          Address:
+                            type: string
+                            description: Civic address of the account holder.
+                            example: 123 Fake st
+                          City:
+                            type: string
+                            description: City of the account holder.
+                            example: Vancouver
+                          Province:
+                            type: string
+                            description: Province of the account holder.
+                            example: BC
+                          PostalCode:
+                            type: string
+                            description: Postal Code of the account holder.
+                            example: A1A1A1
+                          Verified:
+                            type: boolean
+                            description: Has the bank account been verified.
+                            example: true
+                          ConnectionType:
+                            type: string
+                            description: 'The bank account connection type. Possible values are: online, manual.'
+                            example: online
+                          DateAdded:
+                            type: string
+                            format: date
+                            description: Date the bank account was added
+                            example: '2019-11-03 01:00:00'
+                        required:
+                        - AccountHolderName
+                        - InstitutionName
+                        - FinancialInstituionNumber
+                        - BranchTransitNumber
+                        - AccountNumber
+                        - Currency
+                        - Token
+                        - FlinksAccountID
+                        - FlinksLoginID
+                        - PlaidAccountID
+                        - InveriteRequestGUID
+                        - ClientControlledBankAccount
+                        - IsDefault
+                        - ClientAccountID
+                        - ClientReferenceNumber
+                        - Address
+                        - City
+                        - Province
+                        - PostalCode
+                        - Verified
+                        - ConnectionType
+                        - DateAdded
+                    x-list-of: inline
+                    x-empty-when: no bank accounts match
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of bank account records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+                    x-absent-when: response uses PaginationMetaData; present only when pagination is requested
+                    required:
+                    - TotalRecords
+                    - Offset
+                    - Limit
+                required:
+                - Success
+                - ErrorMessage
+                - BankAccounts
+  /bank-account/set-my-bank-account:
+    post:
+      description: "This endpoint allows you to identify a bank account as belonging to the VoPay account holder.\n\n Optionally, you can use this endpoint to identify a bank account as being the VoPay account holder's default operational and/or billing bank account. The VoPay account holder's default operational bank account is used in the /account/fund-my-account and /account/withdraw-my-account endpoints. The VoPay account holder's default billing bank account is used to collect monthly invoices. Note, a VoPay account can only have one default operational and one default billing bank account per currency."
+      summary: bank-account/set-my-bank-account
+      tags:
+      - Bank Account Endpoints
+      operationId: BankAccountSetMyBankAccountPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Token:
+                  description: Bank account token
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                SetAsDefault:
+                  description: Identify bank account as a default bank account
+                  type: boolean
+                Purpose:
+                  description: 'Identify bank account purpose. Input can be a comma-delimited list. Valid values are: operational and billing. Default value is operational.'
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Token
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Token:
+                    type: string
+                    description: Bank account token
+                    example: ACBDF-GAFSHD-AHBS-123456
+                  IsDefault:
+                    type: boolean
+                    description: Is this the VoPay account holder's default bank account
+                    example: true
+                required:
+                - Success
+                - ErrorMessage
+                - Token
+                - IsDefault
+  /bank-account/default-bank-account:
+    get:
+      description: This endpoint retrieves the default bank account associated with your VoPay account
+      summary: bank-account/default-bank-account
+      tags:
+      - Bank Account Endpoints
+      operationId: BankAccountDefaultBankAccountGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: When provided, this endpoint will return the default bank account associated with this Client Account ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DefaultOperationalBankAccount:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Default bank account associated with the Account or Client Account'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          AccountHolderName:
+                            type: string
+                            description: Account Holder's name.
+                            example: John Smith
+                          InstitutionName:
+                            type: string
+                            description: Financial institution name.
+                            example: CIBC
+                          FinancialInstituionNumber:
+                            type: string
+                            description: Financial Instituion Number of the bank account.
+                            example: '010'
+                          BranchTransitNumber:
+                            type: string
+                            description: Branch Transit Number of the bank account
+                            example: 00390
+                          AccountNumber:
+                            type: string
+                            description: Masked account number of the bank account.
+                            example: '*****1234'
+                          Currency:
+                            type: string
+                            description: Currency of bank account.
+                            example: CAD
+                          Token:
+                            type: string
+                            description: Bank account token.
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          FlinksAccountID:
+                            type: string
+                            description: Set for clients with a Flinks account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          FlinksLoginID:
+                            type: string
+                            description: Set for clients with a Flinks account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          PlaidAccountID:
+                            type: string
+                            description: Set for clients with a Plaid account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          InveriteRequestGUID:
+                            type: string
+                            description: Used by clients with an Inverite account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          ClientControlledBankAccount:
+                            type: boolean
+                            description: Set to 1 if the bank account is linked to your VoPay account
+                            example: true
+                          IsDefault:
+                            type: boolean
+                            description: Is this the VoPay account holder's default bank account
+                            example: true
+                          ClientAccountID:
+                            type: string
+                            description: ClientAccountID attached to the bank account.
+                            example: ClientAccount1
+                          ClientReferenceNumber:
+                            type: string
+                            description: ClientReferenceNumber attached to the bank account.
+                            example: ABC123
+                          Address:
+                            type: string
+                            description: Civic address of the account holder.
+                            example: 123 Fake st
+                          City:
+                            type: string
+                            description: City of the account holder.
+                            example: Vancouver
+                          Province:
+                            type: string
+                            description: Province of the account holder.
+                            example: BC
+                          PostalCode:
+                            type: string
+                            description: Postal Code of the account holder.
+                            example: A1A1A1
+                          DateAdded:
+                            type: string
+                            format: date
+                            description: Date the bank account was added
+                            example: '2019-11-03 01:00:00'
+                        required:
+                        - AccountHolderName
+                        - InstitutionName
+                        - FinancialInstituionNumber
+                        - BranchTransitNumber
+                        - AccountNumber
+                        - Currency
+                        - Token
+                        - FlinksAccountID
+                        - FlinksLoginID
+                        - PlaidAccountID
+                        - InveriteRequestGUID
+                        - ClientControlledBankAccount
+                        - IsDefault
+                        - ClientAccountID
+                        - ClientReferenceNumber
+                        - Address
+                        - City
+                        - Province
+                        - PostalCode
+                        - DateAdded
+                    x-list-of: inline
+                    x-empty-when: no default operational bank account
+                  DefaultBillingBankAccount:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Default bank account associated with the Account or Client Account'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          AccountHolderName:
+                            type: string
+                            description: Account Holder's name.
+                            example: John Smith
+                          InstitutionName:
+                            type: string
+                            description: Financial institution name.
+                            example: CIBC
+                          FinancialInstituionNumber:
+                            type: string
+                            description: Financial Instituion Number of the bank account.
+                            example: '010'
+                          BranchTransitNumber:
+                            type: string
+                            description: Branch Transit Number of the bank account
+                            example: 00390
+                          AccountNumber:
+                            type: string
+                            description: Masked account number of the bank account.
+                            example: '*****1234'
+                          Currency:
+                            type: string
+                            description: Currency of bank account.
+                            example: CAD
+                          Token:
+                            type: string
+                            description: Bank account token.
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          FlinksAccountID:
+                            type: string
+                            description: Set for clients with a Flinks account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          FlinksLoginID:
+                            type: string
+                            description: Set for clients with a Flinks account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          PlaidAccountID:
+                            type: string
+                            description: Set for clients with a Plaid account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          InveriteRequestGUID:
+                            type: string
+                            description: Used by clients with an Inverite account
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          ClientControlledBankAccount:
+                            type: boolean
+                            description: Set to 1 if the bank account is linked to your VoPay account
+                            example: true
+                          IsDefault:
+                            type: boolean
+                            description: Is this the VoPay account holder's default bank account
+                            example: true
+                          ClientAccountID:
+                            type: string
+                            description: ClientAccountID attached to the bank account.
+                            example: ClientAccount1
+                          ClientReferenceNumber:
+                            type: string
+                            description: ClientReferenceNumber attached to the bank account.
+                            example: ABC123
+                          Address:
+                            type: string
+                            description: Civic address of the account holder.
+                            example: 123 Fake st
+                          City:
+                            type: string
+                            description: City of the account holder.
+                            example: Vancouver
+                          Province:
+                            type: string
+                            description: Province of the account holder.
+                            example: BC
+                          PostalCode:
+                            type: string
+                            description: Postal Code of the account holder.
+                            example: A1A1A1
+                          DateAdded:
+                            type: string
+                            format: date
+                            description: Date the bank account was added
+                            example: '2019-11-03 01:00:00'
+                        required:
+                        - AccountHolderName
+                        - InstitutionName
+                        - FinancialInstituionNumber
+                        - BranchTransitNumber
+                        - AccountNumber
+                        - Currency
+                        - Token
+                        - FlinksAccountID
+                        - FlinksLoginID
+                        - PlaidAccountID
+                        - InveriteRequestGUID
+                        - ClientControlledBankAccount
+                        - IsDefault
+                        - ClientAccountID
+                        - ClientReferenceNumber
+                        - Address
+                        - City
+                        - Province
+                        - PostalCode
+                        - DateAdded
+                    x-list-of: inline
+                    x-empty-when: no default billing bank account
+                required:
+                - Success
+                - ErrorMessage
+                - DefaultOperationalBankAccount
+                - DefaultBillingBankAccount

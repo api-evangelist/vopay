@@ -1,0 +1,360 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Global Cash Management Government Identifier Endpoints API
+  description: The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Government Identifier Endpoints
+paths:
+  /gcm/government-identifier:
+    get:
+      description: Get a list of all the stored government identifiers for a certain client account and corridor.
+      summary: gcm/government-identifier
+      tags:
+      - Government Identifier Endpoints
+      operationId: GovernmentIdentifierGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: CorridorID
+        in: query
+        required: true
+        description: The corridor ID
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      - name: RecipientContactID
+        in: query
+        required: false
+        description: The recipient contact ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  GovernmentIdentifiers:
+                    type: object
+                    description: The stored government identifiers
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          CorridorID:
+                            type: string
+                            description: The corridor ID
+                            example: '12'
+                          GovernmentIdentifierToken:
+                            type: string
+                            description: The government identifier token
+                            example: 26aeyllfka4kg2yksbyyj20cgc18wjwgip7t95qem9af3mzhxul344nfvm0ka2o0
+                          GovernmentIdentifierType:
+                            type: string
+                            description: The type of government identifier
+                            example: Passport Number
+                          IDNumber:
+                            type: string
+                            description: The ID number
+                            example: 2147******
+                          ExpirationDate:
+                            type: string
+                            description: The expiration date
+                            example: '2019-05-01'
+                          IssueDate:
+                            type: string
+                            description: The issue date
+                            example: '2011-07-12'
+                          IssuingCountry:
+                            type: string
+                            description: The issuing country
+                            example: Canada
+                          IssuingAbbreviation:
+                            type: string
+                            description: The issuing country abbreviation
+                            example: CA
+                          IssuingCountryCode:
+                            type: string
+                            description: The issuing country code
+                            example: CAN
+  /gcm/government-identifier/schemas:
+    get:
+      description: Get a list of all the available government identifier schemas.
+      summary: gcm/government-identifier/schemas
+      tags:
+      - Government Identifier Endpoints
+      operationId: GovernmentIdentifierSchemasGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  GovernmentIdentifierSchemaValues:
+                    type: object
+                    description: The available government identifier schemas
+                    properties:
+                      ppn:
+                        type: string
+                        description: Passport Number
+                        example: Passport Number
+                      ssn:
+                        type: string
+                        description: Social Security Number
+                        example: Social Security Number
+                      ein:
+                        type: string
+                        description: Employer Identification Number
+                        example: Employer Identification Number
+                      tin:
+                        type: string
+                        description: Tax Identification Number
+                        example: Tax Identification Number
+                      aln:
+                        type: string
+                        description: Alien Registration Number
+                        example: Alien Registration Number
+                      cus:
+                        type: string
+                        description: Customer Number
+                        example: Customer Number
+                      idc:
+                        type: string
+                        description: Identity Card Number
+                        example: Identity Card Number
+                      dln:
+                        type: string
+                        description: Drivers License Number
+                        example: Drivers License Number
+  /gcm/government-identifier/add:
+    post:
+      description: Add a new government identifier for a certain client account and corridor.
+      summary: gcm/government-identifier/add
+      tags:
+      - Government Identifier Endpoints
+      operationId: AddGovernmentIdentifierPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: CorridorID
+        in: query
+        required: true
+        description: The corridor ID
+        schema:
+          type: string
+      - name: GovernmentIdentifierSchema
+        in: query
+        required: true
+        description: The government identifier schema
+        schema:
+          type: string
+      - name: IDNumber
+        in: query
+        required: true
+        description: The ID number
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      - name: RecipientContactID
+        in: query
+        required: false
+        description: The recipient contact ID
+        schema:
+          type: string
+      - name: Country
+        in: query
+        required: false
+        description: The country
+        schema:
+          type: string
+      - name: ExpirationDate
+        in: query
+        required: false
+        description: The expiration date
+        schema:
+          type: string
+      - name: IssueDate
+        in: query
+        required: false
+        description: The issue date
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  GovernmentIdentifierToken:
+                    type: string
+                    description: The token of the added government identifier
+                    example: 3543e6ecak8wk3770pd32kv2c37tsl5kcfpyck3u9zl6dx2h2c42ia0428n96g44
+                  ClientAccountID:
+                    type: string
+                    description: The client account ID
+                    example: test_account
+  /gcm/government-identifier/delete:
+    post:
+      description: Delete a government identifier for a certain client account.
+      summary: gcm/government-identifier/delete
+      tags:
+      - Government Identifier Endpoints
+      operationId: DeleteGovernmentIdentifierPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: GovernmentIdentifierToken
+        in: query
+        required: true
+        description: The token of the government identifier to be deleted
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      - name: RecipientContactID
+        in: query
+        required: false
+        description: The recipient contact ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''

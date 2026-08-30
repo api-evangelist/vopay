@@ -1,0 +1,183 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Global Cash Management Embedded Experience Endpoints API
+  description: The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Embedded Experience Endpoints
+paths:
+  /gcm/generate-embed-url:
+    post:
+      description: Generate link to the crossborder iframe.
+      summary: gcm/generate-embed-url
+      tags:
+      - Embedded Experience Endpoints
+      operationId: GenerateEmbedURLPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      - name: ClientName
+        in: query
+        required: false
+        description: The client name
+        schema:
+          type: string
+      - name: ClientReferenceNumber
+        in: query
+        required: false
+        description: The client reference number
+        schema:
+          type: string
+      - name: DarkMode
+        in: query
+        required: false
+        description: Whether to enable dark mode
+        schema:
+          type: boolean
+      - name: Language
+        in: query
+        required: false
+        description: The language
+        schema:
+          type: string
+      - name: StylesheetUrl
+        in: query
+        required: false
+        description: The stylesheet URL
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  Link:
+                    type: string
+                    description: The generated embed URL
+                    example: http://localhost:4174/?Token=1vubj40xc5vdvq0nxocy0ndpk14sstdwovchce2k
+  /gcm/recipient-contacts/generate-embed-url:
+    post:
+      description: Generate a link to the cross-border iframe for onboarding recipient contacts.
+      summary: gcm/recipient-contacts/generate-embed-url
+      tags:
+      - Embedded Experience Endpoints
+      operationId: RecipientContactGenerateEmbedURLPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ContactClientType:
+                  description: Type of contact client. Options are individual or business.
+                  type: string
+                ClientAccountID:
+                  description: Client account ID. If not provided, the primary client account will be used.
+                  type: string
+                ContactID:
+                  description: Contact ID. If not provided, the primary client account will be used.
+                  type: string
+                FirstName:
+                  description: Client's first name. Required if BusinessName is not provided.
+                  type: string
+                LastName:
+                  description: Client's last name. Required if BusinessName is not provided.
+                  type: string
+                BusinessName:
+                  description: Client's business name. Required if FirstName and LastName are not provided.
+                  type: string
+                SendEmail:
+                  description: Set to true to send an onboarding link via email. Default is false.
+                  type: boolean
+                ReceiverEmailAddress:
+                  description: Recipient's email address. Required if SendEmail = true.
+                  type: string
+                  format: email
+                SendSMS:
+                  description: Set to true to send an onboarding link via SMS. Default is false.
+                  type: boolean
+                ReceiverPhoneNumber:
+                  description: Recipient's phone number. Required if SendSMS = true.
+                  type: string
+                RequiredPaymentMethods:
+                  description: Comma-separated list of payment methods.
+                  type: string
+                Label:
+                  description: Label to be added to the client account. If the label doesn't exist, it will be created and applied.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ContactClientType
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  OnboardingLink:
+                    type: string
+                    description: The URL of the onboarding link.
+                    example: https://request.vopay.com?Token=3s77vg2nwta8c3qc2rwpmmk8w03elfa7rmrsug3l

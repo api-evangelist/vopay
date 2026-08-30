@@ -1,0 +1,703 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: eLinx Endpoints API
+  description: The eLinx API allows you to create and manage elinx.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: eLinx Endpoints
+paths:
+  /elinx:
+    post:
+      description: 'This endpoint is used to create an eLinx request. Once the eLinx request is created successfully, the request link will be sent through an email to the recipient.
+
+
+        Notes:
+
+
+        * If you do not wish to send an eLinx request via an email, sms or whatsapp, then simply set SendNotification = false
+
+
+        * Before sending an eLinx request, you must set your default email address using the /elinx/setup-sender-email endpoint.'
+      summary: elinx
+      tags:
+      - eLinx Endpoints
+      operationId: eLinxPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                SenderName:
+                  description: Sender's full name. This is the name of the person who is sending the eLinx request to the recipient.
+                  type: string
+                ReceiverName:
+                  description: Receiver's full name. This is the name of the person receiving the eLinx request.
+                  type: string
+                PaymentType:
+                  description: Only required if you are requesting banking info for the purposes of a payment. Valid options are fund or withdraw. Choose fund if you are sending an eLinx request to collect money, and withdraw if you sending an eLinx request to send money.
+                  type: string
+                BankingPaymentRail:
+                  description: 'Determines the payment rail to use for transactions involving banking rails. Possible values: eft, vopayinstant, ach, rtp, fednow, fedwire'
+                  type: string
+                Amount:
+                  description: The amount of the payment you are requesting in the eLinx. If an amount is specified, a transaction will be created once the eLinx request is fulfilled by the recipient.
+                  type: number
+                Frequency:
+                  description: Only required if you are requesting banking info for a scheduled/recurring payment. Valid options are single or recurring.
+                  type: string
+                NameOfFrequency:
+                  description: 'Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: daily, weekdays, weekly, bi-weekly, semi-monthly, monthly, quarterly, semi-annually, annually. Required if you are sending an eLinx request for a recurring payment.'
+                  type: string
+                ScheduleStartDate:
+                  description: Date from which the schedule will be started in YYYY-MM-DD format. Required if you are sending an eLinx for a recurring/scheduled payment.
+                  type: string
+                ScheduleEndDate:
+                  description: Date when the transaction processing will end (Only for recurring option). Either provide ScheduleEndDate or EndingAfterPayments. One is required if you are sending an eLinx for a recurring payment.
+                  type: string
+                EndingAfterPayments:
+                  description: Number of payments after which the transaction processing will end (Only for recurring option). Either provide ScheduleEndDate or EndingAfterPayments. One is required if you are sending an eLinx for a recurring payment.
+                  type: integer
+                SemiMonthlyFrequencyType:
+                  description: 'Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast.'
+                  type: integer
+                InvoiceNumber:
+                  description: Invoice number of the payment
+                  type: string
+                DocumentID:
+                  description: ID of the document you want to include in the eLinx email. You must first upload a document using the POST /document endpoint, and then pass in the resulting DocumentID into this endpoint.
+                  type: integer
+                ClientReferenceNumber:
+                  description: An optional reference number which was associated with the eLinx request.
+                  type: string
+                Note:
+                  description: An optional note to associate with the transaction.
+                  type: string
+                SendNotification:
+                  description: This option is used to send an eLinx through email, sms, or whatsapp which later on can be used by a recipient to make the payment. A valid ReceiverPhoneNumber or ReceiverEmailAddress must be provided
+                  type: boolean
+                NotificationMethod:
+                  description: 'Use this optional parameter to override the account-level setting for the eLinx delivery method. If not provided, the account-level setting will be used. Possible values: email, sms, whatsapp.'
+                  type: string
+                ReceiverEmailAddress:
+                  description: Customer's email address - Must be a valid email. Only required if SendNotification is true and NotificationMethod = email.
+                  type: string
+                ReceiverPhoneNumber:
+                  description: Customer's phone number - Must be a valid number. Only required if SendNotification is true and NotificationMethod = sms or whatsapp.
+                  type: string
+                IframeKey:
+                  description: An iFrame key generated from /iq11/generate-embed-url. If provided, the settings applied to this iFrame will be used when the customer provides their bank account information. If not provided, the default iFrame settings will be used.
+                  type: string
+                FlexiblePaymentOptions:
+                  description: 'This will inform the end user of the flexible payment options that they can choose from. Input can be a comma-delimited list. The possible values are: multiple, partial, installments.'
+                  type: string
+                MinimumPaymentAccepted:
+                  description: This is the minimum amount that can be accepted for a 'partial' payment option. Example, if total eLinx amount is 100.00, and MinimumPaymentAccepted is 25.00, the user will be able to choose a partial payment of 25.00 (or more). This is required if 'partial' is included in FlexiblePaymentOptions.
+                  type: number
+                RemainderPaymentDate:
+                  description: This will specify the date the remainder of the total amount should be paid if 'partial' payment is selected. This is optional if 'partial' is included in FlexiblePaymentOptions.
+                  type: string
+                NumberOfInstallments:
+                  description: This will specify the number of installments that the payments will be split into. This is required if 'installments' is included in FlexiblePaymentOptions.
+                  type: number
+                InstallmentFrequency:
+                  description: 'This will specify the frequency of installments. This is required if ''installments'' is included in FlexiblePaymentOptions. The possible values are: weekly, biweekly, monthly.'
+                  type: string
+                SendReminder:
+                  description: Use this optional parameter to override the account-level setting for sending reminders to recipient. If not provided, the account-level setting will be used.
+                  type: boolean
+                ReminderFrequency:
+                  description: Use this optional parameter to override the account-level setting for the eLinx reminder frequency (in days). If not provided, the account-level setting will be used.
+                  type: integer
+                RecipientMessage:
+                  description: Use this optional parameter to provide a message to the recipient.
+                  type: string
+                PaymentMethodDisplayOptions:
+                  description: This optional parameter can be added to ensure that the recipient is using an existing payment method, adding a new payment method or whether the client has access to both. Valid options include - New, Existing or Both. Defaults to New.
+                  type: string
+                OTPRequired:
+                  description: This optional parameter can be added to configure when to send an OTP for eLinx. By default OTP will be sent for existing payment methods only.
+                  type: boolean
+                GLCode:
+                  description: An optional GL code to associate with the transaction created from this eLinx request.
+                  type: string
+                TransactionTypeCode:
+                  description: An optional transaction type code to associate with the transaction created from this eLinx request.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - SenderName
+              - ReceiverName
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the sending was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ELinxRequestID:
+                    type: integer
+                    description: The unique ID of the eLinx request
+                    example: '1234'
+                  Link:
+                    type: string
+                    description: Contains a link where customer needs to go to provide the bank information
+                    example: https://request.vopay.com/{Token}
+                  Status:
+                    type: string
+                    description: 'Message indicating the current request status. Statuses are: pending, cancelled, completed'
+                    example: pending
+                  Amount:
+                    type: number
+                    description: Amount of the eLinx, if provided
+                    example: '100.00'
+                  ReceiverName:
+                    type: string
+                    description: Recipient's full name
+                    example: John
+                  ReceiverEmailAddress:
+                    type: string
+                    description: Recipient's email address.
+                    example: john.doe@vopay.com
+                  SenderName:
+                    type: string
+                    description: Sender's full name
+                    example: John
+                  SenderEmailAddress:
+                    type: string
+                    description: Semder's email address.
+                    example: jane.doe@vopay.com
+                  InvoiceNumber:
+                    type: string
+                    description: Invoice number
+                    example: ABC1234
+                  Note:
+                    type: string
+                    description: If applicable, notes giving context to the transaction.
+                    example: eLinx requested to the client 123
+                  ClientReferenceNumber:
+                    type: string
+                    description: The client reference number attached to the eLinx request, if applicable
+                    example: 123ABC-XYZ
+                  ELinxRequestType:
+                    type: string
+                    description: 'The type of eLinx request. eLinx request types are: beneficiary, scheduled, transaction.'
+                    example: transaction
+                  Frequency:
+                    type: string
+                    description: 'The frequency of the schedule (if applicable): single or recurring'
+                    example: recurring
+                  NameOfFrequency:
+                    type: string
+                    description: 'Name of the frequency of the transaction (if applicable): weekly, biweekly, monthly, bimonthly, 3 months, 6 months, yearly. Only provided if Frequency provided is recurring.'
+                    example: weekly
+                  SemiMonthlyFrequencyType:
+                    type: integer
+                    description: 'Type of semi-monthly frequency (if applicable): SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast.'
+                    example: SemiMonthFirstAndFifteenth
+                  ScheduleStartDate:
+                    type: string
+                    format: date
+                    description: Date from which the transaction will be started (if applicable)
+                    example: '2020-01-01'
+                  ScheduleEndDate:
+                    type: string
+                    format: date
+                    description: Date which the transaction will end (if applicable)
+                    example: '2021-01-01'
+                  EndingAfterPayments:
+                    type: integer
+                    description: Number of payments after which the transaction processing will end
+                    example: '12'
+                  PaymentType:
+                    type: string
+                    description: 'Transaction type (if applicable): fund or withdraw'
+                    example: fund
+    get:
+      description: This endpoint is used to retrieve a listing of all eLinx requests.
+      summary: elinx
+      tags:
+      - eLinx Endpoints
+      operationId: eLinxGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ELinxRequestType
+        in: query
+        required: false
+        description: 'Filters results by eLinx request type: scheduled, transaction or beneficiary. Default is '''' (i.e., all eLinx requests are returned).'
+        schema:
+          type: string
+      - name: ELinxRequestID
+        in: query
+        required: false
+        description: Filters results by eLinx request ID
+        schema:
+          type: string
+      - name: StartDateTime
+        in: query
+        required: false
+        description: Filters results that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format. Default is 30 days ago.
+        schema:
+          type: string
+          format: date-time
+      - name: EndDateTime
+        in: query
+        required: false
+        description: Filters results that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format. Default is the current date/time.
+        schema:
+          type: string
+          format: date-time
+      - name: 'Limit '
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: 'Offset '
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      - name: 'Timezone '
+        in: query
+        required: false
+        description: Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the sending was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ELinxRequests:
+                    type: object
+                    description: Collection of the eLinx requests created by the account
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          AcceptedCardBrands:
+                            type: string
+                            description: Accepted Card Brands of the eLinx request
+                            example: amex,discover,mastercard,unionpay
+                          CardTypeValidation:
+                            type: integer
+                            description: Whether card type validation is enabled for the eLinx request
+                            example: '1'
+                          ELinxRequestID:
+                            type: integer
+                            description: The unique ID of the eLinx request
+                            example: '1234'
+                          ReceiverName:
+                            type: string
+                            description: Full name of the client who's bank account has been linked via an eLinx request.
+                            example: John Smith
+                          ReceiverEmailAddress:
+                            type: string
+                            description: Recipient's email address.
+                            example: john.doe@vopay.com
+                          SenderName:
+                            type: string
+                            description: Sender's full name.
+                            example: Jane Doe
+                          SenderEmailAddress:
+                            type: string
+                            description: Sender's email address.
+                            example: jane.doe@vopay.com
+                          Status:
+                            type: string
+                            description: 'Current request status. Statuses are: pending, cancelled, completed, declined'
+                            example: pending
+                          RequestDate:
+                            type: string
+                            description: Date the request was sent
+                            example: '2020-05-25'
+                          Link:
+                            type: string
+                            description: Contains a link where customer needs to go to provide the bank information
+                            example: https://request.vopay.com/{Token}
+                          Note:
+                            type: string
+                            description: The note attached to the eLinx request, if applicable
+                            example: eLinx requested to the client 123
+                          ClientReferenceNumber:
+                            type: string
+                            description: The client reference number attached to the eLinx request, if applicable
+                            example: 123ABC-XYZ
+                          Amount:
+                            type: number
+                            description: The dollar amount of the transaction attached to the eLinx request, if applicable
+                            example: '2000.00'
+                          Currency:
+                            type: string
+                            description: Currency of the linked bank account
+                            example: CAD
+                          TransactionID:
+                            type: integer
+                            description: Transaction ID attached to the eLinx request, if applicable
+                            example: '1234'
+                          ScheduledPaymentsID:
+                            type: integer
+                            description: Scheduled Transaction ID attached to the eLinx request, if applicable
+                            example: '1234'
+                          TransactionTypes:
+                            type: string
+                            description: Transaction type of the transactions attached to the eLinx request, if applicable
+                            example: '1234'
+                          ELinxRequestType:
+                            type: string
+                            description: eLinx request type (scheduled, transaction, or beneficiary)
+                            example: '1234'
+                          IQ11Token:
+                            type: string
+                            description: Unique Iq11 token generated for the client's bank account
+                            example: ''
+                          Institution:
+                            type: string
+                            description: Institution name of the linked bank account
+                            example: CIBC
+                          FinancialInstitutionNumber:
+                            type: string
+                            description: Institution number of the linked bank account
+                            example: '010'
+                          BranchTransitNumber:
+                            type: string
+                            description: Branch transit number of the linked bank account
+                            example: 03900
+                          AccountNumber:
+                            type: string
+                            description: Account number of the linked bank account
+                            example: '1234567'
+                          CreditCardToken:
+                            type: string
+                            description: Unique credit card token generated for the client's credit card
+                            example: ''
+                          CreditCardNumber:
+                            type: string
+                            description: Masked credit card number of the linked credit card
+                            example: '**** **** **** 1234'
+                          CreditCardExpiryYear:
+                            type: string
+                            description: Expiry year of the linked credit card
+                            example: '2023'
+                          CreditCardExpiryMonth:
+                            type: string
+                            description: Expiry month of the linked credit card
+                            example: '12'
+                          CreditCardBrand:
+                            type: string
+                            description: Brand of the linked credit card
+                            example: visa
+                          FlexiblePaymentOptions:
+                            type: object
+                            description: Collection of flexible payment plan options
+                            example: partial
+                          PaymentType:
+                            type: object
+                            description: 'Type of elinx request. Possible values: fund, withdraw, or empty if no transaction is associated.'
+                            example: fund
+                          TransactionIDs:
+                            type: string
+                            description: Transaction ID(s)
+                            example: 12345,12346,12347
+                          RecipientMessage:
+                            type: string
+                            description: Recipient Message
+                            example: A message for the recipient.
+                          ClientAccountID:
+                            type: string
+                            description: Client account ID associated with the eLinx request
+                            example: client_account_1
+                          GLCode:
+                            type: string
+                            description: The GL code associated with the eLinx request, if applicable
+                            example: GL-1234
+                          TransactionTypeCode:
+                            type: string
+                            description: The transaction type code associated with the eLinx request, if applicable
+                            example: '203'
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of eLinx records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+  /elinx/cancel:
+    post:
+      description: This endpoint is used to cancel an incomplete eLinx request
+      summary: elinx/cancel
+      tags:
+      - eLinx Endpoints
+      operationId: eLinxCancelPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ELinxRequestID:
+                  description: The unique ID of the eLinx request you want to cancel
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ELinxRequestID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the sending was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /elinx/settings:
+    post:
+      description: This endpoint is used to update the eLinx settings for an account.
+      summary: elinx/settings
+      tags:
+      - eLinx Endpoints
+      operationId: eLinxSettingsUpdatePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ELinxSenderEmailAddress:
+                  description: The email address used as the sender for all eLinx notifications sent from your account
+                  type: string
+                DefaultNotificationMethod:
+                  description: 'The default method used to deliver eLinx requests. Possible values: email, sms'
+                  type: string
+                ELinxReminderFrequency:
+                  description: How often (in days) to send reminders for pending eLinx requests
+                  type: integer
+                ELinxExpirationTime:
+                  description: How many days until an eLinx request expires if not completed. Set to 0 for no expiration
+                  type: integer
+                EnableELinxDecline:
+                  description: Whether recipients can decline eLinx requests
+                  type: boolean
+                SenderNotificationsEnabled:
+                  description: Whether to send notifications to the sender when eLinx requests are completed or declined
+                  type: boolean
+                ReceiverNotificationsEnabled:
+                  description: Whether to send notifications to the receiver for eLinx requests
+                  type: boolean
+                ELinxReminderEnabled:
+                  description: Whether to send reminder notifications for pending eLinx requests
+                  type: boolean
+                OTPRequired:
+                  description: When to send an OTP for eLinx. By default OTP will be sent for existing payment methods only.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if settings were updated successfully, false otherwise
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+    get:
+      description: This endpoint is used to retrieve a list of all eLinx settings.
+      summary: elinx/settings
+      tags:
+      - eLinx Endpoints
+      operationId: eLinxSettingsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the sending was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ELinxSettings:
+                    type: object
+                    description: List of current eLinx settings
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          DefaultNotificationMethod:
+                            type: string
+                            description: Default notification method.
+                            example: email
+                          EnableELinxDecline:
+                            type: boolean
+                            description: Can customer's decline an eLinx request
+                            example: 'true'
+                          ELinxExpirationTime:
+                            type: integer
+                            description: Expiration time (in days) of an eLinx request.
+                            example: '15'
+                          ELinxSenderEmailAddress:
+                            type: string
+                            description: Default sender email address for eLinx requests.
+                            example: john.doe@gmail.com
+                          ELinxReminderEnabled:
+                            type: boolean
+                            description: Are eLinx reminders enabled.
+                            example: 'true'
+                          SenderNotificationsEnabled:
+                            type: boolean
+                            description: Are sender notifications enabled
+                            example: 'true'
+                          ReceiverNotificationsEnabled:
+                            type: boolean
+                            description: Are receiver notifications enabled
+                            example: 'true'
+                          ELinxReminderFrequency:
+                            type: integer
+                            description: Reminder Frequency (in days) of an eLinx request.
+                            example: '15'
+                          OTPRequired:
+                            type: string
+                            description: OTP setting
+                            example: false

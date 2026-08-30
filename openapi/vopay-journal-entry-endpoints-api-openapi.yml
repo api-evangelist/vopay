@@ -1,0 +1,453 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Payment Rails Journal Entry Endpoints API
+  description: The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Journal Entry Endpoints
+paths:
+  /journal-entry/add:
+    post:
+      description: This endpoint allows you to add journal entry into the VoPay platform. Journals do not represent real funds. They are considered offbook funds, and are designed to represent transactions that have occured outside the VoPay platform.
+      summary: journal-entry/add
+      tags:
+      - Journal Entry Endpoints
+      operationId: JournalEntryAddPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Currency:
+                  description: 3 character currency code for the currency to mark the currency that was used for the journal entry.
+                  type: string
+                CreditAmount:
+                  description: The credit amount for the journal entry. Either one of CreditAmount or DebitAmount must be provided.
+                  type: string
+                DebitAmount:
+                  description: The debit amount for the journal entry. Either one of CreditAmount or DebitAmount must be provided.
+                  type: string
+                TransactionDate:
+                  description: The transaction date for the journal entry. Must be specified in YYYY-MM-DD format.
+                  type: string
+                  format: date
+                FullName:
+                  description: Full name of the indivdual or business for whom the journal entry is being created.
+                  type: string
+                Status:
+                  description: The transaction status for the journal entry.
+                  type: string
+                Notes:
+                  description: An optional note to associate with the journal entry.
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the journal entry.
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID that the journal entry belong to.
+                  type: string
+                  format: int32
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Currency
+              - CreditAmount
+              - DebitAmount
+              - TransactionDate
+              - FullName
+              - Status
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  JournalEntryID:
+                    type: integer
+                    description: The unique ID of the journal entry that was just created. This ID should be saved as it is required in order to look up or edit the journal entry.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - JournalEntryID
+  /journal-entry/edit:
+    post:
+      description: This endpoint allows you to edit journal entry that was previously saved the VoPay platform.
+      summary: journal-entry/edit
+      tags:
+      - Journal Entry Endpoints
+      operationId: JournalEntryEditPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                JournalEntryID:
+                  description: Searches for a journal entry transaction with the specified journal entry ID. If the journal entry ID is not found in our system, an error will be thrown.
+                  type: integer
+                  format: int32
+                Currency:
+                  description: 3 character currency code for the currency to mark the currency that was used for the journal entry. If specified, the specified journal entry will be updated with the new value.
+                  type: string
+                CreditAmount:
+                  description: The credit amount for the journal entry. Only one of the CreditAmount or DebitAmount can be non-zero.
+                  type: string
+                DebitAmount:
+                  description: The debit amount for the journal entry. Only one of the CreditAmount or DebitAmount can be non-zero.
+                  type: string
+                TransactionDate:
+                  description: The transaction date for the journal entry. Should be specified in YYYY-MM-DD format. If specified, the specified journal entry will be updated with the new value.
+                  type: string
+                  format: date
+                FullName:
+                  description: Full name of the indivdual or business for whom the journal entry is being created. If specified, the specified journal entry will be updated with the new value.
+                  type: string
+                Status:
+                  description: The transaction status for the journal entry. If specified, the specified journal entry will be updated with the new value.
+                  type: string
+                Notes:
+                  description: An optional note to associate with the journal entry transaction. If specified, the specified journal entry will be updated with the new value.
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the journal entry transaction. If specified, the specified journal entry will be updated with the new value.
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID that the journal entry belongs to. If specified, the specified journal entry will be updated with the new value.
+                  type: string
+                  format: int32
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - JournalEntryID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  JournalEntryID:
+                    type: integer
+                    description: The unique ID of the journal entry that was edited.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - JournalEntryID
+  /journal-entry/delete:
+    post:
+      description: This endpoint allows you to delete journal entry that was previously saved the VoPay platform.
+      summary: journal-entry/delete
+      tags:
+      - Journal Entry Endpoints
+      operationId: JournalEntryDeletePost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                JournalEntryID:
+                  description: Searches for a journal entry with the specified journal entry ID. If the journal entry ID is not found in our system, an error will be thrown.
+                  type: integer
+                  format: int32
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - JournalEntryID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  JournalEntryID:
+                    type: integer
+                    description: The unique ID of the journal entry that was deleted.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - JournalEntryID
+  /journal-entry/transfer:
+    post:
+      description: This endpoint allows you to transfer offbook funds between VoPay accounts and/or Client accounts. This endpoint will create two journal entries, one to debit the source account and one to credit the destination account.
+      summary: journal-entry/transfer
+      tags:
+      - Journal Entry Endpoints
+      operationId: JournalEntryDeleteTransfer
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                RecipientAccountID:
+                  description: Account ID of the account for which you want to transfer funds to. If you are transfering funds between client accounts, this field should be empty.
+                  type: string
+                DebitorClientAccountID:
+                  description: ID of the client account transferring the funds
+                  type: string
+                RecipientClientAccountID:
+                  description: ID of the client account receiving the funds
+                  type: string
+                Amount:
+                  description: The transfer amount.
+                  type: number
+                Currency:
+                  description: 3 character currency code for the currency to mark the currency of the transfered funds.
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the transfer
+                  type: string
+                Notes:
+                  description: An optional note to associate with the transaction.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Amount
+              - Currency
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  JournalEntryID:
+                    type: integer
+                    description: The unique ID of the journal entry that was created for transfer.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - JournalEntryID
+  /journal-entry:
+    get:
+      description: This endpoint allows you to get the journal entry that was previously saved the VoPay platform.
+      summary: journal-entry
+      tags:
+      - Journal Entry Endpoints
+      operationId: JournalEntryGet
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                JournalEntryID:
+                  description: Searches for a journal entry transaction with the specified journal entry ID. If the journal entry ID is not found in our system, an error will be thrown. If a journal entry ID is not passed then it will return all the journal entry for the account.
+                  type: integer
+                  format: int32
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Journals:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Collection of journal entry data'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          TransactionID:
+                            type: integer
+                            description: Unique ID for the Journal entry transaction
+                            example: '5918'
+                          ClientAccountID:
+                            type: string
+                            description: Client account ID used on the journal entry, if applicable
+                            example: client_account_1
+                          WalletID:
+                            type: string
+                            description: Wallet ID used on the journal entry, if applicable
+                            example: client_account_wallet_1
+                          FullName:
+                            type: string
+                            description: Full name used for the journal entry transaction.
+                            example: Jane Doe
+                          Currency:
+                            type: string
+                            description: 3 character currency code.
+                            example: CAD
+                          CreditAmount:
+                            type: number
+                            description: Credit Amount on the journal entry.
+                            example: '123.45'
+                          DebitAmount:
+                            type: string
+                            description: Debit Amount on the journal entry.
+                            example: '456.78'
+                          TransactionDate:
+                            type: string
+                            format: date
+                            description: The date on which the journal entry transaction occurred.
+                            example: '2019-12-04'
+                          Status:
+                            type: string
+                            description: A message indicating the current status associated with the journal entry transaction.
+                            example: in progress
+                          Notes:
+                            type: string
+                            description: If applicable, notes giving context to the journal entry transaction.
+                            example: Transaction cancelled
+                          ClientReferenceNumber:
+                            type: string
+                            description: The optional reference number which was set when the transaction was created.
+                            example: 'null'
+                          DateAdded:
+                            type: string
+                            format: date
+                            description: This timestamp indicates when the transaction record was created.
+                            example: '2019-11-03 01:00:00'
+                          LastModified:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the transaction record was last modified.
+                            example: '2019-12-04 18:13:39'
+                        required:
+                        - TransactionID
+                        - ClientAccountID
+                        - WalletID
+                        - FullName
+                        - Currency
+                        - CreditAmount
+                        - DebitAmount
+                        - TransactionDate
+                        - Status
+                        - Notes
+                        - ClientReferenceNumber
+                        - DateAdded
+                        - LastModified
+                    x-empty-when: no journal entries match
+                    x-list-of: inline
+                required:
+                - Success
+                - ErrorMessage
+                - Journals

@@ -1,0 +1,1095 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Global Cash Management Withdraw Endpoints API
+  description: The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Withdraw Endpoints
+paths:
+  /gcm/withdraw/quote:
+    post:
+      description: Get a quote for a certain amount to be sold or bought using a certain corridor delivery method.
+      summary: gcm/withdraw/quote
+      tags:
+      - Withdraw Endpoints
+      operationId: GetQuotePOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: DeliveryChannelID
+        in: query
+        required: true
+        description: The delivery channel ID
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      - name: BuyAmount
+        in: query
+        required: false
+        description: The amount to be bought
+        schema:
+          type: string
+      - name: SellAmount
+        in: query
+        required: false
+        description: The amount to be sold
+        schema:
+          type: string
+      - name: FeesIncluded
+        in: query
+        required: false
+        description: Whether fees are included
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  Quote:
+                    type: object
+                    description: The quote details
+                    properties:
+                      CrossborderQuoteID:
+                        type: string
+                        description: The crossborder quote ID
+                        example: '6690052331'
+                      ExpiryTime:
+                        type: string
+                        description: The expiry time of the quote
+                        example: '2024-11-20 01:42:58'
+                      ChargedAmount:
+                        type: string
+                        description: The charged amount
+                        example: '100.00'
+                      PrincipalAmount:
+                        type: string
+                        description: The principal amount
+                        example: '98.40'
+                      CreditedAmount:
+                        type: string
+                        description: The credited amount
+                        example: '57.01'
+                      FXRate:
+                        type: string
+                        description: The foreign exchange rate
+                        example: '0.579370'
+                      ServiceFee:
+                        type: string
+                        description: The service fee
+                        example: '0.00'
+                      DeliveryFee:
+                        type: string
+                        description: The delivery fee
+                        example: '1.60'
+                      HasSufficientFunds:
+                        type: boolean
+                        description: Whether there are sufficient funds
+                        example: true
+  /gcm/withdraw/quotes:
+    get:
+      description: Get a list of withdraw quotes for a certain client account.
+      summary: gcm/withdraw/quotes
+      tags:
+      - Withdraw Endpoints
+      operationId: GetWithdrawQuotesGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      - name: CrossborderQuoteID
+        in: query
+        required: false
+        description: The crossborder quote ID
+        schema:
+          type: string
+      - name: IsActive
+        in: query
+        required: false
+        description: Whether the quote is active
+        schema:
+          type: boolean
+      - name: Limit
+        in: query
+        required: false
+        description: The limit of quotes to fetch
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  CrossborderQuotes:
+                    type: object
+                    description: The list of crossborder quotes
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          CrossborderQuoteID:
+                            type: string
+                            description: The crossborder quote ID
+                            example: 7915407018-local
+                          ExpiryTime:
+                            type: string
+                            description: The expiry time of the quote
+                            example: ''
+                          DestinationCurrency:
+                            type: string
+                            description: The destination currency
+                            example: AUD
+                          FXRate:
+                            type: string
+                            description: The foreign exchange rate
+                            example: '0.5805894309'
+                          IsActive:
+                            type: boolean
+                            description: Whether the quote is active
+                            example: '1'
+                          FailureReason:
+                            type: string
+                            description: The reason for failure, if any
+                            example: ''
+  /gcm/withdraw:
+    post:
+      description: Create a crossborder withdrawal transaction from a provided quote.
+      summary: gcm/withdraw
+      tags:
+      - Withdraw Endpoints
+      operationId: CreateWithdrawPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: CrossborderQuoteID
+        in: query
+        required: true
+        description: The crossborder quote ID
+        schema:
+          type: string
+      - name: DeliveryMethodToken
+        in: query
+        required: true
+        description: The delivery method token
+        schema:
+          type: string
+      - name: PurposeOfPayment
+        in: query
+        required: true
+        description: The purpose of the payment
+        schema:
+          type: string
+      - name: RelationshipWithBeneficiary
+        in: query
+        required: false
+        description: The relationship with the beneficiary
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                TransactionTypeCode:
+                  description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                  type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  TransactionID:
+                    type: string
+                    description: The transaction ID
+                    example: '1234567'
+                  CashoutCode:
+                    type: string
+                    description: The cashout code
+                    example: xzczgahodi
+  /gcm/withdraw/confirm:
+    post:
+      description: Confirm a partially complete crossborder withdrawal transaction.
+      summary: gcm/withdraw/confirm
+      tags:
+      - Withdraw Endpoints
+      operationId: ConfirmWithdrawPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: The transaction ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  TransactionID:
+                    type: string
+                    description: The transaction ID
+                    example: '1234567'
+  /gcm/withdraw/cancel:
+    post:
+      description: Cancel a partially complete crossborder withdrawal transaction.
+      summary: gcm/withdraw/cancel
+      tags:
+      - Withdraw Endpoints
+      operationId: CancelWithdrawPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: The transaction ID
+        schema:
+          type: string
+      - name: CancellationReason
+        in: query
+        required: true
+        description: A customer provided reason for the cancellation, this will show up in the transaction details.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  TransactionID:
+                    type: string
+                    description: The transaction ID
+                    example: '1234567'
+  /gcm/withdraw/transactions:
+    get:
+      description: Get a list of crossborder withdraw transactions.
+      summary: gcm/withdraw/transactions
+      tags:
+      - Withdraw Endpoints
+      operationId: GetWithdrawTransactionsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      - name: StartDateTime
+        in: query
+        required: false
+        description: The start date and time for the transactions
+        schema:
+          type: string
+      - name: EndDateTime
+        in: query
+        required: false
+        description: The end date and time for the transactions
+        schema:
+          type: string
+      - name: Limit
+        in: query
+        required: false
+        description: The limit of transactions to fetch
+        schema:
+          type: integer
+      - name: 'Timezone '
+        in: query
+        required: false
+        description: Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  Transactions:
+                    type: object
+                    description: The list of crossborder withdraw transactions
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          TransactionID:
+                            type: string
+                            description: The transaction ID
+                            example: '2421928'
+                          DestinationCountryAbbreviation:
+                            type: string
+                            description: The destination country abbreviation
+                            example: AUS
+                          RecipientName:
+                            type: string
+                            description: The recipient name
+                            example: First Last
+                          FirstName:
+                            type: string
+                            description: The first name
+                            example: First
+                          LastName:
+                            type: string
+                            description: The last name
+                            example: Last
+                          BusinessName:
+                            type: string
+                            description: The business name
+                            example: AnytimeTerrorism
+                          Status:
+                            type: string
+                            description: The status of the transaction
+                            example: in progress
+                          DeliveryMethodType:
+                            type: string
+                            description: The delivery method type
+                            example: Bank Account
+                          PaymentType:
+                            type: string
+                            description: If the payment was a buy or a sell
+                            example: buy
+                          FeesIncluded:
+                            type: string
+                            description: If the payment included fees or not
+                            example: '1'
+                          TransactionDate:
+                            type: string
+                            description: The date of the transaction
+                            example: '2024-11-15 19:55:19'
+                          Amount:
+                            type: string
+                            description: The amount
+                            example: '100.00'
+                          PrincipalAmount:
+                            type: string
+                            description: The principalAmount amount
+                            example: '98.40'
+                          CustomerCreditedAmount:
+                            type: string
+                            description: The credited amount
+                            example: '57.15'
+                          FXRate:
+                            type: string
+                            description: The foreign exchange rate
+                            example: '0.5807926829'
+                          RecipientCurrency:
+                            type: string
+                            description: The recipient currency
+                            example: AUD
+                          SenderCurrency:
+                            type: string
+                            description: The sender currency
+                            example: CAD
+                          CorridorID:
+                            type: string
+                            description: The corridor ID
+                            example: '1'
+                          RecipientContactID:
+                            type: string
+                            description: The recipient contact ID
+                            example: test_account
+                          DeliveryMethodID:
+                            type: string
+                            description: The delivery method ID
+                            example: '2'
+                          DeliveryMethodToken:
+                            type: string
+                            description: The delivery method token
+                            example: 3aguu9elzyqs8dk9vwruv208h2ijz2vzivrggo3rnr2s07nyw4c2o6t1k3kcyskg
+                          SenderPurposeOfPayment:
+                            type: string
+                            description: The purpose of the payment
+                            example: Medical Expenses
+                          CashoutCode:
+                            type: string
+                            description: The cashout code
+                            example: ''
+                          SenderBusinessName:
+                            type: string
+                            description: The sender's business name
+                            example: Test Business
+                          SenderNationality:
+                            type: string
+                            description: The sender's nationality
+                            example: CAN
+                          SenderGovernmentIds:
+                            type: string
+                            description: The sender's government IDs
+                            example: '[]'
+                          SenderOccupation:
+                            type: string
+                            description: The sender's occupation
+                            example: ''
+                          SenderRelationshipWithBeneficiary:
+                            type: string
+                            description: The sender's relationship with the beneficiary
+                            example: Mother
+                          SenderSourceOfIncome:
+                            type: string
+                            description: The sender's source of income
+                            example: ''
+                          SenderDateOfBirth:
+                            type: string
+                            description: The sender's date of birth
+                            example: '1998-12-20'
+                          SenderFirstName:
+                            type: string
+                            description: The sender's first name
+                            example: ''
+                          SenderLastName:
+                            type: string
+                            description: The sender's last name
+                            example: ''
+                          SenderAddress1:
+                            type: string
+                            description: The sender's address line 1
+                            example: 123 Main Street
+                          SenderAddress2:
+                            type: string
+                            description: The sender's address line 2
+                            example: ''
+                          SenderAddressCity:
+                            type: string
+                            description: The sender's city
+                            example: Vancouver
+                          SenderAddressPostalCode:
+                            type: string
+                            description: The sender's postal code
+                            example: V6G3G9
+                          SenderAddressCountry:
+                            type: string
+                            description: The sender's country
+                            example: Canada
+                          SenderAddressProvince:
+                            type: string
+                            description: The sender's province
+                            example: British Columbia
+                          SenderEmailAddress:
+                            type: string
+                            description: The sender's email address
+                            example: fist.last@vopay.com
+                          RecipientFirstName:
+                            type: string
+                            description: The recipient's first name
+                            example: John
+                          RecipientLastName:
+                            type: string
+                            description: The recipient's last name
+                            example: Doe
+                          RecipientAddress1:
+                            type: string
+                            description: The recipient's address line 1
+                            example: Severodvinskaya ulitsa, 14
+                          RecipientAddress2:
+                            type: string
+                            description: The recipient's address line 2
+                            example: ''
+                          RecipientAddressCity:
+                            type: string
+                            description: The recipient's city
+                            example: Mockba
+                          RecipientAddressPostalCode:
+                            type: string
+                            description: The recipient's postal code
+                            example: '127224'
+                          RecipientAddressCountry:
+                            type: string
+                            description: The recipient's country
+                            example: United States
+                          RecipientAddressProvince:
+                            type: string
+                            description: The recipient's province
+                            example: British Columbia
+                          RecipientPhone:
+                            type: string
+                            description: The recipient's phone number
+                            example: ''
+                          RecipientEmailAddress:
+                            type: string
+                            description: The recipient's email address
+                            example: john.doe@gmail.com
+                          RecipientNationality:
+                            type: string
+                            description: The recipient's nationality
+                            example: AUS
+                          RecipientBusinessName:
+                            type: string
+                            description: The recipient's business name
+                            example: ''
+                          RecipientGovernmentIds:
+                            type: string
+                            description: The recipient's government IDs
+                            example: '[{"government_id_uri":"ppn:123456789;expiration-date=2019-05-01;issue-date=2011-07-12;country=CAN"}]'
+                          FailureReason:
+                            type: string
+                            description: The reason for failure, if any
+                            example: ''
+                          GLCode:
+                            type: string
+                            description: General ledger code.
+                            example: '4300'
+                          TransactionTypeCode:
+                            type: string
+                            description: CPA transaction code.
+                            example: '999'
+  /gcm/withdraw/transaction:
+    get:
+      description: Get the details for a crossborder withdraw transaction.
+      summary: gcm/withdraw/transaction
+      tags:
+      - Withdraw Endpoints
+      operationId: GetWithdrawTransactionGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: false
+        description: The transaction ID
+        schema:
+          type: string
+      - name: 'Timezone '
+        in: query
+        required: false
+        description: Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  Transaction:
+                    type: object
+                    description: The details for a crossborder withdraw transactions
+                    properties:
+                      TransactionID:
+                        type: string
+                        description: The transaction ID
+                        example: '2421928'
+                      DestinationCountryAbbreviation:
+                        type: string
+                        description: The destination country abbreviation
+                        example: AUS
+                      RecipientName:
+                        type: string
+                        description: The recipient name
+                        example: First Last
+                      FirstName:
+                        type: string
+                        description: The first name
+                        example: First
+                      LastName:
+                        type: string
+                        description: The last name
+                        example: Last
+                      BusinessName:
+                        type: string
+                        description: The business name
+                        example: AnytimeTerrorism
+                      Status:
+                        type: string
+                        description: The status of the transaction
+                        example: in progress
+                      DeliveryMethodType:
+                        type: string
+                        description: The delivery method type
+                        example: Bank Account
+                      PaymentType:
+                        type: string
+                        description: If the payment was a buy or a sell
+                        example: buy
+                      FeesIncluded:
+                        type: string
+                        description: If the payment included fees or not
+                        example: '1'
+                      TransactionDate:
+                        type: string
+                        description: The date of the transaction
+                        example: '2024-11-15 19:55:19'
+                      Amount:
+                        type: string
+                        description: The amount
+                        example: '100.00'
+                      PrincipalAmount:
+                        type: string
+                        description: The principalAmount amount
+                        example: '98.40'
+                      CustomerCreditedAmount:
+                        type: string
+                        description: The credited amount
+                        example: '57.15'
+                      FXRate:
+                        type: string
+                        description: The foreign exchange rate
+                        example: '0.5807926829'
+                      RecipientCurrency:
+                        type: string
+                        description: The recipient currency
+                        example: AUD
+                      SenderCurrency:
+                        type: string
+                        description: The sender currency
+                        example: CAD
+                      CorridorID:
+                        type: string
+                        description: The corridor ID
+                        example: '1'
+                      RecipientContactID:
+                        type: string
+                        description: The recipient contact ID
+                        example: test_account
+                      DeliveryMethodID:
+                        type: string
+                        description: The delivery method ID
+                        example: '2'
+                      DeliveryMethodToken:
+                        type: string
+                        description: The delivery method token
+                        example: 3aguu9elzyqs8dk9vwruv208h2ijz2vzivrggo3rnr2s07nyw4c2o6t1k3kcyskg
+                      SenderPurposeOfPayment:
+                        type: string
+                        description: The purpose of the payment
+                        example: Medical Expenses
+                      CashoutCode:
+                        type: string
+                        description: The cashout code
+                        example: ''
+                      SenderBusinessName:
+                        type: string
+                        description: The sender's business name
+                        example: Test Business
+                      SenderNationality:
+                        type: string
+                        description: The sender's nationality
+                        example: CAN
+                      SenderGovernmentIds:
+                        type: string
+                        description: The sender's government IDs
+                        example: '[]'
+                      SenderOccupation:
+                        type: string
+                        description: The sender's occupation
+                        example: ''
+                      SenderRelationshipWithBeneficiary:
+                        type: string
+                        description: The sender's relationship with the beneficiary
+                        example: Mother
+                      SenderSourceOfIncome:
+                        type: string
+                        description: The sender's source of income
+                        example: ''
+                      SenderDateOfBirth:
+                        type: string
+                        description: The sender's date of birth
+                        example: '1998-12-20'
+                      SenderFirstName:
+                        type: string
+                        description: The sender's first name
+                        example: ''
+                      SenderLastName:
+                        type: string
+                        description: The sender's last name
+                        example: ''
+                      SenderAddress1:
+                        type: string
+                        description: The sender's address line 1
+                        example: 123 Main Street
+                      SenderAddress2:
+                        type: string
+                        description: The sender's address line 2
+                        example: ''
+                      SenderAddressCity:
+                        type: string
+                        description: The sender's city
+                        example: Vancouver
+                      SenderAddressPostalCode:
+                        type: string
+                        description: The sender's postal code
+                        example: V6G3G9
+                      SenderAddressCountry:
+                        type: string
+                        description: The sender's country
+                        example: Canada
+                      SenderAddressProvince:
+                        type: string
+                        description: The sender's province
+                        example: British Columbia
+                      SenderEmailAddress:
+                        type: string
+                        description: The sender's email address
+                        example: fist.last@vopay.com
+                      RecipientFirstName:
+                        type: string
+                        description: The recipient's first name
+                        example: John
+                      RecipientLastName:
+                        type: string
+                        description: The recipient's last name
+                        example: Doe
+                      RecipientAddress1:
+                        type: string
+                        description: The recipient's address line 1
+                        example: Severodvinskaya ulitsa, 14
+                      RecipientAddress2:
+                        type: string
+                        description: The recipient's address line 2
+                        example: ''
+                      RecipientAddressCity:
+                        type: string
+                        description: The recipient's city
+                        example: Mockba
+                      RecipientAddressPostalCode:
+                        type: string
+                        description: The recipient's postal code
+                        example: '127224'
+                      RecipientAddressCountry:
+                        type: string
+                        description: The recipient's country
+                        example: United States
+                      RecipientAddressProvince:
+                        type: string
+                        description: The recipient's province
+                        example: British Columbia
+                      RecipientPhone:
+                        type: string
+                        description: The recipient's phone number
+                        example: ''
+                      RecipientEmailAddress:
+                        type: string
+                        description: The recipient's email address
+                        example: john.doe@gmail.com
+                      RecipientNationality:
+                        type: string
+                        description: The recipient's nationality
+                        example: AUS
+                      RecipientBusinessName:
+                        type: string
+                        description: The recipient's business name
+                        example: ''
+                      RecipientGovernmentIds:
+                        type: string
+                        description: The recipient's government IDs
+                        example: '[{"government_id_uri":"ppn:123456789;expiration-date=2019-05-01;issue-date=2011-07-12;country=CAN"}]'
+                      FailureReason:
+                        type: string
+                        description: The reason for failure, if any
+                        example: ''
+                      FundingOption:
+                        type: string
+                        description: 'The type of payment method used to fund the transaction. Options are: eft, interac, creditcard, googlepay, applepay, aft, vopaybalance, and accountbalance'
+                        example: eft
+                      FundingOptionTransactionFee:
+                        type: string
+                        description: The fee associated with the funding payment method
+                        example: '100.00'
+                      FundingOptionProcessingTime:
+                        type: string
+                        description: The processing time associated with the funding payment method
+                        example: realTime
+                      GLCode:
+                        type: string
+                        description: General ledger code.
+                        example: '4300'
+                      TransactionTypeCode:
+                        type: string
+                        description: CPA transaction code.
+                        example: '999'
+                      FundingPaymentMethod:
+                        type: object
+                        description: The details for the payment method used to fund the transaction (if any). Parameters returned will depend on the funding option used.
+                        properties:
+                          FundingOption:
+                            type: string
+                            description: 'The type of payment method used to fund the transaction. Options are: eft, interac, creditcard, googlepay, applepay, aft, vopaybalance, and accountbalance'
+                            example: eft
+  /gcm/recall/request:
+    post:
+      description: Create a recall request for the provided transaction id.
+      summary: gcm/recall/request
+      tags:
+      - Withdraw Endpoints
+      operationId: RecallRequestPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: The transaction ID
+        schema:
+          type: string
+      - name: RecallExplanation
+        in: query
+        required: true
+        description: A customer provided explanation for the recall.
+        schema:
+          type: string
+      - name: RecallReason
+        in: query
+        required: true
+        description: 'The reason for the recall, acceptable values are: Duplicate Transaction, Incorrect Recipient Information, Incorrect Amount, Suspected Fraud, Money did not arrive to the recipient''s account.'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  TransactionID:
+                    type: string
+                    description: The transaction ID
+                    example: '1234567'

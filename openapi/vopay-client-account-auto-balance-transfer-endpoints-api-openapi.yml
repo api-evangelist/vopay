@@ -1,0 +1,405 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Client Accounts Client Account Auto Balance Transfer Endpoints API
+  description: The Client Accounts API allows you to create, manage and retrieve information about client accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Client Account Auto Balance Transfer Endpoints
+paths:
+  /account/client-accounts/auto-balance-transfer:
+    post:
+      description: "This endpoint allows you to set up an auto-balance transfer from your VoPay account to your default operational bank account. The frequency available to set the auto-transfer can be daily, weekly, bi-weekly or monthly. \n\nThis option requires special permission."
+      summary: account/client-accounts/auto-balance-transfer
+      tags:
+      - Client Account Auto Balance Transfer Endpoints
+      operationId: ClientAccountAutoBalanceTransferPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID to which the wallet belongs
+                  type: string
+                ScheduleStartDate:
+                  description: Date from which the schedule will be started
+                  type: string
+                TypeOfFrequency:
+                  description: 'Type of frequency that you which to receive the deposit, the posibles values are: daily, weekly, biweekly, monthly'
+                  type: string
+                AutoBalanceTransferAmount:
+                  description: The minumum amount to have in your VoPay account to initiate this scheduled transfer, if not provided, the default amount will be 0.01.
+                  type: number
+                Currency:
+                  description: The currency of the funds you want to trasnfer to your bank account. If not currency is provdied, your VoPay account's default currency will be used.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - ScheduleStartDate
+              - TypeOfFrequency
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+    get:
+      description: "This endpoint is used to retrieve the information of your auto balance transfer. \n\n This option requires special permissions."
+      summary: account/client-accounts/auto-balance-transfer
+      tags:
+      - Client Account Auto Balance Transfer Endpoints
+      operationId: ClientAccountAutoBalanceTransferGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: true
+        description: The Client Account ID to which the wallet belongs
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ScheduleStartDate:
+                    type: string
+                    format: date
+                    description: 'Date from which the auto transfer will be started '
+                    example: '2020-01-01'
+                  Description:
+                    type: string
+                    description: Description of the of the auto transfer balance
+                    example: ''
+                  NameOfFrequency:
+                    type: string
+                    description: The frequency of the auto transfer (recurring)
+                    example: recurring
+                  AutoBalanceTransferAmount:
+                    type: number
+                    description: The minumum amount to have in your VoPay account to start the auto transfer balance
+                    example: '25.00'
+                  Status:
+                    type: string
+                    description: 'A message indicating the current status of the auto transfer. Statuses are: cancelled, completed, or in progress'
+                    example: in progress
+                  Currency:
+                    type: string
+                    description: The currency of the funds transferred to your bank account.
+                    example: CAD
+                  AccountHolderName:
+                    type: string
+                    description: The name of the account holder
+                    example: John Doe
+                  AccountNumber:
+                    type: string
+                    description: Recipient's bank account number that funds were deposited to.
+                    example: '13434387'
+                  FinancialInstitutionNumber:
+                    type: string
+                    description: Three digit institution number of the customer's Canadian bank account.
+                    example: '112'
+                  BranchTransitNumber:
+                    type: string
+                    description: Transit number for the customer's Canadian bank account.
+                    example: '**809'
+                  ABARoutingNumber:
+                    type: string
+                    description: Nine digit ABA routing number of the customer's US bank account.
+                    example: '123456789'
+  /account/client-accounts/auto-balance-transfer-list:
+    get:
+      description: "This endpoint is used to retrieve a list of all your auto balance transfers. \n\n This option requires special permissions."
+      summary: account/client-accounts/auto-balance-transfer-list
+      tags:
+      - Client Account Auto Balance Transfer Endpoints
+      operationId: ClientAccountAutoBalanceTransferListGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: true
+        description: The Client Account ID to which the wallet belongs
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Wallets:
+                    type: object
+                    description: Collection of Wallets
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          AutoBalanceTransferID:
+                            type: integer
+                            description: ID of the auto balance transfer
+                            example: '1234'
+                          ScheduleStartDate:
+                            type: string
+                            format: date
+                            description: Date from which the auto transfer will be started
+                            example: '2020-01-01'
+                          Description:
+                            type: string
+                            description: Description of the auto transfer balance
+                            example: ''
+                          NameOfFrequency:
+                            type: string
+                            description: The frequency of the auto transfer (recurring)
+                            example: recurring
+                          AutoBalanceTransferAmount:
+                            type: number
+                            description: The minumum amount to have in your VoPay account to start the auto transfer balance
+                            example: '25.00'
+                          Status:
+                            type: string
+                            description: 'A message indicating the current status of the auto transfer. Statuses are: cancelled, completed, or in progress'
+                            example: in progress
+                          Currency:
+                            type: string
+                            description: The currency of the funds transferred to your bank account.
+                            example: CAD
+                          ClientAccountID:
+                            type: string
+                            description: The associated client account.
+                            example: ClientAccount1
+  /account/client-accounts/auto-balance-transfer/cancel:
+    post:
+      description: "This endpoint allows you to cancel an auto balance transfer. \n\n This option requires special permissions."
+      summary: account/client-accounts/auto-balance-transfer/cancel
+      tags:
+      - Client Account Auto Balance Transfer Endpoints
+      operationId: ClientAccountAutoBalanceTransferCancelPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID to which the wallet belongs
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Status:
+                    type: string
+                    description: Contains the new status of the auto transfer balance
+                    example: cancelled
+  /account/client-accounts/auto-balance-transfer/report:
+    get:
+      description: "This endpoint returns the list of transactions associated with an auto balance transfer. \n\nThe sum of all debits/credits should match the amount on the auto-balance transfer."
+      summary: account/client-accounts/auto-balance-transfer/report
+      tags:
+      - Client Account Auto Balance Transfer Endpoints
+      operationId: ClientAccountAutoBalanceTransferReportGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: true
+        description: The Client Account ID to which the wallet belongs
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: Transaction ID of the auto-balance transfer transaction
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Transactions:
+                    type: object
+                    description: Collection of Transactions related to the auto-balance transfer
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          TransactionID:
+                            type: integer
+                            description: The unique ID of the transaction.
+                            example: '1234'
+                          TransactionType:
+                            type: string
+                            description: Transaction Type
+                            example: EFT Funding
+                          TransactionDate:
+                            type: string
+                            format: date-time
+                            description: Transaction date
+                            example: '2024-08-01 12:34:56'
+                          CreditAmount:
+                            type: number
+                            description: The credit amount on the transaction.
+                            example: '2000.00'
+                          DebitAmount:
+                            type: number
+                            description: The debit amount on the transaction.
+                            example: '2000.00'
+                          FullName:
+                            type: string
+                            description: The name on the transaction.
+                            example: John Smith
+                          ReferenceNo:
+                            type: string
+                            description: The reference number provided on the transaction.
+                            example: ABCD-1234

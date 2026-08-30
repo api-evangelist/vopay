@@ -1,0 +1,184 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Client Accounts Client Account Labels Endpoints API
+  description: The Client Accounts API allows you to create, manage and retrieve information about client accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Client Account Labels Endpoints
+paths:
+  /account/client-accounts/label:
+    get:
+      description: This endpoint returns all the created Labels for the given Client account.
+      summary: account/client-accounts/label
+      tags:
+      - Client Account Labels Endpoints
+      operationId: ClientAccountLabelGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: Client account ID of customer who's labels you want to retrieve
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Labels:
+                    type: object
+                    description: Collection of Labels
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          Label:
+                            type: string
+                            description: Label Name
+                            example: ClientAccount1
+  /account/client-accounts/label/add:
+    post:
+      description: This endpoint allows you to create a Label.
+      summary: account/client-accounts/label/add
+      tags:
+      - Client Account Labels Endpoints
+      operationId: ClientAccountLabelAddPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client account ID of customer who's account we want to add the label to
+                  type: string
+                Label:
+                  description: New Label
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - Label
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Label:
+                    type: string
+                    description: The newly added Label
+                    example: ''
+  /account/client-accounts/label/delete:
+    post:
+      description: This endpoint allows you to delete a Label.
+      summary: account/client-accounts/label/delete
+      tags:
+      - Client Account Labels Endpoints
+      operationId: ClientAccountLabelDeletePost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client account ID of customer who's account we want to delete the label from
+                  type: string
+                Label:
+                  description: The label you want to delete
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - Label
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''

@@ -1,0 +1,589 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Integrations and Support Support Endpoints API
+  description: The Integrations and Support API defines endpoints for configuring integrations with  Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also  includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for  account and partner accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Support Endpoints
+paths:
+  /account/tickets:
+    get:
+      description: This endpoint is used to fetch a list of support tickets via our API. If no email address is passed in then it will fetch all tickets for the account. If an email address is passed in, it will fetch all tickets for the account that have been submitted, including CC'd, by that email.
+      summary: account/tickets
+      tags:
+      - Support Endpoints
+      operationId: fetchTicketsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Email
+        in: query
+        required: false
+        description: An email address
+        schema:
+          type: string
+      - name: 'Limit '
+        in: query
+        required: false
+        description: Limit the number of records that are returned. The limit and default value is 100. This parameter can only be used with Email parameter.
+        schema:
+          type: integer
+      - name: 'Offset '
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset. This parameter can only be used with Email parameter.
+        schema:
+          type: integer
+      - name: StartDate
+        in: query
+        required: false
+        description: 'The start date of the date range you wish to fetch. Format: YYYY-MM-DD'
+        schema:
+          type: string
+      - name: EndDate
+        in: query
+        required: false
+        description: 'The end date of the date range you wish to fetch. Format: YYYY-MM-DD'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Tickets:
+                    type: object
+                    description: Collection of tickets
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            description: ID of the ticket.
+                            example: ''
+                          subject:
+                            type: string
+                            description: The subject of the ticket.
+                            example: ''
+                          status:
+                            type: string
+                            description: The status of the ticket.
+                            example: ''
+                          dateAdded:
+                            type: string
+                            description: The date when the ticket was added.
+                            example: ''
+                          lastUpdated:
+                            type: string
+                            description: The date when the ticket was last updated.
+                            example: ''
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of eLinx records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+  /account/submit-ticket:
+    post:
+      description: This endpoint is used to submit support tickets via our API.
+      summary: account/submit-ticket
+      tags:
+      - Support Endpoints
+      operationId: submitTicketPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                SenderEmailAddress:
+                  description: Your email address
+                  type: string
+                TicketRequesterName:
+                  description: The full name of the submitter of your ticket
+                  type: string
+                TicketSubject:
+                  description: The subject of your ticket
+                  type: string
+                TicketContent:
+                  description: The body of your ticket
+                  type: string
+                TicketCategory:
+                  description: 'The category of your ticket. Valid values are: Client Onboarding,Product Issues,Billing Issues,Feature Request,General Inquiry,Account Limits,General Feedback,Transaction Inquiry'
+                  type: string
+                TransactionID:
+                  description: If the issue pertains to a specific transaction, you can use this input to provide the unique transaction ID
+                  type: string
+                CcEmails:
+                  description: A comma-delimited list of CC email addresses to include on the ticket. These email addresses will be included on the correspondence
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - SenderEmailAddress
+              - TicketRequesterName
+              - TicketSubject
+              - TicketContent
+              - TicketCategory
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TicketID:
+                    type: integer
+                    description: Support Ticket ID
+                    example: ''
+  /account/submit-ticket-comment:
+    post:
+      description: This endpoint is used to submit a comment on an existing support tickets via our API. Ticket comments represent the conversation between user and support team. Use the TicketID (obtained from /account/submit-ticket endpoint) to identify the ticket you want to attach the comment to
+      summary: account/submit-ticket-comment
+      tags:
+      - Support Endpoints
+      operationId: submitTicketCommentPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/submitTicketCommentPOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/ticket-attachment:
+    post:
+      description: 'You can upload a file and attach it to an existing support tickets via our API. Use the TicketID (obtained from /account/submit-ticket endpoint) to identify the ticket you want to attach the file to. Here are some rules regarding the document requirements:
+
+
+        * The maximum allowed file size is 10Mb
+
+
+        * Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64
+
+
+        *'
+      summary: account/ticket-attachment
+      tags:
+      - Support Endpoints
+      operationId: submitTicketAttachmentPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/submitTicketAttachmentPOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /partner/tickets:
+    get:
+      description: This endpoint is used to fetch a list of support tickets via our API. If no email address is passed in then it will fetch all tickets for the account. If an email address is passed in, it will fetch all tickets for the account that have been submitted, including CC'd, by that email.
+      summary: partner/tickets
+      tags:
+      - Support Endpoints
+      operationId: partnerFetchTicketsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Email
+        in: query
+        required: false
+        description: An email address
+        schema:
+          type: string
+      - name: 'Limit '
+        in: query
+        required: false
+        description: Limit the number of records that are returned. The limit and default value is 100. This parameter can only be used with Email parameter.
+        schema:
+          type: integer
+      - name: 'Offset '
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset. This parameter can only be used with Email parameter.
+        schema:
+          type: integer
+      - name: StartDate
+        in: query
+        required: false
+        description: 'The start date of the date range you wish to fetch. Format: YYYY-MM-DD'
+        schema:
+          type: string
+      - name: EndDate
+        in: query
+        required: false
+        description: 'The end date of the date range you wish to fetch. Format: YYYY-MM-DD'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Tickets:
+                    type: object
+                    description: Collection of tickets
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            description: ID of the ticket.
+                            example: ''
+                          subject:
+                            type: string
+                            description: The subject of the ticket.
+                            example: ''
+                          status:
+                            type: string
+                            description: The status of the ticket.
+                            example: ''
+                          dateAdded:
+                            type: string
+                            description: The date when the ticket was added.
+                            example: ''
+                          lastUpdated:
+                            type: string
+                            description: The date when the ticket was last updated.
+                            example: ''
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of eLinx records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+  /partner/submit-ticket:
+    post:
+      description: This endpoint is used to submit support tickets via our API.
+      summary: partner/submit-ticket
+      tags:
+      - Support Endpoints
+      operationId: PartnersubmitTicketPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                SenderEmailAddress:
+                  description: Your email address
+                  type: string
+                AccountName:
+                  description: The name of the account that's impacted by this issue, if applicable.
+                  type: string
+                TicketRequesterName:
+                  description: The full name of the submitter of your ticket
+                  type: string
+                TicketSubject:
+                  description: The subject of your ticket
+                  type: string
+                TicketContent:
+                  description: The body of your ticket
+                  type: string
+                TicketCategory:
+                  description: 'The category of your ticket. Valid values are: Client Onboarding,Product Issues,Billing Issues,Feature Request,General Inquiry,Account Limits,General Feedback,Transaction Inquiry'
+                  type: string
+                TransactionID:
+                  description: If the issue pertains to a specific transaction, you can use this input to provide the unique transaction ID
+                  type: string
+                CcEmails:
+                  description: A comma-delimited list of CC email addresses to include on the ticket. These email addresses will be included on the correspondence
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - SenderEmailAddress
+              - TicketRequesterName
+              - TicketSubject
+              - TicketContent
+              - TicketCategory
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TicketID:
+                    type: integer
+                    description: Support Ticket ID
+                    example: ''
+  /partner/submit-ticket-comment:
+    post:
+      description: This endpoint is used to submit a comment on an existing support tickets via our API. Ticket comments represent the conversation between user and support team. Use the TicketID (obtained from /partner/submit-ticket endpoint) to identify the ticket you want to add the comment to.
+      summary: partner/submit-ticket-comment
+      tags:
+      - Support Endpoints
+      operationId: submitTicketCommentPartnerPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/submitTicketCommentPOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /partner/ticket-attachment:
+    post:
+      description: 'You can upload a file and attach it to an existing support tickets via our API. Use the TicketID (obtained from /partner/submit-ticket endpoint) to identify the ticket you want to attach the file to. Here are some rules regarding the document requirements:
+
+
+        * The maximum allowed file size is 10Mb
+
+
+        * Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64
+
+
+        *'
+      summary: partner/ticket-attachment
+      tags:
+      - Support Endpoints
+      operationId: submitTicketAttachmentPartnerPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/submitTicketAttachmentPOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+components:
+  requestBodies:
+    submitTicketAttachmentPOST:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              TicketAttachment:
+                description: Base64 code of the attachment content
+                type: string
+              TicketID:
+                description: The ID of the ticket
+                type: string
+              AttachmentFileName:
+                description: The name of the file being attached. It defaults to attachment if the name is not provided.
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - TicketAttachment
+            - TicketID
+      required: true
+    submitTicketCommentPOST:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              TicketAuthor:
+                description: The full name of the submitter of your ticket
+                type: string
+              TicketComment:
+                description: Comment
+                type: string
+              TicketID:
+                description: The ID of the ticket
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - TicketAuthor
+            - TicketComment
+            - TicketID
+      required: true

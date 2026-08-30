@@ -1,0 +1,162 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Blocked Accounts API
+  description: The Blocked Accounts API provides endpoints for managing blocked sub-accounts under a secured VoPay account. These endpoints allow partners to block accounts (optionally transferring available funds), unblock accounts, and configure auto-unblock thresholds.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Blocked Accounts
+paths:
+  /account/blocked-account/block:
+    post:
+      description: Blocks one or all sub-accounts under the authenticated secured account. Optionally transfers any available funds out of the blocked account(s). Requires the ManageBlockedAccounts permission.
+      summary: Block account(s)
+      tags:
+      - Blocked Accounts
+      operationId: BlockedAccountBlockPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                VopayAccountID:
+                  description: The VoPay sub-account ID to block. If omitted, all sub-accounts under the authenticated account will be blocked.
+                  type: string
+                TransferAvailableFunds:
+                  description: If true, any available funds in the blocked account(s) will be transferred out before blocking. Defaults to false.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/blocked-account/unblock:
+    post:
+      description: Unblocks one or all previously blocked sub-accounts under the authenticated secured account. Requires the ManageBlockedAccounts permission.
+      summary: Unblock account(s)
+      tags:
+      - Blocked Accounts
+      operationId: BlockedAccountUnblockPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                VopayAccountID:
+                  description: The VoPay sub-account ID to unblock. If omitted, all blocked sub-accounts under the authenticated account will be unblocked.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/blocked-account/set-autounblock-threshold:
+    post:
+      description: Sets the AutoUnblockThreshold on a sub-account's blocked account settings. When the sub-account's balance reaches this threshold, it will be automatically unblocked. Pass an empty value to clear the threshold. Requires the ManageBlockedAccounts permission.
+      summary: Set auto-unblock threshold
+      tags:
+      - Blocked Accounts
+      operationId: BlockedAccountSetAutoUnblockThresholdPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                VopayAccountID:
+                  description: The VoPay sub-account ID to configure. Must belong to the authenticated account.
+                  type: string
+                AutoUnblockThreshold:
+                  description: The balance threshold at which the sub-account will be automatically unblocked. Pass an empty value to clear the threshold.
+                  type: number
+                  format: float
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - VopayAccountID
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''

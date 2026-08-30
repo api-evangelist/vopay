@@ -1,0 +1,522 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: IQ11 Endpoints API
+  description: The iQ11 API allows you to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: IQ11 Endpoints
+paths:
+  /iq11/generate-embed-url:
+    post:
+      description: This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from. For additional details on iQ11 and RedirectMethod, please visit our [Iq11 Overview](https://docs.vopay.com/docs/iq11-overview)
+      summary: iq11/generate-embed-url
+      tags:
+      - IQ11 Endpoints
+      operationId: Iq11GenerateEmbedUrlPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: When provided, the bank account submitted will be attached to the Client Account ID
+                  type: string
+                RedirectURL:
+                  description: URL to redirect to after the customer logs in to their online banking account. The bank account token will be passed as a GET parameter, for example https://redirect.com/page?Token=1234. If not provided, RedirectMethod defaults to javascriptmessage.
+                  type: string
+                CompanyName:
+                  description: Name of the Company. Defaults to the account name if not provided.
+                  type: string
+                Language:
+                  description: Language of iQ11 iFrame- en (English) or fr (French). Default value is en (English)
+                  type: string
+                RedirectMethod:
+                  description: This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values. Defaults to innerredirect if RedirectURL is provided, otherwise javascriptmessage.
+                  type: string
+                AccountSelectionMethod:
+                  description: This parameter accepts any, online and manual as parameter values. Defaults to any.
+                  type: string
+                PaymentSelectionMethod:
+                  description: This parameter accepts any, bank, email, credit, debitcard, googlepay, applepay, paypal, or venmo as parameter values. Defaults to any.
+                  type: string
+                ClientControlled:
+                  description: When set to true, the connected bank account will be linked to your VoPay account. Default is false.
+                  type: boolean
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the bank account.
+                  type: string
+                Country:
+                  description: This parameter accepts country codes [CA, US]. Default is CA
+                  type: string
+                RequireDebitAuthorityAgreement:
+                  description: This parameter will determine if we display a debit authority agreement to the end-user before they connect their payment method. You must request this feature to be enabled for your account. Default is true.
+                  type: boolean
+                Verify:
+                  description: 'A comma-separated list of payment methods to verify once the user has connected their payment method. Allowed values are: ''bank'', ''interacbasic'', ''interacenhanced'', ''cardbasic'', ''cardenhanced''. If no value is provided, no verification will be performed.'
+                  type: string
+                CardTypeValidation:
+                  description: When set to true, the card type will be validated to ensure the entered information represents the selected card option. Default is false.
+                  type: boolean
+                Trigger3DS:
+                  description: When set to true, 3DS authentication will be triggered during the card addition process. Default is false.
+                  type: boolean
+                AcceptedCardBrands:
+                  description: A comma-separated list of accepted card brands to restrict which cards can be added.
+                  type: string
+                AccountHolderType:
+                  description: The type of account holder. Used to restrict the type of bank account that can be connected.
+                  type: string
+                  enum:
+                  - individual
+                  - business
+                DarkMode:
+                  description: When set to true, the iFrame will be displayed in dark mode. Default is false.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/x-yaml:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  EmbedURL:
+                    type: string
+                    description: Custom generated iQ11 iframe url for users to use
+                    example: https://earthnode-dev.vopay.com/visa_direct/embed/{Key Returned by Vopay}
+                  IframeKey:
+                    type: string
+                    description: Unique key attached to the generated iFrame
+                    example: a1b2c3
+  /iq11/token-info:
+    get:
+      description: This endpoint is used to return the payment details associated with an iQ11 Token.
+      summary: iq11/token-info
+      tags:
+      - IQ11 Endpoints
+      operationId: Iq11TokenInfoGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Token
+        in: query
+        required: true
+        description: iQ11 token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/x-yaml:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  MaskedAccount:
+                    type: string
+                    description: 'The last four digits of a Bank account number. For example: ****1234'
+                    example: '****1234'
+                  Bank:
+                    type: string
+                    description: Three digit institution number of a Canadian bank.
+                    example: '001'
+                  TransitNumber:
+                    type: string
+                    description: Five digit branch transit number of a Canadian bank.
+                    example: '12345'
+                  ABARoutingNumber:
+                    type: string
+                    description: ABA Routing number of a US bank.
+                    example: '12345789'
+                  FullName:
+                    type: string
+                    description: Full name of the account holder.
+                    example: John Doe
+                  BankName:
+                    type: string
+                    description: Name of the FI.
+                    example: TD
+                  TokenType:
+                    type: string
+                    description: The type of the token; either manual or iq11.
+                    example: iq11
+                  EmailAddress:
+                    type: string
+                    description: Email address of the account holder.
+                    example: subaccount.mail@email.com
+                  PhoneNumber:
+                    type: string
+                    description: Phone number of the account holder.
+                    example: '1234567890'
+                  Question:
+                    type: string
+                    description: Question provided to the account holder.
+                    example: What is your favorite color?
+                  Answer:
+                    type: string
+                    description: Answer provided to the account holder.
+                    example: Blue
+                  Language:
+                    type: string
+                    description: Language of the account holder.
+                    example: en
+                  Message:
+                    type: string
+                    description: Message to the account holder.
+                    example: Hello
+                  AutoDepositEnabled:
+                    type: boolean
+                    description: True if auto deposit is enabled, false if it is not. Used for Interac only.
+                    example: 'true'
+                  CreditCardNumber:
+                    type: string
+                    description: Credit card number
+                    example: 1234-1234-1234-1234
+                  CreditCardExpiryYear:
+                    type: string
+                    description: Credit card expiry year
+                    example: '2020'
+                  CreditCardExpiryMonth:
+                    type: string
+                    description: Credit card expiry month
+                    example: '12'
+                  CreditCardBrand:
+                    type: string
+                    description: Credit card brand
+                    example: visa
+                  CredtCardType:
+                    type: string
+                    description: 'Credit card connection types. Valid values are: ''creditcard'', ''googlepay'', ''applepay'''
+                    example: creditcard
+                  DebitCardNumber:
+                    type: string
+                    description: Debit card number
+                    example: 1234-1234-1234-1234
+                  DebitCardExpiryYear:
+                    type: string
+                    description: Debit card expiry year
+                    example: '2020'
+                  DebitCardExpiryMonth:
+                    type: string
+                    description: Debit card expiry month
+                    example: '12'
+                  DebitCardBrand:
+                    type: string
+                    description: Debit card brand
+                    example: visa
+                  ClientReferenceNumber:
+                    type: string
+                    description: Client reference number
+                    example: ABC1234
+                  Type:
+                    type: string
+                    description: Payment method type. Valid values are 'bank', 'email', 'credit', 'debit'
+                    example: bank
+  /iq11/tokenize:
+    post:
+      description: This endpoint allows you to submit payment method details (bank account, email address), and will return a token which can be used to perform transactions.
+      summary: iq11/tokenize
+      tags:
+      - IQ11 Endpoints
+      operationId: Iq11TokenizePost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                AccountHolderName:
+                  description: String that defines the account holder name. Used for all payment methods.
+                  type: string
+                AccountNumber:
+                  description: Customer's bank account number.
+                  type: string
+                FinancialInstitutionNumber:
+                  description: Three digit institution number for a Canadian bank account.
+                  type: string
+                BranchTransitNumber:
+                  description: Five digit branch transit number for a Canadian bank account.
+                  type: string
+                ABARoutingNumber:
+                  description: Nine digit ABA Routing number of a US bank account.
+                  type: string
+                FlinksAccountID:
+                  description: Flinks Account ID. Must be accompanied by a FlinksLoginID. VoPay will fetch the associated bank account details from Flinks.
+                  type: string
+                FlinksLoginID:
+                  description: Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated bank account details from Flinks.
+                  type: string
+                PlaidProcessorToken:
+                  description: Plaid Processor Token. VoPay will fetch the associated bank account details from Plaid.
+                  type: string
+                MxProcessorToken:
+                  description: Mx Processor Token. VoPay will fetch the associated bank account details from Mx.
+                  type: string
+                Currency:
+                  description: Three letter currency code.
+                  type: string
+                Address1:
+                  description: 'First line of the address. Ex: 123 Main St.'
+                  type: string
+                City:
+                  description: City
+                  type: string
+                State:
+                  description: State
+                  type: string
+                ZipCode:
+                  description: Zip code
+                  type: string
+                Province:
+                  description: Province
+                  type: string
+                PostalCode:
+                  description: Postal code
+                  type: string
+                Country:
+                  description: Two letter country code.
+                  type: string
+                VerifyAccount:
+                  description: When set to true, the connected bank account will be verified. Default is false. Only applicable when Flinks or Plaid credentials are provided.
+                  type: boolean
+                EmailAddress:
+                  description: Email address
+                  type: string
+                  format: email
+                PhoneNumber:
+                  description: Phone number
+                  type: string
+                Question:
+                  description: Security question (used for Interac transactions)
+                  type: string
+                Answer:
+                  description: Security answer (used for Interac transactions)
+                  type: string
+                Language:
+                  description: Language - en (English) or fr (French). Default value is en (English)
+                  type: string
+                Message:
+                  description: Message sent to recipient (used for Interac)
+                  type: string
+                ClientControlled:
+                  description: When set to true, the connected bank account will be linked to your VoPay account. Default is false.
+                  type: boolean
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the bank account.
+                  type: string
+                Type:
+                  description: 'The type of payment method you are tokenizing. Valid values are: ''bank'', ''email''. Default is ''bank''.'
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/x-yaml:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Token:
+                    type: string
+                    description: A codify variable that contains the bank account
+                    example: '{Token}'
+  /iq11/transactions:
+    get:
+      description: This endpoint is used to return the transaction history associated with an iQ11 Token.
+      summary: iq11/transactions
+      tags:
+      - IQ11 Endpoints
+      operationId: Iq11TransactionsGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Token
+        in: query
+        required: true
+        description: Your iQ11 Token that has been generated using Custom iFrame.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/x-yaml:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Transactions:
+                    type: string
+                    description: JSON payload containing the bank account's transaction history
+                    example: '{ 0: { Id: 13bd9695-1686-472f-b6f8-a36a7547c51b, Code: null, Date: 2021-12-06, Debit: 1500, Credit: null, Balance: 1261.34, Description: Rent Payment }, 1: { Id: 0bcd3935-8e9a-4b90-a4c1-c662ff240d55, Code: null, Date: 2021-12-01, Debit: 141.03, Credit: null, Balance: 1121.31, Description: Groceries } }'
+                  LastRetrievedTime:
+                    type: string
+                    format: date-time
+                    description: The date and time the transaction history was retrieved for the assoicated bank account.
+                    example: '2022-11-03 01:00:00'
+  /iq11/balance:
+    get:
+      description: This endpoint is used to return the bank account balance associated with an iQ11 Token.
+      summary: iq11/balance
+      tags:
+      - IQ11 Endpoints
+      operationId: Iq11BalanceGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Token
+        in: query
+        required: true
+        description: Your iQ11 Token that has been generated using Custom iFrame.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/x-yaml:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  AccountBalance:
+                    type: string
+                    description: The balance of the associated bank account
+                    example: '1000.00'
+                  BalanceAsAtDate:
+                    type: string
+                    format: date-time
+                    description: The date and time the balance was retrieved from the associated bank account.
+                    example: '2022-11-03 01:00:00'

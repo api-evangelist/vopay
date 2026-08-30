@@ -1,0 +1,612 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Contact Verification Endpoints API
+  description: The verification API defines endpoints for initiating, confirming, and fetching details  of micro deposit transactions to verify bank accounts in the US and Canada.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Contact Verification Endpoints
+paths:
+  /contact-verification/email:
+    post:
+      description: This endpoint is used to intiate an email verification.
+      summary: contact-verification/email
+      tags:
+      - Contact Verification Endpoints
+      operationId: ContactVerificationEmail
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The client account ID associated with this email. This is required if client account is enabled. Use ContactID instead if client account is not enabled.
+                  type: string
+                ContactID:
+                  description: The contact ID associated with this email. This is required if client account is not enabled. Use ClientAccountID instead if client account is enabled.
+                  type: string
+                EmailAddress:
+                  description: Email address to be verified - Must be a valid email
+                  type: string
+                  format: email
+                VerificationTier:
+                  description: Tier of the verification request. Options are 'basic' and 'enhanced'. Defaults to 'basic' if not specified.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - ContactID
+              - EmailAddress
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  VerificationRequestID:
+                    type: integer
+                    description: Verification Request ID for the Email to be verified
+                    example: '123'
+  /contact-verification/email/confirm:
+    post:
+      description: This endpoint is used to confirm an email verification using an OTP sent to the email address.
+      summary: contact-verification/email/confirm
+      tags:
+      - Contact Verification Endpoints
+      operationId: ContactVerificationEmailConfirm
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                Token:
+                  description: The single-use token associated with the email verification request
+                  type: string
+                OTP:
+                  description: The one-time password sent to the email address to be verified
+                  type: string
+              required:
+              - Token
+              - OTP
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  VerificationStatus:
+                    type: string
+                    description: Status of the verification. Can be 'verified' or 'failed'.
+                    example: verified
+  /contact-verification/phone:
+    post:
+      description: This endpoint is used to intiate an phone SMS verification.
+      summary: contact-verification/phone
+      tags:
+      - Contact Verification Endpoints
+      operationId: ContactVerificationPhone
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The client account ID associated with this phone number. This is required if client account is enabled. Use ContactID instead if client account is not enabled.
+                  type: string
+                ContactID:
+                  description: The contact ID associated with this phone number. This is required if client account is not enabled. Use ClientAccountID instead if client account is enabled.
+                  type: string
+                PhoneNumber:
+                  description: Phone number to be verified - Must be a valid phone number
+                  type: string
+                VerificationTier:
+                  description: Tier of the verification request. Options are 'basic' and 'enhanced'. Defaults to 'basic' if not specified.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - ContactID
+              - PhoneNumber
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  VerificationRequestID:
+                    type: integer
+                    description: Verification Request ID for the Phone to be verified
+                    example: '123'
+  /contact-verification/phone/confirm:
+    post:
+      description: This endpoint is used to confirm a phone verification using an OTP sent via SMS.
+      summary: contact-verification/phone/confirm
+      tags:
+      - Contact Verification Endpoints
+      operationId: ContactVerificationPhoneConfirm
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                Token:
+                  description: The single-use token associated with the phone verification request
+                  type: string
+                OTP:
+                  description: The one-time password sent via SMS to the phone number to be verified
+                  type: string
+              required:
+              - Token
+              - OTP
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  VerificationStatus:
+                    type: string
+                    description: Status of the verification. Can be 'verified' or 'failed'.
+                    example: verified
+  /contact-verification/id/non-doc:
+    post:
+      description: This endpoint is used to perform Non-Document ID verification on an individual. Currently only Canada is supported.
+      summary: contact-verification/id/non-doc
+      tags:
+      - Contact Verification Endpoints
+      operationId: ContactVerificationIDNonDoc
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The client account ID to verify. This is required if client account is enabled. Use ContactID instead if client account is not enabled.
+                  type: string
+                ContactID:
+                  description: The contact ID of the contact to verify. This is required if client account is not enabled. Use ClientAccountID instead if client account is enabled.
+                  type: string
+                FullName:
+                  description: Contact's full name
+                  type: string
+                DOB:
+                  description: 'Date of Birth, in date format YYYY-MM-DD (ex: 1960-01-15).'
+                  type: string
+                EmailAddress:
+                  description: Email address of the contact - Must be a valid email
+                  type: string
+                  format: email
+                Address1:
+                  description: Contact's address line 1
+                  type: string
+                Address2:
+                  description: Contact's address line 2
+                  type: string
+                City:
+                  description: Contact's city
+                  type: string
+                Province:
+                  description: Contact's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                PostalCode:
+                  description: Contact's postal code
+                  type: string
+                Country:
+                  description: Contact's country specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                  type: string
+                TriggerAMLCheck:
+                  description: Include an AML check if the dual process verification status is verified.
+                  type: boolean
+                TriggerManualIDVOnFailure:
+                  description: If the non-document verification status is not verified then initiate a manual ID verification request to the email provided above.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - ContactID
+              - FullName
+              - DOB
+              - EmailAddress
+              - Address1
+              - City
+              - Province
+              - PostalCode
+              - Country
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  VerificationRequestID:
+                    type: integer
+                    description: Verification Request ID for the contact to be verified
+                    example: '123'
+                  VerificationStatus:
+                    type: string
+                    description: Status of the verification
+                    example: Verified
+  /contact-verification/generate-embed-url:
+    post:
+      description: This endpoint generates an embed URL for contact verification. The URL can be used to embed a verification iframe for address, basic ID, or enhanced ID verification.
+      summary: contact-verification/generate-embed-url
+      tags:
+      - Contact Verification Endpoints
+      operationId: ContactVerificationGenerateEmbedUrl
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The client account ID to generate the embed URL for. This is required if client account is enabled. Use ContactID instead if client account is not enabled.
+                  type: string
+                ContactID:
+                  description: The contact ID to generate the embed URL for. This is required if client account is not enabled. Use ClientAccountID instead if client account is enabled.
+                  type: string
+                VerificationType:
+                  description: 'The type(s) of verification to embed. Must be one or more of: ''address'', ''idbasic'', ''idenhanced''. Multiple values can be comma-separated.'
+                  type: string
+                StylesheetUrl:
+                  description: URL of a custom stylesheet to apply to the embedded verification iframe
+                  type: string
+                Language:
+                  description: The language preference for the embed. Defaults to 'en'.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - ContactID
+              - VerificationType
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Link:
+                    type: string
+                    description: The generated embed URL
+                    example: https://earthnode-dev.vopay.com/contact-verification?Token=abc123
+                  SingleUseToken:
+                    type: string
+                    description: Single-use token used to generate the embed URL
+                    example: abc123
+  /contact-verification/name-screen:
+    post:
+      description: This endpoint is used to verify contacts name
+      summary: contact-verification/name-screen
+      tags:
+      - Contact Verification Endpoints
+      operationId: ContactVerificationNameScreen
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The client account ID associated with this name. This is required if client account is enabled. Use ContactID instead if client account is not enabled.
+                  type: string
+                ContactID:
+                  description: The contact ID associated with this name. This is required if client account is not enabled. Use ClientAccountID instead if client account is enabled.
+                  type: string
+                Country:
+                  description: Contact's country specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - ContactID
+              - Country
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  VerificationRequestID:
+                    type: integer
+                    description: Verification Request ID for the contact name screening request
+                    example: '123'
+                  VerificationStatus:
+                    type: string
+                    description: Status of the verification
+                    example: verified
+  /contact-verification:
+    get:
+      description: This endpoint is used to fetch results of the contact verification requests.
+      summary: contact-verification/requests
+      tags:
+      - Contact Verification Endpoints
+      operationId: ContactVerificationRequestsGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: VerificationRequestID
+        in: query
+        required: false
+        description: Value of the Contact Verification Request ID
+        schema:
+          type: integer
+      - name: ClientAccountID
+        in: query
+        required: true
+        description: The client account ID associated with this email. This is required if client account is enabled. Use ContactID instead if client account is not enabled.
+        schema:
+          type: string
+      - name: ContactID
+        in: query
+        required: true
+        description: The contact ID associated with this email. This is required if client account is not enabled. Use ClientAccountID instead if client account is enabled.
+        schema:
+          type: string
+      - name: SearchText
+        in: query
+        required: false
+        description: A text string to search for in the email addresses used for Account Verification process.
+        schema:
+          type: string
+      - name: Limit
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: Offset
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      - name: VerificationType
+        in: query
+        required: false
+        description: Filter by contact verification type. Can be 'email', 'phone', 'nondoc', 'name'.
+        schema:
+          type: string
+      - name: VerificationTier
+        in: query
+        required: false
+        description: filter by tier of the verification request. Options are 'basic' and 'enhanced'.
+        schema:
+          type: string
+      - name: VerificationStatus
+        in: query
+        required: false
+        description: filter by Status of the verification request. Options are 'unverified', 'verified', 'failed'.
+        schema:
+          type: string
+      - name: Timezone
+        in: query
+        required: false
+        description: Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.
+        schema:
+          type: string
+      - name: StartDateTime
+        in: query
+        required: false
+        description: Return contact verification requests that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: EndDateTime
+        in: query
+        required: false
+        description: Return contact verification requests that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ContactVerificationRequests:
+                    type: object
+                    description: Contact verification requests results
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          ClientAccountID:
+                            type: string
+                            description: Client account ID
+                            example: johndoe
+                          Type:
+                            type: string
+                            description: Contact verification type
+                            example: address
+                          VerificationStatus:
+                            type: string
+                            description: Status of the verification request
+                            example: verified
+                          LastModified:
+                            type: string
+                            description: Last modified date/time associated with the Account Verification Request ID
+                            example: '2025-10-30 00:08:27'

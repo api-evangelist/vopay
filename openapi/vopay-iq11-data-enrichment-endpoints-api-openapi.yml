@@ -1,0 +1,245 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: IQ11 Data Enrichment Endpoints API
+  description: The iQ11 API allows you to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: IQ11 Data Enrichment Endpoints
+paths:
+  /iq11/enrich-data:
+    post:
+      description: This endpoint is used to enrich transaction data associated with a iQ11 Token.
+      summary: iq11/enrich-data
+      tags:
+      - IQ11 Data Enrichment Endpoints
+      operationId: Iq11EnrichDataPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Token
+        in: query
+        required: true
+        description: Your iQ11 Token that has associated transactions to be enriched.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/x-yaml:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  RequestID:
+                    type: string
+                    description: A unique identifier for the data enrichemnt process.
+                    example: 1131nnzuwulms269zrtj5fp9co3ooi9ba43400k3
+    get:
+      description: This endpoint is used to fetch transaction reports generated from the enriched data.
+      summary: iq11/enrich-data
+      tags:
+      - IQ11 Data Enrichment Endpoints
+      operationId: Iq11EnrichDataGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Token
+        in: query
+        required: true
+        description: Your iQ11 Token that has enriched data associated with it.
+        schema:
+          type: string
+      - name: EnrichedDataType
+        in: query
+        required: true
+        description: 'The type of report you want to generate, valid types are: credit-transactions, employment-credit-transactions, government-credit-transactions, tax-credit-transactions, debit-transactions, rent-debit-transactions, utility-debit-transactions, telecom-debit-transactions, loan-debit-transactions, insurance-debit-transactions, bank-fee-transactions, subscription-debit-transactions, nsf-fee-transactions, transaction-report, risk-report.'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/x-yaml:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  EnrichedData:
+                    type: object
+                    description: A generated report containing transaction analysis and insights.
+                    example:
+                      DateOfFirstTransaction: '2021-10-12'
+                      DateOfLastTransaction: '2021-12-06'
+                      TotalNumberOfTransactions: 25
+                      AveragePayment: 1137.83
+                      AverageDaysBetweenPayments: 2.29
+                      LastTwoPaymentDates:
+                        '0': '2021-12-01'
+                        '1': '2021-12-06'
+                      TotalAmount: 28445.79
+                      SumPerMonth:
+                        2021-10: 13991.42
+                        2021-11: 14061.13
+                        2021-12: 393.24
+                      CountPerMonth:
+                        2021-10: 7
+                        2021-11: 15
+                        2021-12: 3
+                    properties:
+                      DateOfFirstTransaction:
+                        type: string
+                        format: date
+                        description: The date of the earliest transaction in the dataset
+                      DateOfLastTransaction:
+                        type: string
+                        format: date
+                        description: The date of the most recent transaction in the dataset
+                      TotalNumberOfTransactions:
+                        type: integer
+                        description: The total count of transactions in the dataset
+                      AveragePayment:
+                        type: number
+                        format: float
+                        description: The average amount across all payments
+                      AverageDaysBetweenPayments:
+                        type: number
+                        format: float
+                        description: The average number of days between consecutive payments
+                      LastTwoPaymentDates:
+                        type: object
+                        description: The dates of the two most recent payments
+                      TotalAmount:
+                        type: number
+                        format: float
+                        description: The sum of all transaction amounts
+                      SumPerMonth:
+                        type: object
+                        description: Monthly breakdown of transaction amounts
+                      CountPerMonth:
+                        type: object
+                        description: Monthly breakdown of transaction counts
+  /iq11/enrich-data/status:
+    get:
+      description: This endpoint is used to check the status of a data enrichment request.
+      summary: iq11/enrich-data/status
+      tags:
+      - IQ11 Data Enrichment Endpoints
+      operationId: Iq11EnrichDataStatusGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: RequestID
+        in: query
+        required: true
+        description: The unique identifier returned from the /iq11/enrich-data POST call
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/x-yaml:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Status:
+                    type: string
+                    description: The current status of the data enrichment process
+                    example: In Progress
+                    enum:
+                    - Complete
+                    - In Progress
+                  PercentComplete:
+                    type: string
+                    description: The percentage of transactions that have been enriched
+                    example: 75%
+                  EnrichedCount:
+                    type: integer
+                    description: The number of transactions that have been enriched
+                    example: 15
+                  TotalCount:
+                    type: integer
+                    description: The total number of transactions in the dataset
+                    example: 20

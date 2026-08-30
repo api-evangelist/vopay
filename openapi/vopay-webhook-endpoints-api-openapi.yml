@@ -1,0 +1,666 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Integrations and Support Webhook Endpoints API
+  description: The Integrations and Support API defines endpoints for configuring integrations with  Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also  includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for  account and partner accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Webhook Endpoints
+paths:
+  /account/webhook-url:
+    post:
+      description: 'This endpoint will allow the user to add or modify a webhook URL.
+
+
+        The purpose of the webhook URL is to notify users of any changes in transaction status, paylink status, account status, account verification status, as well as bank account creation, scheduled transaction creation, batch request processed, and batch request failed.'
+      summary: account/webhook-url
+      tags:
+      - Webhook Endpoints
+      operationId: AccountWebhookUrlPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                WebHookUrl:
+                  description: URL where the users want us to send their notifications. This parameter has to be a valid URL. If the field Disabled is added, this field can be optional; otherwise, it will consider as mandatory
+                  type: string
+                Type:
+                  description: 'The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction, virtualaccountcreated. If left blank changes will be applied to all webhook types.'
+                  type: string
+                Disabled:
+                  description: If this parameter is present WebHookUrl is not mandatory.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/webhook-url/info:
+    get:
+      description: This endpoint will retrieve your webhook URL.
+      summary: account/webhook-url/info
+      tags:
+      - Webhook Endpoints
+      operationId: AccountWebhookUrlInfoGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Webhooks:
+                    type: object
+                    description: Collection of webhook event types configured
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          Event:
+                            type: string
+                            description: 'The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction.'
+                            example: ''
+                          Url:
+                            type: string
+                            description: Webhook URL, is the url is not setup it will return empty
+                            example: ''
+                  WebHookURL:
+                    type: string
+                    description: Webhook URL, is the url is not setup it will return empty. See Webhooks attribute for full list.
+                    example: ''
+  /account/webhook-url/test:
+    post:
+      description: In this endpoint, you will be able to test your webhook URL. We will send you an example of the payload that you will receive.
+      summary: account/webhook-url/test
+      tags:
+      - Webhook Endpoints
+      operationId: AccountWebhookUrlTestPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Type:
+                  description: 'The type of webhook notification you wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction. Default is transaction.'
+                  type: string
+                Payload:
+                  description: A custom JSON payload to send to the webhook URL. If not provided, a sample payload will be generated based on the Type parameter.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/webhooks:
+    get:
+      description: This endpoint can be used to fetch a list of sent webhook notifications. Maximum date range is 1 month. If no date range is provided, it will default to the past 30 days.
+      summary: account/webhooks
+      tags:
+      - Webhook Endpoints
+      operationId: AccountWebhooksGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Type
+        in: query
+        required: false
+        description: 'The type of webhook notification you wish to fetch. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction.'
+        schema:
+          type: string
+      - name: WebhookID
+        in: query
+        required: false
+        description: The ID of webhook notifications you wish to fetch.
+        schema:
+          type: string
+      - name: NotificationStatus
+        in: query
+        required: false
+        description: 'Filter webhook notification by status. Possible values are: new, processed, failed, deprecated.'
+        schema:
+          type: string
+      - name: StartDate
+        in: query
+        required: false
+        description: 'The start date of the date range you wish to fetch. Format: YYYY-MM-DD'
+        schema:
+          type: string
+      - name: EndDate
+        in: query
+        required: false
+        description: 'The end date of the date range you wish to fetch. Format: YYYY-MM-DD'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Webhooks:
+                    type: object
+                    description: Collection of webhook notifications
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          EventID:
+                            type: integer
+                            description: Unique ID for the webhook notification event
+                            example: '123563'
+                          Event:
+                            type: string
+                            description: 'The event type of the webnook notification. Possible values are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction.'
+                            example: transaction
+                          Module:
+                            type: string
+                            description: Specifies the sub-category of the event type. For example, if the event type is transaction, the module could be eftfunding, achwithdraw, etc.
+                            example: achfunding
+                          WebhookID:
+                            type: string
+                            description: This is the ID provided in the webhook payload. For example, the transaction ID, paylink ID, etc.
+                            example: '12314'
+                          Status:
+                            type: string
+                            description: This is the Status provied in the webhook payload. For example, the transaction status, paylink status, etc.
+                            example: in progress
+                          NotificationStatus:
+                            type: string
+                            description: This is the Status of the webhook.
+                            example: new
+                          DateSent:
+                            type: string
+                            format: date-time
+                            description: This is the date and time the original webhook notification was sent.
+                            example: '2024-01-01 12:34:56'
+                          WebhookUrl:
+                            type: string
+                            description: The webhook URL the notification was sent to.
+                            example: https://example.com/webhook
+                          ResponseText:
+                            type: string
+                            description: This is the webhook response text.
+                            example: request caught
+                          ResponseStatusCode:
+                            type: string
+                            description: This is the webhook response status code.
+                            example: '200'
+  /account/webhook/resend:
+    post:
+      description: "This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.\n\n The event ID can be fetched using the [GET /account/webhooks endpoint](https://docs.vopay.com/reference/accountwebhooksget)."
+      summary: account/webhook/resend
+      tags:
+      - Webhook Endpoints
+      operationId: AccountWebhookResendPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                EventID:
+                  description: The event ID of the webhook notification you wish to resend. This ID can be fetched using the GET /account/webhooks endpoint.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - EventID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /partner/webhook-url:
+    post:
+      description: 'This endpoint will allow the user to modify the webhook URL.
+
+
+        The purpose of the webhook URL is to notify users of any changes in the status of the accounts you create.'
+      summary: partner/webhook-url
+      tags:
+      - Webhook Endpoints
+      operationId: PartnerWebhookUrlPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                WebHookUrl:
+                  description: URL where the users want us to send their notifications. This parameter has to be a valid URL. If the field Disabled is added, this field can be optional; otherwise, it will consider as mandatory
+                  type: string
+                Type:
+                  description: 'The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction. If left blank it will apply to all types.'
+                  type: string
+                Disabled:
+                  description: If this parameter is present WebHookUrl is not mandatory.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /partner/webhook-url/info:
+    get:
+      description: This endpoint will retrieve your webhook URL.
+      summary: partner/webhook-url/info
+      tags:
+      - Webhook Endpoints
+      operationId: PartnerWebhookUrlInfoGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  WebHookURL:
+                    type: string
+                    description: Webhook URL, is the url is not setup it will return empty. See Webhooks attribute for full list.
+                    example: ''
+                  Webhooks:
+                    type: object
+                    description: Collection of webhook event types configured
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          Event:
+                            type: string
+                            description: 'The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction.'
+                            example: ''
+                          Url:
+                            type: string
+                            description: Webhook URL, is the url is not setup it will return empty
+                            example: ''
+  /partner/webhook-url/test:
+    get:
+      description: In this endpoint, you will be able to test your webhook URL. We will send you an example of the payload that you will receive.
+      summary: partner/webhook-url/test
+      tags:
+      - Webhook Endpoints
+      operationId: PartnerWebhookUrlTestGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /partner/webhooks:
+    get:
+      description: This endpoint can be used to fetch a list of sent webhook notifications. Maximum date range is 1 month. If no date range is provided, it will default to the past 30 days.
+      summary: partner/webhooks
+      tags:
+      - Webhook Endpoints
+      operationId: PartnerWebhooksGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: WebhookID
+        in: query
+        required: false
+        description: The ID of webhook notifications you wish to fetch.
+        schema:
+          type: string
+      - name: StartDate
+        in: query
+        required: false
+        description: 'The start date of the date range you wish to fetch. Format: YYYY-MM-DD'
+        schema:
+          type: string
+      - name: EndDate
+        in: query
+        required: false
+        description: 'The end date of the date range you wish to fetch. Format: YYYY-MM-DD'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Webhooks:
+                    type: object
+                    description: Collection of Webhook notifications
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          EventID:
+                            type: integer
+                            description: Unique ID for the webhook notification event
+                            example: '123563'
+                          Event:
+                            type: string
+                            description: 'The event type of the webnook notification. Possible values are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction.'
+                            example: transaction
+                          Module:
+                            type: string
+                            description: Specifies the sub-category of the event type. For example, if the event type is transaction, the module could be eftfunding, achwithdraw, etc.
+                            example: achfunding
+                          WebhookID:
+                            type: string
+                            description: This is the ID provided in the webhook payload. For example, the transaction ID, paylink ID, etc.
+                            example: '12314'
+                          Status:
+                            type: string
+                            description: This is the Status provied in the webhook payload. For example, the transaction status, paylink status, etc.
+                            example: in progress
+                          DateSent:
+                            type: string
+                            format: date-time
+                            description: This is the date and time the original webhook notification was sent.
+                            example: '2024-01-01 12:34:56'
+                          WebhookUrl:
+                            type: string
+                            description: The webhook URL the notification was sent to.
+                            example: https://example.com/webhook
+  /partner/webhook/resend:
+    post:
+      description: "This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.\n\n The event ID can be fetched using the [GET /partner/webhooks endpoint](https://docs.vopay.com/reference/partnerwebhooksget)."
+      summary: partner/webhook/resend
+      tags:
+      - Webhook Endpoints
+      operationId: PartnerWebhookResendPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                EventID:
+                  description: The event ID of the webhook notification you wish to resend. This ID can be fetched using the GET /partner/webhooks endpoint.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - EventID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''

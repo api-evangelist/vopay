@@ -1,0 +1,521 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Global Cash Management Delivery Method Endpoints API
+  description: The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Delivery Method Endpoints
+paths:
+  /gcm/countries:
+    get:
+      description: Get a list of all the available countries for a specific use case that support cross border transactions.
+      summary: gcm/countries
+      tags:
+      - Delivery Method Endpoints
+      operationId: CountriesGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: UseCase
+        in: query
+        required: false
+        description: Valid values are B2B, B2P, P2B, P2P
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Countries:
+                    type: object
+                    description: The address details of the recipient contact
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          CorridorID:
+                            type: string
+                            description: The corridor ID
+                            example: '1'
+                          Country:
+                            type: string
+                            description: The country of the corridor
+                            example: Australia
+                          DestinationCountryAbbreviation:
+                            type: string
+                            description: The corridor country abbreviation
+                            example: AUS
+  /gcm/delivery-methods:
+    get:
+      description: Get a list of all the stored delivery methods for a certain recipient contact and corridor delivery method (optional).
+      summary: gcm/delivery-methods
+      tags:
+      - Delivery Method Endpoints
+      operationId: DeliveryMethodsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: RecipientContactID
+        in: query
+        required: true
+        description: The recipient contact ID
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      - name: DeliveryChannelID
+        in: query
+        required: false
+        description: The delivery channel ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DeliveryMethods:
+                    type: object
+                    description: The stored delivery methods
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          DeliveryMethodToken:
+                            type: string
+                            description: The delivery method token
+                            example: 3aguu9elzyqs8dk9vwruv208h2ijz2vzivrggo3rnr2s07nyw4c2o6t1k3kcyskg
+                          DeliveryChannelID:
+                            type: string
+                            description: The delivery channel ID
+                            example: '55'
+                          BankAccountNumber:
+                            type: string
+                            description: The bank account number
+                            example: 0080****
+                          BankIdentifierCode:
+                            type: string
+                            description: The bank identifier code
+                            example: BNPAAU2SXXX
+                          InternationalBankAccountNumber:
+                            type: string
+                            description: The international bank account number
+                            example: ''
+                          EWalletID:
+                            type: string
+                            description: The e-wallet ID
+                            example: ''
+                          ServiceProvider:
+                            type: string
+                            description: The service provider
+                            example: ''
+                          TelephoneNumber:
+                            type: string
+                            description: The telephone number
+                            example: ''
+                          BankName:
+                            type: string
+                            description: The bank name
+                            example: ''
+                          BankCode:
+                            type: string
+                            description: The bank code
+                            example: ANZ
+                          BranchName:
+                            type: string
+                            description: The branch name
+                            example: ''
+                          AccountType:
+                            type: string
+                            description: The account type
+                            example: ''
+                          DeliveryMethodType:
+                            type: string
+                            description: The delivery method type
+                            example: Bank Account
+                          DestinationCountry:
+                            type: string
+                            description: The destination country
+                            example: Australia
+                          DestinationCountryCode:
+                            type: string
+                            description: The destination country code
+                            example: AUS
+                          DestinationAbbreviation:
+                            type: string
+                            description: The destination abbreviation
+                            example: AU
+                          DeliveryFee:
+                            type: string
+                            description: The delivery fee
+                            example: '1.60'
+  /gcm/delivery-methods/add:
+    post:
+      description: Add a new delivery method for a certain recipient contact and corridor delivery method.
+      summary: gcm/delivery-methods/add
+      tags:
+      - Delivery Method Endpoints
+      operationId: AddDeliveryMethodPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: RecipientContactID
+        in: query
+        required: true
+        description: The recipient contact ID
+        schema:
+          type: string
+      - name: DeliveryChannelID
+        in: query
+        required: true
+        description: The delivery channel ID
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      - name: AccountType
+        in: query
+        required: false
+        description: The account type
+        schema:
+          type: string
+      - name: BankAccountNumber
+        in: query
+        required: false
+        description: The bank account number
+        schema:
+          type: string
+      - name: BankIdentifierCode
+        in: query
+        required: false
+        description: The bank identifier code
+        schema:
+          type: string
+      - name: InternationalBankAccountNumber
+        in: query
+        required: false
+        description: The international bank account number
+        schema:
+          type: string
+      - name: EWalletID
+        in: query
+        required: false
+        description: The e-wallet ID
+        schema:
+          type: string
+      - name: ServiceProvider
+        in: query
+        required: false
+        description: The service provider
+        schema:
+          type: string
+      - name: TelephoneNumber
+        in: query
+        required: false
+        description: The telephone number
+        schema:
+          type: string
+      - name: BankName
+        in: query
+        required: false
+        description: The bank name
+        schema:
+          type: string
+      - name: BankCode
+        in: query
+        required: false
+        description: The bank code
+        schema:
+          type: string
+      - name: BranchName
+        in: query
+        required: false
+        description: The branch name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  DeliveryMethodToken:
+                    type: string
+                    description: The token of the added delivery method
+                    example: 374lrxtrutgk8o6qxmv94xmet28r0jle93xwkc2vmydbr65oqos1fklpeqnsni6h
+                  RecipientContactID:
+                    type: string
+                    description: The recipient contact ID
+                    example: test_account
+  /gcm/delivery-methods/edit:
+    post:
+      description: Edit an existing delivery method for a certain recipient contact and corridor delivery method.
+      summary: gcm/delivery-methods/edit
+      tags:
+      - Delivery Method Endpoints
+      operationId: EditDeliveryMethodPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: DeliveryMethodToken
+        in: query
+        required: true
+        description: The token of the delivery method to be edited
+        schema:
+          type: string
+      - name: AccountType
+        in: query
+        required: false
+        description: The account type
+        schema:
+          type: string
+      - name: BankAccountNumber
+        in: query
+        required: false
+        description: The bank account number
+        schema:
+          type: string
+      - name: BankIdentifierCode
+        in: query
+        required: false
+        description: The bank identifier code
+        schema:
+          type: string
+      - name: InternationalBankAccountNumber
+        in: query
+        required: false
+        description: The international bank account number
+        schema:
+          type: string
+      - name: EWalletID
+        in: query
+        required: false
+        description: The e-wallet ID
+        schema:
+          type: string
+      - name: ServiceProvider
+        in: query
+        required: false
+        description: The service provider
+        schema:
+          type: string
+      - name: TelephoneNumber
+        in: query
+        required: false
+        description: The telephone number
+        schema:
+          type: string
+      - name: BankName
+        in: query
+        required: false
+        description: The bank name
+        schema:
+          type: string
+      - name: BankCode
+        in: query
+        required: false
+        description: The bank code
+        schema:
+          type: string
+      - name: BranchName
+        in: query
+        required: false
+        description: The branch name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+  /gcm/delivery-methods/delete:
+    post:
+      description: Delete a delivery method for a certain recipient contact.
+      summary: gcm/delivery-methods/delete
+      tags:
+      - Delivery Method Endpoints
+      operationId: DeleteDeliveryMethodPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: RecipientContactID
+        in: query
+        required: true
+        description: The recipient contact ID
+        schema:
+          type: string
+      - name: DeliveryMethodToken
+        in: query
+        required: true
+        description: The token of the delivery method to be deleted
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''

@@ -1,0 +1,666 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Scheduled Payments API
+  description: The Scheduled Payments API defines endpoints for managing scheduled payment transactions. These endpoints allow account holders to create, view, modify, and cancel scheduled payments with flexible frequency options.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Scheduled Payments
+paths:
+  /scheduled-payment:
+    post:
+      description: Create a new scheduled transaction to be processed on a particular time depending on the frequency.
+      summary: Create Scheduled Payment
+      tags:
+      - Scheduled Payments
+      operationId: ScheduledPaymentPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Amount:
+                  description: The transaction amount
+                  type: number
+                Currency:
+                  description: The currency code (e.g., USD, CAD)
+                  type: string
+                PaymentType:
+                  description: The type of payment (e.g., debit, credit)
+                  type: string
+                PaymentRail:
+                  description: The payment rail to use for the transaction
+                  type: string
+                StartDateTime:
+                  description: The start date and time for the scheduled payment
+                  type: string
+                  format: date-time
+                Token:
+                  description: The payment token for the transaction
+                  type: string
+                Repeats:
+                  description: 'The recurrence frequency. Omit for a one-time payment. Accepted values: daily, weekly, bi-weekly, monthly, semi-monthly (15th and last day of month), quarterly, semi-annually, annually, weekdays (Mon–Fri).'
+                  type: string
+                  enum:
+                  - daily
+                  - weekly
+                  - bi-weekly
+                  - monthly
+                  - semi-monthly
+                  - quarterly
+                  - semi-annually
+                  - annually
+                  - weekdays
+                Interval:
+                  description: How many units to advance per period. For example, Repeats=weekly with Interval=2 fires every other week. Only applies to daily, weekly, monthly, and annually. Defaults to 1.
+                  type: integer
+                  minimum: 1
+                  maximum: 365
+                  default: 1
+                ByDay:
+                  description: 'Pins payments to a specific weekday. Only applies to weekly and monthly. For weekly, use a two-letter abbreviation: MO, TU, WE, TH, FR, SA, SU. For monthly, prefix with an ordinal (1–4) or -1 for last: 1MO, 3FR, -1FR. Example: Repeats=monthly with ByDay=3FR fires on the 3rd Friday of each month.'
+                  type: string
+                NumberOfPayments:
+                  description: The number of payments to process (required if Repeats is specified)
+                  type: integer
+                ClientReferenceNumber:
+                  description: Client reference number for the transaction
+                  type: string
+                Notes:
+                  description: Additional notes for the scheduled payment
+                  type: string
+                GLCode:
+                  description: General ledger code for accounting purposes
+                  type: string
+                ClientAccountID:
+                  description: The client account ID for the transaction
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Amount
+              - Currency
+              - PaymentType
+              - PaymentRail
+              - StartDateTime
+              - Token
+        required: true
+      responses:
+        '200':
+          description: Scheduled payment created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: Indicates whether the request was successful
+                  ErrorMessage:
+                    type: string
+                    description: Error message if the request failed
+                  Amount:
+                    type: number
+                    description: The transaction amount
+                  ScheduledPaymentsID:
+                    type: integer
+                    description: The ID of the created scheduled payment
+                  Repeats:
+                    type: string
+                    description: The recurrence frequency
+                  Interval:
+                    type: integer
+                    description: The interval in effect (1 if not specified)
+                  ByDay:
+                    type: string
+                    description: The weekday pin in effect (empty string if not specified)
+                  Notes:
+                    type: string
+                    description: Notes for the scheduled payment
+                  ClientReferenceNumber:
+                    type: string
+                    description: Client reference number
+                  GLCode:
+                    type: string
+                    description: General ledger code
+                  StartDateTime:
+                    type: string
+                    format: date-time
+                    description: The start date and time
+    get:
+      description: Retrieve details of a single scheduled payment or all scheduled payments for the account.
+      summary: Get Scheduled Payments
+      tags:
+      - Scheduled Payments
+      operationId: ScheduledPaymentGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ScheduledPaymentsID
+        in: query
+        required: false
+        description: The ID of a specific scheduled payment to retrieve. If omitted, returns all scheduled payments.
+        schema:
+          type: integer
+      - name: Limit
+        in: query
+        required: false
+        description: Maximum number of results to return
+        schema:
+          type: integer
+      - name: Offset
+        in: query
+        required: false
+        description: Pagination offset
+        schema:
+          type: integer
+      - name: Repeats
+        in: query
+        required: false
+        description: Filter by repeat frequency
+        schema:
+          type: string
+      - name: PaymentType
+        in: query
+        required: false
+        description: Filter by payment type
+        schema:
+          type: string
+      - name: Currency
+        in: query
+        required: false
+        description: Filter by currency code
+        schema:
+          type: string
+      - name: PaymentRail
+        in: query
+        required: false
+        description: Filter by payment rail
+        schema:
+          type: string
+      - name: Token
+        in: query
+        required: false
+        description: Filter by payment token
+        schema:
+          type: string
+      - name: GLCode
+        in: query
+        required: false
+        description: Filter by general ledger code
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: Filter by client account ID
+        schema:
+          type: string
+      - name: StartDate
+        in: query
+        required: false
+        description: Filter by start date (inclusive)
+        schema:
+          type: string
+          format: date
+      - name: EndDate
+        in: query
+        required: false
+        description: Filter by end date (inclusive)
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: Scheduled payments retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  PaginationMetaData:
+                    type: object
+                    description: Pagination metadata for the results
+                    properties:
+                      TotalRecords:
+                        type: integer
+                        description: Total number of records
+                      Offset:
+                        type: integer
+                        description: Current offset in pagination
+                      Limit:
+                        type: integer
+                        description: Number of records returned
+                  ScheduledPayment:
+                    type: object
+                    description: Object containing scheduled payment records
+                    additionalProperties:
+                      type: object
+                      properties:
+                        ID:
+                          type: string
+                          description: Scheduled payment ID
+                        ClientAccountID:
+                          type: string
+                          description: Client account ID
+                        Amount:
+                          type: string
+                          description: Payment amount
+                        Currency:
+                          type: string
+                          description: Currency code
+                        PaymentType:
+                          type: string
+                          description: Payment type (debit/credit)
+                        TransactionType:
+                          type: string
+                          description: Transaction type
+                        Token:
+                          type: string
+                          description: Payment token
+                        ClientReferenceNumber:
+                          type: string
+                          description: Client reference number
+                        Notes:
+                          type: string
+                          description: Notes for the payment
+                        StartDateTime:
+                          type: string
+                          description: Start date and time
+                        NumberOfPayments:
+                          type: string
+                          description: Number of payments
+                        Repeats:
+                          type: string
+                          description: Repeat frequency
+                        Interval:
+                          type: integer
+                          description: How many units to advance per period (1 = every period, 2 = every other, etc.)
+                          default: 1
+                          minimum: 1
+                          maximum: 365
+                        ByDay:
+                          type: string
+                          description: Weekday pin for weekly (e.g. FR) or monthly (e.g. 3FR, -1MO) schedules. Empty string when not set.
+                        GLCode:
+                          type: string
+                          description: General ledger code
+                        UpcomingTransactions:
+                          type: object
+                          description: Upcoming payment occurrences
+                          additionalProperties:
+                            type: object
+                            properties:
+                              ID:
+                                type: string
+                                description: Payment detail ID
+                              TransactionID:
+                                type: string
+                                description: Transaction ID
+                              ScheduledDate:
+                                type: string
+                                description: Scheduled date and time
+                              LastModified:
+                                type: string
+                                description: Last modified date
+                              Status:
+                                type: string
+                                description: Payment status
+                              Amount:
+                                type: string
+                                description: Payment amount
+                        CompletedTransactions:
+                          type: object
+                          description: Completed payment occurrences
+              examples:
+                response:
+                  value:
+                    PaginationMetaData:
+                      TotalRecords: 8830
+                      Offset: 0
+                      Limit: 2
+                    ScheduledPayment:
+                      '0':
+                        ID: '12085'
+                        ClientAccountID: ''
+                        Amount: '2.10'
+                        Currency: CAD
+                        PaymentType: debit
+                        TransactionType: Credit Card
+                        Token: 3czx5ga9vzsw019mzyvoyzput2h7swnodjqwoxxxnje786gqxky2l7r6j6pre688
+                        ClientReferenceNumber: test123
+                        Notes: hello
+                        StartDateTime: '2026-04-18 19:01:32'
+                        NumberOfPayments: '5'
+                        Repeats: semi-monthly
+                        Interval: 1
+                        ByDay: ''
+                        GLCode: '40300'
+                        UpcomingTransactions:
+                          '0':
+                            ID: '58545'
+                            TransactionID: ''
+                            ScheduledDate: '2026-04-30 19:01:32'
+                            LastModified: ''
+                            Status: upcoming
+                            Amount: '2.10'
+                          '1':
+                            ID: '58546'
+                            TransactionID: ''
+                            ScheduledDate: '2026-05-15 19:01:32'
+                            LastModified: ''
+                            Status: upcoming
+                            Amount: '2.10'
+                          '2':
+                            ID: '58547'
+                            TransactionID: ''
+                            ScheduledDate: '2026-05-31 19:01:32'
+                            LastModified: ''
+                            Status: upcoming
+                            Amount: '2.10'
+                          '3':
+                            ID: '58548'
+                            TransactionID: ''
+                            ScheduledDate: '2026-06-15 19:01:32'
+                            LastModified: ''
+                            Status: upcoming
+                            Amount: '2.10'
+                          '4':
+                            ID: '58549'
+                            TransactionID: ''
+                            ScheduledDate: '2026-06-30 19:01:32'
+                            LastModified: ''
+                            Status: upcoming
+                            Amount: '2.10'
+                        CompletedTransactions: {}
+                      '1':
+                        ID: '12083'
+                        ClientAccountID: ''
+                        Amount: '2.10'
+                        Currency: CAD
+                        PaymentType: credit
+                        TransactionType: PayPal Withdrawal
+                        Token: ls2cekes2c05wpnqctwcphd126xxxfpdp1ggoscwm2r56rtjk3ortsc7z1jqcg3i
+                        ClientReferenceNumber: test123
+                        Notes: hello
+                        StartDateTime: '2026-04-18 19:01:31'
+                        NumberOfPayments: '5'
+                        Repeats: semi-monthly
+                        Interval: 1
+                        ByDay: ''
+                        GLCode: '40300'
+                        UpcomingTransactions:
+                          '0':
+                            ID: '58535'
+                            TransactionID: ''
+                            ScheduledDate: '2026-04-30 19:01:31'
+                            LastModified: ''
+                            Status: upcoming
+                            Amount: '2.10'
+                          '1':
+                            ID: '58536'
+                            TransactionID: ''
+                            ScheduledDate: '2026-05-15 19:01:31'
+                            LastModified: ''
+                            Status: upcoming
+                            Amount: '2.10'
+                          '2':
+                            ID: '58537'
+                            TransactionID: ''
+                            ScheduledDate: '2026-05-31 19:01:31'
+                            LastModified: ''
+                            Status: upcoming
+                            Amount: '2.10'
+                          '3':
+                            ID: '58538'
+                            TransactionID: ''
+                            ScheduledDate: '2026-06-15 19:01:31'
+                            LastModified: ''
+                            Status: upcoming
+                            Amount: '2.10'
+                          '4':
+                            ID: '58539'
+                            TransactionID: ''
+                            ScheduledDate: '2026-06-30 19:01:31'
+                            LastModified: ''
+                            Status: upcoming
+                            Amount: '2.10'
+                        CompletedTransactions: {}
+  /scheduled-payment/cancel:
+    post:
+      description: Cancel a scheduled payment and all its future occurrences.
+      summary: Cancel Scheduled Payment
+      tags:
+      - Scheduled Payments
+      operationId: ScheduledPaymentCancelPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ScheduledPaymentsID:
+                  description: The ID of the scheduled payment to cancel
+                  type: integer
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ScheduledPaymentsID
+        required: true
+      responses:
+        '200':
+          description: Scheduled payment cancelled successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: Indicates whether the cancellation was successful
+                  ErrorMessage:
+                    type: string
+                    description: Error message if the cancellation failed
+                  Status:
+                    type: string
+                    enum:
+                    - cancelled
+                    description: The status of the scheduled payment
+  /scheduled-payment/upcoming-payment/cancel:
+    post:
+      description: Cancel a single upcoming scheduled payment without affecting other occurrences.
+      summary: Cancel Upcoming Payment
+      tags:
+      - Scheduled Payments
+      operationId: UpcomingPaymentCancelPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ScheduledPaymentDetailsID:
+                  description: The ID of the specific upcoming payment to cancel
+                  type: integer
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ScheduledPaymentDetailsID
+        required: true
+      responses:
+        '200':
+          description: Upcoming payment cancelled successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: Indicates whether the cancellation was successful
+                  ErrorMessage:
+                    type: string
+                    description: Error message if the cancellation failed
+                  Status:
+                    type: string
+                    enum:
+                    - cancelled
+                    description: The status of the upcoming payment
+  /scheduled-payment/edit:
+    post:
+      description: Modify a scheduled payment by updating the amount. This affects all upcoming occurrences of the scheduled payment.
+      summary: Edit Scheduled Payment
+      tags:
+      - Scheduled Payments
+      operationId: ScheduledPaymentEditPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ScheduledPaymentsID:
+                  description: The ID of the scheduled payment to edit
+                  type: integer
+                Amount:
+                  description: The new transaction amount
+                  type: number
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ScheduledPaymentsID
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: Scheduled payment edited successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: Indicates whether the edit was successful
+                  ErrorMessage:
+                    type: string
+                    description: Error message if the edit failed
+  /scheduled-payment/upcoming-payment/edit:
+    post:
+      description: Modify a single upcoming scheduled payment by updating the amount and/or date. This only affects the specific upcoming occurrence.
+      summary: Edit Upcoming Payment
+      tags:
+      - Scheduled Payments
+      operationId: UpcomingPaymentEditPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ScheduledPaymentDetailsID:
+                  description: The ID of the specific upcoming payment to edit
+                  type: integer
+                Amount:
+                  description: The new transaction amount. If omitted, amount remains unchanged.
+                  type: number
+                Date:
+                  description: The new payment date and time. If omitted, date remains unchanged.
+                  type: string
+                  format: date-time
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ScheduledPaymentDetailsID
+        required: true
+      responses:
+        '200':
+          description: Upcoming payment edited successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: Indicates whether the edit was successful
+                  ErrorMessage:
+                    type: string
+                    description: Error message if the edit failed

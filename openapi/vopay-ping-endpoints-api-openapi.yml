@@ -1,0 +1,114 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Ping Endpoints API
+  description: The Ping API allows you to validate the connectivity between your application and the VoPay platform.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Ping Endpoints
+paths:
+  /ping:
+    post:
+      description: This endpoint allows you to validate the connectivity between your application and the VoPay platform.
+      summary: ping
+      tags:
+      - Ping Endpoints
+      operationId: PingPost
+      deprecated: false
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /auth/ping:
+    post:
+      description: This endpoint allows you to ping our server and validate your credentials on VoPay platform.
+      summary: auth/ping
+      tags:
+      - Ping Endpoints
+      operationId: AuthPingPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/AuthPingPost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /partner/auth/ping:
+    post:
+      description: This endpoint allows you to ping our server and validate your partner credentials on VoPay platform.
+      summary: partner/auth/ping
+      tags:
+      - Ping Endpoints
+      operationId: PartnerAuthPingPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/AuthPingPost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+components:
+  requestBodies:
+    AuthPingPost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+      required: true

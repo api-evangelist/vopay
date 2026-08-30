@@ -1,0 +1,1564 @@
+openapi: 3.2.0
+info:
+  title: Vopay Interac Endpoints API
+  version: '2.0'
+  contact:
+    name: API Support
+    email: help@vopay.com
+  description: 'Operations tagged Interac Endpoints across 2 of this provider''s published API definitions: vopay-payment-method-api-reference.json, vopay-payment-rails-api-reference.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Interac Endpoints
+paths:
+  /interac/email/add:
+    post:
+      description: This endpoint allows you to add an Interac email to your VoPay account. Optionally, you can use this enpoint to also set the email as default for the VoPay account.
+      summary: interac/email/add
+      tags:
+      - Interac Endpoints
+      operationId: EmailAddPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                RecipientName:
+                  description: The name of the recipient associated with this email
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                RecipientEmailAddress:
+                  description: The Email address to be associated with the account.
+                  type: string
+                RecipientPhoneNumber:
+                  description: The Phone number to be associated with the account.
+                  type: string
+                Currency:
+                  description: 3 character currency code. If this is not specified the email will use the account's local currency (CAD).
+                  type: string
+                Question:
+                  description: Security question for this email address.
+                  type: string
+                Answer:
+                  description: Answer to the security question. This can be either a plain text answer or a hashed answer. Hashed answers must have leading and trailing whitespace trimmed, be SHA2 hashed and Base64 encoded. If a hashed answer is provided, the HashSalt input is mandatory.
+                  type: string
+                Message:
+                  description: An optional message to associate with the email address.
+                  type: string
+                Language:
+                  description: 'Recipient''s language preference. Accepted values: en (English as the default) or fr (French).'
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the transactions
+                  type: string
+                ClientControlled:
+                  description: When set to true, the connected email will be linked to your VoPay account. Default is false.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - RecipientName
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Token:
+                    type: string
+                    description: The token associated with the email record
+                    example: 1e7mtunsbhygfnfpm83zd8rig1hqoqu76y618x3eps4omcye0w83mjj2kk884w0o
+                required:
+                - Success
+                - ErrorMessage
+                - Token
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/email/edit:
+    post:
+      description: This endpoint allows you to update an Interac email associated with your VoPay account.
+      summary: interac/email/edit
+      tags:
+      - Interac Endpoints
+      operationId: EmailEditPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Token:
+                  description: The Token associated with the email record you wish to update.
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                RecipientName:
+                  description: The Email address to be associated with the account.
+                  type: string
+                RecipientEmailAddress:
+                  description: The Email address to be associated with the account.
+                  type: string
+                RecipientPhoneNumber:
+                  description: The Phone number to be associated with the account.
+                  type: string
+                Question:
+                  description: Security question for this email address.
+                  type: string
+                Answer:
+                  description: Answer to the security question. This can be either a plain text answer or a hashed answer. Hashed answers must have leading and trailing whitespace trimmed, be SHA2 hashed and Base64 encoded. If a hashed answer is provided, the HashSalt input is mandatory.
+                  type: string
+                Message:
+                  description: An optional message to associate with the email address.
+                  type: string
+                Language:
+                  description: 'Recipient''s language preference. Accepted values: en (English as the default) or fr (French).'
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the transactions
+                  type: string
+                ClientControlled:
+                  description: When set to true, the connected email will be linked to your VoPay account. Default is false.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Token
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Token:
+                    type: string
+                    description: The token associated with the email record
+                    example: 1e7mtunsbhygfnfpm83zd8rig1hqoqu76y618x3eps4omcye0w83mjj2kk884w0o
+                required:
+                - Success
+                - ErrorMessage
+                - Token
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/email/delete:
+    post:
+      description: This endpoint allows you to delete an Interac email associated with your VoPay account.
+      summary: interac/email/delete
+      tags:
+      - Interac Endpoints
+      operationId: EmailDeletePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Token:
+                  description: The Token associated with the email record you wish to update.
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/email:
+    get:
+      description: This endpoint retrieves a list of Interac emails associated with your VoPay account.
+      summary: interac/email
+      tags:
+      - Interac Endpoints
+      operationId: EmailGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: Client Account ID
+        schema:
+          type: string
+      - name: SearchText
+        in: query
+        required: false
+        description: A text string to search for in the email addresses
+        schema:
+          type: string
+      - name: RecipientName
+        in: query
+        required: false
+        description: The name of the recipient associated with this email
+        schema:
+          type: string
+      - name: RecipientEmailAddress
+        in: query
+        required: false
+        description: The Email address to be associated with the account.
+        schema:
+          type: string
+      - name: RecipientPhoneNumber
+        in: query
+        required: false
+        description: The Phone number to be associated with the account.
+        schema:
+          type: string
+      - name: ClientReferenceNumber
+        in: query
+        required: false
+        description: An optional reference number to associate with the transactions
+        schema:
+          type: string
+      - name: ClientControlled
+        in: query
+        required: false
+        description: When set to true, the connected email will be linked to your VoPay account. Default is false.
+        schema:
+          type: boolean
+      - name: 'Limit '
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: 'Offset '
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  InteracEmails:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Collection of email records'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          ClientAccountID:
+                            type: string
+                            description: ClientAccountID attached to the email.
+                            example: ClientAccount1
+                          Currency:
+                            type: string
+                            description: Currency associated with the email
+                            example: CAD
+                          ClientControlledEmail:
+                            type: string
+                            description: Set to 1 if the email is linked to your VoPay account.
+                            example: '1'
+                          RecipientName:
+                            type: string
+                            description: Recipient's name
+                            example: Bob Smith
+                          RecipientEmailAddress:
+                            type: string
+                            description: The email address.
+                            example: bob@gmail.com
+                          RecipientPhoneNumber:
+                            type: string
+                            description: The phone number.
+                            example: '123456789'
+                          Question:
+                            type: string
+                            description: Security question for the transaction.
+                            example: What color is the sky
+                          Answer:
+                            type: string
+                            description: Answer to the security question
+                            example: blue
+                          Language:
+                            type: string
+                            description: The language preference for the email record. en (English) or fr (French)
+                            example: en
+                          Message:
+                            type: string
+                            description: The message associated with the email address.
+                            example: ''
+                          ClientReferenceNumber:
+                            type: string
+                            description: An optional reference number which was associated with the transaction.
+                            example: ABC123
+                          RegisteredName:
+                            type: string
+                            description: The registered name for the Interac account. Will return 'N/A' if not available.
+                            example: Bob Smith
+                          Alias:
+                            type: string
+                            description: The alias registered to the Interac account. Will return 'N/A' if not available.
+                            example: bobsmith
+                          AutoDepositEnabled:
+                            type: boolean
+                            description: Determine if auto deposit is enabled or not. Will return 'N/A' if not available.
+                            example: true
+                          CustomerType:
+                            type: string
+                            description: 'The customer type for the Interac account. Accepted values: RETAIL or CORPORATION. Will return ''N/A'' if not available.'
+                            example: RETAIL
+                          TransactionLimit:
+                            type: number
+                            description: The transaction limit for the Interac account. Will return 'N/A' if not available.
+                            example: '1000.00'
+                          IsActive:
+                            type: string
+                            description: Determine if the email is active or not
+                            example: 'true'
+                          IsDefault:
+                            type: string
+                            description: Determine if this is the default email for the given account or not
+                            example: 'true'
+                          Token:
+                            type: string
+                            description: The token associated with the email record
+                            example: 1e7mtunsbhygfnfpm83zd8rig1hqoqu76y618x3eps4omcye0w83mjj2kk884w0o
+                        required:
+                        - ClientAccountID
+                        - Currency
+                        - ClientControlledEmail
+                        - RecipientName
+                        - RecipientEmailAddress
+                        - RecipientPhoneNumber
+                        - Question
+                        - Answer
+                        - Language
+                        - Message
+                        - ClientReferenceNumber
+                        - RegisteredName
+                        - Alias
+                        - AutoDepositEnabled
+                        - CustomerType
+                        - TransactionLimit
+                        - IsActive
+                        - IsDefault
+                        - Token
+                    x-list-of: inline
+                    x-empty-when: no email records match
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of email records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+                    x-absent-when: response uses PaginationMetaData
+                    required:
+                    - TotalRecords
+                    - Offset
+                    - Limit
+                required:
+                - Success
+                - ErrorMessage
+                - InteracEmails
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/email/set-my-email:
+    post:
+      description: This endpoint allows you to identify an Interac email as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify an Interac email as being the VoPay account holder's default email. Note, a VoPay account can only have one default Interac email.
+      summary: interac/email/set-my-email
+      tags:
+      - Interac Endpoints
+      operationId: EmailSetMyEmailPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                Token:
+                  description: The Token associated with the email record you wish to update.
+                  type: string
+                SetAsDefault:
+                  description: Set the email record as default for this account.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Token:
+                    type: string
+                    description: The token associated with the email record
+                    example: 1e7mtunsbhygfnfpm83zd8rig1hqoqu76y618x3eps4omcye0w83mjj2kk884w0o
+                  IsDefault:
+                    type: boolean
+                    description: The IsDefault status for the udpated record
+                    example: true
+                required:
+                - Success
+                - ErrorMessage
+                - Token
+                - IsDefault
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/email/default-email:
+    get:
+      description: This endpoint retrieves the default Interac email associated with your VoPay account.
+      summary: interac/email/default-email
+      tags:
+      - Interac Endpoints
+      operationId: EmailDefaultEmailGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: When provided, this endpoint will return the default email associated with this Client Account ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DefaultEmail:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Collection of email records'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          Currency:
+                            type: string
+                            description: Currency associated with the email
+                            example: CAD
+                          ClientControlledEmail:
+                            type: string
+                            description: Set to 1 if the email is linked to your VoPay account.
+                            example: '1'
+                          RecipientName:
+                            type: string
+                            description: Recipient's name
+                            example: Bob
+                          RecipientPaymentDetails:
+                            type: string
+                            description: The email address or phone number.
+                            example: bob@gmail.com
+                          Type:
+                            type: string
+                            description: 'The type of email record. Accepted values: email, phone'
+                            example: email
+                          Question:
+                            type: string
+                            description: Security question for the transaction.
+                            example: What color is the sky
+                          Answer:
+                            type: string
+                            description: Answer to the security question
+                            example: blue
+                          Language:
+                            type: string
+                            description: The language preference for the email record. en (English) or fr (French)
+                            example: en
+                          Message:
+                            type: string
+                            description: The message associated with the email address.
+                            example: ''
+                          ClientReferenceNumber:
+                            type: string
+                            description: An optional reference number which was associated with the transaction.
+                            example: ABC123
+                          IsActive:
+                            type: string
+                            description: Determine if the email is active or not
+                            example: 'true'
+                          IsDefault:
+                            type: string
+                            description: Determine if this is the default email for the given account or not
+                            example: 'true'
+                          Token:
+                            type: string
+                            description: The token associated with the email record
+                            example: 1e7mtunsbhygfnfpm83zd8rig1hqoqu76y618x3eps4omcye0w83mjj2kk884w0o
+                          DateAdded:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the email record was added.
+                            example: '2024-05-02 18:28:13'
+                        required:
+                        - Currency
+                        - ClientControlledEmail
+                        - RecipientName
+                        - RecipientPaymentDetails
+                        - Type
+                        - Question
+                        - Answer
+                        - Language
+                        - Message
+                        - ClientReferenceNumber
+                        - IsActive
+                        - IsDefault
+                        - Token
+                        - DateAdded
+                    x-list-of: inline
+                    x-empty-when: no default email
+                required:
+                - Success
+                - ErrorMessage
+                - DefaultEmail
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/auto-deposit:
+    get:
+      description: This endpoint is used to fetch Interac auto-deposit status.
+      summary: interac/auto-deposit
+      tags:
+      - Interac Endpoints
+      operationId: InteracAutoDepositGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: EmailAddress
+        in: query
+        required: true
+        description: The email address to fetch Interac auto-deposit status for.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  AutoDepositEnabled:
+                    type: boolean
+                    description: Whether auto deposits are enabled for the Interac account.
+                    example: true
+                required:
+                - Success
+                - ErrorMessage
+                - AutoDepositEnabled
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/money-request:
+    post:
+      description: "This API endpoint is used to create a new Interac money request transaction.\n\n If a ClientAccountID is provided, the client account's first/last name, and email address will be used for the transaction."
+      summary: interac/money-request
+      tags:
+      - Interac Endpoints
+      operationId: InteracMoneyRequestPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.
+                  type: string
+                PhoneNumber:
+                  description: Customer's phone number. (Digits only - no parentheses or dashes allowed.)
+                  type: string
+                Address1:
+                  description: Customer's address line 1
+                  type: string
+                Address2:
+                  description: Customer's address line 2
+                  type: string
+                City:
+                  description: Customer's city
+                  type: string
+                Province:
+                  description: Customer's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                Country:
+                  description: Customer's country specified using full country name or ISO 3166-1 alpha-2 code.
+                  type: string
+                PostalCode:
+                  description: Customer's postal code.
+                  type: string
+                Amount:
+                  description: The amount to debit from the customer's bank account.
+                  type: number
+                Currency:
+                  description: '3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account''s local currency (generally CAD).  NOTE: Currently the eft/fund API endpoint only supports CAD transactions.'
+                  type: string
+                EmailAddress:
+                  description: Email address the interac money request transaction was sent to.
+                  type: string
+                RecipientName:
+                  description: The money transfer recipient's name
+                  type: string
+                MessageForRecipient:
+                  description: An optional message set by client for the recipient
+                  type: string
+                Notes:
+                  description: An optional note to associate with the transaction.
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number which was associated with the transaction. This can only be used to look up the transaction if it was a unique ID.
+                  type: string
+                GenerateURL:
+                  description: Generate a URL for the money request instead of sending an e-mail.
+                  type: boolean
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                TransactionTypeCode:
+                  description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Amount
+              - Currency
+              - EmailAddress
+              - RecipientName
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: requested, pending, successful, failed, cancelled'
+                    example: pending
+                  Flagged:
+                    type: string
+                    description: Details on why the transaction was flagged, if applicable. Flagged transactions will need to be confirmed by using the /account/transaction/confirm endpoint.
+                    example: The transaction has been flagged as a potential duplicate.
+                    x-absent-when: transaction not flagged
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/money-request/transaction/request-cancellation:
+    post:
+      description: This endpoint allows you to attempt to cancel an in progress money request transaction. Note that the cancellation request will fail if the recipient has already fulfilled the request. A successful cancellation using this endpoint will incur an Interac network cancellation fee.
+      summary: interac/money-request/transaction/request-cancellation
+      tags:
+      - Interac Endpoints
+      operationId: InteracMoneyRequestTransactionsCancelPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/InteracMoneyRequestTransactionsCancelPost'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID for the transaction
+                    example: '1124'
+                  TransactionStatus:
+                    type: string
+                    description: A message indicating the current transaction status - cancellation requested
+                    example: cancellation requested
+                  Timestamp:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction status was last modified
+                    example: '2019-11-26 12:00:00'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - Timestamp
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/money-request/transaction:
+    get:
+      description: This endpoint is used to look up details on a single Interac money request transaction. This endpoint can be used to return transactions created with the API, or transactions submitted via SFTP batch file.
+      summary: interac/money-request/transaction
+      tags:
+      - Interac Endpoints
+      operationId: InteracMoneyRequestTransactionGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: false
+        description: Unique ID of the withdraw transaction. Either this or ClientReferenceNumber is required.
+        schema:
+          type: integer
+          format: int32
+      - name: ClientReferenceNumber
+        in: query
+        required: false
+        description: An optional reference number which was associated with the transaction. This can only be used to look up the transaction if it was a unique ID.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: requested, pending, successful, failed, cancelled.'
+                    example: pending
+                  FailureReason:
+                    type: string
+                    description: A message in case of transaction failure indicating why it failed.
+                    example: '{Reason}'
+                  TransactionDateTime:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was received
+                    example: '2019-11-02 12:00:00'
+                  Amount:
+                    type: number
+                    description: The dollar amount of the fund transaction. This is the amount that was withdrawn from the customer's bank account.
+                    example: '2000.00'
+                  Currency:
+                    type: string
+                    description: The currency for the transaction( generally CAD).
+                    example: CAD
+                  HoldAmount:
+                    type: number
+                    description: Indicates if any of the funds that were credited to your account are still being held.
+                    example: '2000.00'
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: This timestamp indicates when the transaction record was last modified. In normal circumstances the transaction record will only be modified when the status of the transaction changes or the HoldAmount is changed.
+                    example: '2019-11-12 01:00:00'
+                  BatchFileName:
+                    type: string
+                    description: The filename for the batch that the request was submitted in, if the transaction was created as part of a CSV batch.
+                    example: BMO_112567
+                  Name:
+                    type: string
+                    description: Customer's name
+                    example: John Doe
+                  Email:
+                    type: string
+                    description: Email address the interac money request transaction was sent to.
+                    example: johndoe@email.com
+                  PhoneNumber:
+                    type: string
+                    description: Customer's phone number
+                    example: '6041235678'
+                  RecipientName:
+                    type: string
+                    description: The money transfer recipient's name
+                    example: John Doe
+                  MessageForRecipient:
+                    type: string
+                    description: An optional message set by client for the recipient
+                    example: Message
+                  ClientReferenceNumber:
+                    type: string
+                    description: An optional reference number which was associated with the transaction. This can only be used to look up the transaction if it was a unique ID.
+                    example: ''
+                  ConfirmationNumber:
+                    type: string
+                    description: The bank confirmation number for the interac transaction.
+                    example: '112233'
+                  ProcessingDate:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was processed and the money request email was sent.
+                    example: '2019-11-19 12:00:00'
+                  GLCode:
+                    type: string
+                    description: General ledger code.
+                    example: '4300'
+                  TransactionTypeCode:
+                    type: string
+                    description: CPA transaction code.
+                    example: '999'
+                  MoneyRequestURL:
+                    type: string
+                    description: Interac Money Request URL.
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - FailureReason
+                - TransactionDateTime
+                - Amount
+                - Currency
+                - HoldAmount
+                - LastModified
+                - BatchFileName
+                - Name
+                - Email
+                - PhoneNumber
+                - RecipientName
+                - MessageForRecipient
+                - ClientReferenceNumber
+                - ConfirmationNumber
+                - ProcessingDate
+                - GLCode
+                - TransactionTypeCode
+                - MoneyRequestURL
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/bulk-payout:
+    post:
+      description: "This endpoint is used to create an Interac e-Transfer bulk payout transaction for sending funds.\n\n If a ClientAccountID is provided, the client account's first/last name, and email address will be used for the transaction."
+      summary: interac/bulk-payout
+      tags:
+      - Interac Endpoints
+      operationId: InteracBulkPayoutPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the e-transfer
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.
+                  type: string
+                Amount:
+                  description: The amount to debit from the customer's bank account.
+                  type: number
+                Currency:
+                  description: '3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account''s local currency (generally CAD).  NOTE: Currently the eft/fund API endpoint only supports CAD transactions.'
+                  type: string
+                EmailAddress:
+                  description: Recipient's email address. Either EmailAddress or PhoneNumber must be provided
+                  type: string
+                PhoneNumber:
+                  description: Recipient's mobile phone number. (Digits only - no parentheses or dashes allowed.). Either EmailAddress or PhoneNumber must be provided
+                  type: string
+                SenderName:
+                  description: Sender's full name. This is the name that will be used as the sender's name in the notifications to the recipient. If not provided, your VoPay account name will be used.
+                  type: string
+                RecipientName:
+                  description: Recipient's name, as known by the sender.
+                  type: string
+                Address1:
+                  description: Recipient's address line 1
+                  type: string
+                Address2:
+                  description: Recipient's address line 2
+                  type: string
+                City:
+                  description: Recipient's city
+                  type: string
+                Province:
+                  description: Recipient's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                Country:
+                  description: Recipient's country specified using full country name or ISO 3166-1 alpha-2 code.
+                  type: string
+                PostalCode:
+                  description: Recipient's postal code.
+                  type: string
+                Language:
+                  description: 'Recipient''s language preference. Accepted values: en (English as the default) or fr (French).'
+                  type: string
+                CancellationPeriod:
+                  description: 1-30 , number of days after which the transfer will be marked as cancelled.
+                  type: integer
+                Memo:
+                  description: Message to recipient. Set by client for the recipient.
+                  type: string
+                Notes:
+                  description: An optional note to associate with the transaction.
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number which was associated with the transaction.
+                  type: string
+                Question:
+                  description: Security question for the transaction.
+                  type: string
+                Answer:
+                  description: Answer to the security question. This can be either a plain text answer or a hashed answer. Hashed answers must have leading and trailing whitespace trimmed, be SHA2 hashed and Base64 encoded. If a hashed answer is provided, the HashSalt input is mandatory.
+                  type: string
+                HashSalt:
+                  description: The salt used to hash the answer. This input is mandatory if a hashed answer is provided.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+                ParentTransactionID:
+                  description: The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                TransactionTypeCode:
+                  description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Amount
+              - RecipientName
+              - Question
+              - Answer
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the sending was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: requested, pending, in progress, successful, failed, cancelled'
+                    example: successful
+                  Flagged:
+                    type: string
+                    description: Details on why the transaction was flagged, if applicable. Flagged transactions will need to be confirmed by using the /account/transaction/confirm endpoint.
+                    example: The transaction has been flagged as a potential duplicate.
+                    x-absent-when: transaction not flagged
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/bulk-payout/transaction/request-cancellation:
+    post:
+      description: This endpoint allows you to attempt to cancel an in progress bulk payout transaction. Note that the cancellation request will fail if the recipient has already deposited the funds, and successful cancellation using this endpoint will incur an Interac network cancellation fee.
+      summary: interac/bulk-payout/transaction/request-cancellation
+      tags:
+      - Interac Endpoints
+      operationId: InteracTransactionsCancelPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/InteracMoneyRequestTransactionsCancelPost'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID for the transaction
+                    example: '1124'
+                  TransactionStatus:
+                    type: string
+                    description: A message indicating the current transaction status - cancellation requested
+                    example: cancellation requested
+                  Timestamp:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction status was last modified
+                    example: '2019-11-26 12:00:00'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - Timestamp
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/bulk-payout/transaction:
+    get:
+      description: This endpoint is used to look up details on an Interac e-Transfer bulk payout transaction.
+      summary: interac/bulk-payout/transaction
+      tags:
+      - Interac Endpoints
+      operationId: InteracBulkPayoutTransactionGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the e-transfer
+        schema:
+          type: string
+      - name: ClientReferenceNumber
+        in: query
+        required: false
+        description: An optional reference number which was associated with the transaction.
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: false
+        description: Unique ID of the fund transaction. Either this or ClientReferenceNumber is required.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the e-transfer was successful, false if it failed.
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction.
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: requested, pending, in progress, successful, failed, cancelled.'
+                    example: pending
+                  FailureReason:
+                    type: string
+                    description: A message in case of transaction failure indicating why it failed.
+                    example: ''
+                  TransactionDateTime:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was received.
+                    example: '2019-11-02 12:00:00'
+                  Amount:
+                    type: number
+                    description: The dollar amount of the transaction.
+                    example: '2000.00'
+                  Currency:
+                    type: string
+                    description: '3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account''s local currency (generally CAD).  NOTE: Currently the eft/fund API endpoint only supports CAD transactions.'
+                    example: CAD
+                  HoldAmount:
+                    type: number
+                    description: Indicates if any of the funds from the transaction are still being held.
+                    example: '2000.00'
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: This timestamp indicates when the transaction record was last modified.
+                    example: '2019-11-12 12:00:00'
+                  SenderName:
+                    type: string
+                    description: Sender's full name. This is the name that will be used as the sender's name in the notifications to the recipient.
+                    example: John Doe
+                  RecipientName:
+                    type: string
+                    description: Recipient's name, as known by the sender.
+                    example: Max Doe
+                  EmailAddress:
+                    type: string
+                    description: Recipient's email address.
+                    example: maxdoe@email.com
+                  Memo:
+                    type: string
+                    description: Message to recipient.
+                    example: ''
+                  ClientReferenceNumber:
+                    type: string
+                    description: An optional reference number which was associated with the transaction.
+                    example: ''
+                  ConfirmationNumber:
+                    type: string
+                    description: The bank confirmation number for the Interac transaction.
+                    example: '11223344'
+                  ProcessingDate:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was processed and the e-transfer email was sent.
+                    example: '2019-12-01 12:00:00'
+                  CancellationPeriod:
+                    type: integer
+                    description: The number of days after which the transfer will be marked as cancelled.
+                    example: '2'
+                  GLCode:
+                    type: string
+                    description: General ledger code.
+                    example: '4300'
+                  TransactionTypeCode:
+                    type: string
+                    description: CPA transaction code.
+                    example: '999'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - FailureReason
+                - TransactionDateTime
+                - Amount
+                - Currency
+                - HoldAmount
+                - LastModified
+                - SenderName
+                - RecipientName
+                - EmailAddress
+                - Memo
+                - ClientReferenceNumber
+                - ConfirmationNumber
+                - ProcessingDate
+                - CancellationPeriod
+                - GLCode
+                - TransactionTypeCode
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /interac/inbound/transaction:
+    get:
+      description: This endpoint is used to look up details of Inbound ETransfer transactions.
+      summary: interac/inbound/transaction
+      tags:
+      - Interac Endpoints
+      operationId: InteracInboundETransfersGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: false
+        description: Unique ID of the Inbound E transaction.
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Transactions:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Collection of Inbound ETransfer Transaction'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          ID:
+                            type: integer
+                            description: The unique ID of the transaction.
+                            example: '1234'
+                          MessageID:
+                            type: string
+                            description: Unique ID of the Inbound ETransfer recived
+                            example: 1772b6ea650423asd
+                          Name:
+                            type: string
+                            description: Sender's FullName
+                            example: John Doe
+                          Amount:
+                            type: number
+                            description: The dollar amount of the inbound etransfer transaction. This is the amount that was withdrawn from the customer's bank account.
+                            example: '2000.00'
+                          Status:
+                            type: string
+                            description: A message indicating the current transaction status.
+                            example: successful
+                          Message:
+                            type: string
+                            description: Contains a description of the message sent in the inbound etransfer
+                            example: ''
+                          DateReceived:
+                            type: string
+                            format: date-time
+                            description: The timestamp when the transaction was received.
+                            example: '2019-11-19 12:00:00'
+                        required:
+                        - ID
+                        - MessageID
+                        - Name
+                        - Amount
+                        - Status
+                        - Message
+                        - DateReceived
+                    x-empty-when: no inbound transactions match
+                    x-list-of: inline
+                required:
+                - Success
+                - ErrorMessage
+                - Transactions
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+components:
+  requestBodies:
+    InteracMoneyRequestTransactionsCancelPost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              TransactionID:
+                description: The unique ID for the transaction
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - TransactionID
+      required: true
+x-refined-from:
+- vopay-payment-method-api-reference.json
+- vopay-payment-rails-api-reference.json

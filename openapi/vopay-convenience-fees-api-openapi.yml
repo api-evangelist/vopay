@@ -1,0 +1,349 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Convenience Fees API
+  description: The Convenience Fee API provides endpoints for managing convenience fee settings and jurisdiction rules for a VoPay account. Fee settings define the transaction and processing fees applied per payment rail, and rules define the jurisdictions where convenience fees are not collected. All endpoints require the account to have ConvenienceFeeEnabled.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Convenience Fees
+paths:
+  /account/convenience-fees/settings:
+    get:
+      description: Returns all convenience fee settings configured for the authenticated account. Each setting defines the transaction fee and processing fee applied for a specific payment rail. Requires the ViewConvenienceFees permission.
+      summary: Get convenience fee settings
+      tags:
+      - Convenience Fees
+      operationId: ConvenienceFeeSettingsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  FeeSettings:
+                    type: array
+                    description: Array of convenience fee settings for the account
+                    items:
+                      type: object
+                      properties:
+                        SettingID:
+                          type: integer
+                          description: Unique identifier for the fee setting
+                          example: 12
+                        TransactionTypeID:
+                          type: integer
+                          description: ID of the transaction type this setting applies to
+                          example: 3
+                        TransactionType:
+                          type: string
+                          description: Name of the payment rail this setting applies to
+                          example: EFT
+                        TransactionFee:
+                          type: string
+                          description: Flat fee charged per transaction
+                          example: '1.50'
+                        ProcessingFee:
+                          type: string
+                          description: Percentage-based processing fee applied to the transaction amount
+                          example: '0.25'
+    post:
+      description: Creates or updates a convenience fee setting for a specific transaction type. If a setting already exists for the given TransactionTypeID it will be updated; otherwise a new setting is created. Requires the ManageConvenienceFees permission.
+      summary: Create or update a convenience fee setting
+      tags:
+      - Convenience Fees
+      operationId: ConvenienceFeeSettingsPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                TransactionTypeID:
+                  description: The ID of the transaction type to configure a convenience fee for
+                  type: integer
+                TransactionFee:
+                  description: Flat fee charged per transaction
+                  type: number
+                  format: float
+                ProcessingFee:
+                  description: Percentage-based processing fee applied to the transaction amount
+                  type: number
+                  format: float
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - TransactionTypeID
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  SettingID:
+                    type: integer
+                    description: The ID of the created or updated fee setting
+                    example: 12
+    delete:
+      description: Deletes a convenience fee setting by ID. The setting must belong to the authenticated account. Requires the ManageConvenienceFees permission.
+      summary: Delete a convenience fee setting
+      tags:
+      - Convenience Fees
+      operationId: ConvenienceFeeSettingsDELETE
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: SettingID
+        in: query
+        required: true
+        description: The ID of the convenience fee setting to delete
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/convenience-fees/rules:
+    get:
+      description: Returns all jurisdiction rules configured for the authenticated account. Each rule defines a jurisdiction (province/state) where convenience fees will not be collected. Requires the ViewConvenienceFees permission.
+      summary: Get convenience fee rules
+      tags:
+      - Convenience Fees
+      operationId: ConvenienceFeeRulesGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Rules:
+                    type: array
+                    description: Array of jurisdiction rules where convenience fees are not collected
+                    items:
+                      type: object
+                      properties:
+                        RuleID:
+                          type: integer
+                          description: Unique identifier for the rule
+                          example: 5
+                        Jurisdiction:
+                          type: string
+                          description: Province or state abbreviation
+                          example: BC
+                        Country:
+                          type: string
+                          description: Country abbreviation
+                          example: CA
+    post:
+      description: Adds a jurisdiction rule for the authenticated account. Convenience fees will not be collected for transactions originating from the specified jurisdiction. Requires the ManageConvenienceFees permission.
+      summary: Add a convenience fee rule
+      tags:
+      - Convenience Fees
+      operationId: ConvenienceFeeRulesPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Jurisdiction:
+                  description: The province or state abbreviation to add as a rule (e.g. BC, ON, AB)
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Jurisdiction
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  RuleID:
+                    type: integer
+                    description: The ID of the newly created rule
+                    example: 5
+    delete:
+      description: Deletes a jurisdiction rule by ID. The rule must belong to the authenticated account. Requires the ManageConvenienceFees permission.
+      summary: Delete a convenience fee rule
+      tags:
+      - Convenience Fees
+      operationId: ConvenienceFeeRulesDELETE
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: RuleID
+        in: query
+        required: true
+        description: The ID of the jurisdiction rule to delete
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''

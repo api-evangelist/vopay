@@ -1,0 +1,271 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Global Cash Management Watchlist Endpoints API
+  description: The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Watchlist Endpoints
+paths:
+  /gcm/watchlist:
+    get:
+      description: Get a list of all the watchlisted corridors for a certain client account.
+      summary: gcm/watchlist
+      tags:
+      - Watchlist Endpoints
+      operationId: GetWatchlistGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  Watchlist:
+                    type: object
+                    description: The watchlisted corridors
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          Currency:
+                            type: string
+                            description: The currency
+                            example: Australian Dollar
+                          ShortForm:
+                            type: string
+                            description: The currency short form
+                            example: AUD
+                          FxRate:
+                            type: string
+                            description: The foreign exchange rate
+                            example: '1.0839700000'
+  /gcm/watchlist/rates:
+    get:
+      description: Get a list of fx rates for a wacthlisted currency.
+      summary: gcm/watchlist/rates
+      tags:
+      - Watchlist Endpoints
+      operationId: GetWatchlistRatesGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Currency
+        in: query
+        required: false
+        description: The currency you want to get rates for
+        schema:
+          type: string
+      - name: LookBack
+        in: query
+        required: false
+        description: 'The lookback period, valid values are: day, week, month, year. Default is day'
+        schema:
+          type: string
+      - name: Processor
+        in: query
+        required: false
+        description: The processor
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+                  FxRates:
+                    type: object
+                    description: The list of fx rates
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          FxRate:
+                            type: string
+                            description: The foreign exchange rate
+                            example: '1.0839700000'
+                          DateAdded:
+                            type: string
+                            description: The date the rate was added
+                            example: '2024-08-13 21:57:28'
+  /gcm/watchlist/add:
+    post:
+      description: Add a new watchlisted corridor for a certain client account.
+      summary: gcm/watchlist/add
+      tags:
+      - Watchlist Endpoints
+      operationId: AddWatchlistPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Currency
+        in: query
+        required: true
+        description: The currency abbreviation
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''
+  /gcm/watchlist/delete:
+    post:
+      description: Delete a watchlisted corridor for a certain client account.
+      summary: gcm/watchlist/delete
+      tags:
+      - Watchlist Endpoints
+      operationId: DeleteWatchlistPOST
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Currency
+        in: query
+        required: true
+        description: The Currency you want to delete
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Error message if any
+                    example: ''

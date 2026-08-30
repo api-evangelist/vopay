@@ -1,0 +1,590 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Account Onboarding Endpoints API
+  description: The Account Onboarding endpoints are used to onboard new VoPay accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Account Onboarding Endpoints
+paths:
+  /account/submit-extended-info/shareholder-info:
+    get:
+      description: This endpoint will return a full list of all shareholder information.
+      summary: account/submit-extended-info/shareholder-info
+      tags:
+      - Account Onboarding Endpoints
+      operationId: AccountShareHolderInfoGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  AccountName:
+                    type: string
+                    description: Account Name
+                    example: ''
+                  ShareHolders:
+                    type: object
+                    description: Collection of Share Holders per account
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          FullName:
+                            type: string
+                            description: Shareholder First name and last name
+                            example: Share holder name
+                          Ownership:
+                            type: string
+                            description: Percentage of ownership only if is greater than 20%
+                            example: '20'
+                          Occupation:
+                            type: string
+                            description: Shareholder's occupation
+                            example: ''
+                          HomeAddress:
+                            type: string
+                            description: Shareholder's home address
+                            example: 123 address st, Vancouver
+                          DateAdded:
+                            type: string
+                            format: date
+                            description: ''
+                            example: '2019-11-03 01:00:00'
+  /account/submit-extended-info/shareholder-info/add:
+    post:
+      description: This endpoint is used to insert the shareholder information for a newly created VoPay account.
+      summary: account/submit-extended-info/shareholder-info/add
+      tags:
+      - Account Onboarding Endpoints
+      operationId: AccountShareHolderPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ShareholderFullName:
+                  description: Shareholder First name and last name
+                  type: string
+                ShareholderDOB:
+                  description: 'Shareholder''s date of birth, in date format YYYY-MM-DD. For example: 1960-01-15'
+                  type: string
+                ShareholderOwnership:
+                  description: Percentage of ownership only if is greater than 20%
+                  type: integer
+                ShareholderOccupation:
+                  description: Shareholder's occupation
+                  type: string
+                ShareholderAddress1:
+                  description: Shareholder's address line 1
+                  type: string
+                ShareholderAddress2:
+                  description: Shareholder's address line 2
+                  type: string
+                ShareholderCity:
+                  description: Shareholder's city
+                  type: string
+                ShareholderProvince:
+                  description: Shareholder's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                ShareholderCountry:
+                  description: Shareholder's country specified using full country name or ISO 3166-1 alpha-2 code.
+                  type: string
+                ShareholderPostalCode:
+                  description: Shareholder's postal code
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ShareholderFullName
+              - ShareholderOwnership
+              - ShareholderOccupation
+              - ShareholderAddress1
+              - ShareholderCity
+              - ShareholderProvince
+              - ShareholderCountry
+              - ShareholderPostalCode
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Message:
+                    type: string
+                    description: Contains a description of the successful message
+                    example: ''
+  /account/submit-extended-info/shareholder-info/edit:
+    post:
+      description: This endpoint is used to edit an existing shareholder linked to your VoPay account. You will need to provide the Shareholder ID, which you can  get from the GET /account/shareholder-info endpoint
+      summary: account/submit-extended-info/shareholder-info/edit
+      tags:
+      - Account Onboarding Endpoints
+      operationId: AccountShareHolderEditPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ShareHolderID:
+                  description: Unique ID of your shareholder
+                  type: string
+                ShareholderFullName:
+                  description: Shareholder First name and last name
+                  type: string
+                ShareholderDOB:
+                  description: 'Shareholder''s date of birth, in date format YYYY-MM-DD. For example: 1960-01-15'
+                  type: string
+                ShareholderOwnership:
+                  description: Percentage of ownership only if is greater than 20%
+                  type: integer
+                ShareholderOccupation:
+                  description: Shareholder's occupation
+                  type: string
+                ShareholderAddress1:
+                  description: Shareholder's address line 1
+                  type: string
+                ShareholderAddress2:
+                  description: Shareholder's address line 2
+                  type: string
+                ShareholderCity:
+                  description: Shareholder's city
+                  type: string
+                ShareholderProvince:
+                  description: Shareholder's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                ShareholderCountry:
+                  description: Shareholder's country specified using full country name or ISO 3166-1 alpha-2 code.
+                  type: string
+                ShareholderPostalCode:
+                  description: Shareholder's postal code
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ShareHolderID
+              - ShareholderFullName
+              - ShareholderDOB
+              - ShareholderOwnership
+              - ShareholderOccupation
+              - ShareholderAddress1
+              - ShareholderCity
+              - ShareholderProvince
+              - ShareholderCountry
+              - ShareholderPostalCode
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Message:
+                    type: string
+                    description: Contains a description of the successful message
+                    example: ''
+  /account/submit-extended-info/signing-authority-info:
+    get:
+      description: This endpoint will return a full list of all signing-authority information.
+      summary: account/submit-extended-info/signing-authority-info
+      tags:
+      - Account Onboarding Endpoints
+      operationId: AccountSigningAuthorityInfoGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  AccountName:
+                    type: string
+                    description: Account Name
+                    example: ''
+                  SigningAuthority:
+                    type: object
+                    description: Collection of Signing authorities per account
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          FullName:
+                            type: string
+                            description: Signing Authority First name and last name
+                            example: Share holder name
+                          Occupation:
+                            type: string
+                            description: Signing Authority's occupation
+                            example: ''
+                          EmailAddress:
+                            type: string
+                            description: Signing Authority's email address
+                            example: ''
+                          HomeAddress:
+                            type: string
+                            description: Signing Authority's home address
+                            example: 123 address st, Vancouver
+                          DateAdded:
+                            type: string
+                            format: date
+                            description: ''
+                            example: '2019-11-03 01:00:00'
+  /account/submit-extended-info/signing-authority-info/add:
+    post:
+      description: This endpoint is used to insert the signing authority information for a newly created VoPay account.
+      summary: account/submit-extended-info/signing-authority-info/add
+      tags:
+      - Account Onboarding Endpoints
+      operationId: AccountSigningAuthorityAddPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                AuthorizedFullLegalName:
+                  description: Authorized Authority's First name and last name
+                  type: string
+                AuthorizedDOB:
+                  description: 'Authorized Authority''s date of birth, in date format YYYY-MM-DD. For example: 1960-01-15'
+                  type: string
+                AuthorizedOccupation:
+                  description: Authorized Authority's occupation
+                  type: string
+                AuthorizedEmailAddress:
+                  description: Authorized Authority's email address
+                  type: string
+                AuthorizedAddress1:
+                  description: Authorized Authority's address line 1
+                  type: string
+                AuthorizedAddress2:
+                  description: Authorized Authority's address line 2
+                  type: string
+                AuthorizedCity:
+                  description: Authorized Authority's city
+                  type: string
+                AuthorizedProvince:
+                  description: Authorized Authority's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                AuthorizedCountry:
+                  description: Authorized Authority's country specified using full country name or ISO 3166-1 alpha-2 code
+                  type: string
+                AuthorizedPostalCode:
+                  description: Authorized Authority's postal code
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - AuthorizedFullLegalName
+              - AuthorizedDOB
+              - AuthorizedOccupation
+              - AuthorizedEmailAddress
+              - AuthorizedAddress1
+              - AuthorizedCity
+              - AuthorizedProvince
+              - AuthorizedCountry
+              - AuthorizedPostalCode
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Message:
+                    type: string
+                    description: Contains a description of the successful message
+                    example: ''
+  /account/submit-extended-info/signing-authority-info/edit:
+    post:
+      description: This endpoint is used to edit an existing signing authority linked to your VoPay account. You will need to provide the Signing Authority ID, which you can  get from the GET /account/signing-authority-info endpoint
+      summary: account/submit-extended-info/signing-authority-info/edit
+      tags:
+      - Account Onboarding Endpoints
+      operationId: AccountSigningAuthorityEditPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                SigningAuthorityID:
+                  description: Unique ID of your Signing authority
+                  type: string
+                AuthorizedFullLegalName:
+                  description: Authorized Authority's First name and last name
+                  type: string
+                AuthorizedDOB:
+                  description: 'Authorized Authority''s date of birth, in date format YYYY-MM-DD. For example: 1960-01-15'
+                  type: string
+                AuthorizedOccupation:
+                  description: Authorized Authority's occupation
+                  type: string
+                AuthorizedEmailAddress:
+                  description: Authorized Authority's email address
+                  type: string
+                AuthorizedAddress1:
+                  description: Authorized Authority's address line 1
+                  type: string
+                AuthorizedAddress2:
+                  description: Authorized Authority's address line 2
+                  type: string
+                AuthorizedCity:
+                  description: Authorized Authority's city
+                  type: string
+                AuthorizedProvince:
+                  description: Authorized Authority's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                AuthorizedCountry:
+                  description: Authorized Authority's country specified using full country name or ISO 3166-1 alpha-2 code
+                  type: string
+                AuthorizedPostalCode:
+                  description: Authorized Authority's postal code
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - SigningAuthorityID
+              - AuthorizedCity
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Message:
+                    type: string
+                    description: Contains a description of the successful message
+                    example: ''
+  /account/business-types:
+    get:
+      description: This endpoint can be used to return a list of industries and categories under which a company can be classified. The response will be an array of industry types nested within an array of sub categories.
+      summary: account/business-types
+      tags:
+      - Account Onboarding Endpoints
+      operationId: AccountBusinessTypesGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BusinessTypes:
+                    type: object
+                    description: Collection of available business types
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          BusinessTypeID:
+                            type: integer
+                            description: BusinessTypeID
+                            example: ''
+                          Industry:
+                            type: string
+                            description: Industry name/description
+                            example: ''
+                          Categories:
+                            type: object
+                            description: Collection of categories belonging to the Business Type
+                            properties:
+                              '0':
+                                type: object
+                                properties:
+                                  BusinessTypeCategoryID:
+                                    type: integer
+                                    description: Sub category ID
+                                    example: ''
+                                  Category:
+                                    type: string
+                                    description: Sub category name
+                                    example: ''

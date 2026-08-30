@@ -1,0 +1,836 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Client Accounts Client Account Management Endpoints API
+  description: The Client Accounts API allows you to create, manage and retrieve information about client accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Client Account Management Endpoints
+paths:
+  /account/client-accounts:
+    get:
+      description: 'This endpoint returns a list of the available client accounts and some of its details.
+
+
+        It is also possible to filter the list of client accounts by ClientAccountID, its status (active or inactive), and client type (business, individual, receive-only).'
+      summary: account/client-accounts
+      tags:
+      - Client Account Management Endpoints
+      operationId: ClientAccountGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientType
+        in: query
+        required: false
+        description: Type of account to be filtered. Use either 'individual', 'business' or 'receive-only'
+        schema:
+          type: string
+      - name: AccountStatus
+        in: query
+        required: false
+        description: Filter by account status. Use true for active accounts and false for inactive.
+        schema:
+          type: boolean
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: Filter by the Client account ID
+        schema:
+          type: string
+      - name: Label
+        in: query
+        required: false
+        description: Filter by the Label
+        schema:
+          type: string
+      - name: 'Limit '
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: 'Offset '
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      - name: SearchText
+        in: query
+        required: false
+        description: A text string to search for in the email addresses, names and business number.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ClientAccounts:
+                    type: object
+                    description: Collection of Client Accounts data
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          ClientAccountID:
+                            type: string
+                            description: Client Account ID of the client account
+                            example: ClientAccount1
+                          ClientType:
+                            type: string
+                            description: Individual, Business or Receive-only
+                            example: ''
+                          ClientName:
+                            type: string
+                            description: First and last name of the client
+                            example: John Doe
+                          EmailAddress:
+                            type: string
+                            format: email
+                            description: Client Account email address
+                            example: subaccount.mail@email.com
+                          BusinessNumber:
+                            type: string
+                            description: Client Account's business identifier.
+                            example: '123456789'
+                          BusinessWebsite:
+                            type: string
+                            description: Business website
+                            example: www.example.com
+                          PhoneNumber:
+                            type: integer
+                            description: Client Account's phone number
+                            example: '6045551234'
+                          BusinessIndustry:
+                            type: string
+                            description: Business Industry name
+                            example: Retail
+                          BusinessCategory:
+                            type: string
+                            description: Business industry category name
+                            example: Home Electronics
+                          DOB:
+                            type: integer
+                            description: 'Date of Birth, in date format YYYY-MM-DD (ex: 1960-01-15)'
+                            example: '1960-01-15'
+                          SINLastDigits:
+                            type: integer
+                            description: Last four digits of the client's SIN number
+                            example: '1234'
+                          IsActive:
+                            type: boolean
+                            description: Flag that indicates whether the account is active or not
+                            example: ''
+                          VerificationStatus:
+                            type: object
+                            description: Collection of verification status information
+                            properties:
+                              Email:
+                                type: object
+                                properties:
+                                  Enhanced:
+                                    type: string
+                                    description: verification status
+                                    example: verified
+                                  Basic:
+                                    type: string
+                                    description: verification status
+                                    example: unverified
+                              Phone:
+                                type: object
+                                properties:
+                                  Enhanced:
+                                    type: string
+                                    description: verification status
+                                    example: verified
+                              Address:
+                                type: object
+                                properties:
+                                  Basic:
+                                    type: string
+                                    description: verification status
+                                    example: verified
+                          Address1:
+                            type: string
+                            description: Client Account's main address information
+                            example: 112 Bentall Street
+                          City:
+                            type: string
+                            description: Client Account's city
+                            example: Vancouver
+                          Province:
+                            type: string
+                            description: Client Account's province specified using two character abbreviation (eg. BC, AB)
+                            example: BC
+                          Country:
+                            type: string
+                            description: Client Account's country specified using full country name or ISO 3166-1 alpha-2 code
+                            example: Canada
+                          Nationality:
+                            type: string
+                            description: The Client's nationality
+                            example: Canada
+                          PostalCode:
+                            type: string
+                            description: Client Account's postal code
+                            example: A1A1A1
+                          IdentificationNumber:
+                            type: string
+                            description: Client's ID (driver's licence or federal tax ID)
+                            example: I19923
+                          ParentAccountID:
+                            type: string
+                            description: Account ID of the account that created the client account
+                            example: account1
+                          Balances:
+                            type: object
+                            description: Collection of Balances per available currency for the client account
+                            properties:
+                              '0':
+                                type: object
+                                properties:
+                                  Currency:
+                                    type: string
+                                    description: Currency for the balance record
+                                    example: CAD
+                                  Balance:
+                                    type: string
+                                    description: The total balnace for the currency
+                                    example: '25776.73'
+                                  PendingBalance:
+                                    type: string
+                                    description: The pending balance for the currency
+                                    example: '16146.00'
+                          Labels:
+                            type: object
+                            description: Collection of Labels associated with the client account
+                            properties:
+                              '0':
+                                type: object
+                                properties:
+                                  Label:
+                                    type: string
+                                    description: The Label value
+                                    example: Billing
+                                  LabelID:
+                                    type: string
+                                    description: The ID of the label value
+                                    example: '283'
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of client account records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+  /account/client-accounts/balance:
+    get:
+      description: This endpoint returns details on the current account balance and available funds for the given Client account.
+      summary: account/client-accounts/balance
+      tags:
+      - Client Account Management Endpoints
+      operationId: ClientAccountBalanceGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: true
+        description: Client account ID of customer who's balance you want to retrieve
+        schema:
+          type: string
+      - name: Currency
+        in: query
+        required: false
+        description: 3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  AccountBalance:
+                    type: number
+                    description: Indicates the total current account balance, including pending funds.
+                    example: '20000.00'
+                  PendingFunds:
+                    type: number
+                    description: Indicates the portion of the account balance which is pending due to in-progress transactions.
+                    example: '5540.24'
+                  Reserve:
+                    type: number
+                    description: Indicates the portion of the account balance which is being held as a reserve against returned or fraudulent transactions.
+                    example: '50000.00'
+                  RollingReserveNSF:
+                    type: number
+                    description: Indicates the portion of the account balance which is being held as a reserve against NSF transactions.
+                    example: '10000.00'
+                  RollingReserveReturns:
+                    type: number
+                    description: Indicates the portion of the account balance which is being held as a reserve against returned transactions.
+                    example: '1000.00'
+                  AvailableFunds:
+                    type: number
+                    description: Indicates the portion of the account balance which is currently available for use. This is calculated by taking the AccountBalance and subtracting the PendingFunds and Reserve amounts.
+                    example: '18000.00'
+                  OffbookBalance:
+                    type: number
+                    description: Indicates the portion of the account balance which is being held in an off-book account.
+                    example: '1000.00'
+                  Currency:
+                    type: string
+                    description: 3 character currency code for the balance being returned.
+                    example: CAD
+                  Wallets:
+                    type: object
+                    description: Breakdown of balances by wallet. Each wallet is an object with its own balances.
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          WalletID:
+                            type: string
+                            description: Unique identifier for the wallet.
+                            example: wallet_123
+                          WalletName:
+                            type: string
+                            description: Name of the wallet.
+                            example: Wallet 123
+                          WalletBalance:
+                            type: string
+                            description: Current wallet balance.
+                            example: '20000.00'
+                          WalletPendingBalance:
+                            type: string
+                            description: Pending balance for the wallet.
+                            example: '0.00'
+                          Reserve:
+                            type: string
+                            description: Reserve amount for the wallet.
+                            example: '50000.00'
+                          RollingReserveNSF:
+                            type: string
+                            description: NSF rolling reserve for the wallet.
+                            example: '10000.00'
+                          RollingReserveReturns:
+                            type: string
+                            description: Returns rolling reserve for the wallet.
+                            example: '1000.00'
+                          OffbookBalance:
+                            type: string
+                            description: Offbook balance for the wallet.
+                            example: '1000.00'
+  /account/client-accounts/edit:
+    post:
+      description: This endpoint allows you to edit the KYC info of the given Client account.
+      summary: account/client-accounts/edit
+      tags:
+      - Client Account Management Endpoints
+      operationId: ClientAccountEditPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client account ID of customer who's info you would like to update
+                  type: string
+                FirstName:
+                  description: Client's first name
+                  type: string
+                LastName:
+                  description: Client's last name
+                  type: string
+                EmailAddress:
+                  description: Client's email address - Must be a valid email
+                  type: string
+                  format: email
+                BusinessName:
+                  description: Business name.
+                  type: string
+                BusinessNumber:
+                  description: Company registration number. A 9-digit number that is unique to a business or legal entity.
+                  type: string
+                BusinessTypeID:
+                  description: ID that represents the company's industry classification. See /account/business-types endpoint for more information.
+                  type: integer
+                BusinessTypeCategoryID:
+                  description: ID that indicates the company's category classification. See /account/business-types endpoint for more information.
+                  type: integer
+                BusinessWebsite:
+                  description: Company's website URL. It must be a valid URL and the protocol must be included (http or https).
+                  type: string
+                PhoneNumber:
+                  description: Company's phone number. Digits only - no parentheses or dashes allowed.
+                  type: string
+                Address1:
+                  description: Client's address line 1
+                  type: string
+                City:
+                  description: Client's city
+                  type: string
+                Province:
+                  description: Client's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                Country:
+                  description: Client's country specified using full country name or ISO 3166-1 alpha-2 code (eg. CA, US).
+                  type: string
+                Nationality:
+                  description: Client's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                  type: string
+                PostalCode:
+                  description: Client's postal code.
+                  type: string
+                IdentificationNumber:
+                  description: Client's ID (driver's licence or federal tax ID).
+                  type: string
+                Label:
+                  description: This option will add a Label to the client account. If the Label doesn't exist it will be created and applied.
+                  type: string
+                InteracEtransferPreference:
+                  description: This option will update the client's default method used for Interac e-Transfers (eg. email, phone). Only applicable for Canadian VoPay Accounts.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/client-accounts/delete:
+    post:
+      description: This endpoint will delete an active client account.
+      summary: account/client-accounts/delete
+      tags:
+      - Client Account Management Endpoints
+      operationId: ClientAccountDeletePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: ID of the client account to delete
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ClientAccountID:
+                    type: integer
+                    description: The ID of the client account that was just deleted.
+                    example: '1122'
+                  IsActive:
+                    type: boolean
+                    description: Confirmation that the client account is no longer active
+                    example: '0'
+                  DateDeleted:
+                    type: string
+                    format: date
+                    description: ''
+                    example: '2021-11-03 01:00:00'
+  /account/client-accounts/deactivate:
+    post:
+      description: This endpoint will deactivate an active client account.
+      summary: account/client-accounts/deactivate
+      tags:
+      - Client Account Management Endpoints
+      operationId: ClientAccountDeactivatePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: ID of the client account to deactivate
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ClientAccountID:
+                    type: integer
+                    description: The ID of the client account that was just deactivated.
+                    example: '1122'
+                  IsActive:
+                    type: boolean
+                    description: Confirmation that the client account is no longer active
+                    example: '0'
+  /account/client-accounts/activate:
+    post:
+      description: This endpoint will activate an inactive client account.
+      summary: account/client-accounts/activate
+      tags:
+      - Client Account Management Endpoints
+      operationId: ClientAccountActivatePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: ID of the client account to activate
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ClientAccountID:
+                    type: integer
+                    description: The ID of the client account that was just activated.
+                    example: '1122'
+                  IsActive:
+                    type: boolean
+                    description: Confirmation that the client account is active
+                    example: '1'
+  /account/client-accounts/generate-embed-url:
+    post:
+      description: Use this endpoint to generate a unique URL to onboard a new client account. To send an email containing the URL to the recipient, set SendEmail = true, and provide both the email address and full name of the recipient.
+      summary: account/client-accounts/generate-embed-url
+      tags:
+      - Client Account Management Endpoints
+      operationId: ClientAccountGenerateEmbedURLPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientType:
+                  description: Type of client account you want to onboard. Options are individual, business, standard and receive-only.
+                  type: string
+                FirstName:
+                  description: Client's first name. Required if BusinessName is not provided.
+                  type: string
+                LastName:
+                  description: Client's last name. Required if BusinessName is not provided.
+                  type: string
+                BusinessName:
+                  description: Client's business name. Required if FirstName and LastName are not provided.
+                  type: string
+                SendEmail:
+                  description: This option is used to send the onboarding link through email. If you wish to send an email, then provide true. The default value is false.
+                  type: boolean
+                ReceiverEmailAddress:
+                  description: Recipient's email address. Required if SendEmail = true.
+                  type: string
+                  format: email
+                SendSMS:
+                  description: This option is used to send the onboarding link through SMS. If you wish to send an SMS, then provide true. The default value is false.
+                  type: boolean
+                ReceiverPhoneNumber:
+                  description: Recipient's phone number. Required if SendSMS = true.
+                  type: string
+                RequiredPaymentMethods:
+                  description: Comma-separated list of payment methods.
+                  type: string
+                Label:
+                  description: This option will add a Label to the client account. If the Label doesn't exist it will be created and applied.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientType
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  OnboardingLink:
+                    type: string
+                    description: The url of the onboarding link.
+                    example: https://request.vopay.com?Token=3s77vg2nwta8c3qc2rwpmmk8w03elfa7rmrsug3l
+  /account/client-accounts/payment-methods:
+    get:
+      description: This endpoint is used to look up all the payment smethods for the given client account.
+      summary: account/client-accounts/payment-methods
+      tags:
+      - Client Account Management Endpoints
+      operationId: ClientAccountPaymentMethodsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: true
+        description: The Client Account ID that the payment methods are associated with.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  PaymentMethods:
+                    type: object
+                    description: Collection of payment methods
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          PaymentMethod:
+                            type: string
+                            description: The type of peyment record (BankAccount, Email, PhoneNumber, CreditCard, DebitCard)
+                            example: BankAccount
+                          PaymentDetails:
+                            type: string
+                            description: The details of the payment method
+                            example: 001-00040-123****
+                          IsDefault:
+                            type: boolean
+                            description: Is this this the default payment record for the payemnt method
+                            example: 'true'
+                          Token:
+                            type: string
+                            description: The associated token.
+                            example: 80be530727391c11470be104f8bb10b8812eddbd34479572e0b079df1d178c0a
+                          AddedOn:
+                            type: string
+                            description: The date and time this payemnt method was added.
+                            example: '2021-02-11 18:27:08'
+                          ExtraFields:
+                            type: object
+                            description: Extra information associated with the payment method.
+                            example: '{"VerificationStatus": "verified"}'

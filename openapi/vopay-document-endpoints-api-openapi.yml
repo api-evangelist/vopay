@@ -1,0 +1,134 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Account Onboarding Document Endpoints API
+  description: The Account Onboarding endpoints are used to onboard new VoPay accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Document Endpoints
+paths:
+  /document:
+    post:
+      description: 'This endpoint is used to upload account documents.Only one document can be uploaded by request. You must provide the document name and its content. Here are some rules regarding the document requirements:
+
+
+        * The types accepted are: PDF, PNG or JPEG
+
+
+        * The maximum allowed file size is 10Mb
+
+
+        * Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64
+
+
+        * The same document cannot be uploaded twice with the same name'
+      summary: document
+      tags:
+      - Document Endpoints
+      operationId: DocumentPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                DocumentName:
+                  description: Document description
+                  type: string
+                DocumentContent:
+                  description: 'Base64 code of the document content. Allowed content types: PDF, JPG, PNG.'
+                  type: string
+                DocumentType:
+                  description: 'String that identify the document type: ''kyc'' or ''invoice''.'
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - DocumentName
+              - DocumentContent
+              - DocumentType
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DocumentID:
+                    type: string
+                    description: This ID should be saved as it is required in order to retrieve the uploaded document URL
+                    example: ''
+  /document/[:DocumentID]:
+    get:
+      description: To retrieve a document once it is uploaded, send a request to this endpoint. It will return the document URL so you can have direct access to it. Replace the {DocumentID} in the endpoint with the DocumentID returned from the document list endpoint or the one returned by the upload endpoint. The returned URL is valid for 60 mins.
+      summary: document/[DocumentID]
+      tags:
+      - Document Endpoints
+      operationId: DocumentURLGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Document:
+                    type: string
+                    description: URL of the requested document. It expires in 60 minutes. Do another request to get a new URL if necessary.
+                    example: ''

@@ -1,0 +1,226 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Payment Rails SEPA Endpoints API
+  description: The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: SEPA Endpoints
+paths:
+  /sepa/withdraw:
+    post:
+      description: This endpoint debits your account by sending a SEPA Instant payment to a creditor's IBAN. Only EUR currency is supported. Requires SEPAInstantWithdrawEnabled permission and an active EUR virtual account.
+      summary: sepa/withdraw
+      tags:
+      - SEPA Endpoints
+      operationId: SepaWithdrawPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Amount:
+                  description: The amount to send via SEPA Instant payment
+                  type: number
+                RecipientName:
+                  description: The full name of the recipient (creditor)
+                  type: string
+                IBAN:
+                  description: The recipient's International Bank Account Number (IBAN)
+                  type: string
+                Currency:
+                  description: The currency for the transaction. Must be EUR
+                  type: string
+                  default: EUR
+                ClientAccountID:
+                  description: The ID of the client account to associate with this transaction
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number for your own records
+                  type: string
+                IdempotencyKey:
+                  description: A unique key to ensure idempotent request processing
+                  type: string
+                Notes:
+                  description: Optional notes to attach to the transaction
+                  type: string
+                ParentTransactionID:
+                  description: The ID of a parent transaction to link this transaction to
+                  type: string
+                GLCode:
+                  description: General ledger code for accounting purposes
+                  type: string
+                TransactionTypeCode:
+                  description: A custom transaction type code for categorization
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Amount
+              - RecipientName
+              - IBAN
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID for the SEPA withdrawal transaction
+                    example: '1124'
+                  TransactionStatus:
+                    type: string
+                    description: The current status of the transaction
+                    example: pending
+                  Flagged:
+                    type: string
+                    description: Present if the transaction was flagged. Contains flag status messages
+                    example: ''
+                    x-absent-when: transaction not flagged
+                  Notice:
+                    type: string
+                    description: Present if the account has insufficient funds at the time of the transaction
+                    example: ''
+                    x-absent-when: sufficient balance
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+  /sepa/withdraw/transaction:
+    get:
+      description: This endpoint retrieves full details for a single SEPA Instant withdrawal transaction. Requires SEPAInstantWithdrawEnabled permission.
+      summary: sepa/withdraw/transaction
+      tags:
+      - SEPA Endpoints
+      operationId: SepaWithdrawTransactionGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: The unique ID of the SEPA withdrawal transaction to retrieve
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID for the SEPA withdrawal transaction
+                    example: '1124'
+                  TransactionStatus:
+                    type: string
+                    description: The current status of the transaction
+                    example: pending
+                  TransactionDateTime:
+                    type: string
+                    format: date-time
+                    description: The date and time the transaction was created
+                    example: '2019-11-26 12:00:00'
+                  Amount:
+                    type: string
+                    description: The transaction amount formatted to 2 decimal places
+                    example: '100.00'
+                  Currency:
+                    type: string
+                    description: The currency of the transaction
+                    example: EUR
+                  RecipientName:
+                    type: string
+                    description: The full name of the recipient (creditor)
+                    example: John Doe
+                  IBAN:
+                    type: string
+                    description: The recipient's International Bank Account Number
+                    example: DE89370400440532013000
+                  ClientReferenceNumber:
+                    type: string
+                    description: The reference number set when the transaction was created
+                    example: REF-12345
+                  GLCode:
+                    type: string
+                    description: General ledger code associated with the transaction
+                    example: ''
+                  TransactionTypeCode:
+                    type: string
+                    description: The custom transaction type code associated with the transaction
+                    example: ''
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction record was last modified
+                    example: '2019-12-04 18:13:39'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - TransactionDateTime
+                - Amount
+                - Currency
+                - RecipientName
+                - IBAN
+                - ClientReferenceNumber
+                - GLCode
+                - TransactionTypeCode
+                - LastModified

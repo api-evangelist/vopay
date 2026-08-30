@@ -1,0 +1,1429 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Accounts Sub-Account Endpoints API
+  description: The Account API defines endpoints for managing VoPay accounts and sub-accounts.  These endpoints allow partners to create and manage accounts, set permissions, handle transactions,  schedule transfers, retrieve account information, and manage onboarding processes, ensuring secure  and efficient account and transaction management.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Sub-Account Endpoints
+paths:
+  /account/subaccount:
+    get:
+      description: This endpoint will return a list of all of the sub-accounts managed by the main account.
+      summary: account/subaccount
+      tags:
+      - Sub-Account Endpoints
+      operationId: SubaccountGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: 'Limit '
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: 'Offset '
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      - name: IncludeBalances
+        in: query
+        required: false
+        description: When true, includes balance data for each account. Defaults to true.
+        schema:
+          type: boolean
+      - name: IncludeExtendedInfo
+        in: query
+        required: false
+        description: When true, includes signing authorities, beneficial owners, and other KYC fields for each account. Defaults to true.
+        schema:
+          type: boolean
+      - name: IncludeChildAccounts
+        in: query
+        required: false
+        description: When true, includes nested sub-accounts for each account. Defaults to true.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ParentAccount:
+                    type: string
+                    description: Parent account name
+                    example: ParentAccount1
+                  Subaccounts:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          LegalBusinessName:
+                            type: string
+                            description: Legal Business Name
+                            example: Company Legal Business Name
+                          AccountName:
+                            type: string
+                            description: Account name of the sub account
+                            example: SubaccountName1
+                          AccountID:
+                            type: string
+                            description: Account ID of the sub account
+                            example: Subaccount1
+                          SubAccountType:
+                            type: string
+                            description: Type of sub-account
+                            example: ''
+                          OrginatorName:
+                            type: string
+                            description: Short Name of the company to identify themselves in the documents
+                            example: ''
+                          OriginatorShortName:
+                            type: string
+                            description: Short Name of the company to identify themselves in the documents (max 15 chars)
+                            example: ''
+                          Email:
+                            type: string
+                            format: email
+                            description: Sub-account email address
+                            example: subaccount.mail@email.com
+                          Phone:
+                            type: integer
+                            description: Sub-account's phone number
+                            example: 604556****
+                          Fax:
+                            type: string
+                            description: Sub-account's fax number
+                            example: 604556****
+                          City:
+                            type: string
+                            description: Sub-account's city
+                            example: Vancouver
+                          Province:
+                            type: string
+                            description: Sub-account's province specified using two character abbreviation (eg. BC, AB)
+                            example: BC
+                          Country:
+                            type: string
+                            description: Sub-account's country specified using full country name or ISO 3166-1 alpha-2 code.
+                            example: Canada
+                          PostalCode:
+                            type: string
+                            description: Sub-account's postal code.
+                            example: V2W 4V6
+                          Address:
+                            type: string
+                            description: Sub-account's address line
+                            example: 112 Bentall Street
+                          APISharedSecret:
+                            type: string
+                            description: API Shared Secret
+                            example: AbcDefGi+KlmnopQRSTu183==
+                          FlinksUrl:
+                            type: string
+                            description: The Flinks URL
+                            example: https://www.mycompany.com/flinks-url
+                          WebhookUrl:
+                            type: string
+                            description: URL where the users want us to send their notifications. See Webhooks attribute for full list.
+                            example: https://www.mycompany.com/webhook-listener
+                          Webhooks:
+                            type: object
+                            description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                            properties:
+                              '0':
+                                type: object
+                                properties:
+                                  Event:
+                                    type: string
+                                    description: 'The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction.'
+                                    example: ''
+                                  Url:
+                                    type: string
+                                    description: Webhook URL, is the url is not setup it will return empty
+                                    example: ''
+                                required:
+                                - Event
+                                - Url
+                            x-list-of: inline
+                            x-empty-when: no items
+                          ParentAccounts:
+                            type: object
+                            description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                            properties:
+                              '0':
+                                type: object
+                                properties:
+                                  AccountID:
+                                    type: string
+                                    description: Account ID of the account
+                                    example: acme_inc
+                                  AccountName:
+                                    type: string
+                                    description: Account name of the account
+                                    example: ACME Inc.
+                                  ParentAccountID:
+                                    type: string
+                                    description: The parent account ID of the account
+                                    example: acme_llc
+                                required:
+                                - AccountID
+                                - AccountName
+                                - ParentAccountID
+                            x-list-of: inline
+                            x-empty-when: no items
+                          SubAccounts:
+                            type: object
+                            description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                            properties:
+                              '0':
+                                type: object
+                                properties:
+                                  LegalBusinessName:
+                                    type: string
+                                    description: Legal Business Name
+                                    example: Company Legal Business Name
+                                  DBAName:
+                                    type: string
+                                    description: Doing Business As Name
+                                    example: Doing Business As Name
+                                  AccountName:
+                                    type: string
+                                    description: Account name of the account
+                                    example: SubaccountName1
+                                  ParentAccountName:
+                                    type: string
+                                    description: Parent account name. This will only be populated if the account is a sub-account
+                                    example: ParentAccount1
+                                  AccountID:
+                                    type: string
+                                    description: Account ID of the account
+                                    example: Subaccount1
+                                  OrginatorName:
+                                    type: string
+                                    description: Short Name of the company to identify themselves in the documents
+                                    example: ''
+                                  OriginatorShortName:
+                                    type: string
+                                    description: Short Name of the company to identify themselves in the documents (max 15 chars)
+                                    example: ''
+                                  Email:
+                                    type: string
+                                    format: email
+                                    description: Account email address
+                                    example: subaccount.mail@email.com
+                                  Phone:
+                                    type: integer
+                                    description: Account's phone number
+                                    example: 604556****
+                                  Fax:
+                                    type: string
+                                    description: Account's fax number
+                                    example: 604556****
+                                  City:
+                                    type: string
+                                    description: Account's city
+                                    example: Vancouver
+                                  Province:
+                                    type: string
+                                    description: Account's province specified using two character abbreviation (eg. BC, AB)
+                                    example: BC
+                                  Country:
+                                    type: string
+                                    description: Account's country specified using full country name or ISO 3166-1 alpha-2 code.
+                                    example: Canada
+                                  PostalCode:
+                                    type: string
+                                    description: Account's postal code.
+                                    example: V2W 4V6
+                                  Address:
+                                    type: string
+                                    description: Account's address line
+                                    example: 112 Bentall Street
+                                  FlinksUrl:
+                                    type: string
+                                    description: The Flinks URL
+                                    example: https://www.mycompany.com/flinks-url
+                                  WebhookUrl:
+                                    type: string
+                                    description: URL where the users want us to send their notifications. See Webhooks attribute for full list.
+                                    example: https://www.mycompany.com/webhook-listener
+                                  Webhooks:
+                                    type: object
+                                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                                    properties:
+                                      '0':
+                                        type: object
+                                        properties:
+                                          Event:
+                                            type: string
+                                            description: 'The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction.'
+                                            example: ''
+                                          Url:
+                                            type: string
+                                            description: Webhook URL, is the url is not setup it will return empty
+                                            example: ''
+                                        required:
+                                        - Event
+                                        - Url
+                                    x-list-of: inline
+                                    x-empty-when: no items
+                                  IsActive:
+                                    type: boolean
+                                    description: Is the account active
+                                    example: true
+                                  GCMEnabled:
+                                    type: boolean
+                                    description: Permission related to Global cash management
+                                    example: true
+                                  EFTCollectEnabled:
+                                    type: boolean
+                                    description: Permission related to EFT Fund
+                                    example: true
+                                  EFTSendEnabled:
+                                    type: boolean
+                                    description: Permission related to EFT Withdraw
+                                    example: true
+                                  USDEFTCollectEnabled:
+                                    type: boolean
+                                    description: Permission related to EFT Fund using USD currency
+                                    example: true
+                                  USDEFTSendEnabled:
+                                    type: boolean
+                                    description: Permission related to EFT Withdraw using USD currency
+                                    example: true
+                                  RTRWithdrawEnabled:
+                                    type: boolean
+                                    description: Permission related to VoPay Instant Withdraw
+                                    example: true
+                                  VisaDirectEnabled:
+                                    type: boolean
+                                    description: Permission related to Visa Direct
+                                    example: true
+                                  InteracMoneyRequestEnabled:
+                                    type: boolean
+                                    description: Permission related to Interac Money request
+                                    example: true
+                                  InteracBulkPayoutEnabled:
+                                    type: boolean
+                                    description: Permission related to Interac bulk payout
+                                    example: true
+                                  PayLinkEnabled:
+                                    type: boolean
+                                    description: Permission related to Paylink
+                                    example: true
+                                  PortalViewOnly:
+                                    type: boolean
+                                    description: This flag will change the user permission to the admin portal. When true, the user will have 'Read Only' permission and when false, the user will be able to create transactions using the admin portal.
+                                    example: true
+                                  AddUserEnabled:
+                                    type: boolean
+                                    description: True if the user wants to enable this feature. This flag allow the user to add users to the accounts
+                                    example: true
+                                  TransactionApprovalWorkflowEnabled:
+                                    type: boolean
+                                    description: Permission related to the transaction approval workflows
+                                    example: true
+                                  AutoBalanceTransferEnabled:
+                                    type: boolean
+                                    description: True if the user wants to enable this feature. This flag allow the user to set auto transfer balance
+                                    example: true
+                                  MaxFundEFTAmount:
+                                    type: number
+                                    description: Maximum amount that the user can transfer using this endpoint
+                                    example: 4500
+                                  MaxWithdrawEFTAmount:
+                                    type: number
+                                    description: Maximum amount that the user can transfer using this endpoint
+                                    example: 4500
+                                  MaxGCMAmount:
+                                    type: number
+                                    description: Maximum amount that the user can transfer using this endpoint
+                                    example: 4500
+                                  MaxInteracMoneyAmount:
+                                    type: number
+                                    description: Maximum amount that the user can transfer using this endpoint
+                                    example: 4500
+                                  MaxInteracBulkPayoutAmount:
+                                    type: number
+                                    description: Maximum amount that the user can transfer using this endpoint
+                                    example: 4500
+                                  MaxVisaDirectAmount:
+                                    type: number
+                                    description: Maximum amount that the user can transfer using this endpoint
+                                    example: 4500
+                                  Balances:
+                                    type: object
+                                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                                    properties:
+                                      '0':
+                                        type: object
+                                        properties:
+                                          Currency:
+                                            type: string
+                                            description: 3 character currency code for the balance being returned.
+                                            example: CAD
+                                          AccountBalance:
+                                            type: number
+                                            description: Indicates the total current account balance, including pending funds.
+                                            example: '20000.00'
+                                          PendingBalance:
+                                            type: number
+                                            description: Indicates the portion of the account balance which is pending due to in-progress transactions.
+                                            example: '5540.24'
+                                          Reserve:
+                                            type: number
+                                            description: Indicates the portion of the account balance which is being held as a reserve against negative balances.
+                                            example: '50000.00'
+                                          RollingReserveNSF:
+                                            type: number
+                                            description: Indicates the portion of the account balance which is being held as a reserve against NSF transactions.
+                                            example: '10000.00'
+                                          RollingReserveReturns:
+                                            type: number
+                                            description: Indicates the portion of the account balance which is being held as a reserve against returned transactions.
+                                            example: '1000.00'
+                                          AvailableImmediately:
+                                            type: number
+                                            description: Indicate the portion of the account balance that is available immediately
+                                            example: '0.00'
+                                          AvailableBalance:
+                                            type: number
+                                            description: Indicates the portion of the account balance which is currently available for use. This is calculated by taking the AccountBalance and subtracting the PendingFunds, Reserve, RollingReserveNSF, and RollingReserveReturns amounts.
+                                            example: '18000.00'
+                                        required:
+                                        - Currency
+                                        - AccountBalance
+                                        - PendingBalance
+                                        - Reserve
+                                        - RollingReserveNSF
+                                        - RollingReserveReturns
+                                        - AvailableImmediately
+                                        - AvailableBalance
+                                    x-absent-when: IncludeBalances=false
+                                    x-list-of: inline
+                                    x-empty-when: no items
+                                  ShareHolders:
+                                    type: object
+                                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                                    properties:
+                                      '0':
+                                        type: object
+                                        properties:
+                                          ID:
+                                            type: integer
+                                            description: Shareholder ID
+                                            example: ''
+                                          FullName:
+                                            type: string
+                                            description: Shareholder First name and last name
+                                            example: Share holder name
+                                          Ownership:
+                                            type: string
+                                            description: Percentage of ownership only if is greater than 20%
+                                            example: '20'
+                                          Occupation:
+                                            type: string
+                                            description: Shareholder's occupation
+                                            example: ''
+                                          HomeAddress:
+                                            type: string
+                                            description: Shareholder's home address
+                                            example: 123 address st, Vancouver
+                                          DateAdded:
+                                            type: string
+                                            format: date
+                                            description: ''
+                                            example: '2019-11-03 01:00:00'
+                                        required:
+                                        - ID
+                                        - FullName
+                                        - Ownership
+                                        - Occupation
+                                        - HomeAddress
+                                        - DateAdded
+                                    x-absent-when: IncludeExtendedInfo=false
+                                    x-list-of: inline
+                                    x-empty-when: no items
+                                  SigningAuthorities:
+                                    type: object
+                                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                                    properties:
+                                      '0':
+                                        type: object
+                                        properties:
+                                          ID:
+                                            type: integer
+                                            description: Signing Authority ID
+                                            example: ''
+                                          FullName:
+                                            type: string
+                                            description: Signing Authority First name and last name
+                                            example: Signing Authority name
+                                          Occupation:
+                                            type: string
+                                            description: Signing Authority's occupation
+                                            example: ''
+                                          EmailAddress:
+                                            type: string
+                                            description: Signing Authority's email address
+                                            example: signingauthority@gmail.com
+                                          HomeAddress:
+                                            type: string
+                                            description: Signing Authority's home address
+                                            example: 123 address st, Vancouver
+                                          DateAdded:
+                                            type: string
+                                            format: date
+                                            description: ''
+                                            example: '2019-11-03 01:00:00'
+                                        required:
+                                        - ID
+                                        - FullName
+                                        - Occupation
+                                        - EmailAddress
+                                        - HomeAddress
+                                        - DateAdded
+                                    x-absent-when: IncludeExtendedInfo=false
+                                    x-list-of: inline
+                                    x-empty-when: no items
+                                required:
+                                - LegalBusinessName
+                                - DBAName
+                                - AccountName
+                                - ParentAccountName
+                                - AccountID
+                                - OrginatorName
+                                - OriginatorShortName
+                                - Email
+                                - Phone
+                                - Fax
+                                - City
+                                - Province
+                                - Country
+                                - PostalCode
+                                - Address
+                                - FlinksUrl
+                                - WebhookUrl
+                                - Webhooks
+                                - IsActive
+                                - GCMEnabled
+                                - EFTCollectEnabled
+                                - EFTSendEnabled
+                                - USDEFTCollectEnabled
+                                - USDEFTSendEnabled
+                                - RTRWithdrawEnabled
+                                - VisaDirectEnabled
+                                - InteracMoneyRequestEnabled
+                                - InteracBulkPayoutEnabled
+                                - PayLinkEnabled
+                                - PortalViewOnly
+                                - AddUserEnabled
+                                - TransactionApprovalWorkflowEnabled
+                                - AutoBalanceTransferEnabled
+                                - MaxFundEFTAmount
+                                - MaxWithdrawEFTAmount
+                                - MaxGCMAmount
+                                - MaxInteracMoneyAmount
+                                - MaxInteracBulkPayoutAmount
+                                - MaxVisaDirectAmount
+                            x-absent-when: IncludeChildAccounts=false
+                            x-list-of: inline
+                            x-empty-when: no items
+                          IsActive:
+                            type: boolean
+                            description: Determine if the account is active or not
+                            example: true
+                          AccountStatus:
+                            type: string
+                            description: The current status of the account
+                            example: Application Pending
+                          AutoUnblockThreshold:
+                            type: number
+                            description: The threshold amount for auto-unblocking the account when the account is blocked (DACA accounts only). Once the account balance reaches this threshold, the account will be automatically unblocked.
+                            example: '100.00'
+                          GCMEnabled:
+                            type: boolean
+                            description: Permission related to Global cash management
+                            example: true
+                          EFTCollectEnabled:
+                            type: boolean
+                            description: Permission related to EFT Fund
+                            example: true
+                          EFTSendEnabled:
+                            type: boolean
+                            description: Permission related to EFT Withdraw
+                            example: true
+                          USDEFTCollectEnabled:
+                            type: boolean
+                            description: Permission related to EFT Fund using USD currency
+                            example: true
+                          USDEFTSendEnabled:
+                            type: boolean
+                            description: Permission related to EFT Withdraw using USD currency
+                            example: true
+                          RTRWithdrawEnabled:
+                            type: boolean
+                            description: Permission related to VoPay Instant Withdraw
+                            example: true
+                          VisaDirectEnabled:
+                            type: boolean
+                            description: Permission related to Visa Direct
+                            example: true
+                          InteracMoneyRequestEnabled:
+                            type: boolean
+                            description: Permission related to Interac Money request
+                            example: true
+                          InteracBulkPayoutEnabled:
+                            type: boolean
+                            description: Permission related to Interac bulk payout
+                            example: true
+                          PayLinkEnabled:
+                            type: boolean
+                            description: Permission related to Paylink
+                            example: true
+                          Balances:
+                            type: object
+                            description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                            properties:
+                              '0':
+                                type: object
+                                properties:
+                                  Currency:
+                                    type: string
+                                    description: 3 character currency code for the balance being returned.
+                                    example: CAD
+                                  AccountBalance:
+                                    type: number
+                                    description: Indicates the total current account balance, including pending funds.
+                                    example: '20000.00'
+                                  PendingBalance:
+                                    type: number
+                                    description: Indicates the portion of the account balance which is pending due to in-progress transactions.
+                                    example: '5540.24'
+                                  Reserve:
+                                    type: number
+                                    description: Indicates the portion of the account balance which is being held as a reserve against negative balances.
+                                    example: '50000.00'
+                                  RollingReserveNSF:
+                                    type: number
+                                    description: Indicates the portion of the account balance which is being held as a reserve against NSF transactions.
+                                    example: '10000.00'
+                                  RollingReserveReturns:
+                                    type: number
+                                    description: Indicates the portion of the account balance which is being held as a reserve against returned transactions.
+                                    example: '1000.00'
+                                  AvailableImmediately:
+                                    type: number
+                                    description: Indicate the portion of the account balance that is available immediately
+                                    example: '0.00'
+                                  AvailableBalance:
+                                    type: number
+                                    description: Indicates the portion of the account balance which is currently available for use. This is calculated by taking the AccountBalance and subtracting the PendingFunds, Reserve, RollingReserveNSF and RollingReserveReturns amounts.
+                                    example: '18000.00'
+                                  RollupAvailableBalance:
+                                    type: string
+                                    description: Represents the aggregated total available balance of all sub-accounts under this account.
+                                    example: '1280000.00'
+                                  RollupAccountBalance:
+                                    type: string
+                                    description: Represents the aggregated total account balance of all sub-accounts under this account.
+                                    example: '1280000.00'
+                                required:
+                                - Currency
+                                - AccountBalance
+                                - PendingBalance
+                                - Reserve
+                                - RollingReserveNSF
+                                - RollingReserveReturns
+                                - AvailableImmediately
+                                - AvailableBalance
+                                - RollupAvailableBalance
+                                - RollupAccountBalance
+                            x-absent-when: IncludeBalances=false
+                            x-list-of: inline
+                            x-empty-when: no items
+                        required:
+                        - LegalBusinessName
+                        - AccountName
+                        - AccountID
+                        - SubAccountType
+                        - OrginatorName
+                        - OriginatorShortName
+                        - Email
+                        - Phone
+                        - Fax
+                        - City
+                        - Province
+                        - Country
+                        - PostalCode
+                        - Address
+                        - APISharedSecret
+                        - FlinksUrl
+                        - WebhookUrl
+                        - Webhooks
+                        - ParentAccounts
+                        - IsActive
+                        - AccountStatus
+                        - AutoUnblockThreshold
+                        - GCMEnabled
+                        - EFTCollectEnabled
+                        - EFTSendEnabled
+                        - USDEFTCollectEnabled
+                        - USDEFTSendEnabled
+                        - RTRWithdrawEnabled
+                        - VisaDirectEnabled
+                        - InteracMoneyRequestEnabled
+                        - InteracBulkPayoutEnabled
+                        - PayLinkEnabled
+                    x-list-of: inline
+                    x-empty-when: no items
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of sub account records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+                    required:
+                    - TotalRecords
+                    - Offset
+                    - Limit
+                required:
+                - Success
+                - ErrorMessage
+                - ParentAccount
+                - Subaccounts
+                - Pagination
+    post:
+      description: This endpoint is used to create a new sub-account.
+      summary: account/subaccount
+      tags:
+      - Sub-Account Endpoints
+      operationId: SubaccountPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                LegalBusinessName:
+                  description: Company's Legal business name
+                  type: string
+                EmailAddress:
+                  description: Company's email address - Must be a valid email
+                  type: string
+                  format: email
+                SendWelcomeEmail:
+                  description: It is a flag to allow user to decide if he wants to send the welcome email on their behalf or not. By default this value is set as true
+                  type: boolean
+                SubaccountID:
+                  description: The account ID of the subaccount. If not provided, it will be defaulted to a random string generated by our system
+                  type: string
+                CreateVirtualAccount:
+                  description: It is a flag to allow user to decide if he wants to create a virtual account for the subaccount. By default this value is set as false. Must have VirtualAccounts enabled to use this parameter.
+                  type: boolean
+                PrimaryContactName:
+                  description: Full name of the primary contact for the account
+                  type: string
+                Address1:
+                  description: Street address line 1 for the account
+                  type: string
+                Address2:
+                  description: Street address line 2 for the account
+                  type: string
+                City:
+                  description: City of the account address
+                  type: string
+                Province:
+                  description: Province or state of the account address
+                  type: string
+                PostalCode:
+                  description: Postal or ZIP code of the account address
+                  type: string
+                Country:
+                  description: Country of the account address. Required if providing address fields. ISO abbreviation or full country name.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - LegalBusinessName
+              - EmailAddress
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Message:
+                    type: string
+                    description: Contains a description of the successful message
+                    example: ''
+                  AccountID:
+                    type: string
+                    description: Account Name of the new user created in the endpoint
+                    example: AccountTest1
+                  APISharedSecret:
+                    type: string
+                    description: API Shared Secret
+                    example: AbcDefGi+KlmnopQRSTu183==
+                  APIKey:
+                    type: string
+                    description: The API key for the sub account
+                    example: eddc0f5e37d20f98b486daf842447ec1f225f859
+                required:
+                - Success
+                - ErrorMessage
+                - Message
+                - AccountID
+                - APISharedSecret
+                - APIKey
+  /account/subaccount/edit:
+    post:
+      description: This endpoint is used to edit a sub-account.
+      summary: account/subaccount/edit
+      tags:
+      - Sub-Account Endpoints
+      operationId: SubaccountEditPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                SubaccountID:
+                  description: The account ID of the subaccount you are attempting to edit
+                  type: string
+                LegalBusinessName:
+                  description: Company's Legal business name
+                  type: string
+                EmailAddress:
+                  description: Company's email address - Must be a valid email
+                  type: string
+                  format: email
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - SubaccountID
+              - LegalBusinessName
+              - EmailAddress
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Message:
+                    type: string
+                    description: Contains a description of the successful message
+                    example: ''
+                  AccountID:
+                    type: string
+                    description: Account Name of the new user created in the endpoint
+                    example: AccountTest1
+                  APISharedSecret:
+                    type: string
+                    description: API Shared Secret
+                    example: AbcDefGi+KlmnopQRSTu183==
+                  APIKey:
+                    type: string
+                    description: The API key for the sub account
+                    example: eddc0f5e37d20f98b486daf842447ec1f225f859
+                required:
+                - Success
+                - ErrorMessage
+                - Message
+                - AccountID
+                - APISharedSecret
+                - APIKey
+  /account/subaccount/transactions:
+    get:
+      description: This endpoint will return a list of all of the transactions for sub-accounts, and its sub-accounts transaction.
+      summary: account/subaccount/transactions
+      tags:
+      - Sub-Account Endpoints
+      operationId: SubaccountTransactionGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: StartDateTime
+        in: query
+        required: true
+        description: Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: EndDateTime
+        in: query
+        required: true
+        description: Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: Filter transactions by Client account ID
+        schema:
+          type: string
+      - name: ContactID
+        in: query
+        required: false
+        description: Filter transactions by Contact ID
+        schema:
+          type: string
+      - name: Currency
+        in: query
+        required: false
+        description: 3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).
+        schema:
+          type: string
+      - name: TransactionType
+        in: query
+        required: false
+        description: 'Specifies the type of transaction to return. Accepted values are: ''EFT Funding'', ''EFT Withdrawal'', ''Interac Money Request'', ''Interac Bulk Payout'', ''Credit Card'', ''Fee'', ''Reversal''.'
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: false
+        description: Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.
+        schema:
+          type: integer
+          format: int32
+      - name: ClientReferenceNumber
+        in: query
+        required: false
+        description: Searches for transactions with the specified client reference number.
+        schema:
+          type: string
+      - name: ScheduledTransactionID
+        in: query
+        required: false
+        description: Id of the schedule transaction to search
+        schema:
+          type: string
+      - name: WalletID
+        in: query
+        required: false
+        description: Id of the wallet that the transactions should belong to
+        schema:
+          type: string
+      - name: IsFlagged
+        in: query
+        required: false
+        description: Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.
+        schema:
+          type: boolean
+      - name: IsRefunded
+        in: query
+        required: false
+        description: Filter the list of transactions to only include transactions that have been refunded.
+        schema:
+          type: boolean
+      - name: Limit
+        in: query
+        required: false
+        description: Limit the number of records that are returned. Use the off-set parameter to set the starting point in the data-set. Default limit is 1,000 and maximum limit is 10,000.
+        schema:
+          type: integer
+      - name: Offset
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  NumberOfRecords:
+                    type: integer
+                    description: Total number of transaction records returned.
+                    example: '1'
+                  Transactions:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          TransactionID:
+                            type: integer
+                            description: Unique ID for the Transaction
+                            example: '5918'
+                          AccountName:
+                            type: string
+                            description: Account Name
+                            example: ''
+                          TransactionDateTime:
+                            type: string
+                            format: date-time
+                            description: The timestamp on which the transaction occurred.
+                            example: '2019-12-04 18:13:39'
+                          TransactionType:
+                            type: string
+                            description: Specifies the type of transaction, for example 'EFT Funding', 'EFT Withdrawal', 'Fee'.
+                            example: Reversal
+                          TransactionStatus:
+                            type: string
+                            description: Current Status of the transaction
+                            example: in progress
+                          Notes:
+                            type: string
+                            description: If applicable, notes giving context to the transaction.
+                            example: Transaction cancelled
+                          DebitAmount:
+                            type: number
+                            description: The dollar amount by which this transaction debited funds from your account balance. If DebitAmountis set, CreditAmount will be null.
+                            example: '100.00'
+                          CreditAmount:
+                            type: number
+                            description: The dollar amount by which this transaction credited funds to your account balance. If CreditAmount is set, DebitAmount will be null.
+                            example: '0.00'
+                          Currency:
+                            type: string
+                            description: 3 character currency code.
+                            example: CAD
+                          HoldAmount:
+                            type: number
+                            description: The dollar amount of the funds from this transaction which are temporarily on hold. This is only applicable for transactions where CreditAmount is set.
+                            example: '0.00'
+                          LastModified:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the transaction record was last modified. In normal circumstances the transaction record will only be modified when the HoldAmount is changed.
+                            example: '2019-12-04 18:13:39'
+                          ParentTransactionID:
+                            type: string
+                            description: If a transaction directly relates to another transaction, this value will be set to link the new transaction to its parent. For example if an EFT comes back with insufficient funds a new transaction will be created referencing the original transaction as its parent.
+                            example: '5909'
+                          ChildTransactionIDs:
+                            type: integer
+                            description: If this transaction directly relates to any other transactions this will contain a collection of child transaction IDs. For example if an EFT is reversed due to insufficient funds the original transaction record will reference the new transaction as a child.
+                            example: '{}'
+                          ClientReferenceNumber:
+                            type: string
+                            description: The optional reference number which was set when the transaction was created.
+                            example: 'null'
+                          ScheduledTransactionID:
+                            type: integer
+                            description: ID of the scheduled transaction
+                            example: '1'
+                          WalletID:
+                            type: string
+                            description: ID of the wallet this transaction belongs to
+                            example: primary_000001
+                          ClientAccountID:
+                            type: string
+                            description: Client account ID used on the transaction, if applicable
+                            example: client_account_1
+                          TransactionErrorCode:
+                            type: string
+                            description: Error code of the transaction, if applicable
+                            example: '901'
+                          TransactionFailureReason:
+                            type: string
+                            description: Failure reason of the transaction, if applicable
+                            example: NSF
+                          TransactionFlag:
+                            type: string
+                            description: Flag status of the transaction, if applicable
+                            example: duplicate - 45563,45561
+                          ELinxRequestID:
+                            type: integer
+                            description: The unique ID of the eLinx request attached to the transaction, if applicable
+                            example: '1234'
+                          IsRefunded:
+                            type: boolean
+                            description: True if the transaction was refunded, false if it is not
+                            example: true
+                          FullName:
+                            type: string
+                            description: 'Customer''s full name '
+                            example: Jane Doe
+                        required:
+                        - TransactionID
+                        - AccountName
+                        - TransactionDateTime
+                        - TransactionType
+                        - TransactionStatus
+                        - Notes
+                        - DebitAmount
+                        - CreditAmount
+                        - Currency
+                        - HoldAmount
+                        - LastModified
+                        - ParentTransactionID
+                        - ChildTransactionIDs
+                        - ClientReferenceNumber
+                        - ScheduledTransactionID
+                        - WalletID
+                        - ClientAccountID
+                        - TransactionErrorCode
+                        - TransactionFailureReason
+                        - TransactionFlag
+                        - ELinxRequestID
+                        - IsRefunded
+                        - FullName
+                    x-absent-when: ExportCSV or ExportPDF requested
+                    x-list-of: inline
+                    x-empty-when: no items
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of transaction records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+                    required:
+                    - TotalRecords
+                    - Offset
+                    - Limit
+                required:
+                - Success
+                - ErrorMessage
+                - NumberOfRecords
+                - Pagination
+  /account/subaccount/set-permissions:
+    post:
+      description: "This endpoint will allow the user to modify the permissions and the maximum amounts to their sub-accounts in the API.  \n\n The main account will be able to only modify the permission that he has, For Example, if the user does not have ETCCollect permission, the account won't be able to assign that permission to their sub-account."
+      summary: account/subaccount/set-permissions
+      tags:
+      - Sub-Account Endpoints
+      operationId: SubaccountSetPermissionsPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ApplyToAll:
+                  description: This flag will allow the Main account to modify the permissions of all their sub-accounts at once, no matter if the sub account is active or inactive. This field only accepts true as a value
+                  type: boolean
+                SubaccountID:
+                  description: This field is to apply the permissions to only one sub-account. The option ApplyToAll will not work.
+                  type: string
+                EFTCollectEnabled:
+                  description: Permission related to EFT Fund, True if the user wants to enable this feature
+                  type: boolean
+                EFTSendEnabled:
+                  description: Permission related to EFT Withdraw, True if the user wants to enable this feature
+                  type: boolean
+                USDEFTCollectEnabled:
+                  description: Permission related to EFT Fund using USD currency with a Canadian bank account, True if the user wants to enable this feature
+                  type: boolean
+                USDEFTSendEnabled:
+                  description: Permission related to EFT Withdraw using USD currency with a Canadian bank account, True if the user wants to enable this feature
+                  type: boolean
+                RTRWithdrawEnabled:
+                  description: Permission related to VoPay Instant Withdraw, True if the user wants to enable this feature
+                  type: boolean
+                InteracMoneyRequestEnabled:
+                  description: Permission related to Interac Money request, True if the user wants to enable this feature
+                  type: boolean
+                InteracBulkPayoutEnabled:
+                  description: Permission related to Interac bulk payout, True if the user wants to enable this feature
+                  type: boolean
+                GCMEnabled:
+                  description: Permission related to Global cash management, True if the user wants to enable this feature
+                  type: boolean
+                VisaDirectEnabled:
+                  description: Permission related to Visa Direct, True if the user wants to enable this feature
+                  type: boolean
+                MaxFundEFTAmount:
+                  description: Maximum amount that the user can transfer using this endpoint (EFT fund)
+                  type: number
+                MaxWithdrawEFTAmount:
+                  description: Maximum amount that the user can transfer using this endpoint (EFT withdraw)
+                  type: number
+                MaxRTRWithdrawAmount:
+                  description: Maximum amount that the user can transfer using this endpoint (VoPay Instant withdraw)
+                  type: number
+                MaxInteracMoneyAmount:
+                  description: Maximum amount that the user can transfer using this endpoint (Interac Money request)
+                  type: number
+                MaxInteracBulkPayoutAmount:
+                  description: Maximum amount that the user can transfer using this endpoint (Interac bulk payout)
+                  type: number
+                MaxGCMAmount:
+                  description: Maximum amount that the user can transfer using this endpoint (GMC)
+                  type: number
+                MaxVisaDirectAmount:
+                  description: Maximum amount that the user can transfer using this endpoint (Visa Direct)
+                  type: number
+                PortalTransactionCreation:
+                  description: True if the user wants to enable this feature. This flag will change the user permission to the admin portal. When disabled, the user will have 'Read Only' permission and when enabled, the user will be able to create transactions using the admin portal.
+                  type: boolean
+                AutoBalanceTransferEnabled:
+                  description: True if the user wants to enable this feature. This flag allow the user to set auto transfer balance
+                  type: boolean
+                PayLinkEnabled:
+                  description: True if the user wants to enable this feature. This flag allow the user to activate PayLink functionality
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+  /account/subaccount/send-onboarding-application:
+    post:
+      description: This endpoint will allow the user to resend an application to the sub-account. The sub-account must be in Application Pending status for the applicattion to be sent.
+      summary: account/subaccount/send-onboarding-application
+      tags:
+      - Sub-Account Endpoints
+      operationId: SubaccountSendOnboardingApplicationPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                SubaccountID:
+                  description: The account ID of the subaccount you are attempting to onboard
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - SubaccountID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+  /account/subaccount/deactivate:
+    post:
+      description: This endpoint is used to deactivate a sub-account.
+      summary: account/subaccount/deactivate
+      tags:
+      - Sub-Account Endpoints
+      operationId: SubaccountDeactivatePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                SubaccountID:
+                  description: The account ID of the sub-account you want to deactivate
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - SubaccountID
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage

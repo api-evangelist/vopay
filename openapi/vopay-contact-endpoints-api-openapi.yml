@@ -1,0 +1,808 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Contact Endpoints API
+  description: The Contact API allows you to manage contacts associated with your VoPay account.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Contact Endpoints
+paths:
+  /contacts/add:
+    post:
+      description: This endpoint is used to add a new contact record for the given account. If Flinks, Plaid or Mx credentials are provided, we will fetch all personal and bank account details from those providers.
+      summary: contacts/add
+      tags:
+      - Contact Endpoints
+      operationId: ContactAddPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ContactID:
+                  description: Custom ID of the contact you want to create
+                  type: string
+                EmailAddress:
+                  description: The email address to be associated with this contact
+                  type: string
+                PhoneNumber:
+                  description: The phone number to be associated with this contact
+                  type: string
+                FirstName:
+                  description: The first name to be associated with this contact
+                  type: string
+                LastName:
+                  description: The last name to be associated with this contact
+                  type: string
+                BusinessName:
+                  description: Client's business name
+                  type: string
+                Address1:
+                  description: Contact's address line 1
+                  type: string
+                City:
+                  description: Contact's city
+                  type: string
+                Province:
+                  description: Contact's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                Country:
+                  description: Contact's country specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                  type: string
+                Nationality:
+                  description: Contact's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                  type: string
+                PostalCode:
+                  description: Contact's postal code.
+                  type: string
+                Token:
+                  description: An iQ11 Token that has been generated using Custom Iframe.
+                  type: string
+                FlinksLoginID:
+                  description: Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated user and bank account details from Flinks.
+                  type: string
+                PlaidProcessorToken:
+                  description: Plaid Processor Token. VoPay will fetch the associated user bank account details from Plaid.
+                  type: string
+                MxProcessorToken:
+                  description: Mx Processor Token. VoPay will fetch the associated user bank account details from Mx.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - EmailAddress
+              - PhoneNumber
+              - FirstName
+              - LastName
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ContactID:
+                    type: string
+                    description: This ID of the newly created contact
+                    example: test_contact_id
+  /contacts/edit:
+    post:
+      description: This endpoint is used to add a new contact record for the given account.
+      summary: contacts/edit
+      tags:
+      - Contact Endpoints
+      operationId: ContactEditPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ContactID:
+                  description: The ID for the contact you wish to edit
+                  type: string
+                EmailAddress:
+                  description: The email address to be associated with this contact
+                  type: string
+                PhoneNumber:
+                  description: The phone number to be associated with this contact
+                  type: string
+                FirstName:
+                  description: The first name to be associated with this contact
+                  type: string
+                LastName:
+                  description: The last name to be associated with this contact
+                  type: string
+                Address1:
+                  description: Contact's address line 1
+                  type: string
+                City:
+                  description: Contact's city
+                  type: string
+                Province:
+                  description: Contact's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                Country:
+                  description: Contact's country specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                  type: string
+                Nationality:
+                  description: Contact's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                  type: string
+                PostalCode:
+                  description: Contact's postal code.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ContactID
+              - EmailAddress
+              - PhoneNumber
+              - FirstName
+              - LastName
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ContactID:
+                    type: string
+                    description: This ID of the newly created contact
+                    example: test_contact_id
+  /contacts/deactivate:
+    post:
+      description: This endpoint is used to deactivate a contact
+      summary: contacts/deactivate
+      tags:
+      - Contact Endpoints
+      operationId: ContactDeactivatePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ContactID:
+                  description: The ID for the contact you wish to deactivate
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ContactID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ContactID:
+                    type: string
+                    description: This ID of the deactivated contact
+                    example: test_contact_id
+                  IsActive:
+                    type: string
+                    description: The status of the deactivated contact
+                    example: '0'
+                  DateDeactivated:
+                    type: string
+                    description: The date and time the contact was deactivated
+                    example: '2024-04-04 04:04:04'
+  /contacts/activate:
+    post:
+      description: This endpoint is used to activate a contact
+      summary: contacts/activate
+      tags:
+      - Contact Endpoints
+      operationId: ContactActivatePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ContactID:
+                  description: The ID for the contact you wish to activate
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ContactID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ContactID:
+                    type: string
+                    description: This ID of the activated contact
+                    example: test_contact_id
+                  IsActive:
+                    type: string
+                    description: The status of the activated contact
+                    example: '1'
+  /contacts:
+    get:
+      description: This endpoint is used to get a list of contacts associated with the account.
+      summary: contacts
+      tags:
+      - Contact Endpoints
+      operationId: ContactGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ContactID
+        in: query
+        required: false
+        description: The ID of the contact to retrieve. If this is not provided, all contacts will be returned.
+        schema:
+          type: string
+      - name: 'Limit '
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: 'Offset '
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      - name: SearchText
+        in: query
+        required: false
+        description: A text string to search for in the email addresses, names and business number.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Contacts:
+                    type: object
+                    description: Collection of contacts associated with the VoPay account
+                    properties:
+                      '0':
+                        type: object
+                        description: Contact information
+                        properties:
+                          ContactID:
+                            type: number
+                            description: Unique ID of the contact
+                            example: test_contact_id
+                          ContactName:
+                            type: string
+                            description: Name associated with this contact
+                            example: Test Contact
+                          EmailAddress:
+                            type: string
+                            description: Email address associated with this contact
+                            example: test@contact.com
+                          PhoneNumber:
+                            type: string
+                            description: Phone number associated with this contact
+                            example: '7781111111'
+                          IsActive:
+                            type: string
+                            description: Active status of the contact
+                            example: '1'
+                          Nationality:
+                            type: string
+                            description: The contacts nationality
+                            example: Canada
+                          Currency:
+                            type: string
+                            description: 3 character currency code for the contact
+                            example: CAD
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of contact records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+  /contacts/payment-methods:
+    get:
+      description: This endpoint is used to look up all the payment methods for the given contact.
+      summary: contacts/payment-methods
+      tags:
+      - Contact Endpoints
+      operationId: ContactPaymentMethodsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ContactID
+        in: query
+        required: true
+        description: The Contact ID that the payment methods belong to.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  PaymentMethods:
+                    type: object
+                    description: Collection of payment methods
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          PaymentMethod:
+                            type: string
+                            description: The type of peyment record (BankAccount, Email, PhoneNumber, CreditCard, DebitCard)
+                            example: BankAccount
+                          PaymentDetails:
+                            type: string
+                            description: The details of the payment method
+                            example: 001-00040-123****
+                          IsDefault:
+                            type: boolean
+                            description: Is this this the default payment record for the payemnt method
+                            example: 'true'
+                          Token:
+                            type: string
+                            description: The associated token.
+                            example: 80be530727391c11470be104f8bb10b8812eddbd34479572e0b079df1d178c0a
+                          AddedOn:
+                            type: string
+                            description: The date and time this payemnt method was added.
+                            example: '2021-02-11 18:27:08'
+                          ExtraFields:
+                            type: object
+                            description: Extra information associated with the payment method.
+                            example: '{"VerificationStatus": "verified"}'
+  /contacts/transactions:
+    get:
+      description: This endpoint is used to get a list of transactions associated with a contact.
+      summary: contacts/transactions
+      tags:
+      - Contact Endpoints
+      operationId: ContactTransactionsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: StartDateTime
+        in: query
+        required: true
+        description: Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: EndDateTime
+        in: query
+        required: true
+        description: Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: ContactID
+        in: query
+        required: false
+        description: Filter transactions by Contact ID
+        schema:
+          type: string
+      - name: Currency
+        in: query
+        required: false
+        description: 3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).
+        schema:
+          type: string
+      - name: TransactionType
+        in: query
+        required: false
+        description: 'Specifies the type of transaction to return. Accepted values are: ''EFT Funding'', ''EFT Withdrawal'', ''Interac Money Request'', ''Interac Bulk Payout'', ''Credit Card'', ''Fee'', ''Reversal''.'
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: false
+        description: Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.
+        schema:
+          type: integer
+          format: int32
+      - name: ClientReferenceNumber
+        in: query
+        required: false
+        description: Searches for transactions with the specified client reference number.
+        schema:
+          type: string
+      - name: ScheduledTransactionID
+        in: query
+        required: false
+        description: Id of the schedule transaction to search
+        schema:
+          type: string
+      - name: IsFlagged
+        in: query
+        required: false
+        description: Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.
+        schema:
+          type: boolean
+      - name: IsRefunded
+        in: query
+        required: false
+        description: Filter the list of transactions to only include transactions that have been refunded.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  NumberOfRecords:
+                    type: integer
+                    description: Total number of transaction records returned
+                    example: '0'
+                  Transactions:
+                    type: object
+                    description: Collection of TransactionInfo data
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          TransactionID:
+                            type: integer
+                            description: Unique ID for the Transaction
+                            example: '5918'
+                          AccountName:
+                            type: string
+                            description: Account Name
+                            example: ''
+                          TransactionDateTime:
+                            type: string
+                            format: date-time
+                            description: The timestamp on which the transaction occurred.
+                            example: '2019-12-04 18:13:39'
+                          TransactionType:
+                            type: string
+                            description: Specifies the type of transaction, for example 'EFT Funding', 'EFT Withdrawal', 'Fee'.
+                            example: Reversal
+                          TransactionStatus:
+                            type: string
+                            description: Current Status of the transaction
+                            example: in progress
+                          Notes:
+                            type: string
+                            description: If applicable, notes giving context to the transaction.
+                            example: Transaction cancelled
+                          DebitAmount:
+                            type: number
+                            description: The dollar amount by which this transaction debited funds from your account balance. If DebitAmountis set, CreditAmount will be null.
+                            example: '100.00'
+                          CreditAmount:
+                            type: number
+                            description: The dollar amount by which this transaction credited funds to your account balance. If CreditAmount is set, DebitAmount will be null.
+                            example: '0.00'
+                          Currency:
+                            type: string
+                            description: 3 character currency code.
+                            example: CAD
+                          HoldAmount:
+                            type: number
+                            description: The dollar amount of the funds from this transaction which are temporarily on hold. This is only applicable for transactions where CreditAmount is set.
+                            example: '0.00'
+                          LastModified:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the transaction record was last modified. In normal circumstances the transaction record will only be modified when the HoldAmount is changed.
+                            example: '2019-12-04 18:13:39'
+                          ParentTransactionID:
+                            type: string
+                            description: If a transaction directly relates to another transaction, this value will be set to link the new transaction to its parent. For example if an EFT comes back with insufficient funds a new transaction will be created referencing the original transaction as its parent.
+                            example: '5909'
+                          ChildTransactionIDs:
+                            type: integer
+                            description: If this transaction directly relates to any other transactions this will contain a collection of child transaction IDs. For example if an EFT is reversed due to insufficient funds the original transaction record will reference the new transaction as a child.
+                            example: '{}'
+                          ClientReferenceNumber:
+                            type: string
+                            description: The optional reference number which was set when the transaction was created.
+                            example: 'null'
+                          ScheduledTransactionID:
+                            type: integer
+                            description: ID of the scheduled transaction
+                            example: '1'
+                          ContactID:
+                            type: string
+                            description: Contact ID used on the transaction
+                            example: test_contact_id
+                          TransactionErrorCode:
+                            type: string
+                            description: Error code of the transaction, if applicable
+                            example: '901'
+                          TransactionFailureReason:
+                            type: string
+                            description: Failure reason of the transaction, if applicable
+                            example: NSF
+                          TransactionFlag:
+                            type: string
+                            description: Flag status of the transaction, if applicable
+                            example: duplicate - 45563,45561
+                          ELinxRequestID:
+                            type: integer
+                            description: The unique ID of the eLinx request attached to the transaction, if applicable
+                            example: '1234'
+                          IsRefunded:
+                            type: boolean
+                            description: True if the transaction was refunded, false if it is not
+                            example: 'true'
+                          IsRefund:
+                            type: boolean
+                            description: True if the transaction is a refund transaction, false if it is not
+                            example: 'true'
+                          FullName:
+                            type: string
+                            description: 'Customer''s full name '
+                            example: Jane Doe
+  /account/contact/generate-embed-url:
+    post:
+      description: Use this endpoint to generate a unique URL to onboard a new contact. To send an email containing the URL to the recipient, set SendEmail = true, and provide both the email address and full name of the recipient.
+      summary: account/contact/generate-embed-url
+      tags:
+      - Contact Endpoints
+      operationId: ClientAccountGenerateEmbedURLPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                FirstName:
+                  description: Client's first name. Required if BusinessName is not provided.
+                  type: string
+                LastName:
+                  description: Client's last name. Required if BusinessName is not provided.
+                  type: string
+                BusinessName:
+                  description: Client's business name. Required if FirstName and LastName are not provided.
+                  type: string
+                SendEmail:
+                  description: This option is used to send the onboarding link through email. If you wish to send an email, then provide true. The default value is false.
+                  type: boolean
+                ReceiverEmailAddress:
+                  description: Recipient's email address. Required if SendEmail = true.
+                  type: string
+                  format: email
+                SendSMS:
+                  description: This option is used to send the onboarding link through SMS. If you wish to send an SMS, then provide true. The default value is false.
+                  type: boolean
+                ReceiverPhoneNumber:
+                  description: Recipient's phone number. Required if SendSMS = true.
+                  type: string
+                RequiredPaymentMethods:
+                  description: Comma-separated list of payment methods.
+                  type: string
+                Label:
+                  description: This option will add a Label to the contact. If the Label doesn't exist it will be created and applied.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  OnboardingLink:
+                    type: string
+                    description: The url of the onboarding link.
+                    example: https://request.vopay.com?Token=3s77vg2nwta8c3qc2rwpmmk8w03elfa7rmrsug3l

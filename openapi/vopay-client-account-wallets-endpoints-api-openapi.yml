@@ -1,0 +1,451 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Client Accounts Client Account Wallets Endpoints API
+  description: The Client Accounts API allows you to create, manage and retrieve information about client accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Client Account Wallets Endpoints
+paths:
+  /account/client-accounts/wallets:
+    get:
+      description: This endpoint allows you to retrieve a list of wallets belong to a client account.
+      summary: account/client-accounts/wallets
+      tags:
+      - Client Account Wallets Endpoints
+      operationId: ClientAccounWalletsGet
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID that the list of wallets belong to
+                  type: string
+                WalletID:
+                  description: A optional Wallet ID can be passed to return a single Wallet
+                  type: string
+                Currency:
+                  description: 3-character currency code defined by the ISO-4217 standard (e.g. CAD, USD). This will filter the list of wallets by currency
+                  type: string
+                IsOffbook:
+                  description: Filter by offbook wallets
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Wallets:
+                    type: object
+                    description: Collection of Wallets
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          WalletID:
+                            type: integer
+                            description: ID for the wallet
+                            example: '4231'
+                          WalletName:
+                            type: string
+                            description: name for the wallet
+                            example: Savings
+                          Currency:
+                            type: string
+                            description: 3 character currency code for the balance being returned.
+                            example: CAD
+                          IsPrimary:
+                            type: integer
+                            description: If the wallet is the primary wallet for this client account
+                            example: '0'
+                          IsOffbook:
+                            type: integer
+                            description: If the wallet is an offbook wallet
+                            example: '0'
+                          WalletBalance:
+                            type: number
+                            description: Indicates the total current wallet balance, including pending funds.
+                            example: '20000.00'
+                          WalletPendingBalance:
+                            type: number
+                            description: Indicates the portion of the wallet balance which is pending due to in-progress transactions.
+                            example: '5540.24'
+                          WalletOffbookBalance:
+                            type: number
+                            description: Indicates the total current offbook balance.
+                            example: '1534.00'
+                          Reserve:
+                            type: number
+                            description: Indicates the portion of the wallet balance which is being held as a reserve against negative balances.
+                            example: '50000.00'
+                          RollingReserveNSF:
+                            type: number
+                            description: Indicates the portion of the wallet balance which is being held as a reserve against NSF transactions.
+                            example: '10000.00'
+                          RollingReserveReturns:
+                            type: number
+                            description: Indicates the portion of the wallet balance which is being held as a reserve against returned transactions.
+                            example: '1000.00'
+                          WalletColor:
+                            type: string
+                            description: Hexadecimal color value of the wallet
+                            example: '#000000'
+  /account/client-accounts/wallets/create:
+    post:
+      description: This endpoint allows you to create a new wallet for your client account.
+      summary: account/client-accounts/wallets/create
+      tags:
+      - Client Account Wallets Endpoints
+      operationId: ClientAccountWalletsCreatePost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID that the new wallet is for
+                  type: string
+                WalletName:
+                  description: The name for your new wallet
+                  type: string
+                WalletID:
+                  description: Custom ID of the wallet you want to create. If one is not provided, we will auto-generate one for you.
+                  type: string
+                Currency:
+                  description: 3-character currency code defined by the ISO-4217 standard (e.g. CAD, USD). Used to set the default currency for the wallet being created
+                  type: string
+                IsOffbook:
+                  description: If set to true, the wallet will be created as an offbook wallet. Offbook wallets cannot contain real funds. They can only contain journal entries. If set to false, the wallet will be created as a standard wallet. Default is false.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - WalletName
+              - Currency
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  WalletID:
+                    type: string
+                    description: The ID for your new wallet
+                    example: primary_000001
+  /account/client-accounts/wallets/transfer:
+    post:
+      description: This endpoint allows you to transfer funds between two wallets. Both wallet IDs must belong to the provided client account.
+      summary: account/client-accounts/wallets/transfer
+      tags:
+      - Client Account Wallets Endpoints
+      operationId: ClientAccountWalletsTransferPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID that both wallets belong to
+                  type: string
+                DebitorWalletID:
+                  description: ID of the client account wallet transferring the funds
+                  type: string
+                RecipientWalletID:
+                  description: ID of the client account wallet receiving the funds
+                  type: string
+                Amount:
+                  description: The amount to transfer from the debitor wallet to the recipient wallet
+                  type: number
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - DebitorWalletID
+              - RecipientWalletID
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1234'
+  /account/client-accounts/wallets/delete:
+    post:
+      description: This endpoint allows you to delete a wallet if the wallet balance is 0.
+      summary: account/client-accounts/wallets/delete
+      tags:
+      - Client Account Wallets Endpoints
+      operationId: ClientAccountWalletsDeletePost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID that the wallet belongs to
+                  type: string
+                WalletID:
+                  description: The ID of the wallet that is being deleted
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - WalletID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/client-accounts/wallets/edit:
+    post:
+      description: This endpoint allows you to edit a wallet for your client account.
+      summary: account/client-accounts/wallets/edit
+      tags:
+      - Client Account Wallets Endpoints
+      operationId: ClientAccountWalletsEditPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID to which the wallet belongs
+                  type: string
+                WalletID:
+                  description: The ID of the wallet that is being edited
+                  type: string
+                WalletName:
+                  description: The new name for your wallet
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - WalletID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/client-accounts/wallets/deactivate:
+    post:
+      description: This endpoint allows you to deactivate a wallet for your client account.
+      summary: account/client-accounts/wallets/deactivate
+      tags:
+      - Client Account Wallets Endpoints
+      operationId: ClientAccountWalletsDeactivatePost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/ClientAccountWalletsDeactivatePost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/client-accounts/wallets/activate:
+    post:
+      description: This endpoint allows you to activate a wallet for your client account.
+      summary: account/client-accounts/wallets/activate
+      tags:
+      - Client Account Wallets Endpoints
+      operationId: ClientAccountWalletsActivatePost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/ClientAccountWalletsDeactivatePost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+components:
+  requestBodies:
+    ClientAccountWalletsDeactivatePost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              ClientAccountID:
+                description: The Client Account ID to which the wallet belongs
+                type: string
+              WalletID:
+                description: The ID of the wallet that is being edited
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - ClientAccountID
+            - WalletID
+      required: true

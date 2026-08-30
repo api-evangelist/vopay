@@ -1,0 +1,229 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Payment Rails Fednow Endpoints API
+  description: The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Fednow Endpoints
+paths:
+  /fednow/withdraw:
+    post:
+      description: "This endpoint is used to instantly send funds out of your VoPay account and deposit them to the specified recipient's bank account. \n\n Either an iq11 Token or ABARoutingNumber/AccountNumber is required.\n\n If a ClientAccountID is provided, the client account's first/last name and default bank account will be used for the transaction."
+      summary: fednow/withdraw
+      tags:
+      - Fednow Endpoints
+      operationId: FednowWithdrawPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/RtpWithdrawPost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction that was just performed. This ID should be saved as it is required in order to look up status information on the transaction.
+                    example: '112233'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+  /fednow/withdraw/transaction:
+    get:
+      description: This endpoint is used to look up details on a single Fednow withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's account.
+      summary: fednow/withdraw/transaction
+      tags:
+      - Fednow Endpoints
+      operationId: FednowWithdrawTransactionGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: Unique ID of the Fednow withdraw transaction.
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: pending, in progress, successful, failed, cancelled'
+                    example: pending
+                  TransactionDateTime:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was created
+                    example: '2019-11-01 12:00:00'
+                  Amount:
+                    type: number
+                    description: The dollar amount of the withdraw transaction. This is the amount to be deposited into the recipient's bank account.
+                    example: '2000'
+                  Currency:
+                    type: string
+                    description: The currency for the transaction.
+                    example: CAD
+                  RecipientName:
+                    type: string
+                    description: Recipient's name
+                    example: VoPay
+                  ABARoutingNumber:
+                    type: string
+                    description: The ABA Routing number of the customer's bank.
+                    example: '11234312'
+                  AccountNumber:
+                    type: string
+                    description: Recipient's bank account number that funds were deposited to.
+                    example: '227654387'
+                  ClientReferenceNumber:
+                    type: string
+                    description: An optional reference number which was associated with the transaction.
+                    example: ''
+                  GLCode:
+                    type: string
+                    description: General ledger code.
+                    example: '4300'
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: This timestamp indicates when the transaction record was last modified.
+                    example: '2019-11-03 01:00:00'
+                  TransactionTypeCode:
+                    type: string
+                    description: CPA transaction code.
+                    example: '999'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - TransactionDateTime
+                - Amount
+                - Currency
+                - RecipientName
+                - ABARoutingNumber
+                - AccountNumber
+                - ClientReferenceNumber
+                - GLCode
+                - LastModified
+                - TransactionTypeCode
+components:
+  requestBodies:
+    RtpWithdrawPost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              ClientAccountID:
+                description: Client Account ID
+                type: string
+              ContactID:
+                description: The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.
+                type: string
+              RecipientName:
+                description: Recipient's full name
+                type: string
+              AccountNumber:
+                description: Recipient's bank account number. This is the account that funds will be deposited into.
+                type: string
+              ABARoutingNumber:
+                description: The ABA Routing number of the recipient's bank account.
+                type: string
+              Token:
+                description: Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.
+                type: string
+              Amount:
+                description: The amount in the specified currency to deposit into the recipient's bank account.
+                type: number
+              ClientReferenceNumber:
+                description: An optional reference number to associate with the transaction.
+                type: string
+              Notes:
+                description: An optional note to associate with the transaction.
+                type: string
+              IdempotencyKey:
+                description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                type: string
+              ParentTransactionID:
+                description: The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.
+                type: string
+              GLCode:
+                description: An optional unique identification general ledger code.
+                type: string
+              TransactionTypeCode:
+                description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - RecipientName
+            - AccountNumber
+            - ABARoutingNumber
+            - Amount
+      required: true

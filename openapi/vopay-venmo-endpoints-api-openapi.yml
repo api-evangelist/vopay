@@ -1,0 +1,688 @@
+openapi: 3.2.0
+info:
+  title: Vopay Venmo Endpoints API
+  version: '2.0'
+  contact:
+    name: API Support
+    email: help@vopay.com
+  description: 'Operations tagged Venmo Endpoints across 2 of this provider''s published API definitions: vopay-payment-method-api-reference.json, vopay-payment-rails-api-reference.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Venmo Endpoints
+paths:
+  /venmo/add:
+    post:
+      description: This endpoint allows you to add a Venmo account to your VoPay account
+      summary: venmo/add
+      tags:
+      - Venmo Endpoints
+      operationId: VenmoAddPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: The ID of the contact to use for this Venmo account.
+                  type: string
+                VenmoRecipientType:
+                  description: The type of the Venmo account identifier. Valid values are 'EMAIL', 'PHONE', 'USER_HANDLE'.
+                  type: string
+                RecipientID:
+                  description: The recipient ID (email address, phone number, or Venmo user handle) of the Venmo account. This value corresponds with the VenmoRecipientType value in the request.
+                  type: string
+                RecipientName:
+                  description: The full name of the Venmo account holder.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - VenmoRecipientType
+              - RecipientID
+              - RecipientName
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /venmo/delete:
+    post:
+      description: This endpoint allows you to delete a Venmo account from your VoPay account
+      summary: venmo/delete
+      tags:
+      - Venmo Endpoints
+      operationId: VenmoDeletePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                VenmoToken:
+                  description: The Token associated with the Venmo account you wish to delete.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - VenmoToken
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /venmo/recipients:
+    get:
+      description: This endpoint allows you fetch a list all of your Venmo recipients
+      summary: venmo/recipients
+      tags:
+      - Venmo Endpoints
+      operationId: VenmoRecipientsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientControlled
+        in: query
+        required: false
+        description: When set to true, this endpoint will only return Venmo accounts linked to your VoPay account. When set to false, it will return a list of your customer's Venmo accounts.
+        schema:
+          type: boolean
+      - name: Limit
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: Offset
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  VenmoRecipients:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. A collection of Venmo recipients'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          RecipientName:
+                            type: string
+                            description: The name of the recipient
+                            example: John Doe
+                          RecipientID:
+                            type: string
+                            description: The email address, phone number, or Venmo user handle.
+                            example: bob@gmail.com
+                          VenmoRecipientType:
+                            type: string
+                            description: The type of the recipient
+                            example: EMAIL
+                          VenmoToken:
+                            type: string
+                            description: The Token associated with the recipient
+                            example: 1e7mtunsbhygfnfpm83zd8rig1hqoqu76y618x3eps4omcye0w83mjj2kk884w0o
+                          ClientControlledPayPalAccount:
+                            type: string
+                            description: Set to 1 if the Venmo recipient is linked to your VoPay account.
+                            example: '1'
+                          IsDefault:
+                            type: string
+                            description: Set to 1 if the Venmo recipient is the default
+                            example: '1'
+                        required:
+                        - RecipientName
+                        - RecipientID
+                        - VenmoRecipientType
+                        - VenmoToken
+                        - ClientControlledPayPalAccount
+                        - IsDefault
+                    x-list-of: inline
+                    x-empty-when: no Venmo recipients match
+                required:
+                - Success
+                - ErrorMessage
+                - VenmoRecipients
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /venmo/set-my-recipient:
+    post:
+      description: This endpoint allows you to identify a Venmo recipient as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a Venmo recipient as being the VoPay account holder's default Venmo recipient. Note, a VoPay account can only have one default Venmo recipient.
+      summary: venmo/set-my-recipient
+      tags:
+      - Venmo Endpoints
+      operationId: VenmoSetMyRecipientPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                VenmoToken:
+                  description: The token identifying the Venmo wallet to send funds to.
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                SetAsDefault:
+                  description: Identify credit card as default Venmo recipient
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - VenmoToken
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  VenmoToken:
+                    type: string
+                    description: Venmo recipient token
+                    example: ACBDF-GAFSHD-AHBS-123456
+                  IsDefault:
+                    type: boolean
+                    description: Is this the VoPay account holder's default Venmo recipient
+                    example: true
+                required:
+                - Success
+                - ErrorMessage
+                - VenmoToken
+                - IsDefault
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /venmo/default-recipient:
+    get:
+      description: This endpoint retrieves the default Venmo recipient associated with your VoPay account
+      summary: venmo/default-recipient
+      tags:
+      - Venmo Endpoints
+      operationId: VenmoDefaultRecipientGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: When provided, this endpoint will return the default Venmo recipient associated with this Client Account ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DefaultVenmoRecipient:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Collection of Venmo Recipient records'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          ClientControlledVenmoAccount:
+                            type: string
+                            description: Set to 1 if the Venmo recipient is linked to your VoPay account.
+                            example: '1'
+                          RecipientName:
+                            type: string
+                            description: Recipient's name
+                            example: Bob
+                          RecipientID:
+                            type: string
+                            description: The email address, phone number, or Venmo user handle.
+                            example: bob@gmail.com
+                          VenmoRecipientType:
+                            type: string
+                            description: 'The type of Venmo recipient record. Accepted values: EMAIL, PHONE, or USER_HANDLE'
+                            example: EMAIL
+                          IsActive:
+                            type: string
+                            description: Determine if the Venmo recipient is active or not
+                            example: 'true'
+                          IsDefault:
+                            type: string
+                            description: Determine if this is the default Venmo recipient for the given account or not
+                            example: 'true'
+                          VenmoToken:
+                            type: string
+                            description: The token associated with the Venmo recipient record
+                            example: 1e7mtunsbhygfnfpm83zd8rig1hqoqu76y618x3eps4omcye0w83mjj2kk884w0o
+                          DateAdded:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the Venmo recipient record was added.
+                            example: '2024-05-02 18:28:13'
+                        required:
+                        - ClientControlledVenmoAccount
+                        - RecipientName
+                        - RecipientID
+                        - VenmoRecipientType
+                        - IsActive
+                        - IsDefault
+                        - VenmoToken
+                        - DateAdded
+                    x-list-of: inline
+                    x-empty-when: no default Venmo recipient
+                required:
+                - Success
+                - ErrorMessage
+                - DefaultVenmoRecipient
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /venmo/withdraw/generate-embed-url:
+    post:
+      description: This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their Venmo account and generate a token, which can be used in the /venmo/withdraw endpoint.
+      summary: venmo/withdraw/generate-embed-url
+      tags:
+      - Venmo Endpoints
+      operationId: VenmoGenerateEmbedURLPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: When provided, the Venmo token generated will be attached to the Client Account ID
+                  type: string
+                RedirectURL:
+                  description: URL to redirect the user to after the Venmo account is connected.
+                  type: string
+                RedirectMethod:
+                  description: This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.
+                  type: string
+                ClientControlled:
+                  description: When set to true, the Venmo token added will be linked to your VoPay account. Default is false.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - RedirectURL
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  EmbedURL:
+                    type: string
+                    description: Custom generated iQ11 iframe url for users to use
+                    example: https://earthnode-dev.vopay.com/iq11/embed/{Key Returned by Vopay}
+                  IframeKey:
+                    type: string
+                    description: Unique key attached to the generated iFrame
+                    example: a1b2c3
+                required:
+                - Success
+                - ErrorMessage
+                - EmbedURL
+                - IframeKey
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /venmo/withdraw:
+    post:
+      description: "This endpoint is used to send funds from your VoPay account to a Venmo account.\n\n If a ClientAccountID is provided, the client account's default Venmo wallet will be used for the transaction."
+      summary: venmo/withdraw
+      tags:
+      - Venmo Endpoints
+      operationId: VenmoWithdrawPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.
+                  type: string
+                VenmoToken:
+                  description: The token identifying the Venmo wallet to send funds to.
+                  type: string
+                VenmoRecipientType:
+                  description: The type of the Venmo wallet you are sending funds to. Valid values are 'EMAIL', 'PHONE', 'USER_HANDLE'.
+                  type: string
+                RecipientID:
+                  description: The recipient ID (email address, phone number, or Venmo user handle) of the Venmo wallet you are sending funds to. This value corresponds with the VenmoRecipientType value in the request.
+                  type: string
+                RecipientName:
+                  description: The full name of the recipient receiving the funds.
+                  type: string
+                Amount:
+                  description: The amount to send to the customers Venmo wallet.
+                  type: number
+                Notes:
+                  description: Optional notes for the transaction.
+                  type: string
+                ClientReferenceNumber:
+                  description: Optional client reference number for the transaction.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                TransactionTypeCode:
+                  description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - RecipientName
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction that was just submitted.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /venmo/withdraw/transaction:
+    get:
+      description: This endpoint is used to look up and return the full details on a single Venmo withdraw transaction. Venmo withdraw send funds from your VoPay account to the customer's Venmo account.
+      summary: venmo/withdraw/transaction
+      tags:
+      - Venmo Endpoints
+      operationId: VenmoWithdrawTransactionsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: Account transaction ID
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: pending, in progress, successful, failed, cancelled'
+                    example: pending
+                  TransactionDateTime:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was created
+                    example: '2019-11-01 12:00:00'
+                  Amount:
+                    type: number
+                    description: The dollar amount of the Venmo withdraw transaction. This is the amount that was sent to the customer's Venmo account.
+                    example: '2000'
+                  Currency:
+                    type: string
+                    description: The currency for the transaction.
+                    example: CAD
+                  VenmoToken:
+                    type: string
+                    description: A unique token of the Venmo recipient information.
+                    example: ACBDF-GAFSHD-AHBS-123456
+                  GLCode:
+                    type: string
+                    description: General ledger code.
+                    example: '4300'
+                  TransactionTypeCode:
+                    type: string
+                    description: CPA transaction code.
+                    example: '999'
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: This timestamp indicates when the transaction record was last modified. In normal circumstances the transaction record will only be modified when the status of the transaction changes or the HoldAmount is changed.
+                    example: '2019-11-03 01:00:00'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - TransactionDateTime
+                - Amount
+                - Currency
+                - VenmoToken
+                - GLCode
+                - TransactionTypeCode
+                - LastModified
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+x-refined-from:
+- vopay-payment-method-api-reference.json
+- vopay-payment-rails-api-reference.json

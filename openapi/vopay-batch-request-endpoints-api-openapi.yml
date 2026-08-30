@@ -1,0 +1,1383 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Payment Rails Batch Request Endpoints API
+  description: The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Batch Request Endpoints
+paths:
+  /batch/contacts/add:
+    post:
+      description: 'This endpoint is used to submit multiple contact creation requests to VoPay. Each object in the batch is processed against the /contacts/add endpoint: EmailAddress and PhoneNumber are always required, and either BusinessName or both FirstName and LastName must be provided.'
+      summary: batch/contacts/add
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchContactsAddPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /contacts/add endpoint. This endpoint accepts a maximum of 5000 contacts per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of contacts submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected contacts.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected contacts
+                    example: '{''1'': ''Required parameter(s) missing: EmailAddress'', ''3'': ''Required parameter(s) missing: FirstName, LastName''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/eft/fund:
+    post:
+      description: This endpoint is used to submit multiple EFT fund transaction requests to VoPay.
+      summary: batch/eft/fund
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchEFTFundPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /eft/fund endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: FirstName, LastName'', ''3'': ''Required parameter(s) missing: PostalCode''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/eft/withdraw:
+    post:
+      description: This endpoint is used to submit multiple EFT withdraw transaction requests to VoPay.
+      summary: batch/eft/withdraw
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchEFTWithdrawPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /eft/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: FirstName, LastName'', ''3'': ''Required parameter(s) missing: PostalCode''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/interac/money-request:
+    post:
+      description: This endpoint is used to submit multiple Interac money request transaction requests to VoPay.
+      summary: batch/interac/money-request
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchInteracMoneyRequestPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /interac/money-request endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: SenderName'', ''3'': ''Required parameter(s) missing: EmailAddress''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/interac/bulk-payout:
+    post:
+      description: This endpoint is used to submit multiple Interac bulk-payout transaction requests to VoPay.
+      summary: batch/interac/bulk-payout
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchInteracBulkPayoutPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /interac/bulk-payout endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: SenderName'', ''3'': ''Required parameter(s) missing: EmailAddress''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/rtr/withdraw:
+    post:
+      description: This endpoint is used to submit multiple VoPay Instant transaction requests to VoPay.
+      summary: batch/rtr/withdraw
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchVopayInstantPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /rtr/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: FinancialInstitutionNumber'', ''3'': ''Required parameter(s) missing: AccountNumber''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/elinx:
+    post:
+      description: This endpoint is used to submit multiple eLinx beneficiary requests to VoPay.
+      summary: batch/elinx
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchELinxPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /elinx endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: SenderName'', ''3'': ''Required parameter(s) missing: EmailAddress''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/debit-card/push-funds:
+    post:
+      description: This endpoint is used to submit multiple debit card oct push funds requests to VoPay.
+      summary: batch/debit-card/push-funds
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchDebitCardPushFundsPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /debit-card/oct/push-funds endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: SenderName'', ''3'': ''Required parameter(s) missing: EmailAddress''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/ach/fund:
+    post:
+      description: This endpoint is used to submit multiple ACH Fund requests to VoPay.
+      summary: batch/ach/fund
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchACHFundPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /ach/fund endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: SenderName'', ''3'': ''Required parameter(s) missing: EmailAddress''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/ach/withdraw:
+    post:
+      description: This endpoint is used to submit multiple ACH Withdraw requests to VoPay.
+      summary: batch/ach/withdraw
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchACHWithdrawPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /ach/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: SenderName'', ''3'': ''Required parameter(s) missing: EmailAddress''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/credit-card/charge:
+    post:
+      description: This endpoint is used to submit multiple Credit Card Charge requests to VoPay.
+      summary: batch/credit-card/charge
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchCreditCardChargePost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /credit-card/charge endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: SenderName'', ''3'': ''Required parameter(s) missing: EmailAddress''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/rtp/withdraw:
+    post:
+      description: This endpoint is used to submit multiple RTP Withdraw requests to VoPay.
+      summary: batch/rtp/withdraw
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchRTPWithdrawPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /rtp/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: SenderName'', ''3'': ''Required parameter(s) missing: EmailAddress''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/fednow/withdraw:
+    post:
+      description: This endpoint is used to submit multiple Fednow Withdraw requests to VoPay.
+      summary: batch/fednow/withdraw
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchFednowWithdrawPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /fednow/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: SenderName'', ''3'': ''Required parameter(s) missing: EmailAddress''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/fedwire/fund:
+    post:
+      description: This endpoint is used to submit multiple Fedwire Fund requests to VoPay.
+      summary: batch/fedwire/fund
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchFedwireFundPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /fedwire/fund endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: SenderName'', ''3'': ''Required parameter(s) missing: EmailAddress''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch/fedwire/withdraw:
+    post:
+      description: This endpoint is used to submit multiple Fedwire Withdraw requests to VoPay.
+      summary: batch/fedwire/withdraw
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchFedwireWithdrawPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BatchName:
+                  description: Name of the batch
+                  type: string
+                BatchData:
+                  description: An array of objects. Each object contains the input params for the /fedwire/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BatchName
+              - BatchData
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchTransactionRequestID:
+                    type: integer
+                    description: Unique ID of your batch transaction request.
+                    example: '123456'
+                  TotalSubmittedTransactions:
+                    type: integer
+                    description: Total number of transactions submitted.
+                    example: '1000'
+                  NumberOfRejectedTransactions:
+                    type: integer
+                    description: Total number of rejected transactions.
+                    example: '5'
+                  RejectedTransactions:
+                    type: string
+                    description: JSON object containing the rejected transactions
+                    example: '{''1'': ''Required parameter(s) missing: SenderName'', ''3'': ''Required parameter(s) missing: EmailAddress''}'
+                    x-absent-when: no rejected transactions
+                required:
+                - Success
+                - ErrorMessage
+                - BatchTransactionRequestID
+                - TotalSubmittedTransactions
+                - NumberOfRejectedTransactions
+  /batch:
+    get:
+      description: This endpoint is used to fetch a listing of all your batch transaction requests
+      summary: batch
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionType
+        in: query
+        required: false
+        description: 'Filters results by transaction type: EFT, Interac, or Paylink. Default is '''' (i.e., batch transaction requests of all transaction types are returned).'
+        schema:
+          type: string
+      - name: PaymentType
+        in: query
+        required: false
+        description: 'Filters results by payment type: Credit or Debit. Default is '''' (i.e., batch transaction requests of all payment types are returned).'
+        schema:
+          type: string
+      - name: FromDate
+        in: query
+        required: false
+        description: Returns all batch transaction requests submitted after this date. Date format is YYYY-MM-DD.
+        schema:
+          type: string
+      - name: ToDate
+        in: query
+        required: false
+        description: Returns all batch transaction requests submitted before this date. Date format is YYYY-MM-DD.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the sending was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Batches:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Array of objects. Each object contains the details of each batch transaction request'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          BatchTransactionRequestID:
+                            type: integer
+                            description: The unique ID of the batch transaction request
+                            example: '1234'
+                          BatchName:
+                            type: string
+                            description: Name of the submitted batch.
+                            example: Funding transactions - Jan 2022
+                          TransactionType:
+                            type: string
+                            description: EFT, Interac, or Paylink
+                            example: EFT
+                          PaymentType:
+                            type: string
+                            description: Credit or Debit
+                            example: Credit
+                          NumRecords:
+                            type: integer
+                            description: Number of transaction requests in the batch
+                            example: '950'
+                          TotalAmount:
+                            type: number
+                            description: Total amount of all transactions in the submitted batch
+                            example: '4560.34'
+                          DateAdded:
+                            type: string
+                            description: Date the batch transaction request was submitted
+                            example: '2022-01-12'
+                          TotalSubmitted:
+                            type: integer
+                            description: Total number of transactions that are still in submitted status
+                            example: '45'
+                          TotalCreated:
+                            type: integer
+                            description: Total number of transactions that have been created
+                            example: '900'
+                          TotalFailed:
+                            type: integer
+                            description: Total number of transactions that failed to create
+                            example: '5'
+                        required:
+                        - BatchTransactionRequestID
+                        - BatchName
+                        - TransactionType
+                        - PaymentType
+                        - NumRecords
+                        - TotalAmount
+                        - DateAdded
+                        - TotalSubmitted
+                        - TotalCreated
+                        - TotalFailed
+                    x-empty-when: no batches match
+                    x-list-of: inline
+                required:
+                - Success
+                - ErrorMessage
+                - Batches
+  /batch/details:
+    get:
+      description: This endpoint is used to fetch the details of a specific batch transaction request
+      summary: batch/details
+      tags:
+      - Batch Request Endpoints
+      operationId: BatchDetailsGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: BatchTransactionRequestID
+        in: query
+        required: true
+        description: Unique ID of the batch transaction request you want to fetch the details for.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the sending was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BatchDetails:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Array of objects. Each object contains the details of each transaction in the batch transaction request.'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          BatchTransactionRequestDetailsRecordID:
+                            type: integer
+                            description: The unique ID of the batch transaction request detail
+                            example: '1234'
+                          TransactionPayload:
+                            type: object
+                            description: JSON object of the submitted transaction
+                          TransactionID:
+                            type: integer
+                            description: Unique ID of the created transaction, if applicable
+                            example: '4567'
+                          ScheduledTransactionID:
+                            type: integer
+                            description: Unique ID of the created scheduled transaction, if applicable
+                            example: '678'
+                          ELinxRequestID:
+                            type: integer
+                            description: Unique ID of the created eLinx request, if applicable
+                            example: '789'
+                          FailureReason:
+                            type: string
+                            description: Reason the transaction failed to create, if applicable
+                            example: Missing first name
+                          Status:
+                            type: string
+                            description: 'Status of the transaction. Possible values are: submitted, created'
+                            example: '2022-01-12'
+                        required:
+                        - BatchTransactionRequestDetailsRecordID
+                        - TransactionPayload
+                        - TransactionID
+                        - ScheduledTransactionID
+                        - ELinxRequestID
+                        - FailureReason
+                        - Status
+                    x-empty-when: no batch details match
+                    x-list-of: inline
+                required:
+                - Success
+                - ErrorMessage
+                - BatchDetails

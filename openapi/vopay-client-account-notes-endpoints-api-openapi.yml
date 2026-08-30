@@ -1,0 +1,265 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Client Accounts Client Account Notes Endpoints API
+  description: The Client Accounts API allows you to create, manage and retrieve information about client accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Client Account Notes Endpoints
+paths:
+  /account/client-accounts/notes/add:
+    post:
+      description: This endpoint is used to add a note to your client account.
+      summary: account/client-accounts/notes/add
+      tags:
+      - Client Account Notes Endpoints
+      operationId: ClientAccountNotesAddPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                Notes:
+                  description: The note you want to add to the new record
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - Notes
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  NoteID:
+                    type: string
+                    description: The ID associated with the new record
+                    example: '2'
+  /account/client-accounts/notes/edit:
+    post:
+      description: This endpoint is used to edit a note associated with your client account.
+      summary: account/client-accounts/notes/edit
+      tags:
+      - Client Account Notes Endpoints
+      operationId: ClientAccountNotesEditPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                Notes:
+                  description: The note you want to update the record to
+                  type: string
+                NoteID:
+                  description: The ID of the note record you want to update
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - Notes
+              - NoteID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  NoteID:
+                    type: string
+                    description: The ID associated with the edited record
+                    example: '3'
+  /account/client-accounts/notes/delete:
+    post:
+      description: This endpoint is used to delete a note record from you client account.
+      summary: account/client-accounts/notes/delete
+      tags:
+      - Client Account Notes Endpoints
+      operationId: ClientAccountNotesDeletePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                NoteID:
+                  description: The ID of the note record you want to delete
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ClientAccountID
+              - NoteID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/client-accounts/notes:
+    get:
+      description: This endpoint is used to look up all the notes associated with the given client account.
+      summary: account/client-accounts/notes
+      tags:
+      - Client Account Notes Endpoints
+      operationId: ClientAccountNotesGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: true
+        description: Client Account ID
+        schema:
+          type: string
+      - name: NoteID
+        in: query
+        required: false
+        description: The ID for a specific getting a specific note
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Notes:
+                    type: object
+                    description: Collection note records
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          NoteID:
+                            type: string
+                            description: The ID associated with the note record
+                            example: '1'
+                          Notes:
+                            type: string
+                            description: The note
+                            example: Test Note
+                          DateAdded:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the note record was added.
+                            example: '2019-11-03 01:00:00'
+                          LastModified:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the note record was last modified.
+                            example: '2019-11-04 01:30:00'

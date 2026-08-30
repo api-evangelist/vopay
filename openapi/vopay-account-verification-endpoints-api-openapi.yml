@@ -1,0 +1,647 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Account Verification Endpoints API
+  description: The verification API defines endpoints for initiating, confirming, and fetching details  of micro deposit transactions to verify bank accounts in the US and Canada.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Account Verification Endpoints
+paths:
+  /account-verification/bank-account/initiate:
+    post:
+      description: This endpoint is used to intiate the micro deposit transaction. The bank routing information required will vary depending on the country. Currently only US and Canada are supported.
+      summary: account-verification/bank-account/initiate
+      tags:
+      - Account Verification Endpoints
+      operationId: AccountVerificationInitiate
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Country:
+                  description: Country for which the Micro Transaction should be initiated
+                  type: string
+                CompanyName:
+                  description: Company name of the account holder - required for associating the bank details
+                  type: string
+                FirstName:
+                  description: First name of the account holder - required for associating the bank details (optional if company name is present)
+                  type: string
+                LastName:
+                  description: Last name of the account holder - required for associating the bank details (optional if company name is present)
+                  type: string
+                Notes:
+                  description: An optional note to associate with the account verification request.
+                  type: string
+                ClientReferenceNumber:
+                  description: Reference number for the client
+                  type: string
+                InstitutionNumber:
+                  description: Financial Institution number - required for associating the bank details. Canada only.
+                  type: string
+                TransitNumber:
+                  description: Bank transit number - required for associating the bank details. Canada only.
+                  type: string
+                AccountNumber:
+                  description: Account number - required for associating the bank details.
+                  type: string
+                ABARoutingNumber:
+                  description: ABA routing number - required for associating the bank details. US only.
+                  type: string
+                SendEmail:
+                  description: This option is used to send the account verification initiation/expiration email. If you wish to send an email, then provide true. The default value is false.
+                  type: boolean
+                SenderEmailAddress:
+                  description: Account's email address - Must be a valid email. Required if SendEmail = true
+                  type: string
+                  format: email
+                ReceiverEmailAddress:
+                  description: Recipient's email address - Must be a valid email. Required if SendEmail = true
+                  type: string
+                  format: email
+                PhoneNumber:
+                  description: Customer's phone number. Digits only - no parentheses or dashes allowed. US only.
+                  type: string
+                Address1:
+                  description: Customer's address line 1. US only.
+                  type: string
+                City:
+                  description: Account's city - No abbreviation. US only.
+                  type: string
+                State:
+                  description: Customer's state specified using two character abbreviations (eg. CA, AZ). US only.
+                  type: string
+                ZipCode:
+                  description: Customer's zip code. US only.
+                  type: string
+                Token:
+                  description: The token identifying the bank account to be verified. If token is provided, bank routing info and address are not required.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Country
+              - CompanyName
+              - FirstName
+              - LastName
+              - AccountNumber
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  VerificationRequestID:
+                    type: integer
+                    description: Verification Request ID for the Bank Account to be verified
+                    example: '1'
+                  Link:
+                    type: string
+                    description: Link associated with the Account Verification Request ID
+                    example: https://embed.vopay.com/rtzcel1puxjd2ppyg3vlujggk2u52hzcv99eso14
+  /account-verification/bank-account/confirm:
+    post:
+      description: This endpoint is used to confirm the micro deposit transaction.
+      summary: account-verification/bank-account/confirm
+      tags:
+      - Account Verification Endpoints
+      operationId: AccountVerificationConfirm
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                VerificationRequestID:
+                  description: Value of the Account Verification Request ID
+                  type: integer
+                Amount:
+                  description: Amount to be confirmed for the Account Verification Request ID
+                  type: integer
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - VerificationRequestID
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ConfirmationStatus:
+                    type: integer
+                    description: Status of the confirmation
+                    example: 'true'
+  /account-verification/card:
+    post:
+      description: This endpoint is used to verify a credit or debit card.
+      summary: account-verification/card
+      tags:
+      - Account Verification Endpoints
+      operationId: AccountVerificationCard
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                VerificationTier:
+                  description: Tier of the verification request. Options are 'basic' and 'enhanced'. Defaults to 'basic' if not specified.
+                  type: string
+                CardToken:
+                  description: The token identifying the credit or debit card
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - CardToken
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  VerificationRequestID:
+                    type: integer
+                    description: Verification Request ID for the Bank Account to be verified
+                    example: '1234'
+                  VerificationStatus:
+                    type: string
+                    description: Status of the verification
+                    example: Verified
+                  VerificationInfo:
+                    type: object
+                    description: Verification information for the request (enhanced only)
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          SendingEligibility:
+                            type: string
+                            description: This debit card's eligibility to send funds.
+                            example: '1'
+                          ReceivingEligibility:
+                            type: string
+                            description: This debit card's eligibility to receive funds.
+                            example: '1'
+                          Type:
+                            type: string
+                            description: Verified card type.
+                            example: debit
+                          Brand:
+                            type: string
+                            description: Verified card brand.
+                            example: mastercard
+                          FundsAvailability:
+                            type: string
+                            description: Funds availability time frame after receiving a payment transaction.
+                            example: immediate
+                          InstitutionName:
+                            type: string
+                            description: Financial institution name.
+                            example: bankcorp bank, the
+                          InstitutionCountry:
+                            type: string
+                            description: Financial institution country.
+                            example: usa
+                          AccountStatementCurrency:
+                            type: string
+                            description: Currency of cardholder's account statement
+                            example: usd
+                          AcceptanceBrand:
+                            type: string
+                            description: Acceptance Brand
+                            example: mcc
+                          ProductType:
+                            type: string
+                            description: Product Type
+                            example: consumer
+  /account-verification/interac:
+    post:
+      description: This endpoint is used to verify an Interac email address.
+      summary: account-verification/interac
+      tags:
+      - Account Verification Endpoints
+      operationId: AccountVerificationInterac
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                VerificationTier:
+                  description: Tier of the verification request. Options are 'basic' and 'enhanced'. Defaults to 'basic' if not specified.
+                  type: string
+                EmailAddress:
+                  description: Email address of the account holder
+                  type: string
+                AccountHolderName:
+                  description: Name of the account holder - required for associating the email address (not required if ClientAccountID/ContactID is present)
+                  type: string
+                ClientAccountID:
+                  description: Client account ID - required for associating the email address (not required if AccountHolderName is present)
+                  type: string
+                ContactID:
+                  description: Contact ID - required for associating the email address (not required if AccountHolderName is present)
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - EmailAddress
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  VerificationRequestID:
+                    type: integer
+                    description: Verification Request ID for the Bank Account to be verified
+                    example: '1234'
+                  VerificationStatus:
+                    type: string
+                    description: Status of the verification
+                    example: Verified
+                  RegistrationInfo:
+                    type: object
+                    description: Registration information for the verification request (enhanced only)
+                    example:
+                      registeredName: Johnathan M Rogers
+                      alias: John Rogers
+                      autoDepositEnabled: true
+                      customerType: RETAIL
+                      maxPaymentOutgoingAmount: '25000'
+  /account-verification:
+    get:
+      description: This endpoint is used to fetch the details of a micro deposit transaction.
+      summary: account-verification
+      tags:
+      - Account Verification Endpoints
+      operationId: AccountVerification
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: VerificationRequestID
+        in: query
+        required: true
+        description: Value of the Account Verification Request ID
+        schema:
+          type: integer
+      - name: RequestStatus
+        in: query
+        required: false
+        description: The account verification request status. Can be 'active' or 'expired'
+        schema:
+          type: string
+      - name: VerificationStatus
+        in: query
+        required: false
+        description: The vefification status of the account. Can be 'unverified', 'verified' or 'failed'
+        schema:
+          type: string
+      - name: VerificationType
+        in: query
+        required: false
+        description: The verification type. Can be 'bank' or 'interac'
+        schema:
+          type: string
+      - name: SearchText
+        in: query
+        required: false
+        description: A text string to search for in the email addresses used for Account Verification process.
+        schema:
+          type: string
+      - name: StartDateTime
+        in: query
+        required: false
+        description: Return micro deposit transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: EndDateTime
+        in: query
+        required: false
+        description: Return micro deposit transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: Limit
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: Offset
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      - name: Timezone
+        in: query
+        required: false
+        description: Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ClientAccountID:
+                    type: string
+                    description: The client account ID.
+                    example: johndoe
+                  VerificationRequestID:
+                    type: integer
+                    description: Your updated Account Verification Request ID
+                    example: '1'
+                  AccountHolderName:
+                    type: string
+                    description: Account holder name associated with the Account Verification Request ID
+                    example: John Smith
+                  VerificationType:
+                    type: string
+                    description: The verification type. Can be 'bank' or 'interac'
+                    example: bank
+                  Amount:
+                    type: integer
+                    description: Amount associated with the Account Verification Request ID
+                    example: '0.22'
+                  Details:
+                    type: object
+                    description: Bank account details associated with the Account Verification Request ID
+                    properties:
+                      Credit:
+                        type: object
+                        description: Name associated with the credit transaction
+                        properties:
+                          FirstName:
+                            type: string
+                            description: First name associated with the credit transaction
+                            example: John
+                          LastName:
+                            type: string
+                            description: Last name associated with the credit transaction
+                            example: Smith
+                          CreditCardToken:
+                            type: string
+                            description: Credit card token
+                            example: a022ff77a55e6d00bf271a2b36c65a26600a1a25
+                          CreditCardBrand:
+                            type: string
+                            description: Credit card brand
+                            example: mastercard
+                          CreditCardNumber:
+                            type: string
+                            description: Masked credit card number
+                            example: '***********4567'
+                      Debit:
+                        type: object
+                        description: Name associated with the debit transaction
+                        properties:
+                          FirstName:
+                            type: string
+                            description: First name associated with the debit transaction
+                            example: John
+                          LastName:
+                            type: string
+                            description: Last name associated with the debit transaction
+                            example: Smith
+                          DebitCardToken:
+                            type: string
+                            description: Debit card token
+                            example: a022ff77a55e6d00bf271a2b36c65a26600a1a25
+                          DebitCardBrand:
+                            type: string
+                            description: Debit card brand
+                            example: mastercard
+                          DebitCardNumber:
+                            type: string
+                            description: Masked debit card number
+                            example: '***********4567'
+                      Bank:
+                        type: object
+                        description: Bank account number associated with the Account Verification Request ID
+                        properties:
+                          AccountNumber:
+                            type: string
+                            description: Bank account number associated with the Account Verification Request ID
+                            example: '123456789'
+                          Currency:
+                            type: string
+                            description: Currency of the bank account associated with the Account Verification Request ID
+                            example: USD
+                      EmailAddress:
+                        type: object
+                        description: Email address associated with the Account Verification Request ID
+                        properties:
+                          AccountHolderName:
+                            type: string
+                            description: Account holder name associated with the Account Verification Request ID
+                            example: John Smith
+                          EmailAddress:
+                            type: string
+                            description: Email address associated with the Account Verification Request ID
+                            example: john.smith@example.com
+                  PaymentRail:
+                    type: string
+                    description: The payment rail used for the verification transaction
+                    example: ACH Withdrawal
+                  Status:
+                    type: object
+                    description: Statuses associated with the Account Verification Request ID
+                    properties:
+                      Transaction:
+                        type: object
+                        description: Transaction statuses associated with the Account Verification Request ID
+                        properties:
+                          Credit:
+                            type: string
+                            description: Credit transaction status associated with the Account Verification Request ID
+                            example: in progress
+                          Debit:
+                            type: string
+                            description: Debit transaction status associated with the Account Verification Request ID
+                            example: in progress
+                      Verification:
+                        type: string
+                        description: Verification status associated with the Account Verification Request ID
+                        example: unverified
+                      Request:
+                        type: string
+                        description: Request status associated with the Account Verification Request ID
+                        example: unverified
+                  VerificationAttempts:
+                    type: integer
+                    description: Verification attempt count associated with the Account Verification Request ID
+                    example: '0'
+                  EmailAddress:
+                    type: object
+                    description: Email addresses associated with the Account Verification Request ID
+                    properties:
+                      Sender:
+                        type: string
+                        description: Account's Email Address associated with the Account Verification Request ID
+                        example: ''
+                      Receiver:
+                        type: string
+                        description: Recipient's Email Address associated with the Account Verification Request ID
+                        example: ''
+                  Link:
+                    type: string
+                    description: Link associated with the Account Verification Request ID
+                    example: https://request-dev.vopay.com/?AccountVerificationToken=1sqzvv
+                  Notes:
+                    type: string
+                    description: Note associated with the Account Verification Request ID
+                    example: This is a note
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: Last modified date/time associated with the Account Verification Request ID
+                    example: '2019-01-01 00:00:00'
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of transaction records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'

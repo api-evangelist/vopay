@@ -1,0 +1,744 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Payment Rails Fedwire Endpoints API
+  description: The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Fedwire Endpoints
+paths:
+  /fedwire/fund:
+    post:
+      description: "This endpoint is used to fund your US Bank account by debiting funds from the specified customer's bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.\n\n If a ClientAccountID is provided, the client account's first/last name, address, phone number, and default bank account will be used for the transaction."
+      summary: fedwire/fund
+      tags:
+      - Fedwire Endpoints
+      operationId: FedwireFundPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.
+                  type: string
+                FirstName:
+                  description: Customer's first name
+                  type: string
+                LastName:
+                  description: Customer's last name
+                  type: string
+                CompanyName:
+                  description: Company's name
+                  type: string
+                EmailAddress:
+                  description: Customer's email address
+                  type: string
+                PhoneNumber:
+                  description: Customer's phone number. Digits only - no parentheses or dashes allowed.
+                  type: string
+                Address1:
+                  description: Customer's address line 1
+                  type: string
+                Address2:
+                  description: Customer's address line 2
+                  type: string
+                City:
+                  description: Customer's city
+                  type: string
+                State:
+                  description: Customer's state specified using two character abbreviations (eg. CA, AZ)
+                  type: string
+                Country:
+                  description: Customer's country specified using full country name or ISO 3166-1 alpha-2 code.
+                  type: string
+                ZipCode:
+                  description: Customer's zip code.
+                  type: string
+                IPAddress:
+                  description: Customer's IP address.
+                  type: string
+                ABARoutingNumber:
+                  description: ABA routing transit number for customer's US bank account.
+                  type: integer
+                AccountNumber:
+                  description: Customer's bank account number for funds to be debited from.
+                  type: integer
+                Amount:
+                  description: The amount to debit from the customer's bank account.
+                  type: number
+                Notes:
+                  description: An optional note to associate with the transaction.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                TransactionTypeCode:
+                  description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                  type: string
+                WalletID:
+                  description: The ID of the wallet to associate with the transaction. Requires ClientAccountID to be provided.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - FirstName
+              - LastName
+              - CompanyName
+              - EmailAddress
+              - PhoneNumber
+              - Address1
+              - City
+              - State
+              - Country
+              - ZipCode
+              - ABARoutingNumber
+              - AccountNumber
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: This ID should be saved as it is required in order to look up status information on the transaction.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+  /fedwire/withdraw:
+    post:
+      description: "This endpoint is used to send funds to a specified customer's US Bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.\n\n If a ClientAccountID is provided, the client account's first/last name, address, phone number, and default bank account will be used for the transaction."
+      summary: fedwire/withdraw
+      tags:
+      - Fedwire Endpoints
+      operationId: FedwireWithdrawPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.
+                  type: string
+                FirstName:
+                  description: Customer's first name
+                  type: string
+                LastName:
+                  description: Customer's last name
+                  type: string
+                CompanyName:
+                  description: Company's name
+                  type: string
+                EmailAddress:
+                  description: Customer's email address
+                  type: string
+                PhoneNumber:
+                  description: Customer's phone number. Digits only - no parentheses or dashes allowed.
+                  type: string
+                Address1:
+                  description: Customer's address line 1
+                  type: string
+                Address2:
+                  description: Customer's address line 2
+                  type: string
+                City:
+                  description: Customer's city
+                  type: string
+                State:
+                  description: Customer's state specified using two character abbreviations (eg. CA, AZ)
+                  type: string
+                Country:
+                  description: Customer's country specified using full country name or ISO 3166-1 alpha-2 code.
+                  type: string
+                ZipCode:
+                  description: Customer's zip code.
+                  type: string
+                IPAddress:
+                  description: Customer's IP address.
+                  type: string
+                ABARoutingNumber:
+                  description: ABA routing transit number for customer's US bank account.
+                  type: integer
+                AccountNumber:
+                  description: Account number for the customer's US bank account
+                  type: integer
+                Amount:
+                  description: The amount to credit to the customer's bank account.
+                  type: number
+                Notes:
+                  description: An optional note to associate with the transaction.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+                ParentTransactionID:
+                  description: The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                TransactionTypeCode:
+                  description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - FirstName
+              - LastName
+              - CompanyName
+              - EmailAddress
+              - PhoneNumber
+              - Address1
+              - City
+              - State
+              - Country
+              - ZipCode
+              - ABARoutingNumber
+              - AccountNumber
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: This ID should be saved as it is required in order to look up status information on the transaction.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+  /fedwire/void:
+    post:
+      description: This method is used to void a previously created Fedwire transaction. Note, you can only void a transaction if it has not yet settled. If the transaction has already settled, then you can use the /fedwire/refund endpoint to reverse the transaction.
+      summary: fedwire/void
+      tags:
+      - Fedwire Endpoints
+      operationId: FedwireVoidPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/CreditCardVoidPost'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID for the void transaction
+                    example: '1124'
+                  TransactionStatus:
+                    type: string
+                    description: A message indicating the current transaction status - cancelled
+                    example: cancelled
+                  Timestamp:
+                    type: string
+                    description: The timestamp when the transaction status was last modified
+                    example: '2022-02-04 12:34:56'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - Timestamp
+  /fedwire/refund:
+    post:
+      description: This method is used to refund a previously created Fedwire transaction.
+      summary: fedwire/refund
+      tags:
+      - Fedwire Endpoints
+      operationId: FedwireRefundPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                TransactionID:
+                  description: The unique ID for the transaction you want to refund
+                  type: integer
+                Amount:
+                  description: The amount to refund. Value must be equal to or less than the original transaction amount. If no amount is provided, the full amount from the original transaction is used.
+                  type: number
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - TransactionID
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID for the refund transaction
+                    example: '1124'
+                  Timestamp:
+                    type: string
+                    description: The timestamp when the transaction status was last modified
+                    example: '2022-02-04 12:34:56'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - Timestamp
+  /fedwire/fund/transaction:
+    get:
+      description: This endpoint is used to look up and return the full details on a single Fedwire fund transaction.
+      summary: fedwire/fund/transaction
+      tags:
+      - Fedwire Endpoints
+      operationId: FedwireFundTransactionGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: The unique ID of the fund transaction
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: pending, in progress, successful, failed, cancelled'
+                    example: pending
+                  TransactionDateTime:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was created
+                    example: '2019-11-01 12:00:00'
+                  HoldReleaseDateTime:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction hold release will be released
+                    example: '2019-11-01 12:00:00'
+                  Amount:
+                    type: number
+                    description: The dollar amount of the fund transaction. This is the amount that was withdrawn from the customer's bank account.
+                    example: '1200'
+                  Currency:
+                    type: string
+                    description: The currency for the transaction.
+                    example: CAD
+                  HoldAmount:
+                    type: number
+                    description: Indicates if any of the funds that were credited to your account are still being held.
+                    example: '1200'
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: This timestamp indicates when the transaction record was last modified. In normal circumstances the transaction record will only be modified when the status of the transaction changes or the HoldAmount is changed.
+                    example: '2019-11-02 01:00:21'
+                  CompanyName*:
+                    type: string
+                    description: Company's name
+                    example: VoPay
+                  FirstName*:
+                    type: string
+                    description: Customer's first name
+                    example: John
+                  LastName*:
+                    type: string
+                    description: Customer's last name
+                    example: Doe
+                  Address1:
+                    type: string
+                    description: Customer's address line 1
+                    example: 112 Bentall Street
+                  Address2:
+                    type: string
+                    description: Customer's address line 2
+                    example: ''
+                  City:
+                    type: string
+                    description: Customer's city
+                    example: Vancouver
+                  Province/State:
+                    type: string
+                    description: Customer's province specified using two character abbreviation (eg. BC, AB)
+                    example: BC
+                  Country:
+                    type: string
+                    description: Customer's Country specified using full country name or ISO 3166-1 alpha-2 code
+                    example: Canada
+                  PostalCode/Zipcode:
+                    type: string
+                    description: Customer's postal code.
+                    example: V4W 5Z7
+                  AccountNumber:
+                    type: string
+                    description: Customer's bank account number that funds were debited from.
+                    example: '1100456342'
+                  ABARoutingNumber:
+                    type: string
+                    description: The ABA Routing number of the customer's bank.
+                    example: '11234312'
+                  ClientReferenceNumber:
+                    type: string
+                    description: An optional reference number which was associated with the transaction.
+                    example: '876432'
+                  GLCode:
+                    type: string
+                    description: General ledger code.
+                    example: '4300'
+                  TransactionTypeCode:
+                    type: string
+                    description: CPA transaction code.
+                    example: '999'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - TransactionDateTime
+                - HoldReleaseDateTime
+                - Amount
+                - Currency
+                - HoldAmount
+                - LastModified
+                - CompanyName*
+                - FirstName*
+                - LastName*
+                - Address1
+                - Address2
+                - City
+                - Province/State
+                - Country
+                - PostalCode/Zipcode
+                - AccountNumber
+                - ABARoutingNumber
+                - ClientReferenceNumber
+                - GLCode
+                - TransactionTypeCode
+  /fedwire/withdraw/transaction:
+    get:
+      description: This endpoint is used to look up details on a single Fedwire withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's bank account.
+      summary: fedwire/withdraw/transaction
+      tags:
+      - Fedwire Endpoints
+      operationId: FedwireWithdrawTransactionGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: Unique ID of the withdraw transaction
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: pending, in progress, successful, failed, cancelled'
+                    example: pending
+                  TransactionDateTime:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was created
+                    example: '2019-11-01 12:00:00'
+                  Amount:
+                    type: number
+                    description: The dollar amount of the withdraw transaction. This is the amount to be deposited into the recipient's bank account.
+                    example: '2000'
+                  Currency:
+                    type: string
+                    description: The currency for the transaction.
+                    example: USD
+                  HoldAmount:
+                    type: number
+                    description: Will always be 0 for withdraw transactions, however parameter is included to keep return data format consistent with the format used for fund transactions.
+                    example: '2000'
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: This timestamp indicates when the transaction record was last modified. In normal circumstances withdraw transaction record will not be modified.
+                    example: '2019-11-03 01:00:00'
+                  CompanyName*:
+                    type: string
+                    description: Company's name
+                    example: VoPay
+                  FirstName*:
+                    type: string
+                    description: Recipient's first name
+                    example: John
+                  LastName:
+                    type: string
+                    description: Recipient's last name
+                    example: Doe
+                  PhoneNumber:
+                    type: integer
+                    description: Recipient's phone number
+                    example: 604556****
+                  Address1:
+                    type: string
+                    description: Recipient's address line 1
+                    example: 112 Bentall Street
+                  Address2:
+                    type: string
+                    description: Recipient's address line 2
+                    example: ''
+                  City:
+                    type: string
+                    description: Recipient's city
+                    example: Los Angeles
+                  Province/State:
+                    type: string
+                    description: Recipient's province or state specified using two character abbreviation (eg. BC, AB)
+                    example: CA
+                  Country:
+                    type: string
+                    description: Recipient's country specified using full country name.
+                    example: USA
+                  PostalCode/ZipCode:
+                    type: string
+                    description: Recipient's postal or zip code.
+                    example: '90210'
+                  AccountNumber:
+                    type: string
+                    description: Recipient's bank account number that funds were deposited to.
+                    example: '227654387'
+                  ABARoutingNumber:
+                    type: string
+                    description: Routing number for the customer's account.
+                    example: '129320349'
+                  ClientReferenceNumber:
+                    type: string
+                    description: An optional reference number which was associated with the transaction.
+                    example: ''
+                  GLCode:
+                    type: string
+                    description: General ledger code.
+                    example: '4300'
+                  TransactionTypeCode:
+                    type: string
+                    description: CPA transaction code.
+                    example: '999'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - TransactionDateTime
+                - Amount
+                - Currency
+                - HoldAmount
+                - LastModified
+                - CompanyName*
+                - FirstName*
+                - LastName
+                - PhoneNumber
+                - Address1
+                - Address2
+                - City
+                - Province/State
+                - Country
+                - PostalCode/ZipCode
+                - AccountNumber
+                - ABARoutingNumber
+                - ClientReferenceNumber
+                - GLCode
+                - TransactionTypeCode
+components:
+  requestBodies:
+    CreditCardVoidPost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              TransactionID:
+                description: The unique ID for the transaction you want to void
+                type: integer
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - TransactionID
+      required: true

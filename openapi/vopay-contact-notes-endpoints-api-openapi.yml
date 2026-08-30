@@ -1,0 +1,265 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Contact Notes Endpoints API
+  description: The Contact API allows you to manage contacts associated with your VoPay account.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Contact Notes Endpoints
+paths:
+  /contacts/notes/add:
+    post:
+      description: This endpoint is used to add a note to your contact.
+      summary: contacts/notes/add
+      tags:
+      - Contact Notes Endpoints
+      operationId: ContactNotesAddPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ContactID:
+                  description: Contact ID
+                  type: string
+                Notes:
+                  description: The note you want to add to the new record
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ContactID
+              - Notes
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  NoteID:
+                    type: string
+                    description: The ID associated with the new record
+                    example: '2'
+  /contacts/notes/edit:
+    post:
+      description: This endpoint is used to edit a note associated with your contact.
+      summary: contacts/notes/edit
+      tags:
+      - Contact Notes Endpoints
+      operationId: ContactNotesEditPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ContactID:
+                  description: Contact ID
+                  type: string
+                Notes:
+                  description: The note you want to update the record to
+                  type: string
+                NoteID:
+                  description: The ID of the note record you want to update
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ContactID
+              - Notes
+              - NoteID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  NoteID:
+                    type: string
+                    description: The ID associated with the edited record
+                    example: '3'
+  /contacts/notes/delete:
+    post:
+      description: This endpoint is used to delete a note record from you contact.
+      summary: contacts/notes/delete
+      tags:
+      - Contact Notes Endpoints
+      operationId: ContactNotesDeletePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ContactID:
+                  description: Contact ID
+                  type: string
+                NoteID:
+                  description: The ID of the note record you want to delete
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ContactID
+              - NoteID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /contacts/notes:
+    get:
+      description: This endpoint is used to look up all the notes associated with the given contact.
+      summary: contacts/notes
+      tags:
+      - Contact Notes Endpoints
+      operationId: ContactNotesGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ContactID
+        in: query
+        required: true
+        description: Contact ID
+        schema:
+          type: string
+      - name: NoteID
+        in: query
+        required: false
+        description: The ID for a specific getting a specific note
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Notes:
+                    type: object
+                    description: Collection note records
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          NoteID:
+                            type: string
+                            description: The ID associated with the note record
+                            example: '1'
+                          Notes:
+                            type: string
+                            description: The note
+                            example: Test Note
+                          DateAdded:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the note record was added.
+                            example: '2019-11-03 01:00:00'
+                          LastModified:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the note record was last modified.
+                            example: '2019-11-04 01:30:00'

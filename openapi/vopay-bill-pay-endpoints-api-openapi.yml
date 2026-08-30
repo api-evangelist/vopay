@@ -1,0 +1,561 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Bill Pay Endpoints API
+  description: The Bill Pay API allows you to create and manage bill payments.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Bill Pay Endpoints
+paths:
+  /bill-pay/create:
+    post:
+      description: This endpoint is used to create a bill pay transaction.
+      summary: bill-pay/create
+      tags:
+      - Bill Pay Endpoints
+      operationId: BillPayCreatePost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID to associate the transaction with.
+                  type: string
+                AccountBillPayMerchantID:
+                  description: The ID of the account bill pay merchant.
+                  type: string
+                Amount:
+                  description: The amount of the transaction.
+                  type: number
+                Currency:
+                  description: The currency of the transaction. Defaults to CAD.
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number for the client.
+                  type: string
+                Notes:
+                  description: Optional notes for the transaction.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key to prevent duplicate transactions.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - AccountBillPayMerchantID
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    example: ''
+                  TransactionID:
+                    type: string
+                    example: '3141128'
+  /bill-pay/cancel:
+    post:
+      description: This endpoint is used to cancel a bill pay transaction.
+      summary: bill-pay/cancel
+      tags:
+      - Bill Pay Endpoints
+      operationId: BillPayCancelPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                TransactionID:
+                  description: The ID of the transaction to cancel.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - TransactionID
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    example: ''
+  /bill-pay/transaction:
+    get:
+      description: This endpoint is used to fetch a bill pay transaction.
+      summary: bill-pay/transaction
+      tags:
+      - Bill Pay Endpoints
+      operationId: BillPayTransactionGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: The ID of the transaction to fetch.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    example: ''
+                  TransactionID:
+                    type: string
+                    example: '12345'
+                  TransactionStatus:
+                    type: string
+                    example: Completed
+                  TransactionDateTime:
+                    type: string
+                    example: '2025-07-25 12:00:00'
+                  Amount:
+                    type: number
+                    example: 100
+                  Currency:
+                    type: string
+                    example: CAD
+                  LastModified:
+                    type: string
+                    example: '2025-07-25 12:00:00'
+                  MerchantID:
+                    type: string
+                    example: M123
+                  MerchantName:
+                    type: string
+                    example: Merchant Name
+                  MerchantCategory:
+                    type: string
+                    example: Utilities
+                  PaymentAccountFormat:
+                    type: string
+                    example: '123456789'
+                  CreditInstitution:
+                    type: string
+                    example: Bank of Montreal
+                  CreditCategory:
+                    type: string
+                    example: Credit Card
+                  CanadianCreditorIdentificationNumber:
+                    type: string
+                    example: '123456789'
+                  Nickname:
+                    type: string
+                    example: My Hydro Bill
+                  PaymentAccount:
+                    type: string
+                    example: '123456789'
+                  AdditionalInformation:
+                    type: string
+                    example: Additional Info
+                  ClientReferenceNumber:
+                    type: string
+                    example: CRN123
+                  Note:
+                    type: string
+                    example: Payment for July
+  /bill-pay/merchants:
+    get:
+      description: This endpoint is used to fetch bill pay merchants.
+      summary: bill-pay/merchants
+      tags:
+      - Bill Pay Endpoints
+      operationId: BillPayMerchantsGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: SearchText
+        in: query
+        required: false
+        description: Text to search for in merchant names.
+        schema:
+          type: string
+      - name: Limit
+        in: query
+        required: false
+        description: The maximum number of merchants to return. Default is 50.
+        schema:
+          type: integer
+      - name: Offset
+        in: query
+        required: false
+        description: The number of merchants to skip. Default is 0.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    example: ''
+                  Merchants:
+                    type: object
+                    example:
+                      '0':
+                        BillPayMerchantID: '169'
+                        MerchantID: '340'
+                        MerchantName: ACCESS MOORE DECOR
+                        MerchantCategory: ''
+                        PaymentAccountFormat: ''
+                        CreditInstitution: '2'
+                        CreditCategory: '5'
+                        CanadianCreditorIdentificationNumber: '90109403'
+                  PaginationMetaData:
+                    type: object
+  /bill-pay/account/merchants/add:
+    post:
+      description: This endpoint is used to add a merchant to an account.
+      summary: bill-pay/account/merchants/add
+      tags:
+      - Bill Pay Endpoints
+      operationId: BillPayAccountMerchantsAddPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                BillPayMerchantID:
+                  description: The ID of the bill pay merchant to add.
+                  type: string
+                Nickname:
+                  description: A nickname for the merchant.
+                  type: string
+                PaymentAccount:
+                  description: The payment account number.
+                  type: string
+                AdditionalInformation:
+                  description: Additional information for the merchant.
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID to associate the merchant with.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - BillPayMerchantID
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    example: ''
+                  AccountBillPayMerchantID:
+                    type: string
+                    example: '3'
+  /bill-pay/account/merchants/edit:
+    post:
+      description: This endpoint is used to edit an account-level merchant.
+      summary: bill-pay/account/merchants/edit
+      tags:
+      - Bill Pay Endpoints
+      operationId: BillPayAccountMerchantsEditPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                AccountBillPayMerchantID:
+                  description: The ID of the account bill pay merchant to edit.
+                  type: string
+                Nickname:
+                  description: A new nickname for the merchant.
+                  type: string
+                PaymentAccount:
+                  description: A new payment account number.
+                  type: string
+                AdditionalInformation:
+                  description: New additional information for the merchant.
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID associated with the merchant.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - AccountBillPayMerchantID
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    example: ''
+                  AccountMerchantID:
+                    type: string
+                    example: '3'
+  /bill-pay/account/merchants:
+    get:
+      description: This endpoint is used to fetch bill pay merchants for an account.
+      summary: bill-pay/account/merchants
+      tags:
+      - Bill Pay Endpoints
+      operationId: BillPayAccountMerchantsGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The Client Account ID to fetch merchants for.
+        schema:
+          type: string
+      - name: SearchText
+        in: query
+        required: false
+        description: Text to search for in merchant names.
+        schema:
+          type: string
+      - name: Limit
+        in: query
+        required: false
+        description: The maximum number of merchants to return. Default is 50.
+        schema:
+          type: integer
+      - name: Offset
+        in: query
+        required: false
+        description: The number of merchants to skip. Default is 0.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    example: ''
+                  AccountBillPayMerchantID:
+                    type: object
+                    example:
+                      '0':
+                        BillPayMerchantID: '169'
+                        AccountBillPayMerchantID: '3'
+                        MerchantName: ACCESS MOORE DECOR
+                        Nickname: AMD
+                        PaymentAccount: ''
+                        AdditionalInformation: ''
+                        LastModified: '2025-07-26'
+                  PaginationMetaData:
+                    type: object
+  /bill-pay/generate-embed-url:
+    post:
+      description: This endpoint is used to generate a URL to create a bill pay iframe.
+      summary: bill-pay/generate-embed-url
+      tags:
+      - Bill Pay Endpoints
+      operationId: BillPayGenerateEmbedUrlPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: The Client Account ID to associate the iframe with.
+                  type: string
+                StylesheetUrl:
+                  description: A URL to a stylesheet to customize the iframe.
+                  type: string
+                Language:
+                  description: The language for the iframe. 'en' for English, 'fr' for French. Defaults to 'en'.
+                  type: string
+                DarkMode:
+                  description: Whether to use dark mode for the iframe. Defaults to false.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    example: ''
+                  Link:
+                    type: string
+                    example: https://earthnode-dev.vopay.com/bill-pay/embed/2htisa9c21s083inhqsdh0ukg43qsmphyelg00w3
+                  IframeKey:
+                    type: string
+                    example: 2htisa9c21s083inhqsdh0ukg43qsmphyelg00w3

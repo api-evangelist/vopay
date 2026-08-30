@@ -1,0 +1,458 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Global Cash Management Recipient Contact Endpoints API
+  description: The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Recipient Contact Endpoints
+paths:
+  /gcm/recipient-contacts:
+    get:
+      description: Get a list of recipient contacts for the account.
+      summary: gcm/recipient-contacts
+      tags:
+      - Recipient Contact Endpoints
+      operationId: RecipientContactsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Limit
+        in: query
+        required: false
+        description: Limit of how many recipient contacts to return
+        schema:
+          type: string
+      - name: AccountStatus
+        in: query
+        required: false
+        description: If the account status is active or not
+        schema:
+          type: boolean
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID that the recipients belong to
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ContactClientType:
+                    type: string
+                    description: If the contact is a individual or business
+                    example: individual
+                  RecipientContactID:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: test_recipient_contact
+                  FirstName:
+                    type: string
+                    description: The first name of the recipient contact
+                    example: first
+                  LastName:
+                    type: string
+                    description: The last name of the recipient contact
+                    example: last
+                  BusinessName:
+                    type: string
+                    description: The business name of the recipient contact
+                    example: business
+                  EmailAddress:
+                    type: string
+                    description: The email address of the recipient contact
+                    example: first.last@vopay.com
+                  PhoneNumber:
+                    type: string
+                    description: The phone number of the recipient contact
+                    example: '7783630779'
+                  IsFavorite:
+                    type: boolean
+                    description: If the recipient contact is a favorite
+                    example: 'false'
+                  Address:
+                    type: string
+                    description: The address of the recipient contact
+                    example: 1234 Test St
+                  City:
+                    type: string
+                    description: The city of the address
+                    example: Vancouver
+                  PostalCode:
+                    type: string
+                    description: The postal code of the address
+                    example: V6G3G9
+                  Province:
+                    type: string
+                    description: The province of the address
+                    example: British Colmbia
+                  Country:
+                    type: string
+                    description: The country of the address
+                    example: CA
+                  Nationality:
+                    type: string
+                    description: The nationality
+                    example: Canada
+  /gcm/recipient-contacts/add:
+    post:
+      description: Add a recipient contact. All name, address, and phone fields must comply with Mastercard Cross-Border Services Data Quality Standards (effective April 20, 2026).
+      summary: gcm/recipient-contacts/add
+      tags:
+      - Recipient Contact Endpoints
+      operationId: RecipientContactsAddPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                EmailAddress:
+                  description: The email address of the recipient contact
+                  type: string
+                ContactClientType:
+                  description: If the contact is an individual or business
+                  type: string
+                ClientAccountID:
+                  description: The client account ID the recipient belongs to
+                  type: string
+                RecipientContactID:
+                  description: The ID for the recipient contact
+                  type: string
+                BusinessName:
+                  description: Full legal business name of the recipient. Required if FirstName and LastName are not provided. Must be 2-60 characters and contain at least one letter. No abbreviations except standard suffixes (e.g. LLC, Ltd.).
+                  type: string
+                FirstName:
+                  description: First name of the individual recipient. Required if BusinessName is not provided. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.
+                  type: string
+                LastName:
+                  description: Last name of the individual recipient. Required if BusinessName is not provided. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.
+                  type: string
+                PhoneNumber:
+                  description: Phone number of the recipient. Digits only, 9-15 characters. No spaces or hyphens (e.g. 19998887777).
+                  type: string
+                Address1:
+                  description: Street address of the recipient. Must include a street name (e.g. 20 Longleat Drive). Numbers only are not accepted.
+                  type: string
+                Address2:
+                  description: The second address line of the recipient contact
+                  type: string
+                City:
+                  description: City of the recipient's address.
+                  type: string
+                Province:
+                  description: The province of the address
+                  type: string
+                PostalCode:
+                  description: The postal code of the address
+                  type: string
+                Country:
+                  description: Country of the recipient's address. Accepts full country name or ISO 3166-1 alpha-2 or alpha-3 code. Sanctioned countries are not accepted.
+                  type: string
+                DateOfBirth:
+                  description: Date of birth of the recipient in YYYY-MM-DD format (e.g. 1990-01-31).
+                  type: string
+                Nationality:
+                  description: The nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                  type: string
+                Language:
+                  description: The language preference
+                  type: string
+                SourceOfIncome:
+                  description: The source of income of the recipient contact
+                  type: string
+                Occupation:
+                  description: The occupation of the recipient contact
+                  type: string
+                RelationshipWithBeneficiary:
+                  description: The sender's relationship to the recipient contact
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - EmailAddress
+              - ContactClientType
+              - PhoneNumber
+              - Address1
+              - City
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  RecipientContactID:
+                    type: integer
+                    description: The unique ID of the new recipient contact.
+                    example: test_recipient_contact
+  /gcm/recipient-contacts/edit:
+    post:
+      description: Edit a recipient contact. Any fields provided must comply with Mastercard Cross-Border Services Data Quality Standards (effective April 20, 2026).
+      summary: gcm/recipient-contacts/edit
+      tags:
+      - Recipient Contact Endpoints
+      operationId: RecipientContactsEditPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                RecipientContactID:
+                  description: The recipient contact ID to edit
+                  type: string
+                EmailAddress:
+                  description: The email address of the recipient contact
+                  type: string
+                BusinessName:
+                  description: Full legal business name of the recipient. Must be 2-60 characters and contain at least one letter. No abbreviations except standard suffixes (e.g. LLC, Ltd.).
+                  type: string
+                FirstName:
+                  description: First name of the individual recipient. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.
+                  type: string
+                LastName:
+                  description: Last name of the individual recipient. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.
+                  type: string
+                PhoneNumber:
+                  description: Phone number of the recipient. Digits only, 9-15 characters. No spaces or hyphens (e.g. 19998887777).
+                  type: string
+                Address1:
+                  description: Street address of the recipient. Must include a street name (e.g. 20 Longleat Drive). Numbers only are not accepted.
+                  type: string
+                Address2:
+                  description: The second address line of the recipient contact
+                  type: string
+                City:
+                  description: City of the recipient's address.
+                  type: string
+                Province:
+                  description: The province of the address
+                  type: string
+                PostalCode:
+                  description: The postal code of the address
+                  type: string
+                Country:
+                  description: Country of the recipient's address. Accepts full country name or ISO 3166-1 alpha-2 or alpha-3 code. Sanctioned countries are not accepted.
+                  type: string
+                DateOfBirth:
+                  description: Date of birth of the recipient in YYYY-MM-DD format (e.g. 1990-01-31).
+                  type: string
+                Nationality:
+                  description: The nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                  type: string
+                SourceOfIncome:
+                  description: The source of income of the recipient contact
+                  type: string
+                Occupation:
+                  description: The occupation of the recipient contact
+                  type: string
+                RelationshipWithBeneficiary:
+                  description: The sender's relationship to the recipient contact
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - RecipientContactID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  RecipientContactID:
+                    type: integer
+                    description: The unique ID of the new recipient contact.
+                    example: test_recipient_contact
+  /gcm/recipient-contacts/favorites/add:
+    post:
+      description: Add a recipient to your favorites.
+      summary: gcm/recipient-contacts/favorites/add
+      tags:
+      - Recipient Contact Endpoints
+      operationId: RecipientContactsFavoritesAddPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                RecipientContactID:
+                  description: The recipient that will be favorited
+                  type: string
+                ClientAccountID:
+                  description: The client account the favorite will be added to
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - RecipientContactID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  RecipientContactID:
+                    type: integer
+                    description: The unique ID of the new recipient contact.
+                    example: test_recipient_contact
+  /gcm/recipient-contacts/favorites/delete:
+    post:
+      description: Delete a recipient from your favorites.
+      summary: gcm/recipient-contacts/favorites/delete
+      tags:
+      - Recipient Contact Endpoints
+      operationId: RecipientContactsFavoritesDeletePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                RecipientContactID:
+                  description: The recipient that will be removed from favorites
+                  type: string
+                ClientAccountID:
+                  description: The client account the favorite will be removed from
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - RecipientContactID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  RecipientContactID:
+                    type: integer
+                    description: The unique ID of the new recipient contact.
+                    example: test_recipient_contact

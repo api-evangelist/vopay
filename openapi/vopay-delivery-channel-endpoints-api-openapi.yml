@@ -1,0 +1,331 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Global Cash Management Delivery Channel Endpoints API
+  description: The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Delivery Channel Endpoints
+paths:
+  /gcm/delivery-channels:
+    get:
+      description: Get a list of all the available delivery methods available for a certain corridor and use case.
+      summary: gcm/delivery-channels
+      tags:
+      - Delivery Channel Endpoints
+      operationId: DeliveryChannelsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: CorridorID
+        in: query
+        required: true
+        description: The corridor ID
+        schema:
+          type: string
+      - name: UseCase
+        in: query
+        required: false
+        description: Valid values are B2B, B2P, P2B, P2P
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DeliveryChannels:
+                    type: object
+                    description: The available delivery channels
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          DeliveryChannelID:
+                            type: string
+                            description: The delivery channel ID
+                            example: '5'
+                          DeliveryMethodType:
+                            type: string
+                            description: The type of delivery method
+                            example: Bank Account
+                          UseCase:
+                            type: string
+                            description: The use case
+                            example: B2B
+                          DeliveryFee:
+                            type: string
+                            description: The delivery fee
+                            example: '1.50'
+                          Currency:
+                            type: string
+                            description: The currency
+                            example: British Pound Sterling
+                          ShortForm:
+                            type: string
+                            description: The currency short form
+                            example: GBP
+                          DeliveryMethodTypeDetails:
+                            type: string
+                            description: Details of the delivery method type
+                            example: swift
+                          Notes:
+                            type: string
+                            description: Additional notes
+                            example: ''
+  /gcm/delivery-channels/fields:
+    get:
+      description: Get a list of all the fields required for a certain delivery method.
+      summary: gcm/delivery-channels/fields
+      tags:
+      - Delivery Channel Endpoints
+      operationId: DeliveryChannelFieldsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: DeliveryChannelID
+        in: query
+        required: true
+        description: The delivery channel ID
+        schema:
+          type: string
+      - name: FieldFor
+        in: query
+        required: false
+        description: The field for which the details are required
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DeliveryChannelFields:
+                    type: object
+                    description: The required fields for the delivery channel
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          Label:
+                            type: string
+                            description: The label of the field
+                            example: Business Name
+                          FieldID:
+                            type: string
+                            description: The ID of the field
+                            example: BusinessName
+                          InputType:
+                            type: string
+                            description: The input type of the field
+                            example: text
+                          RequirementStatus:
+                            type: string
+                            description: The requirement status of the field
+                            example: required
+                          FieldFor:
+                            type: string
+                            description: The field for which the details are required
+                            example: sender
+                          Group:
+                            type: string
+                            description: The group of the field
+                            example: user-info
+                          GroupOrder:
+                            type: string
+                            description: The order of the field in the group
+                            example: '1'
+                          Options:
+                            type: string
+                            description: The options for the field, if any
+                            example: null
+  /gcm/delivery-channels/fields/data:
+    get:
+      description: Get a list of all the data currently stored against a client account, contact, or recipient contact.
+      summary: gcm/delivery-channels/fields/data
+      tags:
+      - Delivery Channel Endpoints
+      operationId: DeliveryChannelFieldsDataGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The client account ID
+        schema:
+          type: string
+      - name: RecipientContactID
+        in: query
+        required: false
+        description: The recipient contact ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DeliveryChannelFieldsData:
+                    type: object
+                    description: The data currently stored against the client account, contact, or recipient contact
+                    properties:
+                      RelationshipWithBeneficiary:
+                        type: string
+                        description: The relationship with the beneficiary
+                        example: Mother
+                      PurposeOfPayment:
+                        type: string
+                        description: The purpose of the payment
+                        example: ''
+                      BusinessName:
+                        type: string
+                        description: The business name
+                        example: Test Business
+                      FirstName:
+                        type: string
+                        description: The first name
+                        example: First
+                      LastName:
+                        type: string
+                        description: The last name
+                        example: Last
+                      Address1:
+                        type: string
+                        description: The first line of the address
+                        example: test address 1234
+                      Address2:
+                        type: string
+                        description: The second line of the address
+                        example: ''
+                      City:
+                        type: string
+                        description: The city
+                        example: Vancouver
+                      PostalCode:
+                        type: string
+                        description: The postal code
+                        example: V6G3G9
+                      Country:
+                        type: string
+                        description: The country
+                        example: United States
+                      Province:
+                        type: string
+                        description: The province
+                        example: British Columbia
+                      PhoneNumber:
+                        type: string
+                        description: The phone number
+                        example: '7783630779'
+                      EmailAddress:
+                        type: string
+                        description: The email address
+                        example: first.last@gmail.com
+                      Nationality:
+                        type: string
+                        description: The nationality
+                        example: AUS
+                      Occupation:
+                        type: string
+                        description: The occupation
+                        example: ''
+                      SourceOfIncome:
+                        type: string
+                        description: The source of income
+                        example: ''
+                      DateOfBirth:
+                        type: string
+                        description: The date of birth
+                        example: '1952-10-07'

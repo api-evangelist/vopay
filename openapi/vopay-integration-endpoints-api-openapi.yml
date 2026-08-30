@@ -1,0 +1,265 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Integrations and Support Integration Endpoints API
+  description: The Integrations and Support API defines endpoints for configuring integrations with  Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also  includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for  account and partner accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Integration Endpoints
+paths:
+  /account/set-plaid-credentials:
+    post:
+      description: This endpoint is used to configure the optional integration with a Plaid account. For more information please visit [our integration section](https://docs.vopay.com/docs/plaid-integration).
+      summary: account/set-plaid-credentials
+      tags:
+      - Integration Endpoints
+      operationId: SetPlaidCredentialsPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                PlaidClientID:
+                  description: The unique client ID from Plaid
+                  type: string
+                PlaidSecretKey:
+                  description: The unique secret key from Plaid
+                  type: string
+                PlaidUrl:
+                  description: The URL defines the Plaid environment. For example https://sandbox.plaid.com for sandbox, https://development.plaid.com for development, and https://production.plaid.com for production.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - PlaidClientID
+              - PlaidSecretKey
+              - PlaidUrl
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  PlaidClientID:
+                    type: string
+                    description: Your updated plaid client ID
+                    example: '{PlaidClientID}'
+                  PlaidSecretKey:
+                    type: string
+                    description: Your updated plaid secret key
+                    example: '{PlaidSecretKey}'
+                  PlaidUrl:
+                    type: string
+                    description: Your updated plaid URL
+                    example: '{PlaidUrl}'
+  /account/set-flinks-credentials:
+    post:
+      description: This endpoint is used to configure the optional integration with a Flinks account. For more information please visit [our integration section](https://docs.vopay.com/docs/flinks-integration).
+      summary: account/set-flinks-credentials
+      tags:
+      - Integration Endpoints
+      operationId: SetFlinksCredentialsPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                FlinksUrl:
+                  description: The unique API URL from Flinks
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - FlinksUrl
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  FlinksUrl:
+                    type: string
+                    description: Your updated Flinks URL
+                    example: '{FlinksUrl}'
+                  Status:
+                    type: string
+                    description: Updated if the Flinks URL is being updated for your VoPay account
+                    example: '{Status}'
+  /account/set-inverite-credentials:
+    post:
+      description: This endpoint is used to configure the optional integration with a Inverite account. For more information please visit [our integration section](https://docs.vopay.com/docs/inverite-integration).
+      summary: account/set-inverite-credentials
+      tags:
+      - Integration Endpoints
+      operationId: SetInveriteCredentialsPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                InveriteAPIKey:
+                  description: The unique API Key from Inverite
+                  type: string
+                InveriteUrl:
+                  description: The unique API URL from Inverite (Sandbox or Production)
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - InveriteAPIKey
+              - InveriteUrl
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  InveriteAPIKey:
+                    type: string
+                    description: Your updated Inverite API Key
+                    example: '{InveriteAPIKey}'
+                  InveriteUrl:
+                    type: string
+                    description: Your updated Inverite API URL
+                    example: '{InveriteUrl}'
+  /account/set-global-pay-credentials:
+    post:
+      description: This endpoint is used to configure the optional integration with a Global Pay account. For more information please visit [our integration section](https://docs.vopay.com/docs/global-pay-integration).
+      summary: account/set-global-pay-credentials
+      tags:
+      - Integration Endpoints
+      operationId: SetGlobalPayCredentialsPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                GlobalPayAppID:
+                  description: Your unique Global Pay app ID
+                  type: string
+                GlobalPaySharedSecret:
+                  description: Your unique Global Pay shared secret
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - GlobalPayAppID
+              - GlobalPaySharedSecret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  GlobalPayAppID:
+                    type: string
+                    description: Your updated Global Pay App ID
+                    example: '{GlobalPayAppID}'
+                  GlobalPaySharedSecret:
+                    type: string
+                    description: Your updated Global Pay shared secret key
+                    example: '{GlobalPaySharedSecret}'
+                  Status:
+                    type: string
+                    description: Request status
+                    example: Updated

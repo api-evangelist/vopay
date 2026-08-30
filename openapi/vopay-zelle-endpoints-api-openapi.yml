@@ -1,0 +1,552 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Payment Methods Zelle Endpoints API
+  description: The Payment Methods API allows you to manage your payment methods.  You can add, delete, and set default payment methods.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Zelle Endpoints
+paths:
+  /zelle/withdraw:
+    post:
+      description: Initiate a Zelle B2C payment to a recipient identified by email address or mobile phone number.
+      summary: zelle/withdraw
+      tags:
+      - Zelle Endpoints
+      operationId: ZelleWithdrawPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                FirstName:
+                  description: Recipient's first name
+                  type: string
+                LastName:
+                  description: Recipient's last name
+                  type: string
+                Amount:
+                  description: Payment amount in USD
+                  type: string
+                EmailAddress:
+                  description: Recipient's email address used as their Zelle alias. Either EmailAddress or PhoneNumber must be provided.
+                  type: string
+                PhoneNumber:
+                  description: Recipient's mobile phone number used as their Zelle alias. Either EmailAddress or PhoneNumber must be provided.
+                  type: string
+                PriorityType:
+                  description: 'Payment priority. Accepted values: STANDARD, INSTANT. Defaults to the account''s configured priority type.'
+                  type: string
+                Notes:
+                  description: Optional memo or note for the payment
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID to associate with this transaction
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with this transaction
+                  type: string
+                IdempotencyKey:
+                  description: A unique key to prevent duplicate transactions
+                  type: string
+                GLCode:
+                  description: General ledger code for the transaction
+                  type: string
+                TransactionTypeCode:
+                  description: Custom transaction type code
+                  type: string
+                ParentTransactionID:
+                  description: ID of a parent pre-funding transaction to link to this payment
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - FirstName
+              - LastName
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: string
+                    description: Unique identifier for the created Zelle transaction
+                    example: '123456'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+  /zelle/withdraw/transaction:
+    get:
+      description: Retrieve details of a specific Zelle withdrawal transaction.
+      summary: zelle/withdraw/transaction
+      tags:
+      - Zelle Endpoints
+      operationId: ZelleWithdrawTransactionGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: The ID of the Zelle transaction to retrieve
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: string
+                    description: Unique identifier for the transaction
+                    example: '123456'
+                  TransactionDate:
+                    type: string
+                    description: Date and time the transaction was created
+                    example: '2024-01-15 10:30:00'
+                  TransactionStatus:
+                    type: string
+                    description: Current status of the transaction
+                    example: in progress
+                  Amount:
+                    type: string
+                    description: Transaction amount formatted to 2 decimal places
+                    example: '100.00'
+                  RecipientName:
+                    type: string
+                    description: Full name of the recipient
+                    example: John Smith
+                  RecipientEmail:
+                    type: string
+                    description: Recipient's email alias, if used
+                    example: john.smith@example.com
+                  RecipientPhone:
+                    type: string
+                    description: Recipient's mobile phone alias, if used
+                    example: '+12065551234'
+                  PriorityType:
+                    type: string
+                    description: Payment priority type
+                    example: STANDARD
+                  Notes:
+                    type: string
+                    description: Memo or note associated with the payment
+                    example: Invoice payment
+                  ClientReferenceNumber:
+                    type: string
+                    description: Client reference number associated with the transaction
+                    example: REF-001
+                  LastModified:
+                    type: string
+                    description: Date and time the transaction was last modified
+                    example: '2024-01-15 10:35:00'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionDate
+                - TransactionStatus
+                - Amount
+                - RecipientName
+                - RecipientEmail
+                - RecipientPhone
+                - PriorityType
+                - Notes
+                - ClientReferenceNumber
+                - LastModified
+  /zelle/withdraw/transactions:
+    get:
+      description: List Zelle withdrawal transactions for the account within a specified date range.
+      summary: zelle/withdraw/transactions
+      tags:
+      - Zelle Endpoints
+      operationId: ZelleWithdrawTransactionsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: StartDateTime
+        in: query
+        required: true
+        description: Start of the date range to filter transactions (e.g. 2024-01-01 or 2024-01-01 00:00:00)
+        schema:
+          type: string
+      - name: EndDateTime
+        in: query
+        required: true
+        description: End of the date range to filter transactions (e.g. 2024-01-31 or 2024-01-31 23:59:59)
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  NumberOfRecords:
+                    type: integer
+                    description: Total number of transactions returned
+                    example: '10'
+                  ZelleTransactions:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Collection of Zelle withdrawal transactions'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          TransactionID:
+                            type: string
+                            description: Unique identifier for the transaction
+                            example: '123456'
+                          TransactionDateTime:
+                            type: string
+                            description: Date and time the transaction was created
+                            example: '2024-01-15 10:30:00'
+                          Amount:
+                            type: string
+                            description: Transaction amount formatted to 2 decimal places
+                            example: '100.00'
+                          Status:
+                            type: string
+                            description: Current status of the transaction
+                            example: in progress
+                          RecipientName:
+                            type: string
+                            description: Full name of the recipient
+                            example: John Smith
+                          RecipientEmail:
+                            type:
+                            - string
+                            - 'null'
+                            description: Recipient's email alias, if used
+                            example: john.smith@example.com
+                          RecipientPhone:
+                            type:
+                            - string
+                            - 'null'
+                            description: Recipient's mobile phone alias, if used
+                            example: '+12065551234'
+                          PriorityType:
+                            type:
+                            - string
+                            - 'null'
+                            description: Payment priority type
+                            example: STANDARD
+                          ClientReferenceNumber:
+                            type: string
+                            description: Client reference number
+                            example: REF-001
+                          Notes:
+                            type: string
+                            description: Memo or note associated with the payment
+                            example: Invoice payment
+                          LastModified:
+                            type: string
+                            description: Date and time the transaction was last modified
+                            example: '2024-01-15 10:35:00'
+                        required:
+                        - TransactionID
+                        - TransactionDateTime
+                        - Amount
+                        - Status
+                        - RecipientName
+                        - RecipientEmail
+                        - RecipientPhone
+                        - PriorityType
+                        - ClientReferenceNumber
+                        - Notes
+                        - LastModified
+                    x-list-of: inline
+                    x-empty-when: no transactions in range
+                required:
+                - Success
+                - ErrorMessage
+                - NumberOfRecords
+                - ZelleTransactions
+  /zelle/cancel:
+    post:
+      description: Cancel a pending Zelle withdrawal transaction. If the transaction has already been submitted to the processor, a cancellation request will be sent.
+      summary: zelle/cancel
+      tags:
+      - Zelle Endpoints
+      operationId: ZelleCancelPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                TransactionID:
+                  description: The ID of the Zelle transaction to cancel
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - TransactionID
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: string
+                    description: ID of the cancelled transaction
+                    example: '123456'
+                  TransactionStatus:
+                    type: string
+                    description: Updated status of the transaction
+                    example: cancelled
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+  /zelle/withdraw/name-match:
+    post:
+      description: Approve or reject a Zelle payment that is pending name match verification. When the recipient's registered name does not match the name provided, the payment is held for manual review.
+      summary: zelle/withdraw/name-match
+      tags:
+      - Zelle Endpoints
+      operationId: ZelleWithdrawNameMatchPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                TransactionID:
+                  description: The ID of the Zelle transaction pending name match verification
+                  type: string
+                Decision:
+                  description: 'Name match decision. Accepted values: APPROVE, REJECT'
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - TransactionID
+              - Decision
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: string
+                    description: ID of the transaction the decision was applied to
+                    example: '123456'
+                  Decision:
+                    type: string
+                    description: The decision that was submitted
+                    example: APPROVE
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - Decision
+  /zelle/recipients:
+    get:
+      description: List saved Zelle recipients for the account. Recipients are automatically saved when a Zelle payment is submitted.
+      summary: zelle/recipients
+      tags:
+      - Zelle Endpoints
+      operationId: ZelleRecipientsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  NumberOfRecords:
+                    type: integer
+                    description: Total number of recipients returned
+                    example: '5'
+                  Recipients:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Collection of saved Zelle recipients'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          RecipientName:
+                            type: string
+                            description: Full name of the recipient
+                            example: John Smith
+                          AliasType:
+                            type: string
+                            description: 'Type of Zelle alias. Possible values: EMAIL, MOBILE'
+                            example: EMAIL
+                          AliasValue:
+                            type: string
+                            description: The recipient's Zelle alias (email address or phone number)
+                            example: john.smith@example.com
+                        required:
+                        - RecipientName
+                        - AliasType
+                        - AliasValue
+                    x-list-of: inline
+                    x-empty-when: no saved recipients
+                required:
+                - Success
+                - ErrorMessage
+                - NumberOfRecords
+                - Recipients

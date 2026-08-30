@@ -1,0 +1,361 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Branding Endpoints API
+  description: The Branding API allows you to apply your branding to all VoPay portals, UIs and emails.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Branding Endpoints
+paths:
+  /account/branding:
+    post:
+      description: This endpoint allows you to apply your branding to all VoPay portals, UIs and emails.
+      summary: account/branding
+      tags:
+      - Branding Endpoints
+      operationId: BrandingPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/BrandingPOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /account/branding-details:
+    get:
+      description: This endpoint allows you to fetch your existing branding details.
+      summary: account/branding-details
+      tags:
+      - Branding Endpoints
+      operationId: BrandingDetailsGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Product
+        in: query
+        required: true
+        description: 'The product you want to fetch branding details for. Valid options are: portal, email, elinx, onboarding, asp.'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BrandingDetails:
+                    type: object
+                    properties:
+                      PrimaryColor:
+                        type: string
+                        description: Hex value for the primary color
+                        example: '#FF0000'
+                      SecondaryColor:
+                        type: string
+                        description: Hex value for the secondary color
+                        example: '#FF0000'
+                      TextColor:
+                        type: string
+                        description: Hex value for the text color
+                        example: '#FF0000'
+                      ButtonTextColor:
+                        type: string
+                        description: Hex value for the button text color
+                        example: '#FF0000'
+                      Product:
+                        type: string
+                        description: 'The product you want to fetch branding details for. Valid options are: portal, email, elinx, onboarding, asp.'
+                        example: portal
+                  Logo:
+                    type: string
+                    description: Base64 encoded logo image.
+                    example: SGVsbG8gV29ybGQh
+                  LogoUrl:
+                    type: string
+                    description: URL of the logo image.
+                    example: https://example.com/logo.svg
+                  SmallLogo:
+                    type: string
+                    description: Base64 encoded logo image.
+                    example: SGVsbG8gV29ybGQh
+                  SmallLogoUrl:
+                    type: string
+                    description: URL of the logo image.
+                    example: https://example.com/logo.svg
+  /account/branding/delete:
+    post:
+      description: This endpoint allows you to delete your branding.
+      summary: account/branding/delete
+      tags:
+      - Branding Endpoints
+      operationId: BrandingDeletePost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/BrandingDeletePost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /partner/branding:
+    post:
+      description: This endpoint allows you to apply your branding to all VoPay portals, UIs and emails.
+      summary: partner/branding
+      tags:
+      - Branding Endpoints
+      operationId: PartnerBrandingPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/BrandingPOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /partner/branding-details:
+    get:
+      description: This endpoint allows you to fetch your existing branding details.
+      summary: partner/branding-details
+      tags:
+      - Branding Endpoints
+      operationId: PartnerBrandingDetailsGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Product
+        in: query
+        required: true
+        description: 'The product you want to fetch branding details for. Valid options are: portal, email, elinx, onboarding, asp.'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BrandingDetails:
+                    type: object
+                    properties:
+                      PrimaryColor:
+                        type: string
+                        description: Hex value for the primary color
+                        example: '#FF0000'
+                      SecondaryColor:
+                        type: string
+                        description: Hex value for the secondary color
+                        example: '#FF0000'
+                      TextColor:
+                        type: string
+                        description: Hex value for the text color
+                        example: '#FF0000'
+                      ButtonTextColor:
+                        type: string
+                        description: Hex value for the button text color
+                        example: '#FF0000'
+                      Product:
+                        type: string
+                        description: 'The product you want to fetch branding details for. Valid options are: portal, email, elinx, onboarding, asp.'
+                        example: portal
+                  Logo:
+                    type: string
+                    description: Base64 encoded logo image.
+                    example: SGVsbG8gV29ybGQh
+                  LogoUrl:
+                    type: string
+                    description: URL of the logo image.
+                    example: https://example.com/logo.svg
+                  SmallLogo:
+                    type: string
+                    description: Base64 encoded logo image.
+                    example: SGVsbG8gV29ybGQh
+                  SmallLogoUrl:
+                    type: string
+                    description: URL of the logo image.
+                    example: https://example.com/logo.svg
+  /partner/branding/delete:
+    post:
+      description: This endpoint allows you to delete your branding.
+      summary: partner/branding/delete
+      tags:
+      - Branding Endpoints
+      operationId: PartnerBrandingDeletePost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/BrandingDeletePost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+components:
+  requestBodies:
+    BrandingPOST:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              Product:
+                description: 'The product you want to set branding for. Valid options are: portal, email, elinx, onboarding, asp.'
+                type: string
+              PrimaryColor:
+                description: Hex value for the primary color
+                type: string
+              SecondaryColor:
+                description: Hex value for the secondary color
+                type: string
+              Logo:
+                description: Base64 encoded logo image. Only SVG is supported.
+                type: string
+              SmallLogo:
+                description: Base64 encoded logo image. Only SVG is supported.
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - Product
+      required: true
+    BrandingDeletePost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              Product:
+                description: 'The product you want to delete branding for. Valid options are: portal, email, elinx, onboarding, asp.'
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - Product
+      required: true

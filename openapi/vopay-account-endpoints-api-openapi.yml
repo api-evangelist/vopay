@@ -1,0 +1,2167 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Accounts Account Endpoints API
+  description: The Account API defines endpoints for managing VoPay accounts and sub-accounts.  These endpoints allow partners to create and manage accounts, set permissions, handle transactions,  schedule transfers, retrieve account information, and manage onboarding processes, ensuring secure  and efficient account and transaction management.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Account Endpoints
+paths:
+  /account/balance:
+    get:
+      description: This endpoint returns details on your current account balance and available funds.
+      summary: account/balance
+      tags:
+      - Account Endpoints
+      operationId: AccountBalanceGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Currency
+        in: query
+        required: false
+        description: 3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).
+        schema:
+          type: string
+      - name: AsOfDate
+        in: query
+        required: false
+        description: A date in ISO 8601 format (yyyy-mm-dd) representing the date for which you want to retrieve the balance. If not provided, the current balance will be returned.
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  AccountBalance:
+                    type: number
+                    description: Indicates the total current account balance, including pending funds.
+                    example: '20000.00'
+                  PendingFunds:
+                    type: number
+                    description: Indicates the portion of the account balance which is pending due to in-progress transactions.
+                    example: '5540.24'
+                  Reserve:
+                    type: number
+                    description: Indicates the portion of the account balance which is being held as a reserve against negative balances.
+                    example: '50000.00'
+                  RollingReserveNSF:
+                    type: number
+                    description: Indicates the portion of the account balance which is being held as a reserve against NSF transactions.
+                    example: '10000.00'
+                    x-absent-when: account has no rolling reserve
+                  RollingReserveReturns:
+                    type: number
+                    description: Indicates the portion of the account balance which is being held as a reserve against returned transactions.
+                    example: '1000.00'
+                    x-absent-when: account has no rolling reserve
+                  AvailableImmediately:
+                    type: number
+                    description: Indicate the portion of the account balance that is available immediately
+                    example: '0.00'
+                  AvailableFunds:
+                    type: number
+                    description: Indicates the portion of the account balance which is currently available for use. This is calculated by taking the AccountBalance and subtracting the PendingFunds, Reserve, RollingReserveNSF and RollingReserveReturns amounts.
+                    example: '18000.00'
+                  Currency:
+                    type: string
+                    description: 3 character currency code for the balance being returned.
+                    example: CAD
+                  AsOfDate:
+                    type: string
+                    format: date
+                    description: The date for which the balance is being returned.
+                    example: '2020-01-01'
+                  RollupAvailableBalance:
+                    type: string
+                    description: Represents the aggregated total available balance of all sub-accounts under this account. This is only returned if the account has sub-accounts enabled.
+                    example: '1280000.00'
+                    x-absent-when: SubAccountPermissions disabled
+                  RollupAccountBalance:
+                    type: string
+                    description: Represents the aggregated total account balance of all sub-accounts under this account. This is only returned if the account has sub-accounts enabled
+                    example: '18000.00'
+                    x-absent-when: SubAccountPermissions disabled
+                required:
+                - Success
+                - ErrorMessage
+                - AccountBalance
+                - PendingFunds
+                - Reserve
+                - AvailableImmediately
+                - AvailableFunds
+                - Currency
+                - AsOfDate
+  /account/balances:
+    get:
+      description: This endpoint returns details on your current account balances and available funds for all currencies associated with your account. Unlike /account/balance which returns a single currency, this endpoint returns an array of balances for each currency your account has records for.
+      summary: account/balances
+      tags:
+      - Account Endpoints
+      operationId: AccountBalancesGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: AsOfDate
+        in: query
+        required: false
+        description: A date in ISO 8601 format (yyyy-mm-dd) representing the date for which you want to retrieve the balances. If not provided, the current balances will be returned.
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  AccountBalances:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                    x-list-of: inline
+                    x-empty-when: no items
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          AccountBalance:
+                            type: string
+                            description: Indicates the total current account balance for this currency, including pending funds.
+                            example: '20000.00'
+                          PendingFunds:
+                            type: string
+                            description: Indicates the portion of the account balance which is pending due to in-progress transactions.
+                            example: '5540.24'
+                          SecurityDeposit:
+                            type: string
+                            description: Indicates the portion of the account balance which is being held as a security deposit.
+                            example: '50000.00'
+                          Reserve:
+                            type: string
+                            description: Indicates the portion of the account balance which is being held as a reserve against negative balances.
+                            example: '50000.00'
+                          AvailableImmediately:
+                            type: string
+                            description: Indicate the portion of the account balance that is available immediately
+                            example: '0.00'
+                          AvailableFunds:
+                            type: string
+                            description: Indicates the portion of the account balance which is currently available for use. This is calculated by taking the AccountBalance and subtracting the PendingFunds, Reserve, RollingReserveNSF and RollingReserveReturns amounts.
+                            example: '18000.00'
+                          OffbookBalance:
+                            type: string
+                            description: Indicates the off-book balance for this currency.
+                            example: '0.00'
+                          Currency:
+                            type: string
+                            description: 3 character currency code for the balance being returned.
+                            example: CAD
+                          AsOfDate:
+                            type: string
+                            format: date
+                            description: The date for which the balance is being returned.
+                            example: '2026-02-11'
+                          VirtualAccountNumber:
+                            type: string
+                            description: 'The virtual account number associated with this currency, if virtual accounts are enabled. Format varies: IBAN (if present), FinancialInstitutionNumber-BranchTransitNumber-AccountNumber (Canadian accounts), or ABARoutingNumber-AccountNumber (US accounts). Empty string if no virtual account exists.'
+                            example: 12345678-01234-001
+                          RollingReserveNSF:
+                            type: string
+                            description: Indicates the portion of the account balance which is being held as a reserve against NSF transactions. Only present if the account has rolling reserves enabled.
+                            example: '10000.00'
+                          RollingReserveReturns:
+                            type: string
+                            description: Indicates the portion of the account balance which is being held as a reserve against returned transactions. Only present if the account has rolling reserves enabled.
+                            example: '1000.00'
+                          RollupAvailableBalance:
+                            type: string
+                            description: Represents the aggregated total available balance of all sub-accounts under this account for this currency. Only present if the account has sub-accounts enabled.
+                            example: '1280000.00'
+                          RollupAccountBalance:
+                            type: string
+                            description: Represents the aggregated total account balance of all sub-accounts under this account for this currency. Only present if the account has sub-accounts enabled.
+                            example: '18000.00'
+                        required:
+                        - AccountBalance
+                        - PendingFunds
+                        - SecurityDeposit
+                        - Reserve
+                        - AvailableImmediately
+                        - AvailableFunds
+                        - OffbookBalance
+                        - Currency
+                        - AsOfDate
+                        - VirtualAccountNumber
+                        - RollingReserveNSF
+                        - RollingReserveReturns
+                        - RollupAvailableBalance
+                        - RollupAccountBalance
+                required:
+                - Success
+                - ErrorMessage
+                - AccountBalances
+  /account/fund-my-account:
+    post:
+      description: 'This endpoint will fund your VoPay account by debiting your default bank account.
+
+
+        To set a default bank account, please use the /bank-account/set-my-bank-account endpoint.'
+      summary: account/fund-my-account
+      tags:
+      - Account Endpoints
+      operationId: AccountFundMyAccountPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Amount:
+                  description: The amount to debit from your bank account.
+                  type: number
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the transactions
+                  type: string
+                Notes:
+                  description: An optional note to associate with the transactions.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                TransactionTypeCode:
+                  description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the funding transaction that was just created. This ID should be saved as it is required order to look up the status information on the transaction.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+  /account/fund-my-account/schedule:
+    post:
+      description: 'This endpoint will create a scheduled transaction to fund your VoPay account by debiting your default bank account.
+
+
+        To set a default bank account, please use the /bank-account/set-my-bank-account endpoint.'
+      summary: account/fund-my-account/schedule
+      tags:
+      - Account Endpoints
+      operationId: AccountFundMyAccountSchedulePOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/AccountFundMyAccountSchedulePOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Amount:
+                    type: number
+                    description: The dollar amount of the schedule transaction
+                    example: '200.00'
+                  ScheduledTransactionID:
+                    type: integer
+                    description: ID of the schedule Transaction.
+                    example: '1122'
+                  Frequency:
+                    type: string
+                    description: The frequency of the transaction
+                    example: single
+                  Description:
+                    type: string
+                    description: Description of the schedule transaction
+                    example: ''
+                  ScheduleStartDate:
+                    type: string
+                    format: date
+                    description: 'Date from which the transaction will be started '
+                    example: '2020-01-01'
+                  Status:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: cancelled, completed or in progress'
+                    example: in progress
+                required:
+                - Success
+                - ErrorMessage
+                - Amount
+                - ScheduledTransactionID
+                - Frequency
+                - Description
+                - ScheduleStartDate
+                - Status
+  /account/withdraw-my-account:
+    post:
+      description: 'This endpoint will credit your default bank account by withdarwing funds from your VoPay account.
+
+
+        To set a default bank account, please use the /bank-account/set-my-bank-account endpoint.'
+      summary: account/withdraw-my-account
+      tags:
+      - Account Endpoints
+      operationId: AccountWithdrawMyAccountPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Amount:
+                  description: The amount to credit to your bank account.
+                  type: number
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the transactions
+                  type: string
+                Notes:
+                  description: An optional note to associate with the transactions.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the funding transaction that was just created. This ID should be saved as it is required order to look up the status information on the transaction.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+  /account/withdraw-my-account/schedule:
+    post:
+      description: 'This endpoint will create a scheduled transaction to credit your default bank account by withdarwing funds from your VoPay account.
+
+
+        To set a default bank account, please use the /bank-account/set-my-bank-account endpoint.'
+      summary: account/withdraw-my-account/schedule
+      tags:
+      - Account Endpoints
+      operationId: AccountWithdrawMyAccountSchedulePOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/AccountFundMyAccountSchedulePOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Amount:
+                    type: number
+                    description: The dollar amount of the schedule transaction
+                    example: '200.00'
+                  ScheduledTransactionID:
+                    type: integer
+                    description: ID of the schedule Transaction.
+                    example: '1122'
+                  Frequency:
+                    type: string
+                    description: The frequency of the transaction
+                    example: single
+                  Description:
+                    type: string
+                    description: Description of the schedule transaction
+                    example: ''
+                  ScheduleStartDate:
+                    type: string
+                    format: date
+                    description: 'Date from which the transaction will be started '
+                    example: '2020-01-01'
+                  Status:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: cancelled, completed or in progress'
+                    example: in progress
+                required:
+                - Success
+                - ErrorMessage
+                - Amount
+                - ScheduledTransactionID
+                - Frequency
+                - Description
+                - ScheduleStartDate
+                - Status
+  /account/transactions:
+    get:
+      description: This endpoint returns a list all of the transactions which affect the account balance. This endpoint only returns basic information on the transactions. More detailed information on individual transactions is available from other API endpoints.
+      summary: account/transactions
+      tags:
+      - Account Endpoints
+      operationId: AccountTransactionsGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: StartDateTime
+        in: query
+        required: true
+        description: Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: EndDateTime
+        in: query
+        required: true
+        description: Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: SettlementDate
+        in: query
+        required: false
+        description: Return transactions that settled on this date. YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: Filter transactions by Client account ID
+        schema:
+          type: string
+      - name: ContactID
+        in: query
+        required: false
+        description: Filter transactions by Contact ID
+        schema:
+          type: string
+      - name: Currency
+        in: query
+        required: false
+        description: 3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).
+        schema:
+          type: string
+      - name: TransactionType
+        in: query
+        required: false
+        description: 'Specifies the type of transaction to return. Accepted values are: ''EFT Funding'', ''EFT Withdrawal'', ''Interac Money Request'', ''Interac Bulk Payout'', ''Credit Card'', ''Fee'', ''Reversal''.'
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: false
+        description: Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.
+        schema:
+          type: integer
+          format: int32
+      - name: ClientReferenceNumber
+        in: query
+        required: false
+        description: Searches for transactions with the specified client reference number.
+        schema:
+          type: string
+      - name: ScheduledTransactionID
+        in: query
+        required: false
+        description: Id of the schedule transaction to search
+        schema:
+          type: string
+      - name: WalletID
+        in: query
+        required: false
+        description: Id of the wallet that the transactions should belong to
+        schema:
+          type: string
+      - name: IsFlagged
+        in: query
+        required: false
+        description: Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.
+        schema:
+          type: boolean
+      - name: IsRefunded
+        in: query
+        required: false
+        description: Filter the list of transactions to only include transactions that have been refunded.
+        schema:
+          type: boolean
+      - name: TransactionStatus
+        in: query
+        required: false
+        description: Filter the list of transactions by transaction status (ex. 'pending').
+        schema:
+          type: string
+      - name: IncludeSubaccountTransactions
+        in: query
+        required: false
+        description: Fetch transactions for subaccounts as well.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  NumberOfRecords:
+                    type: integer
+                    description: Total number of transaction records returned
+                    example: '0'
+                  Transactions:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          TransactionID:
+                            type: integer
+                            description: Unique ID for the Transaction
+                            example: '5918'
+                          AccountName:
+                            type: string
+                            description: Account Name
+                            example: ''
+                          TransactionDateTime:
+                            type: string
+                            format: date-time
+                            description: The timestamp on which the transaction occurred.
+                            example: '2019-12-04 18:13:39'
+                          SettlementDate:
+                            type: string
+                            format: date-time
+                            description: The timestamp on which the transaction settled.
+                            example: '2019-12-04 18:13:39'
+                          TransactionType:
+                            type: string
+                            description: Specifies the type of transaction, for example 'EFT Funding', 'EFT Withdrawal', 'Fee'.
+                            example: Reversal
+                          TransactionStatus:
+                            type: string
+                            description: Current Status of the transaction
+                            example: in progress
+                          Notes:
+                            type: string
+                            description: If applicable, notes giving context to the transaction.
+                            example: Transaction cancelled
+                          DebitAmount:
+                            type: number
+                            description: The dollar amount by which this transaction debited funds from your account balance. If DebitAmountis set, CreditAmount will be null.
+                            example: '100.00'
+                          CreditAmount:
+                            type: number
+                            description: The dollar amount by which this transaction credited funds to your account balance. If CreditAmount is set, DebitAmount will be null.
+                            example: '0.00'
+                          Currency:
+                            type: string
+                            description: 3 character currency code.
+                            example: CAD
+                          HoldAmount:
+                            type: number
+                            description: The dollar amount of the funds from this transaction which are temporarily on hold. This is only applicable for transactions where CreditAmount is set.
+                            example: '0.00'
+                          LastModified:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the transaction record was last modified. In normal circumstances the transaction record will only be modified when the HoldAmount is changed.
+                            example: '2019-12-04 18:13:39'
+                          ParentTransactionID:
+                            type: string
+                            description: If a transaction directly relates to another transaction, this value will be set to link the new transaction to its parent. For example if an EFT comes back with insufficient funds a new transaction will be created referencing the original transaction as its parent.
+                            example: '5909'
+                          ChildTransactionIDs:
+                            type: integer
+                            description: If this transaction directly relates to any other transactions this will contain a collection of child transaction IDs. For example if an EFT is reversed due to insufficient funds the original transaction record will reference the new transaction as a child.
+                            example: '{}'
+                          ClientReferenceNumber:
+                            type: string
+                            description: The optional reference number which was set when the transaction was created.
+                            example: 'null'
+                          ScheduledTransactionID:
+                            type: integer
+                            description: ID of the scheduled transaction
+                            example: '1'
+                          WalletID:
+                            type: string
+                            description: ID of the wallet this transaction belongs to
+                            example: primary_000001
+                          ClientAccountID:
+                            type: string
+                            description: Client account ID used on the transaction, if applicable
+                            example: client_account_1
+                          TransactionErrorCode:
+                            type: string
+                            description: Error code of the transaction, if applicable
+                            example: '901'
+                          TransactionFailureReason:
+                            type: string
+                            description: Failure reason of the transaction, if applicable
+                            example: NSF
+                          TransactionFlag:
+                            type: string
+                            description: Flag status of the transaction, if applicable
+                            example: duplicate - 45563,45561
+                          ELinxRequestID:
+                            type: integer
+                            description: The unique ID of the eLinx request attached to the transaction, if applicable
+                            example: '1234'
+                          IsRefunded:
+                            type: boolean
+                            description: True if the transaction was refunded, false if it is not
+                            example: true
+                          FullName:
+                            type: string
+                            description: 'Customer''s full name '
+                            example: Jane Doe
+                          GLCode:
+                            type: string
+                            description: General ledger code.
+                            example: '4300'
+                        required:
+                        - TransactionID
+                        - AccountName
+                        - TransactionDateTime
+                        - SettlementDate
+                        - TransactionType
+                        - TransactionStatus
+                        - Notes
+                        - DebitAmount
+                        - CreditAmount
+                        - Currency
+                        - HoldAmount
+                        - LastModified
+                        - ParentTransactionID
+                        - ChildTransactionIDs
+                        - ClientReferenceNumber
+                        - ScheduledTransactionID
+                        - WalletID
+                        - ClientAccountID
+                        - TransactionErrorCode
+                        - TransactionFailureReason
+                        - TransactionFlag
+                        - ELinxRequestID
+                        - IsRefunded
+                        - FullName
+                        - GLCode
+                    x-absent-when: ExportCSV or ExportPDF requested
+                    x-list-of: inline
+                    x-empty-when: no items
+                required:
+                - Success
+                - ErrorMessage
+                - NumberOfRecords
+  /account/transactions/codes:
+    get:
+      description: This endpoint returns a list all of transaction codes that can be assigned to transactions.
+      summary: account/transactions/codes
+      tags:
+      - Account Endpoints
+      operationId: AccountTransactionsCodesGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionCodes:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          TransactionTypeCode:
+                            type: integer
+                            description: Unique transaction type code
+                            example: '200'
+                          Category:
+                            type: string
+                            description: High-level category of the transaction code
+                            example: Pre-Authorized Transactions
+                          Description:
+                            type: string
+                            description: Description of the transaction code
+                            example: Payroll Deposit
+                        required:
+                        - TransactionTypeCode
+                        - Category
+                        - Description
+                    x-list-of: inline
+                    x-empty-when: no items
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionCodes
+  /account/transactions/gl-codes:
+    get:
+      description: This endpoint returns a list all of your GL codes that can be assigned to transactions. Note, you must connect your accounting software to your account in order to use this endpoint.
+      summary: account/transactions/gl-codes
+      tags:
+      - Account Endpoints
+      operationId: AccountTransactionsGLCodesGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  GLCodes:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          GLCode:
+                            type: string
+                            description: Unique GL code
+                            example: '22000'
+                          Name:
+                            type: string
+                            description: Name of the GL code
+                            example: Accounts Payable
+                          Section:
+                            type: string
+                            description: Section of the GL code
+                            example: Liabilities
+                          SubSection:
+                            type: string
+                            description: Sub-section of the GL code, if applicable
+                            example: Current Liabilities
+                          AccountGroup:
+                            type: string
+                            description: Account group of the GL code
+                            example: Accounts Payables
+                          SubGroup:
+                            type: string
+                            description: Sub-account group of the GL code, if applicable
+                            example: Accounts Payables
+                          Classification:
+                            type: string
+                            description: Classification of the GL code
+                            example: Liability
+                        required:
+                        - GLCode
+                        - Name
+                        - Section
+                        - SubSection
+                        - AccountGroup
+                        - SubGroup
+                        - Classification
+                    x-list-of: inline
+                    x-empty-when: no items
+                required:
+                - Success
+                - ErrorMessage
+                - GLCodes
+  /account/remaining-limit:
+    get:
+      description: This endpoint returns the remaining daily, weekly and monthly transaction limits for your VoPay account. If not limits are currently set for your VoPay account, N/A will be returned for each.
+      summary: account/remaining-limit
+      tags:
+      - Account Endpoints
+      operationId: AccountRemainingLimitGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: Date
+        in: query
+        required: false
+        description: A future date (in Y-m-d format) to check the remaining limits for. If not specified, the current date will be used.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Date:
+                    type:
+                    - string
+                    - 'null'
+                    description: The date used to calculate the remaining limits
+                    example: '2023-12-25'
+                  Inbound:
+                    type: object
+                    description: Inbound velocity limits associated with the account
+                    properties:
+                      Limits:
+                        type: object
+                        description: The starting inbound velocity limits associated with the account
+                        properties:
+                          Daily:
+                            type: string
+                            description: The starting inbound daily velocity limit amount.
+                            example: '10000.00'
+                          Weekly:
+                            type: string
+                            description: The starting inbound weekly velocity limit amount.
+                            example: '10000.00'
+                          Monthly:
+                            type: string
+                            description: The starting inbound monthly velocity limit amount.
+                            example: '10000.00'
+                        required:
+                        - Daily
+                        - Weekly
+                        - Monthly
+                      RemainingLimits:
+                        type: object
+                        description: The remaining inbound velocity amounts associated with the account
+                        properties:
+                          Daily:
+                            type: string
+                            description: The remaining inbound daily velocity limit amount.
+                            example: '10000.00'
+                          Weekly:
+                            type: string
+                            description: The remaining inbound weekly velocity limit amount.
+                            example: '10000.00'
+                          Monthly:
+                            type: string
+                            description: The remaining inbound monthly velocity limit amount.
+                            example: '10000.00'
+                        required:
+                        - Daily
+                        - Weekly
+                        - Monthly
+                    required:
+                    - Limits
+                    - RemainingLimits
+                  Outbound:
+                    type: object
+                    description: Outbound velocity limits associated with the account
+                    properties:
+                      Limits:
+                        type: object
+                        description: The starting outbound velocity limits associated with the account
+                        properties:
+                          Daily:
+                            type: string
+                            description: The starting outbound daily velocity limit amount.
+                            example: '10000.00'
+                          Weekly:
+                            type: string
+                            description: The starting outbound weekly velocity limit amount.
+                            example: '10000.00'
+                          Monthly:
+                            type: string
+                            description: The starting outbound monthly velocity limit amount.
+                            example: '10000.00'
+                        required:
+                        - Daily
+                        - Weekly
+                        - Monthly
+                      RemainingLimits:
+                        type: object
+                        description: The remaining outbound velocity amounts associated with the account
+                        properties:
+                          Daily:
+                            type: string
+                            description: The remaining outbound daily velocity limit amount.
+                            example: '10000.00'
+                          Weekly:
+                            type: string
+                            description: The remaining outbound weekly velocity limit amount.
+                            example: '10000.00'
+                          Monthly:
+                            type: string
+                            description: The remaining outbound monthly velocity limit amount.
+                            example: '10000.00'
+                        required:
+                        - Daily
+                        - Weekly
+                        - Monthly
+                    required:
+                    - Limits
+                    - RemainingLimits
+                required:
+                - Success
+                - ErrorMessage
+                - Date
+                - Inbound
+                - Outbound
+  /account/transfer-to:
+    post:
+      description: This endpoint allows you to transfer funds between VoPay accounts and/or Client accounts.
+      summary: account/transfer-to
+      tags:
+      - Account Endpoints
+      operationId: AccountTransferToPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                DebitorClientAccountID:
+                  description: ID of the client account transferring the funds
+                  type: string
+                RecipientClientAccountID:
+                  description: ID of the client account receiving the funds
+                  type: string
+                Amount:
+                  description: The transfer amount.
+                  type: number
+                Currency:
+                  description: 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency (generally CAD).
+                  type: string
+                RecipientAccountID:
+                  description: Account ID of the account for which you want to transfer funds to.
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the transfer
+                  type: string
+                Notes:
+                  description: An optional note to associate with the transaction.
+                  type: string
+                ParentTransactionID:
+                  description: The parent transaction where the transfer-to will be linked to, can become a split payment with multiple transfers. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Amount
+              - RecipientAccountID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the debit transaction associated with this transfer.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+  /account/transfer-from:
+    post:
+      description: This endpoint allows you to transfer funds from a pre-authorized VoPay account to your VoPay or client account.
+      summary: account/transfer-from
+      tags:
+      - Account Endpoints
+      operationId: AccountTransferFromPost
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                DebitorClientAccountID:
+                  description: ID of the client account transferring the funds
+                  type: string
+                RecipientClientAccountID:
+                  description: ID of the client account receiving the funds
+                  type: string
+                Amount:
+                  description: The transfer amount.
+                  type: number
+                Currency:
+                  description: 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency (generally CAD).
+                  type: string
+                DebitorAccountID:
+                  description: Account ID of the account for which you want to transfer funds from. The account you wish to transfer funds from must be a sub account of your account or from another sub account with a shared parent account.
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the transfer
+                  type: string
+                Notes:
+                  description: An optional note to associate with the transaction.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Amount
+              - DebitorAccountID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the debit transaction associated with this transfer.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+  /account/auto-balance-transfer:
+    post:
+      description: "This endpoint allows you to set up an auto-balance transfer from your VoPay account to your default operational bank account. The frequency available to set the auto-transfer can be daily, weekly, bi-weekly or monthly. \n\nThis option requires special permission."
+      summary: account/auto-balance-transfer
+      tags:
+      - Account Endpoints
+      operationId: AccountAutoBalanceTransferPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ScheduleStartDate:
+                  description: Date from which the schedule will be started
+                  type: string
+                TypeOfFrequency:
+                  description: 'Type of frequency that you which to receive the deposit, the posibles values are: daily, weekly, biweekly, monthly'
+                  type: string
+                AutoBalanceTransferAmount:
+                  description: The minumum amount to have in your VoPay account to initiate this scheduled transfer, if not provided, the default amount will be 0.01.
+                  type: number
+                Currency:
+                  description: The currency of the funds you want to trasnfer to your bank account. If not currency is provdied, your VoPay account's default currency will be used.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ScheduleStartDate
+              - TypeOfFrequency
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+    get:
+      description: "This endpoint is used to retrieve the information of your auto balance transfer. \n\n This option requires special permissions."
+      summary: account/auto-balance-transfer
+      tags:
+      - Account Endpoints
+      operationId: AccountAutoBalanceTransferGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ScheduleStartDate:
+                    type: string
+                    format: date
+                    description: 'Date from which the auto transfer will be started '
+                    example: '2020-01-01'
+                  Description:
+                    type: string
+                    description: Description of the of the auto transfer balance
+                    example: ''
+                  NameOfFrequency:
+                    type: string
+                    description: The frequency of the auto transfer (recurring)
+                    example: recurring
+                  AutoBalanceTransferAmount:
+                    type: number
+                    description: The minumum amount to have in your VoPay account to start the auto transfer balance
+                    example: '25.00'
+                  Status:
+                    type: string
+                    description: 'A message indicating the current status of the auto transfer. Statuses are: cancelled, completed, or in progress'
+                    example: in progress
+                  Currency:
+                    type: string
+                    description: The currency of the funds transferred to your bank account.
+                    example: CAD
+                  AccountHolderName:
+                    type: string
+                    description: The name of the account holder
+                    example: John Doe
+                  AccountNumber:
+                    type: string
+                    description: Recipient's bank account number that funds were deposited to.
+                    example: '13434387'
+                  FinancialInstitutionNumber:
+                    type: string
+                    description: Three digit institution number of the customer's Canadian bank account.
+                    example: '112'
+                  BranchTransitNumber:
+                    type: string
+                    description: Transit number for the customer's Canadian bank account.
+                    example: '**809'
+                  ABARoutingNumber:
+                    type: string
+                    description: Nine digit ABA routing number of the customer's US bank account.
+                    example: '123456789'
+                required:
+                - Success
+                - ErrorMessage
+                - ScheduleStartDate
+                - Description
+                - NameOfFrequency
+                - AutoBalanceTransferAmount
+                - Status
+                - Currency
+                - AccountHolderName
+                - AccountNumber
+                - FinancialInstitutionNumber
+                - BranchTransitNumber
+                - ABARoutingNumber
+  /account/transactions/recent:
+    get:
+      description: This endpoint returns a list of recent transactions for a specific contact or client account.
+      summary: account/transactions/recent
+      tags:
+      - Account Endpoints
+      operationId: AccountTransactionsRecentGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: StartDateTime
+        in: query
+        required: false
+        description: Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: EndDateTime
+        in: query
+        required: false
+        description: Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: ClientAccountID
+        in: query
+        required: true
+        description: Filter transactions by Client account ID. This is required if client account is enabled. Use ContactID instead if client account is not enabled.
+        schema:
+          type: string
+      - name: ContactID
+        in: query
+        required: true
+        description: Filter transactions by Contact ID. This is required if client account is not enabled. Use ClientAccountID instead if client account is enabled.
+        schema:
+          type: string
+      - name: Limit
+        in: query
+        required: false
+        description: Limit the number of records that are returned. Use the off-set parameter to set the starting point in the data-set. Default limit is 1,000 and maximum limit is 10,000.
+        schema:
+          type: integer
+      - name: Offset
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  NumberOfRecords:
+                    type: integer
+                    description: Total number of transaction records returned
+                    example: '0'
+                  Transactions:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          TransactionID:
+                            type: integer
+                            description: Unique ID for the Transaction
+                            example: '5918'
+                          TransactionDateTime:
+                            type: string
+                            format: date-time
+                            description: The timestamp on which the transaction occurred.
+                            example: '2019-12-04 18:13:39'
+                          TransactionType:
+                            type: string
+                            description: Specifies the type of transaction, for example 'EFT Funding', 'EFT Withdrawal', 'Fee'.
+                            example: Reversal
+                          TransactionStatus:
+                            type: string
+                            description: Current Status of the transaction
+                            example: in progress
+                          Amount:
+                            type: number
+                            description: The dollar transaction amount.
+                            example: '100.00'
+                          Currency:
+                            type: string
+                            description: 3 character currency code.
+                            example: CAD
+                        required:
+                        - TransactionID
+                        - TransactionDateTime
+                        - TransactionType
+                        - TransactionStatus
+                        - Amount
+                        - Currency
+                    x-list-of: inline
+                    x-empty-when: no items
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of sub account records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+                    required:
+                    - TotalRecords
+                    - Offset
+                    - Limit
+                required:
+                - Success
+                - ErrorMessage
+                - NumberOfRecords
+                - Transactions
+                - Pagination
+  /account/auto-balance-transfer-list:
+    get:
+      description: "This endpoint is used to retrieve a list of all your auto balance transfers. \n\n This option requires special permissions."
+      summary: account/auto-balance-transfer-list
+      tags:
+      - Account Endpoints
+      operationId: AccountAutoBalanceTransferListGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Wallets:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          AutoBalanceTransferID:
+                            type: integer
+                            description: ID of the auto balance transfer
+                            example: '1234'
+                          ScheduleStartDate:
+                            type: string
+                            format: date
+                            description: Date from which the auto transfer will be started
+                            example: '2020-01-01'
+                          Description:
+                            type: string
+                            description: Description of the auto transfer balance
+                            example: ''
+                          NameOfFrequency:
+                            type: string
+                            description: The frequency of the auto transfer (recurring)
+                            example: recurring
+                          AutoBalanceTransferAmount:
+                            type: number
+                            description: The minumum amount to have in your VoPay account to start the auto transfer balance
+                            example: '25.00'
+                          Status:
+                            type: string
+                            description: 'A message indicating the current status of the auto transfer. Statuses are: cancelled, completed, or in progress'
+                            example: in progress
+                          Currency:
+                            type: string
+                            description: The currency of the funds transferred to your bank account.
+                            example: CAD
+                        required:
+                        - AutoBalanceTransferID
+                        - ScheduleStartDate
+                        - Description
+                        - NameOfFrequency
+                        - AutoBalanceTransferAmount
+                        - Status
+                        - Currency
+                    x-list-of: inline
+                    x-empty-when: no items
+                required:
+                - Success
+                - ErrorMessage
+                - Wallets
+  /account/auto-balance-transfer/cancel:
+    post:
+      description: "This endpoint allows you to cancel an auto balance transfer. \n\n This option requires special permissions."
+      summary: account/auto-balance-transfer/cancel
+      tags:
+      - Account Endpoints
+      operationId: AccountAutoBalanceTransferCancelPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Status:
+                    type: string
+                    description: Contains the new status of the auto transfer balance
+                    example: cancelled
+                required:
+                - Success
+                - ErrorMessage
+                - Status
+  /account/auto-balance-transfer/report:
+    get:
+      description: "This endpoint returns the list of transactions associated with an auto balance transfer. \n\nThe sum of all debits/credits should match the amount on the auto-balance transfer."
+      summary: account/auto-balance-transfer/report
+      tags:
+      - Account Endpoints
+      operationId: AccountAutoBalanceTransferReportGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: Transaction ID of the auto-balance transfer transaction
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Transactions:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          TransactionID:
+                            type: integer
+                            description: The unique ID of the transaction.
+                            example: '1234'
+                          TransactionType:
+                            type: string
+                            description: Transaction Type
+                            example: EFT Funding
+                          TransactionDate:
+                            type: string
+                            format: date-time
+                            description: Transaction date
+                            example: '2024-08-01 12:34:56'
+                          CreditAmount:
+                            type: number
+                            description: The credit amount on the transaction.
+                            example: '2000.00'
+                          DebitAmount:
+                            type: number
+                            description: The debit amount on the transaction.
+                            example: '2000.00'
+                          FullName:
+                            type: string
+                            description: The name on the transaction.
+                            example: John Smith
+                          ReferenceNo:
+                            type: string
+                            description: The reference number provided on the transaction.
+                            example: ABCD-1234
+                        required:
+                        - TransactionID
+                        - TransactionType
+                        - TransactionDate
+                        - CreditAmount
+                        - DebitAmount
+                        - FullName
+                        - ReferenceNo
+                    x-list-of: inline
+                    x-empty-when: no items
+                required:
+                - Success
+                - ErrorMessage
+                - Transactions
+  /account/authorized-ips:
+    post:
+      description: This endpoint allows an account's authorized IP addresses to be updated. As updating the authorized IP addresses will overwrite the existing list, GET the list prior to issuing a POST if you wish to append a value.
+      summary: account/authorized-ips
+      tags:
+      - Account Endpoints
+      operationId: AccountAuthorizedIPsPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                AuthorizedIPs:
+                  description: A comma delimited list of valid IP addresses. Use a wildcard (*) to indicate that all IP addresses are authorized.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - AuthorizedIPs
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  AuthorizedIPs:
+                    type: string
+                    description: A comma delimited list of valid IP addresses
+                    example: 127.0.0.1, 0.0.0.0
+                required:
+                - Success
+                - ErrorMessage
+                - AuthorizedIPs
+    get:
+      description: This endpoint retrieves an account's authorized IP addresses.
+      summary: account/authorized-ips
+      tags:
+      - Account Endpoints
+      operationId: AccountAuthorizedIPsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  AuthorizedIPs:
+                    type: string
+                    description: A comma delimited list of valid IP addresses
+                    example: 127.0.0.1, 0.0.0.0
+                required:
+                - Success
+                - ErrorMessage
+                - AuthorizedIPs
+  /account/set-default-payment-method:
+    post:
+      description: This endpoint allows you to set your account's default payment method. This payment method will be used when collecting money for you monthly invoice. The default payment method is your VoPay account.
+      summary: account/set-default-payment-method
+      tags:
+      - Account Endpoints
+      operationId: AccountSetDefaultPaymentMethodPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                PaymentMethod:
+                  description: 'Your choice of default payment method. Acepted values are: vopay (to deduct fees from your VoPay account) and bank (to deduct fees from your default bank account).'
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - PaymentMethod
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+  /account/transaction/history:
+    post:
+      description: Retrieves the history for a specific transaction.
+      summary: account/transaction/history
+      tags:
+      - Account Endpoints
+      operationId: AccountTransactionHistoryPost
+      deprecated: false
+      parameters:
+      - name: 'Timezone '
+        in: query
+        required: false
+        description: Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                TransactionID:
+                  description: The unique ID for the transaction
+                  type: integer
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - TransactionID
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionHistory:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items.'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          Status:
+                            type: string
+                            description: The status of the transaction
+                            example: pending
+                          DateAdded:
+                            type: string
+                            description: The date when the transaction updated to the status
+                            example: '2019-11-03 01:00:00'
+                        required:
+                        - Status
+                        - DateAdded
+                    x-list-of: inline
+                    x-empty-when: no items
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionHistory
+components:
+  requestBodies:
+    AccountFundMyAccountSchedulePOST:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              Amount:
+                description: The amount to schedule in the transactions
+                type: number
+              Frequency:
+                description: 'The frequency of the scheduled transaction: single or recurring.'
+                type: string
+              NameOfFrequency:
+                description: 'Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: weekly, biweekly, semi-monthly, monthly, bimonthly, 3 months, 6 months, yearly.'
+                type: string
+              ScheduleStartDate:
+                description: Date from which the schedule will be started
+                type: string
+              ScheduleEndDate:
+                description: Date when the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments
+                type: string
+              EndingAfterPayments:
+                description: Number of payments after which the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments
+                type: integer
+              SemiMonthlyFrequencyType:
+                description: 'Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast'
+                type: integer
+              Description:
+                description: Description of the schedule transaction
+                type: string
+              ClientReferenceNumber:
+                description: An optional reference number to associate with the transaction.
+                type: string
+              IdempotencyKey:
+                description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - Amount
+            - Frequency
+            - NameOfFrequency
+            - ScheduleStartDate
+            - ScheduleEndDate
+            - EndingAfterPayments
+            - Description
+      required: true

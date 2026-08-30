@@ -1,0 +1,417 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Client Accounts Client Account Creation Endpoints API
+  description: The Client Accounts API allows you to create, manage and retrieve information about client accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Client Account Creation Endpoints
+paths:
+  /account/client-accounts/individual:
+    post:
+      description: Use this endpoint to create a new individual client account. If Flinks, Plaid or Mx credentials are provided, we will fetch all personal and bank account details from those providers.
+      summary: account/client-accounts/individual
+      tags:
+      - Client Account Creation Endpoints
+      operationId: ClientAccountIndividualPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Custom ID of the client account you want to create
+                  type: string
+                FirstName:
+                  description: Client's first name
+                  type: string
+                LastName:
+                  description: Client's last name
+                  type: string
+                EmailAddress:
+                  description: Client's email address - Must be a valid email
+                  type: string
+                  format: email
+                Address1:
+                  description: Client's address line 1
+                  type: string
+                City:
+                  description: Client's city
+                  type: string
+                Province:
+                  description: Client's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                Country:
+                  description: Client's country specified using full country name or ISO 3166-1 alpha-2 code. If not provided, we will default to the VoPay account's country.
+                  type: string
+                Nationality:
+                  description: Client's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                  type: string
+                PostalCode:
+                  description: Client's postal code.
+                  type: string
+                Currency:
+                  description: 3-character currency code defined by the ISO-4217 standard (e.g. CAD, USD). Used to set the default currency used by this client account. Can be CAD or USD for Canadian accounts. Must be set to USD for US accounts.
+                  type: string
+                PhoneNumber:
+                  description: Client's phone number. Digits only - no parentheses or dashes allowed.
+                  type: string
+                DOB:
+                  description: 'Date of Birth, in date format YYYY-MM-DD (ex: 1960-01-15).'
+                  type: string
+                SINLastDigits:
+                  description: Last four digits of the client's SIN number.
+                  type: integer
+                IdentificationNumber:
+                  description: Client's driver's licence.
+                  type: string
+                Token:
+                  description: An iQ11 Token that has been generated using Custom Iframe.
+                  type: string
+                Label:
+                  description: This option will add a Label to the client account. If the Label doesn't exist it will be created and applied.
+                  type: string
+                FlinksAccountID:
+                  description: Flinks Account ID. Must be accompanied by a FlinksLoginID. VoPay will fetch the associated user and bank account details from Flinks.
+                  type: string
+                FlinksLoginID:
+                  description: Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated user and bank account details from Flinks.
+                  type: string
+                PlaidProcessorToken:
+                  description: Plaid Processor Token. VoPay will fetch the associated user bank account details from Plaid.
+                  type: string
+                MxProcessorToken:
+                  description: Mx Processor Token. VoPay will fetch the associated user bank account details from Mx.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - FirstName
+              - LastName
+              - EmailAddress
+              - Currency
+              - PhoneNumber
+              - DOB
+              - SINLastDigits
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Status:
+                    type: string
+                    description: The status of the newly created client account.
+                    example: ClientAccount1
+                  ClientAccountID:
+                    type: string
+                    description: This ID should be saved as it is required in order to perform other actions using the client account such as creating new transactions.
+                    example: ClientAccount1
+                  VerifcationLink:
+                    type: string
+                    description: A link to verify the newly created client account if applicable.
+                    example: ClientAccount1
+  /account/client-accounts/business:
+    post:
+      description: Use this endpoint to create a new business client account. If Flinks, Plaid or Mx credentials are provided, we will fetch all business and bank account details from those providers.
+      summary: account/client-accounts/business
+      tags:
+      - Client Account Creation Endpoints
+      operationId: ClientAccountBusinessPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Custom ID of the client account you want to create
+                  type: string
+                FirstName:
+                  description: Client's first name
+                  type: string
+                LastName:
+                  description: Client's last name
+                  type: string
+                EmailAddress:
+                  description: Client's email address - Must be a valid email
+                  type: string
+                  format: email
+                Address1:
+                  description: Client's address line 1
+                  type: string
+                City:
+                  description: Client's city
+                  type: string
+                Province:
+                  description: Client's province specified using two character abbreviations (eg. BC, AB)
+                  type: string
+                Country:
+                  description: Client's country specified using full country name or ISO 3166-1 alpha-2 code. If not provided, we will default to the VoPay account's country.
+                  type: string
+                Nationality:
+                  description: Client's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                  type: string
+                PostalCode:
+                  description: Client's postal code.
+                  type: string
+                Currency:
+                  description: 3-character currency code defined by the ISO-4217 standard (e.g. CAD, USD). Used to set the default currency used by this client account. Can be CAD or USD for Canadian accounts. Must be set to USD for US accounts.
+                  type: string
+                BusinessName:
+                  description: Business name.
+                  type: string
+                BusinessNumber:
+                  description: Company registration number. A 9-digit number that is unique to a business or legal entity.
+                  type: string
+                BusinessTypeID:
+                  description: ID that represents the company's industry classification. See /account/business-types endpoint for more information.
+                  type: integer
+                BusinessTypeCategoryID:
+                  description: ID that indicates the company's category classification. See /account/business-types endpoint for more information.
+                  type: integer
+                BusinessWebsite:
+                  description: Company's website URL. It must be a valid URL and the protocol must be included (http or https).
+                  type: string
+                BusinessPhone:
+                  description: Company's phone number. Digits only - no parentheses or dashes allowed.
+                  type: string
+                IdentificationNumber:
+                  description: Client's federal tax ID. Digits only - no parentheses or dashes allowed.
+                  type: string
+                Token:
+                  description: An iQ11 Token that has been generated using Custom Iframe.
+                  type: string
+                Label:
+                  description: This option will add a Label to the client account. If the Label doesn't exist it will be created and applied.
+                  type: string
+                FlinksAccountID:
+                  description: Flinks Account ID. Must be accompanied by a FlinksLoginID. VoPay will fetch the associated user and bank account details from Flinks.
+                  type: string
+                FlinksLoginID:
+                  description: Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated user and bank account details from Flinks.
+                  type: string
+                PlaidProcessorToken:
+                  description: Plaid Processor Token. VoPay will fetch the associated user bank account details from Plaid.
+                  type: string
+                MxProcessorToken:
+                  description: Mx Processor Token. VoPay will fetch the associated user bank account details from Mx.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - FirstName
+              - LastName
+              - EmailAddress
+              - Currency
+              - BusinessName
+              - BusinessNumber
+              - BusinessTypeID
+              - BusinessTypeCategoryID
+              - BusinessWebsite
+              - BusinessPhone
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ClientAccountID:
+                    type: string
+                    description: This ID should be saved as it is required in order to perform other actions using the client account such as creating new transactions.
+                    example: ClientAccount1
+  /account/client-accounts/receive-only:
+    post:
+      description: Use this endpoint to create a new receive-only client account. If Flinks, Plaid or Mx credentials are provided, we will fetch all personal and bank account details from those providers. Otherwise, must provide either FirstName/LastName or BusinessName
+      summary: account/client-accounts/receive-only
+      tags:
+      - Client Account Creation Endpoints
+      operationId: ClientAccountReceiveOnlyPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/ClientAccountReceiveOnlyPOST'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ClientAccountID:
+                    type: string
+                    description: This ID should be saved as it is required in order to perform other actions using the client account such as creating new transactions.
+                    example: ' unt1'
+  /account/client-accounts/standard:
+    post:
+      description: Use this endpoint to create a new standard client account. If Flinks, Plaid or Mx credentials are provided, we will fetch all personal and bank account details from those providers. Otherwise, must provide either FirstName/LastName or BusinessName
+      summary: account/client-accounts/standard
+      tags:
+      - Client Account Creation Endpoints
+      operationId: ClientAccountStandardPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/ClientAccountReceiveOnlyPOST'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ClientAccountID:
+                    type: string
+                    description: This ID should be saved as it is required in order to perform other actions using the client account such as creating new transactions.
+                    example: ClientAccount1
+components:
+  requestBodies:
+    ClientAccountReceiveOnlyPOST:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              ClientAccountID:
+                description: Custom ID of the client account you want to create
+                type: string
+              FirstName:
+                description: Client's first name
+                type: string
+              LastName:
+                description: Client's last name
+                type: string
+              BusinessName:
+                description: Client's business name
+                type: string
+              EmailAddress:
+                description: Client's email address - Must be a valid email
+                type: string
+                format: email
+              Address1:
+                description: Client's address line 1
+                type: string
+              City:
+                description: Client's city
+                type: string
+              Province:
+                description: Client's province specified using two character abbreviations (eg. BC, AB)
+                type: string
+              Country:
+                description: Client's country specified using full country name or ISO 3166-1 alpha-2 code. If not provided, we will default to the VoPay account's country.
+                type: string
+              Nationality:
+                description: Client's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.
+                type: string
+              PostalCode:
+                description: Client's postal code.
+                type: string
+              Currency:
+                description: 3-character currency code defined by the ISO-4217 standard (e.g. CAD, USD). Used to set the default currency used by this client account. Can be CAD or USD for Canadian accounts. Must be set to USD for US accounts.
+                type: string
+              PhoneNumber:
+                description: Client's phone number. Digits only - no parentheses or dashes allowed.
+                type: string
+              IdentificationNumber:
+                description: Client's driver's licence.
+                type: string
+              Token:
+                description: An iQ11 Token that has been generated using Custom Iframe.
+                type: string
+              Label:
+                description: This option will add a Label to the client account. If the Label doesn't exist it will be created and applied.
+                type: string
+              FlinksAccountID:
+                description: Flinks Account ID. Must be accompanied by a FlinksLoginID. VoPay will fetch the associated user and bank account details from Flinks.
+                type: string
+              FlinksLoginID:
+                description: Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated user and bank account details from Flinks.
+                type: string
+              PlaidProcessorToken:
+                description: Plaid Processor Token. VoPay will fetch the associated user bank account details from Plaid.
+                type: string
+              MxProcessorToken:
+                description: Mx Processor Token. VoPay will fetch the associated user bank account details from Mx.
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - EmailAddress
+            - Currency
+            - PhoneNumber
+      required: true

@@ -1,0 +1,1380 @@
+openapi: 3.2.0
+info:
+  title: Vopay Digital Wallet Endpoints API
+  version: '2.0'
+  contact:
+    name: API Support
+    email: help@vopay.com
+  description: 'Operations tagged Digital Wallet Endpoints across 2 of this provider''s published API definitions: vopay-payment-method-api-reference.json, vopay-payment-rails-api-reference.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Digital Wallet Endpoints
+paths:
+  /google-pay/generate-embed-url:
+    post:
+      description: This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their Google account and generate a token, which can be used in the /google-pay/charge endpoint.
+      summary: google-pay/generate-embed-url
+      tags:
+      - Digital Wallet Endpoints
+      operationId: GooglePayGenerateEmbedURLPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: When provided, the Google Pay token generated will be attached to the Client Account ID
+                  type: string
+                RedirectURL:
+                  description: URL to redirect the user to after the Google account is connected.
+                  type: string
+                RedirectMethod:
+                  description: This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.
+                  type: string
+                ClientControlled:
+                  description: When set to true, the Google Pay token added will be linked to your VoPay account. Default is false.
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - RedirectURL
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  EmbedURL:
+                    type: string
+                    description: Custom generated iQ11 iframe url for users to use
+                    example: https://earthnode-dev.vopay.com/iq11/embed/{Key Returned by Vopay}
+                  IframeKey:
+                    type: string
+                    description: Unique key attached to the generated iFrame
+                    example: a1b2c3
+                required:
+                - Success
+                - ErrorMessage
+                - EmbedURL
+                - IframeKey
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /google-pay/delete:
+    post:
+      description: This endpoint allows you to delete a Google Pay token associated with your VoPay account
+      summary: google-pay/delete
+      tags:
+      - Digital Wallet Endpoints
+      operationId: GooglePayDeletePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                GooglePayToken:
+                  description: Google Pay token
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - GooglePayToken
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /google-pay:
+    get:
+      description: This endpoint retrieves a list of Google Pay credit cards associated with your VoPay account
+      summary: google-pay
+      tags:
+      - Digital Wallet Endpoints
+      operationId: GooglePayGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: GooglePayToken
+        in: query
+        required: false
+        description: When provided, this endpoint will only return the Google Pay credit cards associated with this token
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: When provided, this endpoint will only return Google Pay credit cards associated with this Client Account ID
+        schema:
+          type: string
+      - name: ClientControlled
+        in: query
+        required: false
+        description: When set to true, this endpoint will only return Google Pay credit cards linked to your VoPay account. When set to false, it will return a list of your customer's Google Pay tokens.
+        schema:
+          type: boolean
+      - name: 'Limit '
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: 'Offset '
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  CreditCards:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Collection of the Google Pay credit cards belonging to the account or client account'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          CreditCardHolderName:
+                            type: string
+                            description: Credit card holder's name.
+                            example: John Smith
+                          CreditCardNumber:
+                            type: string
+                            description: Masked credit card number.
+                            example: '*****1234'
+                          CreditCardExpiryYear:
+                            type: string
+                            description: Expiry year of the credit card
+                            example: '2023'
+                          CreditCardExpiryMonth:
+                            type: string
+                            description: Expiry month of the credit card
+                            example: '12'
+                          CreditCardBrand:
+                            type: string
+                            description: Credit card brand
+                            example: visa
+                          GooglePayToken:
+                            type: string
+                            description: Google Pay token.
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          IsDefault:
+                            type: boolean
+                            description: Is this the VoPay account holder's default credit card
+                            example: true
+                          ClientAccountID:
+                            type: string
+                            description: ClientAccountID attached to the credit card.
+                            example: ClientAccount1
+                        required:
+                        - CreditCardHolderName
+                        - CreditCardNumber
+                        - CreditCardExpiryYear
+                        - CreditCardExpiryMonth
+                        - CreditCardBrand
+                        - GooglePayToken
+                        - IsDefault
+                        - ClientAccountID
+                    x-list-of: inline
+                    x-empty-when: no Google Pay cards match
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of credit card records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+                    x-absent-when: response uses PaginationMetaData; present only when pagination is requested
+                    required:
+                    - TotalRecords
+                    - Offset
+                    - Limit
+                required:
+                - Success
+                - ErrorMessage
+                - CreditCards
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /google-pay/set-my-google-pay:
+    post:
+      description: This endpoint allows you to identify a Google Pay credit card as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a Google Pay credit card as being the VoPay account holder's default Google Pay credit card. Note, a VoPay account can only have one default Google Pay credit card.
+      summary: google-pay/set-my-google-pay
+      tags:
+      - Digital Wallet Endpoints
+      operationId: GooglePaySetMyGooglePayPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                GooglePayToken:
+                  description: Google Pay token
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                SetAsDefault:
+                  description: Identify credit card as default Google Pay credit card
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - GooglePayToken
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  GooglePayToken:
+                    type: string
+                    description: Google Pay token
+                    example: ACBDF-GAFSHD-AHBS-123456
+                  IsDefault:
+                    type: boolean
+                    description: Is this the VoPay account holder's default Google Pay credit card
+                    example: true
+                required:
+                - Success
+                - ErrorMessage
+                - GooglePayToken
+                - IsDefault
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /google-pay/default-google-pay:
+    get:
+      description: This endpoint retrieves the default Google Pay credit card associated with your VoPay account
+      summary: google-pay/default-google-pay
+      tags:
+      - Digital Wallet Endpoints
+      operationId: GooglePayDefaultGooglePayGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: When provided, this endpoint will return the default Google Pay credit card associated with this Client Account ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DefaultCreditCard:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Default Google Pay credit card associated with the Account or Client Account'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          GooglePayToken:
+                            type: string
+                            description: A unique token associated with the credit card.
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          CreditCardHolderName:
+                            type: string
+                            description: Credit card holder name.
+                            example: Natalie Merchant
+                          CreditCardNumber:
+                            type: string
+                            description: Masked credit card number.
+                            example: '**** **** **** 1234'
+                          CreditCardExpiryYear:
+                            type: string
+                            description: Expiry year of credit card.
+                            example: '2022'
+                          CreditCardExpiryMonth:
+                            type: string
+                            description: Expiry month of credit card.
+                            example: '03'
+                          CreditCardBrand:
+                            type: string
+                            description: Credit card brand
+                            example: visa
+                        required:
+                        - GooglePayToken
+                        - CreditCardHolderName
+                        - CreditCardNumber
+                        - CreditCardExpiryYear
+                        - CreditCardExpiryMonth
+                        - CreditCardBrand
+                    x-list-of: inline
+                    x-empty-when: no default Google Pay card
+                required:
+                - Success
+                - ErrorMessage
+                - DefaultCreditCard
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /apple-pay/generate-embed-url:
+    post:
+      description: This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their Apple account and generate a token, which can be used in the /apple-pay/charge endpoint.
+      summary: apple-pay/generate-embed-url
+      tags:
+      - Digital Wallet Endpoints
+      operationId: ApplePayGenerateEmbedURLPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/ApplePayGenerateEmbedURLPOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  EmbedURL:
+                    type: string
+                    description: Custom generated iQ11 iframe url for users to use
+                    example: https://earthnode-dev.vopay.com/iq11/embed/{Key Returned by Vopay}
+                  IframeKey:
+                    type: string
+                    description: Unique key attached to the generated iFrame
+                    example: a1b2c3
+                required:
+                - Success
+                - ErrorMessage
+                - EmbedURL
+                - IframeKey
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /apple-pay/delete:
+    post:
+      description: This endpoint allows you to delete a Apple Pay token associated with your VoPay account
+      summary: apple-pay/delete
+      tags:
+      - Digital Wallet Endpoints
+      operationId: ApplePayDeletePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ApplePayToken:
+                  description: Apple Pay token
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ApplePayToken
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /apple-pay:
+    get:
+      description: This endpoint retrieves a list of Apple Pay credit cards associated with your VoPay account
+      summary: apple-pay
+      tags:
+      - Digital Wallet Endpoints
+      operationId: ApplePayGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ApplePayToken
+        in: query
+        required: false
+        description: When provided, this endpoint will only return the Apple Pay credit cards associated with this token
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: When provided, this endpoint will only return Apple Pay credit cards associated with this Client Account ID
+        schema:
+          type: string
+      - name: ClientControlled
+        in: query
+        required: false
+        description: When set to true, this endpoint will only return Apple Pay credit cards linked to your VoPay account. When set to false, it will return a list of your customer's Apple Pay tokens.
+        schema:
+          type: boolean
+      - name: 'Limit '
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: 'Offset '
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  CreditCards:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Collection of the Apple Pay credit cards belonging to the account or client account'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          CreditCardHolderName:
+                            type: string
+                            description: Credit card holder's name.
+                            example: John Smith
+                          CreditCardNumber:
+                            type: string
+                            description: Masked credit card number.
+                            example: '*****1234'
+                          CreditCardExpiryYear:
+                            type: string
+                            description: Expiry year of the credit card
+                            example: '2023'
+                          CreditCardExpiryMonth:
+                            type: string
+                            description: Expiry month of the credit card
+                            example: '12'
+                          CreditCardBrand:
+                            type: string
+                            description: Credit card brand
+                            example: visa
+                          ApplePayToken:
+                            type: string
+                            description: Apple Pay token.
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          IsDefault:
+                            type: boolean
+                            description: Is this the VoPay account holder's default credit card
+                            example: true
+                          ClientAccountID:
+                            type: string
+                            description: ClientAccountID attached to the credit card.
+                            example: ClientAccount1
+                        required:
+                        - CreditCardHolderName
+                        - CreditCardNumber
+                        - CreditCardExpiryYear
+                        - CreditCardExpiryMonth
+                        - CreditCardBrand
+                        - ApplePayToken
+                        - IsDefault
+                        - ClientAccountID
+                    x-list-of: inline
+                    x-empty-when: no Apple Pay cards match
+                  Pagination:
+                    type: object
+                    description: Pagination metadata
+                    properties:
+                      TotalRecords:
+                        type: string
+                        description: Total number of credit card records in that search range.
+                        example: '1000'
+                      Offset:
+                        type: string
+                        description: Use this parameter to set the starting point in the dataset.
+                        example: '1000'
+                      Limit:
+                        type: string
+                        description: Limit the number of records that are returned.
+                        example: '1000'
+                    x-absent-when: response uses PaginationMetaData; present only when pagination is requested
+                    required:
+                    - TotalRecords
+                    - Offset
+                    - Limit
+                required:
+                - Success
+                - ErrorMessage
+                - CreditCards
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /apple-pay/set-my-apple-pay:
+    post:
+      description: This endpoint allows you to identify a Apple Pay credit card as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a Apple Pay credit card as being the VoPay account holder's default Apple Pay credit card. Note, a VoPay account can only have one default Apple Pay credit card.
+      summary: apple-pay/set-my-apple-pay
+      tags:
+      - Digital Wallet Endpoints
+      operationId: ApplePaySetMyApplePayPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ApplePayToken:
+                  description: Apple Pay token
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                SetAsDefault:
+                  description: Identify credit card as default Apple Pay credit card
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ApplePayToken
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ApplePayToken:
+                    type: string
+                    description: Apple Pay token
+                    example: ACBDF-GAFSHD-AHBS-123456
+                  IsDefault:
+                    type: boolean
+                    description: Is this the VoPay account holder's default Apple Pay credit card
+                    example: true
+                required:
+                - Success
+                - ErrorMessage
+                - ApplePayToken
+                - IsDefault
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /apple-pay/default-apple-pay:
+    get:
+      description: This endpoint retrieves the default Apple Pay credit card associated with your VoPay account
+      summary: apple-pay/default-apple-pay
+      tags:
+      - Digital Wallet Endpoints
+      operationId: ApplePayDefaultApplePayGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: When provided, this endpoint will return the default Apple Pay credit card associated with this Client Account ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DefaultCreditCard:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Default Apple Pay credit card associated with the Account or Client Account'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          ApplePayToken:
+                            type: string
+                            description: A unique token associated with the credit card.
+                            example: ACBDF-GAFSHD-AHBS-123456
+                          CreditCardHolderName:
+                            type: string
+                            description: Credit card holder name.
+                            example: Natalie Merchant
+                          CreditCardNumber:
+                            type: string
+                            description: Masked credit card number.
+                            example: '**** **** **** 1234'
+                          CreditCardExpiryYear:
+                            type: string
+                            description: Expiry year of credit card.
+                            example: '2022'
+                          CreditCardExpiryMonth:
+                            type: string
+                            description: Expiry month of credit card.
+                            example: '03'
+                          CreditCardBrand:
+                            type: string
+                            description: Credit card brand
+                            example: visa
+                        required:
+                        - ApplePayToken
+                        - CreditCardHolderName
+                        - CreditCardNumber
+                        - CreditCardExpiryYear
+                        - CreditCardExpiryMonth
+                        - CreditCardBrand
+                    x-list-of: inline
+                    x-empty-when: no default Apple Pay card
+                required:
+                - Success
+                - ErrorMessage
+                - DefaultCreditCard
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /google-pay/charge:
+    post:
+      description: "This endpoint is to create a Google Pay transaction to fund your VoPay account, charging the amount specified to the card linked to the provided Google Pay Token.\n\n If a ClientAccountID is provided, the client account's default Google Pay wallet will be used for the transaction.\n\nNote: You must first generate a GooglePayToken using the /google-pay/generate-embed-url endpoint."
+      summary: google-pay/charge
+      tags:
+      - Digital Wallet Endpoints
+      operationId: GooglePayChargePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.
+                  type: string
+                GooglePayToken:
+                  description: The token identifying the Google Pay wallet to charge (returned from /google-pay/generate-embed-url).
+                  type: string
+                Amount:
+                  description: The amount to charge from the customer's Google Pay wallet.
+                  type: number
+                Currency:
+                  description: 3 character currency code for the currency to be charged to the customer's Google Pay wallet. If this is not specified the transaction will use the account's local currency.
+                  type: string
+                Country:
+                  description: Customer's country specified using full country name or ISO 3166-1 alpha-2 code. If this is not specified the transaction will use the local country.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                TransactionTypeCode:
+                  description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - GooglePayToken
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction that was just submitted.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /google-pay/void:
+    post:
+      description: This endpoint allows you to void a completed Google Pay transaction.
+      summary: google-pay/void
+      tags:
+      - Digital Wallet Endpoints
+      operationId: GooglePayVoidPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/CreditCardVoidPost'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID for the void transaction
+                    example: '1124'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /google-pay/charge/transaction:
+    get:
+      description: This method is used to look up and return the full details on a single Google Pay transaction. Google Pay transactions take money out of the customer's card and deposit them into your VoPay account.
+      summary: google-pay/charge/transaction
+      tags:
+      - Digital Wallet Endpoints
+      operationId: GooglePayChargeTransactionsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: Account transaction ID
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: successful, failed, cancelled, settled'
+                    example: pending
+                  TransactionDateTime:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was created
+                    example: '2019-11-01 12:00:00'
+                  Amount:
+                    type: number
+                    description: The dollar amount of the Google Pay transaction. This is the amount that was withdrawn from the customer's card.
+                    example: '2000'
+                  Currency:
+                    type: string
+                    description: The currency for the transaction.
+                    example: CAD
+                  GooglePayToken:
+                    type: string
+                    description: A unique token who has the Google Pay wallet information. Note. For security purposes we do not store the customer credit card information.
+                    example: ACBDF-GAFSHD-AHBS-123456
+                  Country:
+                    type: string
+                    description: Customer's Country specified using full country name or ISO 3166-1 alpha-2 code.
+                    example: CA
+                  GLCode:
+                    type: string
+                    description: General ledger code.
+                    example: '4300'
+                  TransactionTypeCode:
+                    type: string
+                    description: CPA transaction code.
+                    example: '999'
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: This timestamp indicates when the transaction record was last modified. In normal circumstances the transaction record will only be modified when the status of the transaction changes or the HoldAmount is changed.
+                    example: '2019-11-03 01:00:00'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - TransactionDateTime
+                - Amount
+                - Currency
+                - GooglePayToken
+                - Country
+                - GLCode
+                - TransactionTypeCode
+                - LastModified
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /apple-pay/charge:
+    post:
+      description: "This endpoint is to create a Apple Pay transaction to fund your VoPay account, charging the amount specified to the card linked to the provided Apple Pay Token.\n\n If a ClientAccountID is provided, the client account's default Apple Pay wallet will be used for the transaction.\n\nNote: You must first generate a ApplePayToken using the /apple-pay/generate-embed-url endpoint."
+      summary: apple-pay/charge
+      tags:
+      - Digital Wallet Endpoints
+      operationId: ApplePayChargePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.
+                  type: string
+                ApplePayToken:
+                  description: The token identifying the Apple Pay wallet to charge (returned from /apple-pay/generate-embed-url).
+                  type: string
+                Amount:
+                  description: The amount to charge from the customer's Apple Pay wallet.
+                  type: number
+                Currency:
+                  description: 3 character currency code for the currency to be charged to the customer's Apple Pay wallet. If this is not specified the transaction will use the account's local currency.
+                  type: string
+                Country:
+                  description: Customer's country specified using full country name or ISO 3166-1 alpha-2 code. If this is not specified the transaction will use the local country.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                TransactionTypeCode:
+                  description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ApplePayToken
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction that was just submitted.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /apple-pay/void:
+    post:
+      description: This endpoint allows you to void a completed Apple Pay transaction.
+      summary: apple-pay/void
+      tags:
+      - Digital Wallet Endpoints
+      operationId: ApplePayVoidPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/CreditCardVoidPost'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID for the void transaction
+                    example: '1124'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /apple-pay/charge/transaction:
+    get:
+      description: This method is used to look up and return the full details on a single Apple Pay transaction. Apple Pay transactions take money out of the customer's card and deposit them into your VoPay account.
+      summary: apple-pay/charge/transaction
+      tags:
+      - Digital Wallet Endpoints
+      operationId: ApplePayChargeTransactionsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: Account transaction ID
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: successful, failed, cancelled, settled'
+                    example: pending
+                  TransactionDateTime:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was created
+                    example: '2019-11-01 12:00:00'
+                  Amount:
+                    type: number
+                    description: The dollar amount of the Apple Pay transaction. This is the amount that was withdrawn from the customer's card.
+                    example: '2000'
+                  Currency:
+                    type: string
+                    description: The currency for the transaction.
+                    example: CAD
+                  ApplePayToken:
+                    type: string
+                    description: A unique token who has the Apple Pay wallet information. Note. For security purposes we do not store the customer credit card information.
+                    example: ACBDF-GAFSHD-AHBS-123456
+                  Country:
+                    type: string
+                    description: Customer's Country specified using full country name or ISO 3166-1 alpha-2 code.
+                    example: CA
+                  GLCode:
+                    type: string
+                    description: General ledger code.
+                    example: '4300'
+                  TransactionTypeCode:
+                    type: string
+                    description: CPA transaction code.
+                    example: '999'
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: This timestamp indicates when the transaction record was last modified. In normal circumstances the transaction record will only be modified when the status of the transaction changes or the HoldAmount is changed.
+                    example: '2019-11-03 01:00:00'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - TransactionDateTime
+                - Amount
+                - Currency
+                - ApplePayToken
+                - Country
+                - GLCode
+                - TransactionTypeCode
+                - LastModified
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+components:
+  requestBodies:
+    ApplePayGenerateEmbedURLPOST:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              ClientAccountID:
+                description: When provided, the Apple Pay token generated will be attached to the Client Account ID
+                type: string
+              RedirectURL:
+                description: URL to redirect the user to after the Apple account is connected.
+                type: string
+              RedirectMethod:
+                description: This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.
+                type: string
+              ClientControlled:
+                description: When set to true, the Apple Pay token added will be linked to your VoPay account. Default is false.
+                type: boolean
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - RedirectURL
+      required: true
+    CreditCardVoidPost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              TransactionID:
+                description: The unique ID for the transaction you want to void
+                type: integer
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - TransactionID
+      required: true
+x-refined-from:
+- vopay-payment-method-api-reference.json
+- vopay-payment-rails-api-reference.json

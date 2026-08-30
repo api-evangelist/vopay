@@ -1,0 +1,284 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Global Cash Management Recipient Lookup Endpoints API
+  description: The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Recipient Lookup Endpoints
+paths:
+  /gcm/banks/names:
+    get:
+      description: Get a list of supported bank names.
+      summary: gcm/banks/names
+      tags:
+      - Recipient Lookup Endpoints
+      operationId: BanksNamesGET
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Country:
+                  description: The country code for the bank names to be fetched.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Country
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BankNames:
+                    type: object
+                    description: All the objects found for this given parameters.
+                    properties:
+                      '0':
+                        type: string
+                        description: The name of the bank
+                        example: Australia And New Zealand Banking Group Limited
+  /gcm/banks/cities:
+    get:
+      description: Get a list of supported bank cities.
+      summary: gcm/banks/cities
+      tags:
+      - Recipient Lookup Endpoints
+      operationId: BanksCitiesGET
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Country:
+                  description: The country used to filter the list of banks.
+                  type: string
+                BankName:
+                  description: The bank name used to filter the list of banks.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Country
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BankCities:
+                    type: object
+                    description: All the objects found for this given parameters.
+                    properties:
+                      '0':
+                        type: string
+                        description: The name of the city the bank is in
+                        example: Sydney
+  /gcm/banks/branches:
+    get:
+      description: Get a list of supported bank branches.
+      summary: gcm/banks/branches
+      tags:
+      - Recipient Lookup Endpoints
+      operationId: BanksBranchesGET
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Country:
+                  description: The country used to filter the list of banks.
+                  type: string
+                BankName:
+                  description: The bank name used to filter the list of banks.
+                  type: string
+                City:
+                  description: The city used to filter the list of banks.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Country
+              - BankName
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BankBranches:
+                    type: object
+                    description: All the objects found for this given parameters.
+                    properties:
+                      '0':
+                        type: string
+                        description: The name of the branch
+                        example: Australia And New Zealand Banking Group Limited, Sydney
+  /gcm/banks/locations:
+    get:
+      description: Get a list of supported bank locations.
+      summary: gcm/banks/locations
+      tags:
+      - Recipient Lookup Endpoints
+      operationId: BanksLocationsGET
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                Country:
+                  description: The country used to filter the list of banks.
+                  type: string
+                BankName:
+                  description: The bank name used to filter the list of banks.
+                  type: string
+                City:
+                  description: The city used to filter the list of banks.
+                  type: string
+                BranchName:
+                  description: The branch name used to filter the list of banks.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - Country
+              - BankName
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  BankLocations:
+                    type: object
+                    description: All the objects found for this given parameters.
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          BicCode:
+                            type: string
+                            description: The assigned BIC code
+                            example: ANZBAUS1XXX
+                          BankName:
+                            type: string
+                            description: The full bank name
+                            example: Australia And New Zealand Banking Group Limited
+                          BranchName:
+                            type: string
+                            description: The full branch name
+                            example: Australia And New Zealand Banking Group Limited, Sydney
+                          Address:
+                            type: string
+                            description: The branches address
+                            example: ANZ Tower, 242 Pitt Street NSW 2000, Australia
+                          City:
+                            type: string
+                            description: The city
+                            example: Sydney
+                          State:
+                            type: string
+                            description: The state
+                            example: NSW
+                          Phone:
+                            type: string
+                            description: The phone number
+                            example: +61 3 9273 5555

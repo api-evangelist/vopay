@@ -1,0 +1,573 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Integrations and Support API Key Endpoints API
+  description: The Integrations and Support API defines endpoints for configuring integrations with  Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also  includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for  account and partner accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: API Key Endpoints
+paths:
+  /account/keys:
+    get:
+      description: This endpoint allows the user to fetch the API key IDs associated with their account.
+      summary: account/keys
+      tags:
+      - API Key Endpoints
+      operationId: APIKeysGet
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/APIKeysGet'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Keys:
+                    type: object
+                    description: API Keys associated with the account
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          KeyID:
+                            type: integer
+                            description: ID associated with the key. Can be used with the retrieve endpoint to get sensitive key data
+                            example: '1201'
+                          Label:
+                            type: string
+                            description: The user submitted label for the API Key
+                            example: ''
+  /account/keys/retrieve:
+    get:
+      description: This endpoint allows the user to fetch a particular API key associated with their account including sensitive information.
+      summary: account/keys/retrieve
+      tags:
+      - API Key Endpoints
+      operationId: APIKeysRetrievePost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/APIKeysRetrievePost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Key:
+                    type: object
+                    description: The API Key associated with the account
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          KeyID:
+                            type: integer
+                            description: ID associated with the key. Can be used with the retrieve endpoint to get sensitive key data
+                            example: '1201'
+                          Label:
+                            type: string
+                            description: The user submitted label for the API Key
+                            example: ''
+                          Key:
+                            type: string
+                            description: The actual key value
+                            example: ''
+                          Secret:
+                            type: string
+                            description: The secret associated with the key
+                            example: ''
+                          AccessScope:
+                            type: string
+                            description: The scope of access associated with the key
+                            example: ''
+  /account/keys/add:
+    post:
+      description: This endpoint allows the user to add an API key associated to their account
+      summary: account/keys/add
+      tags:
+      - API Key Endpoints
+      operationId: APIKeysAddPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/APIKeysAddPost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Key:
+                    type: object
+                    description: The API Key associated with the account
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          KeyID:
+                            type: integer
+                            description: ID associated with the key. Can be used with the retrieve endpoint to get sensitive key data
+                            example: '1201'
+                          Label:
+                            type: string
+                            description: The user submitted label for the API Key
+                            example: ''
+                          Key:
+                            type: string
+                            description: The actual key value
+                            example: ''
+                          Secret:
+                            type: string
+                            description: The secret associated with the key
+                            example: ''
+                          AccessScope:
+                            type: string
+                            description: The scope of access associated with the key
+                            example: ''
+  /account/keys/edit:
+    post:
+      description: This endpoint allows the user to edit an API key's label associated to their account
+      summary: account/keys/edit
+      tags:
+      - API Key Endpoints
+      operationId: APIKeysEditPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/APIKeysEditPost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Key:
+                    type: object
+                    description: The API Key associated with the account
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          KeyID:
+                            type: integer
+                            description: ID associated with the key. Can be used with the retrieve endpoint to get sensitive key data
+                            example: '1201'
+                          Label:
+                            type: string
+                            description: The user submitted label for the API Key
+                            example: ''
+                          Key:
+                            type: string
+                            description: The actual key value
+                            example: ''
+                          Secret:
+                            type: string
+                            description: The secret associated with the key
+                            example: ''
+                          AccessScope:
+                            type: string
+                            description: The scope of access associated with the key
+                            example: ''
+  /account/keys/delete:
+    post:
+      description: This endpoint allows the user to delete a particular API key associated with their account
+      summary: account/keys/delete
+      tags:
+      - API Key Endpoints
+      operationId: APIKeysDeletePost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/APIKeysRetrievePost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+  /partner/keys:
+    get:
+      description: This endpoint allows the user to fetch the API key IDs associated with their partner account.
+      summary: partner/keys
+      tags:
+      - API Key Endpoints
+      operationId: APIPartnerKeysGet
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/APIKeysGet'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Keys:
+                    type: object
+                    description: API Keys associated with the account
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          KeyID:
+                            type: integer
+                            description: ID associated with the key. Can be used with the retrieve endpoint to get sensitive key data
+                            example: '1201'
+                          Label:
+                            type: string
+                            description: The user submitted label for the API Key
+                            example: ''
+  /partner/keys/retrieve:
+    post:
+      description: This endpoint allows the user to fetch a particular API key associated with their partner account including sensitive information.
+      summary: partner/keys/retrieve
+      tags:
+      - API Key Endpoints
+      operationId: APIPartnerKeysRetrievePost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/APIKeysRetrievePost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Key:
+                    type: object
+                    description: The API Key associated with the account
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          KeyID:
+                            type: integer
+                            description: ID associated with the key. Can be used with the retrieve endpoint to get sensitive key data
+                            example: '1201'
+                          Label:
+                            type: string
+                            description: The user submitted label for the API Key
+                            example: ''
+                          Key:
+                            type: string
+                            description: The actual key value
+                            example: ''
+                          Secret:
+                            type: string
+                            description: The secret associated with the key
+                            example: ''
+                          AccessScope:
+                            type: string
+                            description: The scope of access associated with the key
+                            example: ''
+  /partner/keys/add:
+    post:
+      description: This endpoint allows the user to add an API key associated to their partner account
+      summary: partner/keys/add
+      tags:
+      - API Key Endpoints
+      operationId: APIPartnerKeysAddPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/APIKeysAddPost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Key:
+                    type: object
+                    description: The API Key associated with the account
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          KeyID:
+                            type: integer
+                            description: ID associated with the key. Can be used with the retrieve endpoint to get sensitive key data
+                            example: '1201'
+                          Label:
+                            type: string
+                            description: The user submitted label for the API Key
+                            example: ''
+                          Key:
+                            type: string
+                            description: The actual key value
+                            example: ''
+                          Secret:
+                            type: string
+                            description: The secret associated with the key
+                            example: ''
+                          AccessScope:
+                            type: string
+                            description: The scope of access associated with the key
+                            example: ''
+  /partner/keys/edit:
+    post:
+      description: This endpoint allows the user to edit an API key's label associated to their partner account
+      summary: partner/keys/edit
+      tags:
+      - API Key Endpoints
+      operationId: APIPartnerKeysEditPost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/APIKeysEditPost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Key:
+                    type: object
+                    description: The API Key associated with the account
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          KeyID:
+                            type: integer
+                            description: ID associated with the key. Can be used with the retrieve endpoint to get sensitive key data
+                            example: '1201'
+                          Label:
+                            type: string
+                            description: The user submitted label for the API Key
+                            example: ''
+                          Key:
+                            type: string
+                            description: The actual key value
+                            example: ''
+                          Secret:
+                            type: string
+                            description: The secret associated with the key
+                            example: ''
+                          AccessScope:
+                            type: string
+                            description: The scope of access associated with the key
+                            example: ''
+  /partner/keys/delete:
+    post:
+      description: This endpoint allows the user to delete a particular API key associated with their partner account
+      summary: partner/keys/delete
+      tags:
+      - API Key Endpoints
+      operationId: APIPartnerKeysDeletePost
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/APIKeysRetrievePost'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+components:
+  requestBodies:
+    APIKeysEditPost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              KeyID:
+                description: The ID of the key. Can be fetched through the /keys endpoint
+                type: integer
+              Label:
+                description: The label you want associated with the key
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - KeyID
+            - Label
+      required: true
+    APIKeysRetrievePost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              KeyID:
+                description: The ID of the key. Can be fetched through the /keys endpoint
+                type: integer
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - KeyID
+      required: true
+    APIKeysAddPost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              Label:
+                description: The label you want associated with the key
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - Label
+      required: true
+    APIKeysGet:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+      required: true

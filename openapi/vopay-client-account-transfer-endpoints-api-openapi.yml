@@ -1,0 +1,1082 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Client Accounts Client Account Transfer Endpoints API
+  description: The Client Accounts API allows you to create, manage and retrieve information about client accounts.
+  contact:
+    name: API Support
+    email: help@vopay.com
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: Client Account Transfer Endpoints
+paths:
+  /account/client-accounts/transfer:
+    post:
+      description: This endpoint will transfer money directly from the debitor client account to the recipient client account. Both client accounts must be active.
+      summary: account/client-accounts/transfer
+      tags:
+      - Client Account Transfer Endpoints
+      operationId: ClientAccountTransferPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                DebitorClientAccountID:
+                  description: ID of the client account transferring the funds
+                  type: string
+                RecipientClientAccountID:
+                  description: ID of the client account receiving the funds
+                  type: string
+                Amount:
+                  description: The amount to transfer from the debitor client account to the recipient client account.
+                  type: number
+                Currency:
+                  description: 3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.
+                  type: string
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the transaction
+                  type: string
+                Notes:
+                  description: An optional note to associate with the transaction.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.
+                  type: string
+                ParentTransactionID:
+                  description: If this transaction is related to a previous transaction, specify the parent transaction ID here.
+                  type: integer
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - DebitorClientAccountID
+              - RecipientClientAccountID
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction that was just created. This ID should be saved as it is required in order to look up the status information on the transaction.
+                    example: '1122'
+  /account/client-accounts/fund-transfer:
+    post:
+      description: "This endpoint will fund the Debitor client account using their default bank account, and then trigger an account transfer to the recipient client account once the funds have been cleared. \n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+      summary: account/client-accounts/fund-transfer
+      tags:
+      - Client Account Transfer Endpoints
+      operationId: ClientAccountFundTransferPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                DebitorClientAccountID:
+                  description: ID of the client account transferring the funds
+                  type: string
+                RecipientClientAccountID:
+                  description: ID of the client account receiving the funds
+                  type: string
+                RecipientClientAccountIDSplit:
+                  description: 'A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{"ClientAccountID":"client_account_id_1","Amount": "5"},{"ClientAccountID":"client_account_id_2","Amount": "10"}]'
+                  type: string
+                Amount:
+                  description: The amount to debit from the customer's bank account.
+                  type: number
+                FundingRail:
+                  description: Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.
+                  type: string
+                Currency:
+                  description: 3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.
+                  type: string
+                ReverseOnFailure:
+                  description: Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.
+                  type: boolean
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the transactions
+                  type: string
+                Notes:
+                  description: An optional note to associate with the transactions.
+                  type: string
+                TransactionLabel:
+                  description: The TransactionLabel overrides the originator short name on statements
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                WalletID:
+                  description: The ID of the wallet to associate with the funding transaction. Requires DebitorClientAccountID to be provided.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - DebitorClientAccountID
+              - RecipientClientAccountID
+              - RecipientClientAccountIDSplit
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  FundingTransactionID:
+                    type: integer
+                    description: The unique ID of the funding transaction that was just created. This ID should be saved as it is required order to look up the status information on the transaction.
+                    example: '1122'
+                  AccountTransferID:
+                    type: integer
+                    description: The unique ID of the account transfer that was just created. This ID should be saved as it is required order to look up the status information on the transaction.
+                    example: '2244'
+  /account/client-accounts/transfer-withdraw:
+    post:
+      description: "This endpoint will transfer money from the debitor client account to the recipient client account, and then immediately withdraw the money from the recipient client account into their default bank account. \n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+      summary: account/client-accounts/transfer-withdraw
+      tags:
+      - Client Account Transfer Endpoints
+      operationId: ClientAccountTransferWithdrawPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/ClientAccountTransferWithdrawPOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  WithdrawTransactionID:
+                    type: integer
+                    description: The unique ID of the withdrawal transaction that was just created. This ID should be saved as it is required order to look up the status information on the transaction.
+                    example: '1122'
+                  AccountTransferID:
+                    type: integer
+                    description: The unique ID of the account transfer that was just created. This ID should be saved as it is required order to look up the status information on the transaction.
+                    example: '2244'
+  /account/client-accounts/fund-transfer-withdraw:
+    post:
+      description: "This endpoint will fund the debitor client account using their default bank account, and then transfer the money to the recipient client account once the funds have been cleared. Once the funds are transferred, a withdraw transaction will be triggered to send the funds to the recipient client account's default bank account. \n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+      summary: account/client-accounts/fund-transfer-withdraw
+      tags:
+      - Client Account Transfer Endpoints
+      operationId: ClientAccountFundTransferWithdrawPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/ClientAccountTransferWithdrawPOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  FundingTransactionID:
+                    type: integer
+                    description: The unique ID of the funding transaction that was just created. This ID should be saved as it is required order to look up the status information on the transaction.
+                    example: '1122'
+                  WithdrawTransactionID:
+                    type: integer
+                    description: The unique ID of the withdrawal transaction that was just created. This ID should be saved as it is required order to look up the status information on the transaction.
+                    example: '2244'
+                  AccountTransferID:
+                    type: integer
+                    description: The unique ID of the account transfer that was just created. This ID should be saved as it is required order to look up the status information on the transaction.
+                    example: '3366'
+  /account/client-accounts/transactions:
+    get:
+      description: This endpoint returns a list all of the transactions which affect the account balance. This endpoint only returns basic information on the transactions. More detailed information on individual transactions is available from other API endpoints.
+      summary: account/client-accounts/transactions
+      tags:
+      - Client Account Transfer Endpoints
+      operationId: AccountClientAccountTransactionsGet
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: StartDateTime
+        in: query
+        required: true
+        description: Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: EndDateTime
+        in: query
+        required: true
+        description: Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: ClientAccountID
+        in: query
+        required: true
+        description: Filter transactions by Client account ID
+        schema:
+          type: string
+      - name: Currency
+        in: query
+        required: false
+        description: 3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).
+        schema:
+          type: string
+      - name: TransactionType
+        in: query
+        required: false
+        description: 'Specifies the type of transaction to return. Accepted values are: ''EFT Funding'', ''EFT Withdrawal'', ''Interac Money Request'', ''Interac Bulk Payout'', ''Credit Card'', ''Fee'', ''Reversal''.'
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: false
+        description: Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.
+        schema:
+          type: integer
+          format: int32
+      - name: ClientReferenceNumber
+        in: query
+        required: false
+        description: Searches for transactions with the specified client reference number.
+        schema:
+          type: string
+      - name: ScheduledTransactionID
+        in: query
+        required: false
+        description: Id of the schedule transaction to search
+        schema:
+          type: string
+      - name: WalletID
+        in: query
+        required: false
+        description: Id of the wallet that the transactions should belong to
+        schema:
+          type: string
+      - name: IsFlagged
+        in: query
+        required: false
+        description: Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.
+        schema:
+          type: boolean
+      - name: IsRefunded
+        in: query
+        required: false
+        description: Filter the list of transactions to only include transactions that have been refunded.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  NumberOfRecords:
+                    type: integer
+                    description: Total number of transaction records returned
+                    example: '0'
+                  Transactions:
+                    type: object
+                    description: Collection of TransactionInfo data
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          TransactionID:
+                            type: integer
+                            description: Unique ID for the Transaction
+                            example: '5918'
+                          AccountName:
+                            type: string
+                            description: Account Name
+                            example: ''
+                          TransactionDateTime:
+                            type: string
+                            format: date-time
+                            description: The timestamp on which the transaction occurred.
+                            example: '2019-12-04 18:13:39'
+                          TransactionType:
+                            type: string
+                            description: Specifies the type of transaction, for example 'EFT Funding', 'EFT Withdrawal', 'Fee'.
+                            example: Reversal
+                          TransactionStatus:
+                            type: string
+                            description: Current Status of the transaction
+                            example: in progress
+                          Notes:
+                            type: string
+                            description: If applicable, notes giving context to the transaction.
+                            example: Transaction cancelled
+                          DebitAmount:
+                            type: number
+                            description: The dollar amount by which this transaction debited funds from your account balance. If DebitAmountis set, CreditAmount will be null.
+                            example: '100.00'
+                          CreditAmount:
+                            type: number
+                            description: The dollar amount by which this transaction credited funds to your account balance. If CreditAmount is set, DebitAmount will be null.
+                            example: '0.00'
+                          Currency:
+                            type: string
+                            description: 3 character currency code.
+                            example: CAD
+                          HoldAmount:
+                            type: number
+                            description: The dollar amount of the funds from this transaction which are temporarily on hold. This is only applicable for transactions where CreditAmount is set.
+                            example: '0.00'
+                          LastModified:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the transaction record was last modified. In normal circumstances the transaction record will only be modified when the HoldAmount is changed.
+                            example: '2019-12-04 18:13:39'
+                          ParentTransactionID:
+                            type: string
+                            description: If a transaction directly relates to another transaction, this value will be set to link the new transaction to its parent. For example if an EFT comes back with insufficient funds a new transaction will be created referencing the original transaction as its parent.
+                            example: '5909'
+                          ChildTransactionIDs:
+                            type: integer
+                            description: If this transaction directly relates to any other transactions this will contain a collection of child transaction IDs. For example if an EFT is reversed due to insufficient funds the original transaction record will reference the new transaction as a child.
+                            example: '{}'
+                          ClientReferenceNumber:
+                            type: string
+                            description: The optional reference number which was set when the transaction was created.
+                            example: 'null'
+                          ScheduledTransactionID:
+                            type: integer
+                            description: ID of the scheduled transaction
+                            example: '1'
+                          WalletID:
+                            type: string
+                            description: ID of the wallet this transaction belongs to
+                            example: primary_000001
+                          ClientAccountID:
+                            type: string
+                            description: Client account ID used on the transaction, if applicable
+                            example: client_account_1
+                          TransactionErrorCode:
+                            type: string
+                            description: Error code of the transaction, if applicable
+                            example: '901'
+                          TransactionFailureReason:
+                            type: string
+                            description: Failure reason of the transaction, if applicable
+                            example: NSF
+                          TransactionFlag:
+                            type: string
+                            description: Flag status of the transaction, if applicable
+                            example: duplicate - 45563,45561
+                          ELinxRequestID:
+                            type: integer
+                            description: The unique ID of the eLinx request attached to the transaction, if applicable
+                            example: '1234'
+                          IsRefunded:
+                            type: boolean
+                            description: True if the transaction was refunded, false if it is not
+                            example: 'true'
+                          FullName:
+                            type: string
+                            description: 'Customer''s full name '
+                            example: Jane Doe
+  /account/client-accounts/fund-transfer/schedule:
+    post:
+      description: This endpoint is used to schedule a fund-transfer between two client accounts.
+      summary: account/client-accounts/fund-transfer/schedule
+      tags:
+      - Client Account Transfer Endpoints
+      operationId: ClientAccountFundTransferSchedulePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                DebitorClientAccountID:
+                  description: ID of the client account transferring the funds
+                  type: string
+                RecipientClientAccountID:
+                  description: ID of the client account receiving the funds
+                  type: string
+                RecipientClientAccountIDSplit:
+                  description: 'A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{"ClientAccountID":"client_account_id_1","Amount": "5"},{"ClientAccountID":"client_account_id_2","Amount": "10"}]'
+                  type: string
+                Amount:
+                  description: The amount to debit from the customer's bank account.
+                  type: number
+                Currency:
+                  description: 3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.
+                  type: string
+                FundingRail:
+                  description: Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.
+                  type: string
+                ReverseOnFailure:
+                  description: Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.
+                  type: boolean
+                ClientReferenceNumber:
+                  description: An optional reference number to associate with the transfers
+                  type: string
+                Notes:
+                  description: An optional note to associate with the transfers.
+                  type: string
+                TransactionLabel:
+                  description: The TransactionLabel overrides the originator short name on statements
+                  type: string
+                Frequency:
+                  description: 'The frequency of the scheduled transfer. Valid options are: single, weekly, monthly, semi-monthly, and yearly.'
+                  type: string
+                ScheduleStartDate:
+                  description: Date from which the schedule will be started
+                  type: string
+                ScheduleEndDate:
+                  description: Date when the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments
+                  type: string
+                EndingAfterPayments:
+                  description: Number of payments after which the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments
+                  type: integer
+                SemiMonthlyFrequencyType:
+                  description: 'Type of semi-monthly frequency. This field is only required when Frequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast'
+                  type: integer
+                Description:
+                  description: Description of the schedule transfer
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - DebitorClientAccountID
+              - RecipientClientAccountID
+              - RecipientClientAccountIDSplit
+              - Amount
+              - Frequency
+              - ScheduleStartDate
+              - ScheduleEndDate
+              - EndingAfterPayments
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ScheduledTransferID:
+                    type: integer
+                    description: The unique ID of the scheduled transfer that was just created. This ID should be saved as it is required order to look up the status information on the scheduled transfer.
+                    example: '1122'
+  /account/client-accounts/transfer-withdraw/schedule:
+    post:
+      description: This endpoint is used to schedule a transfer-withdraw between two client accounts.
+      summary: account/client-accounts/transfer-withdraw/schedule
+      tags:
+      - Client Account Transfer Endpoints
+      operationId: ClientAccountTransferWithdrawSchedulePOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/ClientAccountTransferWithdrawSchedulePOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ScheduledTransferID:
+                    type: integer
+                    description: The unique ID of the scheduled transfer that was just created. This ID should be saved as it is required order to look up the status information on the scheduled transfer.
+                    example: '1122'
+  /account/client-accounts/fund-transfer-withdraw/schedule:
+    post:
+      description: This endpoint is used to schedule a fund-transfer-withdraw between two client accounts.
+      summary: account/client-accounts/fund-transfer-withdraw/schedule
+      tags:
+      - Client Account Transfer Endpoints
+      operationId: ClientAccountFundTransferWithdrawSchedulePOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/ClientAccountTransferWithdrawSchedulePOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ScheduledTransferID:
+                    type: integer
+                    description: The unique ID of the scheduled transfer that was just created. This ID should be saved as it is required order to look up the status information on the scheduled transfer.
+                    example: '1122'
+  /account/client-accounts/transfer/schedule/cancel:
+    post:
+      description: This endpoint is used to cancel a scheduled client account transfer and all remaining payments belonging to that scheduled transfer. Only scheduled transfers with the status in progress can be cancelled.
+      summary: account/client-accounts/transfer/schedule/cancel
+      tags:
+      - Client Account Transfer Endpoints
+      operationId: ClientAccountTransferScheduleCancelPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ScheduledTransferID:
+                  description: ID of the schedule transfer to cancel
+                  type: integer
+                  format: int32
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - ScheduledTransferID
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  Status:
+                    type: string
+                    description: A message indicating the resulting scheduled transfer status.
+                    example: cancelled
+  /account/client-accounts/scheduled-transfers:
+    get:
+      description: "This endpoint is used to look up either the list of all scheduled client account transfers, or to list the details of a single scheduled client account transfer. \n\n If the value ScheduledTransferID is present, we only list the details of that scheduled client account transfer."
+      summary: account/client-accounts/scheduled-transfers
+      tags:
+      - Client Account Transfer Endpoints
+      operationId: ClientAccountScheduledTransfers
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ScheduledTransferID
+        in: query
+        required: false
+        description: ID of the schedule transfer (if this value is present, we list the details of the scheduled tranfser)
+        schema:
+          type: integer
+          format: int32
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: The Client Account ID that the scheduled transactions belong to
+        schema:
+          type: string
+          format: int32
+      - name: StartDate
+        in: query
+        required: false
+        description: Return Client account transfers scheduled for or after this date/time. Can be specified in YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      - name: EndDate
+        in: query
+        required: false
+        description: Return Client account transfers scheduled for or before this date/time. Can be specified in YYYY-MM-DD format.
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: True if the request was successful, false if it failed
+                    example: 'true'
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  ScheduledClientAccountTransfers:
+                    type: object
+                    description: Collection of scheduled transfer info data
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          ID:
+                            type: integer
+                            description: Unique ID for the scheduled transfer
+                            example: '15'
+                          DebitorClientAccountID:
+                            type: string
+                            description: The debitor ClientAccountID
+                            example: JohnSmith
+                          RecipientClientAccountID:
+                            type: string
+                            description: The recipient ClientAccountID
+                            example: AvaLovelace
+                          RecipientClientAccountIDSplit:
+                            type: string
+                            description: The split details for the recipient client accounts
+                            example: '[{"ClientAccountID":"client_account_id_1","Amount":"2"},{"ClientAccountID":"client_account_id_2","Amount":"2"}]'
+                          Amount:
+                            type: number
+                            description: The amount of the scheduled transaction
+                            example: '25.00'
+                          TransferType:
+                            type: string
+                            description: The payment type of scheduled transfer; i.e., fund-transfer, transfer-withdraw or fund-transfer-withdraw
+                            example: fund-transfer
+                          ReverseOnFailure:
+                            type: boolean
+                            description: Instructions on whether or not the scheduled transfer should be reversed if it fails
+                            example: 'true'
+                          Frequency:
+                            type: string
+                            description: 'The frequency of the schedule transfer: single, weekly, monthly, semi-monthly, annual'
+                            example: weekly
+                          SemiMonthlyFrequencyType:
+                            type: string
+                            description: The semi-monthly frequency type, if applicable.
+                            example: SemiMonthFirstAndFifteenth
+                          ClientReferenceNumber:
+                            type: string
+                            description: An optional reference number which was associated with the transfers.
+                            example: ABC123
+                          Notes:
+                            type: string
+                            description: An optional note which was associated with the transfers.
+                            example: This is a note
+                          TransactionLabel:
+                            type: string
+                            description: An optional transaction label which was associated with the transfers.
+                            example: ACME Corp
+                          Description:
+                            type: string
+                            description: Description of the scheduled transfer
+                            example: Scheduled transfer 1234
+                          ScheduleStartDate:
+                            type: string
+                            format: date
+                            description: Date from which the transfer(s) will be started
+                            example: '2020-01-01'
+                          ScheduleEndDate:
+                            type: string
+                            format: date
+                            description: Date from which the transfers will end
+                            example: '2021-01-01'
+                          EndingAfterPayments:
+                            type: integer
+                            description: Number of payments after which the transfer processing will end
+                            example: '12'
+                          Status:
+                            type: string
+                            description: 'A message indicating the current transaction status. Statuses are: cancelled, completed, or in progress'
+                            example: in progress
+                          DateAdded:
+                            type: string
+                            format: date
+                            description: Date the schedule transfer was added
+                            example: '2023-11-03 01:00:00'
+                          UpcomingTransfers:
+                            type: object
+                            description: Upcoming transfer listing (This option only will be available if the user provides ScheduledTransferID as a parameter)
+                            properties:
+                              '0':
+                                type: object
+                                properties:
+                                  ScheduledTransferID:
+                                    type: string
+                                    description: Scheduled Transfer ID for upcoming transaction
+                                    example: '40'
+                                  TransferDate:
+                                    type: string
+                                    format: date
+                                    description: Date when the transfer will get created
+                                    example: '2020-01-01'
+                                  Amount:
+                                    type: number
+                                    description: The amount of the scheduled transfer
+                                    example: '10.00'
+                                  Status:
+                                    type: string
+                                    description: Status of the scheduled transfer
+                                    example: upcoming
+                                  FailureReason:
+                                    type: string
+                                    description: Failure reason of the scheduled transfer (empty for upcoming transactions)
+                                    example: ''
+                                  FundingTransactionID:
+                                    type: integer
+                                    description: ID of the funding transaction (empty for upcoming transactions)
+                                    example: ''
+                                  AccountTransferID:
+                                    type: integer
+                                    description: ID of the account transfer (empty for upcoming transactions)
+                                    example: ''
+                                  WithdrawTransactionID:
+                                    type: integer
+                                    description: ID of the withdraw transaction (empty for upcoming transactions)
+                                    example: ''
+                          CompletedTransfers:
+                            type: object
+                            description: List of the completed transfers (This option only will be available if the user provides ScheduledTransferID as a parameter)
+                            properties:
+                              '0':
+                                type: object
+                                properties:
+                                  ScheduledTransferID:
+                                    type: string
+                                    description: Scheduled Transfer ID for completed transaction
+                                    example: '39'
+                                  TransferDate:
+                                    type: string
+                                    format: date
+                                    description: Date when the transfer will get created
+                                    example: '2020-01-01'
+                                  Amount:
+                                    type: number
+                                    description: The amount of the scheduled transfer
+                                    example: '10.00'
+                                  Status:
+                                    type: string
+                                    description: Status of the scheduled transfer
+                                    example: completed
+                                  FailureReason:
+                                    type: string
+                                    description: Failure reason of the scheduled transfer, if applicable
+                                    example: DebitorClientAccountID does not exist
+                                  FundingTransactionID:
+                                    type: integer
+                                    description: ID of the funding transaction, if applicable
+                                    example: '123456'
+                                  AccountTransferID:
+                                    type: integer
+                                    description: ID of the account transfer, if applicable
+                                    example: '123457'
+                                  WithdrawTransactionID:
+                                    type: integer
+                                    description: ID of the withdraw transaction, if applicable
+                                    example: '123458'
+components:
+  requestBodies:
+    ClientAccountTransferWithdrawSchedulePOST:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              DebitorClientAccountID:
+                description: ID of the client account transferring the funds
+                type: string
+              RecipientClientAccountID:
+                description: ID of the client account receiving the funds
+                type: string
+              RecipientClientAccountIDSplit:
+                description: 'A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{"ClientAccountID":"client_account_id_1","Amount": "5"},{"ClientAccountID":"client_account_id_2","Amount": "10"}]'
+                type: string
+              Amount:
+                description: The amount to debit from the customer's bank account.
+                type: number
+              Currency:
+                description: 3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.
+                type: string
+              FundingRail:
+                description: Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.
+                type: string
+              WithdrawRail:
+                description: Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.
+                type: string
+              ReverseOnFailure:
+                description: Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.
+                type: boolean
+              ClientReferenceNumber:
+                description: An optional reference number to associate with the transfers
+                type: string
+              Notes:
+                description: An optional note to associate with the transfers.
+                type: string
+              TransactionLabel:
+                description: The TransactionLabel overrides the originator short name on statements
+                type: string
+              Frequency:
+                description: 'The frequency of the scheduled transfer. Valid options are: single, weekly, monthly, semi-monthly, and yearly.'
+                type: string
+              ScheduleStartDate:
+                description: Date from which the schedule will be started
+                type: string
+              ScheduleEndDate:
+                description: Date when the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments
+                type: string
+              EndingAfterPayments:
+                description: Number of payments after which the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments
+                type: integer
+              SemiMonthlyFrequencyType:
+                description: 'Type of semi-monthly frequency. This field is only required when Frequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast'
+                type: integer
+              Description:
+                description: Description of the schedule transfer
+                type: string
+              GLCode:
+                description: An optional unique identification general ledger code.
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - DebitorClientAccountID
+            - RecipientClientAccountID
+            - RecipientClientAccountIDSplit
+            - Amount
+            - Frequency
+            - ScheduleStartDate
+            - ScheduleEndDate
+            - EndingAfterPayments
+      required: true
+    ClientAccountTransferWithdrawPOST:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              DebitorClientAccountID:
+                description: ID of the client account transferring the funds
+                type: string
+              RecipientClientAccountID:
+                description: ID of the client account receiving the funds
+                type: string
+              RecipientClientAccountIDSplit:
+                description: 'A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{"ClientAccountID":"client_account_id_1","Amount": "5"},{"ClientAccountID":"client_account_id_2","Amount": "10"}]'
+                type: string
+              Amount:
+                description: The amount to debit from the customer's bank account.
+                type: number
+              FundingRail:
+                description: Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.
+                type: string
+              WithdrawRail:
+                description: Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.
+                type: string
+              IdempotencyKey:
+                description: A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.
+                type: string
+              Currency:
+                description: 3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.
+                type: string
+              ReverseOnFailure:
+                description: Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.
+                type: boolean
+              ClientReferenceNumber:
+                description: An optional reference number to associate with the transactions
+                type: string
+              Notes:
+                description: An optional note to associate with the transactions.
+                type: string
+              TransactionLabel:
+                description: The TransactionLabel overrides the originator short name on statements
+                type: string
+              GLCode:
+                description: An optional unique identification general ledger code.
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - DebitorClientAccountID
+            - RecipientClientAccountID
+            - RecipientClientAccountIDSplit
+            - Amount
+      required: true

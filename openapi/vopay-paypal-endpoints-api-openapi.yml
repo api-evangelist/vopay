@@ -1,0 +1,698 @@
+openapi: 3.2.0
+info:
+  title: Vopay PayPal Endpoints API
+  version: '2.0'
+  contact:
+    name: API Support
+    email: help@vopay.com
+  description: 'Operations tagged PayPal Endpoints across 2 of this provider''s published API definitions: vopay-payment-method-api-reference.json, vopay-payment-rails-api-reference.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://earthnode-dev.vopay.com/api/v2
+tags:
+- name: PayPal Endpoints
+paths:
+  /paypal/add:
+    post:
+      description: This endpoint allows you to add a PayPal account to your VoPay account
+      summary: paypal/add
+      tags:
+      - PayPal Endpoints
+      operationId: PayPalAddPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: The ID of the contact to use for this PayPal account.
+                  type: string
+                PayPalRecipientType:
+                  description: The type of the PayPal account identifier. Valid values are 'EMAIL', 'PHONE', 'PAYPAL_ID'.
+                  type: string
+                RecipientID:
+                  description: The recipient ID (email address, phone number, or PayPal ID) of the PayPal account. This value corresponds with the PayPalRecipientType value in the request.
+                  type: string
+                RecipientName:
+                  description: The full name of the PayPal account holder.
+                  type: string
+                Currency:
+                  description: 3 character currency code for the currency to be charged to the customer's PayPal wallet. If this is not specified the transaction will use the account's local currency.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - PayPalRecipientType
+              - RecipientID
+              - RecipientName
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /paypal/delete:
+    post:
+      description: This endpoint allows you to delete a PayPal account from your VoPay account
+      summary: paypal/delete
+      tags:
+      - PayPal Endpoints
+      operationId: PayPalDeletePOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                PayPalToken:
+                  description: The Token associated with the PayPal account you wish to delete.
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - PayPalToken
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                required:
+                - Success
+                - ErrorMessage
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /paypal/recipients:
+    get:
+      description: This endpoint allows you fetch a list all of your PayPal recipients
+      summary: paypal/recipients
+      tags:
+      - PayPal Endpoints
+      operationId: PayPalRecipientsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientControlled
+        in: query
+        required: false
+        description: When set to true, this endpoint will only return PayPal accounts linked to your VoPay account. When set to false, it will return a list of your customer's PayPal accounts.
+        schema:
+          type: boolean
+      - name: Limit
+        in: query
+        required: false
+        description: Limit the number of records that are returned.
+        schema:
+          type: integer
+      - name: Offset
+        in: query
+        required: false
+        description: Use this parameter to set the starting point in the dataset.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  PaypalRecipients:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. A collection of PayPal recipients'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          RecipientName:
+                            type: string
+                            description: The name of the recipient
+                            example: John Doe
+                          RecipientID:
+                            type: string
+                            description: The email address, phone number, or PayPal ID.
+                            example: bob@gmail.com
+                          PayPalRecipientType:
+                            type: string
+                            description: The type of the recipient
+                            example: EMAIL
+                          PayPalToken:
+                            type: string
+                            description: The Token associated with the recipient
+                            example: 1e7mtunsbhygfnfpm83zd8rig1hqoqu76y618x3eps4omcye0w83mjj2kk884w0o
+                          ClientControlledPayPalAccount:
+                            type: string
+                            description: Set to 1 if the PayPal recipient is linked to your VoPay account.
+                            example: '1'
+                          IsDefault:
+                            type: string
+                            description: Set to 1 if the PayPal recipient is the default
+                            example: '1'
+                        required:
+                        - RecipientName
+                        - RecipientID
+                        - PayPalRecipientType
+                        - PayPalToken
+                        - ClientControlledPayPalAccount
+                        - IsDefault
+                    x-list-of: inline
+                    x-empty-when: no PayPal recipients match
+                required:
+                - Success
+                - ErrorMessage
+                - PaypalRecipients
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /paypal/set-my-recipient:
+    post:
+      description: This endpoint allows you to identify a PayPal recipient as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a PayPal recipient as being the VoPay account holder's default PayPal recipient. Note, a VoPay account can only have one default PayPal recipient.
+      summary: paypal/set-my-recipient
+      tags:
+      - PayPal Endpoints
+      operationId: PayPalSetMyRecipientPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                PayPalToken:
+                  description: The token identifying the PayPal wallet to send funds to.
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                SetAsDefault:
+                  description: Identify credit card as default PayPal recipient
+                  type: boolean
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - PayPalToken
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  PayPalToken:
+                    type: string
+                    description: PayPal recipient token
+                    example: ACBDF-GAFSHD-AHBS-123456
+                  IsDefault:
+                    type: boolean
+                    description: Is this the VoPay account holder's default PayPal recipient
+                    example: true
+                required:
+                - Success
+                - ErrorMessage
+                - PayPalToken
+                - IsDefault
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /paypal/default-recipient:
+    get:
+      description: This endpoint retrieves the default PayPal recipient associated with your VoPay account
+      summary: paypal/default-recipient
+      tags:
+      - PayPal Endpoints
+      operationId: PayPalDefaultRecipientGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: ClientAccountID
+        in: query
+        required: false
+        description: When provided, this endpoint will return the default PayPal recipient associated with this Client Account ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  DefaultPayPalRecipient:
+                    type: object
+                    description: 'Array serialized as a JSON object (JSON_FORCE_OBJECT): numeric string keys ''0'',''1'',... Empty {} when no items. Collection of PayPal Recipient records'
+                    properties:
+                      '0':
+                        type: object
+                        properties:
+                          ClientControlledPayPalAccount:
+                            type: string
+                            description: Set to 1 if the PayPal recipient is linked to your VoPay account.
+                            example: '1'
+                          RecipientName:
+                            type: string
+                            description: Recipient's name
+                            example: Bob
+                          RecipientID:
+                            type: string
+                            description: The email address, phone number, or PayPal ID.
+                            example: bob@gmail.com
+                          PayPalRecipientType:
+                            type: string
+                            description: 'The type of PayPal recipient record. Accepted values: EMAIL, PHONE, or PAYPAL_ID'
+                            example: EMAIL
+                          IsActive:
+                            type: string
+                            description: Determine if the PayPal recipient is active or not
+                            example: 'true'
+                          IsDefault:
+                            type: string
+                            description: Determine if this is the default PayPal recipient for the given account or not
+                            example: 'true'
+                          PayPalToken:
+                            type: string
+                            description: The token associated with the PayPal recipient record
+                            example: 1e7mtunsbhygfnfpm83zd8rig1hqoqu76y618x3eps4omcye0w83mjj2kk884w0o
+                          DateAdded:
+                            type: string
+                            format: date-time
+                            description: This timestamp indicates when the PayPal recipient record was added.
+                            example: '2024-05-02 18:28:13'
+                        required:
+                        - ClientControlledPayPalAccount
+                        - RecipientName
+                        - RecipientID
+                        - PayPalRecipientType
+                        - IsActive
+                        - IsDefault
+                        - PayPalToken
+                        - DateAdded
+                    x-list-of: inline
+                    x-empty-when: no default PayPal recipient
+                required:
+                - Success
+                - ErrorMessage
+                - DefaultPayPalRecipient
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /paypal/withdraw/generate-embed-url:
+    post:
+      description: This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their PayPal account and generate a token, which can be used in the /paypal/withdraw endpoint.
+      summary: paypal/withdraw/generate-embed-url
+      tags:
+      - PayPal Endpoints
+      operationId: PaypalGenerateEmbedURLPOST
+      deprecated: false
+      requestBody:
+        $ref: '#/components/requestBodies/ApplePayGenerateEmbedURLPOST'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  EmbedURL:
+                    type: string
+                    description: Custom generated iQ11 iframe url for users to use
+                    example: https://earthnode-dev.vopay.com/iq11/embed/{Key Returned by Vopay}
+                  IframeKey:
+                    type: string
+                    description: Unique key attached to the generated iFrame
+                    example: a1b2c3
+                required:
+                - Success
+                - ErrorMessage
+                - EmbedURL
+                - IframeKey
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /paypal/withdraw:
+    post:
+      description: "This endpoint is used to send funds from your VoPay account to a PayPal account.\n\n If a ClientAccountID is provided, the client account's default PayPal wallet will be used for the transaction."
+      summary: paypal/withdraw
+      tags:
+      - PayPal Endpoints
+      operationId: PayPalWithdrawPOST
+      deprecated: false
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                AccountID:
+                  description: Your account ID
+                  type: string
+                Key:
+                  description: API key for the account
+                  type: string
+                Signature:
+                  description: Hashed signature for the request
+                  type: string
+                ClientAccountID:
+                  description: Client Account ID
+                  type: string
+                ContactID:
+                  description: The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.
+                  type: string
+                PayPalToken:
+                  description: The token identifying the PayPal wallet to send funds to.
+                  type: string
+                PayPalRecipientType:
+                  description: The type of the PayPal wallet you are sending funds to. Valid values are 'EMAIL', 'PHONE', 'PAYPAL_ID'.
+                  type: string
+                RecipientID:
+                  description: The recipient ID (email address, phone number, or PayPal ID) of the PayPal wallet you are sending funds to. This value corresponds with the PayPalRecipientType value in the request.
+                  type: string
+                RecipientName:
+                  description: The full name of the recipient receiving the funds.
+                  type: string
+                Amount:
+                  description: The amount to send to the customers PayPal wallet.
+                  type: number
+                Currency:
+                  description: 3 character currency code for the currency to be charged to the customer's PayPal wallet. If this is not specified the transaction will use the account's local currency.
+                  type: string
+                Notes:
+                  description: Optional notes for the transaction.
+                  type: string
+                ClientReferenceNumber:
+                  description: Optional client reference number for the transaction.
+                  type: string
+                IdempotencyKey:
+                  description: A unique key which the server can use to recognize and reject subsequent retries of the same request.
+                  type: string
+                GLCode:
+                  description: An optional unique identification general ledger code.
+                  type: string
+                TransactionTypeCode:
+                  description: CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).
+                  type: string
+              required:
+              - AccountID
+              - Key
+              - Signature
+              - RecipientName
+              - Amount
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction that was just submitted.
+                    example: '1122'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+  /paypal/withdraw/transaction:
+    get:
+      description: This endpoint is used to look up and return the full details on a single PayPal withdraw transaction. PayPal withdraw send funds from your VoPay account to the customer's PayPal account.
+      summary: paypal/withdraw/transaction
+      tags:
+      - PayPal Endpoints
+      operationId: PayPalWithdrawTransactionsGET
+      deprecated: false
+      parameters:
+      - name: AccountID
+        in: query
+        required: true
+        description: Your account ID
+        schema:
+          type: string
+      - name: Key
+        in: query
+        required: true
+        description: API key for the account
+        schema:
+          type: string
+      - name: Signature
+        in: query
+        required: true
+        description: Hashed signature for the request
+        schema:
+          type: string
+      - name: TransactionID
+        in: query
+        required: true
+        description: Account transaction ID
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean
+                    description: true if the request was successful, false if it failed
+                    example: true
+                  ErrorMessage:
+                    type: string
+                    description: Contains a description of the error if the request failed
+                    example: ''
+                  TransactionID:
+                    type: integer
+                    description: The unique ID of the transaction
+                    example: '1122'
+                  TransactionStatus:
+                    type: string
+                    description: 'A message indicating the current transaction status. Statuses are: pending, in progress, successful, failed, cancelled'
+                    example: pending
+                  TransactionDateTime:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the transaction was created
+                    example: '2019-11-01 12:00:00'
+                  Amount:
+                    type: number
+                    description: The dollar amount of the PayPal withdraw transaction. This is the amount that was sent to the customer's PayPal account.
+                    example: '2000'
+                  Currency:
+                    type: string
+                    description: The currency for the transaction.
+                    example: CAD
+                  PayPalToken:
+                    type: string
+                    description: A unique token of the PayPal recipient information.
+                    example: ACBDF-GAFSHD-AHBS-123456
+                  GLCode:
+                    type: string
+                    description: General ledger code.
+                    example: '4300'
+                  TransactionTypeCode:
+                    type: string
+                    description: CPA transaction code.
+                    example: '999'
+                  LastModified:
+                    type: string
+                    format: date-time
+                    description: This timestamp indicates when the transaction record was last modified. In normal circumstances the transaction record will only be modified when the status of the transaction changes or the HoldAmount is changed.
+                    example: '2019-11-03 01:00:00'
+                required:
+                - Success
+                - ErrorMessage
+                - TransactionID
+                - TransactionStatus
+                - TransactionDateTime
+                - Amount
+                - Currency
+                - PayPalToken
+                - GLCode
+                - TransactionTypeCode
+                - LastModified
+    servers:
+    - url: https://earthnode-dev.vopay.com/api/v2
+components:
+  requestBodies:
+    ApplePayGenerateEmbedURLPOST:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              ClientAccountID:
+                description: When provided, the Apple Pay token generated will be attached to the Client Account ID
+                type: string
+              RedirectURL:
+                description: URL to redirect the user to after the Apple account is connected.
+                type: string
+              RedirectMethod:
+                description: This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.
+                type: string
+              ClientControlled:
+                description: When set to true, the Apple Pay token added will be linked to your VoPay account. Default is false.
+                type: boolean
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - RedirectURL
+      required: true
+x-refined-from:
+- vopay-payment-method-api-reference.json
+- vopay-payment-rails-api-reference.json
