@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 23
+edge_count: 24
 edges:
 - tag: ACH Endpoints
   spec_file: vopay-ach-endpoints-api-openapi.yml
@@ -70,6 +70,17 @@ edges:
     frequency options"'
   reason: Capture, modification and cancellation of payment instructions ahead of execution — payment
     initiation management.
+- tag: Webhook Endpoints
+  spec_file: vopay-webhook-endpoints-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.85
+  evidence: endpoints for setting and testing webhook URLs, and fetching webhook notifications for account
+    and partner accounts; POST /account/webhook/resend
+  reason: Operations register webhook URLs, test them, list delivered webhooks and resend failed deliveries
+    — exactly outbound webhook subscription lifecycle and delivery reliability for API consumers.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: Batch Request Endpoints
   spec_file: vopay-batch-request-endpoints-api-openapi.yml
   capability_id: BC-1340.20
