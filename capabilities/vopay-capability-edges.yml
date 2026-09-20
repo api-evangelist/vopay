@@ -1,0 +1,240 @@
+slug: vopay
+provider: VoPay
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 23
+edges:
+- tag: ACH Endpoints
+  spec_file: vopay-ach-endpoints-api-openapi.yml
+  capability_id: BC-1340.30
+  capability_id_l1: BC-1340
+  capability_name: Clearing & Settlement Management
+  confidence: 0.85
+  evidence: POST /ach/fund, POST /ach/withdraw, POST /ach/void, POST /ach/validate-nacha  AchValidateNachaPost
+  reason: Endpoints originate and void debits/credits over the US ACH rail and validate NACHA file formatting,
+    which is domestic clearing and settlement scheme processing. Some overlap with generic payment processing,
+    but the ACH/NACHA specificity supports the clearing sub-capability.
+- tag: Credit Card Endpoints
+  spec_file: vopay-credit-card-endpoints-api-openapi.yml
+  capability_id: BC-1340.70
+  capability_id_l1: BC-1340
+  capability_name: Card Transaction Processing Management
+  confidence: 0.85
+  evidence: POST /credit-card/charge, POST /credit-card/void, GET /credit-card/charge/transaction
+  reason: Operations store a customer's credit card on file and authorise/void charges, returning charge
+    transactions — card transaction processing (authorisation/switching) rather than card issuance.
+- tag: Debit Card Endpoints
+  spec_file: vopay-debit-card-endpoints-api-openapi.yml
+  capability_id: BC-1340.70
+  capability_id_l1: BC-1340
+  capability_name: Card Transaction Processing Management
+  confidence: 0.85
+  evidence: POST /debit-card/oct/push-funds, POST /debit-card/aft/pull-funds
+  reason: OCT push and AFT pull are card-network money movement transactions against a stored debit card;
+    this is card transaction processing, not issuance of cards.
+- tag: EFT Endpoint
+  spec_file: vopay-eft-endpoint-api-openapi.yml
+  capability_id: BC-1340
+  capability_id_l1: BC-1340
+  capability_name: Payments & Card Management
+  confidence: 0.85
+  evidence: POST /eft/fund, POST /eft/withdraw, POST /eft/fund/schedule
+  reason: Initiation and scheduling of electronic funds transfers over a bank rail is clearly payments
+    management; the evidence does not cleanly separate initiation from clearing/settlement, so no L2 is
+    asserted.
+- tag: Fednow Endpoints
+  spec_file: vopay-fednow-endpoints-api-openapi.yml
+  capability_id: BC-1340.50
+  capability_id_l1: BC-1340
+  capability_name: Real-Time Payment Management
+  confidence: 0.85
+  evidence: POST /fednow/withdraw, GET /fednow/withdraw/transaction
+  reason: FedNow is the US instant payment rail; sending and tracking transactions on it is real-time
+    payment management.
+- tag: Scheduled Payments
+  spec_file: vopay-scheduled-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.85
+  evidence: '"allow account holders to create, view, modify, and cancel scheduled payments with flexible
+    frequency options"'
+  reason: Capture, modification and cancellation of payment instructions ahead of execution — payment
+    initiation management.
+- tag: Batch Request Endpoints
+  spec_file: vopay-batch-request-endpoints-api-openapi.yml
+  capability_id: BC-1340.20
+  capability_id_l1: BC-1340
+  capability_name: Payment Processing Management
+  confidence: 0.8
+  evidence: POST /batch/eft/fund  BatchEFTFundPost; POST /batch/ach/withdraw  BatchACHWithdrawPost; POST
+    /batch/interac/bulk-payout; POST /batch/rtp/withdraw
+  reason: Bulk submission of payment instructions across multiple rails (EFT, ACH, Interac, RTP, card
+    push) — high-volume payment processing and routing. Although 'batch' is often technical plumbing,
+    here the batched objects are the payments themselves.
+- tag: Digital Wallet Endpoints
+  spec_file: vopay-digital-wallet-endpoints-api-openapi.yml
+  capability_id: BC-1340.70
+  capability_id_l1: BC-1340
+  capability_name: Card Transaction Processing Management
+  confidence: 0.8
+  evidence: POST /google-pay/charge, POST /google-pay/void, POST /apple-pay/set-my-apple-pay
+  reason: Tokenised wallet credentials (Apple Pay/Google Pay) are stored and charged/voided — card-rail
+    transaction authorisation processing.
+- tag: Dispute Management Endpoints
+  spec_file: vopay-dispute-management-endpoints-api-openapi.yml
+  capability_id: BC-1340.70
+  capability_id_l1: BC-1340
+  capability_name: Card Transaction Processing Management
+  confidence: 0.8
+  evidence: '"The Dispute management API allows you to manage all disputes and chargebacks." with POST
+    /dispute-management/challenge'
+  reason: Chargeback and dispute handling is explicitly named within card transaction processing; operations
+    accept, challenge and respond to disputes and report on dispute reasons/stages.
+- tag: Payments
+  spec_file: vopay-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.8
+  evidence: '"Payment endpoint accepting nested JSON payloads with rail-specific params"; POST /v3/payment;
+    schemas Rail_SEPAInstant, Rail_EFT'
+  reason: A single payment submission endpoint parameterised by rail is plainly payment instruction capture
+    and routing; only the initiation-vs-processing split is uncertain.
+- tag: SEPA Endpoints
+  spec_file: vopay-sepa-endpoints-api-openapi.yml
+  capability_id: BC-1340.30
+  capability_id_l1: BC-1340
+  capability_name: Clearing & Settlement Management
+  confidence: 0.8
+  evidence: POST /sepa/withdraw  SepaWithdrawPost
+  reason: Withdrawals executed over the SEPA scheme, explicitly a clearing/settlement rail named in the
+    capability definition.
+- tag: Transaction Management Endpoints
+  spec_file: vopay-transaction-management-endpoints-api-openapi.yml
+  capability_id: BC-1340.20
+  capability_id_l1: BC-1340
+  capability_name: Payment Processing Management
+  confidence: 0.8
+  evidence: '"You can cancel transactions, refund transactions, and confirm flagged transactions"; POST
+    /account/transaction/hold/release'
+  reason: Post-initiation lifecycle control of payment transactions (cancel, refund, return, hold/release,
+    confirm) — payment processing management.
+- tag: Account Onboarding Endpoints
+  spec_file: vopay-account-onboarding-endpoints-api-openapi.yml
+  capability_id: BC-1300.10
+  capability_id_l1: BC-1300
+  capability_name: Customer Onboarding Management
+  confidence: 0.75
+  evidence: '"The Account Onboarding endpoints are used to onboard new VoPay accounts"; POST /account/submit-extended-info/shareholder-info/add;
+    GET /account/submit-extended-info/signing-authority-info'
+  reason: Endpoints collect business-entity onboarding data (shareholders, signing authority, business
+    types) to open a new account on the platform, i.e. customer onboarding/account opening. Some of this
+    is also KYB due-diligence data, which is why confidence is not higher on the specific L2.
+- tag: Bill Pay Endpoints
+  spec_file: vopay-bill-pay-endpoints-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.75
+  evidence: '"The Bill Pay API allows you to create and manage bill payments"; POST /bill-pay/create  BillPayCreatePost;
+    GET /bill-pay/merchants'
+  reason: Creation and cancellation of bill payments against a merchant/biller directory is capture and
+    authorisation of payment instructions. Payment initiation is the best fit; the merchant-registry operations
+    add slight ambiguity.
+- tag: Contact Verification Endpoints
+  spec_file: vopay-contact-verification-endpoints-api-openapi.yml
+  capability_id: BC-1300.20
+  capability_id_l1: BC-1300
+  capability_name: KYC & Customer Due Diligence Management
+  confidence: 0.75
+  evidence: POST /contact-verification/id/non-doc, POST /contact-verification/name-screen, POST /contact-verification/email/confirm
+  reason: Non-documentary identity verification plus name screening and email/phone confirmation of contacts
+    is identity verification and due-diligence screening. Some overlap with sanctions screening (BC-1400.20)
+    via name-screen, but the surface is centred on customer identity verification/CDD.
+- tag: RTP Endpoints
+  spec_file: vopay-rtp-endpoints-api-openapi.yml
+  capability_id: BC-1340.50
+  capability_id_l1: BC-1340
+  capability_name: Real-Time Payment Management
+  confidence: 0.75
+  evidence: POST /rtp/withdraw; GET /rtp/withdraw/transaction; vendor rails include "RTP/FedNow/FedWire"
+  reason: Withdrawals executed over the RTP real-time payment rail, matching real-time/instant payment
+    management.
+- tag: Vopay Instant Endpoints
+  spec_file: vopay-vopay-instant-endpoints-api-openapi.yml
+  capability_id: BC-1340.50
+  capability_id_l1: BC-1340
+  capability_name: Real-Time Payment Management
+  confidence: 0.75
+  evidence: POST /rtr/withdraw  RtrWithdrawPost; vendor lists "RTP/FedNow/FedWire, VoPay Instant"
+  reason: RTR (Real-Time Rail) withdrawals — instant payment rail execution.
+- tag: Zelle Endpoints
+  spec_file: vopay-zelle-endpoints-api-openapi.yml
+  capability_id: BC-1340.50
+  capability_id_l1: BC-1340
+  capability_name: Real-Time Payment Management
+  confidence: 0.75
+  evidence: POST /zelle/withdraw ZelleWithdrawPOST; POST /zelle/withdraw/name-match; GET /zelle/recipients
+  reason: Zelle is a US real-time / instant payment rail; the operations send funds to recipients, verify
+    recipient name match and cancel transfers, which is real-time payment execution within Payments &
+    Card Management.
+- tag: Client Account Creation Endpoints
+  spec_file: vopay-client-account-creation-endpoints-api-openapi.yml
+  capability_id: BC-1300.10
+  capability_id_l1: BC-1300
+  capability_name: Customer Onboarding Management
+  confidence: 0.72
+  evidence: POST /account/client-accounts/individual, POST /account/client-accounts/business, POST /account/client-accounts/receive-only
+  reason: Creating individual, business, receive-only and standard client accounts on a payments platform
+    is account opening for end customers, i.e. customer onboarding / account opening. Some ambiguity with
+    deposit account lifecycle, but the creation-only surface points at onboarding.
+- tag: API Key Endpoints
+  spec_file: vopay-api-key-endpoints-api-openapi.yml
+  capability_id: BC-4270.40
+  capability_id_l1: BC-4270
+  capability_name: Developer Identity & Credential Management
+  confidence: 0.7
+  evidence: GET /account/keys  APIKeysGet; POST /account/keys/add  APIKeysAddPost; POST /partner/keys/delete  APIPartnerKeysDeletePost
+  reason: 'Pure credential plumbing: CRUD over API keys for accounts and partner accounts consuming the
+    platform''s public API. This maps to developer credential stewardship rather than any banking business
+    capability; confidence tempered because it is close to being pure technical plumbing worth abstaining
+    on.'
+- tag: Client Account Transfer Endpoints
+  spec_file: vopay-client-account-transfer-endpoints-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.7
+  evidence: POST /account/client-accounts/fund-transfer, POST /account/client-accounts/transfer-withdraw,
+    POST /account/client-accounts/fund-transfer/schedule, GET /account/client-accounts/scheduled-transfers
+  reason: Capture, scheduling and cancellation of fund transfer and withdrawal instructions between client
+    accounts is payment instruction initiation on VoPay's rails. Ambiguity remains between initiation
+    and downstream processing, hence 0.7.
+- tag: PayPal Endpoints
+  spec_file: vopay-paypal-endpoints-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.7
+  evidence: POST /paypal/withdraw; GET /paypal/withdraw/transaction; POST /paypal/set-my-recipient
+  reason: Registers payout recipients and initiates withdrawals to a digital wallet — capture and authorisation
+    of payment instructions.
+- tag: Support Endpoints
+  spec_file: vopay-support-endpoints-api-openapi.yml
+  capability_id: BC-430.10
+  capability_id_l1: BC-430
+  capability_name: Customer Inquiry Management
+  confidence: 0.7
+  evidence: POST /account/submit-ticket, POST /account/submit-ticket-comment, GET /partner/tickets
+  reason: Support ticket submission, commenting and attachment handling — inbound contact capture and
+    resolution, i.e. customer service rather than any payments capability.
