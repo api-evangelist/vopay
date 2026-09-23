@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: '2.0'
   title: Integrations and Support API Key Endpoints API
-  description: The Integrations and Support API defines endpoints for configuring integrations with  Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also  includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for  account and partner accounts.
+  description: The Integrations and Support API defines endpoints for configuring integrations with Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for account and partner accounts.
   contact:
     name: API Support
     email: help@vopay.com
@@ -475,6 +475,26 @@ paths:
                     example: ''
 components:
   requestBodies:
+    APIKeysGet:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+      required: true
     APIKeysEditPost:
       content:
         application/x-www-form-urlencoded:
@@ -503,30 +523,6 @@ components:
             - KeyID
             - Label
       required: true
-    APIKeysRetrievePost:
-      content:
-        application/x-www-form-urlencoded:
-          schema:
-            type: object
-            properties:
-              AccountID:
-                description: Your account ID
-                type: string
-              Key:
-                description: API key for the account
-                type: string
-              Signature:
-                description: Hashed signature for the request
-                type: string
-              KeyID:
-                description: The ID of the key. Can be fetched through the /keys endpoint
-                type: integer
-            required:
-            - AccountID
-            - Key
-            - Signature
-            - KeyID
-      required: true
     APIKeysAddPost:
       content:
         application/x-www-form-urlencoded:
@@ -551,7 +547,7 @@ components:
             - Signature
             - Label
       required: true
-    APIKeysGet:
+    APIKeysRetrievePost:
       content:
         application/x-www-form-urlencoded:
           schema:
@@ -566,8 +562,12 @@ components:
               Signature:
                 description: Hashed signature for the request
                 type: string
+              KeyID:
+                description: The ID of the key. Can be fetched through the /keys endpoint
+                type: integer
             required:
             - AccountID
             - Key
             - Signature
+            - KeyID
       required: true

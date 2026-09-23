@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: '2.0'
   title: Accounts Sub-Account Endpoints API
-  description: The Account API defines endpoints for managing VoPay accounts and sub-accounts.  These endpoints allow partners to create and manage accounts, set permissions, handle transactions,  schedule transfers, retrieve account information, and manage onboarding processes, ensuring secure  and efficient account and transaction management.
+  description: The Account API defines endpoints for managing VoPay accounts and sub-accounts. These endpoints allow partners to create and manage accounts, set permissions, handle transactions, schedule transfers, retrieve account information, and manage onboarding processes, ensuring secure and efficient account and transaction management.
   contact:
     name: API Support
     email: help@vopay.com
@@ -1215,7 +1215,10 @@ paths:
                 - Pagination
   /account/subaccount/set-permissions:
     post:
-      description: "This endpoint will allow the user to modify the permissions and the maximum amounts to their sub-accounts in the API.  \n\n The main account will be able to only modify the permission that he has, For Example, if the user does not have ETCCollect permission, the account won't be able to assign that permission to their sub-account."
+      description: 'This endpoint will allow the user to modify the permissions and the maximum amounts to their sub-accounts in the API.
+
+
+        The main account will be able to only modify the permission that he has, For Example, if the user does not have ETCCollect permission, the account won''t be able to assign that permission to their sub-account.'
       summary: account/subaccount/set-permissions
       tags:
       - Sub-Account Endpoints

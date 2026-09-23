@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: '2.0'
   title: Integrations and Support Webhook Endpoints API
-  description: The Integrations and Support API defines endpoints for configuring integrations with  Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also  includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for  account and partner accounts.
+  description: The Integrations and Support API defines endpoints for configuring integrations with Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for account and partner accounts.
   contact:
     name: API Support
     email: help@vopay.com
@@ -306,7 +306,10 @@ paths:
                             example: '200'
   /account/webhook/resend:
     post:
-      description: "This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.\n\n The event ID can be fetched using the [GET /account/webhooks endpoint](https://docs.vopay.com/reference/accountwebhooksget)."
+      description: 'This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.
+
+
+        The event ID can be fetched using the GET /account/webhooks endpoint.'
       summary: account/webhook/resend
       tags:
       - Webhook Endpoints
@@ -617,7 +620,10 @@ paths:
                             example: https://example.com/webhook
   /partner/webhook/resend:
     post:
-      description: "This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.\n\n The event ID can be fetched using the [GET /partner/webhooks endpoint](https://docs.vopay.com/reference/partnerwebhooksget)."
+      description: 'This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.
+
+
+        The event ID can be fetched using the GET /partner/webhooks endpoint.'
       summary: partner/webhook/resend
       tags:
       - Webhook Endpoints

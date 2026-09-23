@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: '2.0'
   title: Accounts Account Endpoints API
-  description: The Account API defines endpoints for managing VoPay accounts and sub-accounts.  These endpoints allow partners to create and manage accounts, set permissions, handle transactions,  schedule transfers, retrieve account information, and manage onboarding processes, ensuring secure  and efficient account and transaction management.
+  description: The Account API defines endpoints for managing VoPay accounts and sub-accounts. These endpoints allow partners to create and manage accounts, set permissions, handle transactions, schedule transfers, retrieve account information, and manage onboarding processes, ensuring secure and efficient account and transaction management.
   contact:
     name: API Support
     email: help@vopay.com
@@ -1308,7 +1308,10 @@ paths:
                 - TransactionID
   /account/auto-balance-transfer:
     post:
-      description: "This endpoint allows you to set up an auto-balance transfer from your VoPay account to your default operational bank account. The frequency available to set the auto-transfer can be daily, weekly, bi-weekly or monthly. \n\nThis option requires special permission."
+      description: 'This endpoint allows you to set up an auto-balance transfer from your VoPay account to your default operational bank account. The frequency available to set the auto-transfer can be daily, weekly, bi-weekly or monthly.
+
+
+        This option requires special permission.'
       summary: account/auto-balance-transfer
       tags:
       - Account Endpoints
@@ -1369,7 +1372,10 @@ paths:
                 - Success
                 - ErrorMessage
     get:
-      description: "This endpoint is used to retrieve the information of your auto balance transfer. \n\n This option requires special permissions."
+      description: 'This endpoint is used to retrieve the information of your auto balance transfer.
+
+
+        This option requires special permissions.'
       summary: account/auto-balance-transfer
       tags:
       - Account Endpoints
@@ -1625,7 +1631,10 @@ paths:
                 - Pagination
   /account/auto-balance-transfer-list:
     get:
-      description: "This endpoint is used to retrieve a list of all your auto balance transfers. \n\n This option requires special permissions."
+      description: 'This endpoint is used to retrieve a list of all your auto balance transfers.
+
+
+        This option requires special permissions.'
       summary: account/auto-balance-transfer-list
       tags:
       - Account Endpoints
@@ -1719,7 +1728,10 @@ paths:
                 - Wallets
   /account/auto-balance-transfer/cancel:
     post:
-      description: "This endpoint allows you to cancel an auto balance transfer. \n\n This option requires special permissions."
+      description: 'This endpoint allows you to cancel an auto balance transfer.
+
+
+        This option requires special permissions.'
       summary: account/auto-balance-transfer/cancel
       tags:
       - Account Endpoints
@@ -1772,7 +1784,10 @@ paths:
                 - Status
   /account/auto-balance-transfer/report:
     get:
-      description: "This endpoint returns the list of transactions associated with an auto balance transfer. \n\nThe sum of all debits/credits should match the amount on the auto-balance transfer."
+      description: 'This endpoint returns the list of transactions associated with an auto balance transfer.
+
+
+        The sum of all debits/credits should match the amount on the auto-balance transfer.'
       summary: account/auto-balance-transfer/report
       tags:
       - Account Endpoints

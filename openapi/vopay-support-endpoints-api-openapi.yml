@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: '2.0'
   title: Integrations and Support Support Endpoints API
-  description: The Integrations and Support API defines endpoints for configuring integrations with  Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also  includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for  account and partner accounts.
+  description: The Integrations and Support API defines endpoints for configuring integrations with Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for account and partner accounts.
   contact:
     name: API Support
     email: help@vopay.com
@@ -524,37 +524,6 @@ paths:
                     example: ''
 components:
   requestBodies:
-    submitTicketAttachmentPOST:
-      content:
-        application/x-www-form-urlencoded:
-          schema:
-            type: object
-            properties:
-              AccountID:
-                description: Your account ID
-                type: string
-              Key:
-                description: API key for the account
-                type: string
-              Signature:
-                description: Hashed signature for the request
-                type: string
-              TicketAttachment:
-                description: Base64 code of the attachment content
-                type: string
-              TicketID:
-                description: The ID of the ticket
-                type: string
-              AttachmentFileName:
-                description: The name of the file being attached. It defaults to attachment if the name is not provided.
-                type: string
-            required:
-            - AccountID
-            - Key
-            - Signature
-            - TicketAttachment
-            - TicketID
-      required: true
     submitTicketCommentPOST:
       content:
         application/x-www-form-urlencoded:
@@ -585,5 +554,36 @@ components:
             - Signature
             - TicketAuthor
             - TicketComment
+            - TicketID
+      required: true
+    submitTicketAttachmentPOST:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              TicketAttachment:
+                description: Base64 code of the attachment content
+                type: string
+              TicketID:
+                description: The ID of the ticket
+                type: string
+              AttachmentFileName:
+                description: The name of the file being attached. It defaults to attachment if the name is not provided.
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - TicketAttachment
             - TicketID
       required: true

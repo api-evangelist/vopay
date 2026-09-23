@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: '2.0'
   title: Payment Methods Bank Account Endpoints API
-  description: The Payment Methods API allows you to manage your payment methods.  You can add, delete, and set default payment methods.
+  description: The Payment Methods API allows you to manage your payment methods. You can add, delete, and set default payment methods.
   contact:
     name: API Support
     email: help@vopay.com
@@ -13,7 +13,7 @@ tags:
 paths:
   /bank-account/generate-embed-url:
     post:
-      description: This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from. For additional details on iQ11 and RedirectMethod, please visit our [Iq11 Overview](https://docs.vopay.com/docs/iq11-overview)
+      description: This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from. For additional details on iQ11 and RedirectMethod, please visit our Iq11 Overview
       summary: bank-account/generate-embed-url
       tags:
       - Bank Account Endpoints
@@ -489,7 +489,10 @@ paths:
                 - BankAccounts
   /bank-account/set-my-bank-account:
     post:
-      description: "This endpoint allows you to identify a bank account as belonging to the VoPay account holder.\n\n Optionally, you can use this endpoint to identify a bank account as being the VoPay account holder's default operational and/or billing bank account. The VoPay account holder's default operational bank account is used in the /account/fund-my-account and /account/withdraw-my-account endpoints. The VoPay account holder's default billing bank account is used to collect monthly invoices. Note, a VoPay account can only have one default operational and one default billing bank account per currency."
+      description: 'This endpoint allows you to identify a bank account as belonging to the VoPay account holder.
+
+
+        Optionally, you can use this endpoint to identify a bank account as being the VoPay account holder''s default operational and/or billing bank account. The VoPay account holder''s default operational bank account is used in the /account/fund-my-account and /account/withdraw-my-account endpoints. The VoPay account holder''s default billing bank account is used to collect monthly invoices. Note, a VoPay account can only have one default operational and one default billing bank account per currency.'
       summary: bank-account/set-my-bank-account
       tags:
       - Bank Account Endpoints

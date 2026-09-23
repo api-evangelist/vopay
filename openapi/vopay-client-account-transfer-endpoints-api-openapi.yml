@@ -89,7 +89,10 @@ paths:
                     example: '1122'
   /account/client-accounts/fund-transfer:
     post:
-      description: "This endpoint will fund the Debitor client account using their default bank account, and then trigger an account transfer to the recipient client account once the funds have been cleared. \n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+      description: 'This endpoint will fund the Debitor client account using their default bank account, and then trigger an account transfer to the recipient client account once the funds have been cleared.
+
+
+        To set a default bank account, please use the /bank-account/set-my-bank-account endpoint.'
       summary: account/client-accounts/fund-transfer
       tags:
       - Client Account Transfer Endpoints
@@ -185,7 +188,10 @@ paths:
                     example: '2244'
   /account/client-accounts/transfer-withdraw:
     post:
-      description: "This endpoint will transfer money from the debitor client account to the recipient client account, and then immediately withdraw the money from the recipient client account into their default bank account. \n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+      description: 'This endpoint will transfer money from the debitor client account to the recipient client account, and then immediately withdraw the money from the recipient client account into their default bank account.
+
+
+        To set a default bank account, please use the /bank-account/set-my-bank-account endpoint.'
       summary: account/client-accounts/transfer-withdraw
       tags:
       - Client Account Transfer Endpoints
@@ -220,7 +226,10 @@ paths:
                     example: '2244'
   /account/client-accounts/fund-transfer-withdraw:
     post:
-      description: "This endpoint will fund the debitor client account using their default bank account, and then transfer the money to the recipient client account once the funds have been cleared. Once the funds are transferred, a withdraw transaction will be triggered to send the funds to the recipient client account's default bank account. \n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+      description: 'This endpoint will fund the debitor client account using their default bank account, and then transfer the money to the recipient client account once the funds have been cleared. Once the funds are transferred, a withdraw transaction will be triggered to send the funds to the recipient client account''s default bank account.
+
+
+        To set a default bank account, please use the /bank-account/set-my-bank-account endpoint.'
       summary: account/client-accounts/fund-transfer-withdraw
       tags:
       - Client Account Transfer Endpoints
@@ -701,7 +710,10 @@ paths:
                     example: cancelled
   /account/client-accounts/scheduled-transfers:
     get:
-      description: "This endpoint is used to look up either the list of all scheduled client account transfers, or to list the details of a single scheduled client account transfer. \n\n If the value ScheduledTransferID is present, we only list the details of that scheduled client account transfer."
+      description: 'This endpoint is used to look up either the list of all scheduled client account transfers, or to list the details of a single scheduled client account transfer.
+
+
+        If the value ScheduledTransferID is present, we only list the details of that scheduled client account transfer.'
       summary: account/client-accounts/scheduled-transfers
       tags:
       - Client Account Transfer Endpoints

@@ -13,7 +13,16 @@ tags:
 paths:
   /eft/fund:
     post:
-      description: "This endpoint is used to fund your VoPay account by debiting funds from the specified customer's bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided. \n\n If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required. \n\n If the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.\n\n If a ClientAccountID is provided, the client account's first/last name, address, and default bank account will be used for the transaction."
+      description: 'This endpoint is used to fund your VoPay account by debiting funds from the specified customer''s bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.
+
+
+        If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required.
+
+
+        If the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.
+
+
+        If a ClientAccountID is provided, the client account''s first/last name, address, and default bank account will be used for the transaction.'
       summary: eft/fund
       tags:
       - EFT Endpoint
@@ -629,7 +638,16 @@ paths:
                 - GLCode
   /eft/withdraw:
     post:
-      description: "This endpoint is used to take funds out of your VoPay account, and deposit them to the specified recipient's bank account. In the below endpoint, either CompanyName OR FirstName and LastName must be provided. \n\n If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, then the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required. \n\n If the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Province, Country, and PostalCode are required.\n\n If a ClientAccountID is provided, the client account's first/last name, address, and default bank account will be used for the transaction."
+      description: 'This endpoint is used to take funds out of your VoPay account, and deposit them to the specified recipient''s bank account. In the below endpoint, either CompanyName OR FirstName and LastName must be provided.
+
+
+        If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, then the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required.
+
+
+        If the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Province, Country, and PostalCode are required.
+
+
+        If a ClientAccountID is provided, the client account''s first/last name, address, and default bank account will be used for the transaction.'
       summary: eft/withdraw
       tags:
       - EFT Endpoint
@@ -1086,7 +1104,22 @@ paths:
                 - Timestamp
   /eft/fund/schedule:
     post:
-      description: "This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment. \n\nEither CompanyName OR FirstName and LastName must be provided. \n\n If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required. \n\n If the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.\n\n If a ClientAccountID is provided, the client account's first/last name, address, and default bank account will be used for the transaction.\n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment."
+      description: 'This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment.
+
+
+        Either CompanyName OR FirstName and LastName must be provided.
+
+
+        If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required.
+
+
+        If the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.
+
+
+        If a ClientAccountID is provided, the client account''s first/last name, address, and default bank account will be used for the transaction.
+
+
+        For additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment.'
       summary: eft/fund/schedule
       tags:
       - EFT Endpoint
@@ -1283,7 +1316,22 @@ paths:
                 - Status
   /eft/withdraw/schedule:
     post:
-      description: "This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment. \n\nEither CompanyName OR FirstName and LastName must be provided. \n\n If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required. \n\n If the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.\n\n If a ClientAccountID is provided, the client account's first/last name, address, and default bank account will be used for the transaction.\n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment."
+      description: 'This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment.
+
+
+        Either CompanyName OR FirstName and LastName must be provided.
+
+
+        If either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required.
+
+
+        If the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.
+
+
+        If a ClientAccountID is provided, the client account''s first/last name, address, and default bank account will be used for the transaction.
+
+
+        For additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment.'
       summary: eft/withdraw/schedule
       tags:
       - EFT Endpoint
@@ -1480,7 +1528,10 @@ paths:
                 - Status
   /eft/fund/schedule/cancel:
     post:
-      description: "This endpoint is used to cancel a scheduled transaction and all remaining payments belonging to that scheduled tranaction. Only scheduled transactions with the status in progress can be cancelled. \n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+      description: 'This endpoint is used to cancel a scheduled transaction and all remaining payments belonging to that scheduled tranaction. Only scheduled transactions with the status in progress can be cancelled.
+
+
+        For additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment'
       summary: eft/fund/schedule/cancel
       tags:
       - EFT Endpoint
@@ -1515,7 +1566,10 @@ paths:
                 - Status
   /eft/withdraw/schedule/cancel:
     post:
-      description: "This endpoint is used to cancel a scheduled transaction and all remaining payments belonging to that scheduled tranaction. Only scheduled transactions with the status in progress can be cancelled. \n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+      description: 'This endpoint is used to cancel a scheduled transaction and all remaining payments belonging to that scheduled tranaction. Only scheduled transactions with the status in progress can be cancelled.
+
+
+        For additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment'
       summary: eft/withdraw/schedule/cancel
       tags:
       - EFT Endpoint
@@ -1550,7 +1604,13 @@ paths:
                 - Status
   /eft/fund/schedule/edit:
     post:
-      description: "This endpoint is used to edit or cancel an upcoming payment (only the amount can be edited). \n\nNotes. If the field amount is set as 0 or it is not provided, we consider the upcoming payment as cancelled. \n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+      description: 'This endpoint is used to edit or cancel an upcoming payment (only the amount can be edited).
+
+
+        Notes. If the field amount is set as 0 or it is not provided, we consider the upcoming payment as cancelled.
+
+
+        For additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment'
       summary: eft/fund/schedule/edit
       tags:
       - EFT Endpoint
@@ -1611,7 +1671,13 @@ paths:
                 - ErrorMessage
   /eft/withdraw/schedule/edit:
     post:
-      description: "This endpoint is used to edit or cancel an upcoming payment (only the amount can be edited). \n\nNotes. If the field amount is set as 0 or it is not provided, we consider the upcoming payment as cancelled. \n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+      description: 'This endpoint is used to edit or cancel an upcoming payment (only the amount can be edited).
+
+
+        Notes. If the field amount is set as 0 or it is not provided, we consider the upcoming payment as cancelled.
+
+
+        For additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment'
       summary: eft/withdraw/schedule/edit
       tags:
       - EFT Endpoint
@@ -1677,7 +1743,13 @@ paths:
                 - ErrorMessage
   /eft/scheduled-transactions:
     get:
-      description: "This endpoint is used to look up the list of all scheduled transactions, or you can list the details of a single scheduled transaction. \n\n If the value ScheduledTransactionID is present, we only list the details of that scheduled transaction.  \n\n * Either the response will be Company name or First name and Last name"
+      description: 'This endpoint is used to look up the list of all scheduled transactions, or you can list the details of a single scheduled transaction.
+
+
+        If the value ScheduledTransactionID is present, we only list the details of that scheduled transaction.
+
+
+        * Either the response will be Company name or First name and Last name'
       summary: eft/scheduled-transactions
       tags:
       - EFT Endpoint

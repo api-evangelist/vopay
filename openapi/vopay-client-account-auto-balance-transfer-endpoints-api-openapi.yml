@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   version: '2.0'
-  title: Client Accounts Client Account Auto Balance Transfer Endpoints API
+  title: Client Accounts Client Account Auto Balance Transfer…
   description: The Client Accounts API allows you to create, manage and retrieve information about client accounts.
   contact:
     name: API Support
@@ -13,7 +13,10 @@ tags:
 paths:
   /account/client-accounts/auto-balance-transfer:
     post:
-      description: "This endpoint allows you to set up an auto-balance transfer from your VoPay account to your default operational bank account. The frequency available to set the auto-transfer can be daily, weekly, bi-weekly or monthly. \n\nThis option requires special permission."
+      description: 'This endpoint allows you to set up an auto-balance transfer from your VoPay account to your default operational bank account. The frequency available to set the auto-transfer can be daily, weekly, bi-weekly or monthly.
+
+
+        This option requires special permission.'
       summary: account/client-accounts/auto-balance-transfer
       tags:
       - Client Account Auto Balance Transfer Endpoints
@@ -75,7 +78,10 @@ paths:
                     description: Contains a description of the error if the request failed
                     example: ''
     get:
-      description: "This endpoint is used to retrieve the information of your auto balance transfer. \n\n This option requires special permissions."
+      description: 'This endpoint is used to retrieve the information of your auto balance transfer.
+
+
+        This option requires special permissions.'
       summary: account/client-accounts/auto-balance-transfer
       tags:
       - Client Account Auto Balance Transfer Endpoints
@@ -170,7 +176,10 @@ paths:
                     example: '123456789'
   /account/client-accounts/auto-balance-transfer-list:
     get:
-      description: "This endpoint is used to retrieve a list of all your auto balance transfers. \n\n This option requires special permissions."
+      description: 'This endpoint is used to retrieve a list of all your auto balance transfers.
+
+
+        This option requires special permissions.'
       summary: account/client-accounts/auto-balance-transfer-list
       tags:
       - Client Account Auto Balance Transfer Endpoints
@@ -260,7 +269,10 @@ paths:
                             example: ClientAccount1
   /account/client-accounts/auto-balance-transfer/cancel:
     post:
-      description: "This endpoint allows you to cancel an auto balance transfer. \n\n This option requires special permissions."
+      description: 'This endpoint allows you to cancel an auto balance transfer.
+
+
+        This option requires special permissions.'
       summary: account/client-accounts/auto-balance-transfer/cancel
       tags:
       - Client Account Auto Balance Transfer Endpoints
@@ -313,7 +325,10 @@ paths:
                     example: cancelled
   /account/client-accounts/auto-balance-transfer/report:
     get:
-      description: "This endpoint returns the list of transactions associated with an auto balance transfer. \n\nThe sum of all debits/credits should match the amount on the auto-balance transfer."
+      description: 'This endpoint returns the list of transactions associated with an auto balance transfer.
+
+
+        The sum of all debits/credits should match the amount on the auto-balance transfer.'
       summary: account/client-accounts/auto-balance-transfer/report
       tags:
       - Client Account Auto Balance Transfer Endpoints

@@ -509,7 +509,13 @@ paths:
     - url: https://earthnode-dev.vopay.com/api/v2
   /credit-card/charge:
     post:
-      description: "This endpoint is to create a credit card transaction to fund your VoPay account, charging the amount specified to the credit card linked to the provided CreditCardToken.\n\n If a ClientAccountID is provided, the client account's default credit card will be used for the transaction.\n\nNote: You must first generate a CreditCardToken using the /credit-card/generate-embed-url endpoint."
+      description: 'This endpoint is to create a credit card transaction to fund your VoPay account, charging the amount specified to the credit card linked to the provided CreditCardToken.
+
+
+        If a ClientAccountID is provided, the client account''s default credit card will be used for the transaction.
+
+
+        Note: You must first generate a CreditCardToken using the /credit-card/generate-embed-url endpoint.'
       summary: credit-card/charge
       tags:
       - Credit Card Endpoints

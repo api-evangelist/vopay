@@ -13,7 +13,10 @@ tags:
 paths:
   /ach/fund:
     post:
-      description: "This endpoint is used to fund your US VoPay account by debiting funds from the specified customer's bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.\n\n If a ClientAccountID is provided, the client account's first/last name, address, phone number, identification number and default bank account will be used for the transaction."
+      description: 'This endpoint is used to fund your US VoPay account by debiting funds from the specified customer''s bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.
+
+
+        If a ClientAccountID is provided, the client account''s first/last name, address, phone number, identification number and default bank account will be used for the transaction.'
       summary: ach/fund
       tags:
       - ACH Endpoints
@@ -164,7 +167,10 @@ paths:
                 - TransactionID
   /ach/withdraw:
     post:
-      description: "This endpoint is used to send funds to a specified customer's US Bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.\n\n If a ClientAccountID is provided, the client account's first/last name, address, phone number, identification number and default bank account will be used for the transaction."
+      description: 'This endpoint is used to send funds to a specified customer''s US Bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.
+
+
+        If a ClientAccountID is provided, the client account''s first/last name, address, phone number, identification number and default bank account will be used for the transaction.'
       summary: ach/withdraw
       tags:
       - ACH Endpoints
@@ -315,7 +321,22 @@ paths:
                 - TransactionID
   /ach/fund/schedule:
     post:
-      description: "This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment. \n\nEither CompanyName OR FirstName and LastName must be provided. \n\n If the Token is provided, the ABARoutingNumber, and AccountNumber will not be required. \n\n If the bank information is provided (ABARoutingNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.\n\n If a ClientAccountID is provided, the client account's first/last name, address, and default bank account will be used for the transaction.\n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment."
+      description: 'This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment.
+
+
+        Either CompanyName OR FirstName and LastName must be provided.
+
+
+        If the Token is provided, the ABARoutingNumber, and AccountNumber will not be required.
+
+
+        If the bank information is provided (ABARoutingNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.
+
+
+        If a ClientAccountID is provided, the client account''s first/last name, address, and default bank account will be used for the transaction.
+
+
+        For additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment.'
       summary: ach/fund/schedule
       tags:
       - ACH Endpoints
@@ -495,7 +516,22 @@ paths:
                 - Status
   /ach/withdraw/schedule:
     post:
-      description: "This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment. \n\nEither CompanyName OR FirstName and LastName must be provided. \n\n If the Token is provided, the ABARoutingNumber, and AccountNumber will not be required. \n\n If the bank information is provided (ABARoutingNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.\n\n If a ClientAccountID is provided, the client account's first/last name, address, and default bank account will be used for the transaction.\n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment."
+      description: 'This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment.
+
+
+        Either CompanyName OR FirstName and LastName must be provided.
+
+
+        If the Token is provided, the ABARoutingNumber, and AccountNumber will not be required.
+
+
+        If the bank information is provided (ABARoutingNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.
+
+
+        If a ClientAccountID is provided, the client account''s first/last name, address, and default bank account will be used for the transaction.
+
+
+        For additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment.'
       summary: ach/withdraw/schedule
       tags:
       - ACH Endpoints
@@ -1057,7 +1093,13 @@ paths:
                 - TransactionTypeCode
   /ach/scheduled-transactions:
     get:
-      description: "This endpoint is used to look up the list of all scheduled transactions, or you can list the details of a single scheduled transaction. \n\n If the value ScheduledTransactionID is present, we only list the details of that scheduled transaction.  \n\n * Either the response will be Company name or First name and Last name"
+      description: 'This endpoint is used to look up the list of all scheduled transactions, or you can list the details of a single scheduled transaction.
+
+
+        If the value ScheduledTransactionID is present, we only list the details of that scheduled transaction.
+
+
+        * Either the response will be Company name or First name and Last name'
       summary: ach/scheduled-transactions
       tags:
       - ACH Endpoints
