@@ -947,6 +947,69 @@ paths:
                                     example: '123458'
 components:
   requestBodies:
+    ClientAccountTransferWithdrawPOST:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              DebitorClientAccountID:
+                description: ID of the client account transferring the funds
+                type: string
+              RecipientClientAccountID:
+                description: ID of the client account receiving the funds
+                type: string
+              RecipientClientAccountIDSplit:
+                description: 'A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{"ClientAccountID":"client_account_id_1","Amount": "5"},{"ClientAccountID":"client_account_id_2","Amount": "10"}]'
+                type: string
+              Amount:
+                description: The amount to debit from the customer's bank account.
+                type: number
+              FundingRail:
+                description: Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.
+                type: string
+              WithdrawRail:
+                description: Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.
+                type: string
+              IdempotencyKey:
+                description: A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.
+                type: string
+              Currency:
+                description: 3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.
+                type: string
+              ReverseOnFailure:
+                description: Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.
+                type: boolean
+              ClientReferenceNumber:
+                description: An optional reference number to associate with the transactions
+                type: string
+              Notes:
+                description: An optional note to associate with the transactions.
+                type: string
+              TransactionLabel:
+                description: The TransactionLabel overrides the originator short name on statements
+                type: string
+              GLCode:
+                description: An optional unique identification general ledger code.
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - DebitorClientAccountID
+            - RecipientClientAccountID
+            - RecipientClientAccountIDSplit
+            - Amount
+      required: true
     ClientAccountTransferWithdrawSchedulePOST:
       content:
         application/x-www-form-urlencoded:
@@ -1028,67 +1091,4 @@ components:
             - ScheduleStartDate
             - ScheduleEndDate
             - EndingAfterPayments
-      required: true
-    ClientAccountTransferWithdrawPOST:
-      content:
-        application/x-www-form-urlencoded:
-          schema:
-            type: object
-            properties:
-              AccountID:
-                description: Your account ID
-                type: string
-              Key:
-                description: API key for the account
-                type: string
-              Signature:
-                description: Hashed signature for the request
-                type: string
-              DebitorClientAccountID:
-                description: ID of the client account transferring the funds
-                type: string
-              RecipientClientAccountID:
-                description: ID of the client account receiving the funds
-                type: string
-              RecipientClientAccountIDSplit:
-                description: 'A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{"ClientAccountID":"client_account_id_1","Amount": "5"},{"ClientAccountID":"client_account_id_2","Amount": "10"}]'
-                type: string
-              Amount:
-                description: The amount to debit from the customer's bank account.
-                type: number
-              FundingRail:
-                description: Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.
-                type: string
-              WithdrawRail:
-                description: Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.
-                type: string
-              IdempotencyKey:
-                description: A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.
-                type: string
-              Currency:
-                description: 3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.
-                type: string
-              ReverseOnFailure:
-                description: Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.
-                type: boolean
-              ClientReferenceNumber:
-                description: An optional reference number to associate with the transactions
-                type: string
-              Notes:
-                description: An optional note to associate with the transactions.
-                type: string
-              TransactionLabel:
-                description: The TransactionLabel overrides the originator short name on statements
-                type: string
-              GLCode:
-                description: An optional unique identification general ledger code.
-                type: string
-            required:
-            - AccountID
-            - Key
-            - Signature
-            - DebitorClientAccountID
-            - RecipientClientAccountID
-            - RecipientClientAccountIDSplit
-            - Amount
       required: true
