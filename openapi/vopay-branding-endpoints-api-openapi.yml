@@ -299,6 +299,30 @@ paths:
                     example: ''
 components:
   requestBodies:
+    BrandingDeletePost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              Product:
+                description: 'The product you want to delete branding for. Valid options are: portal, email, elinx, onboarding, asp.'
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - Product
+      required: true
     BrandingPOST:
       content:
         application/x-www-form-urlencoded:
@@ -328,30 +352,6 @@ components:
                 type: string
               SmallLogo:
                 description: Base64 encoded logo image. Only SVG is supported.
-                type: string
-            required:
-            - AccountID
-            - Key
-            - Signature
-            - Product
-      required: true
-    BrandingDeletePost:
-      content:
-        application/x-www-form-urlencoded:
-          schema:
-            type: object
-            properties:
-              AccountID:
-                description: Your account ID
-                type: string
-              Key:
-                description: API key for the account
-                type: string
-              Signature:
-                description: Hashed signature for the request
-                type: string
-              Product:
-                description: 'The product you want to delete branding for. Valid options are: portal, email, elinx, onboarding, asp.'
                 type: string
             required:
             - AccountID
