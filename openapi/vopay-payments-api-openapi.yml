@@ -126,6 +126,13 @@ components:
       type: object
       description: Default empty rail-specific object
       properties: {}
+    Rail_EFT:
+      type: object
+      properties:
+        BeneficiaryAccountNumber:
+          type: string
+        BeneficiarySortCode:
+          type: string
     Rail_SEPAInstant:
       type: object
       properties:
@@ -136,10 +143,3 @@ components:
           type: string
       required:
       - CreditorIBAN
-    Rail_EFT:
-      type: object
-      properties:
-        BeneficiaryAccountNumber:
-          type: string
-        BeneficiarySortCode:
-          type: string

@@ -499,34 +499,6 @@ components:
             - Signature
             - KeyID
       required: true
-    APIKeysEditPost:
-      content:
-        application/x-www-form-urlencoded:
-          schema:
-            type: object
-            properties:
-              AccountID:
-                description: Your account ID
-                type: string
-              Key:
-                description: API key for the account
-                type: string
-              Signature:
-                description: Hashed signature for the request
-                type: string
-              KeyID:
-                description: The ID of the key. Can be fetched through the /keys endpoint
-                type: integer
-              Label:
-                description: The label you want associated with the key
-                type: string
-            required:
-            - AccountID
-            - Key
-            - Signature
-            - KeyID
-            - Label
-      required: true
     APIKeysAddPost:
       content:
         application/x-www-form-urlencoded:
@@ -570,4 +542,32 @@ components:
             - AccountID
             - Key
             - Signature
+      required: true
+    APIKeysEditPost:
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              AccountID:
+                description: Your account ID
+                type: string
+              Key:
+                description: API key for the account
+                type: string
+              Signature:
+                description: Hashed signature for the request
+                type: string
+              KeyID:
+                description: The ID of the key. Can be fetched through the /keys endpoint
+                type: integer
+              Label:
+                description: The label you want associated with the key
+                type: string
+            required:
+            - AccountID
+            - Key
+            - Signature
+            - KeyID
+            - Label
       required: true
