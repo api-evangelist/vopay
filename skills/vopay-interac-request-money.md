@@ -1,5 +1,6 @@
 ---
-name: Request money by Interac e-Transfer
+name: vopay-interac-request-money
+title: Request money by Interac e-Transfer
 description: Send an Interac e-Transfer money request to a Canadian individual or business and track collection to settlement.
 api: openapi/vopay-payment-rails-api-reference.json
 operations: [AuthPingPost, InteracMoneyRequestPost, InteracMoneyRequestTransactionGet, InteracMoneyRequestTransactionsCancelPost]

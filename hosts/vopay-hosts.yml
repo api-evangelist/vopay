@@ -1,0 +1,86 @@
+generated: '2026-10-12'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 6
+  own: 5
+  other_domain: 0
+  platform: 1
+  roles:
+  - marketing
+  - other
+  - portal
+  - status
+  - website
+hosts:
+- host: blog.vopay.com
+  found_by:
+  - pointer
+  types:
+  - Blog
+  serves: []
+  registrable_domain: vopay.com
+  role: marketing
+  relation: own
+- host: docs.vopay.com
+  found_by:
+  - pointer
+  - apis[]
+  types:
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  serves:
+  - docs
+  registrable_domain: vopay.com
+  role: portal
+  relation: own
+- host: earthnode-dev.vopay.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: vopay.com
+  role: other
+  relation: own
+- host: status.vopay.com
+  found_by:
+  - pointer
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: vopay.com
+  role: status
+  relation: own
+- host: vopay.com
+  found_by:
+  - pointer
+  - vendor-detect
+  types:
+  - Newsroom
+  - Website
+  - SignUp
+  - Pricing
+  - Support
+  - TermsOfService
+  - PrivacyPolicy
+  - Security
+  serves:
+  - cdn
+  - hosting
+  vendor: cloudflare
+  registrable_domain: vopay.com
+  role: website
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform

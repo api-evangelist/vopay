@@ -1,0 +1,38 @@
+{
+  "@context": {
+    "@vocab": "https://vopay.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "vopay": "https://vopay.com/schema#",
+    "Rail_EFT": "vopay:Rail_EFT",
+    "BeneficiaryAccountNumber": {
+      "@id": "vopay:BeneficiaryAccountNumber",
+      "@type": "xsd:string"
+    },
+    "BeneficiarySortCode": {
+      "@id": "vopay:BeneficiarySortCode",
+      "@type": "xsd:string"
+    },
+    "Rail_SEPAInstant": "vopay:Rail_SEPAInstant",
+    "CreditorIBAN": {
+      "@id": "vopay:CreditorIBAN",
+      "@type": "xsd:string"
+    },
+    "RemittanceInformation": {
+      "@id": "vopay:RemittanceInformation",
+      "@type": "xsd:string"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "VoPay API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects VoPay's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-12) from openapi/vopay-account-endpoints-api-openapi.yml, openapi/vopay-account-onboarding-endpoints-api-openapi.yml, openapi/vopay-account-verification-endpoints-api-openapi.yml.",
+  "dcterms:created": "2026-10-12",
+  "dcterms:source": [
+    "openapi/vopay-account-endpoints-api-openapi.yml",
+    "openapi/vopay-account-onboarding-endpoints-api-openapi.yml",
+    "openapi/vopay-account-verification-endpoints-api-openapi.yml",
+    "openapi/vopay-ach-endpoints-api-openapi.yml",
+    "openapi/vopay-api-key-endpoints-api-openapi.yml"
+  ]
+}

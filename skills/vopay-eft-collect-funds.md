@@ -1,5 +1,6 @@
 ---
-name: Collect funds by EFT (Canada)
+name: vopay-eft-collect-funds
+title: Collect funds by EFT (Canada)
 description: Pull funds from a customer's Canadian bank account by EFT and confirm settlement, with idempotency and webhook confirmation.
 api: openapi/vopay-payment-rails-api-reference.json
 operations: [AuthPingPost, EftFundPost, EftFundStatusGet, EftFundTransactionGet]

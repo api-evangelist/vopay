@@ -1,5 +1,6 @@
 ---
-name: Verify a bank account with IQ11
+name: vopay-verify-bank-account-iq11
+title: Verify a bank account with IQ11
 description: Instantly verify and tokenize a customer's bank account using VoPay's IQ11 embedded experience, then read balance/ownership data.
 api: openapi/vopay-iq11.json
 operations: [Iq11GenerateEmbedUrlPost, Iq11TokenInfoGet, Iq11BalanceGet, Iq11EnrichDataPOST, Iq11EnrichDataStatusGet]

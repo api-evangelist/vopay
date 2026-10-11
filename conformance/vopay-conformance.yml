@@ -9,19 +9,16 @@ standards:
   conforms: false
 - id: rfc9457-problem-details
   conforms: false
-  evidence: Errors returned as HTTP 200 with Success:false + ErrorCode envelope, not
-    application/problem+json.
+  evidence: Errors returned as HTTP 200 with Success:false + ErrorCode envelope, not application/problem+json.
 - id: idempotency
   conforms: true
-  evidence: IdempotencyKey parameter documented on money-movement operations across
-    7 specs.
+  evidence: IdempotencyKey parameter documented on money-movement operations across 7 specs.
 - id: webhooks
   conforms: true
   evidence: 24 documented webhook event types with HMAC-SHA1 ValidationKey; see asyncapi/vopay-webhooks-asyncapi.yml.
 - id: hmac-request-signing
   conforms: true
-  evidence: SHA1(apiKey + sharedSecret + date) request signature; SHA1(sharedSecret
-    + recordID) webhook ValidationKey.
+  evidence: SHA1(apiKey + sharedSecret + date) request signature; SHA1(sharedSecret + recordID) webhook ValidationKey.
 - id: psd2
   conforms: false
   evidence: Canada/US market; not a PSD2 jurisdiction.
@@ -35,5 +32,13 @@ standards:
   evidence: Interac e-Transfer send/request/inbound rails.
 - id: payments-canada-eft
   conforms: true
-  evidence: EFT rail over Payments Canada with institution/transit numbers and 9xx
-    return codes.
+  evidence: EFT rail over Payments Canada with institution/transit numbers and 9xx return codes.
+- id: openapi-3.2
+  conforms: true
+  evidence: the document declares 3.2.0
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: pagination
+  conforms: true
+  evidence: list operations take limit, offset

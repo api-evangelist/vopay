@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/vopay/integrations
 - https://n8n.io/integrations/vopay/
@@ -7,10 +7,78 @@ source:
 - https://monid.ai/tools/vopay
 checked:
 - https://composio.dev/toolkits/vopay
+- https://docs.vopay.com/llms.txt
 - https://monid.ai/tools/vopay
 - https://n8n.io/integrations/vopay/
+- https://vopay.com/integrations/
+- https://vopay.com/partners/
+- https://www.make.com/en/integrations/vopay
 - https://zapier.com/apps/vopay/integrations
-summary: null
+summary: No marketplace listing (Zapier/n8n 404, Make bot-challenged, Composio/Monid none); VoPay's own contract
+  and docs integrate five bank-data providers (Plaid, Flinks, MX, Inverite, Global Pay). vopay.com/partners/ renders
+  no named partners in static HTML.
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: Plaid
+  partner: plaid
+  type: contract
+  evidence: https://docs.vopay.com/docs/plaid-integration
+  direction: provider-built
+  category: open-banking / bank data
+  operations:
+  - SetPlaidCredentialsPost
+  use_case: Configure Plaid credentials so VoPay can fetch account-holder and bank details from Plaid when creating
+    client accounts, contacts and EFT transactions
+  partner_url: https://plaid.com/
+  partner_match: domain
+- partner_name: Flinks
+  partner: flinks
+  type: contract
+  evidence: https://docs.vopay.com/docs/flinks-integration
+  direction: provider-built
+  category: open-banking / bank data
+  operations:
+  - SetFlinksCredentialsPost
+  use_case: Configure Flinks credentials so VoPay can fetch account-holder and bank details from Flinks when creating
+    client accounts, contacts and EFT transactions
+  partner_url: https://flinks.com/
+  partner_match: domain
+- partner_name: MX
+  partner: mx-technologies
+  type: contract
+  evidence: https://docs.vopay.com/docs/mx-integration
+  direction: provider-built
+  category: open-banking / bank data
+  operations: []
+  use_case: Configure MX credentials so VoPay can fetch account-holder and bank details from MX when creating client
+    accounts, contacts and EFT transactions
+  partner_url: https://www.mx.com/
+  partner_match: domain
+  note: Documented integration page; client-account and contact endpoints accept MX credentials (llms.txt), no dedicated
+    set-credentials operation found in the contract.
+- partner_name: Inverite
+  partner: null
+  type: contract
+  evidence: https://docs.vopay.com/docs/inverite-integration
+  direction: provider-built
+  category: open-banking / bank data
+  operations:
+  - SetInveriteCredentialsPost
+  use_case: Configure Inverite credentials so VoPay can fetch account-holder and bank details from Inverite when
+    creating client accounts, contacts and EFT transactions
+  partner_url: null
+  partner_match: null
+- partner_name: Global Pay
+  partner: null
+  type: contract
+  evidence: https://docs.vopay.com/reference/setglobalpaycredentialspost
+  direction: provider-built
+  category: open-banking / bank data
+  operations:
+  - SetGlobalPayCredentialsPost
+  use_case: Configure Global Pay credentials so VoPay can fetch account-holder and bank details from Global Pay
+    when creating client accounts, contacts and EFT transactions
+  partner_url: null
+  partner_match: null
+  note: Named "Global Pay" in VoPay docs; not linked to a catalog slug because the docs do not identify the company.
 templates: []

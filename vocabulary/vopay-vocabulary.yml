@@ -1,0 +1,30 @@
+generated: '2026-10-12'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/vopay-account-endpoints-api-openapi.yml
+- openapi/vopay-account-onboarding-endpoints-api-openapi.yml
+- openapi/vopay-account-verification-endpoints-api-openapi.yml
+- openapi/vopay-ach-endpoints-api-openapi.yml
+- openapi/vopay-api-key-endpoints-api-openapi.yml
+vocabulary:
+  name: VoPay Domain Vocabulary
+  description: 'Terms declared by VoPay''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-12'
+  terms:
+  - term: Rail_Default
+    definition: Default empty rail-specific object
+    tags:
+    - Object
+    source: openapi/vopay-payments-api-openapi.yml#/components/schemas/Rail_Default
+  - term: Rail_EFT
+    definition: 'Object declared by the contract with fields: BeneficiaryAccountNumber, BeneficiarySortCode.'
+    tags:
+    - Object
+    source: openapi/vopay-payments-api-openapi.yml#/components/schemas/Rail_EFT
+  - term: Rail_SEPAInstant
+    definition: 'Object declared by the contract with fields: CreditorIBAN, RemittanceInformation.'
+    tags:
+    - Object
+    source: openapi/vopay-payments-api-openapi.yml#/components/schemas/Rail_SEPAInstant
