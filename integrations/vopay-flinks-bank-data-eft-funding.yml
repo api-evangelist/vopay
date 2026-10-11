@@ -1,0 +1,143 @@
+arazzo: 1.0.1
+info:
+  title: VoPay EFT Funding with Flinks Bank Data
+  summary: Point VoPay at Flinks, read the linked account from Flinks Connect, and
+    fund an EFT transaction with it.
+  description: Point VoPay at Flinks, read the linked account from Flinks Connect,
+    and fund an EFT transaction with it. Recreated as forkable Arazzo from VoPay's
+    integration documentation.
+  version: 1.0.0
+x-integration:
+  partner: flinks
+  edge_evidence: https://docs.vopay.com/docs/flinks-integration
+  edge_type: contract
+  method: generated
+  generated: '2026-10-12'
+  generator: pipeline step 25b (payments-integration-arazzo)
+sourceDescriptions:
+- name: vopayIntegrationApi
+  url: https://raw.githubusercontent.com/api-evangelist/vopay/refs/heads/main/openapi/vopay-integration-endpoints-api-openapi.yml
+  type: openapi
+- name: flinksConnectApi
+  url: https://raw.githubusercontent.com/api-evangelist/flinks/refs/heads/main/openapi/flinks-connect-api-openapi.yml
+  type: openapi
+- name: vopayEftApi
+  url: https://raw.githubusercontent.com/api-evangelist/vopay/refs/heads/main/openapi/vopay-eft-endpoint-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: vopay-flinks-bank-data-eft-funding
+  summary: Point VoPay at Flinks, read the linked account from Flinks Connect, and
+    fund an EFT transaction with it.
+  inputs:
+    type: object
+    properties:
+      accountID:
+        type: string
+      key:
+        type: string
+      signature:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      companyName:
+        type: string
+      address1:
+        type: string
+      city:
+        type: string
+      province:
+        type: string
+      country:
+        type: string
+      postalCode:
+        type: string
+      accountNumber:
+        type: string
+      financialInstitutionNumber:
+        type: string
+      branchTransitNumber:
+        type: string
+      amount:
+        type: string
+      currency:
+        type: string
+      flinksUrl:
+        type: string
+      flinksLoginId:
+        type: string
+  steps:
+  - stepId: set-flinks-credentials
+    description: Configure the Flinks instance URL on the VoPay account.
+    operationId: $sourceDescriptions.vopayIntegrationApi.SetFlinksCredentialsPost
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        AccountID: $inputs.accountID
+        Key: $inputs.key
+        Signature: $inputs.signature
+        FlinksUrl: $inputs.flinksUrl
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/Success == true
+    outputs:
+      flinksUrl: $response.body#/FlinksUrl
+  - stepId: authorize-flinks
+    description: Open a Flinks banking session for the LoginId returned by Flinks
+      Connect.
+    operationId: $sourceDescriptions.flinksConnectApi.authorize
+    requestBody:
+      contentType: application/json
+      payload:
+        LoginId: $inputs.flinksLoginId
+        MostRecentCached: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      requestId: $response.body#/RequestId
+  - stepId: get-accounts-detail
+    description: Retrieve the linked account details from Flinks.
+    operationId: $sourceDescriptions.flinksConnectApi.getAccountsDetail
+    requestBody:
+      contentType: application/json
+      payload:
+        RequestId: $steps.authorize-flinks.outputs.requestId
+        WithAccountIdentity: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      flinksAccountId: $response.body#/Accounts/0/Id
+  - stepId: fund-eft
+    description: Debit the account holder's bank account through VoPay EFT, using
+      the partner's bank-data reference.
+    operationId: $sourceDescriptions.vopayEftApi.EftFundPost
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        AccountID: $inputs.accountID
+        Key: $inputs.key
+        Signature: $inputs.signature
+        FirstName: $inputs.firstName
+        LastName: $inputs.lastName
+        CompanyName: $inputs.companyName
+        Address1: $inputs.address1
+        City: $inputs.city
+        Province: $inputs.province
+        Country: $inputs.country
+        PostalCode: $inputs.postalCode
+        AccountNumber: $inputs.accountNumber
+        FinancialInstitutionNumber: $inputs.financialInstitutionNumber
+        BranchTransitNumber: $inputs.branchTransitNumber
+        Amount: $inputs.amount
+        Currency: $inputs.currency
+        FlinksLoginID: $inputs.flinksLoginId
+        FlinksAccountID: $steps.get-accounts-detail.outputs.flinksAccountId
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/Success == true
+    outputs:
+      transactionId: $response.body#/TransactionID
+  outputs:
+    flinksAccountId: $steps.get-accounts-detail.outputs.flinksAccountId
+    transactionId: $steps.fund-eft.outputs.transactionId

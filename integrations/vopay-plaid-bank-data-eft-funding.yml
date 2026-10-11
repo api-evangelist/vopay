@@ -1,0 +1,154 @@
+arazzo: 1.0.1
+info:
+  title: VoPay EFT Funding with Plaid Bank Data
+  summary: Turn a Plaid Link public token into a VoPay processor token and fund an
+    EFT transaction with it.
+  description: Turn a Plaid Link public token into a VoPay processor token and fund
+    an EFT transaction with it. Recreated as forkable Arazzo from VoPay's integration
+    documentation.
+  version: 1.0.0
+x-integration:
+  partner: plaid
+  edge_evidence: https://docs.vopay.com/docs/plaid-integration
+  edge_type: contract
+  method: generated
+  generated: '2026-10-12'
+  generator: pipeline step 25b (payments-integration-arazzo)
+sourceDescriptions:
+- name: plaidApi
+  url: https://raw.githubusercontent.com/api-evangelist/plaid/refs/heads/main/openapi/plaid-plaid-api-openapi.yml
+  type: openapi
+- name: vopayIntegrationApi
+  url: https://raw.githubusercontent.com/api-evangelist/vopay/refs/heads/main/openapi/vopay-integration-endpoints-api-openapi.yml
+  type: openapi
+- name: vopayEftApi
+  url: https://raw.githubusercontent.com/api-evangelist/vopay/refs/heads/main/openapi/vopay-eft-endpoint-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: vopay-plaid-bank-data-eft-funding
+  summary: Turn a Plaid Link public token into a VoPay processor token and fund an
+    EFT transaction with it.
+  inputs:
+    type: object
+    properties:
+      accountID:
+        type: string
+      key:
+        type: string
+      signature:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      companyName:
+        type: string
+      address1:
+        type: string
+      city:
+        type: string
+      province:
+        type: string
+      country:
+        type: string
+      postalCode:
+        type: string
+      accountNumber:
+        type: string
+      financialInstitutionNumber:
+        type: string
+      branchTransitNumber:
+        type: string
+      amount:
+        type: string
+      currency:
+        type: string
+      plaidClientId:
+        type: string
+      plaidSecretKey:
+        type: string
+      plaidUrl:
+        type: string
+      plaidPublicToken:
+        type: string
+      plaidAccountId:
+        type: string
+  steps:
+  - stepId: exchange-public-token
+    description: Exchange the Plaid Link public token for an access token.
+    operationId: $sourceDescriptions.plaidApi.itemPublicTokenExchange
+    requestBody:
+      contentType: application/json
+      payload:
+        client_id: $inputs.plaidClientId
+        secret: $inputs.plaidSecretKey
+        public_token: $inputs.plaidPublicToken
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      accessToken: $response.body#/access_token
+      itemId: $response.body#/item_id
+  - stepId: create-processor-token
+    description: Create a Plaid processor token for VoPay on the selected account.
+    operationId: $sourceDescriptions.plaidApi.processorTokenCreate
+    requestBody:
+      contentType: application/json
+      payload:
+        client_id: $inputs.plaidClientId
+        secret: $inputs.plaidSecretKey
+        access_token: $steps.exchange-public-token.outputs.accessToken
+        account_id: $inputs.plaidAccountId
+        processor: vopay
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      processorToken: $response.body#/processor_token
+  - stepId: set-plaid-credentials
+    description: Configure the Plaid credentials on the VoPay account.
+    operationId: $sourceDescriptions.vopayIntegrationApi.SetPlaidCredentialsPost
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        AccountID: $inputs.accountID
+        Key: $inputs.key
+        Signature: $inputs.signature
+        PlaidClientID: $inputs.plaidClientId
+        PlaidSecretKey: $inputs.plaidSecretKey
+        PlaidUrl: $inputs.plaidUrl
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/Success == true
+    outputs:
+      plaidUrl: $response.body#/PlaidUrl
+  - stepId: fund-eft
+    description: Debit the account holder's bank account through VoPay EFT, using
+      the partner's bank-data reference.
+    operationId: $sourceDescriptions.vopayEftApi.EftFundPost
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        AccountID: $inputs.accountID
+        Key: $inputs.key
+        Signature: $inputs.signature
+        FirstName: $inputs.firstName
+        LastName: $inputs.lastName
+        CompanyName: $inputs.companyName
+        Address1: $inputs.address1
+        City: $inputs.city
+        Province: $inputs.province
+        Country: $inputs.country
+        PostalCode: $inputs.postalCode
+        AccountNumber: $inputs.accountNumber
+        FinancialInstitutionNumber: $inputs.financialInstitutionNumber
+        BranchTransitNumber: $inputs.branchTransitNumber
+        Amount: $inputs.amount
+        Currency: $inputs.currency
+        PlaidProcessorToken: $steps.create-processor-token.outputs.processorToken
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/Success == true
+    outputs:
+      transactionId: $response.body#/TransactionID
+  outputs:
+    itemId: $steps.exchange-public-token.outputs.itemId
+    transactionId: $steps.fund-eft.outputs.transactionId

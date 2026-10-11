@@ -1,0 +1,108 @@
+arazzo: 1.0.1
+info:
+  title: VoPay EFT Funding with MX Authorization Code
+  summary: Request an MX processor authorization code and fund a VoPay EFT transaction
+    with it.
+  description: Request an MX processor authorization code and fund a VoPay EFT transaction
+    with it. Recreated as forkable Arazzo from VoPay's integration documentation.
+  version: 1.0.0
+x-integration:
+  partner: mx-technologies
+  edge_evidence: https://docs.vopay.com/docs/mx-integration
+  edge_type: contract
+  method: generated
+  generated: '2026-10-12'
+  generator: pipeline step 25b (payments-integration-arazzo)
+sourceDescriptions:
+- name: mxProcessorTokenApi
+  url: https://raw.githubusercontent.com/api-evangelist/mx-technologies/refs/heads/main/openapi/mx-technologies-processor-token-api-openapi.yml
+  type: openapi
+- name: vopayEftApi
+  url: https://raw.githubusercontent.com/api-evangelist/vopay/refs/heads/main/openapi/vopay-eft-endpoint-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: vopay-mx-technologies-authorization-code-eft-funding
+  summary: Request an MX processor authorization code and fund a VoPay EFT transaction
+    with it.
+  inputs:
+    type: object
+    properties:
+      accountID:
+        type: string
+      key:
+        type: string
+      signature:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      companyName:
+        type: string
+      address1:
+        type: string
+      city:
+        type: string
+      province:
+        type: string
+      country:
+        type: string
+      postalCode:
+        type: string
+      accountNumber:
+        type: string
+      financialInstitutionNumber:
+        type: string
+      branchTransitNumber:
+        type: string
+      amount:
+        type: string
+      currency:
+        type: string
+      mxScope:
+        type: string
+  steps:
+  - stepId: request-authorization-code
+    description: Request an MX processor authorization code scoped to the verified
+      member account.
+    operationId: $sourceDescriptions.mxProcessorTokenApi.requestAuthorizationCode
+    requestBody:
+      contentType: application/json
+      payload:
+        authorization_code:
+          scope: $inputs.mxScope
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      authorizationCode: $response.body#/authorization_code/code
+  - stepId: fund-eft
+    description: Debit the account holder's bank account through VoPay EFT, using
+      the partner's bank-data reference.
+    operationId: $sourceDescriptions.vopayEftApi.EftFundPost
+    requestBody:
+      contentType: application/x-www-form-urlencoded
+      payload:
+        AccountID: $inputs.accountID
+        Key: $inputs.key
+        Signature: $inputs.signature
+        FirstName: $inputs.firstName
+        LastName: $inputs.lastName
+        CompanyName: $inputs.companyName
+        Address1: $inputs.address1
+        City: $inputs.city
+        Province: $inputs.province
+        Country: $inputs.country
+        PostalCode: $inputs.postalCode
+        AccountNumber: $inputs.accountNumber
+        FinancialInstitutionNumber: $inputs.financialInstitutionNumber
+        BranchTransitNumber: $inputs.branchTransitNumber
+        Amount: $inputs.amount
+        Currency: $inputs.currency
+        MxAuthorizationCode: $steps.request-authorization-code.outputs.authorizationCode
+    successCriteria:
+    - condition: $statusCode == 200
+    - condition: $response.body#/Success == true
+    outputs:
+      transactionId: $response.body#/TransactionID
+  outputs:
+    transactionId: $steps.fund-eft.outputs.transactionId
