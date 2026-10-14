@@ -79,3 +79,29 @@
     detected: '2026-10-12'
   arazzo: vopay-plaid-bank-data-eft-funding.yml
   status: arazzo
+- slug: vopay-fdx-financial-data-exchange
+  label: FDX (Financial Data Exchange)
+  partner: fdx
+  partner_name: FDX (Financial Data Exchange)
+  type: contract
+  channel: standard-directory
+  evidence: https://registry.financialdataexchange.org/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: FDX Registry
+    standard: FDX API
+    spec_file: null
+    register_api: https://registry.financialdataexchange.org/fdxregistryapi/organizations/search/listingTags
+    role: industry-group
+    member_type: MEMBER
+    registered_name: VoPay
+    register_id: 290
+    registered_website: https://vopay.com/
+    country: Canada
+    fdx_version: null
+    matched_by: domain:vopay.com
+    detected_by: sweep-fdx.py
+    detected: '2026-10-14'
+  status: not-a-workflow
+  arazzo: null
