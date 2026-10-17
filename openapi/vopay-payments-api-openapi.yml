@@ -122,6 +122,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Rail_SEPAInstant:
+      type: object
+      properties:
+        CreditorIBAN:
+          type: string
+          example: IE29AIBK93115212345678
+        RemittanceInformation:
+          type: string
+      required:
+      - CreditorIBAN
     Rail_Default:
       type: object
       description: Default empty rail-specific object
@@ -133,13 +143,3 @@ components:
           type: string
         BeneficiarySortCode:
           type: string
-    Rail_SEPAInstant:
-      type: object
-      properties:
-        CreditorIBAN:
-          type: string
-          example: IE29AIBK93115212345678
-        RemittanceInformation:
-          type: string
-      required:
-      - CreditorIBAN
