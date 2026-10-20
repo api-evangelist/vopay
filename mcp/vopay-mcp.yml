@@ -1,18 +1,19 @@
 generated: '2026-10-12'
 method: probed
 status: live
-source: https://docs.vopay.com/mcp (initialize + tools/list, anonymous, HTTP 200, serverInfo "VoPay API" 2.0)
+source: https://docs.vopay.com/mcp (initialize + tools/list, anonymous, HTTP 200, serverInfo "VoPay API"
+  2.0)
 name: VoPay API
-description: 'VoPay''s hosted docs MCP server on its ReadMe developer portal: five meta tools that list, search
-  and describe the OpenAPI specs behind docs.vopay.com and execute a request (HAR) against the API. Not one tool
-  per operation.'
+description: 'VoPay''s hosted docs MCP server on its ReadMe developer portal: five meta tools that list,
+  search and describe the OpenAPI specs behind docs.vopay.com and execute a request (HAR) against the
+  API. Not one tool per operation.'
 deployment:
   mode: remote
   endpoint: https://docs.vopay.com/mcp
   auth: none
   verified: probed
-  note: initialize and tools/list answered without credentials; execute-request calls the VoPay API, which itself
-    needs an API key + signature.
+  note: initialize and tools/list answered without credentials; execute-request calls the VoPay API, which
+    itself needs an API key + signature.
 server:
   name: VoPay API
   version: '2.0'
@@ -23,20 +24,21 @@ tools_list: mcp/vopay-mcp-tools-list.json
 tool_count: 5
 tools:
 - name: list-endpoints
-  description: Lists all API paths and their HTTP methods with summaries, organized by path. Results can be passed
-    directly into 'get-endpoint'.
+  description: Lists all API paths and their HTTP methods with summaries, organized by path. Results can
+    be passed directly into 'get-endpoint'.
   input_properties:
   - title
 - name: get-endpoint
-  description: Gets detailed information about a specific API endpoint, including security schemes and servers
+  description: Gets detailed information about a specific API endpoint, including security schemes and
+    servers
   input_properties:
   - method
   - path
   - title
 - name: search-endpoints
-  description: Performs a deep search through paths, operations, and parameters to discover relevant API endpoints.
-    Use this tool to find specific API capabilities, required parameters, or data models based on search keywords.
-    Results can be passed directly into 'get-endpoint'.
+  description: Performs a deep search through paths, operations, and parameters to discover relevant API
+    endpoints. Use this tool to find specific API capabilities, required parameters, or data models based
+    on search keywords. Results can be passed directly into 'get-endpoint'.
   input_properties:
   - pattern
 - name: list-specs
@@ -50,4 +52,30 @@ tools:
 candidate_rest_tools:
   note: Prior-round derived candidate (one tool per operationId), kept for reference.
   tool_count: 403
-  source: Derived one tool per OpenAPI operationId; no official VoPay MCP server was found as of this round.
+  source: Derived one tool per OpenAPI operationId; no official VoPay MCP server was found as of this
+    round.
+tool_quality:
+  tool_count: 5
+  tokens_total: 965
+  tokens_per_tool_median: 151
+  heavy_tools: []
+  heavy_tool_count: 0
+  params_total: 7
+  params_undescribed: 0
+  params_described_pct: 100.0
+  tools_with_undescribed_params: 0
+  tools_annotated: 5
+  annotated_pct: 100.0
+  state_changing_unhinted: []
+  tools_missing_schema: 0
+  short_descriptions: 0
+  duplicate_descriptions: 0
+  duplicate_names: 0
+  nonportable_names: []
+  output_schema_count: 0
+  token_estimate: chars/3.6 of each compact tool definition
+  source: mcp/vopay-mcp-tools-list.json
+  measured: '2026-10-20'
+  scored: false
+  note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
+    from Glimind's agent-readiness audit.
