@@ -26,7 +26,8 @@
   evidence: https://docs.vopay.com/docs/flinks-integration
   source: edge
   arazzo: vopay-flinks-bank-data-eft-funding.yml
-  status: arazzo
+  status: arazzo-broken
+  broken_reason: 'step authorize-flinks: opId ''authorize'' NOT in flinks-connect-api-openapi.yml'
 - slug: vopay-mx
   label: MX
   partner: mx-technologies
@@ -103,5 +104,66 @@
     matched_by: domain:vopay.com
     detected_by: sweep-fdx.py
     detected: '2026-10-14'
+  status: not-a-workflow
+  arazzo: null
+- slug: vopay-bank-of-canada-rpaa-registry-of-payment-service-providers
+  label: Bank of Canada RPAA registry of payment service providers
+  partner_name: Bank of Canada RPAA registry of payment service providers
+  category: Canadian retail payment activities (RPAA) PSP registration
+  type: register
+  channel: regulator-register
+  evidence: https://www.bankofcanada.ca/core-functions/retail-payments-supervision/psp-registry/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Bank of Canada RPAA registry of payment service providers
+    spec_file: null
+    standard: null
+    role: registered-psp
+    registrations:
+    - registered_name: VoPay Financial Canada Inc.
+      register_status: registered
+      register_country: CA
+      register_id: e30ff436-c498-ef11-8a6a-6045bd6034d0
+      matched_domain: vopay.com
+      matched_by: domain
+      evidence_url: https://www.bankofcanada.ca/core-functions/retail-payments-supervision/psp-registry/psp-registry-details/?account_id=e30ff436-c498-ef11-8a6a-6045bd6034d0
+      licences:
+      - RPAA registered PSP
+      registration_date: '2025-10-10'
+      head_office_country: Canada
+      payment_functions:
+      - Holding of funds on behalf of an end user until they are withdrawn by the end user or transferred to another
+        individual or entity
+      - The initiation of an electronic funds transfer at the request of an end user
+      - Authorization or Transmission, Reception or Facilitation of an instruction in relation to an electronic
+        funds transfer
+      - Clearing or settlement services
+      - The provision or maintenance of an account that, in relation to an electronic funds transfer, is held on
+        behalf of one or more end users
+      has_violations: false
+    - registered_name: VoPay International Inc.
+      register_status: registered
+      register_country: CA
+      register_id: 20e58569-15a2-ef11-a72d-000d3af39d00
+      matched_domain: vopay.com
+      matched_by: domain
+      evidence_url: https://www.bankofcanada.ca/core-functions/retail-payments-supervision/psp-registry/psp-registry-details/?account_id=20e58569-15a2-ef11-a72d-000d3af39d00
+      licences:
+      - RPAA registered PSP
+      registration_date: '2026-04-07'
+      head_office_country: Canada
+      payment_functions:
+      - The provision or maintenance of an account that, in relation to an electronic funds transfer, is held on
+        behalf of one or more end users
+      - The initiation of an electronic funds transfer at the request of an end user
+      - Authorization or Transmission, Reception or Facilitation of an instruction in relation to an electronic
+        funds transfer
+      - Clearing or settlement services
+      has_violations: false
+    signal_note: 'participation only: a regulator registration / payment-system membership; no API conformance is
+      published by this register'
+    detected_by: sweep-canada-rpaa-psp-registry.py
+    detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
