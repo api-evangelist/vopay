@@ -1,0 +1,2479 @@
+{
+  "info": {
+    "_postman_id": "ff64afda-fb1c-43f1-b221-990e5c6f1ba0",
+    "name": "Client Accounts Client Account Transfer Endpoints API",
+    "description": "The Client Accounts API allows you to create, manage and retrieve information about client accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:52:58.000Z",
+    "updatedAt": "2026-10-22T02:52:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ff64afda-fb1c-43f1-b221-990e5c6f1ba0"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "client-accounts",
+          "item": [
+            {
+              "name": "transfer",
+              "item": [
+                {
+                  "name": "schedule",
+                  "item": [
+                    {
+                      "name": "cancel",
+                      "item": [
+                        {
+                          "name": "account/client-accounts/transfer/schedule/cancel",
+                          "id": "9fa5c27c-0782-4d9f-b2d2-fdac85c96897",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the schedule transfer to cancel",
+                                  "key": "ScheduledTransferID",
+                                  "value": "<integer>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/transfer/schedule/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "transfer",
+                                "schedule",
+                                "cancel"
+                              ]
+                            },
+                            "description": "This endpoint is used to cancel a scheduled client account transfer and all remaining payments belonging to that scheduled transfer. Only scheduled transfers with the status in progress can be cancelled."
+                          },
+                          "response": [
+                            {
+                              "id": "1d3f6af6-be78-438f-acab-d77c8c3c3ad8",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/x-www-form-urlencoded"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "urlencoded",
+                                  "urlencoded": [
+                                    {
+                                      "description": "(Required) Your account ID",
+                                      "key": "AccountID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "(Required) API key for the account",
+                                      "key": "Key",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "(Required) Hashed signature for the request",
+                                      "key": "Signature",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "(Required) ID of the schedule transfer to cancel",
+                                      "key": "ScheduledTransferID",
+                                      "value": "<integer>"
+                                    }
+                                  ]
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/account/client-accounts/transfer/schedule/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "account",
+                                    "client-accounts",
+                                    "transfer",
+                                    "schedule",
+                                    "cancel"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Status\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T02:52:59.000Z",
+                              "updatedAt": "2026-10-22T02:52:59.000Z",
+                              "uid": "35240-1d3f6af6-be78-438f-acab-d77c8c3c3ad8"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T02:52:59.000Z",
+                          "updatedAt": "2026-10-22T02:52:59.000Z",
+                          "uid": "35240-9fa5c27c-0782-4d9f-b2d2-fdac85c96897"
+                        }
+                      ],
+                      "id": "e60a56b7-f8c4-44be-85f5-049b260c79c3",
+                      "createdAt": "2026-10-22T02:52:59.000Z",
+                      "updatedAt": "2026-10-22T02:52:59.000Z",
+                      "uid": "35240-e60a56b7-f8c4-44be-85f5-049b260c79c3"
+                    }
+                  ],
+                  "id": "b5cde89b-e2d7-4dba-943a-f9212ddf71d9",
+                  "createdAt": "2026-10-22T02:52:59.000Z",
+                  "updatedAt": "2026-10-22T02:52:59.000Z",
+                  "uid": "35240-b5cde89b-e2d7-4dba-943a-f9212ddf71d9"
+                },
+                {
+                  "name": "account/client-accounts/transfer",
+                  "id": "a63e21c3-b9c9-4605-90c5-ddce51756173",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the client account transferring the funds",
+                          "key": "DebitorClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the client account receiving the funds",
+                          "key": "RecipientClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to transfer from the debitor client account to the recipient client account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transaction",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "If this transaction is related to a previous transaction, specify the parent transaction ID here.",
+                          "key": "ParentTransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/transfer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "transfer"
+                      ]
+                    },
+                    "description": "This endpoint will transfer money directly from the debitor client account to the recipient client account. Both client accounts must be active."
+                  },
+                  "response": [
+                    {
+                      "id": "d563facf-608f-43d2-9846-956422e6c360",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account transferring the funds",
+                              "key": "DebitorClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account receiving the funds",
+                              "key": "RecipientClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to transfer from the debitor client account to the recipient client account.",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transaction",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional note to associate with the transaction.",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.",
+                              "key": "IdempotencyKey",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "If this transaction is related to a previous transaction, specify the parent transaction ID here.",
+                              "key": "ParentTransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/transfer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "transfer"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:52:59.000Z",
+                      "updatedAt": "2026-10-22T02:52:59.000Z",
+                      "uid": "35240-d563facf-608f-43d2-9846-956422e6c360"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:59.000Z",
+                  "updatedAt": "2026-10-22T02:52:59.000Z",
+                  "uid": "35240-a63e21c3-b9c9-4605-90c5-ddce51756173"
+                }
+              ],
+              "id": "10be14dc-886d-490c-b348-6aacc790a919",
+              "createdAt": "2026-10-22T02:52:59.000Z",
+              "updatedAt": "2026-10-22T02:52:59.000Z",
+              "uid": "35240-10be14dc-886d-490c-b348-6aacc790a919"
+            },
+            {
+              "name": "fund-transfer",
+              "item": [
+                {
+                  "name": "schedule",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/fund-transfer/schedule",
+                      "id": "f4ffaf59-e997-447c-8198-59ffa2e9a6af",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account transferring the funds",
+                              "key": "DebitorClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account receiving the funds",
+                              "key": "RecipientClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                              "key": "RecipientClientAccountIDSplit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to debit from the customer's bank account.",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) The frequency of the scheduled transfer. Valid options are: single, weekly, monthly, semi-monthly, and yearly.",
+                              "key": "Frequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date from which the schedule will be started",
+                              "key": "ScheduleStartDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date when the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "ScheduleEndDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Number of payments after which the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "EndingAfterPayments",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                              "key": "FundingRail",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                              "key": "ReverseOnFailure",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transfers",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional note to associate with the transfers.",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The TransactionLabel overrides the originator short name on statements",
+                              "key": "TransactionLabel",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Type of semi-monthly frequency. This field is only required when Frequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                              "key": "SemiMonthlyFrequencyType",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Description of the schedule transfer",
+                              "key": "Description",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional unique identification general ledger code.",
+                              "key": "GLCode",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/fund-transfer/schedule",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "fund-transfer",
+                            "schedule"
+                          ]
+                        },
+                        "description": "This endpoint is used to schedule a fund-transfer between two client accounts."
+                      },
+                      "response": [
+                        {
+                          "id": "ad703efd-9980-40d4-8730-467addda05a6",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the client account transferring the funds",
+                                  "key": "DebitorClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the client account receiving the funds",
+                                  "key": "RecipientClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                                  "key": "RecipientClientAccountIDSplit",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The amount to debit from the customer's bank account.",
+                                  "key": "Amount",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "(Required) The frequency of the scheduled transfer. Valid options are: single, weekly, monthly, semi-monthly, and yearly.",
+                                  "key": "Frequency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Date from which the schedule will be started",
+                                  "key": "ScheduleStartDate",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Date when the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                                  "key": "ScheduleEndDate",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Number of payments after which the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                                  "key": "EndingAfterPayments",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                                  "key": "Currency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                                  "key": "FundingRail",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                                  "key": "ReverseOnFailure",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "An optional reference number to associate with the transfers",
+                                  "key": "ClientReferenceNumber",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "An optional note to associate with the transfers.",
+                                  "key": "Notes",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The TransactionLabel overrides the originator short name on statements",
+                                  "key": "TransactionLabel",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Type of semi-monthly frequency. This field is only required when Frequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                                  "key": "SemiMonthlyFrequencyType",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Description of the schedule transfer",
+                                  "key": "Description",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "An optional unique identification general ledger code.",
+                                  "key": "GLCode",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/fund-transfer/schedule",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "fund-transfer",
+                                "schedule"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ScheduledTransferID\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-22T02:52:59.000Z",
+                          "updatedAt": "2026-10-22T02:52:59.000Z",
+                          "uid": "35240-ad703efd-9980-40d4-8730-467addda05a6"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:52:59.000Z",
+                      "updatedAt": "2026-10-22T02:52:59.000Z",
+                      "uid": "35240-f4ffaf59-e997-447c-8198-59ffa2e9a6af"
+                    }
+                  ],
+                  "id": "bf47f152-b6e8-45cb-bdeb-c6ae607d8b67",
+                  "createdAt": "2026-10-22T02:52:59.000Z",
+                  "updatedAt": "2026-10-22T02:52:59.000Z",
+                  "uid": "35240-bf47f152-b6e8-45cb-bdeb-c6ae607d8b67"
+                },
+                {
+                  "name": "account/client-accounts/fund-transfer",
+                  "id": "6a263caf-bd20-4c5c-af24-82636a4a462b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the client account transferring the funds",
+                          "key": "DebitorClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the client account receiving the funds",
+                          "key": "RecipientClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                          "key": "RecipientClientAccountIDSplit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to debit from the customer's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                          "key": "FundingRail",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                          "key": "ReverseOnFailure",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transactions",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transactions.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The TransactionLabel overrides the originator short name on statements",
+                          "key": "TransactionLabel",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the wallet to associate with the funding transaction. Requires DebitorClientAccountID to be provided.",
+                          "key": "WalletID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/fund-transfer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "fund-transfer"
+                      ]
+                    },
+                    "description": "This endpoint will fund the Debitor client account using their default bank account, and then trigger an account transfer to the recipient client account once the funds have been cleared.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "2219febb-0e87-42d4-be26-386466d30b5b",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account transferring the funds",
+                              "key": "DebitorClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account receiving the funds",
+                              "key": "RecipientClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                              "key": "RecipientClientAccountIDSplit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to debit from the customer's bank account.",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                              "key": "FundingRail",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.",
+                              "key": "IdempotencyKey",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                              "key": "ReverseOnFailure",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transactions",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional note to associate with the transactions.",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The TransactionLabel overrides the originator short name on statements",
+                              "key": "TransactionLabel",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional unique identification general ledger code.",
+                              "key": "GLCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID of the wallet to associate with the funding transaction. Requires DebitorClientAccountID to be provided.",
+                              "key": "WalletID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/fund-transfer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "fund-transfer"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"FundingTransactionID\": \"<integer>\",\n  \"AccountTransferID\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:52:59.000Z",
+                      "updatedAt": "2026-10-22T02:52:59.000Z",
+                      "uid": "35240-2219febb-0e87-42d4-be26-386466d30b5b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:59.000Z",
+                  "updatedAt": "2026-10-22T02:52:59.000Z",
+                  "uid": "35240-6a263caf-bd20-4c5c-af24-82636a4a462b"
+                }
+              ],
+              "id": "b82c7635-701b-4a7b-9863-22b4d770a496",
+              "createdAt": "2026-10-22T02:52:59.000Z",
+              "updatedAt": "2026-10-22T02:52:59.000Z",
+              "uid": "35240-b82c7635-701b-4a7b-9863-22b4d770a496"
+            },
+            {
+              "name": "transfer-withdraw",
+              "item": [
+                {
+                  "name": "schedule",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/transfer-withdraw/schedule",
+                      "id": "7fec67ca-c2ad-4632-b28c-118730c788d4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account transferring the funds",
+                              "key": "DebitorClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account receiving the funds",
+                              "key": "RecipientClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                              "key": "RecipientClientAccountIDSplit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to debit from the customer's bank account.",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) The frequency of the scheduled transfer. Valid options are: single, weekly, monthly, semi-monthly, and yearly.",
+                              "key": "Frequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date from which the schedule will be started",
+                              "key": "ScheduleStartDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date when the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "ScheduleEndDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Number of payments after which the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "EndingAfterPayments",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                              "key": "FundingRail",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                              "key": "WithdrawRail",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                              "key": "ReverseOnFailure",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transfers",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional note to associate with the transfers.",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The TransactionLabel overrides the originator short name on statements",
+                              "key": "TransactionLabel",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Type of semi-monthly frequency. This field is only required when Frequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                              "key": "SemiMonthlyFrequencyType",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Description of the schedule transfer",
+                              "key": "Description",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional unique identification general ledger code.",
+                              "key": "GLCode",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/transfer-withdraw/schedule",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "transfer-withdraw",
+                            "schedule"
+                          ]
+                        },
+                        "description": "This endpoint is used to schedule a transfer-withdraw between two client accounts."
+                      },
+                      "response": [
+                        {
+                          "id": "2475ca0b-a94b-476c-853f-3cbadf936516",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the client account transferring the funds",
+                                  "key": "DebitorClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the client account receiving the funds",
+                                  "key": "RecipientClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                                  "key": "RecipientClientAccountIDSplit",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The amount to debit from the customer's bank account.",
+                                  "key": "Amount",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "(Required) The frequency of the scheduled transfer. Valid options are: single, weekly, monthly, semi-monthly, and yearly.",
+                                  "key": "Frequency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Date from which the schedule will be started",
+                                  "key": "ScheduleStartDate",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Date when the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                                  "key": "ScheduleEndDate",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Number of payments after which the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                                  "key": "EndingAfterPayments",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                                  "key": "Currency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                                  "key": "FundingRail",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                                  "key": "WithdrawRail",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                                  "key": "ReverseOnFailure",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "An optional reference number to associate with the transfers",
+                                  "key": "ClientReferenceNumber",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "An optional note to associate with the transfers.",
+                                  "key": "Notes",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The TransactionLabel overrides the originator short name on statements",
+                                  "key": "TransactionLabel",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Type of semi-monthly frequency. This field is only required when Frequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                                  "key": "SemiMonthlyFrequencyType",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Description of the schedule transfer",
+                                  "key": "Description",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "An optional unique identification general ledger code.",
+                                  "key": "GLCode",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/transfer-withdraw/schedule",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "transfer-withdraw",
+                                "schedule"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ScheduledTransferID\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-22T02:52:59.000Z",
+                          "updatedAt": "2026-10-22T02:52:59.000Z",
+                          "uid": "35240-2475ca0b-a94b-476c-853f-3cbadf936516"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:52:59.000Z",
+                      "updatedAt": "2026-10-22T02:52:59.000Z",
+                      "uid": "35240-7fec67ca-c2ad-4632-b28c-118730c788d4"
+                    }
+                  ],
+                  "id": "61c39f0c-ad4f-4d77-96d0-cab521e4fbdd",
+                  "createdAt": "2026-10-22T02:52:59.000Z",
+                  "updatedAt": "2026-10-22T02:52:59.000Z",
+                  "uid": "35240-61c39f0c-ad4f-4d77-96d0-cab521e4fbdd"
+                },
+                {
+                  "name": "account/client-accounts/transfer-withdraw",
+                  "id": "96d33a9c-92a8-4a27-b5e5-5e0d08ed13d6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the client account transferring the funds",
+                          "key": "DebitorClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the client account receiving the funds",
+                          "key": "RecipientClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                          "key": "RecipientClientAccountIDSplit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to debit from the customer's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                          "key": "FundingRail",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                          "key": "WithdrawRail",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                          "key": "ReverseOnFailure",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transactions",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transactions.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The TransactionLabel overrides the originator short name on statements",
+                          "key": "TransactionLabel",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/transfer-withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "transfer-withdraw"
+                      ]
+                    },
+                    "description": "This endpoint will transfer money from the debitor client account to the recipient client account, and then immediately withdraw the money from the recipient client account into their default bank account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "821a37cb-b95b-4626-bfa1-b7ed7074f0ff",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account transferring the funds",
+                              "key": "DebitorClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account receiving the funds",
+                              "key": "RecipientClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                              "key": "RecipientClientAccountIDSplit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to debit from the customer's bank account.",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                              "key": "FundingRail",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                              "key": "WithdrawRail",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.",
+                              "key": "IdempotencyKey",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                              "key": "ReverseOnFailure",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transactions",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional note to associate with the transactions.",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The TransactionLabel overrides the originator short name on statements",
+                              "key": "TransactionLabel",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional unique identification general ledger code.",
+                              "key": "GLCode",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/transfer-withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "transfer-withdraw"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"WithdrawTransactionID\": \"<integer>\",\n  \"AccountTransferID\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:52:59.000Z",
+                      "updatedAt": "2026-10-22T02:52:59.000Z",
+                      "uid": "35240-821a37cb-b95b-4626-bfa1-b7ed7074f0ff"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:59.000Z",
+                  "updatedAt": "2026-10-22T02:52:59.000Z",
+                  "uid": "35240-96d33a9c-92a8-4a27-b5e5-5e0d08ed13d6"
+                }
+              ],
+              "id": "95910187-6349-4d51-a651-7675b2d8cf44",
+              "createdAt": "2026-10-22T02:52:59.000Z",
+              "updatedAt": "2026-10-22T02:52:59.000Z",
+              "uid": "35240-95910187-6349-4d51-a651-7675b2d8cf44"
+            },
+            {
+              "name": "fund-transfer-withdraw",
+              "item": [
+                {
+                  "name": "schedule",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/fund-transfer-withdraw/schedule",
+                      "id": "4d38ba39-f837-45ea-aaf7-0d8987cfa563",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account transferring the funds",
+                              "key": "DebitorClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account receiving the funds",
+                              "key": "RecipientClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                              "key": "RecipientClientAccountIDSplit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to debit from the customer's bank account.",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) The frequency of the scheduled transfer. Valid options are: single, weekly, monthly, semi-monthly, and yearly.",
+                              "key": "Frequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date from which the schedule will be started",
+                              "key": "ScheduleStartDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date when the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "ScheduleEndDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Number of payments after which the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "EndingAfterPayments",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                              "key": "FundingRail",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                              "key": "WithdrawRail",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                              "key": "ReverseOnFailure",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transfers",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional note to associate with the transfers.",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The TransactionLabel overrides the originator short name on statements",
+                              "key": "TransactionLabel",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Type of semi-monthly frequency. This field is only required when Frequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                              "key": "SemiMonthlyFrequencyType",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Description of the schedule transfer",
+                              "key": "Description",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional unique identification general ledger code.",
+                              "key": "GLCode",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/fund-transfer-withdraw/schedule",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "fund-transfer-withdraw",
+                            "schedule"
+                          ]
+                        },
+                        "description": "This endpoint is used to schedule a fund-transfer-withdraw between two client accounts."
+                      },
+                      "response": [
+                        {
+                          "id": "86dd0a58-2d09-468c-8f6b-66c98cb7c2fc",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the client account transferring the funds",
+                                  "key": "DebitorClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the client account receiving the funds",
+                                  "key": "RecipientClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                                  "key": "RecipientClientAccountIDSplit",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The amount to debit from the customer's bank account.",
+                                  "key": "Amount",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "(Required) The frequency of the scheduled transfer. Valid options are: single, weekly, monthly, semi-monthly, and yearly.",
+                                  "key": "Frequency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Date from which the schedule will be started",
+                                  "key": "ScheduleStartDate",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Date when the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                                  "key": "ScheduleEndDate",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Number of payments after which the transfer processing will end (Only for recurring frequencies), Either provide ScheduleEndDate or EndingAfterPayments",
+                                  "key": "EndingAfterPayments",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                                  "key": "Currency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                                  "key": "FundingRail",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                                  "key": "WithdrawRail",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                                  "key": "ReverseOnFailure",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "An optional reference number to associate with the transfers",
+                                  "key": "ClientReferenceNumber",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "An optional note to associate with the transfers.",
+                                  "key": "Notes",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The TransactionLabel overrides the originator short name on statements",
+                                  "key": "TransactionLabel",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Type of semi-monthly frequency. This field is only required when Frequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                                  "key": "SemiMonthlyFrequencyType",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Description of the schedule transfer",
+                                  "key": "Description",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "An optional unique identification general ledger code.",
+                                  "key": "GLCode",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/fund-transfer-withdraw/schedule",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "fund-transfer-withdraw",
+                                "schedule"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ScheduledTransferID\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-22T02:52:59.000Z",
+                          "updatedAt": "2026-10-22T02:52:59.000Z",
+                          "uid": "35240-86dd0a58-2d09-468c-8f6b-66c98cb7c2fc"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:52:59.000Z",
+                      "updatedAt": "2026-10-22T02:52:59.000Z",
+                      "uid": "35240-4d38ba39-f837-45ea-aaf7-0d8987cfa563"
+                    }
+                  ],
+                  "id": "64cc2e6b-4b69-472b-ae37-afab7918c271",
+                  "createdAt": "2026-10-22T02:52:59.000Z",
+                  "updatedAt": "2026-10-22T02:52:59.000Z",
+                  "uid": "35240-64cc2e6b-4b69-472b-ae37-afab7918c271"
+                },
+                {
+                  "name": "account/client-accounts/fund-transfer-withdraw",
+                  "id": "78e7b18e-ead1-4751-bbf6-01a774f8abfc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the client account transferring the funds",
+                          "key": "DebitorClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the client account receiving the funds",
+                          "key": "RecipientClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                          "key": "RecipientClientAccountIDSplit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to debit from the customer's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                          "key": "FundingRail",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                          "key": "WithdrawRail",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                          "key": "ReverseOnFailure",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transactions",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transactions.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The TransactionLabel overrides the originator short name on statements",
+                          "key": "TransactionLabel",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/fund-transfer-withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "fund-transfer-withdraw"
+                      ]
+                    },
+                    "description": "This endpoint will fund the debitor client account using their default bank account, and then transfer the money to the recipient client account once the funds have been cleared. Once the funds are transferred, a withdraw transaction will be triggered to send the funds to the recipient client account's default bank account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "3e7dcca2-38ae-424c-a2c9-c342aaa6a1c9",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account transferring the funds",
+                              "key": "DebitorClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account receiving the funds",
+                              "key": "RecipientClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) A JSON formatted string specifying the details for a split payment. This must fit to the following format where the amount identifier is either Amount or Percentage, [{\"ClientAccountID\":\"client_account_id_1\",\"Amount\": \"5\"},{\"ClientAccountID\":\"client_account_id_2\",\"Amount\": \"10\"}]",
+                              "key": "RecipientClientAccountIDSplit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to debit from the customer's bank account.",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Specifies the rail to use for the funding transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                              "key": "FundingRail",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the rail to use for the withdraw transaction. If this is not specified eft will be used for Canadian accounts and ach for US accounts.",
+                              "key": "WithdrawRail",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A unique key to prevent duplicate transactions. If a previous request with the same idempotency key was successful, the current request will return the same response as the previous successful request.",
+                              "key": "IdempotencyKey",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency. If this is not specified the transaction will use the account's local currency.",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Setting this to true will reverse both the fund and transfer should either fail. This is set to false, by default.",
+                              "key": "ReverseOnFailure",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transactions",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional note to associate with the transactions.",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The TransactionLabel overrides the originator short name on statements",
+                              "key": "TransactionLabel",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional unique identification general ledger code.",
+                              "key": "GLCode",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/fund-transfer-withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "fund-transfer-withdraw"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"FundingTransactionID\": \"<integer>\",\n  \"WithdrawTransactionID\": \"<integer>\",\n  \"AccountTransferID\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:52:59.000Z",
+                      "updatedAt": "2026-10-22T02:52:59.000Z",
+                      "uid": "35240-3e7dcca2-38ae-424c-a2c9-c342aaa6a1c9"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:59.000Z",
+                  "updatedAt": "2026-10-22T02:52:59.000Z",
+                  "uid": "35240-78e7b18e-ead1-4751-bbf6-01a774f8abfc"
+                }
+              ],
+              "id": "bdeef6f2-68dd-44a2-aa45-a3fe977ec0f7",
+              "createdAt": "2026-10-22T02:52:59.000Z",
+              "updatedAt": "2026-10-22T02:52:59.000Z",
+              "uid": "35240-bdeef6f2-68dd-44a2-aa45-a3fe977ec0f7"
+            },
+            {
+              "name": "transactions",
+              "item": [
+                {
+                  "name": "account/client-accounts/transactions",
+                  "id": "399871b1-737a-4521-937a-0bd42b2ef027",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/transactions?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&ClientAccountID=<string>&Currency=<string>&TransactionType=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>&ScheduledTransactionID=<string>&WalletID=<string>&IsFlagged=<boolean>&IsRefunded=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                          "key": "StartDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                          "key": "EndDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) Filter transactions by Client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'.",
+                          "key": "TransactionType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Searches for transactions with the specified client reference number.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the schedule transaction to search",
+                          "key": "ScheduledTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the wallet that the transactions should belong to",
+                          "key": "WalletID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.",
+                          "key": "IsFlagged",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter the list of transactions to only include transactions that have been refunded.",
+                          "key": "IsRefunded",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint returns a list all of the transactions which affect the account balance. This endpoint only returns basic information on the transactions. More detailed information on individual transactions is available from other API endpoints."
+                  },
+                  "response": [
+                    {
+                      "id": "c74f62e6-b1b6-4c9b-bffa-4cf4f466e298",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/transactions?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&ClientAccountID=<string>&Currency=<string>&TransactionType=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>&ScheduledTransactionID=<string>&WalletID=<string>&IsFlagged=<boolean>&IsRefunded=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                              "key": "StartDateTime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                              "key": "EndDateTime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) Filter transactions by Client account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'.",
+                              "key": "TransactionType",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Searches for transactions with the specified client reference number.",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Id of the schedule transaction to search",
+                              "key": "ScheduledTransactionID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Id of the wallet that the transactions should belong to",
+                              "key": "WalletID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.",
+                              "key": "IsFlagged",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Filter the list of transactions to only include transactions that have been refunded.",
+                              "key": "IsRefunded",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NumberOfRecords\": \"<integer>\",\n  \"Transactions\": {\n    \"0\": {\n      \"TransactionID\": \"<integer>\",\n      \"AccountName\": \"<string>\",\n      \"TransactionDateTime\": \"<dateTime>\",\n      \"TransactionType\": \"<string>\",\n      \"TransactionStatus\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"DebitAmount\": \"<number>\",\n      \"CreditAmount\": \"<number>\",\n      \"Currency\": \"<string>\",\n      \"HoldAmount\": \"<number>\",\n      \"LastModified\": \"<dateTime>\",\n      \"ParentTransactionID\": \"<string>\",\n      \"ChildTransactionIDs\": \"<integer>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"ScheduledTransactionID\": \"<integer>\",\n      \"WalletID\": \"<string>\",\n      \"ClientAccountID\": \"<string>\",\n      \"TransactionErrorCode\": \"<string>\",\n      \"TransactionFailureReason\": \"<string>\",\n      \"TransactionFlag\": \"<string>\",\n      \"ELinxRequestID\": \"<integer>\",\n      \"IsRefunded\": \"<boolean>\",\n      \"FullName\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:52:59.000Z",
+                      "updatedAt": "2026-10-22T02:52:59.000Z",
+                      "uid": "35240-c74f62e6-b1b6-4c9b-bffa-4cf4f466e298"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:59.000Z",
+                  "updatedAt": "2026-10-22T02:52:59.000Z",
+                  "uid": "35240-399871b1-737a-4521-937a-0bd42b2ef027"
+                }
+              ],
+              "id": "b31e8d50-cba9-4aeb-8363-c611daf92d29",
+              "createdAt": "2026-10-22T02:52:59.000Z",
+              "updatedAt": "2026-10-22T02:52:59.000Z",
+              "uid": "35240-b31e8d50-cba9-4aeb-8363-c611daf92d29"
+            },
+            {
+              "name": "scheduled-transfers",
+              "item": [
+                {
+                  "name": "account/client-accounts/scheduled-transfers",
+                  "id": "1d36101a-be4d-415f-9838-8b178caea91a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/scheduled-transfers?AccountID=<string>&Key=<string>&Signature=<string>&ScheduledTransferID=<integer>&ClientAccountID=<string>&StartDate=<dateTime>&EndDate=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "scheduled-transfers"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ID of the schedule transfer (if this value is present, we list the details of the scheduled tranfser)",
+                          "key": "ScheduledTransferID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The Client Account ID that the scheduled transactions belong to",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return Client account transfers scheduled for or after this date/time. Can be specified in YYYY-MM-DD format.",
+                          "key": "StartDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Return Client account transfers scheduled for or before this date/time. Can be specified in YYYY-MM-DD format.",
+                          "key": "EndDate",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up either the list of all scheduled client account transfers, or to list the details of a single scheduled client account transfer.\n\nIf the value ScheduledTransferID is present, we only list the details of that scheduled client account transfer."
+                  },
+                  "response": [
+                    {
+                      "id": "b3eb22f3-969b-4f7d-85e0-0376b0749516",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/scheduled-transfers?AccountID=<string>&Key=<string>&Signature=<string>&ScheduledTransferID=<integer>&ClientAccountID=<string>&StartDate=<dateTime>&EndDate=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "scheduled-transfers"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ID of the schedule transfer (if this value is present, we list the details of the scheduled tranfser)",
+                              "key": "ScheduledTransferID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The Client Account ID that the scheduled transactions belong to",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return Client account transfers scheduled for or after this date/time. Can be specified in YYYY-MM-DD format.",
+                              "key": "StartDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Return Client account transfers scheduled for or before this date/time. Can be specified in YYYY-MM-DD format.",
+                              "key": "EndDate",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ScheduledClientAccountTransfers\": {\n    \"0\": {\n      \"ID\": \"<integer>\",\n      \"DebitorClientAccountID\": \"<string>\",\n      \"RecipientClientAccountID\": \"<string>\",\n      \"RecipientClientAccountIDSplit\": \"<string>\",\n      \"Amount\": \"<number>\",\n      \"TransferType\": \"<string>\",\n      \"ReverseOnFailure\": \"<boolean>\",\n      \"Frequency\": \"<string>\",\n      \"SemiMonthlyFrequencyType\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"TransactionLabel\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ScheduleStartDate\": \"<date>\",\n      \"ScheduleEndDate\": \"<date>\",\n      \"EndingAfterPayments\": \"<integer>\",\n      \"Status\": \"<string>\",\n      \"DateAdded\": \"<date>\",\n      \"UpcomingTransfers\": {\n        \"0\": {\n          \"ScheduledTransferID\": \"<string>\",\n          \"TransferDate\": \"<date>\",\n          \"Amount\": \"<number>\",\n          \"Status\": \"<string>\",\n          \"FailureReason\": \"<string>\",\n          \"FundingTransactionID\": \"<integer>\",\n          \"AccountTransferID\": \"<integer>\",\n          \"WithdrawTransactionID\": \"<integer>\"\n        }\n      },\n      \"CompletedTransfers\": {\n        \"0\": {\n          \"ScheduledTransferID\": \"<string>\",\n          \"TransferDate\": \"<date>\",\n          \"Amount\": \"<number>\",\n          \"Status\": \"<string>\",\n          \"FailureReason\": \"<string>\",\n          \"FundingTransactionID\": \"<integer>\",\n          \"AccountTransferID\": \"<integer>\",\n          \"WithdrawTransactionID\": \"<integer>\"\n        }\n      }\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:52:59.000Z",
+                      "updatedAt": "2026-10-22T02:52:59.000Z",
+                      "uid": "35240-b3eb22f3-969b-4f7d-85e0-0376b0749516"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:59.000Z",
+                  "updatedAt": "2026-10-22T02:52:59.000Z",
+                  "uid": "35240-1d36101a-be4d-415f-9838-8b178caea91a"
+                }
+              ],
+              "id": "f58312b6-8dd2-413d-96e4-475e21f74ef9",
+              "createdAt": "2026-10-22T02:52:59.000Z",
+              "updatedAt": "2026-10-22T02:52:59.000Z",
+              "uid": "35240-f58312b6-8dd2-413d-96e4-475e21f74ef9"
+            }
+          ],
+          "id": "bd1e4bc1-bcdc-41e0-9ecc-391be5f6c08b",
+          "createdAt": "2026-10-22T02:52:59.000Z",
+          "updatedAt": "2026-10-22T02:52:59.000Z",
+          "uid": "35240-bd1e4bc1-bcdc-41e0-9ecc-391be5f6c08b"
+        }
+      ],
+      "id": "737f916a-3a83-407f-aa63-5a7245dc7d28",
+      "createdAt": "2026-10-22T02:52:59.000Z",
+      "updatedAt": "2026-10-22T02:52:59.000Z",
+      "uid": "35240-737f916a-3a83-407f-aa63-5a7245dc7d28"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

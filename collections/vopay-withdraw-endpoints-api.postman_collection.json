@@ -1,0 +1,1254 @@
+{
+  "info": {
+    "_postman_id": "9937b0b6-2832-4670-834c-d31f3821f91b",
+    "name": "Global Cash Management Withdraw Endpoints API",
+    "description": "The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:57:25.000Z",
+    "updatedAt": "2026-10-22T02:57:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9937b0b6-2832-4670-834c-d31f3821f91b"
+  },
+  "item": [
+    {
+      "name": "gcm",
+      "item": [
+        {
+          "name": "withdraw",
+          "item": [
+            {
+              "name": "quote",
+              "item": [
+                {
+                  "name": "gcm/withdraw/quote",
+                  "id": "7d859ce8-5212-42cf-b607-3f5f8b79a8b3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/withdraw/quote?AccountID=<string>&Key=<string>&Signature=<string>&DeliveryChannelID=<string>&ClientAccountID=<string>&BuyAmount=<string>&SellAmount=<string>&FeesIncluded=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "withdraw",
+                        "quote"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The delivery channel ID",
+                          "key": "DeliveryChannelID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The amount to be bought",
+                          "key": "BuyAmount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The amount to be sold",
+                          "key": "SellAmount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Whether fees are included",
+                          "key": "FeesIncluded",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "description": "Get a quote for a certain amount to be sold or bought using a certain corridor delivery method."
+                  },
+                  "response": [
+                    {
+                      "id": "182feb41-eec8-44c3-a28e-530d09a7b97e",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/withdraw/quote?AccountID=<string>&Key=<string>&Signature=<string>&DeliveryChannelID=<string>&ClientAccountID=<string>&BuyAmount=<string>&SellAmount=<string>&FeesIncluded=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "withdraw",
+                            "quote"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The delivery channel ID",
+                              "key": "DeliveryChannelID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The client account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The amount to be bought",
+                              "key": "BuyAmount",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The amount to be sold",
+                              "key": "SellAmount",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Whether fees are included",
+                              "key": "FeesIncluded",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Quote\": {\n    \"CrossborderQuoteID\": \"<string>\",\n    \"ExpiryTime\": \"<string>\",\n    \"ChargedAmount\": \"<string>\",\n    \"PrincipalAmount\": \"<string>\",\n    \"CreditedAmount\": \"<string>\",\n    \"FXRate\": \"<string>\",\n    \"ServiceFee\": \"<string>\",\n    \"DeliveryFee\": \"<string>\",\n    \"HasSufficientFunds\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:57:26.000Z",
+                      "updatedAt": "2026-10-22T02:57:26.000Z",
+                      "uid": "35240-182feb41-eec8-44c3-a28e-530d09a7b97e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:26.000Z",
+                  "updatedAt": "2026-10-22T02:57:26.000Z",
+                  "uid": "35240-7d859ce8-5212-42cf-b607-3f5f8b79a8b3"
+                }
+              ],
+              "id": "1383fd64-62f1-496d-b698-ba0c5d47e58d",
+              "createdAt": "2026-10-22T02:57:26.000Z",
+              "updatedAt": "2026-10-22T02:57:26.000Z",
+              "uid": "35240-1383fd64-62f1-496d-b698-ba0c5d47e58d"
+            },
+            {
+              "name": "quotes",
+              "item": [
+                {
+                  "name": "gcm/withdraw/quotes",
+                  "id": "13bf26ab-ee15-456e-bf85-dc19938b8075",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/withdraw/quotes?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&CrossborderQuoteID=<string>&IsActive=<boolean>&Limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "withdraw",
+                        "quotes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The crossborder quote ID",
+                          "key": "CrossborderQuoteID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Whether the quote is active",
+                          "key": "IsActive",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The limit of quotes to fetch",
+                          "key": "Limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Get a list of withdraw quotes for a certain client account."
+                  },
+                  "response": [
+                    {
+                      "id": "ddd855e3-6441-4e6e-85a8-72f707180b5f",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/withdraw/quotes?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&CrossborderQuoteID=<string>&IsActive=<boolean>&Limit=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "withdraw",
+                            "quotes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The client account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The crossborder quote ID",
+                              "key": "CrossborderQuoteID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Whether the quote is active",
+                              "key": "IsActive",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "The limit of quotes to fetch",
+                              "key": "Limit",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"CrossborderQuotes\": {\n    \"0\": {\n      \"CrossborderQuoteID\": \"<string>\",\n      \"ExpiryTime\": \"<string>\",\n      \"DestinationCurrency\": \"<string>\",\n      \"FXRate\": \"<string>\",\n      \"IsActive\": \"<boolean>\",\n      \"FailureReason\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:57:26.000Z",
+                      "updatedAt": "2026-10-22T02:57:26.000Z",
+                      "uid": "35240-ddd855e3-6441-4e6e-85a8-72f707180b5f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:26.000Z",
+                  "updatedAt": "2026-10-22T02:57:26.000Z",
+                  "uid": "35240-13bf26ab-ee15-456e-bf85-dc19938b8075"
+                }
+              ],
+              "id": "a50fc719-16b7-4cc0-937d-b524fba268ee",
+              "createdAt": "2026-10-22T02:57:26.000Z",
+              "updatedAt": "2026-10-22T02:57:26.000Z",
+              "uid": "35240-a50fc719-16b7-4cc0-937d-b524fba268ee"
+            },
+            {
+              "name": "confirm",
+              "item": [
+                {
+                  "name": "gcm/withdraw/confirm",
+                  "id": "77b8ddbb-17f8-4998-bbe6-1525b17042ca",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/withdraw/confirm?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "withdraw",
+                        "confirm"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The transaction ID",
+                          "key": "TransactionID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Confirm a partially complete crossborder withdrawal transaction."
+                  },
+                  "response": [
+                    {
+                      "id": "93e0b038-9045-4449-9f70-94cac7b972a5",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/withdraw/confirm?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "withdraw",
+                            "confirm"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The transaction ID",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:57:26.000Z",
+                      "updatedAt": "2026-10-22T02:57:26.000Z",
+                      "uid": "35240-93e0b038-9045-4449-9f70-94cac7b972a5"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:26.000Z",
+                  "updatedAt": "2026-10-22T02:57:26.000Z",
+                  "uid": "35240-77b8ddbb-17f8-4998-bbe6-1525b17042ca"
+                }
+              ],
+              "id": "824cfd58-bcba-4c7d-89d1-59e8cffc9126",
+              "createdAt": "2026-10-22T02:57:26.000Z",
+              "updatedAt": "2026-10-22T02:57:26.000Z",
+              "uid": "35240-824cfd58-bcba-4c7d-89d1-59e8cffc9126"
+            },
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "gcm/withdraw/cancel",
+                  "id": "e31d9f0a-839d-4b2a-9f5d-d806c43be985",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/withdraw/cancel?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>&CancellationReason=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "withdraw",
+                        "cancel"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The transaction ID",
+                          "key": "TransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) A customer provided reason for the cancellation, this will show up in the transaction details.",
+                          "key": "CancellationReason",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Cancel a partially complete crossborder withdrawal transaction."
+                  },
+                  "response": [
+                    {
+                      "id": "0b2abe07-8343-4d36-9a03-931fa5b39f5e",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/withdraw/cancel?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>&CancellationReason=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "withdraw",
+                            "cancel"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The transaction ID",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) A customer provided reason for the cancellation, this will show up in the transaction details.",
+                              "key": "CancellationReason",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:57:26.000Z",
+                      "updatedAt": "2026-10-22T02:57:26.000Z",
+                      "uid": "35240-0b2abe07-8343-4d36-9a03-931fa5b39f5e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:26.000Z",
+                  "updatedAt": "2026-10-22T02:57:26.000Z",
+                  "uid": "35240-e31d9f0a-839d-4b2a-9f5d-d806c43be985"
+                }
+              ],
+              "id": "25d14241-5ba2-4868-8402-f7e32a93e61a",
+              "createdAt": "2026-10-22T02:57:26.000Z",
+              "updatedAt": "2026-10-22T02:57:26.000Z",
+              "uid": "35240-25d14241-5ba2-4868-8402-f7e32a93e61a"
+            },
+            {
+              "name": "transactions",
+              "item": [
+                {
+                  "name": "gcm/withdraw/transactions",
+                  "id": "ff9a537c-de87-44f1-9670-3ac3a3bcd7fb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/withdraw/transactions?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&StartDateTime=<string>&EndDateTime=<string>&Limit=<integer>&Timezone =<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "withdraw",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The start date and time for the transactions",
+                          "key": "StartDateTime",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The end date and time for the transactions",
+                          "key": "EndDateTime",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The limit of transactions to fetch",
+                          "key": "Limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.",
+                          "key": "Timezone ",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Get a list of crossborder withdraw transactions."
+                  },
+                  "response": [
+                    {
+                      "id": "87dd9982-8d99-43ea-9b28-18ac8988dbd2",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/withdraw/transactions?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&StartDateTime=<string>&EndDateTime=<string>&Limit=<integer>&Timezone =<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "withdraw",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The client account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The start date and time for the transactions",
+                              "key": "StartDateTime",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The end date and time for the transactions",
+                              "key": "EndDateTime",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The limit of transactions to fetch",
+                              "key": "Limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.",
+                              "key": "Timezone ",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Transactions\": {\n    \"0\": {\n      \"TransactionID\": \"<string>\",\n      \"DestinationCountryAbbreviation\": \"<string>\",\n      \"RecipientName\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"LastName\": \"<string>\",\n      \"BusinessName\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"DeliveryMethodType\": \"<string>\",\n      \"PaymentType\": \"<string>\",\n      \"FeesIncluded\": \"<string>\",\n      \"TransactionDate\": \"<string>\",\n      \"Amount\": \"<string>\",\n      \"PrincipalAmount\": \"<string>\",\n      \"CustomerCreditedAmount\": \"<string>\",\n      \"FXRate\": \"<string>\",\n      \"RecipientCurrency\": \"<string>\",\n      \"SenderCurrency\": \"<string>\",\n      \"CorridorID\": \"<string>\",\n      \"RecipientContactID\": \"<string>\",\n      \"DeliveryMethodID\": \"<string>\",\n      \"DeliveryMethodToken\": \"<string>\",\n      \"SenderPurposeOfPayment\": \"<string>\",\n      \"CashoutCode\": \"<string>\",\n      \"SenderBusinessName\": \"<string>\",\n      \"SenderNationality\": \"<string>\",\n      \"SenderGovernmentIds\": \"<string>\",\n      \"SenderOccupation\": \"<string>\",\n      \"SenderRelationshipWithBeneficiary\": \"<string>\",\n      \"SenderSourceOfIncome\": \"<string>\",\n      \"SenderDateOfBirth\": \"<string>\",\n      \"SenderFirstName\": \"<string>\",\n      \"SenderLastName\": \"<string>\",\n      \"SenderAddress1\": \"<string>\",\n      \"SenderAddress2\": \"<string>\",\n      \"SenderAddressCity\": \"<string>\",\n      \"SenderAddressPostalCode\": \"<string>\",\n      \"SenderAddressCountry\": \"<string>\",\n      \"SenderAddressProvince\": \"<string>\",\n      \"SenderEmailAddress\": \"<string>\",\n      \"RecipientFirstName\": \"<string>\",\n      \"RecipientLastName\": \"<string>\",\n      \"RecipientAddress1\": \"<string>\",\n      \"RecipientAddress2\": \"<string>\",\n      \"RecipientAddressCity\": \"<string>\",\n      \"RecipientAddressPostalCode\": \"<string>\",\n      \"RecipientAddressCountry\": \"<string>\",\n      \"RecipientAddressProvince\": \"<string>\",\n      \"RecipientPhone\": \"<string>\",\n      \"RecipientEmailAddress\": \"<string>\",\n      \"RecipientNationality\": \"<string>\",\n      \"RecipientBusinessName\": \"<string>\",\n      \"RecipientGovernmentIds\": \"<string>\",\n      \"FailureReason\": \"<string>\",\n      \"GLCode\": \"<string>\",\n      \"TransactionTypeCode\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:57:26.000Z",
+                      "updatedAt": "2026-10-22T02:57:26.000Z",
+                      "uid": "35240-87dd9982-8d99-43ea-9b28-18ac8988dbd2"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:26.000Z",
+                  "updatedAt": "2026-10-22T02:57:26.000Z",
+                  "uid": "35240-ff9a537c-de87-44f1-9670-3ac3a3bcd7fb"
+                }
+              ],
+              "id": "ab62a669-9d9f-4fce-9cbc-afa444302644",
+              "createdAt": "2026-10-22T02:57:26.000Z",
+              "updatedAt": "2026-10-22T02:57:26.000Z",
+              "uid": "35240-ab62a669-9d9f-4fce-9cbc-afa444302644"
+            },
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "gcm/withdraw/transaction",
+                  "id": "031f4f22-67f6-42b2-a8b9-a6bf444de184",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>&Timezone =<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "withdraw",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The transaction ID",
+                          "key": "TransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.",
+                          "key": "Timezone ",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Get the details for a crossborder withdraw transaction."
+                  },
+                  "response": [
+                    {
+                      "id": "1b41e1b7-33f6-49e8-8099-200238b70ba4",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>&Timezone =<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "withdraw",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The transaction ID",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.",
+                              "key": "Timezone ",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Transaction\": {\n    \"TransactionID\": \"<string>\",\n    \"DestinationCountryAbbreviation\": \"<string>\",\n    \"RecipientName\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"LastName\": \"<string>\",\n    \"BusinessName\": \"<string>\",\n    \"Status\": \"<string>\",\n    \"DeliveryMethodType\": \"<string>\",\n    \"PaymentType\": \"<string>\",\n    \"FeesIncluded\": \"<string>\",\n    \"TransactionDate\": \"<string>\",\n    \"Amount\": \"<string>\",\n    \"PrincipalAmount\": \"<string>\",\n    \"CustomerCreditedAmount\": \"<string>\",\n    \"FXRate\": \"<string>\",\n    \"RecipientCurrency\": \"<string>\",\n    \"SenderCurrency\": \"<string>\",\n    \"CorridorID\": \"<string>\",\n    \"RecipientContactID\": \"<string>\",\n    \"DeliveryMethodID\": \"<string>\",\n    \"DeliveryMethodToken\": \"<string>\",\n    \"SenderPurposeOfPayment\": \"<string>\",\n    \"CashoutCode\": \"<string>\",\n    \"SenderBusinessName\": \"<string>\",\n    \"SenderNationality\": \"<string>\",\n    \"SenderGovernmentIds\": \"<string>\",\n    \"SenderOccupation\": \"<string>\",\n    \"SenderRelationshipWithBeneficiary\": \"<string>\",\n    \"SenderSourceOfIncome\": \"<string>\",\n    \"SenderDateOfBirth\": \"<string>\",\n    \"SenderFirstName\": \"<string>\",\n    \"SenderLastName\": \"<string>\",\n    \"SenderAddress1\": \"<string>\",\n    \"SenderAddress2\": \"<string>\",\n    \"SenderAddressCity\": \"<string>\",\n    \"SenderAddressPostalCode\": \"<string>\",\n    \"SenderAddressCountry\": \"<string>\",\n    \"SenderAddressProvince\": \"<string>\",\n    \"SenderEmailAddress\": \"<string>\",\n    \"RecipientFirstName\": \"<string>\",\n    \"RecipientLastName\": \"<string>\",\n    \"RecipientAddress1\": \"<string>\",\n    \"RecipientAddress2\": \"<string>\",\n    \"RecipientAddressCity\": \"<string>\",\n    \"RecipientAddressPostalCode\": \"<string>\",\n    \"RecipientAddressCountry\": \"<string>\",\n    \"RecipientAddressProvince\": \"<string>\",\n    \"RecipientPhone\": \"<string>\",\n    \"RecipientEmailAddress\": \"<string>\",\n    \"RecipientNationality\": \"<string>\",\n    \"RecipientBusinessName\": \"<string>\",\n    \"RecipientGovernmentIds\": \"<string>\",\n    \"FailureReason\": \"<string>\",\n    \"FundingOption\": \"<string>\",\n    \"FundingOptionTransactionFee\": \"<string>\",\n    \"FundingOptionProcessingTime\": \"<string>\",\n    \"GLCode\": \"<string>\",\n    \"TransactionTypeCode\": \"<string>\",\n    \"FundingPaymentMethod\": {\n      \"FundingOption\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:57:26.000Z",
+                      "updatedAt": "2026-10-22T02:57:26.000Z",
+                      "uid": "35240-1b41e1b7-33f6-49e8-8099-200238b70ba4"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:26.000Z",
+                  "updatedAt": "2026-10-22T02:57:26.000Z",
+                  "uid": "35240-031f4f22-67f6-42b2-a8b9-a6bf444de184"
+                }
+              ],
+              "id": "c22b56b7-71cd-4f3a-8a36-ecbddf8f1180",
+              "createdAt": "2026-10-22T02:57:26.000Z",
+              "updatedAt": "2026-10-22T02:57:26.000Z",
+              "uid": "35240-c22b56b7-71cd-4f3a-8a36-ecbddf8f1180"
+            },
+            {
+              "name": "gcm/withdraw",
+              "id": "47584874-144a-4a5b-b9b1-98f8b934740a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/gcm/withdraw?AccountID=<string>&Key=<string>&Signature=<string>&CrossborderQuoteID=<string>&DeliveryMethodToken=<string>&PurposeOfPayment=<string>&RelationshipWithBeneficiary=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "gcm",
+                    "withdraw"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The crossborder quote ID",
+                      "key": "CrossborderQuoteID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The delivery method token",
+                      "key": "DeliveryMethodToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The purpose of the payment",
+                      "key": "PurposeOfPayment",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The relationship with the beneficiary",
+                      "key": "RelationshipWithBeneficiary",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Create a crossborder withdrawal transaction from a provided quote."
+              },
+              "response": [
+                {
+                  "id": "fe209c15-844c-4639-a589-83163052cbc7",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/withdraw?AccountID=<string>&Key=<string>&Signature=<string>&CrossborderQuoteID=<string>&DeliveryMethodToken=<string>&PurposeOfPayment=<string>&RelationshipWithBeneficiary=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "withdraw"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The crossborder quote ID",
+                          "key": "CrossborderQuoteID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The delivery method token",
+                          "key": "DeliveryMethodToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The purpose of the payment",
+                          "key": "PurposeOfPayment",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The relationship with the beneficiary",
+                          "key": "RelationshipWithBeneficiary",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<string>\",\n  \"CashoutCode\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:57:26.000Z",
+                  "updatedAt": "2026-10-22T02:57:26.000Z",
+                  "uid": "35240-fe209c15-844c-4639-a589-83163052cbc7"
+                }
+              ],
+              "createdAt": "2026-10-22T02:57:26.000Z",
+              "updatedAt": "2026-10-22T02:57:26.000Z",
+              "uid": "35240-47584874-144a-4a5b-b9b1-98f8b934740a"
+            }
+          ],
+          "id": "4d17d0ba-aa94-4ce8-be1e-2bde933293b8",
+          "createdAt": "2026-10-22T02:57:26.000Z",
+          "updatedAt": "2026-10-22T02:57:26.000Z",
+          "uid": "35240-4d17d0ba-aa94-4ce8-be1e-2bde933293b8"
+        },
+        {
+          "name": "recall",
+          "item": [
+            {
+              "name": "request",
+              "item": [
+                {
+                  "name": "gcm/recall/request",
+                  "id": "cf71bf98-8633-4d32-8864-ff1517158ab4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/recall/request?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>&RecallExplanation=<string>&RecallReason=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "recall",
+                        "request"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The transaction ID",
+                          "key": "TransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) A customer provided explanation for the recall.",
+                          "key": "RecallExplanation",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The reason for the recall, acceptable values are: Duplicate Transaction, Incorrect Recipient Information, Incorrect Amount, Suspected Fraud, Money did not arrive to the recipient's account.",
+                          "key": "RecallReason",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Create a recall request for the provided transaction id."
+                  },
+                  "response": [
+                    {
+                      "id": "af7d4223-e2f2-4dc0-a270-8942abea30ac",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/recall/request?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>&RecallExplanation=<string>&RecallReason=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "recall",
+                            "request"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The transaction ID",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) A customer provided explanation for the recall.",
+                              "key": "RecallExplanation",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The reason for the recall, acceptable values are: Duplicate Transaction, Incorrect Recipient Information, Incorrect Amount, Suspected Fraud, Money did not arrive to the recipient's account.",
+                              "key": "RecallReason",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:57:26.000Z",
+                      "updatedAt": "2026-10-22T02:57:26.000Z",
+                      "uid": "35240-af7d4223-e2f2-4dc0-a270-8942abea30ac"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:26.000Z",
+                  "updatedAt": "2026-10-22T02:57:26.000Z",
+                  "uid": "35240-cf71bf98-8633-4d32-8864-ff1517158ab4"
+                }
+              ],
+              "id": "6d3b091d-39ba-406b-81d5-0e83532a9eb0",
+              "createdAt": "2026-10-22T02:57:26.000Z",
+              "updatedAt": "2026-10-22T02:57:26.000Z",
+              "uid": "35240-6d3b091d-39ba-406b-81d5-0e83532a9eb0"
+            }
+          ],
+          "id": "c1aff220-5957-40ac-a175-f2d6f2b59230",
+          "createdAt": "2026-10-22T02:57:26.000Z",
+          "updatedAt": "2026-10-22T02:57:26.000Z",
+          "uid": "35240-c1aff220-5957-40ac-a175-f2d6f2b59230"
+        }
+      ],
+      "id": "a42e8f36-19f2-46c9-89c8-dae7516e0f3d",
+      "createdAt": "2026-10-22T02:57:26.000Z",
+      "updatedAt": "2026-10-22T02:57:26.000Z",
+      "uid": "35240-a42e8f36-19f2-46c9-89c8-dae7516e0f3d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

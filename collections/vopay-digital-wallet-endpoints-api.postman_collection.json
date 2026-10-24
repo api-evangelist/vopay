@@ -1,0 +1,2468 @@
+{
+  "info": {
+    "_postman_id": "275704f7-30a7-4bec-95da-cc6852af9bcb",
+    "name": "Vopay Digital Wallet Endpoints API",
+    "description": "Operations tagged Digital Wallet Endpoints across 2 of this provider's published API definitions: vopay-payment-method-api-reference.json, vopay-payment-rails-api-reference.json. Each path carries the servers of the definition it was published in.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:53:56.000Z",
+    "updatedAt": "2026-10-22T02:53:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-275704f7-30a7-4bec-95da-cc6852af9bcb"
+  },
+  "item": [
+    {
+      "name": "google-pay",
+      "item": [
+        {
+          "name": "generate-embed-url",
+          "item": [
+            {
+              "name": "google-pay/generate-embed-url",
+              "id": "7dc27cfa-e1a8-4f5e-ab69-a4506892cac0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) URL to redirect the user to after the Google account is connected.",
+                      "key": "RedirectURL",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, the Google Pay token generated will be attached to the Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                      "key": "RedirectMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, the Google Pay token added will be linked to your VoPay account. Default is false.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/google-pay/generate-embed-url",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google-pay",
+                    "generate-embed-url"
+                  ]
+                },
+                "description": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their Google account and generate a token, which can be used in the /google-pay/charge endpoint."
+              },
+              "response": [
+                {
+                  "id": "bf14d3dc-586a-4434-b003-dd718266acb4",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) URL to redirect the user to after the Google account is connected.",
+                          "key": "RedirectURL",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, the Google Pay token generated will be attached to the Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                          "key": "RedirectMethod",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the Google Pay token added will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/google-pay/generate-embed-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "google-pay",
+                        "generate-embed-url"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"EmbedURL\": \"<string>\",\n  \"IframeKey\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-bf14d3dc-586a-4434-b003-dd718266acb4"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-7dc27cfa-e1a8-4f5e-ab69-a4506892cac0"
+            }
+          ],
+          "id": "91082c82-0aee-4dab-b8dc-d3f06d4ba92a",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-91082c82-0aee-4dab-b8dc-d3f06d4ba92a"
+        },
+        {
+          "name": "delete",
+          "item": [
+            {
+              "name": "google-pay/delete",
+              "id": "c59dd45d-30fb-44a0-acf2-ba74449965b9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Google Pay token",
+                      "key": "GooglePayToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/google-pay/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google-pay",
+                    "delete"
+                  ]
+                },
+                "description": "This endpoint allows you to delete a Google Pay token associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "3d52a489-82ee-4555-a557-ed39df5a35ba",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Google Pay token",
+                          "key": "GooglePayToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/google-pay/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "google-pay",
+                        "delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-3d52a489-82ee-4555-a557-ed39df5a35ba"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-c59dd45d-30fb-44a0-acf2-ba74449965b9"
+            }
+          ],
+          "id": "82619373-bedc-469d-95f6-a7796a75f58b",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-82619373-bedc-469d-95f6-a7796a75f58b"
+        },
+        {
+          "name": "set-my-google-pay",
+          "item": [
+            {
+              "name": "google-pay/set-my-google-pay",
+              "id": "07ff8ad1-4492-4288-af43-bc32e6266c39",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Google Pay token",
+                      "key": "GooglePayToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Identify credit card as default Google Pay credit card",
+                      "key": "SetAsDefault",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/google-pay/set-my-google-pay",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google-pay",
+                    "set-my-google-pay"
+                  ]
+                },
+                "description": "This endpoint allows you to identify a Google Pay credit card as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a Google Pay credit card as being the VoPay account holder's default Google Pay credit card. Note, a VoPay account can only have one default Google Pay credit card."
+              },
+              "response": [
+                {
+                  "id": "1ce824fb-3412-414c-b3a0-17a2e1620bdc",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Google Pay token",
+                          "key": "GooglePayToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Identify credit card as default Google Pay credit card",
+                          "key": "SetAsDefault",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/google-pay/set-my-google-pay",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "google-pay",
+                        "set-my-google-pay"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"GooglePayToken\": \"<string>\",\n  \"IsDefault\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-1ce824fb-3412-414c-b3a0-17a2e1620bdc"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-07ff8ad1-4492-4288-af43-bc32e6266c39"
+            }
+          ],
+          "id": "efdd098b-5742-4a62-8981-1b080a8b452c",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-efdd098b-5742-4a62-8981-1b080a8b452c"
+        },
+        {
+          "name": "default-google-pay",
+          "item": [
+            {
+              "name": "google-pay/default-google-pay",
+              "id": "a07156fc-c4e4-4cc1-b1ea-48d149edb973",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/google-pay/default-google-pay?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google-pay",
+                    "default-google-pay"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will return the default Google Pay credit card associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint retrieves the default Google Pay credit card associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "4b54d985-e026-4e98-8f9e-1ee16401fd0f",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/google-pay/default-google-pay?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "google-pay",
+                        "default-google-pay"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, this endpoint will return the default Google Pay credit card associated with this Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DefaultCreditCard\": {\n    \"0\": {\n      \"GooglePayToken\": \"<string>\",\n      \"CreditCardHolderName\": \"<string>\",\n      \"CreditCardNumber\": \"<string>\",\n      \"CreditCardExpiryYear\": \"<string>\",\n      \"CreditCardExpiryMonth\": \"<string>\",\n      \"CreditCardBrand\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-4b54d985-e026-4e98-8f9e-1ee16401fd0f"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-a07156fc-c4e4-4cc1-b1ea-48d149edb973"
+            }
+          ],
+          "id": "c061ba62-e6c1-4f0c-ba19-ed91cc635cd7",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-c061ba62-e6c1-4f0c-ba19-ed91cc635cd7"
+        },
+        {
+          "name": "charge",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "google-pay/charge/transaction",
+                  "id": "ad974d17-a074-4742-abe5-30bfb3fbbce5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/google-pay/charge/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "google-pay",
+                        "charge",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Account transaction ID",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This method is used to look up and return the full details on a single Google Pay transaction. Google Pay transactions take money out of the customer's card and deposit them into your VoPay account."
+                  },
+                  "response": [
+                    {
+                      "id": "cecfed4b-ea43-4c32-a4ff-6aae0221ec77",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/google-pay/charge/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "google-pay",
+                            "charge",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Account transaction ID",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"GooglePayToken\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"TransactionTypeCode\": \"<string>\",\n  \"LastModified\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-22T02:53:56.000Z",
+                      "updatedAt": "2026-10-22T02:53:56.000Z",
+                      "uid": "35240-cecfed4b-ea43-4c32-a4ff-6aae0221ec77"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-ad974d17-a074-4742-abe5-30bfb3fbbce5"
+                }
+              ],
+              "id": "1efca9da-5701-4a22-8e9a-c763a48fc68f",
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-1efca9da-5701-4a22-8e9a-c763a48fc68f"
+            },
+            {
+              "name": "google-pay/charge",
+              "id": "60671004-b7e2-47da-b61b-6ce74593a2e7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The token identifying the Google Pay wallet to charge (returned from /google-pay/generate-embed-url).",
+                      "key": "GooglePayToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount to charge from the customer's Google Pay wallet.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to be charged to the customer's Google Pay wallet. If this is not specified the transaction will use the account's local currency.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's country specified using full country name or ISO 3166-1 alpha-2 code. If this is not specified the transaction will use the local country.",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/google-pay/charge",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google-pay",
+                    "charge"
+                  ]
+                },
+                "description": "This endpoint is to create a Google Pay transaction to fund your VoPay account, charging the amount specified to the card linked to the provided Google Pay Token.\n\nIf a ClientAccountID is provided, the client account's default Google Pay wallet will be used for the transaction.\n\nNote: You must first generate a GooglePayToken using the /google-pay/generate-embed-url endpoint."
+              },
+              "response": [
+                {
+                  "id": "64955493-28ee-4fae-b4a5-3c2ffd7572f7",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The token identifying the Google Pay wallet to charge (returned from /google-pay/generate-embed-url).",
+                          "key": "GooglePayToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to charge from the customer's Google Pay wallet.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to be charged to the customer's Google Pay wallet. If this is not specified the transaction will use the account's local currency.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's country specified using full country name or ISO 3166-1 alpha-2 code. If this is not specified the transaction will use the local country.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/google-pay/charge",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "google-pay",
+                        "charge"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-64955493-28ee-4fae-b4a5-3c2ffd7572f7"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-60671004-b7e2-47da-b61b-6ce74593a2e7"
+            }
+          ],
+          "id": "23e411b9-e32e-4e03-9c60-c41175e9a94a",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-23e411b9-e32e-4e03-9c60-c41175e9a94a"
+        },
+        {
+          "name": "void",
+          "item": [
+            {
+              "name": "google-pay/void",
+              "id": "d6e467b0-c4b2-43f4-a140-4a25d93d551b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The unique ID for the transaction you want to void",
+                      "key": "TransactionID",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/google-pay/void",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google-pay",
+                    "void"
+                  ]
+                },
+                "description": "This endpoint allows you to void a completed Google Pay transaction."
+              },
+              "response": [
+                {
+                  "id": "f9772a18-4350-4e0c-a8ef-cc857f90313a",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique ID for the transaction you want to void",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/google-pay/void",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "google-pay",
+                        "void"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-f9772a18-4350-4e0c-a8ef-cc857f90313a"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-d6e467b0-c4b2-43f4-a140-4a25d93d551b"
+            }
+          ],
+          "id": "2c933841-5c3b-43af-b97d-7df93e885a2a",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-2c933841-5c3b-43af-b97d-7df93e885a2a"
+        },
+        {
+          "name": "google-pay",
+          "id": "4db35012-d034-4bd6-8a0c-c7baa69e7848",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/google-pay?AccountID=<string>&Key=<string>&Signature=<string>&GooglePayToken=<string>&ClientAccountID=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "google-pay"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When provided, this endpoint will only return the Google Pay credit cards associated with this token",
+                  "key": "GooglePayToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When provided, this endpoint will only return Google Pay credit cards associated with this Client Account ID",
+                  "key": "ClientAccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When set to true, this endpoint will only return Google Pay credit cards linked to your VoPay account. When set to false, it will return a list of your customer's Google Pay tokens.",
+                  "key": "ClientControlled",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Limit the number of records that are returned.",
+                  "key": "Limit ",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Use this parameter to set the starting point in the dataset.",
+                  "key": "Offset ",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "This endpoint retrieves a list of Google Pay credit cards associated with your VoPay account"
+          },
+          "response": [
+            {
+              "id": "7ecdda42-74eb-4e20-9ec9-523e46fefc09",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/google-pay?AccountID=<string>&Key=<string>&Signature=<string>&GooglePayToken=<string>&ClientAccountID=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "google-pay"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will only return the Google Pay credit cards associated with this token",
+                      "key": "GooglePayToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will only return Google Pay credit cards associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, this endpoint will only return Google Pay credit cards linked to your VoPay account. When set to false, it will return a list of your customer's Google Pay tokens.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"CreditCards\": {\n    \"0\": {\n      \"CreditCardHolderName\": \"<string>\",\n      \"CreditCardNumber\": \"<string>\",\n      \"CreditCardExpiryYear\": \"<string>\",\n      \"CreditCardExpiryMonth\": \"<string>\",\n      \"CreditCardBrand\": \"<string>\",\n      \"GooglePayToken\": \"<string>\",\n      \"IsDefault\": \"<boolean>\",\n      \"ClientAccountID\": \"<string>\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-7ecdda42-74eb-4e20-9ec9-523e46fefc09"
+            }
+          ],
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-4db35012-d034-4bd6-8a0c-c7baa69e7848"
+        }
+      ],
+      "id": "d509f12e-d067-4d16-9d5d-ae839b09374e",
+      "createdAt": "2026-10-22T02:53:56.000Z",
+      "updatedAt": "2026-10-22T02:53:56.000Z",
+      "uid": "35240-d509f12e-d067-4d16-9d5d-ae839b09374e"
+    },
+    {
+      "name": "apple-pay",
+      "item": [
+        {
+          "name": "generate-embed-url",
+          "item": [
+            {
+              "name": "apple-pay/generate-embed-url",
+              "id": "fc422146-429d-4490-9474-8dce34d88eec",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) URL to redirect the user to after the Apple account is connected.",
+                      "key": "RedirectURL",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, the Apple Pay token generated will be attached to the Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                      "key": "RedirectMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, the Apple Pay token added will be linked to your VoPay account. Default is false.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/apple-pay/generate-embed-url",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apple-pay",
+                    "generate-embed-url"
+                  ]
+                },
+                "description": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their Apple account and generate a token, which can be used in the /apple-pay/charge endpoint."
+              },
+              "response": [
+                {
+                  "id": "5abcba57-4934-45ec-91ce-7a178e625e93",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) URL to redirect the user to after the Apple account is connected.",
+                          "key": "RedirectURL",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, the Apple Pay token generated will be attached to the Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                          "key": "RedirectMethod",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the Apple Pay token added will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apple-pay/generate-embed-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apple-pay",
+                        "generate-embed-url"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"EmbedURL\": \"<string>\",\n  \"IframeKey\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-5abcba57-4934-45ec-91ce-7a178e625e93"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-fc422146-429d-4490-9474-8dce34d88eec"
+            }
+          ],
+          "id": "23eb0c84-1dfe-4bde-9663-2082faa738b7",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-23eb0c84-1dfe-4bde-9663-2082faa738b7"
+        },
+        {
+          "name": "delete",
+          "item": [
+            {
+              "name": "apple-pay/delete",
+              "id": "a8f4fbb8-454e-4ac2-93ff-520b0eb62de3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Apple Pay token",
+                      "key": "ApplePayToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/apple-pay/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apple-pay",
+                    "delete"
+                  ]
+                },
+                "description": "This endpoint allows you to delete a Apple Pay token associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "4a4f5a4b-f08d-468e-948d-a75116a00074",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Apple Pay token",
+                          "key": "ApplePayToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apple-pay/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apple-pay",
+                        "delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-4a4f5a4b-f08d-468e-948d-a75116a00074"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-a8f4fbb8-454e-4ac2-93ff-520b0eb62de3"
+            }
+          ],
+          "id": "67007387-f18c-4d0b-8498-921171e40736",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-67007387-f18c-4d0b-8498-921171e40736"
+        },
+        {
+          "name": "set-my-apple-pay",
+          "item": [
+            {
+              "name": "apple-pay/set-my-apple-pay",
+              "id": "7ce34b7b-5073-4dcd-9861-07d5bbde66e1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Apple Pay token",
+                      "key": "ApplePayToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Identify credit card as default Apple Pay credit card",
+                      "key": "SetAsDefault",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/apple-pay/set-my-apple-pay",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apple-pay",
+                    "set-my-apple-pay"
+                  ]
+                },
+                "description": "This endpoint allows you to identify a Apple Pay credit card as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a Apple Pay credit card as being the VoPay account holder's default Apple Pay credit card. Note, a VoPay account can only have one default Apple Pay credit card."
+              },
+              "response": [
+                {
+                  "id": "12f1f064-cd7a-417e-89d7-1b0cef7ea035",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Apple Pay token",
+                          "key": "ApplePayToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Identify credit card as default Apple Pay credit card",
+                          "key": "SetAsDefault",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apple-pay/set-my-apple-pay",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apple-pay",
+                        "set-my-apple-pay"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ApplePayToken\": \"<string>\",\n  \"IsDefault\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-12f1f064-cd7a-417e-89d7-1b0cef7ea035"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-7ce34b7b-5073-4dcd-9861-07d5bbde66e1"
+            }
+          ],
+          "id": "7c98d97d-7f84-4c5a-9e33-f789aca8f618",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-7c98d97d-7f84-4c5a-9e33-f789aca8f618"
+        },
+        {
+          "name": "default-apple-pay",
+          "item": [
+            {
+              "name": "apple-pay/default-apple-pay",
+              "id": "93cfd79c-c313-4064-a719-962544fcc415",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/apple-pay/default-apple-pay?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apple-pay",
+                    "default-apple-pay"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will return the default Apple Pay credit card associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint retrieves the default Apple Pay credit card associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "8c9dc493-611d-4b46-be3e-ff01c21fddfe",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apple-pay/default-apple-pay?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apple-pay",
+                        "default-apple-pay"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, this endpoint will return the default Apple Pay credit card associated with this Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DefaultCreditCard\": {\n    \"0\": {\n      \"ApplePayToken\": \"<string>\",\n      \"CreditCardHolderName\": \"<string>\",\n      \"CreditCardNumber\": \"<string>\",\n      \"CreditCardExpiryYear\": \"<string>\",\n      \"CreditCardExpiryMonth\": \"<string>\",\n      \"CreditCardBrand\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-8c9dc493-611d-4b46-be3e-ff01c21fddfe"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-93cfd79c-c313-4064-a719-962544fcc415"
+            }
+          ],
+          "id": "8d7b9613-821e-4a9a-9c2e-4dbdcffd481a",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-8d7b9613-821e-4a9a-9c2e-4dbdcffd481a"
+        },
+        {
+          "name": "charge",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "apple-pay/charge/transaction",
+                  "id": "28610126-b49b-4ed5-b381-9b17ee437db7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apple-pay/charge/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apple-pay",
+                        "charge",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Account transaction ID",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This method is used to look up and return the full details on a single Apple Pay transaction. Apple Pay transactions take money out of the customer's card and deposit them into your VoPay account."
+                  },
+                  "response": [
+                    {
+                      "id": "8444d8dc-6838-4af5-9b10-10a3cf1aff33",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apple-pay/charge/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apple-pay",
+                            "charge",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Account transaction ID",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"ApplePayToken\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"TransactionTypeCode\": \"<string>\",\n  \"LastModified\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-22T02:53:56.000Z",
+                      "updatedAt": "2026-10-22T02:53:56.000Z",
+                      "uid": "35240-8444d8dc-6838-4af5-9b10-10a3cf1aff33"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-28610126-b49b-4ed5-b381-9b17ee437db7"
+                }
+              ],
+              "id": "13fe5164-5c0b-4b2c-ac81-0447f0b0e49f",
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-13fe5164-5c0b-4b2c-ac81-0447f0b0e49f"
+            },
+            {
+              "name": "apple-pay/charge",
+              "id": "be7af2f3-7a67-4f1e-ae04-2ab98df56e9b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The token identifying the Apple Pay wallet to charge (returned from /apple-pay/generate-embed-url).",
+                      "key": "ApplePayToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount to charge from the customer's Apple Pay wallet.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to be charged to the customer's Apple Pay wallet. If this is not specified the transaction will use the account's local currency.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's country specified using full country name or ISO 3166-1 alpha-2 code. If this is not specified the transaction will use the local country.",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/apple-pay/charge",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apple-pay",
+                    "charge"
+                  ]
+                },
+                "description": "This endpoint is to create a Apple Pay transaction to fund your VoPay account, charging the amount specified to the card linked to the provided Apple Pay Token.\n\nIf a ClientAccountID is provided, the client account's default Apple Pay wallet will be used for the transaction.\n\nNote: You must first generate a ApplePayToken using the /apple-pay/generate-embed-url endpoint."
+              },
+              "response": [
+                {
+                  "id": "8218cceb-d5f9-429d-bace-816fb283006f",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The token identifying the Apple Pay wallet to charge (returned from /apple-pay/generate-embed-url).",
+                          "key": "ApplePayToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to charge from the customer's Apple Pay wallet.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to be charged to the customer's Apple Pay wallet. If this is not specified the transaction will use the account's local currency.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's country specified using full country name or ISO 3166-1 alpha-2 code. If this is not specified the transaction will use the local country.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apple-pay/charge",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apple-pay",
+                        "charge"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-8218cceb-d5f9-429d-bace-816fb283006f"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-be7af2f3-7a67-4f1e-ae04-2ab98df56e9b"
+            }
+          ],
+          "id": "f634340a-1692-4e56-8ccd-67238e7c40cb",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-f634340a-1692-4e56-8ccd-67238e7c40cb"
+        },
+        {
+          "name": "void",
+          "item": [
+            {
+              "name": "apple-pay/void",
+              "id": "d79decf3-a0ca-4e38-a1fd-e16c5c420d86",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The unique ID for the transaction you want to void",
+                      "key": "TransactionID",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/apple-pay/void",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apple-pay",
+                    "void"
+                  ]
+                },
+                "description": "This endpoint allows you to void a completed Apple Pay transaction."
+              },
+              "response": [
+                {
+                  "id": "0c93ab82-b201-4373-b254-4c859eff4552",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique ID for the transaction you want to void",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apple-pay/void",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apple-pay",
+                        "void"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:53:56.000Z",
+                  "updatedAt": "2026-10-22T02:53:56.000Z",
+                  "uid": "35240-0c93ab82-b201-4373-b254-4c859eff4552"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-d79decf3-a0ca-4e38-a1fd-e16c5c420d86"
+            }
+          ],
+          "id": "e58f6470-acdf-4a69-8cc6-46f9e1a35dbe",
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-e58f6470-acdf-4a69-8cc6-46f9e1a35dbe"
+        },
+        {
+          "name": "apple-pay",
+          "id": "caa751d0-2f66-4903-8b14-2bf855767c70",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/apple-pay?AccountID=<string>&Key=<string>&Signature=<string>&ApplePayToken=<string>&ClientAccountID=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "apple-pay"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When provided, this endpoint will only return the Apple Pay credit cards associated with this token",
+                  "key": "ApplePayToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When provided, this endpoint will only return Apple Pay credit cards associated with this Client Account ID",
+                  "key": "ClientAccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When set to true, this endpoint will only return Apple Pay credit cards linked to your VoPay account. When set to false, it will return a list of your customer's Apple Pay tokens.",
+                  "key": "ClientControlled",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Limit the number of records that are returned.",
+                  "key": "Limit ",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Use this parameter to set the starting point in the dataset.",
+                  "key": "Offset ",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "This endpoint retrieves a list of Apple Pay credit cards associated with your VoPay account"
+          },
+          "response": [
+            {
+              "id": "92bd1cd4-a293-4875-a335-1c2bfda76cc5",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/apple-pay?AccountID=<string>&Key=<string>&Signature=<string>&ApplePayToken=<string>&ClientAccountID=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apple-pay"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will only return the Apple Pay credit cards associated with this token",
+                      "key": "ApplePayToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will only return Apple Pay credit cards associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, this endpoint will only return Apple Pay credit cards linked to your VoPay account. When set to false, it will return a list of your customer's Apple Pay tokens.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"CreditCards\": {\n    \"0\": {\n      \"CreditCardHolderName\": \"<string>\",\n      \"CreditCardNumber\": \"<string>\",\n      \"CreditCardExpiryYear\": \"<string>\",\n      \"CreditCardExpiryMonth\": \"<string>\",\n      \"CreditCardBrand\": \"<string>\",\n      \"ApplePayToken\": \"<string>\",\n      \"IsDefault\": \"<boolean>\",\n      \"ClientAccountID\": \"<string>\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:53:56.000Z",
+              "updatedAt": "2026-10-22T02:53:56.000Z",
+              "uid": "35240-92bd1cd4-a293-4875-a335-1c2bfda76cc5"
+            }
+          ],
+          "createdAt": "2026-10-22T02:53:56.000Z",
+          "updatedAt": "2026-10-22T02:53:56.000Z",
+          "uid": "35240-caa751d0-2f66-4903-8b14-2bf855767c70"
+        }
+      ],
+      "id": "f443829d-f9a8-42de-bc1a-0074a7630885",
+      "createdAt": "2026-10-22T02:53:56.000Z",
+      "updatedAt": "2026-10-22T02:53:56.000Z",
+      "uid": "35240-f443829d-f9a8-42de-bc1a-0074a7630885"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

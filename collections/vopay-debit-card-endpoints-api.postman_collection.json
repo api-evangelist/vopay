@@ -1,0 +1,1451 @@
+{
+  "info": {
+    "_postman_id": "bca3376e-3bf1-4eac-86cd-9606eae795f7",
+    "name": "Vopay Debit Card Endpoints API",
+    "description": "Operations tagged Debit Card Endpoints across 2 of this provider's published API definitions: vopay-payment-method-api-reference.json, vopay-payment-rails-api-reference.json. Each path carries the servers of the definition it was published in.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:53:39.000Z",
+    "updatedAt": "2026-10-22T02:53:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bca3376e-3bf1-4eac-86cd-9606eae795f7"
+  },
+  "item": [
+    {
+      "name": "debit-card",
+      "item": [
+        {
+          "name": "generate-embed-url",
+          "item": [
+            {
+              "name": "debit-card/generate-embed-url",
+              "id": "a363b266-d889-48ee-ad5e-4af5685857e0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) URL to redirect the user to after a card is added.",
+                      "key": "RedirectURL",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, the credit card added will be attached to the Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                      "key": "RedirectMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, the card added will be linked to your VoPay account. Default is false.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "When set to true, the card type will be validated to ensure the entered information represents a debit card. Default is false.",
+                      "key": "CardTypeValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "When set to true, 3DS authentication will be triggered during the card addition process. Default is false.",
+                      "key": "Trigger3DS",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/debit-card/generate-embed-url",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "debit-card",
+                    "generate-embed-url"
+                  ]
+                },
+                "description": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to provide their card information, which can be used in the /debit-card/oct/push-funds and /debit-card/aft/pull-funds endpoint."
+              },
+              "response": [
+                {
+                  "id": "5ae3cae7-25c3-434e-8d6a-46926a0cab2f",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) URL to redirect the user to after a card is added.",
+                          "key": "RedirectURL",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, the credit card added will be attached to the Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                          "key": "RedirectMethod",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the card added will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "When set to true, the card type will be validated to ensure the entered information represents a debit card. Default is false.",
+                          "key": "CardTypeValidation",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "When set to true, 3DS authentication will be triggered during the card addition process. Default is false.",
+                          "key": "Trigger3DS",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/debit-card/generate-embed-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "debit-card",
+                        "generate-embed-url"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"EmbedURL\": \"<string>\",\n  \"IframeKey\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:40.000Z",
+                  "updatedAt": "2026-10-22T02:53:40.000Z",
+                  "uid": "35240-5ae3cae7-25c3-434e-8d6a-46926a0cab2f"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:40.000Z",
+              "updatedAt": "2026-10-22T02:53:40.000Z",
+              "uid": "35240-a363b266-d889-48ee-ad5e-4af5685857e0"
+            }
+          ],
+          "id": "a5ec3ffa-98cf-47cb-874f-82dd39b65dd9",
+          "createdAt": "2026-10-22T02:53:40.000Z",
+          "updatedAt": "2026-10-22T02:53:40.000Z",
+          "uid": "35240-a5ec3ffa-98cf-47cb-874f-82dd39b65dd9"
+        },
+        {
+          "name": "delete",
+          "item": [
+            {
+              "name": "debit-card/delete",
+              "id": "ebba8b77-fb6e-4344-9fdc-49432fa39bc7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Debit card token",
+                      "key": "CardToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/debit-card/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "debit-card",
+                    "delete"
+                  ]
+                },
+                "description": "This endpoint allows you to delete a debit card associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "2cc207da-206d-40eb-b6fd-4c324d52fbd2",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Debit card token",
+                          "key": "CardToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/debit-card/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "debit-card",
+                        "delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:40.000Z",
+                  "updatedAt": "2026-10-22T02:53:40.000Z",
+                  "uid": "35240-2cc207da-206d-40eb-b6fd-4c324d52fbd2"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:40.000Z",
+              "updatedAt": "2026-10-22T02:53:40.000Z",
+              "uid": "35240-ebba8b77-fb6e-4344-9fdc-49432fa39bc7"
+            }
+          ],
+          "id": "09ed5ff7-7727-477b-a5db-e87b20ae86ec",
+          "createdAt": "2026-10-22T02:53:40.000Z",
+          "updatedAt": "2026-10-22T02:53:40.000Z",
+          "uid": "35240-09ed5ff7-7727-477b-a5db-e87b20ae86ec"
+        },
+        {
+          "name": "set-debit-card",
+          "item": [
+            {
+              "name": "debit-card/set-debit-card",
+              "id": "7cf67489-ca3d-4a39-b22d-c135ec86fad3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Debit card token",
+                      "key": "CardToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Identify card as default debit card",
+                      "key": "SetAsDefault",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/debit-card/set-debit-card",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "debit-card",
+                    "set-debit-card"
+                  ]
+                },
+                "description": "This endpoint allows you to identify a debit card as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a debit card as being the VoPay account holder's default debit card. Note, a VoPay account can only have one default debit card."
+              },
+              "response": [
+                {
+                  "id": "e7ac151c-ebe3-4325-86d5-470fc3d89375",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Debit card token",
+                          "key": "CardToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Identify card as default debit card",
+                          "key": "SetAsDefault",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/debit-card/set-debit-card",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "debit-card",
+                        "set-debit-card"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"CardToken\": \"<string>\",\n  \"IsDefault\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:53:40.000Z",
+                  "updatedAt": "2026-10-22T02:53:40.000Z",
+                  "uid": "35240-e7ac151c-ebe3-4325-86d5-470fc3d89375"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:40.000Z",
+              "updatedAt": "2026-10-22T02:53:40.000Z",
+              "uid": "35240-7cf67489-ca3d-4a39-b22d-c135ec86fad3"
+            }
+          ],
+          "id": "390cafaa-43f1-4fef-970b-9e041cfc255f",
+          "createdAt": "2026-10-22T02:53:40.000Z",
+          "updatedAt": "2026-10-22T02:53:40.000Z",
+          "uid": "35240-390cafaa-43f1-4fef-970b-9e041cfc255f"
+        },
+        {
+          "name": "default-debit-card",
+          "item": [
+            {
+              "name": "debit-card/default-debit-card",
+              "id": "353ebea0-45a9-4de7-8814-1c040deb7d0c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/debit-card/default-debit-card?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "debit-card",
+                    "default-debit-card"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will return the default debit card associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint retrieves the default debit card associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "f976acc5-850b-419b-9416-199443932556",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/debit-card/default-debit-card?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "debit-card",
+                        "default-debit-card"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, this endpoint will return the default debit card associated with this Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DefaultPushToCard\": {\n    \"0\": {\n      \"PushToCardToken\": \"<string>\",\n      \"CardHolderName\": \"<string>\",\n      \"CardNumber\": \"<string>\",\n      \"CardExpiryYear\": \"<string>\",\n      \"CardExpiryMonth\": \"<string>\",\n      \"CardBrand\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:53:40.000Z",
+                  "updatedAt": "2026-10-22T02:53:40.000Z",
+                  "uid": "35240-f976acc5-850b-419b-9416-199443932556"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:40.000Z",
+              "updatedAt": "2026-10-22T02:53:40.000Z",
+              "uid": "35240-353ebea0-45a9-4de7-8814-1c040deb7d0c"
+            }
+          ],
+          "id": "707af114-4c42-4961-9762-24250724cb6b",
+          "createdAt": "2026-10-22T02:53:40.000Z",
+          "updatedAt": "2026-10-22T02:53:40.000Z",
+          "uid": "35240-707af114-4c42-4961-9762-24250724cb6b"
+        },
+        {
+          "name": "oct",
+          "item": [
+            {
+              "name": "push-funds",
+              "item": [
+                {
+                  "name": "debit-card/oct/push-funds",
+                  "id": "78581b0c-6776-4a50-a953-37d5a01d0774",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The token identifying the debit card to charge (returned from /debit-card/generate-embed-url).",
+                          "key": "CardToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to send to the customer's debit card.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to sent to the customer's debit card. If this is not specified the transaction will use the account's local currency (CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                          "key": "ParentTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/debit-card/oct/push-funds",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "debit-card",
+                        "oct",
+                        "push-funds"
+                      ]
+                    },
+                    "description": "This endpoint is used to instantly send funds from your VoPay account to the debit card linked to the provided CardToken.\n\nIf a ClientAccountID is provided, the client account's default card will be used for the transaction.\n\nNote: You must first generate a CardToken using the /debit-card/generate-embed-url endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "411b5089-4543-480d-821d-222d47e92ac3",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The token identifying the debit card to charge (returned from /debit-card/generate-embed-url).",
+                              "key": "CardToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to send to the customer's debit card.",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency to sent to the customer's debit card. If this is not specified the transaction will use the account's local currency (CAD).",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                              "key": "IdempotencyKey",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                              "key": "ParentTransactionID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional unique identification general ledger code.",
+                              "key": "GLCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                              "key": "TransactionTypeCode",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/debit-card/oct/push-funds",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "debit-card",
+                            "oct",
+                            "push-funds"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:53:40.000Z",
+                      "updatedAt": "2026-10-22T02:53:40.000Z",
+                      "uid": "35240-411b5089-4543-480d-821d-222d47e92ac3"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:40.000Z",
+                  "updatedAt": "2026-10-22T02:53:40.000Z",
+                  "uid": "35240-78581b0c-6776-4a50-a953-37d5a01d0774"
+                }
+              ],
+              "id": "88dc46eb-04a7-4fc2-8261-9aeac8c919fa",
+              "createdAt": "2026-10-22T02:53:40.000Z",
+              "updatedAt": "2026-10-22T02:53:40.000Z",
+              "uid": "35240-88dc46eb-04a7-4fc2-8261-9aeac8c919fa"
+            },
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "debit-card/oct/transaction",
+                  "id": "b7329d70-a3b4-4c5d-b18d-5f6f0d332bfd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/debit-card/oct/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "debit-card",
+                        "oct",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Account transaction ID",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This method is used to look up and return the full details on a single OCT transaction. OCT transactions sends money from your VoPay account directly onto the customer's debit card."
+                  },
+                  "response": [
+                    {
+                      "id": "e9bb037e-4f7b-4cec-be60-e0351eaba748",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/debit-card/oct/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "debit-card",
+                            "oct",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Account transaction ID",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"PushToCardToken\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"LastModified\": \"<dateTime>\",\n  \"GLCode\": \"<string>\",\n  \"TransactionTypeCode\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:53:40.000Z",
+                      "updatedAt": "2026-10-22T02:53:40.000Z",
+                      "uid": "35240-e9bb037e-4f7b-4cec-be60-e0351eaba748"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:40.000Z",
+                  "updatedAt": "2026-10-22T02:53:40.000Z",
+                  "uid": "35240-b7329d70-a3b4-4c5d-b18d-5f6f0d332bfd"
+                }
+              ],
+              "id": "cb6bce97-d18c-4fec-96d2-c954cd7120d4",
+              "createdAt": "2026-10-22T02:53:40.000Z",
+              "updatedAt": "2026-10-22T02:53:40.000Z",
+              "uid": "35240-cb6bce97-d18c-4fec-96d2-c954cd7120d4"
+            }
+          ],
+          "id": "2f525038-35bd-4772-9350-793cc09eba82",
+          "createdAt": "2026-10-22T02:53:40.000Z",
+          "updatedAt": "2026-10-22T02:53:40.000Z",
+          "uid": "35240-2f525038-35bd-4772-9350-793cc09eba82"
+        },
+        {
+          "name": "aft",
+          "item": [
+            {
+              "name": "pull-funds",
+              "item": [
+                {
+                  "name": "debit-card/aft/pull-funds",
+                  "id": "b6a399bb-b5de-4c13-8377-bd8eba1c3000",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The token identifying the debit card to charge (returned from /debit-card/generate-embed-url).",
+                          "key": "CardToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to send to the customer's debit card.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to sent to the customer's debit card. If this is not specified the transaction will use the account's local currency (CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/debit-card/aft/pull-funds",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "debit-card",
+                        "aft",
+                        "pull-funds"
+                      ]
+                    },
+                    "description": "This endpoint is used to instantly pull funds from your debit card linked to the provided CardToken to fund your VoPay account.\n\nIf a ClientAccountID is provided, the client account's default card will be used for the transaction.\n\nNote: You must first generate a CardToken using the /debit-card/generate-embed-url endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "ee670fa8-2e45-419e-8950-f489ec4a84f4",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The token identifying the debit card to charge (returned from /debit-card/generate-embed-url).",
+                              "key": "CardToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to send to the customer's debit card.",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency to sent to the customer's debit card. If this is not specified the transaction will use the account's local currency (CAD).",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                              "key": "IdempotencyKey",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional unique identification general ledger code.",
+                              "key": "GLCode",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/debit-card/aft/pull-funds",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "debit-card",
+                            "aft",
+                            "pull-funds"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:53:40.000Z",
+                      "updatedAt": "2026-10-22T02:53:40.000Z",
+                      "uid": "35240-ee670fa8-2e45-419e-8950-f489ec4a84f4"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:40.000Z",
+                  "updatedAt": "2026-10-22T02:53:40.000Z",
+                  "uid": "35240-b6a399bb-b5de-4c13-8377-bd8eba1c3000"
+                }
+              ],
+              "id": "8f870403-9176-4d2c-bec2-155049468881",
+              "createdAt": "2026-10-22T02:53:40.000Z",
+              "updatedAt": "2026-10-22T02:53:40.000Z",
+              "uid": "35240-8f870403-9176-4d2c-bec2-155049468881"
+            },
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "debit-card/aft/transaction",
+                  "id": "7b95513a-0ded-4b68-ad1d-a40a6ff9866d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/debit-card/aft/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "debit-card",
+                        "aft",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Account transaction ID",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This method is used to look up and return the full details on a single AFT transaction. AFT transactions pull money from you debit card directly into your VoPay account ."
+                  },
+                  "response": [
+                    {
+                      "id": "b7c7e95e-de40-44d0-998c-268931731a87",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/debit-card/aft/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "debit-card",
+                            "aft",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Account transaction ID",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"PushToCardToken\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"LastModified\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-22T02:53:40.000Z",
+                      "updatedAt": "2026-10-22T02:53:40.000Z",
+                      "uid": "35240-b7c7e95e-de40-44d0-998c-268931731a87"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:40.000Z",
+                  "updatedAt": "2026-10-22T02:53:40.000Z",
+                  "uid": "35240-7b95513a-0ded-4b68-ad1d-a40a6ff9866d"
+                }
+              ],
+              "id": "6f7a25a2-e60d-4b5c-b39e-05581543b302",
+              "createdAt": "2026-10-22T02:53:40.000Z",
+              "updatedAt": "2026-10-22T02:53:40.000Z",
+              "uid": "35240-6f7a25a2-e60d-4b5c-b39e-05581543b302"
+            }
+          ],
+          "id": "0ac0097a-90d7-4e26-8901-27d4b06688b7",
+          "createdAt": "2026-10-22T02:53:40.000Z",
+          "updatedAt": "2026-10-22T02:53:40.000Z",
+          "uid": "35240-0ac0097a-90d7-4e26-8901-27d4b06688b7"
+        },
+        {
+          "name": "debit-card",
+          "id": "450f317c-0707-47ed-b671-7bbd144c7081",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/debit-card?AccountID=<string>&Key=<string>&Signature=<string>&DebitCardToken=<string>&ClientAccountID=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "debit-card"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When provided, this endpoint will only return the debit card associated with this token",
+                  "key": "DebitCardToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When provided, this endpoint will only return debit cards associated with this Client Account ID",
+                  "key": "ClientAccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When set to true, this endpoint will only return debit cards linked to your VoPay account. When set to false, it will return a list of your customer's debit cards.",
+                  "key": "ClientControlled",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Limit the number of records that are returned.",
+                  "key": "Limit ",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Use this parameter to set the starting point in the dataset.",
+                  "key": "Offset ",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "This endpoint retrieves a list of debit cards associated with your VoPay account"
+          },
+          "response": [
+            {
+              "id": "944d7d95-92c2-4dff-8474-29992e80863d",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/debit-card?AccountID=<string>&Key=<string>&Signature=<string>&DebitCardToken=<string>&ClientAccountID=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "debit-card"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will only return the debit card associated with this token",
+                      "key": "DebitCardToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will only return debit cards associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, this endpoint will only return debit cards linked to your VoPay account. When set to false, it will return a list of your customer's debit cards.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DebitCards\": {\n    \"0\": {\n      \"DebitCardHolderName\": \"<string>\",\n      \"DebitCardNumber\": \"<string>\",\n      \"DebitCardExpiryYear\": \"<string>\",\n      \"DebitCardExpiryMonth\": \"<string>\",\n      \"DebitCardBrand\": \"<string>\",\n      \"DebitCardToken\": \"<string>\",\n      \"IsDefault\": \"<boolean>\",\n      \"ClientAccountID\": \"<string>\",\n      \"SendingEligibility\": \"<string>\",\n      \"ReceivingEligibility\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Brand\": \"<string>\",\n      \"FundsAvailability\": \"<string>\",\n      \"InstitutionName\": \"<string>\",\n      \"InstitutionCountry\": \"<string>\",\n      \"AccountStatementCurrency\": \"<string>\",\n      \"AcceptanceBrand\": \"<string>\",\n      \"ProductType\": \"<string>\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:53:40.000Z",
+              "updatedAt": "2026-10-22T02:53:40.000Z",
+              "uid": "35240-944d7d95-92c2-4dff-8474-29992e80863d"
+            }
+          ],
+          "createdAt": "2026-10-22T02:53:40.000Z",
+          "updatedAt": "2026-10-22T02:53:40.000Z",
+          "uid": "35240-450f317c-0707-47ed-b671-7bbd144c7081"
+        }
+      ],
+      "id": "62f4382c-c8ba-406d-8781-e16528dad47f",
+      "createdAt": "2026-10-22T02:53:40.000Z",
+      "updatedAt": "2026-10-22T02:53:40.000Z",
+      "uid": "35240-62f4382c-c8ba-406d-8781-e16528dad47f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

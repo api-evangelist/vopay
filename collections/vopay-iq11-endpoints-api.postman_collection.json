@@ -1,0 +1,1102 @@
+{
+  "info": {
+    "_postman_id": "60027d60-0a62-4003-9278-515bc8e3324d",
+    "name": "IQ11 Endpoints API",
+    "description": "The iQ11 API allows you to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:55:16.000Z",
+    "updatedAt": "2026-10-22T02:55:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-60027d60-0a62-4003-9278-515bc8e3324d"
+  },
+  "item": [
+    {
+      "name": "iq11",
+      "item": [
+        {
+          "name": "generate-embed-url",
+          "item": [
+            {
+              "name": "iq11/generate-embed-url",
+              "id": "ff050e0d-27f1-446b-9e54-7aec5edb6bfc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/x-yaml"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, the bank account submitted will be attached to the Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "URL to redirect to after the customer logs in to their online banking account. The bank account token will be passed as a GET parameter, for example https://redirect.com/page?Token=1234. If not provided, RedirectMethod defaults to javascriptmessage.",
+                      "key": "RedirectURL",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Name of the Company. Defaults to the account name if not provided.",
+                      "key": "CompanyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Language of iQ11 iFrame- en (English) or fr (French). Default value is en (English)",
+                      "key": "Language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values. Defaults to innerredirect if RedirectURL is provided, otherwise javascriptmessage.",
+                      "key": "RedirectMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter accepts any, online and manual as parameter values. Defaults to any.",
+                      "key": "AccountSelectionMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter accepts any, bank, email, credit, debitcard, googlepay, applepay, paypal, or venmo as parameter values. Defaults to any.",
+                      "key": "PaymentSelectionMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, the connected bank account will be linked to your VoPay account. Default is false.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the bank account.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter accepts country codes [CA, US]. Default is CA",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter will determine if we display a debit authority agreement to the end-user before they connect their payment method. You must request this feature to be enabled for your account. Default is true.",
+                      "key": "RequireDebitAuthorityAgreement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "A comma-separated list of payment methods to verify once the user has connected their payment method. Allowed values are: 'bank', 'interacbasic', 'interacenhanced', 'cardbasic', 'cardenhanced'. If no value is provided, no verification will be performed.",
+                      "key": "Verify",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, the card type will be validated to ensure the entered information represents the selected card option. Default is false.",
+                      "key": "CardTypeValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "When set to true, 3DS authentication will be triggered during the card addition process. Default is false.",
+                      "key": "Trigger3DS",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "A comma-separated list of accepted card brands to restrict which cards can be added.",
+                      "key": "AcceptedCardBrands",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The type of account holder. Used to restrict the type of bank account that can be connected.",
+                      "key": "AccountHolderType",
+                      "value": "business"
+                    },
+                    {
+                      "description": "When set to true, the iFrame will be displayed in dark mode. Default is false.",
+                      "key": "DarkMode",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/iq11/generate-embed-url",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "iq11",
+                    "generate-embed-url"
+                  ]
+                },
+                "description": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from. For additional details on iQ11 and RedirectMethod, please visit our Iq11 Overview"
+              },
+              "response": [
+                {
+                  "id": "333633ce-0a4a-4551-a850-74e92124ada6",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/x-yaml"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, the bank account submitted will be attached to the Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "URL to redirect to after the customer logs in to their online banking account. The bank account token will be passed as a GET parameter, for example https://redirect.com/page?Token=1234. If not provided, RedirectMethod defaults to javascriptmessage.",
+                          "key": "RedirectURL",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Name of the Company. Defaults to the account name if not provided.",
+                          "key": "CompanyName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Language of iQ11 iFrame- en (English) or fr (French). Default value is en (English)",
+                          "key": "Language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values. Defaults to innerredirect if RedirectURL is provided, otherwise javascriptmessage.",
+                          "key": "RedirectMethod",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts any, online and manual as parameter values. Defaults to any.",
+                          "key": "AccountSelectionMethod",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts any, bank, email, credit, debitcard, googlepay, applepay, paypal, or venmo as parameter values. Defaults to any.",
+                          "key": "PaymentSelectionMethod",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the connected bank account will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the bank account.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts country codes [CA, US]. Default is CA",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter will determine if we display a debit authority agreement to the end-user before they connect their payment method. You must request this feature to be enabled for your account. Default is true.",
+                          "key": "RequireDebitAuthorityAgreement",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "A comma-separated list of payment methods to verify once the user has connected their payment method. Allowed values are: 'bank', 'interacbasic', 'interacenhanced', 'cardbasic', 'cardenhanced'. If no value is provided, no verification will be performed.",
+                          "key": "Verify",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the card type will be validated to ensure the entered information represents the selected card option. Default is false.",
+                          "key": "CardTypeValidation",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "When set to true, 3DS authentication will be triggered during the card addition process. Default is false.",
+                          "key": "Trigger3DS",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "A comma-separated list of accepted card brands to restrict which cards can be added.",
+                          "key": "AcceptedCardBrands",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The type of account holder. Used to restrict the type of bank account that can be connected.",
+                          "key": "AccountHolderType",
+                          "value": "business"
+                        },
+                        {
+                          "description": "When set to true, the iFrame will be displayed in dark mode. Default is false.",
+                          "key": "DarkMode",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/iq11/generate-embed-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "iq11",
+                        "generate-embed-url"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/x-yaml"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"EmbedURL\": \"<string>\",\n  \"IframeKey\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:55:16.000Z",
+                  "updatedAt": "2026-10-22T02:55:16.000Z",
+                  "uid": "35240-333633ce-0a4a-4551-a850-74e92124ada6"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:16.000Z",
+              "updatedAt": "2026-10-22T02:55:16.000Z",
+              "uid": "35240-ff050e0d-27f1-446b-9e54-7aec5edb6bfc"
+            }
+          ],
+          "id": "d58e240a-67df-410a-afe0-53d3e4166389",
+          "createdAt": "2026-10-22T02:55:16.000Z",
+          "updatedAt": "2026-10-22T02:55:16.000Z",
+          "uid": "35240-d58e240a-67df-410a-afe0-53d3e4166389"
+        },
+        {
+          "name": "token-info",
+          "item": [
+            {
+              "name": "iq11/token-info",
+              "id": "6381c064-910b-452f-a152-fbf4984e83e2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/x-yaml"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/iq11/token-info?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "iq11",
+                    "token-info"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) iQ11 token",
+                      "key": "Token",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to return the payment details associated with an iQ11 Token."
+              },
+              "response": [
+                {
+                  "id": "dbe0aa9d-976b-461a-a318-5d17541e6be3",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/x-yaml"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/iq11/token-info?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "iq11",
+                        "token-info"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) iQ11 token",
+                          "key": "Token",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/x-yaml"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"MaskedAccount\": \"<string>\",\n  \"Bank\": \"<string>\",\n  \"TransitNumber\": \"<string>\",\n  \"ABARoutingNumber\": \"<string>\",\n  \"FullName\": \"<string>\",\n  \"BankName\": \"<string>\",\n  \"TokenType\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"PhoneNumber\": \"<string>\",\n  \"Question\": \"<string>\",\n  \"Answer\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"Message\": \"<string>\",\n  \"AutoDepositEnabled\": \"<boolean>\",\n  \"CreditCardNumber\": \"<string>\",\n  \"CreditCardExpiryYear\": \"<string>\",\n  \"CreditCardExpiryMonth\": \"<string>\",\n  \"CreditCardBrand\": \"<string>\",\n  \"CredtCardType\": \"<string>\",\n  \"DebitCardNumber\": \"<string>\",\n  \"DebitCardExpiryYear\": \"<string>\",\n  \"DebitCardExpiryMonth\": \"<string>\",\n  \"DebitCardBrand\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"Type\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:55:16.000Z",
+                  "updatedAt": "2026-10-22T02:55:16.000Z",
+                  "uid": "35240-dbe0aa9d-976b-461a-a318-5d17541e6be3"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:16.000Z",
+              "updatedAt": "2026-10-22T02:55:16.000Z",
+              "uid": "35240-6381c064-910b-452f-a152-fbf4984e83e2"
+            }
+          ],
+          "id": "567a623e-4246-4647-914a-4505874108bc",
+          "createdAt": "2026-10-22T02:55:16.000Z",
+          "updatedAt": "2026-10-22T02:55:16.000Z",
+          "uid": "35240-567a623e-4246-4647-914a-4505874108bc"
+        },
+        {
+          "name": "tokenize",
+          "item": [
+            {
+              "name": "iq11/tokenize",
+              "id": "b63d3612-de57-4a1f-b37b-435533ffe40c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/x-yaml"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "String that defines the account holder name. Used for all payment methods.",
+                      "key": "AccountHolderName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's bank account number.",
+                      "key": "AccountNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Three digit institution number for a Canadian bank account.",
+                      "key": "FinancialInstitutionNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Five digit branch transit number for a Canadian bank account.",
+                      "key": "BranchTransitNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Nine digit ABA Routing number of a US bank account.",
+                      "key": "ABARoutingNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Flinks Account ID. Must be accompanied by a FlinksLoginID. VoPay will fetch the associated bank account details from Flinks.",
+                      "key": "FlinksAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated bank account details from Flinks.",
+                      "key": "FlinksLoginID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Plaid Processor Token. VoPay will fetch the associated bank account details from Plaid.",
+                      "key": "PlaidProcessorToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Mx Processor Token. VoPay will fetch the associated bank account details from Mx.",
+                      "key": "MxProcessorToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Three letter currency code.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First line of the address. Ex: 123 Main St.",
+                      "key": "Address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "City",
+                      "key": "City",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "State",
+                      "key": "State",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Zip code",
+                      "key": "ZipCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Province",
+                      "key": "Province",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Postal code",
+                      "key": "PostalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Two letter country code.",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, the connected bank account will be verified. Default is false. Only applicable when Flinks or Plaid credentials are provided.",
+                      "key": "VerifyAccount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Email address",
+                      "key": "EmailAddress",
+                      "value": "<email>"
+                    },
+                    {
+                      "description": "Phone number",
+                      "key": "PhoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Security question (used for Interac transactions)",
+                      "key": "Question",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Security answer (used for Interac transactions)",
+                      "key": "Answer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Language - en (English) or fr (French). Default value is en (English)",
+                      "key": "Language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Message sent to recipient (used for Interac)",
+                      "key": "Message",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, the connected bank account will be linked to your VoPay account. Default is false.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the bank account.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The type of payment method you are tokenizing. Valid values are: 'bank', 'email'. Default is 'bank'.",
+                      "key": "Type",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/iq11/tokenize",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "iq11",
+                    "tokenize"
+                  ]
+                },
+                "description": "This endpoint allows you to submit payment method details (bank account, email address), and will return a token which can be used to perform transactions."
+              },
+              "response": [
+                {
+                  "id": "bc6e5d64-8473-47c5-b2f4-ff584ed345e6",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/x-yaml"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "String that defines the account holder name. Used for all payment methods.",
+                          "key": "AccountHolderName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's bank account number.",
+                          "key": "AccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Three digit institution number for a Canadian bank account.",
+                          "key": "FinancialInstitutionNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Five digit branch transit number for a Canadian bank account.",
+                          "key": "BranchTransitNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Nine digit ABA Routing number of a US bank account.",
+                          "key": "ABARoutingNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Flinks Account ID. Must be accompanied by a FlinksLoginID. VoPay will fetch the associated bank account details from Flinks.",
+                          "key": "FlinksAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated bank account details from Flinks.",
+                          "key": "FlinksLoginID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Plaid Processor Token. VoPay will fetch the associated bank account details from Plaid.",
+                          "key": "PlaidProcessorToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Mx Processor Token. VoPay will fetch the associated bank account details from Mx.",
+                          "key": "MxProcessorToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Three letter currency code.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "First line of the address. Ex: 123 Main St.",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "City",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "State",
+                          "key": "State",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Zip code",
+                          "key": "ZipCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Province",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Postal code",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Two letter country code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the connected bank account will be verified. Default is false. Only applicable when Flinks or Plaid credentials are provided.",
+                          "key": "VerifyAccount",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Email address",
+                          "key": "EmailAddress",
+                          "value": "<email>"
+                        },
+                        {
+                          "description": "Phone number",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Security question (used for Interac transactions)",
+                          "key": "Question",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Security answer (used for Interac transactions)",
+                          "key": "Answer",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Language - en (English) or fr (French). Default value is en (English)",
+                          "key": "Language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Message sent to recipient (used for Interac)",
+                          "key": "Message",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the connected bank account will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the bank account.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The type of payment method you are tokenizing. Valid values are: 'bank', 'email'. Default is 'bank'.",
+                          "key": "Type",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/iq11/tokenize",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "iq11",
+                        "tokenize"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/x-yaml"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Token\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:55:16.000Z",
+                  "updatedAt": "2026-10-22T02:55:16.000Z",
+                  "uid": "35240-bc6e5d64-8473-47c5-b2f4-ff584ed345e6"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:16.000Z",
+              "updatedAt": "2026-10-22T02:55:16.000Z",
+              "uid": "35240-b63d3612-de57-4a1f-b37b-435533ffe40c"
+            }
+          ],
+          "id": "ffb03d10-19d5-4f37-88f6-e627ea62cd4a",
+          "createdAt": "2026-10-22T02:55:16.000Z",
+          "updatedAt": "2026-10-22T02:55:16.000Z",
+          "uid": "35240-ffb03d10-19d5-4f37-88f6-e627ea62cd4a"
+        },
+        {
+          "name": "transactions",
+          "item": [
+            {
+              "name": "iq11/transactions",
+              "id": "e97a2432-4867-49ae-9622-b72c495373e3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/x-yaml"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/iq11/transactions?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "iq11",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Your iQ11 Token that has been generated using Custom iFrame.",
+                      "key": "Token",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to return the transaction history associated with an iQ11 Token."
+              },
+              "response": [
+                {
+                  "id": "c1344e01-b272-4839-8071-e7457feff974",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/x-yaml"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/iq11/transactions?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "iq11",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Your iQ11 Token that has been generated using Custom iFrame.",
+                          "key": "Token",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/x-yaml"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Transactions\": \"<string>\",\n  \"LastRetrievedTime\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-10-22T02:55:16.000Z",
+                  "updatedAt": "2026-10-22T02:55:16.000Z",
+                  "uid": "35240-c1344e01-b272-4839-8071-e7457feff974"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:16.000Z",
+              "updatedAt": "2026-10-22T02:55:16.000Z",
+              "uid": "35240-e97a2432-4867-49ae-9622-b72c495373e3"
+            }
+          ],
+          "id": "1d7afed5-d85f-41c9-8eac-e3aec7282865",
+          "createdAt": "2026-10-22T02:55:16.000Z",
+          "updatedAt": "2026-10-22T02:55:16.000Z",
+          "uid": "35240-1d7afed5-d85f-41c9-8eac-e3aec7282865"
+        },
+        {
+          "name": "balance",
+          "item": [
+            {
+              "name": "iq11/balance",
+              "id": "5c918ec2-881b-4614-9d4e-bb148d400510",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/x-yaml"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/iq11/balance?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "iq11",
+                    "balance"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Your iQ11 Token that has been generated using Custom iFrame.",
+                      "key": "Token",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to return the bank account balance associated with an iQ11 Token."
+              },
+              "response": [
+                {
+                  "id": "9642ee23-9319-45e2-9a3f-d1e69756eefd",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/x-yaml"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/iq11/balance?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "iq11",
+                        "balance"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Your iQ11 Token that has been generated using Custom iFrame.",
+                          "key": "Token",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/x-yaml"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"AccountBalance\": \"<string>\",\n  \"BalanceAsAtDate\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-10-22T02:55:16.000Z",
+                  "updatedAt": "2026-10-22T02:55:16.000Z",
+                  "uid": "35240-9642ee23-9319-45e2-9a3f-d1e69756eefd"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:16.000Z",
+              "updatedAt": "2026-10-22T02:55:16.000Z",
+              "uid": "35240-5c918ec2-881b-4614-9d4e-bb148d400510"
+            }
+          ],
+          "id": "10b17d92-2616-4151-bad7-0ac5b5c7c3f2",
+          "createdAt": "2026-10-22T02:55:16.000Z",
+          "updatedAt": "2026-10-22T02:55:16.000Z",
+          "uid": "35240-10b17d92-2616-4151-bad7-0ac5b5c7c3f2"
+        }
+      ],
+      "id": "ec5d3d9e-5433-41d6-9098-e0ae37d9078d",
+      "createdAt": "2026-10-22T02:55:16.000Z",
+      "updatedAt": "2026-10-22T02:55:16.000Z",
+      "uid": "35240-ec5d3d9e-5433-41d6-9098-e0ae37d9078d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

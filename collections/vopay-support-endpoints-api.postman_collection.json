@@ -1,0 +1,1396 @@
+{
+  "info": {
+    "_postman_id": "f1b7b5f0-de14-46bc-bb73-455fd94cef21",
+    "name": "Integrations and Support Support Endpoints API",
+    "description": "The Integrations and Support API defines endpoints for configuring integrations with Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for account and partner accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:56:36.000Z",
+    "updatedAt": "2026-10-22T02:56:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f1b7b5f0-de14-46bc-bb73-455fd94cef21"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "tickets",
+          "item": [
+            {
+              "name": "account/tickets",
+              "id": "090ed7c3-8cb9-4370-b8ca-4216132d7547",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/tickets?AccountID=<string>&Key=<string>&Signature=<string>&Email=<string>&Limit =<integer>&Offset =<integer>&StartDate=<string>&EndDate=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "tickets"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An email address",
+                      "key": "Email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned. The limit and default value is 100. This parameter can only be used with Email parameter.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset. This parameter can only be used with Email parameter.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                      "key": "StartDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                      "key": "EndDate",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to fetch a list of support tickets via our API. If no email address is passed in then it will fetch all tickets for the account. If an email address is passed in, it will fetch all tickets for the account that have been submitted, including CC'd, by that email."
+              },
+              "response": [
+                {
+                  "id": "17631111-9fec-497d-a650-88a8e2bf9d75",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/tickets?AccountID=<string>&Key=<string>&Signature=<string>&Email=<string>&Limit =<integer>&Offset =<integer>&StartDate=<string>&EndDate=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "tickets"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An email address",
+                          "key": "Email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of records that are returned. The limit and default value is 100. This parameter can only be used with Email parameter.",
+                          "key": "Limit ",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Use this parameter to set the starting point in the dataset. This parameter can only be used with Email parameter.",
+                          "key": "Offset ",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                          "key": "StartDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                          "key": "EndDate",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Tickets\": {\n    \"0\": {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"dateAdded\": \"<string>\",\n      \"lastUpdated\": \"<string>\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:56:37.000Z",
+                  "updatedAt": "2026-10-22T02:56:37.000Z",
+                  "uid": "35240-17631111-9fec-497d-a650-88a8e2bf9d75"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:37.000Z",
+              "updatedAt": "2026-10-22T02:56:37.000Z",
+              "uid": "35240-090ed7c3-8cb9-4370-b8ca-4216132d7547"
+            }
+          ],
+          "id": "efe4c469-b674-4b3e-9edc-2374b8130068",
+          "createdAt": "2026-10-22T02:56:37.000Z",
+          "updatedAt": "2026-10-22T02:56:37.000Z",
+          "uid": "35240-efe4c469-b674-4b3e-9edc-2374b8130068"
+        },
+        {
+          "name": "submit-ticket",
+          "item": [
+            {
+              "name": "account/submit-ticket",
+              "id": "89d25916-3903-4843-82f8-22017df41fa9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Your email address",
+                      "key": "SenderEmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The full name of the submitter of your ticket",
+                      "key": "TicketRequesterName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The subject of your ticket",
+                      "key": "TicketSubject",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The body of your ticket",
+                      "key": "TicketContent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The category of your ticket. Valid values are: Client Onboarding,Product Issues,Billing Issues,Feature Request,General Inquiry,Account Limits,General Feedback,Transaction Inquiry",
+                      "key": "TicketCategory",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If the issue pertains to a specific transaction, you can use this input to provide the unique transaction ID",
+                      "key": "TransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A comma-delimited list of CC email addresses to include on the ticket. These email addresses will be included on the correspondence",
+                      "key": "CcEmails",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/submit-ticket",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "submit-ticket"
+                  ]
+                },
+                "description": "This endpoint is used to submit support tickets via our API."
+              },
+              "response": [
+                {
+                  "id": "b407cdf3-4825-453e-be43-d34a0c47015b",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Your email address",
+                          "key": "SenderEmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The full name of the submitter of your ticket",
+                          "key": "TicketRequesterName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The subject of your ticket",
+                          "key": "TicketSubject",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The body of your ticket",
+                          "key": "TicketContent",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The category of your ticket. Valid values are: Client Onboarding,Product Issues,Billing Issues,Feature Request,General Inquiry,Account Limits,General Feedback,Transaction Inquiry",
+                          "key": "TicketCategory",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "If the issue pertains to a specific transaction, you can use this input to provide the unique transaction ID",
+                          "key": "TransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A comma-delimited list of CC email addresses to include on the ticket. These email addresses will be included on the correspondence",
+                          "key": "CcEmails",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/submit-ticket",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "submit-ticket"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TicketID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:56:37.000Z",
+                  "updatedAt": "2026-10-22T02:56:37.000Z",
+                  "uid": "35240-b407cdf3-4825-453e-be43-d34a0c47015b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:37.000Z",
+              "updatedAt": "2026-10-22T02:56:37.000Z",
+              "uid": "35240-89d25916-3903-4843-82f8-22017df41fa9"
+            }
+          ],
+          "id": "2a6eb22d-0519-4de6-bfd1-c79c6a58c6e3",
+          "createdAt": "2026-10-22T02:56:37.000Z",
+          "updatedAt": "2026-10-22T02:56:37.000Z",
+          "uid": "35240-2a6eb22d-0519-4de6-bfd1-c79c6a58c6e3"
+        },
+        {
+          "name": "submit-ticket-comment",
+          "item": [
+            {
+              "name": "account/submit-ticket-comment",
+              "id": "dc302f12-7b21-4523-9f2a-078e8368bf6d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The full name of the submitter of your ticket",
+                      "key": "TicketAuthor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Comment",
+                      "key": "TicketComment",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the ticket",
+                      "key": "TicketID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/submit-ticket-comment",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "submit-ticket-comment"
+                  ]
+                },
+                "description": "This endpoint is used to submit a comment on an existing support tickets via our API. Ticket comments represent the conversation between user and support team. Use the TicketID (obtained from /account/submit-ticket endpoint) to identify the ticket you want to attach the comment to"
+              },
+              "response": [
+                {
+                  "id": "d0858347-e704-4bd2-9685-2729da4875f7",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The full name of the submitter of your ticket",
+                          "key": "TicketAuthor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Comment",
+                          "key": "TicketComment",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the ticket",
+                          "key": "TicketID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/submit-ticket-comment",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "submit-ticket-comment"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:56:37.000Z",
+                  "updatedAt": "2026-10-22T02:56:37.000Z",
+                  "uid": "35240-d0858347-e704-4bd2-9685-2729da4875f7"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:37.000Z",
+              "updatedAt": "2026-10-22T02:56:37.000Z",
+              "uid": "35240-dc302f12-7b21-4523-9f2a-078e8368bf6d"
+            }
+          ],
+          "id": "55896037-2ac1-4f3e-939a-52288f00961d",
+          "createdAt": "2026-10-22T02:56:37.000Z",
+          "updatedAt": "2026-10-22T02:56:37.000Z",
+          "uid": "35240-55896037-2ac1-4f3e-939a-52288f00961d"
+        },
+        {
+          "name": "ticket-attachment",
+          "item": [
+            {
+              "name": "account/ticket-attachment",
+              "id": "34811d47-af32-4497-93b6-abffd19d9d62",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Base64 code of the attachment content",
+                      "key": "TicketAttachment",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the ticket",
+                      "key": "TicketID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the file being attached. It defaults to attachment if the name is not provided.",
+                      "key": "AttachmentFileName",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/ticket-attachment",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "ticket-attachment"
+                  ]
+                },
+                "description": "You can upload a file and attach it to an existing support tickets via our API. Use the TicketID (obtained from /account/submit-ticket endpoint) to identify the ticket you want to attach the file to. Here are some rules regarding the document requirements:\n\n* The maximum allowed file size is 10Mb\n\n* Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64\n\n*"
+              },
+              "response": [
+                {
+                  "id": "639c74eb-aed2-429c-a2fb-6e28a36383aa",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Base64 code of the attachment content",
+                          "key": "TicketAttachment",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the ticket",
+                          "key": "TicketID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The name of the file being attached. It defaults to attachment if the name is not provided.",
+                          "key": "AttachmentFileName",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/ticket-attachment",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "ticket-attachment"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:56:37.000Z",
+                  "updatedAt": "2026-10-22T02:56:37.000Z",
+                  "uid": "35240-639c74eb-aed2-429c-a2fb-6e28a36383aa"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:37.000Z",
+              "updatedAt": "2026-10-22T02:56:37.000Z",
+              "uid": "35240-34811d47-af32-4497-93b6-abffd19d9d62"
+            }
+          ],
+          "id": "9de686be-61b5-4b21-815c-cf3f89be587b",
+          "createdAt": "2026-10-22T02:56:37.000Z",
+          "updatedAt": "2026-10-22T02:56:37.000Z",
+          "uid": "35240-9de686be-61b5-4b21-815c-cf3f89be587b"
+        }
+      ],
+      "id": "1ec77d40-0473-4c19-87d6-7674719568ae",
+      "createdAt": "2026-10-22T02:56:37.000Z",
+      "updatedAt": "2026-10-22T02:56:37.000Z",
+      "uid": "35240-1ec77d40-0473-4c19-87d6-7674719568ae"
+    },
+    {
+      "name": "partner",
+      "item": [
+        {
+          "name": "tickets",
+          "item": [
+            {
+              "name": "partner/tickets",
+              "id": "e5ff1bee-6355-4a2b-b519-371a5a78244d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/partner/tickets?AccountID=<string>&Key=<string>&Signature=<string>&Email=<string>&Limit =<integer>&Offset =<integer>&StartDate=<string>&EndDate=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner",
+                    "tickets"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An email address",
+                      "key": "Email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned. The limit and default value is 100. This parameter can only be used with Email parameter.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset. This parameter can only be used with Email parameter.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                      "key": "StartDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                      "key": "EndDate",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to fetch a list of support tickets via our API. If no email address is passed in then it will fetch all tickets for the account. If an email address is passed in, it will fetch all tickets for the account that have been submitted, including CC'd, by that email."
+              },
+              "response": [
+                {
+                  "id": "447d68b8-6272-436b-9f18-7ca9db54bcff",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/tickets?AccountID=<string>&Key=<string>&Signature=<string>&Email=<string>&Limit =<integer>&Offset =<integer>&StartDate=<string>&EndDate=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "tickets"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An email address",
+                          "key": "Email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of records that are returned. The limit and default value is 100. This parameter can only be used with Email parameter.",
+                          "key": "Limit ",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Use this parameter to set the starting point in the dataset. This parameter can only be used with Email parameter.",
+                          "key": "Offset ",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                          "key": "StartDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                          "key": "EndDate",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Tickets\": {\n    \"0\": {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"status\": \"<string>\",\n      \"dateAdded\": \"<string>\",\n      \"lastUpdated\": \"<string>\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:56:37.000Z",
+                  "updatedAt": "2026-10-22T02:56:37.000Z",
+                  "uid": "35240-447d68b8-6272-436b-9f18-7ca9db54bcff"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:37.000Z",
+              "updatedAt": "2026-10-22T02:56:37.000Z",
+              "uid": "35240-e5ff1bee-6355-4a2b-b519-371a5a78244d"
+            }
+          ],
+          "id": "c1f3f2db-3f88-4e32-a29d-a568c3642f93",
+          "createdAt": "2026-10-22T02:56:37.000Z",
+          "updatedAt": "2026-10-22T02:56:37.000Z",
+          "uid": "35240-c1f3f2db-3f88-4e32-a29d-a568c3642f93"
+        },
+        {
+          "name": "submit-ticket",
+          "item": [
+            {
+              "name": "partner/submit-ticket",
+              "id": "bc2f9832-058b-47f1-aa8d-4f443d075de0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Your email address",
+                      "key": "SenderEmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The full name of the submitter of your ticket",
+                      "key": "TicketRequesterName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The subject of your ticket",
+                      "key": "TicketSubject",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The body of your ticket",
+                      "key": "TicketContent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The category of your ticket. Valid values are: Client Onboarding,Product Issues,Billing Issues,Feature Request,General Inquiry,Account Limits,General Feedback,Transaction Inquiry",
+                      "key": "TicketCategory",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the account that's impacted by this issue, if applicable.",
+                      "key": "AccountName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If the issue pertains to a specific transaction, you can use this input to provide the unique transaction ID",
+                      "key": "TransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A comma-delimited list of CC email addresses to include on the ticket. These email addresses will be included on the correspondence",
+                      "key": "CcEmails",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/partner/submit-ticket",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner",
+                    "submit-ticket"
+                  ]
+                },
+                "description": "This endpoint is used to submit support tickets via our API."
+              },
+              "response": [
+                {
+                  "id": "ec1981ca-83dc-4411-afef-1d83c54bc248",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Your email address",
+                          "key": "SenderEmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The full name of the submitter of your ticket",
+                          "key": "TicketRequesterName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The subject of your ticket",
+                          "key": "TicketSubject",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The body of your ticket",
+                          "key": "TicketContent",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The category of your ticket. Valid values are: Client Onboarding,Product Issues,Billing Issues,Feature Request,General Inquiry,Account Limits,General Feedback,Transaction Inquiry",
+                          "key": "TicketCategory",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The name of the account that's impacted by this issue, if applicable.",
+                          "key": "AccountName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "If the issue pertains to a specific transaction, you can use this input to provide the unique transaction ID",
+                          "key": "TransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A comma-delimited list of CC email addresses to include on the ticket. These email addresses will be included on the correspondence",
+                          "key": "CcEmails",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/submit-ticket",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "submit-ticket"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TicketID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:56:37.000Z",
+                  "updatedAt": "2026-10-22T02:56:37.000Z",
+                  "uid": "35240-ec1981ca-83dc-4411-afef-1d83c54bc248"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:37.000Z",
+              "updatedAt": "2026-10-22T02:56:37.000Z",
+              "uid": "35240-bc2f9832-058b-47f1-aa8d-4f443d075de0"
+            }
+          ],
+          "id": "0f58c04a-27f5-4a89-9b12-8160c47b8e6d",
+          "createdAt": "2026-10-22T02:56:37.000Z",
+          "updatedAt": "2026-10-22T02:56:37.000Z",
+          "uid": "35240-0f58c04a-27f5-4a89-9b12-8160c47b8e6d"
+        },
+        {
+          "name": "submit-ticket-comment",
+          "item": [
+            {
+              "name": "partner/submit-ticket-comment",
+              "id": "2223f885-a55e-4406-94a6-400c087ed72c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The full name of the submitter of your ticket",
+                      "key": "TicketAuthor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Comment",
+                      "key": "TicketComment",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the ticket",
+                      "key": "TicketID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/partner/submit-ticket-comment",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner",
+                    "submit-ticket-comment"
+                  ]
+                },
+                "description": "This endpoint is used to submit a comment on an existing support tickets via our API. Ticket comments represent the conversation between user and support team. Use the TicketID (obtained from /partner/submit-ticket endpoint) to identify the ticket you want to add the comment to."
+              },
+              "response": [
+                {
+                  "id": "34872b20-93a3-4445-94f7-4edd57622c55",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The full name of the submitter of your ticket",
+                          "key": "TicketAuthor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Comment",
+                          "key": "TicketComment",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the ticket",
+                          "key": "TicketID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/submit-ticket-comment",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "submit-ticket-comment"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:56:37.000Z",
+                  "updatedAt": "2026-10-22T02:56:37.000Z",
+                  "uid": "35240-34872b20-93a3-4445-94f7-4edd57622c55"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:37.000Z",
+              "updatedAt": "2026-10-22T02:56:37.000Z",
+              "uid": "35240-2223f885-a55e-4406-94a6-400c087ed72c"
+            }
+          ],
+          "id": "e8a7777b-4585-4285-836a-5d2deeddcdaf",
+          "createdAt": "2026-10-22T02:56:37.000Z",
+          "updatedAt": "2026-10-22T02:56:37.000Z",
+          "uid": "35240-e8a7777b-4585-4285-836a-5d2deeddcdaf"
+        },
+        {
+          "name": "ticket-attachment",
+          "item": [
+            {
+              "name": "partner/ticket-attachment",
+              "id": "54efd6e0-2eb3-4be0-95cc-f147e264c4ab",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Base64 code of the attachment content",
+                      "key": "TicketAttachment",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the ticket",
+                      "key": "TicketID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the file being attached. It defaults to attachment if the name is not provided.",
+                      "key": "AttachmentFileName",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/partner/ticket-attachment",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner",
+                    "ticket-attachment"
+                  ]
+                },
+                "description": "You can upload a file and attach it to an existing support tickets via our API. Use the TicketID (obtained from /partner/submit-ticket endpoint) to identify the ticket you want to attach the file to. Here are some rules regarding the document requirements:\n\n* The maximum allowed file size is 10Mb\n\n* Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64\n\n*"
+              },
+              "response": [
+                {
+                  "id": "42f7a310-64e2-42c2-bcaf-abe6587979ea",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Base64 code of the attachment content",
+                          "key": "TicketAttachment",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the ticket",
+                          "key": "TicketID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The name of the file being attached. It defaults to attachment if the name is not provided.",
+                          "key": "AttachmentFileName",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/ticket-attachment",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "ticket-attachment"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:56:37.000Z",
+                  "updatedAt": "2026-10-22T02:56:37.000Z",
+                  "uid": "35240-42f7a310-64e2-42c2-bcaf-abe6587979ea"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:37.000Z",
+              "updatedAt": "2026-10-22T02:56:37.000Z",
+              "uid": "35240-54efd6e0-2eb3-4be0-95cc-f147e264c4ab"
+            }
+          ],
+          "id": "f88411a4-b0eb-4953-864b-ba789c279573",
+          "createdAt": "2026-10-22T02:56:37.000Z",
+          "updatedAt": "2026-10-22T02:56:37.000Z",
+          "uid": "35240-f88411a4-b0eb-4953-864b-ba789c279573"
+        }
+      ],
+      "id": "6dd4bede-441f-4a1c-bc10-62a367d8fdaf",
+      "createdAt": "2026-10-22T02:56:37.000Z",
+      "updatedAt": "2026-10-22T02:56:37.000Z",
+      "uid": "35240-6dd4bede-441f-4a1c-bc10-62a367d8fdaf"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

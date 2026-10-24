@@ -1,0 +1,3500 @@
+{
+  "info": {
+    "_postman_id": "0fe0effe-2f79-4b39-96fc-c2058edba21c",
+    "name": "Accounts Account Endpoints API",
+    "description": "The Account API defines endpoints for managing VoPay accounts and sub-accounts. These endpoints allow partners to create and manage accounts, set permissions, handle transactions, schedule transfers, retrieve account information, and manage onboarding processes, ensuring secure and efficient account and transaction management.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:15.000Z",
+    "updatedAt": "2026-10-22T02:51:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0fe0effe-2f79-4b39-96fc-c2058edba21c"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "balance",
+          "item": [
+            {
+              "name": "account/balance",
+              "id": "ea852be8-af2c-4a5f-b2cf-b8aba1634ec3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/balance?AccountID=<string>&Key=<string>&Signature=<string>&Currency=<string>&AsOfDate=<date>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "balance"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A date in ISO 8601 format (yyyy-mm-dd) representing the date for which you want to retrieve the balance. If not provided, the current balance will be returned.",
+                      "key": "AsOfDate",
+                      "value": "<date>"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns details on your current account balance and available funds."
+              },
+              "response": [
+                {
+                  "id": "bf356556-80a9-4f16-8749-06998e6339d1",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/balance?AccountID=<string>&Key=<string>&Signature=<string>&Currency=<string>&AsOfDate=<date>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "balance"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A date in ISO 8601 format (yyyy-mm-dd) representing the date for which you want to retrieve the balance. If not provided, the current balance will be returned.",
+                          "key": "AsOfDate",
+                          "value": "<date>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"AccountBalance\": \"<number>\",\n  \"PendingFunds\": \"<number>\",\n  \"Reserve\": \"<number>\",\n  \"AvailableImmediately\": \"<number>\",\n  \"AvailableFunds\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"AsOfDate\": \"<date>\",\n  \"RollingReserveNSF\": \"<number>\",\n  \"RollingReserveReturns\": \"<number>\",\n  \"RollupAvailableBalance\": \"<string>\",\n  \"RollupAccountBalance\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-bf356556-80a9-4f16-8749-06998e6339d1"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-ea852be8-af2c-4a5f-b2cf-b8aba1634ec3"
+            }
+          ],
+          "id": "8e89c755-d6e1-4750-b0ad-5a28d0889ee5",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-8e89c755-d6e1-4750-b0ad-5a28d0889ee5"
+        },
+        {
+          "name": "balances",
+          "item": [
+            {
+              "name": "account/balances",
+              "id": "27887744-e3a6-473f-aec6-d1af4695bf0e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/balances?AccountID=<string>&Key=<string>&Signature=<string>&AsOfDate=<date>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "balances"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A date in ISO 8601 format (yyyy-mm-dd) representing the date for which you want to retrieve the balances. If not provided, the current balances will be returned.",
+                      "key": "AsOfDate",
+                      "value": "<date>"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns details on your current account balances and available funds for all currencies associated with your account. Unlike /account/balance which returns a single currency, this endpoint returns an array of balances for each currency your account has records for."
+              },
+              "response": [
+                {
+                  "id": "e4f300b5-30c4-46df-bcb1-2f91f3349f54",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/balances?AccountID=<string>&Key=<string>&Signature=<string>&AsOfDate=<date>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "balances"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A date in ISO 8601 format (yyyy-mm-dd) representing the date for which you want to retrieve the balances. If not provided, the current balances will be returned.",
+                          "key": "AsOfDate",
+                          "value": "<date>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"AccountBalances\": {\n    \"0\": {\n      \"AccountBalance\": \"<string>\",\n      \"PendingFunds\": \"<string>\",\n      \"SecurityDeposit\": \"<string>\",\n      \"Reserve\": \"<string>\",\n      \"AvailableImmediately\": \"<string>\",\n      \"AvailableFunds\": \"<string>\",\n      \"OffbookBalance\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"AsOfDate\": \"<date>\",\n      \"VirtualAccountNumber\": \"<string>\",\n      \"RollingReserveNSF\": \"<string>\",\n      \"RollingReserveReturns\": \"<string>\",\n      \"RollupAvailableBalance\": \"<string>\",\n      \"RollupAccountBalance\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-e4f300b5-30c4-46df-bcb1-2f91f3349f54"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-27887744-e3a6-473f-aec6-d1af4695bf0e"
+            }
+          ],
+          "id": "58c4055b-e049-49c7-8dd0-aa2a7896b58f",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-58c4055b-e049-49c7-8dd0-aa2a7896b58f"
+        },
+        {
+          "name": "fund-my-account",
+          "item": [
+            {
+              "name": "schedule",
+              "item": [
+                {
+                  "name": "account/fund-my-account/schedule",
+                  "id": "2c427649-f589-4e72-b21a-fea71b80744a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to schedule in the transactions",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) The frequency of the scheduled transaction: single or recurring.",
+                          "key": "Frequency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: weekly, biweekly, semi-monthly, monthly, bimonthly, 3 months, 6 months, yearly.",
+                          "key": "NameOfFrequency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date from which the schedule will be started",
+                          "key": "ScheduleStartDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date when the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                          "key": "ScheduleEndDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Number of payments after which the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                          "key": "EndingAfterPayments",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) Description of the schedule transaction",
+                          "key": "Description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                          "key": "SemiMonthlyFrequencyType",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/fund-my-account/schedule",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "fund-my-account",
+                        "schedule"
+                      ]
+                    },
+                    "description": "This endpoint will create a scheduled transaction to fund your VoPay account by debiting your default bank account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "d5180bc9-19a2-437c-9eda-d0cb362baee3",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to schedule in the transactions",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) The frequency of the scheduled transaction: single or recurring.",
+                              "key": "Frequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: weekly, biweekly, semi-monthly, monthly, bimonthly, 3 months, 6 months, yearly.",
+                              "key": "NameOfFrequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date from which the schedule will be started",
+                              "key": "ScheduleStartDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date when the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "ScheduleEndDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Number of payments after which the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "EndingAfterPayments",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) Description of the schedule transaction",
+                              "key": "Description",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                              "key": "SemiMonthlyFrequencyType",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transaction.",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                              "key": "IdempotencyKey",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/fund-my-account/schedule",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "fund-my-account",
+                            "schedule"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Amount\": \"<number>\",\n  \"ScheduledTransactionID\": \"<integer>\",\n  \"Frequency\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ScheduleStartDate\": \"<date>\",\n  \"Status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:16.000Z",
+                      "updatedAt": "2026-10-22T02:51:16.000Z",
+                      "uid": "35240-d5180bc9-19a2-437c-9eda-d0cb362baee3"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-2c427649-f589-4e72-b21a-fea71b80744a"
+                }
+              ],
+              "id": "8d1a30f3-23c3-45ba-89b9-388e09e36398",
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-8d1a30f3-23c3-45ba-89b9-388e09e36398"
+            },
+            {
+              "name": "account/fund-my-account",
+              "id": "38069be9-54c2-4316-bda5-ddb67ac99990",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount to debit from your bank account.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the transactions",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transactions.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/fund-my-account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "fund-my-account"
+                  ]
+                },
+                "description": "This endpoint will fund your VoPay account by debiting your default bank account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+              },
+              "response": [
+                {
+                  "id": "97bd4fc3-98f4-4f3d-ac1d-b5d4d6388327",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to debit from your bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transactions",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transactions.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/fund-my-account",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "fund-my-account"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-97bd4fc3-98f4-4f3d-ac1d-b5d4d6388327"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-38069be9-54c2-4316-bda5-ddb67ac99990"
+            }
+          ],
+          "id": "6ff681a2-dcfe-4898-8af7-50fbee252cf2",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-6ff681a2-dcfe-4898-8af7-50fbee252cf2"
+        },
+        {
+          "name": "withdraw-my-account",
+          "item": [
+            {
+              "name": "schedule",
+              "item": [
+                {
+                  "name": "account/withdraw-my-account/schedule",
+                  "id": "37df7cfa-a34b-4906-998b-c5fc1dc305a5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to schedule in the transactions",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) The frequency of the scheduled transaction: single or recurring.",
+                          "key": "Frequency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: weekly, biweekly, semi-monthly, monthly, bimonthly, 3 months, 6 months, yearly.",
+                          "key": "NameOfFrequency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date from which the schedule will be started",
+                          "key": "ScheduleStartDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date when the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                          "key": "ScheduleEndDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Number of payments after which the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                          "key": "EndingAfterPayments",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) Description of the schedule transaction",
+                          "key": "Description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                          "key": "SemiMonthlyFrequencyType",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/withdraw-my-account/schedule",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "withdraw-my-account",
+                        "schedule"
+                      ]
+                    },
+                    "description": "This endpoint will create a scheduled transaction to credit your default bank account by withdarwing funds from your VoPay account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "e6121ae2-8e2e-478e-8a84-b6928af35e5c",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to schedule in the transactions",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) The frequency of the scheduled transaction: single or recurring.",
+                              "key": "Frequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: weekly, biweekly, semi-monthly, monthly, bimonthly, 3 months, 6 months, yearly.",
+                              "key": "NameOfFrequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date from which the schedule will be started",
+                              "key": "ScheduleStartDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date when the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "ScheduleEndDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Number of payments after which the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "EndingAfterPayments",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) Description of the schedule transaction",
+                              "key": "Description",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                              "key": "SemiMonthlyFrequencyType",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transaction.",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                              "key": "IdempotencyKey",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/withdraw-my-account/schedule",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "withdraw-my-account",
+                            "schedule"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Amount\": \"<number>\",\n  \"ScheduledTransactionID\": \"<integer>\",\n  \"Frequency\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ScheduleStartDate\": \"<date>\",\n  \"Status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:16.000Z",
+                      "updatedAt": "2026-10-22T02:51:16.000Z",
+                      "uid": "35240-e6121ae2-8e2e-478e-8a84-b6928af35e5c"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-37df7cfa-a34b-4906-998b-c5fc1dc305a5"
+                }
+              ],
+              "id": "c3ba0bad-79ba-43cf-90cd-069a14058c81",
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-c3ba0bad-79ba-43cf-90cd-069a14058c81"
+            },
+            {
+              "name": "account/withdraw-my-account",
+              "id": "ffb59d6e-7d3a-473d-a5c7-6b25e9d34cc6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount to credit to your bank account.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the transactions",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transactions.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/withdraw-my-account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "withdraw-my-account"
+                  ]
+                },
+                "description": "This endpoint will credit your default bank account by withdarwing funds from your VoPay account.\n\nTo set a default bank account, please use the /bank-account/set-my-bank-account endpoint."
+              },
+              "response": [
+                {
+                  "id": "55df904a-57af-4ea3-9731-105a95530f65",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to credit to your bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transactions",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transactions.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/withdraw-my-account",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "withdraw-my-account"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-55df904a-57af-4ea3-9731-105a95530f65"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-ffb59d6e-7d3a-473d-a5c7-6b25e9d34cc6"
+            }
+          ],
+          "id": "374f4105-0f84-4764-835b-bff798fdded3",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-374f4105-0f84-4764-835b-bff798fdded3"
+        },
+        {
+          "name": "transactions",
+          "item": [
+            {
+              "name": "codes",
+              "item": [
+                {
+                  "name": "account/transactions/codes",
+                  "id": "05675793-cc33-4533-ac9d-56dc67484089",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/transactions/codes?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "transactions",
+                        "codes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint returns a list all of transaction codes that can be assigned to transactions."
+                  },
+                  "response": [
+                    {
+                      "id": "f91fcdfb-2e96-4b09-9241-03f303db2e49",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/transactions/codes?AccountID=<string>&Key=<string>&Signature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "transactions",
+                            "codes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionCodes\": {\n    \"0\": {\n      \"TransactionTypeCode\": \"<integer>\",\n      \"Category\": \"<string>\",\n      \"Description\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:16.000Z",
+                      "updatedAt": "2026-10-22T02:51:16.000Z",
+                      "uid": "35240-f91fcdfb-2e96-4b09-9241-03f303db2e49"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-05675793-cc33-4533-ac9d-56dc67484089"
+                }
+              ],
+              "id": "f46708d2-c3b1-4a8b-93a8-076e974a93a2",
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-f46708d2-c3b1-4a8b-93a8-076e974a93a2"
+            },
+            {
+              "name": "gl-codes",
+              "item": [
+                {
+                  "name": "account/transactions/gl-codes",
+                  "id": "a9d652d6-ee7d-4b66-bfbc-b59758e247e0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/transactions/gl-codes?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "transactions",
+                        "gl-codes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint returns a list all of your GL codes that can be assigned to transactions. Note, you must connect your accounting software to your account in order to use this endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "147a1999-2817-4fbd-a9aa-e2940680ddfd",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/transactions/gl-codes?AccountID=<string>&Key=<string>&Signature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "transactions",
+                            "gl-codes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"GLCodes\": {\n    \"0\": {\n      \"GLCode\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Section\": \"<string>\",\n      \"SubSection\": \"<string>\",\n      \"AccountGroup\": \"<string>\",\n      \"SubGroup\": \"<string>\",\n      \"Classification\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:16.000Z",
+                      "updatedAt": "2026-10-22T02:51:16.000Z",
+                      "uid": "35240-147a1999-2817-4fbd-a9aa-e2940680ddfd"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-a9d652d6-ee7d-4b66-bfbc-b59758e247e0"
+                }
+              ],
+              "id": "e1fb956a-4efb-4952-87c3-0ec7df2db399",
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-e1fb956a-4efb-4952-87c3-0ec7df2db399"
+            },
+            {
+              "name": "recent",
+              "item": [
+                {
+                  "name": "account/transactions/recent",
+                  "id": "90fb98b1-778f-429e-a388-f6a9dd2d5957",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/transactions/recent?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&ClientAccountID=<string>&ContactID=<string>&Limit=<integer>&Offset=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "transactions",
+                        "recent"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                          "key": "StartDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                          "key": "EndDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) Filter transactions by Client account ID. This is required if client account is enabled. Use ContactID instead if client account is not enabled.",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Filter transactions by Contact ID. This is required if client account is not enabled. Use ClientAccountID instead if client account is enabled.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of records that are returned. Use the off-set parameter to set the starting point in the data-set. Default limit is 1,000 and maximum limit is 10,000.",
+                          "key": "Limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Use this parameter to set the starting point in the dataset.",
+                          "key": "Offset",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint returns a list of recent transactions for a specific contact or client account."
+                  },
+                  "response": [
+                    {
+                      "id": "08301b11-868a-4b28-8bd3-db61fa15aa3b",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/transactions/recent?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&ClientAccountID=<string>&ContactID=<string>&Limit=<integer>&Offset=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "transactions",
+                            "recent"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                              "key": "StartDateTime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                              "key": "EndDateTime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) Filter transactions by Client account ID. This is required if client account is enabled. Use ContactID instead if client account is not enabled.",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Filter transactions by Contact ID. This is required if client account is not enabled. Use ClientAccountID instead if client account is enabled.",
+                              "key": "ContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Limit the number of records that are returned. Use the off-set parameter to set the starting point in the data-set. Default limit is 1,000 and maximum limit is 10,000.",
+                              "key": "Limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Use this parameter to set the starting point in the dataset.",
+                              "key": "Offset",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NumberOfRecords\": \"<integer>\",\n  \"Transactions\": {\n    \"0\": {\n      \"TransactionID\": \"<integer>\",\n      \"TransactionDateTime\": \"<dateTime>\",\n      \"TransactionType\": \"<string>\",\n      \"TransactionStatus\": \"<string>\",\n      \"Amount\": \"<number>\",\n      \"Currency\": \"<string>\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:16.000Z",
+                      "updatedAt": "2026-10-22T02:51:16.000Z",
+                      "uid": "35240-08301b11-868a-4b28-8bd3-db61fa15aa3b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-90fb98b1-778f-429e-a388-f6a9dd2d5957"
+                }
+              ],
+              "id": "d09d429b-7def-42a6-9b86-9eb92d2165a0",
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-d09d429b-7def-42a6-9b86-9eb92d2165a0"
+            },
+            {
+              "name": "account/transactions",
+              "id": "44fecd84-1e6b-4384-b797-9aea32d90021",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/transactions?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&SettlementDate=<date>&ClientAccountID=<string>&ContactID=<string>&Currency=<string>&TransactionType=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>&ScheduledTransactionID=<string>&WalletID=<string>&IsFlagged=<boolean>&IsRefunded=<boolean>&TransactionStatus=<string>&IncludeSubaccountTransactions=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                      "key": "StartDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                      "key": "EndDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Return transactions that settled on this date. YYYY-MM-DD format.",
+                      "key": "SettlementDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter transactions by Client account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter transactions by Contact ID",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'.",
+                      "key": "TransactionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.",
+                      "key": "TransactionID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Searches for transactions with the specified client reference number.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the schedule transaction to search",
+                      "key": "ScheduledTransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the wallet that the transactions should belong to",
+                      "key": "WalletID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.",
+                      "key": "IsFlagged",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter the list of transactions to only include transactions that have been refunded.",
+                      "key": "IsRefunded",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter the list of transactions by transaction status (ex. 'pending').",
+                      "key": "TransactionStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Fetch transactions for subaccounts as well.",
+                      "key": "IncludeSubaccountTransactions",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a list all of the transactions which affect the account balance. This endpoint only returns basic information on the transactions. More detailed information on individual transactions is available from other API endpoints."
+              },
+              "response": [
+                {
+                  "id": "cce9ce4d-4a87-47eb-aaba-13040046201d",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/transactions?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&SettlementDate=<date>&ClientAccountID=<string>&ContactID=<string>&Currency=<string>&TransactionType=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>&ScheduledTransactionID=<string>&WalletID=<string>&IsFlagged=<boolean>&IsRefunded=<boolean>&TransactionStatus=<string>&IncludeSubaccountTransactions=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                          "key": "StartDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                          "key": "EndDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Return transactions that settled on this date. YYYY-MM-DD format.",
+                          "key": "SettlementDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Filter transactions by Client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter transactions by Contact ID",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'.",
+                          "key": "TransactionType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Searches for transactions with the specified client reference number.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the schedule transaction to search",
+                          "key": "ScheduledTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the wallet that the transactions should belong to",
+                          "key": "WalletID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.",
+                          "key": "IsFlagged",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter the list of transactions to only include transactions that have been refunded.",
+                          "key": "IsRefunded",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter the list of transactions by transaction status (ex. 'pending').",
+                          "key": "TransactionStatus",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Fetch transactions for subaccounts as well.",
+                          "key": "IncludeSubaccountTransactions",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NumberOfRecords\": \"<integer>\",\n  \"Transactions\": {\n    \"0\": {\n      \"TransactionID\": \"<integer>\",\n      \"AccountName\": \"<string>\",\n      \"TransactionDateTime\": \"<dateTime>\",\n      \"SettlementDate\": \"<dateTime>\",\n      \"TransactionType\": \"<string>\",\n      \"TransactionStatus\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"DebitAmount\": \"<number>\",\n      \"CreditAmount\": \"<number>\",\n      \"Currency\": \"<string>\",\n      \"HoldAmount\": \"<number>\",\n      \"LastModified\": \"<dateTime>\",\n      \"ParentTransactionID\": \"<string>\",\n      \"ChildTransactionIDs\": \"<integer>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"ScheduledTransactionID\": \"<integer>\",\n      \"WalletID\": \"<string>\",\n      \"ClientAccountID\": \"<string>\",\n      \"TransactionErrorCode\": \"<string>\",\n      \"TransactionFailureReason\": \"<string>\",\n      \"TransactionFlag\": \"<string>\",\n      \"ELinxRequestID\": \"<integer>\",\n      \"IsRefunded\": \"<boolean>\",\n      \"FullName\": \"<string>\",\n      \"GLCode\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-cce9ce4d-4a87-47eb-aaba-13040046201d"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-44fecd84-1e6b-4384-b797-9aea32d90021"
+            }
+          ],
+          "id": "ecbcc71b-a375-4d2b-bc30-d5ad8c798e33",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-ecbcc71b-a375-4d2b-bc30-d5ad8c798e33"
+        },
+        {
+          "name": "remaining-limit",
+          "item": [
+            {
+              "name": "account/remaining-limit",
+              "id": "fbc972cd-444b-4a8b-a3bd-3db9b781e3b3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/remaining-limit?AccountID=<string>&Key=<string>&Signature=<string>&Date=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "remaining-limit"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A future date (in Y-m-d format) to check the remaining limits for. If not specified, the current date will be used.",
+                      "key": "Date",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns the remaining daily, weekly and monthly transaction limits for your VoPay account. If not limits are currently set for your VoPay account, N/A will be returned for each."
+              },
+              "response": [
+                {
+                  "id": "f1b7db20-1f7e-4f40-a731-b16717094119",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/remaining-limit?AccountID=<string>&Key=<string>&Signature=<string>&Date=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "remaining-limit"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A future date (in Y-m-d format) to check the remaining limits for. If not specified, the current date will be used.",
+                          "key": "Date",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Date\": \"<string,null>\",\n  \"Inbound\": {\n    \"Limits\": {\n      \"Daily\": \"<string>\",\n      \"Weekly\": \"<string>\",\n      \"Monthly\": \"<string>\"\n    },\n    \"RemainingLimits\": {\n      \"Daily\": \"<string>\",\n      \"Weekly\": \"<string>\",\n      \"Monthly\": \"<string>\"\n    }\n  },\n  \"Outbound\": {\n    \"Limits\": {\n      \"Daily\": \"<string>\",\n      \"Weekly\": \"<string>\",\n      \"Monthly\": \"<string>\"\n    },\n    \"RemainingLimits\": {\n      \"Daily\": \"<string>\",\n      \"Weekly\": \"<string>\",\n      \"Monthly\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-f1b7db20-1f7e-4f40-a731-b16717094119"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-fbc972cd-444b-4a8b-a3bd-3db9b781e3b3"
+            }
+          ],
+          "id": "2f29428c-7b8d-4125-959d-0defa61944ad",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-2f29428c-7b8d-4125-959d-0defa61944ad"
+        },
+        {
+          "name": "transfer-to",
+          "item": [
+            {
+              "name": "account/transfer-to",
+              "id": "843bf2ed-f95c-455c-a41f-c0a1e15ca128",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The transfer amount.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) Account ID of the account for which you want to transfer funds to.",
+                      "key": "RecipientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of the client account transferring the funds",
+                      "key": "DebitorClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of the client account receiving the funds",
+                      "key": "RecipientClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency (generally CAD).",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the transfer",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The parent transaction where the transfer-to will be linked to, can become a split payment with multiple transfers. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                      "key": "ParentTransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/transfer-to",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "transfer-to"
+                  ]
+                },
+                "description": "This endpoint allows you to transfer funds between VoPay accounts and/or Client accounts."
+              },
+              "response": [
+                {
+                  "id": "965c8c35-24a5-48e4-a948-339023fbb7ba",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The transfer amount.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) Account ID of the account for which you want to transfer funds to.",
+                          "key": "RecipientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ID of the client account transferring the funds",
+                          "key": "DebitorClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ID of the client account receiving the funds",
+                          "key": "RecipientClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency (generally CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transfer",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The parent transaction where the transfer-to will be linked to, can become a split payment with multiple transfers. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                          "key": "ParentTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/transfer-to",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "transfer-to"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-965c8c35-24a5-48e4-a948-339023fbb7ba"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-843bf2ed-f95c-455c-a41f-c0a1e15ca128"
+            }
+          ],
+          "id": "7d370e00-ad62-4185-a0c5-4721b053cb31",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-7d370e00-ad62-4185-a0c5-4721b053cb31"
+        },
+        {
+          "name": "transfer-from",
+          "item": [
+            {
+              "name": "account/transfer-from",
+              "id": "8d642868-996b-410b-b19f-85e77868f687",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The transfer amount.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) Account ID of the account for which you want to transfer funds from. The account you wish to transfer funds from must be a sub account of your account or from another sub account with a shared parent account.",
+                      "key": "DebitorAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of the client account transferring the funds",
+                      "key": "DebitorClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of the client account receiving the funds",
+                      "key": "RecipientClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency (generally CAD).",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the transfer",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/transfer-from",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "transfer-from"
+                  ]
+                },
+                "description": "This endpoint allows you to transfer funds from a pre-authorized VoPay account to your VoPay or client account."
+              },
+              "response": [
+                {
+                  "id": "fba17403-efcd-4d93-bca9-9fc15f25bba4",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The transfer amount.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) Account ID of the account for which you want to transfer funds from. The account you wish to transfer funds from must be a sub account of your account or from another sub account with a shared parent account.",
+                          "key": "DebitorAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ID of the client account transferring the funds",
+                          "key": "DebitorClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ID of the client account receiving the funds",
+                          "key": "RecipientClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency (generally CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transfer",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/transfer-from",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "transfer-from"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-fba17403-efcd-4d93-bca9-9fc15f25bba4"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-8d642868-996b-410b-b19f-85e77868f687"
+            }
+          ],
+          "id": "ced41477-c381-4f51-b72d-010702805f6f",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-ced41477-c381-4f51-b72d-010702805f6f"
+        },
+        {
+          "name": "auto-balance-transfer",
+          "item": [
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "account/auto-balance-transfer/cancel",
+                  "id": "142e65b2-ca68-448f-b548-8d5d044fa8ba",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/auto-balance-transfer/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "auto-balance-transfer",
+                        "cancel"
+                      ]
+                    },
+                    "description": "This endpoint allows you to cancel an auto balance transfer.\n\nThis option requires special permissions."
+                  },
+                  "response": [
+                    {
+                      "id": "42a492b5-8905-45dd-9bbf-20e44c1a733b",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/auto-balance-transfer/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "auto-balance-transfer",
+                            "cancel"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:16.000Z",
+                      "updatedAt": "2026-10-22T02:51:16.000Z",
+                      "uid": "35240-42a492b5-8905-45dd-9bbf-20e44c1a733b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-142e65b2-ca68-448f-b548-8d5d044fa8ba"
+                }
+              ],
+              "id": "feed9807-8701-4ed0-87aa-fc29d8358c6a",
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-feed9807-8701-4ed0-87aa-fc29d8358c6a"
+            },
+            {
+              "name": "report",
+              "item": [
+                {
+                  "name": "account/auto-balance-transfer/report",
+                  "id": "57f09ae2-9053-402d-b9df-e95282bbc2fc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/auto-balance-transfer/report?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "auto-balance-transfer",
+                        "report"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Transaction ID of the auto-balance transfer transaction",
+                          "key": "TransactionID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint returns the list of transactions associated with an auto balance transfer.\n\nThe sum of all debits/credits should match the amount on the auto-balance transfer."
+                  },
+                  "response": [
+                    {
+                      "id": "ce1c7d19-f858-489f-ab65-51543a323f20",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/auto-balance-transfer/report?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "auto-balance-transfer",
+                            "report"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Transaction ID of the auto-balance transfer transaction",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Transactions\": {\n    \"0\": {\n      \"TransactionID\": \"<integer>\",\n      \"TransactionType\": \"<string>\",\n      \"TransactionDate\": \"<dateTime>\",\n      \"CreditAmount\": \"<number>\",\n      \"DebitAmount\": \"<number>\",\n      \"FullName\": \"<string>\",\n      \"ReferenceNo\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:16.000Z",
+                      "updatedAt": "2026-10-22T02:51:16.000Z",
+                      "uid": "35240-ce1c7d19-f858-489f-ab65-51543a323f20"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-57f09ae2-9053-402d-b9df-e95282bbc2fc"
+                }
+              ],
+              "id": "75cb09fd-8e74-4210-b073-3608e0d03fae",
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-75cb09fd-8e74-4210-b073-3608e0d03fae"
+            },
+            {
+              "name": "account/auto-balance-transfer",
+              "id": "8555a4a9-d321-4987-a5be-d655fcced23c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Date from which the schedule will be started",
+                      "key": "ScheduleStartDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Type of frequency that you which to receive the deposit, the posibles values are: daily, weekly, biweekly, monthly",
+                      "key": "TypeOfFrequency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The minumum amount to have in your VoPay account to initiate this scheduled transfer, if not provided, the default amount will be 0.01.",
+                      "key": "AutoBalanceTransferAmount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The currency of the funds you want to trasnfer to your bank account. If not currency is provdied, your VoPay account's default currency will be used.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/auto-balance-transfer",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "auto-balance-transfer"
+                  ]
+                },
+                "description": "This endpoint allows you to set up an auto-balance transfer from your VoPay account to your default operational bank account. The frequency available to set the auto-transfer can be daily, weekly, bi-weekly or monthly.\n\nThis option requires special permission."
+              },
+              "response": [
+                {
+                  "id": "4e6c5597-fa04-4458-bb97-223776ac1d86",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date from which the schedule will be started",
+                          "key": "ScheduleStartDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Type of frequency that you which to receive the deposit, the posibles values are: daily, weekly, biweekly, monthly",
+                          "key": "TypeOfFrequency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The minumum amount to have in your VoPay account to initiate this scheduled transfer, if not provided, the default amount will be 0.01.",
+                          "key": "AutoBalanceTransferAmount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The currency of the funds you want to trasnfer to your bank account. If not currency is provdied, your VoPay account's default currency will be used.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/auto-balance-transfer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "auto-balance-transfer"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-4e6c5597-fa04-4458-bb97-223776ac1d86"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-8555a4a9-d321-4987-a5be-d655fcced23c"
+            },
+            {
+              "name": "account/auto-balance-transfer",
+              "id": "b643e023-c923-4baf-a55a-0947f158622e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/auto-balance-transfer?AccountID=<string>&Key=<string>&Signature=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "auto-balance-transfer"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to retrieve the information of your auto balance transfer.\n\nThis option requires special permissions."
+              },
+              "response": [
+                {
+                  "id": "8601b25d-a322-4a10-972f-3fa28f33d3a7",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/auto-balance-transfer?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "auto-balance-transfer"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ScheduleStartDate\": \"<date>\",\n  \"Description\": \"<string>\",\n  \"NameOfFrequency\": \"<string>\",\n  \"AutoBalanceTransferAmount\": \"<number>\",\n  \"Status\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"AccountHolderName\": \"<string>\",\n  \"AccountNumber\": \"<string>\",\n  \"FinancialInstitutionNumber\": \"<string>\",\n  \"BranchTransitNumber\": \"<string>\",\n  \"ABARoutingNumber\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-8601b25d-a322-4a10-972f-3fa28f33d3a7"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-b643e023-c923-4baf-a55a-0947f158622e"
+            }
+          ],
+          "id": "62287ac3-0306-4cdc-8f35-12f83b091b8a",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-62287ac3-0306-4cdc-8f35-12f83b091b8a"
+        },
+        {
+          "name": "auto-balance-transfer-list",
+          "item": [
+            {
+              "name": "account/auto-balance-transfer-list",
+              "id": "4f957407-2524-4fe7-8650-b7ddc9f5863b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/auto-balance-transfer-list?AccountID=<string>&Key=<string>&Signature=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "auto-balance-transfer-list"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to retrieve a list of all your auto balance transfers.\n\nThis option requires special permissions."
+              },
+              "response": [
+                {
+                  "id": "b0e52a15-2745-4009-ac2a-215525b7250d",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/auto-balance-transfer-list?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "auto-balance-transfer-list"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Wallets\": {\n    \"0\": {\n      \"AutoBalanceTransferID\": \"<integer>\",\n      \"ScheduleStartDate\": \"<date>\",\n      \"Description\": \"<string>\",\n      \"NameOfFrequency\": \"<string>\",\n      \"AutoBalanceTransferAmount\": \"<number>\",\n      \"Status\": \"<string>\",\n      \"Currency\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-b0e52a15-2745-4009-ac2a-215525b7250d"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-4f957407-2524-4fe7-8650-b7ddc9f5863b"
+            }
+          ],
+          "id": "6e6869c3-6951-4744-8fa9-6cfd4092a623",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-6e6869c3-6951-4744-8fa9-6cfd4092a623"
+        },
+        {
+          "name": "authorized-ips",
+          "item": [
+            {
+              "name": "account/authorized-ips",
+              "id": "54709a95-13af-4a0c-8ee0-cd1c70199132",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) A comma delimited list of valid IP addresses. Use a wildcard (*) to indicate that all IP addresses are authorized.",
+                      "key": "AuthorizedIPs",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/authorized-ips",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "authorized-ips"
+                  ]
+                },
+                "description": "This endpoint allows an account's authorized IP addresses to be updated. As updating the authorized IP addresses will overwrite the existing list, GET the list prior to issuing a POST if you wish to append a value."
+              },
+              "response": [
+                {
+                  "id": "93e2faf4-8f06-4f7c-8321-18f6529bcf24",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) A comma delimited list of valid IP addresses. Use a wildcard (*) to indicate that all IP addresses are authorized.",
+                          "key": "AuthorizedIPs",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/authorized-ips",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "authorized-ips"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"AuthorizedIPs\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-93e2faf4-8f06-4f7c-8321-18f6529bcf24"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-54709a95-13af-4a0c-8ee0-cd1c70199132"
+            },
+            {
+              "name": "account/authorized-ips",
+              "id": "bc37804d-10f7-4dcd-8e2a-5ba7194c3aaf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/authorized-ips?AccountID=<string>&Key=<string>&Signature=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "authorized-ips"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint retrieves an account's authorized IP addresses."
+              },
+              "response": [
+                {
+                  "id": "ce13970c-87b4-445b-a841-a2e9cf68e7cf",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/authorized-ips?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "authorized-ips"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"AuthorizedIPs\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-ce13970c-87b4-445b-a841-a2e9cf68e7cf"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-bc37804d-10f7-4dcd-8e2a-5ba7194c3aaf"
+            }
+          ],
+          "id": "c995d1c8-1b78-4552-8262-6467856b277a",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-c995d1c8-1b78-4552-8262-6467856b277a"
+        },
+        {
+          "name": "set-default-payment-method",
+          "item": [
+            {
+              "name": "account/set-default-payment-method",
+              "id": "3a80b633-5054-4ab0-a6b2-3130bb7a55ed",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Your choice of default payment method. Acepted values are: vopay (to deduct fees from your VoPay account) and bank (to deduct fees from your default bank account).",
+                      "key": "PaymentMethod",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/set-default-payment-method",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "set-default-payment-method"
+                  ]
+                },
+                "description": "This endpoint allows you to set your account's default payment method. This payment method will be used when collecting money for you monthly invoice. The default payment method is your VoPay account."
+              },
+              "response": [
+                {
+                  "id": "e051dc3b-aea3-444c-a6de-8080437a963f",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Your choice of default payment method. Acepted values are: vopay (to deduct fees from your VoPay account) and bank (to deduct fees from your default bank account).",
+                          "key": "PaymentMethod",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/set-default-payment-method",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "set-default-payment-method"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-e051dc3b-aea3-444c-a6de-8080437a963f"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-3a80b633-5054-4ab0-a6b2-3130bb7a55ed"
+            }
+          ],
+          "id": "ba07f420-47ef-4f21-8cf0-06bc25046793",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-ba07f420-47ef-4f21-8cf0-06bc25046793"
+        },
+        {
+          "name": "transaction",
+          "item": [
+            {
+              "name": "history",
+              "item": [
+                {
+                  "name": "account/transaction/history",
+                  "id": "6a2e0c6f-5256-4b79-85ad-bc3867edc5b0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique ID for the transaction",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/transaction/history?Timezone =<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "transaction",
+                        "history"
+                      ],
+                      "query": [
+                        {
+                          "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.",
+                          "key": "Timezone ",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves the history for a specific transaction."
+                  },
+                  "response": [
+                    {
+                      "id": "154ad2bc-887d-4086-9619-c59ba51ed808",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The unique ID for the transaction",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/transaction/history?Timezone =<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "transaction",
+                            "history"
+                          ],
+                          "query": [
+                            {
+                              "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.",
+                              "key": "Timezone ",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionHistory\": {\n    \"0\": {\n      \"Status\": \"<string>\",\n      \"DateAdded\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:16.000Z",
+                      "updatedAt": "2026-10-22T02:51:16.000Z",
+                      "uid": "35240-154ad2bc-887d-4086-9619-c59ba51ed808"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:16.000Z",
+                  "updatedAt": "2026-10-22T02:51:16.000Z",
+                  "uid": "35240-6a2e0c6f-5256-4b79-85ad-bc3867edc5b0"
+                }
+              ],
+              "id": "2ba89ec5-fe6b-4268-9224-ecbea63e1aeb",
+              "createdAt": "2026-10-22T02:51:16.000Z",
+              "updatedAt": "2026-10-22T02:51:16.000Z",
+              "uid": "35240-2ba89ec5-fe6b-4268-9224-ecbea63e1aeb"
+            }
+          ],
+          "id": "4c708643-e301-4b48-aa9a-b658706eaf42",
+          "createdAt": "2026-10-22T02:51:16.000Z",
+          "updatedAt": "2026-10-22T02:51:16.000Z",
+          "uid": "35240-4c708643-e301-4b48-aa9a-b658706eaf42"
+        }
+      ],
+      "id": "6efc164c-3676-4b60-9093-af5941deb322",
+      "createdAt": "2026-10-22T02:51:16.000Z",
+      "updatedAt": "2026-10-22T02:51:16.000Z",
+      "uid": "35240-6efc164c-3676-4b60-9093-af5941deb322"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

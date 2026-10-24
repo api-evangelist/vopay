@@ -1,0 +1,1325 @@
+{
+  "info": {
+    "_postman_id": "87d7bd9b-d369-492d-bd46-ca5da040688c",
+    "name": "Account Onboarding Endpoints API",
+    "description": "The Account Onboarding endpoints are used to onboard new VoPay accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:23.000Z",
+    "updatedAt": "2026-10-22T02:51:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-87d7bd9b-d369-492d-bd46-ca5da040688c"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "submit-extended-info",
+          "item": [
+            {
+              "name": "shareholder-info",
+              "item": [
+                {
+                  "name": "add",
+                  "item": [
+                    {
+                      "name": "account/submit-extended-info/shareholder-info/add",
+                      "id": "e78fdc5a-98d5-44b4-a318-3e51cfe2bddb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder First name and last name",
+                              "key": "ShareholderFullName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Percentage of ownership only if is greater than 20%",
+                              "key": "ShareholderOwnership",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's occupation",
+                              "key": "ShareholderOccupation",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's address line 1",
+                              "key": "ShareholderAddress1",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's city",
+                              "key": "ShareholderCity",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's province specified using two character abbreviations (eg. BC, AB)",
+                              "key": "ShareholderProvince",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                              "key": "ShareholderCountry",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's postal code",
+                              "key": "ShareholderPostalCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Shareholder's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                              "key": "ShareholderDOB",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Shareholder's address line 2",
+                              "key": "ShareholderAddress2",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/submit-extended-info/shareholder-info/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "submit-extended-info",
+                            "shareholder-info",
+                            "add"
+                          ]
+                        },
+                        "description": "This endpoint is used to insert the shareholder information for a newly created VoPay account."
+                      },
+                      "response": [
+                        {
+                          "id": "8e7c4abc-ed40-4e86-a4d1-716165e8fe23",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder First name and last name",
+                                  "key": "ShareholderFullName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Percentage of ownership only if is greater than 20%",
+                                  "key": "ShareholderOwnership",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's occupation",
+                                  "key": "ShareholderOccupation",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's address line 1",
+                                  "key": "ShareholderAddress1",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's city",
+                                  "key": "ShareholderCity",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's province specified using two character abbreviations (eg. BC, AB)",
+                                  "key": "ShareholderProvince",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                                  "key": "ShareholderCountry",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's postal code",
+                                  "key": "ShareholderPostalCode",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Shareholder's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                                  "key": "ShareholderDOB",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Shareholder's address line 2",
+                                  "key": "ShareholderAddress2",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/submit-extended-info/shareholder-info/add",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "submit-extended-info",
+                                "shareholder-info",
+                                "add"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:51:23.000Z",
+                          "updatedAt": "2026-10-22T02:51:23.000Z",
+                          "uid": "35240-8e7c4abc-ed40-4e86-a4d1-716165e8fe23"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:51:23.000Z",
+                      "updatedAt": "2026-10-22T02:51:23.000Z",
+                      "uid": "35240-e78fdc5a-98d5-44b4-a318-3e51cfe2bddb"
+                    }
+                  ],
+                  "id": "05bc5b3f-d915-46d8-bb1d-a6f7f4ff3482",
+                  "createdAt": "2026-10-22T02:51:23.000Z",
+                  "updatedAt": "2026-10-22T02:51:23.000Z",
+                  "uid": "35240-05bc5b3f-d915-46d8-bb1d-a6f7f4ff3482"
+                },
+                {
+                  "name": "edit",
+                  "item": [
+                    {
+                      "name": "account/submit-extended-info/shareholder-info/edit",
+                      "id": "ee8feb46-a9e4-4a38-89dd-2a7ee8ba0e94",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Unique ID of your shareholder",
+                              "key": "ShareHolderID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder First name and last name",
+                              "key": "ShareholderFullName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                              "key": "ShareholderDOB",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Percentage of ownership only if is greater than 20%",
+                              "key": "ShareholderOwnership",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's occupation",
+                              "key": "ShareholderOccupation",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's address line 1",
+                              "key": "ShareholderAddress1",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's city",
+                              "key": "ShareholderCity",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's province specified using two character abbreviations (eg. BC, AB)",
+                              "key": "ShareholderProvince",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                              "key": "ShareholderCountry",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Shareholder's postal code",
+                              "key": "ShareholderPostalCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Shareholder's address line 2",
+                              "key": "ShareholderAddress2",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/submit-extended-info/shareholder-info/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "submit-extended-info",
+                            "shareholder-info",
+                            "edit"
+                          ]
+                        },
+                        "description": "This endpoint is used to edit an existing shareholder linked to your VoPay account. You will need to provide the Shareholder ID, which you can get from the GET /account/shareholder-info endpoint"
+                      },
+                      "response": [
+                        {
+                          "id": "25270f0b-2c58-49df-877f-016e956fce78",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Unique ID of your shareholder",
+                                  "key": "ShareHolderID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder First name and last name",
+                                  "key": "ShareholderFullName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                                  "key": "ShareholderDOB",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Percentage of ownership only if is greater than 20%",
+                                  "key": "ShareholderOwnership",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's occupation",
+                                  "key": "ShareholderOccupation",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's address line 1",
+                                  "key": "ShareholderAddress1",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's city",
+                                  "key": "ShareholderCity",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's province specified using two character abbreviations (eg. BC, AB)",
+                                  "key": "ShareholderProvince",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                                  "key": "ShareholderCountry",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Shareholder's postal code",
+                                  "key": "ShareholderPostalCode",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Shareholder's address line 2",
+                                  "key": "ShareholderAddress2",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/submit-extended-info/shareholder-info/edit",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "submit-extended-info",
+                                "shareholder-info",
+                                "edit"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:51:23.000Z",
+                          "updatedAt": "2026-10-22T02:51:23.000Z",
+                          "uid": "35240-25270f0b-2c58-49df-877f-016e956fce78"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:51:23.000Z",
+                      "updatedAt": "2026-10-22T02:51:23.000Z",
+                      "uid": "35240-ee8feb46-a9e4-4a38-89dd-2a7ee8ba0e94"
+                    }
+                  ],
+                  "id": "f795cdb1-94f5-4052-a6c0-a0b27aeab175",
+                  "createdAt": "2026-10-22T02:51:23.000Z",
+                  "updatedAt": "2026-10-22T02:51:23.000Z",
+                  "uid": "35240-f795cdb1-94f5-4052-a6c0-a0b27aeab175"
+                },
+                {
+                  "name": "account/submit-extended-info/shareholder-info",
+                  "id": "d166c615-760b-4720-865d-a7848e2f2e6a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/submit-extended-info/shareholder-info?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "submit-extended-info",
+                        "shareholder-info"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint will return a full list of all shareholder information."
+                  },
+                  "response": [
+                    {
+                      "id": "5b1f70a3-3b1f-4220-84f7-4b720cb34490",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/submit-extended-info/shareholder-info?AccountID=<string>&Key=<string>&Signature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "submit-extended-info",
+                            "shareholder-info"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"AccountName\": \"<string>\",\n  \"ShareHolders\": {\n    \"0\": {\n      \"FullName\": \"<string>\",\n      \"Ownership\": \"<string>\",\n      \"Occupation\": \"<string>\",\n      \"HomeAddress\": \"<string>\",\n      \"DateAdded\": \"<date>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:23.000Z",
+                      "updatedAt": "2026-10-22T02:51:23.000Z",
+                      "uid": "35240-5b1f70a3-3b1f-4220-84f7-4b720cb34490"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:23.000Z",
+                  "updatedAt": "2026-10-22T02:51:23.000Z",
+                  "uid": "35240-d166c615-760b-4720-865d-a7848e2f2e6a"
+                }
+              ],
+              "id": "f143894f-bb41-41c9-974f-98d49433e8b8",
+              "createdAt": "2026-10-22T02:51:23.000Z",
+              "updatedAt": "2026-10-22T02:51:23.000Z",
+              "uid": "35240-f143894f-bb41-41c9-974f-98d49433e8b8"
+            },
+            {
+              "name": "signing-authority-info",
+              "item": [
+                {
+                  "name": "add",
+                  "item": [
+                    {
+                      "name": "account/submit-extended-info/signing-authority-info/add",
+                      "id": "cdf4ff4c-f2ac-4b2c-abd7-f253641ed33a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Authorized Authority's First name and last name",
+                              "key": "AuthorizedFullLegalName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Authorized Authority's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                              "key": "AuthorizedDOB",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Authorized Authority's occupation",
+                              "key": "AuthorizedOccupation",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Authorized Authority's email address",
+                              "key": "AuthorizedEmailAddress",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Authorized Authority's address line 1",
+                              "key": "AuthorizedAddress1",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Authorized Authority's city",
+                              "key": "AuthorizedCity",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Authorized Authority's province specified using two character abbreviations (eg. BC, AB)",
+                              "key": "AuthorizedProvince",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Authorized Authority's country specified using full country name or ISO 3166-1 alpha-2 code",
+                              "key": "AuthorizedCountry",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Authorized Authority's postal code",
+                              "key": "AuthorizedPostalCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Authorized Authority's address line 2",
+                              "key": "AuthorizedAddress2",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/submit-extended-info/signing-authority-info/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "submit-extended-info",
+                            "signing-authority-info",
+                            "add"
+                          ]
+                        },
+                        "description": "This endpoint is used to insert the signing authority information for a newly created VoPay account."
+                      },
+                      "response": [
+                        {
+                          "id": "eb16ae30-1471-494e-8282-61267bea492b",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Authorized Authority's First name and last name",
+                                  "key": "AuthorizedFullLegalName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Authorized Authority's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                                  "key": "AuthorizedDOB",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Authorized Authority's occupation",
+                                  "key": "AuthorizedOccupation",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Authorized Authority's email address",
+                                  "key": "AuthorizedEmailAddress",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Authorized Authority's address line 1",
+                                  "key": "AuthorizedAddress1",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Authorized Authority's city",
+                                  "key": "AuthorizedCity",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Authorized Authority's province specified using two character abbreviations (eg. BC, AB)",
+                                  "key": "AuthorizedProvince",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Authorized Authority's country specified using full country name or ISO 3166-1 alpha-2 code",
+                                  "key": "AuthorizedCountry",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Authorized Authority's postal code",
+                                  "key": "AuthorizedPostalCode",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Authorized Authority's address line 2",
+                                  "key": "AuthorizedAddress2",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/submit-extended-info/signing-authority-info/add",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "submit-extended-info",
+                                "signing-authority-info",
+                                "add"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:51:23.000Z",
+                          "updatedAt": "2026-10-22T02:51:23.000Z",
+                          "uid": "35240-eb16ae30-1471-494e-8282-61267bea492b"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:51:23.000Z",
+                      "updatedAt": "2026-10-22T02:51:23.000Z",
+                      "uid": "35240-cdf4ff4c-f2ac-4b2c-abd7-f253641ed33a"
+                    }
+                  ],
+                  "id": "109515d2-9acf-490e-90c4-ba90f436259f",
+                  "createdAt": "2026-10-22T02:51:23.000Z",
+                  "updatedAt": "2026-10-22T02:51:23.000Z",
+                  "uid": "35240-109515d2-9acf-490e-90c4-ba90f436259f"
+                },
+                {
+                  "name": "edit",
+                  "item": [
+                    {
+                      "name": "account/submit-extended-info/signing-authority-info/edit",
+                      "id": "5c75448e-aec9-4e12-af97-463a1900481e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Unique ID of your Signing authority",
+                              "key": "SigningAuthorityID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Authorized Authority's city",
+                              "key": "AuthorizedCity",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Authorized Authority's First name and last name",
+                              "key": "AuthorizedFullLegalName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Authorized Authority's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                              "key": "AuthorizedDOB",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Authorized Authority's occupation",
+                              "key": "AuthorizedOccupation",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Authorized Authority's email address",
+                              "key": "AuthorizedEmailAddress",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Authorized Authority's address line 1",
+                              "key": "AuthorizedAddress1",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Authorized Authority's address line 2",
+                              "key": "AuthorizedAddress2",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Authorized Authority's province specified using two character abbreviations (eg. BC, AB)",
+                              "key": "AuthorizedProvince",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Authorized Authority's country specified using full country name or ISO 3166-1 alpha-2 code",
+                              "key": "AuthorizedCountry",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Authorized Authority's postal code",
+                              "key": "AuthorizedPostalCode",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/submit-extended-info/signing-authority-info/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "submit-extended-info",
+                            "signing-authority-info",
+                            "edit"
+                          ]
+                        },
+                        "description": "This endpoint is used to edit an existing signing authority linked to your VoPay account. You will need to provide the Signing Authority ID, which you can get from the GET /account/signing-authority-info endpoint"
+                      },
+                      "response": [
+                        {
+                          "id": "aee894d3-f5df-4ff6-8bb0-f01bbce56db5",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Unique ID of your Signing authority",
+                                  "key": "SigningAuthorityID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Authorized Authority's city",
+                                  "key": "AuthorizedCity",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Authorized Authority's First name and last name",
+                                  "key": "AuthorizedFullLegalName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Authorized Authority's date of birth, in date format YYYY-MM-DD. For example: 1960-01-15",
+                                  "key": "AuthorizedDOB",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Authorized Authority's occupation",
+                                  "key": "AuthorizedOccupation",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Authorized Authority's email address",
+                                  "key": "AuthorizedEmailAddress",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Authorized Authority's address line 1",
+                                  "key": "AuthorizedAddress1",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Authorized Authority's address line 2",
+                                  "key": "AuthorizedAddress2",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Authorized Authority's province specified using two character abbreviations (eg. BC, AB)",
+                                  "key": "AuthorizedProvince",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Authorized Authority's country specified using full country name or ISO 3166-1 alpha-2 code",
+                                  "key": "AuthorizedCountry",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Authorized Authority's postal code",
+                                  "key": "AuthorizedPostalCode",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/submit-extended-info/signing-authority-info/edit",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "submit-extended-info",
+                                "signing-authority-info",
+                                "edit"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:51:23.000Z",
+                          "updatedAt": "2026-10-22T02:51:23.000Z",
+                          "uid": "35240-aee894d3-f5df-4ff6-8bb0-f01bbce56db5"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:51:23.000Z",
+                      "updatedAt": "2026-10-22T02:51:23.000Z",
+                      "uid": "35240-5c75448e-aec9-4e12-af97-463a1900481e"
+                    }
+                  ],
+                  "id": "d5038485-7199-4891-a387-2ff0b52cd516",
+                  "createdAt": "2026-10-22T02:51:23.000Z",
+                  "updatedAt": "2026-10-22T02:51:23.000Z",
+                  "uid": "35240-d5038485-7199-4891-a387-2ff0b52cd516"
+                },
+                {
+                  "name": "account/submit-extended-info/signing-authority-info",
+                  "id": "e9b71915-9566-487d-8e77-af756ed60c0d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/submit-extended-info/signing-authority-info?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "submit-extended-info",
+                        "signing-authority-info"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint will return a full list of all signing-authority information."
+                  },
+                  "response": [
+                    {
+                      "id": "d8a52f3b-ff5b-4d69-a3e2-b7902a548a20",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/submit-extended-info/signing-authority-info?AccountID=<string>&Key=<string>&Signature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "submit-extended-info",
+                            "signing-authority-info"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"AccountName\": \"<string>\",\n  \"SigningAuthority\": {\n    \"0\": {\n      \"FullName\": \"<string>\",\n      \"Occupation\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"HomeAddress\": \"<string>\",\n      \"DateAdded\": \"<date>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:23.000Z",
+                      "updatedAt": "2026-10-22T02:51:23.000Z",
+                      "uid": "35240-d8a52f3b-ff5b-4d69-a3e2-b7902a548a20"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:23.000Z",
+                  "updatedAt": "2026-10-22T02:51:23.000Z",
+                  "uid": "35240-e9b71915-9566-487d-8e77-af756ed60c0d"
+                }
+              ],
+              "id": "f50a5cdd-5650-4d4f-9cab-510b5ffdb573",
+              "createdAt": "2026-10-22T02:51:23.000Z",
+              "updatedAt": "2026-10-22T02:51:23.000Z",
+              "uid": "35240-f50a5cdd-5650-4d4f-9cab-510b5ffdb573"
+            }
+          ],
+          "id": "341e602f-a4e7-43a3-86dc-f6545945d61b",
+          "createdAt": "2026-10-22T02:51:23.000Z",
+          "updatedAt": "2026-10-22T02:51:23.000Z",
+          "uid": "35240-341e602f-a4e7-43a3-86dc-f6545945d61b"
+        },
+        {
+          "name": "business-types",
+          "item": [
+            {
+              "name": "account/business-types",
+              "id": "84b20d4b-6f6e-4158-a735-92c191e9b87c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/business-types?AccountID=<string>&Key=<string>&Signature=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "business-types"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint can be used to return a list of industries and categories under which a company can be classified. The response will be an array of industry types nested within an array of sub categories."
+              },
+              "response": [
+                {
+                  "id": "045d1734-e234-448e-8d6a-9b83b8b6692b",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/business-types?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "business-types"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BusinessTypes\": {\n    \"0\": {\n      \"BusinessTypeID\": \"<integer>\",\n      \"Industry\": \"<string>\",\n      \"Categories\": {\n        \"0\": {\n          \"BusinessTypeCategoryID\": \"<integer>\",\n          \"Category\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:51:23.000Z",
+                  "updatedAt": "2026-10-22T02:51:23.000Z",
+                  "uid": "35240-045d1734-e234-448e-8d6a-9b83b8b6692b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:23.000Z",
+              "updatedAt": "2026-10-22T02:51:23.000Z",
+              "uid": "35240-84b20d4b-6f6e-4158-a735-92c191e9b87c"
+            }
+          ],
+          "id": "975c02ab-eea6-48c8-bdb2-dfdf9779a855",
+          "createdAt": "2026-10-22T02:51:23.000Z",
+          "updatedAt": "2026-10-22T02:51:23.000Z",
+          "uid": "35240-975c02ab-eea6-48c8-bdb2-dfdf9779a855"
+        }
+      ],
+      "id": "0e06e7ae-67e9-4f73-9f55-0197f4bb1c3e",
+      "createdAt": "2026-10-22T02:51:23.000Z",
+      "updatedAt": "2026-10-22T02:51:23.000Z",
+      "uid": "35240-0e06e7ae-67e9-4f73-9f55-0197f4bb1c3e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

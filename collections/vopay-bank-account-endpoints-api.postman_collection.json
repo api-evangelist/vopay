@@ -1,0 +1,1182 @@
+{
+  "info": {
+    "_postman_id": "6ace3923-fd19-4ff0-a3cf-4d418b6da80e",
+    "name": "Payment Methods Bank Account Endpoints API",
+    "description": "The Payment Methods API allows you to manage your payment methods. You can add, delete, and set default payment methods.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:50.000Z",
+    "updatedAt": "2026-10-22T02:51:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6ace3923-fd19-4ff0-a3cf-4d418b6da80e"
+  },
+  "item": [
+    {
+      "name": "bank-account",
+      "item": [
+        {
+          "name": "generate-embed-url",
+          "item": [
+            {
+              "name": "bank-account/generate-embed-url",
+              "id": "b3adbf13-95af-48c5-883b-a6407b8760a4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) URL to redirect to after the customer logs in to their online banking account. The bank account token will be passed as a GET parameter, for example https://redirect.com/page?Token=1234",
+                      "key": "RedirectURL",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, the bank account submitted will be attached to the Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Name of the Company",
+                      "key": "CompanyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Language of iQ11 iFrame- en (English) or fr (French). Default value is en (English)",
+                      "key": "Language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                      "key": "RedirectMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter accepts any, online and manual as parameter values. Defaults to any.",
+                      "key": "AccountSelectionMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, the connected bank account will be linked to your VoPay account. Default is false.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the bank account.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used to add your own terms and conditions",
+                      "key": "TermsAndConditions",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter accepts country codes [CA, US]. Default is CA",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Request transaction history when connecting a bank account online. Default is false.",
+                      "key": "WithTransactions",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "This parameter will determine if we display a debit authority agreement to the end-user before the connect their payment method. You must request this feature to be enabled for your account. Default is true.",
+                      "key": "RequireDebitAuthorityAgreement",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bank-account/generate-embed-url",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank-account",
+                    "generate-embed-url"
+                  ]
+                },
+                "description": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from. For additional details on iQ11 and RedirectMethod, please visit our Iq11 Overview"
+              },
+              "response": [
+                {
+                  "id": "6d3fc858-5f3a-4fa7-b756-4bb4c0702d78",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) URL to redirect to after the customer logs in to their online banking account. The bank account token will be passed as a GET parameter, for example https://redirect.com/page?Token=1234",
+                          "key": "RedirectURL",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, the bank account submitted will be attached to the Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Name of the Company",
+                          "key": "CompanyName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Language of iQ11 iFrame- en (English) or fr (French). Default value is en (English)",
+                          "key": "Language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                          "key": "RedirectMethod",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts any, online and manual as parameter values. Defaults to any.",
+                          "key": "AccountSelectionMethod",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the connected bank account will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the bank account.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used to add your own terms and conditions",
+                          "key": "TermsAndConditions",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts country codes [CA, US]. Default is CA",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Request transaction history when connecting a bank account online. Default is false.",
+                          "key": "WithTransactions",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "This parameter will determine if we display a debit authority agreement to the end-user before the connect their payment method. You must request this feature to be enabled for your account. Default is true.",
+                          "key": "RequireDebitAuthorityAgreement",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank-account/generate-embed-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank-account",
+                        "generate-embed-url"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"EmbedURL\": \"<string>\",\n  \"IframeKey\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:51:50.000Z",
+                  "updatedAt": "2026-10-22T02:51:50.000Z",
+                  "uid": "35240-6d3fc858-5f3a-4fa7-b756-4bb4c0702d78"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:50.000Z",
+              "updatedAt": "2026-10-22T02:51:50.000Z",
+              "uid": "35240-b3adbf13-95af-48c5-883b-a6407b8760a4"
+            }
+          ],
+          "id": "ee51d466-7ce3-4c40-b8ec-65619bdf4059",
+          "createdAt": "2026-10-22T02:51:50.000Z",
+          "updatedAt": "2026-10-22T02:51:50.000Z",
+          "uid": "35240-ee51d466-7ce3-4c40-b8ec-65619bdf4059"
+        },
+        {
+          "name": "add",
+          "item": [
+            {
+              "name": "bank-account/add",
+              "id": "50e8f652-7aa4-4942-97f2-d5de8eff5013",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact ID.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "String that defines the account holder name.",
+                      "key": "AccountHolderName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's bank account number.",
+                      "key": "AccountNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Three digit institution number for a Canadian bank account.",
+                      "key": "FinancialInstitutionNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Five digit branch transit number for a Canadian bank account.",
+                      "key": "BranchTransitNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Nine digit ABA Routing number of a US bank account.",
+                      "key": "ABARoutingNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Flinks Account ID. Must be accompanied by a FlinksLoginID. VoPay will fetch the associated bank account details from Flinks.",
+                      "key": "FlinksAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated bank account details from Flinks.",
+                      "key": "FlinksLoginID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Plaid Processor Token. VoPay will fetch the associated bank account details from Plaid.",
+                      "key": "PlaidProcessorToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Mx Processor Token. VoPay will fetch the associated bank account details from Mx.",
+                      "key": "MxProcessorToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Three letter currency code.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "First line of the address. Ex: 123 Main St.",
+                      "key": "Address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "City",
+                      "key": "City",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "State",
+                      "key": "State",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Zip code",
+                      "key": "ZipCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Province",
+                      "key": "Province",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Postal code",
+                      "key": "PostalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Two letter country code.",
+                      "key": "Country",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bank-account/add",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank-account",
+                    "add"
+                  ]
+                },
+                "description": "This endpoint allows you to add a bank account to your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "4e873717-be22-4785-b252-86548e77fb38",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact ID.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "String that defines the account holder name.",
+                          "key": "AccountHolderName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's bank account number.",
+                          "key": "AccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Three digit institution number for a Canadian bank account.",
+                          "key": "FinancialInstitutionNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Five digit branch transit number for a Canadian bank account.",
+                          "key": "BranchTransitNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Nine digit ABA Routing number of a US bank account.",
+                          "key": "ABARoutingNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Flinks Account ID. Must be accompanied by a FlinksLoginID. VoPay will fetch the associated bank account details from Flinks.",
+                          "key": "FlinksAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated bank account details from Flinks.",
+                          "key": "FlinksLoginID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Plaid Processor Token. VoPay will fetch the associated bank account details from Plaid.",
+                          "key": "PlaidProcessorToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Mx Processor Token. VoPay will fetch the associated bank account details from Mx.",
+                          "key": "MxProcessorToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Three letter currency code.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "First line of the address. Ex: 123 Main St.",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "City",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "State",
+                          "key": "State",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Zip code",
+                          "key": "ZipCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Province",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Postal code",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Two letter country code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank-account/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank-account",
+                        "add"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:51:50.000Z",
+                  "updatedAt": "2026-10-22T02:51:50.000Z",
+                  "uid": "35240-4e873717-be22-4785-b252-86548e77fb38"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:50.000Z",
+              "updatedAt": "2026-10-22T02:51:50.000Z",
+              "uid": "35240-50e8f652-7aa4-4942-97f2-d5de8eff5013"
+            }
+          ],
+          "id": "23e1abcf-f3cb-496b-bb42-9d875137a3c1",
+          "createdAt": "2026-10-22T02:51:50.000Z",
+          "updatedAt": "2026-10-22T02:51:50.000Z",
+          "uid": "35240-23e1abcf-f3cb-496b-bb42-9d875137a3c1"
+        },
+        {
+          "name": "delete",
+          "item": [
+            {
+              "name": "bank-account/delete",
+              "id": "06575c10-64b9-42de-b710-5138999ec7f2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Bank account token",
+                      "key": "Token",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bank-account/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank-account",
+                    "delete"
+                  ]
+                },
+                "description": "This endpoint allows you to delete a bank account associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "e9a4fa74-0d91-43e7-b5b3-9b7a5686298e",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Bank account token",
+                          "key": "Token",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank-account/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank-account",
+                        "delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:51:50.000Z",
+                  "updatedAt": "2026-10-22T02:51:50.000Z",
+                  "uid": "35240-e9a4fa74-0d91-43e7-b5b3-9b7a5686298e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:50.000Z",
+              "updatedAt": "2026-10-22T02:51:50.000Z",
+              "uid": "35240-06575c10-64b9-42de-b710-5138999ec7f2"
+            }
+          ],
+          "id": "f2d781a8-03fc-4862-a2ad-77cad968d4c7",
+          "createdAt": "2026-10-22T02:51:50.000Z",
+          "updatedAt": "2026-10-22T02:51:50.000Z",
+          "uid": "35240-f2d781a8-03fc-4862-a2ad-77cad968d4c7"
+        },
+        {
+          "name": "set-my-bank-account",
+          "item": [
+            {
+              "name": "bank-account/set-my-bank-account",
+              "id": "3bcbb285-c832-4aed-a8af-1f0761be07a2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Bank account token",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Identify bank account as a default bank account",
+                      "key": "SetAsDefault",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Identify bank account purpose. Input can be a comma-delimited list. Valid values are: operational and billing. Default value is operational.",
+                      "key": "Purpose",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bank-account/set-my-bank-account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank-account",
+                    "set-my-bank-account"
+                  ]
+                },
+                "description": "This endpoint allows you to identify a bank account as belonging to the VoPay account holder.\n\nOptionally, you can use this endpoint to identify a bank account as being the VoPay account holder's default operational and/or billing bank account. The VoPay account holder's default operational bank account is used in the /account/fund-my-account and /account/withdraw-my-account endpoints. The VoPay account holder's default billing bank account is used to collect monthly invoices. Note, a VoPay account can only have one default operational and one default billing bank account per currency."
+              },
+              "response": [
+                {
+                  "id": "e687a834-4191-42ad-92ca-dbdcb12d2ec7",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Bank account token",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Identify bank account as a default bank account",
+                          "key": "SetAsDefault",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Identify bank account purpose. Input can be a comma-delimited list. Valid values are: operational and billing. Default value is operational.",
+                          "key": "Purpose",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank-account/set-my-bank-account",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank-account",
+                        "set-my-bank-account"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Token\": \"<string>\",\n  \"IsDefault\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:51:50.000Z",
+                  "updatedAt": "2026-10-22T02:51:50.000Z",
+                  "uid": "35240-e687a834-4191-42ad-92ca-dbdcb12d2ec7"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:50.000Z",
+              "updatedAt": "2026-10-22T02:51:50.000Z",
+              "uid": "35240-3bcbb285-c832-4aed-a8af-1f0761be07a2"
+            }
+          ],
+          "id": "e16457f3-5b3e-4ec5-a4da-2a53c91164d0",
+          "createdAt": "2026-10-22T02:51:50.000Z",
+          "updatedAt": "2026-10-22T02:51:50.000Z",
+          "uid": "35240-e16457f3-5b3e-4ec5-a4da-2a53c91164d0"
+        },
+        {
+          "name": "default-bank-account",
+          "item": [
+            {
+              "name": "bank-account/default-bank-account",
+              "id": "e6135c36-ba37-4b8b-bf65-4bfbc3f3cd09",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/bank-account/default-bank-account?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank-account",
+                    "default-bank-account"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will return the default bank account associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint retrieves the default bank account associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "2793fefe-046d-4804-87a4-f80552b4cc14",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/bank-account/default-bank-account?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank-account",
+                        "default-bank-account"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, this endpoint will return the default bank account associated with this Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DefaultOperationalBankAccount\": {\n    \"0\": {\n      \"AccountHolderName\": \"<string>\",\n      \"InstitutionName\": \"<string>\",\n      \"FinancialInstituionNumber\": \"<string>\",\n      \"BranchTransitNumber\": \"<string>\",\n      \"AccountNumber\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"Token\": \"<string>\",\n      \"FlinksAccountID\": \"<string>\",\n      \"FlinksLoginID\": \"<string>\",\n      \"PlaidAccountID\": \"<string>\",\n      \"InveriteRequestGUID\": \"<string>\",\n      \"ClientControlledBankAccount\": \"<boolean>\",\n      \"IsDefault\": \"<boolean>\",\n      \"ClientAccountID\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"Address\": \"<string>\",\n      \"City\": \"<string>\",\n      \"Province\": \"<string>\",\n      \"PostalCode\": \"<string>\",\n      \"DateAdded\": \"<date>\"\n    }\n  },\n  \"DefaultBillingBankAccount\": {\n    \"0\": {\n      \"AccountHolderName\": \"<string>\",\n      \"InstitutionName\": \"<string>\",\n      \"FinancialInstituionNumber\": \"<string>\",\n      \"BranchTransitNumber\": \"<string>\",\n      \"AccountNumber\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"Token\": \"<string>\",\n      \"FlinksAccountID\": \"<string>\",\n      \"FlinksLoginID\": \"<string>\",\n      \"PlaidAccountID\": \"<string>\",\n      \"InveriteRequestGUID\": \"<string>\",\n      \"ClientControlledBankAccount\": \"<boolean>\",\n      \"IsDefault\": \"<boolean>\",\n      \"ClientAccountID\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"Address\": \"<string>\",\n      \"City\": \"<string>\",\n      \"Province\": \"<string>\",\n      \"PostalCode\": \"<string>\",\n      \"DateAdded\": \"<date>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:51:50.000Z",
+                  "updatedAt": "2026-10-22T02:51:50.000Z",
+                  "uid": "35240-2793fefe-046d-4804-87a4-f80552b4cc14"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:50.000Z",
+              "updatedAt": "2026-10-22T02:51:50.000Z",
+              "uid": "35240-e6135c36-ba37-4b8b-bf65-4bfbc3f3cd09"
+            }
+          ],
+          "id": "03e6270c-a620-40f7-950e-175c687cea14",
+          "createdAt": "2026-10-22T02:51:50.000Z",
+          "updatedAt": "2026-10-22T02:51:50.000Z",
+          "uid": "35240-03e6270c-a620-40f7-950e-175c687cea14"
+        },
+        {
+          "name": "bank-account",
+          "id": "e08b5fe7-a1c5-488d-a727-141dd10830f0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/bank-account?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>&ClientAccountID=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>&SearchText=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "bank-account"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When provided, this endpoint will only return the bank account associated with this token",
+                  "key": "Token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When provided, this endpoint will only return bank accounts associated with this Client Account ID",
+                  "key": "ClientAccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When set to true, this endpoint will only return bank accounts linked to your VoPay account. When set to false, it will return a list of your customer's bank accounts.",
+                  "key": "ClientControlled",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Limit the number of records that are returned.",
+                  "key": "Limit ",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Use this parameter to set the starting point in the dataset.",
+                  "key": "Offset ",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "A text string to search for account holder name.",
+                  "key": "SearchText",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "This endpoint retrieves a list of bank accounts associated with your VoPay account"
+          },
+          "response": [
+            {
+              "id": "c053f495-689f-4aef-87f2-f161c9605280",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/bank-account?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>&ClientAccountID=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>&SearchText=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank-account"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will only return the bank account associated with this token",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will only return bank accounts associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, this endpoint will only return bank accounts linked to your VoPay account. When set to false, it will return a list of your customer's bank accounts.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A text string to search for account holder name.",
+                      "key": "SearchText",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BankAccounts\": {\n    \"0\": {\n      \"AccountHolderName\": \"<string>\",\n      \"InstitutionName\": \"<string>\",\n      \"FinancialInstituionNumber\": \"<string>\",\n      \"BranchTransitNumber\": \"<string>\",\n      \"AccountNumber\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"Token\": \"<string>\",\n      \"FlinksAccountID\": \"<string>\",\n      \"FlinksLoginID\": \"<string>\",\n      \"PlaidAccountID\": \"<string>\",\n      \"InveriteRequestGUID\": \"<string>\",\n      \"ClientControlledBankAccount\": \"<boolean>\",\n      \"IsDefault\": \"<boolean>\",\n      \"ClientAccountID\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"Address\": \"<string>\",\n      \"City\": \"<string>\",\n      \"Province\": \"<string>\",\n      \"PostalCode\": \"<string>\",\n      \"Verified\": \"<boolean>\",\n      \"ConnectionType\": \"<string>\",\n      \"DateAdded\": \"<date>\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:51:50.000Z",
+              "updatedAt": "2026-10-22T02:51:50.000Z",
+              "uid": "35240-c053f495-689f-4aef-87f2-f161c9605280"
+            }
+          ],
+          "createdAt": "2026-10-22T02:51:50.000Z",
+          "updatedAt": "2026-10-22T02:51:50.000Z",
+          "uid": "35240-e08b5fe7-a1c5-488d-a727-141dd10830f0"
+        }
+      ],
+      "id": "3f84eaf3-2e2d-40c9-9b01-09c2a1fccf18",
+      "createdAt": "2026-10-22T02:51:50.000Z",
+      "updatedAt": "2026-10-22T02:51:50.000Z",
+      "uid": "35240-3f84eaf3-2e2d-40c9-9b01-09c2a1fccf18"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

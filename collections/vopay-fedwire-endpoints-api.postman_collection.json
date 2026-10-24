@@ -1,0 +1,1257 @@
+{
+  "info": {
+    "_postman_id": "85a4dcf7-95b9-46e5-826a-c28fa8d7082d",
+    "name": "Payment Rails Fedwire Endpoints API",
+    "description": "The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:54:33.000Z",
+    "updatedAt": "2026-10-22T02:54:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-85a4dcf7-95b9-46e5-826a-c28fa8d7082d"
+  },
+  "item": [
+    {
+      "name": "fedwire",
+      "item": [
+        {
+          "name": "fund",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "fedwire/fund/transaction",
+                  "id": "200a03c7-6b45-4faa-9abd-636c5a76af74",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fedwire/fund/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fedwire",
+                        "fund",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique ID of the fund transaction",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up and return the full details on a single Fedwire fund transaction."
+                  },
+                  "response": [
+                    {
+                      "id": "6c8f5935-c5ec-4f14-abf7-58caf7c181f5",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fedwire/fund/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fedwire",
+                            "fund",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The unique ID of the fund transaction",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"HoldReleaseDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"HoldAmount\": \"<number>\",\n  \"LastModified\": \"<dateTime>\",\n  \"CompanyName*\": \"<string>\",\n  \"FirstName*\": \"<string>\",\n  \"LastName*\": \"<string>\",\n  \"Address1\": \"<string>\",\n  \"Address2\": \"<string>\",\n  \"City\": \"<string>\",\n  \"Province/State\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"PostalCode/Zipcode\": \"<string>\",\n  \"AccountNumber\": \"<string>\",\n  \"ABARoutingNumber\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"TransactionTypeCode\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:54:34.000Z",
+                      "updatedAt": "2026-10-22T02:54:34.000Z",
+                      "uid": "35240-6c8f5935-c5ec-4f14-abf7-58caf7c181f5"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:33.000Z",
+                  "updatedAt": "2026-10-22T02:54:33.000Z",
+                  "uid": "35240-200a03c7-6b45-4faa-9abd-636c5a76af74"
+                }
+              ],
+              "id": "449e8098-2c29-47e7-9e43-3bb411fd9326",
+              "createdAt": "2026-10-22T02:54:33.000Z",
+              "updatedAt": "2026-10-22T02:54:33.000Z",
+              "uid": "35240-449e8098-2c29-47e7-9e43-3bb411fd9326"
+            },
+            {
+              "name": "fedwire/fund",
+              "id": "e0dd1049-57f7-4709-bd21-48d69b9636eb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's first name",
+                      "key": "FirstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's last name",
+                      "key": "LastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Company's name",
+                      "key": "CompanyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's email address",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's phone number. Digits only - no parentheses or dashes allowed.",
+                      "key": "PhoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's address line 1",
+                      "key": "Address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's city",
+                      "key": "City",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's state specified using two character abbreviations (eg. CA, AZ)",
+                      "key": "State",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's zip code.",
+                      "key": "ZipCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ABA routing transit number for customer's US bank account.",
+                      "key": "ABARoutingNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) Customer's bank account number for funds to be debited from.",
+                      "key": "AccountNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) The amount to debit from the customer's bank account.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's address line 2",
+                      "key": "Address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's IP address.",
+                      "key": "IPAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the wallet to associate with the transaction. Requires ClientAccountID to be provided.",
+                      "key": "WalletID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/fedwire/fund",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fedwire",
+                    "fund"
+                  ]
+                },
+                "description": "This endpoint is used to fund your US Bank account by debiting funds from the specified customer's bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.\n\nIf a ClientAccountID is provided, the client account's first/last name, address, phone number, and default bank account will be used for the transaction."
+              },
+              "response": [
+                {
+                  "id": "7e299fed-4e20-4383-a998-73ad16e4f31e",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's first name",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's last name",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Company's name",
+                          "key": "CompanyName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's email address",
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's phone number. Digits only - no parentheses or dashes allowed.",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's address line 1",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's city",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's state specified using two character abbreviations (eg. CA, AZ)",
+                          "key": "State",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's zip code.",
+                          "key": "ZipCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ABA routing transit number for customer's US bank account.",
+                          "key": "ABARoutingNumber",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) Customer's bank account number for funds to be debited from.",
+                          "key": "AccountNumber",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) The amount to debit from the customer's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's address line 2",
+                          "key": "Address2",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's IP address.",
+                          "key": "IPAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the wallet to associate with the transaction. Requires ClientAccountID to be provided.",
+                          "key": "WalletID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fedwire/fund",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fedwire",
+                        "fund"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:54:34.000Z",
+                  "updatedAt": "2026-10-22T02:54:34.000Z",
+                  "uid": "35240-7e299fed-4e20-4383-a998-73ad16e4f31e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:33.000Z",
+              "updatedAt": "2026-10-22T02:54:33.000Z",
+              "uid": "35240-e0dd1049-57f7-4709-bd21-48d69b9636eb"
+            }
+          ],
+          "id": "83567279-c497-427b-9292-3ef33e54472c",
+          "createdAt": "2026-10-22T02:54:33.000Z",
+          "updatedAt": "2026-10-22T02:54:33.000Z",
+          "uid": "35240-83567279-c497-427b-9292-3ef33e54472c"
+        },
+        {
+          "name": "withdraw",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "fedwire/withdraw/transaction",
+                  "id": "1d3df093-82b1-4e33-9cab-8f627d50b074",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fedwire/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fedwire",
+                        "withdraw",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Unique ID of the withdraw transaction",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up details on a single Fedwire withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's bank account."
+                  },
+                  "response": [
+                    {
+                      "id": "c76e1dae-b6cc-4ab9-8e7f-bb40ec847717",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fedwire/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fedwire",
+                            "withdraw",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Unique ID of the withdraw transaction",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"HoldAmount\": \"<number>\",\n  \"LastModified\": \"<dateTime>\",\n  \"CompanyName*\": \"<string>\",\n  \"FirstName*\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"PhoneNumber\": \"<integer>\",\n  \"Address1\": \"<string>\",\n  \"Address2\": \"<string>\",\n  \"City\": \"<string>\",\n  \"Province/State\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"PostalCode/ZipCode\": \"<string>\",\n  \"AccountNumber\": \"<string>\",\n  \"ABARoutingNumber\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"TransactionTypeCode\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:54:34.000Z",
+                      "updatedAt": "2026-10-22T02:54:34.000Z",
+                      "uid": "35240-c76e1dae-b6cc-4ab9-8e7f-bb40ec847717"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:33.000Z",
+                  "updatedAt": "2026-10-22T02:54:33.000Z",
+                  "uid": "35240-1d3df093-82b1-4e33-9cab-8f627d50b074"
+                }
+              ],
+              "id": "068a899a-8245-4c05-acf3-6d1dccafde67",
+              "createdAt": "2026-10-22T02:54:33.000Z",
+              "updatedAt": "2026-10-22T02:54:33.000Z",
+              "uid": "35240-068a899a-8245-4c05-acf3-6d1dccafde67"
+            },
+            {
+              "name": "fedwire/withdraw",
+              "id": "e02fe2e7-5c86-4f96-9ab4-c8a6c8729249",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's first name",
+                      "key": "FirstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's last name",
+                      "key": "LastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Company's name",
+                      "key": "CompanyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's email address",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's phone number. Digits only - no parentheses or dashes allowed.",
+                      "key": "PhoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's address line 1",
+                      "key": "Address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's city",
+                      "key": "City",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's state specified using two character abbreviations (eg. CA, AZ)",
+                      "key": "State",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's zip code.",
+                      "key": "ZipCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ABA routing transit number for customer's US bank account.",
+                      "key": "ABARoutingNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) Account number for the customer's US bank account",
+                      "key": "AccountNumber",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) The amount to credit to the customer's bank account.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's address line 2",
+                      "key": "Address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's IP address.",
+                      "key": "IPAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                      "key": "ParentTransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/fedwire/withdraw",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fedwire",
+                    "withdraw"
+                  ]
+                },
+                "description": "This endpoint is used to send funds to a specified customer's US Bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.\n\nIf a ClientAccountID is provided, the client account's first/last name, address, phone number, and default bank account will be used for the transaction."
+              },
+              "response": [
+                {
+                  "id": "258cdec0-f88e-4e4f-8403-dad8cd71fe1c",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's first name",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's last name",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Company's name",
+                          "key": "CompanyName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's email address",
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's phone number. Digits only - no parentheses or dashes allowed.",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's address line 1",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's city",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's state specified using two character abbreviations (eg. CA, AZ)",
+                          "key": "State",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's zip code.",
+                          "key": "ZipCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ABA routing transit number for customer's US bank account.",
+                          "key": "ABARoutingNumber",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) Account number for the customer's US bank account",
+                          "key": "AccountNumber",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) The amount to credit to the customer's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's address line 2",
+                          "key": "Address2",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's IP address.",
+                          "key": "IPAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                          "key": "ParentTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fedwire/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fedwire",
+                        "withdraw"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:54:34.000Z",
+                  "updatedAt": "2026-10-22T02:54:34.000Z",
+                  "uid": "35240-258cdec0-f88e-4e4f-8403-dad8cd71fe1c"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:33.000Z",
+              "updatedAt": "2026-10-22T02:54:33.000Z",
+              "uid": "35240-e02fe2e7-5c86-4f96-9ab4-c8a6c8729249"
+            }
+          ],
+          "id": "2cb529cd-d66c-4bd3-bc88-bc5bb2bcf16f",
+          "createdAt": "2026-10-22T02:54:33.000Z",
+          "updatedAt": "2026-10-22T02:54:33.000Z",
+          "uid": "35240-2cb529cd-d66c-4bd3-bc88-bc5bb2bcf16f"
+        },
+        {
+          "name": "void",
+          "item": [
+            {
+              "name": "fedwire/void",
+              "id": "cb378d38-e801-429c-82df-7baae3ae6c9c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The unique ID for the transaction you want to void",
+                      "key": "TransactionID",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/fedwire/void",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fedwire",
+                    "void"
+                  ]
+                },
+                "description": "This method is used to void a previously created Fedwire transaction. Note, you can only void a transaction if it has not yet settled. If the transaction has already settled, then you can use the /fedwire/refund endpoint to reverse the transaction."
+              },
+              "response": [
+                {
+                  "id": "45d6e860-5c1f-46fa-af76-bdd842b8e75e",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique ID for the transaction you want to void",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fedwire/void",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fedwire",
+                        "void"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"Timestamp\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:34.000Z",
+                  "updatedAt": "2026-10-22T02:54:34.000Z",
+                  "uid": "35240-45d6e860-5c1f-46fa-af76-bdd842b8e75e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:33.000Z",
+              "updatedAt": "2026-10-22T02:54:33.000Z",
+              "uid": "35240-cb378d38-e801-429c-82df-7baae3ae6c9c"
+            }
+          ],
+          "id": "f26a33fe-9752-42f9-a180-fdff91f00c81",
+          "createdAt": "2026-10-22T02:54:33.000Z",
+          "updatedAt": "2026-10-22T02:54:33.000Z",
+          "uid": "35240-f26a33fe-9752-42f9-a180-fdff91f00c81"
+        },
+        {
+          "name": "refund",
+          "item": [
+            {
+              "name": "fedwire/refund",
+              "id": "355f5907-ff69-4a76-8834-ea2f2d3a6870",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The unique ID for the transaction you want to refund",
+                      "key": "TransactionID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The amount to refund. Value must be equal to or less than the original transaction amount. If no amount is provided, the full amount from the original transaction is used.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/fedwire/refund",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fedwire",
+                    "refund"
+                  ]
+                },
+                "description": "This method is used to refund a previously created Fedwire transaction."
+              },
+              "response": [
+                {
+                  "id": "754b393a-e405-4304-b7d9-8dd63fadb94c",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique ID for the transaction you want to refund",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The amount to refund. Value must be equal to or less than the original transaction amount. If no amount is provided, the full amount from the original transaction is used.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fedwire/refund",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fedwire",
+                        "refund"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"Timestamp\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:34.000Z",
+                  "updatedAt": "2026-10-22T02:54:34.000Z",
+                  "uid": "35240-754b393a-e405-4304-b7d9-8dd63fadb94c"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:33.000Z",
+              "updatedAt": "2026-10-22T02:54:33.000Z",
+              "uid": "35240-355f5907-ff69-4a76-8834-ea2f2d3a6870"
+            }
+          ],
+          "id": "5149a1d4-7f50-4342-8cf4-f9baf69ee9c0",
+          "createdAt": "2026-10-22T02:54:33.000Z",
+          "updatedAt": "2026-10-22T02:54:33.000Z",
+          "uid": "35240-5149a1d4-7f50-4342-8cf4-f9baf69ee9c0"
+        }
+      ],
+      "id": "d9384f68-4d4f-44e6-adcc-093beddfd0f2",
+      "createdAt": "2026-10-22T02:54:33.000Z",
+      "updatedAt": "2026-10-22T02:54:33.000Z",
+      "uid": "35240-d9384f68-4d4f-44e6-adcc-093beddfd0f2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

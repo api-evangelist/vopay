@@ -1,0 +1,910 @@
+{
+  "info": {
+    "_postman_id": "a2b26340-e28c-4552-bf36-14e3b56d0644",
+    "name": "Global Cash Management Delivery Method Endpoints API",
+    "description": "The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:53:50.000Z",
+    "updatedAt": "2026-10-22T02:53:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a2b26340-e28c-4552-bf36-14e3b56d0644"
+  },
+  "item": [
+    {
+      "name": "gcm",
+      "item": [
+        {
+          "name": "countries",
+          "item": [
+            {
+              "name": "gcm/countries",
+              "id": "68f021de-3fae-467a-bd9c-94e56b408dd2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/gcm/countries?AccountID=<string>&Key=<string>&Signature=<string>&UseCase=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "gcm",
+                    "countries"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Valid values are B2B, B2P, P2B, P2P",
+                      "key": "UseCase",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get a list of all the available countries for a specific use case that support cross border transactions."
+              },
+              "response": [
+                {
+                  "id": "a5def206-ab03-472e-89c3-12cab96b7645",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/countries?AccountID=<string>&Key=<string>&Signature=<string>&UseCase=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "countries"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Valid values are B2B, B2P, P2B, P2P",
+                          "key": "UseCase",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Countries\": {\n    \"0\": {\n      \"CorridorID\": \"<string>\",\n      \"Country\": \"<string>\",\n      \"DestinationCountryAbbreviation\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:53:51.000Z",
+                  "updatedAt": "2026-10-22T02:53:51.000Z",
+                  "uid": "35240-a5def206-ab03-472e-89c3-12cab96b7645"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:50.000Z",
+              "updatedAt": "2026-10-22T02:53:50.000Z",
+              "uid": "35240-68f021de-3fae-467a-bd9c-94e56b408dd2"
+            }
+          ],
+          "id": "cf17531c-1915-48a5-aa63-9809f0ddb5f8",
+          "createdAt": "2026-10-22T02:53:50.000Z",
+          "updatedAt": "2026-10-22T02:53:50.000Z",
+          "uid": "35240-cf17531c-1915-48a5-aa63-9809f0ddb5f8"
+        },
+        {
+          "name": "delivery-methods",
+          "item": [
+            {
+              "name": "add",
+              "item": [
+                {
+                  "name": "gcm/delivery-methods/add",
+                  "id": "9ad31be6-471b-4276-be20-2745017133fb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/delivery-methods/add?AccountID=<string>&Key=<string>&Signature=<string>&RecipientContactID=<string>&DeliveryChannelID=<string>&ClientAccountID=<string>&AccountType=<string>&BankAccountNumber=<string>&BankIdentifierCode=<string>&InternationalBankAccountNumber=<string>&EWalletID=<string>&ServiceProvider=<string>&TelephoneNumber=<string>&BankName=<string>&BankCode=<string>&BranchName=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "delivery-methods",
+                        "add"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The recipient contact ID",
+                          "key": "RecipientContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The delivery channel ID",
+                          "key": "DeliveryChannelID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The account type",
+                          "key": "AccountType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The bank account number",
+                          "key": "BankAccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The bank identifier code",
+                          "key": "BankIdentifierCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The international bank account number",
+                          "key": "InternationalBankAccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The e-wallet ID",
+                          "key": "EWalletID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The service provider",
+                          "key": "ServiceProvider",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The telephone number",
+                          "key": "TelephoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The bank name",
+                          "key": "BankName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The bank code",
+                          "key": "BankCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The branch name",
+                          "key": "BranchName",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Add a new delivery method for a certain recipient contact and corridor delivery method."
+                  },
+                  "response": [
+                    {
+                      "id": "f73db8be-2a05-4d9c-bd51-78b5e0a43db6",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/delivery-methods/add?AccountID=<string>&Key=<string>&Signature=<string>&RecipientContactID=<string>&DeliveryChannelID=<string>&ClientAccountID=<string>&AccountType=<string>&BankAccountNumber=<string>&BankIdentifierCode=<string>&InternationalBankAccountNumber=<string>&EWalletID=<string>&ServiceProvider=<string>&TelephoneNumber=<string>&BankName=<string>&BankCode=<string>&BranchName=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "delivery-methods",
+                            "add"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The recipient contact ID",
+                              "key": "RecipientContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The delivery channel ID",
+                              "key": "DeliveryChannelID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The client account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The account type",
+                              "key": "AccountType",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The bank account number",
+                              "key": "BankAccountNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The bank identifier code",
+                              "key": "BankIdentifierCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The international bank account number",
+                              "key": "InternationalBankAccountNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The e-wallet ID",
+                              "key": "EWalletID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The service provider",
+                              "key": "ServiceProvider",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The telephone number",
+                              "key": "TelephoneNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The bank name",
+                              "key": "BankName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The bank code",
+                              "key": "BankCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The branch name",
+                              "key": "BranchName",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DeliveryMethodToken\": \"<string>\",\n  \"RecipientContactID\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:53:51.000Z",
+                      "updatedAt": "2026-10-22T02:53:51.000Z",
+                      "uid": "35240-f73db8be-2a05-4d9c-bd51-78b5e0a43db6"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:50.000Z",
+                  "updatedAt": "2026-10-22T02:53:50.000Z",
+                  "uid": "35240-9ad31be6-471b-4276-be20-2745017133fb"
+                }
+              ],
+              "id": "c68aa348-077e-48dd-8f16-2318cc759d16",
+              "createdAt": "2026-10-22T02:53:50.000Z",
+              "updatedAt": "2026-10-22T02:53:50.000Z",
+              "uid": "35240-c68aa348-077e-48dd-8f16-2318cc759d16"
+            },
+            {
+              "name": "edit",
+              "item": [
+                {
+                  "name": "gcm/delivery-methods/edit",
+                  "id": "8dd271bc-6c67-4ca3-bd0a-cf66c5c0c3ad",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/delivery-methods/edit?AccountID=<string>&Key=<string>&Signature=<string>&DeliveryMethodToken=<string>&AccountType=<string>&BankAccountNumber=<string>&BankIdentifierCode=<string>&InternationalBankAccountNumber=<string>&EWalletID=<string>&ServiceProvider=<string>&TelephoneNumber=<string>&BankName=<string>&BankCode=<string>&BranchName=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "delivery-methods",
+                        "edit"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The token of the delivery method to be edited",
+                          "key": "DeliveryMethodToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The account type",
+                          "key": "AccountType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The bank account number",
+                          "key": "BankAccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The bank identifier code",
+                          "key": "BankIdentifierCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The international bank account number",
+                          "key": "InternationalBankAccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The e-wallet ID",
+                          "key": "EWalletID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The service provider",
+                          "key": "ServiceProvider",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The telephone number",
+                          "key": "TelephoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The bank name",
+                          "key": "BankName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The bank code",
+                          "key": "BankCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The branch name",
+                          "key": "BranchName",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Edit an existing delivery method for a certain recipient contact and corridor delivery method."
+                  },
+                  "response": [
+                    {
+                      "id": "047acecd-3c3b-4aa7-80d0-f6bf733d8ba2",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/delivery-methods/edit?AccountID=<string>&Key=<string>&Signature=<string>&DeliveryMethodToken=<string>&AccountType=<string>&BankAccountNumber=<string>&BankIdentifierCode=<string>&InternationalBankAccountNumber=<string>&EWalletID=<string>&ServiceProvider=<string>&TelephoneNumber=<string>&BankName=<string>&BankCode=<string>&BranchName=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "delivery-methods",
+                            "edit"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The token of the delivery method to be edited",
+                              "key": "DeliveryMethodToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The account type",
+                              "key": "AccountType",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The bank account number",
+                              "key": "BankAccountNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The bank identifier code",
+                              "key": "BankIdentifierCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The international bank account number",
+                              "key": "InternationalBankAccountNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The e-wallet ID",
+                              "key": "EWalletID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The service provider",
+                              "key": "ServiceProvider",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The telephone number",
+                              "key": "TelephoneNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The bank name",
+                              "key": "BankName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The bank code",
+                              "key": "BankCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The branch name",
+                              "key": "BranchName",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:53:51.000Z",
+                      "updatedAt": "2026-10-22T02:53:51.000Z",
+                      "uid": "35240-047acecd-3c3b-4aa7-80d0-f6bf733d8ba2"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:50.000Z",
+                  "updatedAt": "2026-10-22T02:53:50.000Z",
+                  "uid": "35240-8dd271bc-6c67-4ca3-bd0a-cf66c5c0c3ad"
+                }
+              ],
+              "id": "ee172b06-76f7-468c-87a4-2a8b5b6de66b",
+              "createdAt": "2026-10-22T02:53:50.000Z",
+              "updatedAt": "2026-10-22T02:53:50.000Z",
+              "uid": "35240-ee172b06-76f7-468c-87a4-2a8b5b6de66b"
+            },
+            {
+              "name": "delete",
+              "item": [
+                {
+                  "name": "gcm/delivery-methods/delete",
+                  "id": "e2b8374a-fd4f-42f9-9f4a-8522666f3b9d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/delivery-methods/delete?AccountID=<string>&Key=<string>&Signature=<string>&RecipientContactID=<string>&DeliveryMethodToken=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "delivery-methods",
+                        "delete"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The recipient contact ID",
+                          "key": "RecipientContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The token of the delivery method to be deleted",
+                          "key": "DeliveryMethodToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Delete a delivery method for a certain recipient contact."
+                  },
+                  "response": [
+                    {
+                      "id": "b6f0628f-b5b5-4f35-b3e3-ac7eade81475",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/delivery-methods/delete?AccountID=<string>&Key=<string>&Signature=<string>&RecipientContactID=<string>&DeliveryMethodToken=<string>&ClientAccountID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "delivery-methods",
+                            "delete"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The recipient contact ID",
+                              "key": "RecipientContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The token of the delivery method to be deleted",
+                              "key": "DeliveryMethodToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The client account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:53:51.000Z",
+                      "updatedAt": "2026-10-22T02:53:51.000Z",
+                      "uid": "35240-b6f0628f-b5b5-4f35-b3e3-ac7eade81475"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:50.000Z",
+                  "updatedAt": "2026-10-22T02:53:50.000Z",
+                  "uid": "35240-e2b8374a-fd4f-42f9-9f4a-8522666f3b9d"
+                }
+              ],
+              "id": "c1135b7c-63cf-41df-b039-2d17f6a4e3d7",
+              "createdAt": "2026-10-22T02:53:50.000Z",
+              "updatedAt": "2026-10-22T02:53:50.000Z",
+              "uid": "35240-c1135b7c-63cf-41df-b039-2d17f6a4e3d7"
+            },
+            {
+              "name": "gcm/delivery-methods",
+              "id": "296d3fea-92bc-4311-9fe5-4462e8629296",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/gcm/delivery-methods?AccountID=<string>&Key=<string>&Signature=<string>&RecipientContactID=<string>&ClientAccountID=<string>&DeliveryChannelID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "gcm",
+                    "delivery-methods"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The recipient contact ID",
+                      "key": "RecipientContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The client account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The delivery channel ID",
+                      "key": "DeliveryChannelID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get a list of all the stored delivery methods for a certain recipient contact and corridor delivery method (optional)."
+              },
+              "response": [
+                {
+                  "id": "cdf10262-cb27-407d-86de-db3da478404f",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/delivery-methods?AccountID=<string>&Key=<string>&Signature=<string>&RecipientContactID=<string>&ClientAccountID=<string>&DeliveryChannelID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "delivery-methods"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The recipient contact ID",
+                          "key": "RecipientContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The delivery channel ID",
+                          "key": "DeliveryChannelID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DeliveryMethods\": {\n    \"0\": {\n      \"DeliveryMethodToken\": \"<string>\",\n      \"DeliveryChannelID\": \"<string>\",\n      \"BankAccountNumber\": \"<string>\",\n      \"BankIdentifierCode\": \"<string>\",\n      \"InternationalBankAccountNumber\": \"<string>\",\n      \"EWalletID\": \"<string>\",\n      \"ServiceProvider\": \"<string>\",\n      \"TelephoneNumber\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BankCode\": \"<string>\",\n      \"BranchName\": \"<string>\",\n      \"AccountType\": \"<string>\",\n      \"DeliveryMethodType\": \"<string>\",\n      \"DestinationCountry\": \"<string>\",\n      \"DestinationCountryCode\": \"<string>\",\n      \"DestinationAbbreviation\": \"<string>\",\n      \"DeliveryFee\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:53:51.000Z",
+                  "updatedAt": "2026-10-22T02:53:51.000Z",
+                  "uid": "35240-cdf10262-cb27-407d-86de-db3da478404f"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:50.000Z",
+              "updatedAt": "2026-10-22T02:53:50.000Z",
+              "uid": "35240-296d3fea-92bc-4311-9fe5-4462e8629296"
+            }
+          ],
+          "id": "cb1c8fa1-038b-4c09-af49-b0a137c8386a",
+          "createdAt": "2026-10-22T02:53:50.000Z",
+          "updatedAt": "2026-10-22T02:53:50.000Z",
+          "uid": "35240-cb1c8fa1-038b-4c09-af49-b0a137c8386a"
+        }
+      ],
+      "id": "d2e39298-fc70-4a1b-86df-3a009fafdbc1",
+      "createdAt": "2026-10-22T02:53:50.000Z",
+      "updatedAt": "2026-10-22T02:53:50.000Z",
+      "uid": "35240-d2e39298-fc70-4a1b-86df-3a009fafdbc1"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

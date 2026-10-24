@@ -1,0 +1,1437 @@
+{
+  "info": {
+    "_postman_id": "da9d9878-0801-4cdc-9b0c-9a74d17d2ddb",
+    "name": "Client Accounts Client Account Management Endpoints API",
+    "description": "The Client Accounts API allows you to create, manage and retrieve information about client accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:52:46.000Z",
+    "updatedAt": "2026-10-22T02:52:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-da9d9878-0801-4cdc-9b0c-9a74d17d2ddb"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "client-accounts",
+          "item": [
+            {
+              "name": "balance",
+              "item": [
+                {
+                  "name": "account/client-accounts/balance",
+                  "id": "c1df71b6-70a8-48a6-b351-57056746621e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/balance?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&Currency=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "balance"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Client account ID of customer who's balance you want to retrieve",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint returns details on the current account balance and available funds for the given Client account."
+                  },
+                  "response": [
+                    {
+                      "id": "075a00e8-eb0b-4004-9619-42c4e5e4c97e",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/balance?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&Currency=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "balance"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Client account ID of customer who's balance you want to retrieve",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                              "key": "Currency",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"AccountBalance\": \"<number>\",\n  \"PendingFunds\": \"<number>\",\n  \"Reserve\": \"<number>\",\n  \"RollingReserveNSF\": \"<number>\",\n  \"RollingReserveReturns\": \"<number>\",\n  \"AvailableFunds\": \"<number>\",\n  \"OffbookBalance\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"Wallets\": {\n    \"0\": {\n      \"WalletID\": \"<string>\",\n      \"WalletName\": \"<string>\",\n      \"WalletBalance\": \"<string>\",\n      \"WalletPendingBalance\": \"<string>\",\n      \"Reserve\": \"<string>\",\n      \"RollingReserveNSF\": \"<string>\",\n      \"RollingReserveReturns\": \"<string>\",\n      \"OffbookBalance\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:52:46.000Z",
+                      "updatedAt": "2026-10-22T02:52:46.000Z",
+                      "uid": "35240-075a00e8-eb0b-4004-9619-42c4e5e4c97e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:46.000Z",
+                  "updatedAt": "2026-10-22T02:52:46.000Z",
+                  "uid": "35240-c1df71b6-70a8-48a6-b351-57056746621e"
+                }
+              ],
+              "id": "6a351398-2f5b-45d2-9bd7-256f66bb7f2a",
+              "createdAt": "2026-10-22T02:52:46.000Z",
+              "updatedAt": "2026-10-22T02:52:46.000Z",
+              "uid": "35240-6a351398-2f5b-45d2-9bd7-256f66bb7f2a"
+            },
+            {
+              "name": "edit",
+              "item": [
+                {
+                  "name": "account/client-accounts/edit",
+                  "id": "8ec95c7a-773c-4f32-8243-7cb4a4f8df73",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Client account ID of customer who's info you would like to update",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's first name",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's last name",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's email address - Must be a valid email",
+                          "key": "EmailAddress",
+                          "value": "<email>"
+                        },
+                        {
+                          "description": "Business name.",
+                          "key": "BusinessName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Company registration number. A 9-digit number that is unique to a business or legal entity.",
+                          "key": "BusinessNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ID that represents the company's industry classification. See /account/business-types endpoint for more information.",
+                          "key": "BusinessTypeID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "ID that indicates the company's category classification. See /account/business-types endpoint for more information.",
+                          "key": "BusinessTypeCategoryID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Company's website URL. It must be a valid URL and the protocol must be included (http or https).",
+                          "key": "BusinessWebsite",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Company's phone number. Digits only - no parentheses or dashes allowed.",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's address line 1",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's city",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's province specified using two character abbreviations (eg. BC, AB)",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's country specified using full country name or ISO 3166-1 alpha-2 code (eg. CA, US).",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                          "key": "Nationality",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's postal code.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's ID (driver's licence or federal tax ID).",
+                          "key": "IdentificationNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This option will add a Label to the client account. If the Label doesn't exist it will be created and applied.",
+                          "key": "Label",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This option will update the client's default method used for Interac e-Transfers (eg. email, phone). Only applicable for Canadian VoPay Accounts.",
+                          "key": "InteracEtransferPreference",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/edit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "edit"
+                      ]
+                    },
+                    "description": "This endpoint allows you to edit the KYC info of the given Client account."
+                  },
+                  "response": [
+                    {
+                      "id": "100250af-41c7-4eb2-ac05-1d750c139e55",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Client account ID of customer who's info you would like to update",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's first name",
+                              "key": "FirstName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's last name",
+                              "key": "LastName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's email address - Must be a valid email",
+                              "key": "EmailAddress",
+                              "value": "<email>"
+                            },
+                            {
+                              "description": "Business name.",
+                              "key": "BusinessName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Company registration number. A 9-digit number that is unique to a business or legal entity.",
+                              "key": "BusinessNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ID that represents the company's industry classification. See /account/business-types endpoint for more information.",
+                              "key": "BusinessTypeID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "ID that indicates the company's category classification. See /account/business-types endpoint for more information.",
+                              "key": "BusinessTypeCategoryID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Company's website URL. It must be a valid URL and the protocol must be included (http or https).",
+                              "key": "BusinessWebsite",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Company's phone number. Digits only - no parentheses or dashes allowed.",
+                              "key": "PhoneNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's address line 1",
+                              "key": "Address1",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's city",
+                              "key": "City",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's province specified using two character abbreviations (eg. BC, AB)",
+                              "key": "Province",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's country specified using full country name or ISO 3166-1 alpha-2 code (eg. CA, US).",
+                              "key": "Country",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                              "key": "Nationality",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's postal code.",
+                              "key": "PostalCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's ID (driver's licence or federal tax ID).",
+                              "key": "IdentificationNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This option will add a Label to the client account. If the Label doesn't exist it will be created and applied.",
+                              "key": "Label",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This option will update the client's default method used for Interac e-Transfers (eg. email, phone). Only applicable for Canadian VoPay Accounts.",
+                              "key": "InteracEtransferPreference",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "edit"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:52:46.000Z",
+                      "updatedAt": "2026-10-22T02:52:46.000Z",
+                      "uid": "35240-100250af-41c7-4eb2-ac05-1d750c139e55"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:46.000Z",
+                  "updatedAt": "2026-10-22T02:52:46.000Z",
+                  "uid": "35240-8ec95c7a-773c-4f32-8243-7cb4a4f8df73"
+                }
+              ],
+              "id": "8cd11fcf-ae5e-470e-b9c3-c99027ca0b0d",
+              "createdAt": "2026-10-22T02:52:46.000Z",
+              "updatedAt": "2026-10-22T02:52:46.000Z",
+              "uid": "35240-8cd11fcf-ae5e-470e-b9c3-c99027ca0b0d"
+            },
+            {
+              "name": "delete",
+              "item": [
+                {
+                  "name": "account/client-accounts/delete",
+                  "id": "0f8c619d-e467-4cc4-9f21-519cba1d8400",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the client account to delete",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "delete"
+                      ]
+                    },
+                    "description": "This endpoint will delete an active client account."
+                  },
+                  "response": [
+                    {
+                      "id": "a518232b-dcc1-4ee9-abe4-2ad5825be086",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account to delete",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "delete"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ClientAccountID\": \"<integer>\",\n  \"IsActive\": \"<boolean>\",\n  \"DateDeleted\": \"<date>\"\n}",
+                      "createdAt": "2026-10-22T02:52:46.000Z",
+                      "updatedAt": "2026-10-22T02:52:46.000Z",
+                      "uid": "35240-a518232b-dcc1-4ee9-abe4-2ad5825be086"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:46.000Z",
+                  "updatedAt": "2026-10-22T02:52:46.000Z",
+                  "uid": "35240-0f8c619d-e467-4cc4-9f21-519cba1d8400"
+                }
+              ],
+              "id": "2dddab90-d880-4762-a66d-b1730c53dcc0",
+              "createdAt": "2026-10-22T02:52:46.000Z",
+              "updatedAt": "2026-10-22T02:52:46.000Z",
+              "uid": "35240-2dddab90-d880-4762-a66d-b1730c53dcc0"
+            },
+            {
+              "name": "deactivate",
+              "item": [
+                {
+                  "name": "account/client-accounts/deactivate",
+                  "id": "50d0d51f-8661-4ef4-a5b7-f7e722ce002c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the client account to deactivate",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/deactivate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "deactivate"
+                      ]
+                    },
+                    "description": "This endpoint will deactivate an active client account."
+                  },
+                  "response": [
+                    {
+                      "id": "7478bb5f-9d9f-4ef0-9d4f-ef147868b482",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account to deactivate",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/deactivate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "deactivate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ClientAccountID\": \"<integer>\",\n  \"IsActive\": \"<boolean>\"\n}",
+                      "createdAt": "2026-10-22T02:52:46.000Z",
+                      "updatedAt": "2026-10-22T02:52:46.000Z",
+                      "uid": "35240-7478bb5f-9d9f-4ef0-9d4f-ef147868b482"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:46.000Z",
+                  "updatedAt": "2026-10-22T02:52:46.000Z",
+                  "uid": "35240-50d0d51f-8661-4ef4-a5b7-f7e722ce002c"
+                }
+              ],
+              "id": "1d0c4502-e304-48a5-91fe-04d09911014a",
+              "createdAt": "2026-10-22T02:52:46.000Z",
+              "updatedAt": "2026-10-22T02:52:46.000Z",
+              "uid": "35240-1d0c4502-e304-48a5-91fe-04d09911014a"
+            },
+            {
+              "name": "activate",
+              "item": [
+                {
+                  "name": "account/client-accounts/activate",
+                  "id": "0296c687-739d-40af-b9b4-04edabbbedbd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the client account to activate",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/activate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "activate"
+                      ]
+                    },
+                    "description": "This endpoint will activate an inactive client account."
+                  },
+                  "response": [
+                    {
+                      "id": "bbedff2d-1cd8-47a9-ac8c-f944b854d6e4",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account to activate",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/activate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "activate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ClientAccountID\": \"<integer>\",\n  \"IsActive\": \"<boolean>\"\n}",
+                      "createdAt": "2026-10-22T02:52:46.000Z",
+                      "updatedAt": "2026-10-22T02:52:46.000Z",
+                      "uid": "35240-bbedff2d-1cd8-47a9-ac8c-f944b854d6e4"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:46.000Z",
+                  "updatedAt": "2026-10-22T02:52:46.000Z",
+                  "uid": "35240-0296c687-739d-40af-b9b4-04edabbbedbd"
+                }
+              ],
+              "id": "d2a123cc-e469-4a83-89e5-23e82ded8507",
+              "createdAt": "2026-10-22T02:52:46.000Z",
+              "updatedAt": "2026-10-22T02:52:46.000Z",
+              "uid": "35240-d2a123cc-e469-4a83-89e5-23e82ded8507"
+            },
+            {
+              "name": "generate-embed-url",
+              "item": [
+                {
+                  "name": "account/client-accounts/generate-embed-url",
+                  "id": "1f578d6d-267e-4bbe-88dd-ffe389920790",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Type of client account you want to onboard. Options are individual, business, standard and receive-only.",
+                          "key": "ClientType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's first name. Required if BusinessName is not provided.",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's last name. Required if BusinessName is not provided.",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's business name. Required if FirstName and LastName are not provided.",
+                          "key": "BusinessName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This option is used to send the onboarding link through email. If you wish to send an email, then provide true. The default value is false.",
+                          "key": "SendEmail",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Recipient's email address. Required if SendEmail = true.",
+                          "key": "ReceiverEmailAddress",
+                          "value": "<email>"
+                        },
+                        {
+                          "description": "This option is used to send the onboarding link through SMS. If you wish to send an SMS, then provide true. The default value is false.",
+                          "key": "SendSMS",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Recipient's phone number. Required if SendSMS = true.",
+                          "key": "ReceiverPhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of payment methods.",
+                          "key": "RequiredPaymentMethods",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This option will add a Label to the client account. If the Label doesn't exist it will be created and applied.",
+                          "key": "Label",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/generate-embed-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "generate-embed-url"
+                      ]
+                    },
+                    "description": "Use this endpoint to generate a unique URL to onboard a new client account. To send an email containing the URL to the recipient, set SendEmail = true, and provide both the email address and full name of the recipient."
+                  },
+                  "response": [
+                    {
+                      "id": "0e5c70a6-0b86-488d-a37f-649c184fdb2b",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Type of client account you want to onboard. Options are individual, business, standard and receive-only.",
+                              "key": "ClientType",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's first name. Required if BusinessName is not provided.",
+                              "key": "FirstName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's last name. Required if BusinessName is not provided.",
+                              "key": "LastName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's business name. Required if FirstName and LastName are not provided.",
+                              "key": "BusinessName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This option is used to send the onboarding link through email. If you wish to send an email, then provide true. The default value is false.",
+                              "key": "SendEmail",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Recipient's email address. Required if SendEmail = true.",
+                              "key": "ReceiverEmailAddress",
+                              "value": "<email>"
+                            },
+                            {
+                              "description": "This option is used to send the onboarding link through SMS. If you wish to send an SMS, then provide true. The default value is false.",
+                              "key": "SendSMS",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Recipient's phone number. Required if SendSMS = true.",
+                              "key": "ReceiverPhoneNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of payment methods.",
+                              "key": "RequiredPaymentMethods",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This option will add a Label to the client account. If the Label doesn't exist it will be created and applied.",
+                              "key": "Label",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/generate-embed-url",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "generate-embed-url"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"OnboardingLink\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:52:46.000Z",
+                      "updatedAt": "2026-10-22T02:52:46.000Z",
+                      "uid": "35240-0e5c70a6-0b86-488d-a37f-649c184fdb2b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:46.000Z",
+                  "updatedAt": "2026-10-22T02:52:46.000Z",
+                  "uid": "35240-1f578d6d-267e-4bbe-88dd-ffe389920790"
+                }
+              ],
+              "id": "9a80da5f-50fd-48f6-9d07-db9b33b83afd",
+              "createdAt": "2026-10-22T02:52:46.000Z",
+              "updatedAt": "2026-10-22T02:52:46.000Z",
+              "uid": "35240-9a80da5f-50fd-48f6-9d07-db9b33b83afd"
+            },
+            {
+              "name": "payment-methods",
+              "item": [
+                {
+                  "name": "account/client-accounts/payment-methods",
+                  "id": "85d3cc92-4b36-4367-86d7-48242e546b5e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/payment-methods?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "payment-methods"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Client Account ID that the payment methods are associated with.",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up all the payment smethods for the given client account."
+                  },
+                  "response": [
+                    {
+                      "id": "6cbeef44-1a08-4f2a-8061-54bef97c065e",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/payment-methods?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "payment-methods"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID that the payment methods are associated with.",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"PaymentMethods\": {\n    \"0\": {\n      \"PaymentMethod\": \"<string>\",\n      \"PaymentDetails\": \"<string>\",\n      \"IsDefault\": \"<boolean>\",\n      \"Token\": \"<string>\",\n      \"AddedOn\": \"<string>\",\n      \"ExtraFields\": {}\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:52:46.000Z",
+                      "updatedAt": "2026-10-22T02:52:46.000Z",
+                      "uid": "35240-6cbeef44-1a08-4f2a-8061-54bef97c065e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:46.000Z",
+                  "updatedAt": "2026-10-22T02:52:46.000Z",
+                  "uid": "35240-85d3cc92-4b36-4367-86d7-48242e546b5e"
+                }
+              ],
+              "id": "4adf456f-ff8f-488a-b1ea-90518bb06949",
+              "createdAt": "2026-10-22T02:52:46.000Z",
+              "updatedAt": "2026-10-22T02:52:46.000Z",
+              "uid": "35240-4adf456f-ff8f-488a-b1ea-90518bb06949"
+            },
+            {
+              "name": "account/client-accounts",
+              "id": "d5f159d3-f7cd-448c-b1e4-ca83f818d4a9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/client-accounts?AccountID=<string>&Key=<string>&Signature=<string>&ClientType=<string>&AccountStatus=<boolean>&ClientAccountID=<string>&Label=<string>&Limit =<integer>&Offset =<integer>&SearchText=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "client-accounts"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Type of account to be filtered. Use either 'individual', 'business' or 'receive-only'",
+                      "key": "ClientType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by account status. Use true for active accounts and false for inactive.",
+                      "key": "AccountStatus",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by the Client account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the Label",
+                      "key": "Label",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A text string to search for in the email addresses, names and business number.",
+                      "key": "SearchText",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns a list of the available client accounts and some of its details.\n\nIt is also possible to filter the list of client accounts by ClientAccountID, its status (active or inactive), and client type (business, individual, receive-only)."
+              },
+              "response": [
+                {
+                  "id": "2e0d2d0e-c9f0-4b9f-802e-d7ea062693e0",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts?AccountID=<string>&Key=<string>&Signature=<string>&ClientType=<string>&AccountStatus=<boolean>&ClientAccountID=<string>&Label=<string>&Limit =<integer>&Offset =<integer>&SearchText=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Type of account to be filtered. Use either 'individual', 'business' or 'receive-only'",
+                          "key": "ClientType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by account status. Use true for active accounts and false for inactive.",
+                          "key": "AccountStatus",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter by the Client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by the Label",
+                          "key": "Label",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of records that are returned.",
+                          "key": "Limit ",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Use this parameter to set the starting point in the dataset.",
+                          "key": "Offset ",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A text string to search for in the email addresses, names and business number.",
+                          "key": "SearchText",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ClientAccounts\": {\n    \"0\": {\n      \"ClientAccountID\": \"<string>\",\n      \"ClientType\": \"<string>\",\n      \"ClientName\": \"<string>\",\n      \"EmailAddress\": \"<email>\",\n      \"BusinessNumber\": \"<string>\",\n      \"BusinessWebsite\": \"<string>\",\n      \"PhoneNumber\": \"<integer>\",\n      \"BusinessIndustry\": \"<string>\",\n      \"BusinessCategory\": \"<string>\",\n      \"DOB\": \"<integer>\",\n      \"SINLastDigits\": \"<integer>\",\n      \"IsActive\": \"<boolean>\",\n      \"VerificationStatus\": {\n        \"Email\": {\n          \"Enhanced\": \"<string>\",\n          \"Basic\": \"<string>\"\n        },\n        \"Phone\": {\n          \"Enhanced\": \"<string>\"\n        },\n        \"Address\": {\n          \"Basic\": \"<string>\"\n        }\n      },\n      \"Address1\": \"<string>\",\n      \"City\": \"<string>\",\n      \"Province\": \"<string>\",\n      \"Country\": \"<string>\",\n      \"Nationality\": \"<string>\",\n      \"PostalCode\": \"<string>\",\n      \"IdentificationNumber\": \"<string>\",\n      \"ParentAccountID\": \"<string>\",\n      \"Balances\": {\n        \"0\": {\n          \"Currency\": \"<string>\",\n          \"Balance\": \"<string>\",\n          \"PendingBalance\": \"<string>\"\n        }\n      },\n      \"Labels\": {\n        \"0\": {\n          \"Label\": \"<string>\",\n          \"LabelID\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:52:46.000Z",
+                  "updatedAt": "2026-10-22T02:52:46.000Z",
+                  "uid": "35240-2e0d2d0e-c9f0-4b9f-802e-d7ea062693e0"
+                }
+              ],
+              "createdAt": "2026-10-22T02:52:46.000Z",
+              "updatedAt": "2026-10-22T02:52:46.000Z",
+              "uid": "35240-d5f159d3-f7cd-448c-b1e4-ca83f818d4a9"
+            }
+          ],
+          "id": "ef86192f-2661-43cf-8bf4-a5712e864233",
+          "createdAt": "2026-10-22T02:52:46.000Z",
+          "updatedAt": "2026-10-22T02:52:46.000Z",
+          "uid": "35240-ef86192f-2661-43cf-8bf4-a5712e864233"
+        }
+      ],
+      "id": "944b87ae-2ab1-4b43-8165-9533fbdd777a",
+      "createdAt": "2026-10-22T02:52:46.000Z",
+      "updatedAt": "2026-10-22T02:52:46.000Z",
+      "uid": "35240-944b87ae-2ab1-4b43-8165-9533fbdd777a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

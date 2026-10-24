@@ -1,0 +1,450 @@
+{
+  "info": {
+    "_postman_id": "4af0cde7-3ebb-40aa-8138-79c22c957c8e",
+    "name": "Contact Labels Endpoints API",
+    "description": "The Contact API allows you to manage contacts associated with your VoPay account.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:53:11.000Z",
+    "updatedAt": "2026-10-22T02:53:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4af0cde7-3ebb-40aa-8138-79c22c957c8e"
+  },
+  "item": [
+    {
+      "name": "contacts",
+      "item": [
+        {
+          "name": "label",
+          "item": [
+            {
+              "name": "add",
+              "item": [
+                {
+                  "name": "contacts/label/add",
+                  "id": "534e349a-da3a-48fd-b396-b601e913d856",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Contact ID of customer who's account we want to add the label to",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) New Label",
+                          "key": "Label",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/label/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "label",
+                        "add"
+                      ]
+                    },
+                    "description": "This endpoint allows you to create a Label."
+                  },
+                  "response": [
+                    {
+                      "id": "a9c463ea-9ea6-4f24-b45d-16346e56e038",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Contact ID of customer who's account we want to add the label to",
+                              "key": "ContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) New Label",
+                              "key": "Label",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contacts/label/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contacts",
+                            "label",
+                            "add"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Label\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:53:12.000Z",
+                      "updatedAt": "2026-10-22T02:53:12.000Z",
+                      "uid": "35240-a9c463ea-9ea6-4f24-b45d-16346e56e038"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:12.000Z",
+                  "updatedAt": "2026-10-22T02:53:12.000Z",
+                  "uid": "35240-534e349a-da3a-48fd-b396-b601e913d856"
+                }
+              ],
+              "id": "c0cd2412-7a95-48e8-a403-9f56e82d1210",
+              "createdAt": "2026-10-22T02:53:12.000Z",
+              "updatedAt": "2026-10-22T02:53:12.000Z",
+              "uid": "35240-c0cd2412-7a95-48e8-a403-9f56e82d1210"
+            },
+            {
+              "name": "delete",
+              "item": [
+                {
+                  "name": "contacts/label/delete",
+                  "id": "02b6515d-ecfa-420c-bb43-b5278ee6cbd8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Contact ID of customer who's account we want to delete the label from",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The label you want to delete",
+                          "key": "Label",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/label/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "label",
+                        "delete"
+                      ]
+                    },
+                    "description": "This endpoint allows you to delete a Label."
+                  },
+                  "response": [
+                    {
+                      "id": "b8f2238c-cd7c-4548-8611-18c438236bae",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Contact ID of customer who's account we want to delete the label from",
+                              "key": "ContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The label you want to delete",
+                              "key": "Label",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contacts/label/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contacts",
+                            "label",
+                            "delete"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:53:12.000Z",
+                      "updatedAt": "2026-10-22T02:53:12.000Z",
+                      "uid": "35240-b8f2238c-cd7c-4548-8611-18c438236bae"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:12.000Z",
+                  "updatedAt": "2026-10-22T02:53:12.000Z",
+                  "uid": "35240-02b6515d-ecfa-420c-bb43-b5278ee6cbd8"
+                }
+              ],
+              "id": "d0952eb7-1300-4267-ad16-087dcd91c4de",
+              "createdAt": "2026-10-22T02:53:12.000Z",
+              "updatedAt": "2026-10-22T02:53:12.000Z",
+              "uid": "35240-d0952eb7-1300-4267-ad16-087dcd91c4de"
+            },
+            {
+              "name": "contacts/label",
+              "id": "b8894f60-4745-4048-9140-11b855fe04f8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts/label?AccountID=<string>&Key=<string>&Signature=<string>&ContactID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "label"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact ID of customer who's labels you want to retrieve",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint returns all the created Labels for the given Contact."
+              },
+              "response": [
+                {
+                  "id": "b6867c96-9565-4312-8e95-a9a114ac146f",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/label?AccountID=<string>&Key=<string>&Signature=<string>&ContactID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "label"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact ID of customer who's labels you want to retrieve",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Labels\": {\n    \"0\": {\n      \"Label\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:53:12.000Z",
+                  "updatedAt": "2026-10-22T02:53:12.000Z",
+                  "uid": "35240-b6867c96-9565-4312-8e95-a9a114ac146f"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:12.000Z",
+              "updatedAt": "2026-10-22T02:53:12.000Z",
+              "uid": "35240-b8894f60-4745-4048-9140-11b855fe04f8"
+            }
+          ],
+          "id": "5c7fd917-0cb4-4b5f-97e2-a71962a9531f",
+          "createdAt": "2026-10-22T02:53:12.000Z",
+          "updatedAt": "2026-10-22T02:53:12.000Z",
+          "uid": "35240-5c7fd917-0cb4-4b5f-97e2-a71962a9531f"
+        }
+      ],
+      "id": "922dc8dd-71b2-4308-9498-99b84d18b4a0",
+      "createdAt": "2026-10-22T02:53:12.000Z",
+      "updatedAt": "2026-10-22T02:53:12.000Z",
+      "uid": "35240-922dc8dd-71b2-4308-9498-99b84d18b4a0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

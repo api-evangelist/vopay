@@ -1,0 +1,1461 @@
+{
+  "info": {
+    "_postman_id": "7b926a80-348f-44b0-a3f5-b5f469325efb",
+    "name": "Accounts Sub-Account Endpoints API",
+    "description": "The Account API defines endpoints for managing VoPay accounts and sub-accounts. These endpoints allow partners to create and manage accounts, set permissions, handle transactions, schedule transfers, retrieve account information, and manage onboarding processes, ensuring secure and efficient account and transaction management.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:56:26.000Z",
+    "updatedAt": "2026-10-22T02:56:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7b926a80-348f-44b0-a3f5-b5f469325efb"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "subaccount",
+          "item": [
+            {
+              "name": "edit",
+              "item": [
+                {
+                  "name": "account/subaccount/edit",
+                  "id": "562972fb-2596-497c-be4f-fdbda8c412c2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The account ID of the subaccount you are attempting to edit",
+                          "key": "SubaccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Company's Legal business name",
+                          "key": "LegalBusinessName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Company's email address - Must be a valid email",
+                          "key": "EmailAddress",
+                          "value": "<email>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/subaccount/edit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "subaccount",
+                        "edit"
+                      ]
+                    },
+                    "description": "This endpoint is used to edit a sub-account."
+                  },
+                  "response": [
+                    {
+                      "id": "a51835de-d58b-4340-b5b2-27fddd7fe4e4",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The account ID of the subaccount you are attempting to edit",
+                              "key": "SubaccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Company's Legal business name",
+                              "key": "LegalBusinessName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Company's email address - Must be a valid email",
+                              "key": "EmailAddress",
+                              "value": "<email>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/subaccount/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "subaccount",
+                            "edit"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Message\": \"<string>\",\n  \"AccountID\": \"<string>\",\n  \"APISharedSecret\": \"<string>\",\n  \"APIKey\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:56:27.000Z",
+                      "updatedAt": "2026-10-22T02:56:27.000Z",
+                      "uid": "35240-a51835de-d58b-4340-b5b2-27fddd7fe4e4"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:27.000Z",
+                  "updatedAt": "2026-10-22T02:56:27.000Z",
+                  "uid": "35240-562972fb-2596-497c-be4f-fdbda8c412c2"
+                }
+              ],
+              "id": "347a0383-84ed-4cf5-b243-fa175d7f9049",
+              "createdAt": "2026-10-22T02:56:27.000Z",
+              "updatedAt": "2026-10-22T02:56:27.000Z",
+              "uid": "35240-347a0383-84ed-4cf5-b243-fa175d7f9049"
+            },
+            {
+              "name": "transactions",
+              "item": [
+                {
+                  "name": "account/subaccount/transactions",
+                  "id": "30ec8fb0-29e9-4143-a3fe-1115f3aab5dd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/subaccount/transactions?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&ClientAccountID=<string>&ContactID=<string>&Currency=<string>&TransactionType=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>&ScheduledTransactionID=<string>&WalletID=<string>&IsFlagged=<boolean>&IsRefunded=<boolean>&Limit=<integer>&Offset=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "subaccount",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                          "key": "StartDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                          "key": "EndDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter transactions by Client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter transactions by Contact ID",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'.",
+                          "key": "TransactionType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Searches for transactions with the specified client reference number.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the schedule transaction to search",
+                          "key": "ScheduledTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the wallet that the transactions should belong to",
+                          "key": "WalletID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.",
+                          "key": "IsFlagged",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter the list of transactions to only include transactions that have been refunded.",
+                          "key": "IsRefunded",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Limit the number of records that are returned. Use the off-set parameter to set the starting point in the data-set. Default limit is 1,000 and maximum limit is 10,000.",
+                          "key": "Limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Use this parameter to set the starting point in the dataset.",
+                          "key": "Offset",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint will return a list of all of the transactions for sub-accounts, and its sub-accounts transaction."
+                  },
+                  "response": [
+                    {
+                      "id": "4d0b165e-1e45-4339-850f-247d7ffa4e04",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/subaccount/transactions?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&ClientAccountID=<string>&ContactID=<string>&Currency=<string>&TransactionType=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>&ScheduledTransactionID=<string>&WalletID=<string>&IsFlagged=<boolean>&IsRefunded=<boolean>&Limit=<integer>&Offset=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "subaccount",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                              "key": "StartDateTime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                              "key": "EndDateTime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Filter transactions by Client account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter transactions by Contact ID",
+                              "key": "ContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'.",
+                              "key": "TransactionType",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Searches for transactions with the specified client reference number.",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Id of the schedule transaction to search",
+                              "key": "ScheduledTransactionID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Id of the wallet that the transactions should belong to",
+                              "key": "WalletID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.",
+                              "key": "IsFlagged",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Filter the list of transactions to only include transactions that have been refunded.",
+                              "key": "IsRefunded",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Limit the number of records that are returned. Use the off-set parameter to set the starting point in the data-set. Default limit is 1,000 and maximum limit is 10,000.",
+                              "key": "Limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Use this parameter to set the starting point in the dataset.",
+                              "key": "Offset",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NumberOfRecords\": \"<integer>\",\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  },\n  \"Transactions\": {\n    \"0\": {\n      \"TransactionID\": \"<integer>\",\n      \"AccountName\": \"<string>\",\n      \"TransactionDateTime\": \"<dateTime>\",\n      \"TransactionType\": \"<string>\",\n      \"TransactionStatus\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"DebitAmount\": \"<number>\",\n      \"CreditAmount\": \"<number>\",\n      \"Currency\": \"<string>\",\n      \"HoldAmount\": \"<number>\",\n      \"LastModified\": \"<dateTime>\",\n      \"ParentTransactionID\": \"<string>\",\n      \"ChildTransactionIDs\": \"<integer>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"ScheduledTransactionID\": \"<integer>\",\n      \"WalletID\": \"<string>\",\n      \"ClientAccountID\": \"<string>\",\n      \"TransactionErrorCode\": \"<string>\",\n      \"TransactionFailureReason\": \"<string>\",\n      \"TransactionFlag\": \"<string>\",\n      \"ELinxRequestID\": \"<integer>\",\n      \"IsRefunded\": \"<boolean>\",\n      \"FullName\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:56:27.000Z",
+                      "updatedAt": "2026-10-22T02:56:27.000Z",
+                      "uid": "35240-4d0b165e-1e45-4339-850f-247d7ffa4e04"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:27.000Z",
+                  "updatedAt": "2026-10-22T02:56:27.000Z",
+                  "uid": "35240-30ec8fb0-29e9-4143-a3fe-1115f3aab5dd"
+                }
+              ],
+              "id": "28219aa6-7d06-4e2f-b873-42f40acc1a71",
+              "createdAt": "2026-10-22T02:56:27.000Z",
+              "updatedAt": "2026-10-22T02:56:27.000Z",
+              "uid": "35240-28219aa6-7d06-4e2f-b873-42f40acc1a71"
+            },
+            {
+              "name": "set-permissions",
+              "item": [
+                {
+                  "name": "account/subaccount/set-permissions",
+                  "id": "eda3bac9-85c1-41bd-9afa-1bb550cf0dc3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This flag will allow the Main account to modify the permissions of all their sub-accounts at once, no matter if the sub account is active or inactive. This field only accepts true as a value",
+                          "key": "ApplyToAll",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "This field is to apply the permissions to only one sub-account. The option ApplyToAll will not work.",
+                          "key": "SubaccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Permission related to EFT Fund, True if the user wants to enable this feature",
+                          "key": "EFTCollectEnabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Permission related to EFT Withdraw, True if the user wants to enable this feature",
+                          "key": "EFTSendEnabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Permission related to EFT Fund using USD currency with a Canadian bank account, True if the user wants to enable this feature",
+                          "key": "USDEFTCollectEnabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Permission related to EFT Withdraw using USD currency with a Canadian bank account, True if the user wants to enable this feature",
+                          "key": "USDEFTSendEnabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Permission related to VoPay Instant Withdraw, True if the user wants to enable this feature",
+                          "key": "RTRWithdrawEnabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Permission related to Interac Money request, True if the user wants to enable this feature",
+                          "key": "InteracMoneyRequestEnabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Permission related to Interac bulk payout, True if the user wants to enable this feature",
+                          "key": "InteracBulkPayoutEnabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Permission related to Global cash management, True if the user wants to enable this feature",
+                          "key": "GCMEnabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Permission related to Visa Direct, True if the user wants to enable this feature",
+                          "key": "VisaDirectEnabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Maximum amount that the user can transfer using this endpoint (EFT fund)",
+                          "key": "MaxFundEFTAmount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Maximum amount that the user can transfer using this endpoint (EFT withdraw)",
+                          "key": "MaxWithdrawEFTAmount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Maximum amount that the user can transfer using this endpoint (VoPay Instant withdraw)",
+                          "key": "MaxRTRWithdrawAmount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Maximum amount that the user can transfer using this endpoint (Interac Money request)",
+                          "key": "MaxInteracMoneyAmount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Maximum amount that the user can transfer using this endpoint (Interac bulk payout)",
+                          "key": "MaxInteracBulkPayoutAmount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Maximum amount that the user can transfer using this endpoint (GMC)",
+                          "key": "MaxGCMAmount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Maximum amount that the user can transfer using this endpoint (Visa Direct)",
+                          "key": "MaxVisaDirectAmount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "True if the user wants to enable this feature. This flag will change the user permission to the admin portal. When disabled, the user will have 'Read Only' permission and when enabled, the user will be able to create transactions using the admin portal.",
+                          "key": "PortalTransactionCreation",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "True if the user wants to enable this feature. This flag allow the user to set auto transfer balance",
+                          "key": "AutoBalanceTransferEnabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "True if the user wants to enable this feature. This flag allow the user to activate PayLink functionality",
+                          "key": "PayLinkEnabled",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/subaccount/set-permissions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "subaccount",
+                        "set-permissions"
+                      ]
+                    },
+                    "description": "This endpoint will allow the user to modify the permissions and the maximum amounts to their sub-accounts in the API.\n\nThe main account will be able to only modify the permission that he has, For Example, if the user does not have ETCCollect permission, the account won't be able to assign that permission to their sub-account."
+                  },
+                  "response": [
+                    {
+                      "id": "ac586182-45c3-4ee0-9590-e7bd555f2f26",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This flag will allow the Main account to modify the permissions of all their sub-accounts at once, no matter if the sub account is active or inactive. This field only accepts true as a value",
+                              "key": "ApplyToAll",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "This field is to apply the permissions to only one sub-account. The option ApplyToAll will not work.",
+                              "key": "SubaccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Permission related to EFT Fund, True if the user wants to enable this feature",
+                              "key": "EFTCollectEnabled",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Permission related to EFT Withdraw, True if the user wants to enable this feature",
+                              "key": "EFTSendEnabled",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Permission related to EFT Fund using USD currency with a Canadian bank account, True if the user wants to enable this feature",
+                              "key": "USDEFTCollectEnabled",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Permission related to EFT Withdraw using USD currency with a Canadian bank account, True if the user wants to enable this feature",
+                              "key": "USDEFTSendEnabled",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Permission related to VoPay Instant Withdraw, True if the user wants to enable this feature",
+                              "key": "RTRWithdrawEnabled",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Permission related to Interac Money request, True if the user wants to enable this feature",
+                              "key": "InteracMoneyRequestEnabled",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Permission related to Interac bulk payout, True if the user wants to enable this feature",
+                              "key": "InteracBulkPayoutEnabled",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Permission related to Global cash management, True if the user wants to enable this feature",
+                              "key": "GCMEnabled",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Permission related to Visa Direct, True if the user wants to enable this feature",
+                              "key": "VisaDirectEnabled",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Maximum amount that the user can transfer using this endpoint (EFT fund)",
+                              "key": "MaxFundEFTAmount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Maximum amount that the user can transfer using this endpoint (EFT withdraw)",
+                              "key": "MaxWithdrawEFTAmount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Maximum amount that the user can transfer using this endpoint (VoPay Instant withdraw)",
+                              "key": "MaxRTRWithdrawAmount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Maximum amount that the user can transfer using this endpoint (Interac Money request)",
+                              "key": "MaxInteracMoneyAmount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Maximum amount that the user can transfer using this endpoint (Interac bulk payout)",
+                              "key": "MaxInteracBulkPayoutAmount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Maximum amount that the user can transfer using this endpoint (GMC)",
+                              "key": "MaxGCMAmount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Maximum amount that the user can transfer using this endpoint (Visa Direct)",
+                              "key": "MaxVisaDirectAmount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "True if the user wants to enable this feature. This flag will change the user permission to the admin portal. When disabled, the user will have 'Read Only' permission and when enabled, the user will be able to create transactions using the admin portal.",
+                              "key": "PortalTransactionCreation",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "True if the user wants to enable this feature. This flag allow the user to set auto transfer balance",
+                              "key": "AutoBalanceTransferEnabled",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "True if the user wants to enable this feature. This flag allow the user to activate PayLink functionality",
+                              "key": "PayLinkEnabled",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/subaccount/set-permissions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "subaccount",
+                            "set-permissions"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:56:27.000Z",
+                      "updatedAt": "2026-10-22T02:56:27.000Z",
+                      "uid": "35240-ac586182-45c3-4ee0-9590-e7bd555f2f26"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:27.000Z",
+                  "updatedAt": "2026-10-22T02:56:27.000Z",
+                  "uid": "35240-eda3bac9-85c1-41bd-9afa-1bb550cf0dc3"
+                }
+              ],
+              "id": "d8aba46f-d201-4aa8-ad71-41059dc99bae",
+              "createdAt": "2026-10-22T02:56:27.000Z",
+              "updatedAt": "2026-10-22T02:56:27.000Z",
+              "uid": "35240-d8aba46f-d201-4aa8-ad71-41059dc99bae"
+            },
+            {
+              "name": "send-onboarding-application",
+              "item": [
+                {
+                  "name": "account/subaccount/send-onboarding-application",
+                  "id": "857e35da-2011-4cd7-8846-c224a219bf92",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The account ID of the subaccount you are attempting to onboard",
+                          "key": "SubaccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/subaccount/send-onboarding-application",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "subaccount",
+                        "send-onboarding-application"
+                      ]
+                    },
+                    "description": "This endpoint will allow the user to resend an application to the sub-account. The sub-account must be in Application Pending status for the applicattion to be sent."
+                  },
+                  "response": [
+                    {
+                      "id": "21594f78-19fa-4aef-8a23-26dd1c3b448b",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The account ID of the subaccount you are attempting to onboard",
+                              "key": "SubaccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/subaccount/send-onboarding-application",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "subaccount",
+                            "send-onboarding-application"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:56:27.000Z",
+                      "updatedAt": "2026-10-22T02:56:27.000Z",
+                      "uid": "35240-21594f78-19fa-4aef-8a23-26dd1c3b448b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:27.000Z",
+                  "updatedAt": "2026-10-22T02:56:27.000Z",
+                  "uid": "35240-857e35da-2011-4cd7-8846-c224a219bf92"
+                }
+              ],
+              "id": "648ce247-89b2-44b7-b775-c72d713bf7c9",
+              "createdAt": "2026-10-22T02:56:27.000Z",
+              "updatedAt": "2026-10-22T02:56:27.000Z",
+              "uid": "35240-648ce247-89b2-44b7-b775-c72d713bf7c9"
+            },
+            {
+              "name": "deactivate",
+              "item": [
+                {
+                  "name": "account/subaccount/deactivate",
+                  "id": "c28008df-ad15-441d-be4c-25d36239f64d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The account ID of the sub-account you want to deactivate",
+                          "key": "SubaccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/subaccount/deactivate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "subaccount",
+                        "deactivate"
+                      ]
+                    },
+                    "description": "This endpoint is used to deactivate a sub-account."
+                  },
+                  "response": [
+                    {
+                      "id": "06c15f61-65b5-48b1-b118-ee12b269c7dc",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The account ID of the sub-account you want to deactivate",
+                              "key": "SubaccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/subaccount/deactivate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "subaccount",
+                            "deactivate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:56:27.000Z",
+                      "updatedAt": "2026-10-22T02:56:27.000Z",
+                      "uid": "35240-06c15f61-65b5-48b1-b118-ee12b269c7dc"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:27.000Z",
+                  "updatedAt": "2026-10-22T02:56:27.000Z",
+                  "uid": "35240-c28008df-ad15-441d-be4c-25d36239f64d"
+                }
+              ],
+              "id": "ad33b190-a1d0-4734-a97c-837e8e051b3c",
+              "createdAt": "2026-10-22T02:56:27.000Z",
+              "updatedAt": "2026-10-22T02:56:27.000Z",
+              "uid": "35240-ad33b190-a1d0-4734-a97c-837e8e051b3c"
+            },
+            {
+              "name": "account/subaccount",
+              "id": "2d2af1c7-ccdb-4109-9919-2d9e321646ab",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/subaccount?AccountID=<string>&Key=<string>&Signature=<string>&Limit =<integer>&Offset =<integer>&IncludeBalances=<boolean>&IncludeExtendedInfo=<boolean>&IncludeChildAccounts=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "subaccount"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "When true, includes balance data for each account. Defaults to true.",
+                      "key": "IncludeBalances",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "When true, includes signing authorities, beneficial owners, and other KYC fields for each account. Defaults to true.",
+                      "key": "IncludeExtendedInfo",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "When true, includes nested sub-accounts for each account. Defaults to true.",
+                      "key": "IncludeChildAccounts",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "description": "This endpoint will return a list of all of the sub-accounts managed by the main account."
+              },
+              "response": [
+                {
+                  "id": "115805d4-88a1-41d5-bf6c-20eb5e7a300d",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/subaccount?AccountID=<string>&Key=<string>&Signature=<string>&Limit =<integer>&Offset =<integer>&IncludeBalances=<boolean>&IncludeExtendedInfo=<boolean>&IncludeChildAccounts=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "subaccount"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit the number of records that are returned.",
+                          "key": "Limit ",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Use this parameter to set the starting point in the dataset.",
+                          "key": "Offset ",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "When true, includes balance data for each account. Defaults to true.",
+                          "key": "IncludeBalances",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "When true, includes signing authorities, beneficial owners, and other KYC fields for each account. Defaults to true.",
+                          "key": "IncludeExtendedInfo",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "When true, includes nested sub-accounts for each account. Defaults to true.",
+                          "key": "IncludeChildAccounts",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ParentAccount\": \"<string>\",\n  \"Subaccounts\": {\n    \"0\": {\n      \"LegalBusinessName\": \"<string>\",\n      \"AccountName\": \"<string>\",\n      \"AccountID\": \"<string>\",\n      \"SubAccountType\": \"<string>\",\n      \"OrginatorName\": \"<string>\",\n      \"OriginatorShortName\": \"<string>\",\n      \"Email\": \"<email>\",\n      \"Phone\": \"<integer>\",\n      \"Fax\": \"<string>\",\n      \"City\": \"<string>\",\n      \"Province\": \"<string>\",\n      \"Country\": \"<string>\",\n      \"PostalCode\": \"<string>\",\n      \"Address\": \"<string>\",\n      \"APISharedSecret\": \"<string>\",\n      \"FlinksUrl\": \"<string>\",\n      \"WebhookUrl\": \"<string>\",\n      \"Webhooks\": {\n        \"0\": {\n          \"Event\": \"<string>\",\n          \"Url\": \"<string>\"\n        }\n      },\n      \"ParentAccounts\": {\n        \"0\": {\n          \"AccountID\": \"<string>\",\n          \"AccountName\": \"<string>\",\n          \"ParentAccountID\": \"<string>\"\n        }\n      },\n      \"IsActive\": \"<boolean>\",\n      \"AccountStatus\": \"<string>\",\n      \"AutoUnblockThreshold\": \"<number>\",\n      \"GCMEnabled\": \"<boolean>\",\n      \"EFTCollectEnabled\": \"<boolean>\",\n      \"EFTSendEnabled\": \"<boolean>\",\n      \"USDEFTCollectEnabled\": \"<boolean>\",\n      \"USDEFTSendEnabled\": \"<boolean>\",\n      \"RTRWithdrawEnabled\": \"<boolean>\",\n      \"VisaDirectEnabled\": \"<boolean>\",\n      \"InteracMoneyRequestEnabled\": \"<boolean>\",\n      \"InteracBulkPayoutEnabled\": \"<boolean>\",\n      \"PayLinkEnabled\": \"<boolean>\",\n      \"SubAccounts\": {\n        \"0\": {\n          \"LegalBusinessName\": \"<string>\",\n          \"DBAName\": \"<string>\",\n          \"AccountName\": \"<string>\",\n          \"ParentAccountName\": \"<string>\",\n          \"AccountID\": \"<string>\",\n          \"OrginatorName\": \"<string>\",\n          \"OriginatorShortName\": \"<string>\",\n          \"Email\": \"<email>\",\n          \"Phone\": \"<integer>\",\n          \"Fax\": \"<string>\",\n          \"City\": \"<string>\",\n          \"Province\": \"<string>\",\n          \"Country\": \"<string>\",\n          \"PostalCode\": \"<string>\",\n          \"Address\": \"<string>\",\n          \"FlinksUrl\": \"<string>\",\n          \"WebhookUrl\": \"<string>\",\n          \"Webhooks\": {\n            \"0\": {\n              \"Event\": \"<string>\",\n              \"Url\": \"<string>\"\n            }\n          },\n          \"IsActive\": \"<boolean>\",\n          \"GCMEnabled\": \"<boolean>\",\n          \"EFTCollectEnabled\": \"<boolean>\",\n          \"EFTSendEnabled\": \"<boolean>\",\n          \"USDEFTCollectEnabled\": \"<boolean>\",\n          \"USDEFTSendEnabled\": \"<boolean>\",\n          \"RTRWithdrawEnabled\": \"<boolean>\",\n          \"VisaDirectEnabled\": \"<boolean>\",\n          \"InteracMoneyRequestEnabled\": \"<boolean>\",\n          \"InteracBulkPayoutEnabled\": \"<boolean>\",\n          \"PayLinkEnabled\": \"<boolean>\",\n          \"PortalViewOnly\": \"<boolean>\",\n          \"AddUserEnabled\": \"<boolean>\",\n          \"TransactionApprovalWorkflowEnabled\": \"<boolean>\",\n          \"AutoBalanceTransferEnabled\": \"<boolean>\",\n          \"MaxFundEFTAmount\": \"<number>\",\n          \"MaxWithdrawEFTAmount\": \"<number>\",\n          \"MaxGCMAmount\": \"<number>\",\n          \"MaxInteracMoneyAmount\": \"<number>\",\n          \"MaxInteracBulkPayoutAmount\": \"<number>\",\n          \"MaxVisaDirectAmount\": \"<number>\",\n          \"Balances\": {\n            \"0\": {\n              \"Currency\": \"<string>\",\n              \"AccountBalance\": \"<number>\",\n              \"PendingBalance\": \"<number>\",\n              \"Reserve\": \"<number>\",\n              \"RollingReserveNSF\": \"<number>\",\n              \"RollingReserveReturns\": \"<number>\",\n              \"AvailableImmediately\": \"<number>\",\n              \"AvailableBalance\": \"<number>\"\n            }\n          },\n          \"ShareHolders\": {\n            \"0\": {\n              \"ID\": \"<integer>\",\n              \"FullName\": \"<string>\",\n              \"Ownership\": \"<string>\",\n              \"Occupation\": \"<string>\",\n              \"HomeAddress\": \"<string>\",\n              \"DateAdded\": \"<date>\"\n            }\n          },\n          \"SigningAuthorities\": {\n            \"0\": {\n              \"ID\": \"<integer>\",\n              \"FullName\": \"<string>\",\n              \"Occupation\": \"<string>\",\n              \"EmailAddress\": \"<string>\",\n              \"HomeAddress\": \"<string>\",\n              \"DateAdded\": \"<date>\"\n            }\n          }\n        }\n      },\n      \"Balances\": {\n        \"0\": {\n          \"Currency\": \"<string>\",\n          \"AccountBalance\": \"<number>\",\n          \"PendingBalance\": \"<number>\",\n          \"Reserve\": \"<number>\",\n          \"RollingReserveNSF\": \"<number>\",\n          \"RollingReserveReturns\": \"<number>\",\n          \"AvailableImmediately\": \"<number>\",\n          \"AvailableBalance\": \"<number>\",\n          \"RollupAvailableBalance\": \"<string>\",\n          \"RollupAccountBalance\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:56:27.000Z",
+                  "updatedAt": "2026-10-22T02:56:27.000Z",
+                  "uid": "35240-115805d4-88a1-41d5-bf6c-20eb5e7a300d"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:27.000Z",
+              "updatedAt": "2026-10-22T02:56:27.000Z",
+              "uid": "35240-2d2af1c7-ccdb-4109-9919-2d9e321646ab"
+            },
+            {
+              "name": "account/subaccount",
+              "id": "cfc52e7d-c06a-4d57-8eae-d4a62942cd6e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Company's Legal business name",
+                      "key": "LegalBusinessName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Company's email address - Must be a valid email",
+                      "key": "EmailAddress",
+                      "value": "<email>"
+                    },
+                    {
+                      "description": "It is a flag to allow user to decide if he wants to send the welcome email on their behalf or not. By default this value is set as true",
+                      "key": "SendWelcomeEmail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The account ID of the subaccount. If not provided, it will be defaulted to a random string generated by our system",
+                      "key": "SubaccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "It is a flag to allow user to decide if he wants to create a virtual account for the subaccount. By default this value is set as false. Must have VirtualAccounts enabled to use this parameter.",
+                      "key": "CreateVirtualAccount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Full name of the primary contact for the account",
+                      "key": "PrimaryContactName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Street address line 1 for the account",
+                      "key": "Address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Street address line 2 for the account",
+                      "key": "Address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "City of the account address",
+                      "key": "City",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Province or state of the account address",
+                      "key": "Province",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Postal or ZIP code of the account address",
+                      "key": "PostalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Country of the account address. Required if providing address fields. ISO abbreviation or full country name.",
+                      "key": "Country",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/subaccount",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "subaccount"
+                  ]
+                },
+                "description": "This endpoint is used to create a new sub-account."
+              },
+              "response": [
+                {
+                  "id": "bc4f1d55-1e28-4a14-afa6-c07a72a76324",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Company's Legal business name",
+                          "key": "LegalBusinessName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Company's email address - Must be a valid email",
+                          "key": "EmailAddress",
+                          "value": "<email>"
+                        },
+                        {
+                          "description": "It is a flag to allow user to decide if he wants to send the welcome email on their behalf or not. By default this value is set as true",
+                          "key": "SendWelcomeEmail",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The account ID of the subaccount. If not provided, it will be defaulted to a random string generated by our system",
+                          "key": "SubaccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "It is a flag to allow user to decide if he wants to create a virtual account for the subaccount. By default this value is set as false. Must have VirtualAccounts enabled to use this parameter.",
+                          "key": "CreateVirtualAccount",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Full name of the primary contact for the account",
+                          "key": "PrimaryContactName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Street address line 1 for the account",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Street address line 2 for the account",
+                          "key": "Address2",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "City of the account address",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Province or state of the account address",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Postal or ZIP code of the account address",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Country of the account address. Required if providing address fields. ISO abbreviation or full country name.",
+                          "key": "Country",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/subaccount",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "subaccount"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Message\": \"<string>\",\n  \"AccountID\": \"<string>\",\n  \"APISharedSecret\": \"<string>\",\n  \"APIKey\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:56:27.000Z",
+                  "updatedAt": "2026-10-22T02:56:27.000Z",
+                  "uid": "35240-bc4f1d55-1e28-4a14-afa6-c07a72a76324"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:27.000Z",
+              "updatedAt": "2026-10-22T02:56:27.000Z",
+              "uid": "35240-cfc52e7d-c06a-4d57-8eae-d4a62942cd6e"
+            }
+          ],
+          "id": "476bdb78-cc53-412e-b683-3b1b0707e77d",
+          "createdAt": "2026-10-22T02:56:27.000Z",
+          "updatedAt": "2026-10-22T02:56:27.000Z",
+          "uid": "35240-476bdb78-cc53-412e-b683-3b1b0707e77d"
+        }
+      ],
+      "id": "8c89e4ea-d4c7-462e-a31b-c41a32324007",
+      "createdAt": "2026-10-22T02:56:27.000Z",
+      "updatedAt": "2026-10-22T02:56:27.000Z",
+      "uid": "35240-8c89e4ea-d4c7-462e-a31b-c41a32324007"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

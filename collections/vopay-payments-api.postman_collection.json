@@ -1,0 +1,136 @@
+{
+  "info": {
+    "_postman_id": "bcf4e37e-e543-4a0e-bc60-8fa9252834a4",
+    "name": "Payments API",
+    "description": "Payment endpoint accepting nested JSON payloads with rail-specific params.\n\nContact Support:\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:55:33.000Z",
+    "updatedAt": "2026-10-22T02:55:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bcf4e37e-e543-4a0e-bc60-8fa9252834a4"
+  },
+  "item": [
+    {
+      "name": "v3",
+      "item": [
+        {
+          "name": "payment",
+          "item": [
+            {
+              "name": "payment",
+              "id": "295f7c77-1576-4aa6-a9df-bc1d9a8b88fe",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AccountID\": \"<string>\",\n  \"Key\": \"<string>\",\n  \"Signature\": \"<string>\",\n  \"PaymentRail\": \"<string>\",\n  \"Amount\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"DebitorInformation\": {\n    \"Name\": \"<string>\",\n    \"AddressInfo\": {},\n    \"VirtualAccountID\": \"<integer>\"\n  },\n  \"CreditorInformation\": {\n    \"Name\": \"<string>\"\n  },\n  \"RailSpecificInfo\": {\n    \"CreditorIBAN\": \"<string>\",\n    \"RemittanceInformation\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v3/payment",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "payment"
+                  ]
+                },
+                "description": "Create a payment. Common top-level fields plus nested DebitorInformation, CreditorInformation and RailSpecificInfo objects."
+              },
+              "response": [
+                {
+                  "id": "e6687f1b-03c1-4121-aaeb-0e5db8a5f108",
+                  "name": "Payment created (or validation errors returned)",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"AccountID\": \"<string>\",\n  \"Key\": \"<string>\",\n  \"Signature\": \"<string>\",\n  \"PaymentRail\": \"<string>\",\n  \"Amount\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"DebitorInformation\": {\n    \"Name\": \"<string>\",\n    \"AddressInfo\": {},\n    \"VirtualAccountID\": \"<integer>\"\n  },\n  \"CreditorInformation\": {\n    \"Name\": \"<string>\"\n  },\n  \"RailSpecificInfo\": {\n    \"CreditorIBAN\": \"<string>\",\n    \"RemittanceInformation\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/payment",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "payment"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<string>\",\n  \"Status\": \"complete\"\n}",
+                  "createdAt": "2026-10-22T02:55:34.000Z",
+                  "updatedAt": "2026-10-22T02:55:34.000Z",
+                  "uid": "35240-e6687f1b-03c1-4121-aaeb-0e5db8a5f108"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:34.000Z",
+              "updatedAt": "2026-10-22T02:55:34.000Z",
+              "uid": "35240-295f7c77-1576-4aa6-a9df-bc1d9a8b88fe"
+            }
+          ],
+          "id": "5a8602df-03ba-4e92-8473-5f33debc64ce",
+          "createdAt": "2026-10-22T02:55:34.000Z",
+          "updatedAt": "2026-10-22T02:55:34.000Z",
+          "uid": "35240-5a8602df-03ba-4e92-8473-5f33debc64ce"
+        }
+      ],
+      "id": "2f0e501b-041d-475a-8fdc-ecf2223afde6",
+      "createdAt": "2026-10-22T02:55:34.000Z",
+      "updatedAt": "2026-10-22T02:55:34.000Z",
+      "uid": "35240-2f0e501b-041d-475a-8fdc-ecf2223afde6"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api"
+    }
+  ]
+}

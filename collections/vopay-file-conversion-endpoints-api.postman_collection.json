@@ -1,0 +1,1282 @@
+{
+  "info": {
+    "_postman_id": "2231ec8b-2d6f-4457-97e7-b3f02c2142f0",
+    "name": "File Conversion Endpoints API",
+    "description": "The file conversion API allows you to convert files from one format to another programmatically as well as submitting files to banking partners directly. This API supports a variety of file types and conversion options to meet your needs.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:54:38.000Z",
+    "updatedAt": "2026-10-22T02:54:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2231ec8b-2d6f-4457-97e7-b3f02c2142f0"
+  },
+  "item": [
+    {
+      "name": "file-conversion",
+      "item": [
+        {
+          "name": "upload",
+          "item": [
+            {
+              "name": "file-conversion/upload",
+              "id": "6aa39867-643c-4d35-9b01-9acb2d820166",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the source file to be uploaded for conversion",
+                      "key": "SourceFileName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The source file content to be uploaded for conversion, base64 encoded",
+                      "key": "SourceFile",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Service type: Debit (Collect funds) or Credit (Send funds)",
+                      "key": "Service",
+                      "value": "Debit"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/file-conversion/upload",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "file-conversion",
+                    "upload"
+                  ]
+                },
+                "description": "Upload a file for conversion or submission to a banking partner."
+              },
+              "response": [
+                {
+                  "id": "060fd1a6-dda6-4915-8172-6f00c839d91a",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The name of the source file to be uploaded for conversion",
+                          "key": "SourceFileName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The source file content to be uploaded for conversion, base64 encoded",
+                          "key": "SourceFile",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Service type: Debit (Collect funds) or Credit (Send funds)",
+                          "key": "Service",
+                          "value": "Debit"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/file-conversion/upload",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "file-conversion",
+                        "upload"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"FileConversionID\": \"<string>\",\n  \"TransactionCount\": \"<string>\",\n  \"TotalAmount\": \"<string>\",\n  \"Currency\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:39.000Z",
+                  "updatedAt": "2026-10-22T02:54:39.000Z",
+                  "uid": "35240-060fd1a6-dda6-4915-8172-6f00c839d91a"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:39.000Z",
+              "updatedAt": "2026-10-22T02:54:39.000Z",
+              "uid": "35240-6aa39867-643c-4d35-9b01-9acb2d820166"
+            }
+          ],
+          "id": "dbc40cad-5911-4b87-9c83-885db3d104de",
+          "createdAt": "2026-10-22T02:54:39.000Z",
+          "updatedAt": "2026-10-22T02:54:39.000Z",
+          "uid": "35240-dbc40cad-5911-4b87-9c83-885db3d104de"
+        },
+        {
+          "name": "submit",
+          "item": [
+            {
+              "name": "file-conversion/submit",
+              "id": "4f3bc2fe-60eb-4c7f-876a-e9a894087665",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the file conversion job returned from the upload endpoint",
+                      "key": "FileConversionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the file conversion configuration to use for processing",
+                      "key": "FileConversionConfigurationID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value date for the transactions (YYYY-MM-DD). Defaults to current date if not provided",
+                      "key": "ValueDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "The primary payment rail to use for processing",
+                      "key": "PaymentRail",
+                      "value": "vopayinstant"
+                    },
+                    {
+                      "description": "An alternate payment rail to use if the primary rail is unavailable",
+                      "key": "AlternatePaymentRail",
+                      "value": "fedwire"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/file-conversion/submit",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "file-conversion",
+                    "submit"
+                  ]
+                },
+                "description": "Submit an uploaded file for processing and transmission to a banking partner."
+              },
+              "response": [
+                {
+                  "id": "74c60240-0c99-4e61-8517-b364c464511f",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the file conversion job returned from the upload endpoint",
+                          "key": "FileConversionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the file conversion configuration to use for processing",
+                          "key": "FileConversionConfigurationID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The value date for the transactions (YYYY-MM-DD). Defaults to current date if not provided",
+                          "key": "ValueDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "The primary payment rail to use for processing",
+                          "key": "PaymentRail",
+                          "value": "vopayinstant"
+                        },
+                        {
+                          "description": "An alternate payment rail to use if the primary rail is unavailable",
+                          "key": "AlternatePaymentRail",
+                          "value": "fedwire"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/file-conversion/submit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "file-conversion",
+                        "submit"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TotalTransactions\": \"<integer>\",\n  \"TotalFailed\": \"<integer>\",\n  \"TotalAmount\": \"<string>\",\n  \"Currency\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:39.000Z",
+                  "updatedAt": "2026-10-22T02:54:39.000Z",
+                  "uid": "35240-74c60240-0c99-4e61-8517-b364c464511f"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:39.000Z",
+              "updatedAt": "2026-10-22T02:54:39.000Z",
+              "uid": "35240-4f3bc2fe-60eb-4c7f-876a-e9a894087665"
+            }
+          ],
+          "id": "b989aa98-596c-4c31-b8a2-5949704baffd",
+          "createdAt": "2026-10-22T02:54:39.000Z",
+          "updatedAt": "2026-10-22T02:54:39.000Z",
+          "uid": "35240-b989aa98-596c-4c31-b8a2-5949704baffd"
+        },
+        {
+          "name": "download",
+          "item": [
+            {
+              "name": "file-conversion/download",
+              "id": "1713d2ce-d7aa-43d9-851c-e3ca5abf21a1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/file-conversion/download?AccountID=<string>&Key=<string>&Signature=<string>&FileConversionID=<string>&FileConversionConfigurationID=<string>&ValueDate=<date>&PaymentRail=interac&AlternatePaymentRail=interac",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "file-conversion",
+                    "download"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the file conversion job",
+                      "key": "FileConversionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the file conversion configuration used for conversion",
+                      "key": "FileConversionConfigurationID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value date for the transactions (YYYY-MM-DD). Defaults to current date if not provided",
+                      "key": "ValueDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "The payment rail used for conversion",
+                      "key": "PaymentRail",
+                      "value": "interac"
+                    },
+                    {
+                      "description": "An alternate payment rail used for conversion",
+                      "key": "AlternatePaymentRail",
+                      "value": "interac"
+                    }
+                  ]
+                },
+                "description": "Download the converted target file for a specific file conversion."
+              },
+              "response": [
+                {
+                  "id": "e0a9a88b-4ff5-478d-a36d-9c374bb6b9a8",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/file-conversion/download?AccountID=<string>&Key=<string>&Signature=<string>&FileConversionID=<string>&FileConversionConfigurationID=<string>&ValueDate=<date>&PaymentRail=interac&AlternatePaymentRail=interac",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "file-conversion",
+                        "download"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the file conversion job",
+                          "key": "FileConversionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the file conversion configuration used for conversion",
+                          "key": "FileConversionConfigurationID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The value date for the transactions (YYYY-MM-DD). Defaults to current date if not provided",
+                          "key": "ValueDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "The payment rail used for conversion",
+                          "key": "PaymentRail",
+                          "value": "interac"
+                        },
+                        {
+                          "description": "An alternate payment rail used for conversion",
+                          "key": "AlternatePaymentRail",
+                          "value": "interac"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"FileConversionID\": \"<string>\",\n  \"FileContent\": \"<string>\",\n  \"FileName\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:39.000Z",
+                  "updatedAt": "2026-10-22T02:54:39.000Z",
+                  "uid": "35240-e0a9a88b-4ff5-478d-a36d-9c374bb6b9a8"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:39.000Z",
+              "updatedAt": "2026-10-22T02:54:39.000Z",
+              "uid": "35240-1713d2ce-d7aa-43d9-851c-e3ca5abf21a1"
+            }
+          ],
+          "id": "009e4bd8-46cf-4767-ae92-c52d29884650",
+          "createdAt": "2026-10-22T02:54:39.000Z",
+          "updatedAt": "2026-10-22T02:54:39.000Z",
+          "uid": "35240-009e4bd8-46cf-4767-ae92-c52d29884650"
+        },
+        {
+          "name": "download-source",
+          "item": [
+            {
+              "name": "file-conversion/download-source",
+              "id": "f5efa1c5-2e3a-4a47-9523-f3ba843c8476",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/file-conversion/download-source?AccountID=<string>&Key=<string>&Signature=<string>&FileConversionID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "file-conversion",
+                    "download-source"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the file conversion job",
+                      "key": "FileConversionID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Download the original source file that was uploaded for conversion."
+              },
+              "response": [
+                {
+                  "id": "84e7a7b2-58bb-49ea-be2d-3adcc2358468",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/file-conversion/download-source?AccountID=<string>&Key=<string>&Signature=<string>&FileConversionID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "file-conversion",
+                        "download-source"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the file conversion job",
+                          "key": "FileConversionID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"FileConversionID\": \"<string>\",\n  \"FileContent\": \"<string>\",\n  \"FileName\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:39.000Z",
+                  "updatedAt": "2026-10-22T02:54:39.000Z",
+                  "uid": "35240-84e7a7b2-58bb-49ea-be2d-3adcc2358468"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:39.000Z",
+              "updatedAt": "2026-10-22T02:54:39.000Z",
+              "uid": "35240-f5efa1c5-2e3a-4a47-9523-f3ba843c8476"
+            }
+          ],
+          "id": "38463219-bc28-4db3-95c9-ba3ca7766a98",
+          "createdAt": "2026-10-22T02:54:39.000Z",
+          "updatedAt": "2026-10-22T02:54:39.000Z",
+          "uid": "35240-38463219-bc28-4db3-95c9-ba3ca7766a98"
+        },
+        {
+          "name": "configurations",
+          "item": [
+            {
+              "name": "file-conversion/configurations",
+              "id": "8ef611ff-0721-4591-a4e1-e6226255c17c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/file-conversion/configurations?AccountID=<string>&Key=<string>&Signature=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "file-conversion",
+                    "configurations"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get available file conversion configurations and supported payment rails for your account."
+              },
+              "response": [
+                {
+                  "id": "8b426eba-3b6b-4d50-b1e1-47ac231d41e3",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/file-conversion/configurations?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "file-conversion",
+                        "configurations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Configurations\": [\n    {\n      \"ID\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Processor\": \"<string>\",\n      \"PaymentRails\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"ID\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Processor\": \"<string>\",\n      \"PaymentRails\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:54:39.000Z",
+                  "updatedAt": "2026-10-22T02:54:39.000Z",
+                  "uid": "35240-8b426eba-3b6b-4d50-b1e1-47ac231d41e3"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:39.000Z",
+              "updatedAt": "2026-10-22T02:54:39.000Z",
+              "uid": "35240-8ef611ff-0721-4591-a4e1-e6226255c17c"
+            }
+          ],
+          "id": "4807dfba-887b-428f-bf41-c3e7cce802bd",
+          "createdAt": "2026-10-22T02:54:39.000Z",
+          "updatedAt": "2026-10-22T02:54:39.000Z",
+          "uid": "35240-4807dfba-887b-428f-bf41-c3e7cce802bd"
+        },
+        {
+          "name": "history",
+          "item": [
+            {
+              "name": "file-conversion/history",
+              "id": "e1a39cf7-bb05-4a33-a230-467649bb449c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/file-conversion/history?AccountID=<string>&Key=<string>&Signature=<string>&Processor=mastercard&ConversionStatus=Success&PaymentRail=interac&Service=Credit&StartDate=<date>&EndDate=<date>&Limit=<integer>&Offset=<integer>&Timezone=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "file-conversion",
+                    "history"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by processor/banking partner",
+                      "key": "Processor",
+                      "value": "mastercard"
+                    },
+                    {
+                      "description": "Filter by conversion status",
+                      "key": "ConversionStatus",
+                      "value": "Success"
+                    },
+                    {
+                      "description": "Filter by payment rail",
+                      "key": "PaymentRail",
+                      "value": "interac"
+                    },
+                    {
+                      "description": "Filter by service type",
+                      "key": "Service",
+                      "value": "Credit"
+                    },
+                    {
+                      "description": "Filter by start date (YYYY-MM-DD)",
+                      "key": "StartDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter by end date (YYYY-MM-DD)",
+                      "key": "EndDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "Limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of records to skip for pagination",
+                      "key": "Offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Timezone for date filtering (e.g., America/Toronto)",
+                      "key": "Timezone",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get file conversion history for your account with optional filtering and pagination."
+              },
+              "response": [
+                {
+                  "id": "9a74ca16-fb61-4e3e-a214-9d9c65a1eb8b",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/file-conversion/history?AccountID=<string>&Key=<string>&Signature=<string>&Processor=mastercard&ConversionStatus=Success&PaymentRail=interac&Service=Credit&StartDate=<date>&EndDate=<date>&Limit=<integer>&Offset=<integer>&Timezone=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "file-conversion",
+                        "history"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by processor/banking partner",
+                          "key": "Processor",
+                          "value": "mastercard"
+                        },
+                        {
+                          "description": "Filter by conversion status",
+                          "key": "ConversionStatus",
+                          "value": "Success"
+                        },
+                        {
+                          "description": "Filter by payment rail",
+                          "key": "PaymentRail",
+                          "value": "interac"
+                        },
+                        {
+                          "description": "Filter by service type",
+                          "key": "Service",
+                          "value": "Credit"
+                        },
+                        {
+                          "description": "Filter by start date (YYYY-MM-DD)",
+                          "key": "StartDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Filter by end date (YYYY-MM-DD)",
+                          "key": "EndDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Maximum number of records to return",
+                          "key": "Limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of records to skip for pagination",
+                          "key": "Offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Timezone for date filtering (e.g., America/Toronto)",
+                          "key": "Timezone",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NumberOfRecords\": \"<integer>\",\n  \"Conversions\": {\n    \"0\": {\n      \"FileConversionID\": \"<string>\",\n      \"Processor\": \"<string>\",\n      \"PaymentRail\": \"<string>\",\n      \"AlternatePaymentRail\": \"<string>\",\n      \"Service\": \"<string>\",\n      \"SourceFileName\": \"<string>\",\n      \"TransactionCount\": \"<string>\",\n      \"TotalAmount\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"TotalFailed\": \"<string>\",\n      \"ConversionStatus\": \"<string>\",\n      \"ErrorMessage\": \"<string>\",\n      \"IsSubmitted\": \"<string>\",\n      \"SubmittedDate\": \"<string>\",\n      \"DateAdded\": \"<string>\",\n      \"TotalAmounts\": {}\n    }\n  },\n  \"PaginationMetaData\": {\n    \"TotalRecords\": \"<integer>\",\n    \"Offset\": \"<integer>\",\n    \"Limit\": \"<integer>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:39.000Z",
+                  "updatedAt": "2026-10-22T02:54:39.000Z",
+                  "uid": "35240-9a74ca16-fb61-4e3e-a214-9d9c65a1eb8b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:39.000Z",
+              "updatedAt": "2026-10-22T02:54:39.000Z",
+              "uid": "35240-e1a39cf7-bb05-4a33-a230-467649bb449c"
+            }
+          ],
+          "id": "3861efd8-1589-469b-86fe-0f183a87259f",
+          "createdAt": "2026-10-22T02:54:39.000Z",
+          "updatedAt": "2026-10-22T02:54:39.000Z",
+          "uid": "35240-3861efd8-1589-469b-86fe-0f183a87259f"
+        },
+        {
+          "name": "preprocessing",
+          "item": [
+            {
+              "name": "configurations",
+              "item": [
+                {
+                  "name": "file-conversion/preprocessing/configurations",
+                  "id": "c41d3a9e-9c94-4366-91af-2458304dc314",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/file-conversion/preprocessing/configurations?AccountID=<string>&Key=<string>&Signature=<string>&SourceFormat=<string>&SourceFile=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "file-conversion",
+                        "preprocessing",
+                        "configurations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter configurations by source format (e.g., xml, json)",
+                          "key": "SourceFormat",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Source file content to analyze for configuration options, base64 encoded",
+                          "key": "SourceFile",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Get preprocessing configurations for the authenticated account."
+                  },
+                  "response": [
+                    {
+                      "id": "5a0bca76-2837-4d93-a975-b1ec43bcfd28",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/file-conversion/preprocessing/configurations?AccountID=<string>&Key=<string>&Signature=<string>&SourceFormat=<string>&SourceFile=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "file-conversion",
+                            "preprocessing",
+                            "configurations"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter configurations by source format (e.g., xml, json)",
+                              "key": "SourceFormat",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Source file content to analyze for configuration options, base64 encoded",
+                              "key": "SourceFile",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Configs\": {\n    \"0\": {\n      \"FileConversionPreprocessingID\": \"<string>\",\n      \"ConfigName\": \"<string>\",\n      \"SourceFormat\": \"<string>\",\n      \"IsDefault\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:54:39.000Z",
+                      "updatedAt": "2026-10-22T02:54:39.000Z",
+                      "uid": "35240-5a0bca76-2837-4d93-a975-b1ec43bcfd28"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:39.000Z",
+                  "updatedAt": "2026-10-22T02:54:39.000Z",
+                  "uid": "35240-c41d3a9e-9c94-4366-91af-2458304dc314"
+                }
+              ],
+              "id": "6ba6d3d8-3d22-4e68-be18-d5034d4a0478",
+              "createdAt": "2026-10-22T02:54:39.000Z",
+              "updatedAt": "2026-10-22T02:54:39.000Z",
+              "uid": "35240-6ba6d3d8-3d22-4e68-be18-d5034d4a0478"
+            }
+          ],
+          "id": "7cb03d8c-0533-47b9-9a91-2dff2a3f35b8",
+          "createdAt": "2026-10-22T02:54:39.000Z",
+          "updatedAt": "2026-10-22T02:54:39.000Z",
+          "uid": "35240-7cb03d8c-0533-47b9-9a91-2dff2a3f35b8"
+        },
+        {
+          "name": "transactions",
+          "item": [
+            {
+              "name": "file-conversion/transactions",
+              "id": "f370e550-c9e5-4406-baf7-a70fad299eef",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/file-conversion/transactions?AccountID=<string>&Key=<string>&Signature=<string>&FileConversionID=<string>&Processor=mastercard&IsFailed=<boolean>&Limit=<integer>&Offset=<integer>&Timezone=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "file-conversion",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the file conversion job",
+                      "key": "FileConversionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter transactions formatted for a specific processor",
+                      "key": "Processor",
+                      "value": "mastercard"
+                    },
+                    {
+                      "description": "Filter to show only failed transactions",
+                      "key": "IsFailed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Maximum number of records to return (default: 50)",
+                      "key": "Limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of records to skip for pagination (default: 0)",
+                      "key": "Offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Timezone for date formatting (e.g., America/Toronto)",
+                      "key": "Timezone",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get formatted transactions for a specific file conversion. Optionally filter by processor to view transactions in the format they would be sent to that provider."
+              },
+              "response": [
+                {
+                  "id": "577de985-7cdf-4713-8e06-dacb93cb8428",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/file-conversion/transactions?AccountID=<string>&Key=<string>&Signature=<string>&FileConversionID=<string>&Processor=mastercard&IsFailed=<boolean>&Limit=<integer>&Offset=<integer>&Timezone=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "file-conversion",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the file conversion job",
+                          "key": "FileConversionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter transactions formatted for a specific processor",
+                          "key": "Processor",
+                          "value": "mastercard"
+                        },
+                        {
+                          "description": "Filter to show only failed transactions",
+                          "key": "IsFailed",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Maximum number of records to return (default: 50)",
+                          "key": "Limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of records to skip for pagination (default: 0)",
+                          "key": "Offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Timezone for date formatting (e.g., America/Toronto)",
+                          "key": "Timezone",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"FileConversionID\": \"<string>\",\n  \"NumberOfRecords\": \"<integer>\",\n  \"Transactions\": {\n    \"0\": {\n      \"TransactionID\": \"<string>\",\n      \"TransactionReference\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"Amount\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"EffectiveDate\": \"<string>\",\n      \"BeneficiaryName\": \"<string>\",\n      \"BeneficiaryPhoneNumber\": \"<string>\",\n      \"BeneficiaryEmail\": \"<string>\",\n      \"BeneficiaryAddress\": \"<string>\",\n      \"BeneficiaryAddress2\": \"<string>\",\n      \"BeneficiaryProvince\": \"<string>\",\n      \"BeneficiaryPostalCode\": \"<string>\",\n      \"BeneficiaryCity\": \"<string>\",\n      \"BeneficiaryCountry\": \"<string>\",\n      \"AccountNumber\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"TransactionLabel\": \"<string>\",\n      \"OriginatorRoutingNumber\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"IsFailed\": \"<string>\",\n      \"FailureReason\": \"<string>\"\n    }\n  },\n  \"PaginationMetaData\": {\n    \"TotalRecords\": \"<integer>\",\n    \"Offset\": \"<integer>\",\n    \"Limit\": \"<integer>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:39.000Z",
+                  "updatedAt": "2026-10-22T02:54:39.000Z",
+                  "uid": "35240-577de985-7cdf-4713-8e06-dacb93cb8428"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:39.000Z",
+              "updatedAt": "2026-10-22T02:54:39.000Z",
+              "uid": "35240-f370e550-c9e5-4406-baf7-a70fad299eef"
+            }
+          ],
+          "id": "4b595a6b-4886-49c4-b5f9-5105db7c0f97",
+          "createdAt": "2026-10-22T02:54:39.000Z",
+          "updatedAt": "2026-10-22T02:54:39.000Z",
+          "uid": "35240-4b595a6b-4886-49c4-b5f9-5105db7c0f97"
+        }
+      ],
+      "id": "96dc769e-dc0c-49c9-9c84-d272a6193a0b",
+      "createdAt": "2026-10-22T02:54:39.000Z",
+      "updatedAt": "2026-10-22T02:54:39.000Z",
+      "uid": "35240-96dc769e-dc0c-49c9-9c84-d272a6193a0b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

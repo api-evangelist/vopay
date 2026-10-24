@@ -1,0 +1,1032 @@
+{
+  "info": {
+    "_postman_id": "e110166f-19ba-45c7-8e32-81f1424e1d6d",
+    "name": "Account Verification Endpoints API",
+    "description": "The verification API defines endpoints for initiating, confirming, and fetching details of micro deposit transactions to verify bank accounts in the US and Canada.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:29.000Z",
+    "updatedAt": "2026-10-22T02:51:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e110166f-19ba-45c7-8e32-81f1424e1d6d"
+  },
+  "item": [
+    {
+      "name": "account-verification",
+      "item": [
+        {
+          "name": "bank-account",
+          "item": [
+            {
+              "name": "initiate",
+              "item": [
+                {
+                  "name": "account-verification/bank-account/initiate",
+                  "id": "852c7d0f-b377-4d55-82f7-9fdb265d52f0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Country for which the Micro Transaction should be initiated",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Company name of the account holder - required for associating the bank details",
+                          "key": "CompanyName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) First name of the account holder - required for associating the bank details (optional if company name is present)",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Last name of the account holder - required for associating the bank details (optional if company name is present)",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Account number - required for associating the bank details.",
+                          "key": "AccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the account verification request.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Reference number for the client",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Financial Institution number - required for associating the bank details. Canada only.",
+                          "key": "InstitutionNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Bank transit number - required for associating the bank details. Canada only.",
+                          "key": "TransitNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ABA routing number - required for associating the bank details. US only.",
+                          "key": "ABARoutingNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This option is used to send the account verification initiation/expiration email. If you wish to send an email, then provide true. The default value is false.",
+                          "key": "SendEmail",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Account's email address - Must be a valid email. Required if SendEmail = true",
+                          "key": "SenderEmailAddress",
+                          "value": "<email>"
+                        },
+                        {
+                          "description": "Recipient's email address - Must be a valid email. Required if SendEmail = true",
+                          "key": "ReceiverEmailAddress",
+                          "value": "<email>"
+                        },
+                        {
+                          "description": "Customer's phone number. Digits only - no parentheses or dashes allowed. US only.",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's address line 1. US only.",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Account's city - No abbreviation. US only.",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's state specified using two character abbreviations (eg. CA, AZ). US only.",
+                          "key": "State",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's zip code. US only.",
+                          "key": "ZipCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The token identifying the bank account to be verified. If token is provided, bank routing info and address are not required.",
+                          "key": "Token",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account-verification/bank-account/initiate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account-verification",
+                        "bank-account",
+                        "initiate"
+                      ]
+                    },
+                    "description": "This endpoint is used to intiate the micro deposit transaction. The bank routing information required will vary depending on the country. Currently only US and Canada are supported."
+                  },
+                  "response": [
+                    {
+                      "id": "d1741e15-ffc9-46a2-9322-ece3db38ce0a",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Country for which the Micro Transaction should be initiated",
+                              "key": "Country",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Company name of the account holder - required for associating the bank details",
+                              "key": "CompanyName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) First name of the account holder - required for associating the bank details (optional if company name is present)",
+                              "key": "FirstName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Last name of the account holder - required for associating the bank details (optional if company name is present)",
+                              "key": "LastName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Account number - required for associating the bank details.",
+                              "key": "AccountNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional note to associate with the account verification request.",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Reference number for the client",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Financial Institution number - required for associating the bank details. Canada only.",
+                              "key": "InstitutionNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Bank transit number - required for associating the bank details. Canada only.",
+                              "key": "TransitNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ABA routing number - required for associating the bank details. US only.",
+                              "key": "ABARoutingNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This option is used to send the account verification initiation/expiration email. If you wish to send an email, then provide true. The default value is false.",
+                              "key": "SendEmail",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Account's email address - Must be a valid email. Required if SendEmail = true",
+                              "key": "SenderEmailAddress",
+                              "value": "<email>"
+                            },
+                            {
+                              "description": "Recipient's email address - Must be a valid email. Required if SendEmail = true",
+                              "key": "ReceiverEmailAddress",
+                              "value": "<email>"
+                            },
+                            {
+                              "description": "Customer's phone number. Digits only - no parentheses or dashes allowed. US only.",
+                              "key": "PhoneNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Customer's address line 1. US only.",
+                              "key": "Address1",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Account's city - No abbreviation. US only.",
+                              "key": "City",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Customer's state specified using two character abbreviations (eg. CA, AZ). US only.",
+                              "key": "State",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Customer's zip code. US only.",
+                              "key": "ZipCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The token identifying the bank account to be verified. If token is provided, bank routing info and address are not required.",
+                              "key": "Token",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account-verification/bank-account/initiate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account-verification",
+                            "bank-account",
+                            "initiate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"VerificationRequestID\": \"<integer>\",\n  \"Link\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:30.000Z",
+                      "updatedAt": "2026-10-22T02:51:30.000Z",
+                      "uid": "35240-d1741e15-ffc9-46a2-9322-ece3db38ce0a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:30.000Z",
+                  "updatedAt": "2026-10-22T02:51:30.000Z",
+                  "uid": "35240-852c7d0f-b377-4d55-82f7-9fdb265d52f0"
+                }
+              ],
+              "id": "0fc84716-8c6f-4840-97e3-9670271dbb6b",
+              "createdAt": "2026-10-22T02:51:30.000Z",
+              "updatedAt": "2026-10-22T02:51:30.000Z",
+              "uid": "35240-0fc84716-8c6f-4840-97e3-9670271dbb6b"
+            },
+            {
+              "name": "confirm",
+              "item": [
+                {
+                  "name": "account-verification/bank-account/confirm",
+                  "id": "eb208976-e602-4364-ac4f-310aee4ff7ae",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Value of the Account Verification Request ID",
+                          "key": "VerificationRequestID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) Amount to be confirmed for the Account Verification Request ID",
+                          "key": "Amount",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account-verification/bank-account/confirm",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account-verification",
+                        "bank-account",
+                        "confirm"
+                      ]
+                    },
+                    "description": "This endpoint is used to confirm the micro deposit transaction."
+                  },
+                  "response": [
+                    {
+                      "id": "5bda907d-13e7-4793-803d-697c32b62907",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Value of the Account Verification Request ID",
+                              "key": "VerificationRequestID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) Amount to be confirmed for the Account Verification Request ID",
+                              "key": "Amount",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account-verification/bank-account/confirm",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account-verification",
+                            "bank-account",
+                            "confirm"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ConfirmationStatus\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:51:30.000Z",
+                      "updatedAt": "2026-10-22T02:51:30.000Z",
+                      "uid": "35240-5bda907d-13e7-4793-803d-697c32b62907"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:30.000Z",
+                  "updatedAt": "2026-10-22T02:51:30.000Z",
+                  "uid": "35240-eb208976-e602-4364-ac4f-310aee4ff7ae"
+                }
+              ],
+              "id": "307b23a7-7cec-404c-8db9-3c244c89c5e0",
+              "createdAt": "2026-10-22T02:51:30.000Z",
+              "updatedAt": "2026-10-22T02:51:30.000Z",
+              "uid": "35240-307b23a7-7cec-404c-8db9-3c244c89c5e0"
+            }
+          ],
+          "id": "85d89596-ed59-40e8-afe9-d128b06ed16d",
+          "createdAt": "2026-10-22T02:51:30.000Z",
+          "updatedAt": "2026-10-22T02:51:30.000Z",
+          "uid": "35240-85d89596-ed59-40e8-afe9-d128b06ed16d"
+        },
+        {
+          "name": "card",
+          "item": [
+            {
+              "name": "account-verification/card",
+              "id": "df0a4337-f853-499a-a268-1309da517ccb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The token identifying the credit or debit card",
+                      "key": "CardToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Tier of the verification request. Options are 'basic' and 'enhanced'. Defaults to 'basic' if not specified.",
+                      "key": "VerificationTier",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account-verification/card",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account-verification",
+                    "card"
+                  ]
+                },
+                "description": "This endpoint is used to verify a credit or debit card."
+              },
+              "response": [
+                {
+                  "id": "aadd188c-ee63-45b9-817d-6ae9db7d121f",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The token identifying the credit or debit card",
+                          "key": "CardToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Tier of the verification request. Options are 'basic' and 'enhanced'. Defaults to 'basic' if not specified.",
+                          "key": "VerificationTier",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account-verification/card",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account-verification",
+                        "card"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"VerificationRequestID\": \"<integer>\",\n  \"VerificationStatus\": \"<string>\",\n  \"VerificationInfo\": {\n    \"0\": {\n      \"SendingEligibility\": \"<string>\",\n      \"ReceivingEligibility\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Brand\": \"<string>\",\n      \"FundsAvailability\": \"<string>\",\n      \"InstitutionName\": \"<string>\",\n      \"InstitutionCountry\": \"<string>\",\n      \"AccountStatementCurrency\": \"<string>\",\n      \"AcceptanceBrand\": \"<string>\",\n      \"ProductType\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:51:30.000Z",
+                  "updatedAt": "2026-10-22T02:51:30.000Z",
+                  "uid": "35240-aadd188c-ee63-45b9-817d-6ae9db7d121f"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:30.000Z",
+              "updatedAt": "2026-10-22T02:51:30.000Z",
+              "uid": "35240-df0a4337-f853-499a-a268-1309da517ccb"
+            }
+          ],
+          "id": "d131d47d-676d-4ac9-a73e-dfbc1bb3793a",
+          "createdAt": "2026-10-22T02:51:30.000Z",
+          "updatedAt": "2026-10-22T02:51:30.000Z",
+          "uid": "35240-d131d47d-676d-4ac9-a73e-dfbc1bb3793a"
+        },
+        {
+          "name": "interac",
+          "item": [
+            {
+              "name": "account-verification/interac",
+              "id": "417f51dc-7fc9-44d2-b650-d9454c7da6db",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Email address of the account holder",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Tier of the verification request. Options are 'basic' and 'enhanced'. Defaults to 'basic' if not specified.",
+                      "key": "VerificationTier",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Name of the account holder - required for associating the email address (not required if ClientAccountID/ContactID is present)",
+                      "key": "AccountHolderName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client account ID - required for associating the email address (not required if AccountHolderName is present)",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact ID - required for associating the email address (not required if AccountHolderName is present)",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account-verification/interac",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account-verification",
+                    "interac"
+                  ]
+                },
+                "description": "This endpoint is used to verify an Interac email address."
+              },
+              "response": [
+                {
+                  "id": "80e7032b-50d7-4864-a224-59d0506f4dda",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Email address of the account holder",
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Tier of the verification request. Options are 'basic' and 'enhanced'. Defaults to 'basic' if not specified.",
+                          "key": "VerificationTier",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Name of the account holder - required for associating the email address (not required if ClientAccountID/ContactID is present)",
+                          "key": "AccountHolderName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client account ID - required for associating the email address (not required if AccountHolderName is present)",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact ID - required for associating the email address (not required if AccountHolderName is present)",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account-verification/interac",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account-verification",
+                        "interac"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"VerificationRequestID\": \"<integer>\",\n  \"VerificationStatus\": \"<string>\",\n  \"RegistrationInfo\": {}\n}",
+                  "createdAt": "2026-10-22T02:51:30.000Z",
+                  "updatedAt": "2026-10-22T02:51:30.000Z",
+                  "uid": "35240-80e7032b-50d7-4864-a224-59d0506f4dda"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:30.000Z",
+              "updatedAt": "2026-10-22T02:51:30.000Z",
+              "uid": "35240-417f51dc-7fc9-44d2-b650-d9454c7da6db"
+            }
+          ],
+          "id": "6ccfdde3-8599-440c-85b3-959ae0be78c1",
+          "createdAt": "2026-10-22T02:51:30.000Z",
+          "updatedAt": "2026-10-22T02:51:30.000Z",
+          "uid": "35240-6ccfdde3-8599-440c-85b3-959ae0be78c1"
+        },
+        {
+          "name": "account-verification",
+          "id": "fcba1840-b705-4ca0-bf63-ce82f65b723d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/account-verification?AccountID=<string>&Key=<string>&Signature=<string>&VerificationRequestID=<integer>&RequestStatus=<string>&VerificationStatus=<string>&VerificationType=<string>&SearchText=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&Limit=<integer>&Offset=<integer>&Timezone=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "account-verification"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Value of the Account Verification Request ID",
+                  "key": "VerificationRequestID",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The account verification request status. Can be 'active' or 'expired'",
+                  "key": "RequestStatus",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The vefification status of the account. Can be 'unverified', 'verified' or 'failed'",
+                  "key": "VerificationStatus",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The verification type. Can be 'bank' or 'interac'",
+                  "key": "VerificationType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A text string to search for in the email addresses used for Account Verification process.",
+                  "key": "SearchText",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Return micro deposit transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                  "key": "StartDateTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Return micro deposit transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                  "key": "EndDateTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Limit the number of records that are returned.",
+                  "key": "Limit",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Use this parameter to set the starting point in the dataset.",
+                  "key": "Offset",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.",
+                  "key": "Timezone",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "This endpoint is used to fetch the details of a micro deposit transaction."
+          },
+          "response": [
+            {
+              "id": "59c406dc-6c1e-4195-a920-e7621a83d57d",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account-verification?AccountID=<string>&Key=<string>&Signature=<string>&VerificationRequestID=<integer>&RequestStatus=<string>&VerificationStatus=<string>&VerificationType=<string>&SearchText=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&Limit=<integer>&Offset=<integer>&Timezone=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account-verification"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Value of the Account Verification Request ID",
+                      "key": "VerificationRequestID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The account verification request status. Can be 'active' or 'expired'",
+                      "key": "RequestStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The vefification status of the account. Can be 'unverified', 'verified' or 'failed'",
+                      "key": "VerificationStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The verification type. Can be 'bank' or 'interac'",
+                      "key": "VerificationType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A text string to search for in the email addresses used for Account Verification process.",
+                      "key": "SearchText",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return micro deposit transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                      "key": "StartDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Return micro deposit transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                      "key": "EndDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to convert the time to the specified timezone. If no timezone is specified, the default is UTC.",
+                      "key": "Timezone",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ClientAccountID\": \"<string>\",\n  \"VerificationRequestID\": \"<integer>\",\n  \"AccountHolderName\": \"<string>\",\n  \"VerificationType\": \"<string>\",\n  \"Amount\": \"<integer>\",\n  \"Details\": {\n    \"Credit\": {\n      \"FirstName\": \"<string>\",\n      \"LastName\": \"<string>\",\n      \"CreditCardToken\": \"<string>\",\n      \"CreditCardBrand\": \"<string>\",\n      \"CreditCardNumber\": \"<string>\"\n    },\n    \"Debit\": {\n      \"FirstName\": \"<string>\",\n      \"LastName\": \"<string>\",\n      \"DebitCardToken\": \"<string>\",\n      \"DebitCardBrand\": \"<string>\",\n      \"DebitCardNumber\": \"<string>\"\n    },\n    \"Bank\": {\n      \"AccountNumber\": \"<string>\",\n      \"Currency\": \"<string>\"\n    },\n    \"EmailAddress\": {\n      \"AccountHolderName\": \"<string>\",\n      \"EmailAddress\": \"<string>\"\n    }\n  },\n  \"PaymentRail\": \"<string>\",\n  \"Status\": {\n    \"Transaction\": {\n      \"Credit\": \"<string>\",\n      \"Debit\": \"<string>\"\n    },\n    \"Verification\": \"<string>\",\n    \"Request\": \"<string>\"\n  },\n  \"VerificationAttempts\": \"<integer>\",\n  \"EmailAddress\": {\n    \"Sender\": \"<string>\",\n    \"Receiver\": \"<string>\"\n  },\n  \"Link\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"LastModified\": \"<dateTime>\",\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:51:30.000Z",
+              "updatedAt": "2026-10-22T02:51:30.000Z",
+              "uid": "35240-59c406dc-6c1e-4195-a920-e7621a83d57d"
+            }
+          ],
+          "createdAt": "2026-10-22T02:51:30.000Z",
+          "updatedAt": "2026-10-22T02:51:30.000Z",
+          "uid": "35240-fcba1840-b705-4ca0-bf63-ce82f65b723d"
+        }
+      ],
+      "id": "4dd49619-d184-4035-af3a-4c92214be622",
+      "createdAt": "2026-10-22T02:51:30.000Z",
+      "updatedAt": "2026-10-22T02:51:30.000Z",
+      "uid": "35240-4dd49619-d184-4035-af3a-4c92214be622"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

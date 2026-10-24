@@ -1,0 +1,2617 @@
+{
+  "info": {
+    "_postman_id": "cf116d88-5704-4484-9d41-0c4a15b49012",
+    "name": "Payment Rails Batch Request Endpoints API",
+    "description": "The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:55.000Z",
+    "updatedAt": "2026-10-22T02:51:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cf116d88-5704-4484-9d41-0c4a15b49012"
+  },
+  "item": [
+    {
+      "name": "batch",
+      "item": [
+        {
+          "name": "contacts",
+          "item": [
+            {
+              "name": "add",
+              "item": [
+                {
+                  "name": "batch/contacts/add",
+                  "id": "f5a5b4b2-2a9f-4f5e-8544-5d86716ade3f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /contacts/add endpoint. This endpoint accepts a maximum of 5000 contacts per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/contacts/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "contacts",
+                        "add"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple contact creation requests to VoPay. Each object in the batch is processed against the /contacts/add endpoint: EmailAddress and PhoneNumber are always required, and either BusinessName or both FirstName and LastName must be provided."
+                  },
+                  "response": [
+                    {
+                      "id": "8ce344cc-0201-495b-b51a-b05af1ff6f9a",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /contacts/add endpoint. This endpoint accepts a maximum of 5000 contacts per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/contacts/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "contacts",
+                            "add"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-8ce344cc-0201-495b-b51a-b05af1ff6f9a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-f5a5b4b2-2a9f-4f5e-8544-5d86716ade3f"
+                }
+              ],
+              "id": "7c9f123b-b141-4e69-8bbf-4c1af06f42be",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-7c9f123b-b141-4e69-8bbf-4c1af06f42be"
+            }
+          ],
+          "id": "834393ab-ed92-4de8-8f9b-d6067bd0dcf2",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-834393ab-ed92-4de8-8f9b-d6067bd0dcf2"
+        },
+        {
+          "name": "eft",
+          "item": [
+            {
+              "name": "fund",
+              "item": [
+                {
+                  "name": "batch/eft/fund",
+                  "id": "19836888-672d-4903-ac52-0a4d1b788c3b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /eft/fund endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/eft/fund",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "eft",
+                        "fund"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple EFT fund transaction requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "7d11baf1-abd8-4efb-a4fe-a45a6836b2df",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /eft/fund endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/eft/fund",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "eft",
+                            "fund"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-7d11baf1-abd8-4efb-a4fe-a45a6836b2df"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-19836888-672d-4903-ac52-0a4d1b788c3b"
+                }
+              ],
+              "id": "9091a6a0-e059-41f2-8014-986aec4a6c2c",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-9091a6a0-e059-41f2-8014-986aec4a6c2c"
+            },
+            {
+              "name": "withdraw",
+              "item": [
+                {
+                  "name": "batch/eft/withdraw",
+                  "id": "24c9bc2f-2b0c-420c-bc32-f2d590144dcf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /eft/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/eft/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "eft",
+                        "withdraw"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple EFT withdraw transaction requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "dd309a85-7882-4e43-a47e-9cc01ac9a23a",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /eft/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/eft/withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "eft",
+                            "withdraw"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-dd309a85-7882-4e43-a47e-9cc01ac9a23a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-24c9bc2f-2b0c-420c-bc32-f2d590144dcf"
+                }
+              ],
+              "id": "fa937200-c293-4d0f-a8de-f0b48661778d",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-fa937200-c293-4d0f-a8de-f0b48661778d"
+            }
+          ],
+          "id": "b6fa9cf6-5fee-4e4e-b67e-d05356e00b5c",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-b6fa9cf6-5fee-4e4e-b67e-d05356e00b5c"
+        },
+        {
+          "name": "interac",
+          "item": [
+            {
+              "name": "money-request",
+              "item": [
+                {
+                  "name": "batch/interac/money-request",
+                  "id": "c57d8fec-a885-4ed2-bfc3-edb9f48fb386",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /interac/money-request endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/interac/money-request",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "interac",
+                        "money-request"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple Interac money request transaction requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "2ec1112a-bcea-454d-adde-93e6f312ac55",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /interac/money-request endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/interac/money-request",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "interac",
+                            "money-request"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-2ec1112a-bcea-454d-adde-93e6f312ac55"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-c57d8fec-a885-4ed2-bfc3-edb9f48fb386"
+                }
+              ],
+              "id": "f84f3cf6-acb8-4a59-82f2-7d3f79af0b1f",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-f84f3cf6-acb8-4a59-82f2-7d3f79af0b1f"
+            },
+            {
+              "name": "bulk-payout",
+              "item": [
+                {
+                  "name": "batch/interac/bulk-payout",
+                  "id": "34c581d4-31f6-41fd-9f82-c9d0dfb688cf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /interac/bulk-payout endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/interac/bulk-payout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "interac",
+                        "bulk-payout"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple Interac bulk-payout transaction requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "b42be769-f907-44ff-b6a0-6fbdc9dedf36",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /interac/bulk-payout endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/interac/bulk-payout",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "interac",
+                            "bulk-payout"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-b42be769-f907-44ff-b6a0-6fbdc9dedf36"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-34c581d4-31f6-41fd-9f82-c9d0dfb688cf"
+                }
+              ],
+              "id": "a629ffa8-6ffb-430d-b77a-b0c08eb48b5a",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-a629ffa8-6ffb-430d-b77a-b0c08eb48b5a"
+            }
+          ],
+          "id": "4de950b8-0e1f-4996-a015-654012d0e0ac",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-4de950b8-0e1f-4996-a015-654012d0e0ac"
+        },
+        {
+          "name": "rtr",
+          "item": [
+            {
+              "name": "withdraw",
+              "item": [
+                {
+                  "name": "batch/rtr/withdraw",
+                  "id": "e362af54-1e5e-4086-be2e-0595bafb260a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /rtr/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/rtr/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "rtr",
+                        "withdraw"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple VoPay Instant transaction requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "0d0de553-b892-4def-97d5-7641a67ad0f6",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /rtr/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/rtr/withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "rtr",
+                            "withdraw"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-0d0de553-b892-4def-97d5-7641a67ad0f6"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-e362af54-1e5e-4086-be2e-0595bafb260a"
+                }
+              ],
+              "id": "99ca2434-58fe-4552-b8c3-445af8587b95",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-99ca2434-58fe-4552-b8c3-445af8587b95"
+            }
+          ],
+          "id": "c94f15fa-9665-4888-a7ce-fce0e5685dd4",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-c94f15fa-9665-4888-a7ce-fce0e5685dd4"
+        },
+        {
+          "name": "elinx",
+          "item": [
+            {
+              "name": "batch/elinx",
+              "id": "10afaaea-481c-431f-90f8-03de96a1f572",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Name of the batch",
+                      "key": "BatchName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) An array of objects. Each object contains the input params for the /elinx endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                      "key": "BatchData",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/batch/elinx",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "batch",
+                    "elinx"
+                  ]
+                },
+                "description": "This endpoint is used to submit multiple eLinx beneficiary requests to VoPay."
+              },
+              "response": [
+                {
+                  "id": "5bbb8dc8-3879-4256-8428-70496cbad030",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /elinx endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/elinx",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "elinx"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-5bbb8dc8-3879-4256-8428-70496cbad030"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:56.000Z",
+              "updatedAt": "2026-10-22T02:51:56.000Z",
+              "uid": "35240-10afaaea-481c-431f-90f8-03de96a1f572"
+            }
+          ],
+          "id": "bfe6d5f8-84a2-40fb-bf7e-a78d54db2ec7",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-bfe6d5f8-84a2-40fb-bf7e-a78d54db2ec7"
+        },
+        {
+          "name": "debit-card",
+          "item": [
+            {
+              "name": "push-funds",
+              "item": [
+                {
+                  "name": "batch/debit-card/push-funds",
+                  "id": "bd6b79d6-2bc2-40ac-9e83-5989d287c351",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /debit-card/oct/push-funds endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/debit-card/push-funds",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "debit-card",
+                        "push-funds"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple debit card oct push funds requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "ba457a00-418f-47a6-841e-e7ce95f8bfc9",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /debit-card/oct/push-funds endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/debit-card/push-funds",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "debit-card",
+                            "push-funds"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-ba457a00-418f-47a6-841e-e7ce95f8bfc9"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-bd6b79d6-2bc2-40ac-9e83-5989d287c351"
+                }
+              ],
+              "id": "a58bd7c2-e236-4166-9dc0-96f6bb8685e5",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-a58bd7c2-e236-4166-9dc0-96f6bb8685e5"
+            }
+          ],
+          "id": "cf86b37c-a14a-484b-a49e-9a318ba492b4",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-cf86b37c-a14a-484b-a49e-9a318ba492b4"
+        },
+        {
+          "name": "ach",
+          "item": [
+            {
+              "name": "fund",
+              "item": [
+                {
+                  "name": "batch/ach/fund",
+                  "id": "d20c7900-3675-46cd-8ccb-fed6c0d1cf27",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /ach/fund endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/ach/fund",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "ach",
+                        "fund"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple ACH Fund requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "6d731cca-0803-4b82-899f-6e75d343fccb",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /ach/fund endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/ach/fund",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "ach",
+                            "fund"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-6d731cca-0803-4b82-899f-6e75d343fccb"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-d20c7900-3675-46cd-8ccb-fed6c0d1cf27"
+                }
+              ],
+              "id": "f598b92f-198c-46c5-8d2a-42456cf0d875",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-f598b92f-198c-46c5-8d2a-42456cf0d875"
+            },
+            {
+              "name": "withdraw",
+              "item": [
+                {
+                  "name": "batch/ach/withdraw",
+                  "id": "ef8349b1-dd73-4332-8a50-989bd316de98",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /ach/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/ach/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "ach",
+                        "withdraw"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple ACH Withdraw requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "aa73877d-5922-4e36-9e02-cd902bfd47e6",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /ach/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/ach/withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "ach",
+                            "withdraw"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-aa73877d-5922-4e36-9e02-cd902bfd47e6"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-ef8349b1-dd73-4332-8a50-989bd316de98"
+                }
+              ],
+              "id": "4be01d27-6f83-4733-9bbe-3f6f07b95f4f",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-4be01d27-6f83-4733-9bbe-3f6f07b95f4f"
+            }
+          ],
+          "id": "718276f2-bd2c-4709-acaa-4795a19aab5b",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-718276f2-bd2c-4709-acaa-4795a19aab5b"
+        },
+        {
+          "name": "credit-card",
+          "item": [
+            {
+              "name": "charge",
+              "item": [
+                {
+                  "name": "batch/credit-card/charge",
+                  "id": "a5c85744-6335-45c3-bdc5-68d1b951dc74",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /credit-card/charge endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/credit-card/charge",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "credit-card",
+                        "charge"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple Credit Card Charge requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "d1b6a4ac-981c-4023-a5db-732442a39116",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /credit-card/charge endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/credit-card/charge",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "credit-card",
+                            "charge"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-d1b6a4ac-981c-4023-a5db-732442a39116"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-a5c85744-6335-45c3-bdc5-68d1b951dc74"
+                }
+              ],
+              "id": "57097d23-e99f-4110-a31b-2403f4d901d6",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-57097d23-e99f-4110-a31b-2403f4d901d6"
+            }
+          ],
+          "id": "e89be222-1614-4d54-88a9-072d231e7095",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-e89be222-1614-4d54-88a9-072d231e7095"
+        },
+        {
+          "name": "rtp",
+          "item": [
+            {
+              "name": "withdraw",
+              "item": [
+                {
+                  "name": "batch/rtp/withdraw",
+                  "id": "1b87e23d-c80f-456d-8351-e54bc5645e1e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /rtp/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/rtp/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "rtp",
+                        "withdraw"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple RTP Withdraw requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "dc8866b6-3bd4-4e04-a439-4bc160a7f3e1",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /rtp/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/rtp/withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "rtp",
+                            "withdraw"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-dc8866b6-3bd4-4e04-a439-4bc160a7f3e1"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-1b87e23d-c80f-456d-8351-e54bc5645e1e"
+                }
+              ],
+              "id": "fb1fae45-5506-4aee-b439-cd65008d4e6c",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-fb1fae45-5506-4aee-b439-cd65008d4e6c"
+            }
+          ],
+          "id": "456e098f-7f25-40cf-894c-2fab973e0eed",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-456e098f-7f25-40cf-894c-2fab973e0eed"
+        },
+        {
+          "name": "fednow",
+          "item": [
+            {
+              "name": "withdraw",
+              "item": [
+                {
+                  "name": "batch/fednow/withdraw",
+                  "id": "38d2dc55-4be8-4263-a7a2-f802a17bea5a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /fednow/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/fednow/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "fednow",
+                        "withdraw"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple Fednow Withdraw requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "fc7b9520-757a-4cd9-a2be-e4a14714b7ac",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /fednow/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/fednow/withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "fednow",
+                            "withdraw"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-fc7b9520-757a-4cd9-a2be-e4a14714b7ac"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-38d2dc55-4be8-4263-a7a2-f802a17bea5a"
+                }
+              ],
+              "id": "acf4d824-782e-4c5d-8b8b-e951964db2f5",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-acf4d824-782e-4c5d-8b8b-e951964db2f5"
+            }
+          ],
+          "id": "2439ccb5-4f66-45af-83cf-3b82c3c80314",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-2439ccb5-4f66-45af-83cf-3b82c3c80314"
+        },
+        {
+          "name": "fedwire",
+          "item": [
+            {
+              "name": "fund",
+              "item": [
+                {
+                  "name": "batch/fedwire/fund",
+                  "id": "2161693c-3788-463d-8120-28e1a33d7df9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /fedwire/fund endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/fedwire/fund",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "fedwire",
+                        "fund"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple Fedwire Fund requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "6cd198e4-1f44-4af5-83a7-61cf37a562e1",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /fedwire/fund endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/fedwire/fund",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "fedwire",
+                            "fund"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-6cd198e4-1f44-4af5-83a7-61cf37a562e1"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-2161693c-3788-463d-8120-28e1a33d7df9"
+                }
+              ],
+              "id": "c5473b85-3a8f-4ff1-ae6d-8b782cfa2abf",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-c5473b85-3a8f-4ff1-ae6d-8b782cfa2abf"
+            },
+            {
+              "name": "withdraw",
+              "item": [
+                {
+                  "name": "batch/fedwire/withdraw",
+                  "id": "ceb8eb69-e8c0-43ca-9a55-fdaa8462af53",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of the batch",
+                          "key": "BatchName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) An array of objects. Each object contains the input params for the /fedwire/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                          "key": "BatchData",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/fedwire/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "fedwire",
+                        "withdraw"
+                      ]
+                    },
+                    "description": "This endpoint is used to submit multiple Fedwire Withdraw requests to VoPay."
+                  },
+                  "response": [
+                    {
+                      "id": "8cf8e8f8-2a81-4137-b730-9305a3926380",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of the batch",
+                              "key": "BatchName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) An array of objects. Each object contains the input params for the /fedwire/withdraw endpoint. This endpoint accepts a maximum of 5000 transactions per batch submission.",
+                              "key": "BatchData",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/batch/fedwire/withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "batch",
+                            "fedwire",
+                            "withdraw"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchTransactionRequestID\": \"<integer>\",\n  \"TotalSubmittedTransactions\": \"<integer>\",\n  \"NumberOfRejectedTransactions\": \"<integer>\",\n  \"RejectedTransactions\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:56.000Z",
+                      "updatedAt": "2026-10-22T02:51:56.000Z",
+                      "uid": "35240-8cf8e8f8-2a81-4137-b730-9305a3926380"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-ceb8eb69-e8c0-43ca-9a55-fdaa8462af53"
+                }
+              ],
+              "id": "1db1fbef-bb74-481e-9787-10fde9b687f3",
+              "createdAt": "2026-10-22T02:51:55.000Z",
+              "updatedAt": "2026-10-22T02:51:55.000Z",
+              "uid": "35240-1db1fbef-bb74-481e-9787-10fde9b687f3"
+            }
+          ],
+          "id": "8baed0d9-719e-4762-a604-a1507c662bea",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-8baed0d9-719e-4762-a604-a1507c662bea"
+        },
+        {
+          "name": "details",
+          "item": [
+            {
+              "name": "batch/details",
+              "id": "d71e65c5-227b-4f2d-a668-c8e932022cc4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/batch/details?AccountID=<string>&Key=<string>&Signature=<string>&BatchTransactionRequestID=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "batch",
+                    "details"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Unique ID of the batch transaction request you want to fetch the details for.",
+                      "key": "BatchTransactionRequestID",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to fetch the details of a specific batch transaction request"
+              },
+              "response": [
+                {
+                  "id": "81440d83-c4b0-4039-8c40-3cd09cec3a5e",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/details?AccountID=<string>&Key=<string>&Signature=<string>&BatchTransactionRequestID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        "details"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Unique ID of the batch transaction request you want to fetch the details for.",
+                          "key": "BatchTransactionRequestID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BatchDetails\": {\n    \"0\": {\n      \"BatchTransactionRequestDetailsRecordID\": \"<integer>\",\n      \"TransactionPayload\": {},\n      \"TransactionID\": \"<integer>\",\n      \"ScheduledTransactionID\": \"<integer>\",\n      \"ELinxRequestID\": \"<integer>\",\n      \"FailureReason\": \"<string>\",\n      \"Status\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:51:56.000Z",
+                  "updatedAt": "2026-10-22T02:51:56.000Z",
+                  "uid": "35240-81440d83-c4b0-4039-8c40-3cd09cec3a5e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:56.000Z",
+              "updatedAt": "2026-10-22T02:51:56.000Z",
+              "uid": "35240-d71e65c5-227b-4f2d-a668-c8e932022cc4"
+            }
+          ],
+          "id": "b6690363-10ff-4c40-ae0a-9325415f8b8d",
+          "createdAt": "2026-10-22T02:51:55.000Z",
+          "updatedAt": "2026-10-22T02:51:55.000Z",
+          "uid": "35240-b6690363-10ff-4c40-ae0a-9325415f8b8d"
+        },
+        {
+          "name": "batch",
+          "id": "d0ddb947-0801-4262-a4d2-43d6b17c2703",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/batch?AccountID=<string>&Key=<string>&Signature=<string>&TransactionType=<string>&PaymentType=<string>&FromDate=<string>&ToDate=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "batch"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters results by transaction type: EFT, Interac, or Paylink. Default is '' (i.e., batch transaction requests of all transaction types are returned).",
+                  "key": "TransactionType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters results by payment type: Credit or Debit. Default is '' (i.e., batch transaction requests of all payment types are returned).",
+                  "key": "PaymentType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Returns all batch transaction requests submitted after this date. Date format is YYYY-MM-DD.",
+                  "key": "FromDate",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Returns all batch transaction requests submitted before this date. Date format is YYYY-MM-DD.",
+                  "key": "ToDate",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "This endpoint is used to fetch a listing of all your batch transaction requests"
+          },
+          "response": [
+            {
+              "id": "d4fef858-6b81-4103-88af-6506bd2f928d",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/batch?AccountID=<string>&Key=<string>&Signature=<string>&TransactionType=<string>&PaymentType=<string>&FromDate=<string>&ToDate=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "batch"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results by transaction type: EFT, Interac, or Paylink. Default is '' (i.e., batch transaction requests of all transaction types are returned).",
+                      "key": "TransactionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results by payment type: Credit or Debit. Default is '' (i.e., batch transaction requests of all payment types are returned).",
+                      "key": "PaymentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Returns all batch transaction requests submitted after this date. Date format is YYYY-MM-DD.",
+                      "key": "FromDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Returns all batch transaction requests submitted before this date. Date format is YYYY-MM-DD.",
+                      "key": "ToDate",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Batches\": {\n    \"0\": {\n      \"BatchTransactionRequestID\": \"<integer>\",\n      \"BatchName\": \"<string>\",\n      \"TransactionType\": \"<string>\",\n      \"PaymentType\": \"<string>\",\n      \"NumRecords\": \"<integer>\",\n      \"TotalAmount\": \"<number>\",\n      \"DateAdded\": \"<string>\",\n      \"TotalSubmitted\": \"<integer>\",\n      \"TotalCreated\": \"<integer>\",\n      \"TotalFailed\": \"<integer>\"\n    }\n  }\n}",
+              "createdAt": "2026-10-22T02:51:56.000Z",
+              "updatedAt": "2026-10-22T02:51:56.000Z",
+              "uid": "35240-d4fef858-6b81-4103-88af-6506bd2f928d"
+            }
+          ],
+          "createdAt": "2026-10-22T02:51:56.000Z",
+          "updatedAt": "2026-10-22T02:51:56.000Z",
+          "uid": "35240-d0ddb947-0801-4262-a4d2-43d6b17c2703"
+        }
+      ],
+      "id": "b05209c2-e113-4456-948b-7d2b59296100",
+      "createdAt": "2026-10-22T02:51:55.000Z",
+      "updatedAt": "2026-10-22T02:51:55.000Z",
+      "uid": "35240-b05209c2-e113-4456-948b-7d2b59296100"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

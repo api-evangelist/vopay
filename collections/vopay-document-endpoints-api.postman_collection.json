@@ -1,0 +1,288 @@
+{
+  "info": {
+    "_postman_id": "4c627587-fde0-4642-bf1c-aca72239c16d",
+    "name": "Account Onboarding Document Endpoints API",
+    "description": "The Account Onboarding endpoints are used to onboard new VoPay accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:54:07.000Z",
+    "updatedAt": "2026-10-22T02:54:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4c627587-fde0-4642-bf1c-aca72239c16d"
+  },
+  "item": [
+    {
+      "name": "document",
+      "item": [
+        {
+          "name": "[:DocumentID]",
+          "item": [
+            {
+              "name": "document/[DocumentID]",
+              "id": "21898e7b-303b-402b-8c4c-b23aaf0fb87e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document/[:DocumentID]?AccountID=<string>&Key=<string>&Signature=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document",
+                    "[:DocumentID]"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "To retrieve a document once it is uploaded, send a request to this endpoint. It will return the document URL so you can have direct access to it. Replace the {DocumentID} in the endpoint with the DocumentID returned from the document list endpoint or the one returned by the upload endpoint. The returned URL is valid for 60 mins."
+              },
+              "response": [
+                {
+                  "id": "d5d40b3c-7456-4619-bf9d-79555707f687",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/[:DocumentID]?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        "[:DocumentID]"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Document\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:07.000Z",
+                  "updatedAt": "2026-10-22T02:54:07.000Z",
+                  "uid": "35240-d5d40b3c-7456-4619-bf9d-79555707f687"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:07.000Z",
+              "updatedAt": "2026-10-22T02:54:07.000Z",
+              "uid": "35240-21898e7b-303b-402b-8c4c-b23aaf0fb87e"
+            }
+          ],
+          "id": "f248fd9b-20c6-4182-8074-d84eeb071c09",
+          "createdAt": "2026-10-22T02:54:07.000Z",
+          "updatedAt": "2026-10-22T02:54:07.000Z",
+          "uid": "35240-f248fd9b-20c6-4182-8074-d84eeb071c09"
+        },
+        {
+          "name": "document",
+          "id": "6c724a5c-6e0e-4da6-a512-7fa251724357",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Document description",
+                  "key": "DocumentName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Base64 code of the document content. Allowed content types: PDF, JPG, PNG.",
+                  "key": "DocumentContent",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) String that identify the document type: 'kyc' or 'invoice'.",
+                  "key": "DocumentType",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/document",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "document"
+              ]
+            },
+            "description": "This endpoint is used to upload account documents.Only one document can be uploaded by request. You must provide the document name and its content. Here are some rules regarding the document requirements:\n\n* The types accepted are: PDF, PNG or JPEG\n\n* The maximum allowed file size is 10Mb\n\n* Files must be sent as base64. Make sure the base64 code is valid (must contain the initial file information. E.g. data:image/jpeg;base64\n\n* The same document cannot be uploaded twice with the same name"
+          },
+          "response": [
+            {
+              "id": "f8608727-15bd-41dd-8def-c1d8cf11b8a6",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Document description",
+                      "key": "DocumentName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Base64 code of the document content. Allowed content types: PDF, JPG, PNG.",
+                      "key": "DocumentContent",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) String that identify the document type: 'kyc' or 'invoice'.",
+                      "key": "DocumentType",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/document",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DocumentID\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:54:07.000Z",
+              "updatedAt": "2026-10-22T02:54:07.000Z",
+              "uid": "35240-f8608727-15bd-41dd-8def-c1d8cf11b8a6"
+            }
+          ],
+          "createdAt": "2026-10-22T02:54:07.000Z",
+          "updatedAt": "2026-10-22T02:54:07.000Z",
+          "uid": "35240-6c724a5c-6e0e-4da6-a512-7fa251724357"
+        }
+      ],
+      "id": "0a5028de-084c-475d-9db1-9cb93c80ad9c",
+      "createdAt": "2026-10-22T02:54:07.000Z",
+      "updatedAt": "2026-10-22T02:54:07.000Z",
+      "uid": "35240-0a5028de-084c-475d-9db1-9cb93c80ad9c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

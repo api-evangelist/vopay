@@ -1,0 +1,1098 @@
+{
+  "info": {
+    "_postman_id": "e565ed53-9617-42b5-8d84-48d3b8f0e6d6",
+    "name": "Scheduled Payments API",
+    "description": "The Scheduled Payments API defines endpoints for managing scheduled payment transactions. These endpoints allow account holders to create, view, modify, and cancel scheduled payments with flexible frequency options.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:56:09.000Z",
+    "updatedAt": "2026-10-22T02:56:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e565ed53-9617-42b5-8d84-48d3b8f0e6d6"
+  },
+  "item": [
+    {
+      "name": "scheduled-payment",
+      "item": [
+        {
+          "name": "cancel",
+          "item": [
+            {
+              "name": "Cancel Scheduled Payment",
+              "id": "32e7bd8b-bd5d-44b4-a3ae-f1cabb3f3bfa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the scheduled payment to cancel",
+                      "key": "ScheduledPaymentsID",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/scheduled-payment/cancel",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scheduled-payment",
+                    "cancel"
+                  ]
+                },
+                "description": "Cancel a scheduled payment and all its future occurrences."
+              },
+              "response": [
+                {
+                  "id": "fe45c96a-a684-41a3-82f2-3e3b638275f1",
+                  "name": "Scheduled payment cancelled successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the scheduled payment to cancel",
+                          "key": "ScheduledPaymentsID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/scheduled-payment/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scheduled-payment",
+                        "cancel"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Status\": \"cancelled\"\n}",
+                  "createdAt": "2026-10-22T02:56:10.000Z",
+                  "updatedAt": "2026-10-22T02:56:10.000Z",
+                  "uid": "35240-fe45c96a-a684-41a3-82f2-3e3b638275f1"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:10.000Z",
+              "updatedAt": "2026-10-22T02:56:10.000Z",
+              "uid": "35240-32e7bd8b-bd5d-44b4-a3ae-f1cabb3f3bfa"
+            }
+          ],
+          "id": "705b9c45-2800-4fbb-bdde-551f14314a87",
+          "createdAt": "2026-10-22T02:56:10.000Z",
+          "updatedAt": "2026-10-22T02:56:10.000Z",
+          "uid": "35240-705b9c45-2800-4fbb-bdde-551f14314a87"
+        },
+        {
+          "name": "upcoming-payment",
+          "item": [
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "Cancel Upcoming Payment",
+                  "id": "c1f50a48-ee33-4882-a62d-06a8ded0911f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the specific upcoming payment to cancel",
+                          "key": "ScheduledPaymentDetailsID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/scheduled-payment/upcoming-payment/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scheduled-payment",
+                        "upcoming-payment",
+                        "cancel"
+                      ]
+                    },
+                    "description": "Cancel a single upcoming scheduled payment without affecting other occurrences."
+                  },
+                  "response": [
+                    {
+                      "id": "aebfd1c3-5974-43f2-b4df-90a8ac609b60",
+                      "name": "Upcoming payment cancelled successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the specific upcoming payment to cancel",
+                              "key": "ScheduledPaymentDetailsID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/scheduled-payment/upcoming-payment/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "scheduled-payment",
+                            "upcoming-payment",
+                            "cancel"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Status\": \"cancelled\"\n}",
+                      "createdAt": "2026-10-22T02:56:10.000Z",
+                      "updatedAt": "2026-10-22T02:56:10.000Z",
+                      "uid": "35240-aebfd1c3-5974-43f2-b4df-90a8ac609b60"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:10.000Z",
+                  "updatedAt": "2026-10-22T02:56:10.000Z",
+                  "uid": "35240-c1f50a48-ee33-4882-a62d-06a8ded0911f"
+                }
+              ],
+              "id": "557148da-ec0b-49d5-9f82-b2cd0ef7656f",
+              "createdAt": "2026-10-22T02:56:10.000Z",
+              "updatedAt": "2026-10-22T02:56:10.000Z",
+              "uid": "35240-557148da-ec0b-49d5-9f82-b2cd0ef7656f"
+            },
+            {
+              "name": "edit",
+              "item": [
+                {
+                  "name": "Edit Upcoming Payment",
+                  "id": "208ebc59-dfca-4204-9eca-0156daacf0be",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the specific upcoming payment to edit",
+                          "key": "ScheduledPaymentDetailsID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The new transaction amount. If omitted, amount remains unchanged.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The new payment date and time. If omitted, date remains unchanged.",
+                          "key": "Date",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/scheduled-payment/upcoming-payment/edit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scheduled-payment",
+                        "upcoming-payment",
+                        "edit"
+                      ]
+                    },
+                    "description": "Modify a single upcoming scheduled payment by updating the amount and/or date. This only affects the specific upcoming occurrence."
+                  },
+                  "response": [
+                    {
+                      "id": "880d1846-5e23-46f1-96be-cdcba6197f7d",
+                      "name": "Upcoming payment edited successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the specific upcoming payment to edit",
+                              "key": "ScheduledPaymentDetailsID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The new transaction amount. If omitted, amount remains unchanged.",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The new payment date and time. If omitted, date remains unchanged.",
+                              "key": "Date",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/scheduled-payment/upcoming-payment/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "scheduled-payment",
+                            "upcoming-payment",
+                            "edit"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:56:10.000Z",
+                      "updatedAt": "2026-10-22T02:56:10.000Z",
+                      "uid": "35240-880d1846-5e23-46f1-96be-cdcba6197f7d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:10.000Z",
+                  "updatedAt": "2026-10-22T02:56:10.000Z",
+                  "uid": "35240-208ebc59-dfca-4204-9eca-0156daacf0be"
+                }
+              ],
+              "id": "a0905903-d934-449f-8efd-26591b824cb0",
+              "createdAt": "2026-10-22T02:56:10.000Z",
+              "updatedAt": "2026-10-22T02:56:10.000Z",
+              "uid": "35240-a0905903-d934-449f-8efd-26591b824cb0"
+            }
+          ],
+          "id": "2f05f500-9b6c-4f9c-b8d3-30b7fc9d3f46",
+          "createdAt": "2026-10-22T02:56:10.000Z",
+          "updatedAt": "2026-10-22T02:56:10.000Z",
+          "uid": "35240-2f05f500-9b6c-4f9c-b8d3-30b7fc9d3f46"
+        },
+        {
+          "name": "edit",
+          "item": [
+            {
+              "name": "Edit Scheduled Payment",
+              "id": "98f5a5fd-990c-4c42-bc35-eb3b8af5a3b1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the scheduled payment to edit",
+                      "key": "ScheduledPaymentsID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) The new transaction amount",
+                      "key": "Amount",
+                      "value": "<number>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/scheduled-payment/edit",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scheduled-payment",
+                    "edit"
+                  ]
+                },
+                "description": "Modify a scheduled payment by updating the amount. This affects all upcoming occurrences of the scheduled payment."
+              },
+              "response": [
+                {
+                  "id": "f82dd8ce-2277-496e-abbe-bc643b64b506",
+                  "name": "Scheduled payment edited successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the scheduled payment to edit",
+                          "key": "ScheduledPaymentsID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) The new transaction amount",
+                          "key": "Amount",
+                          "value": "<number>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/scheduled-payment/edit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scheduled-payment",
+                        "edit"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:56:10.000Z",
+                  "updatedAt": "2026-10-22T02:56:10.000Z",
+                  "uid": "35240-f82dd8ce-2277-496e-abbe-bc643b64b506"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:10.000Z",
+              "updatedAt": "2026-10-22T02:56:10.000Z",
+              "uid": "35240-98f5a5fd-990c-4c42-bc35-eb3b8af5a3b1"
+            }
+          ],
+          "id": "d991713f-04a4-4e74-a229-23db5c6018f2",
+          "createdAt": "2026-10-22T02:56:10.000Z",
+          "updatedAt": "2026-10-22T02:56:10.000Z",
+          "uid": "35240-d991713f-04a4-4e74-a229-23db5c6018f2"
+        },
+        {
+          "name": "Create Scheduled Payment",
+          "id": "1fea9010-43ca-44de-b297-c9e7bf843486",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The transaction amount",
+                  "key": "Amount",
+                  "value": "<number>"
+                },
+                {
+                  "description": "(Required) The currency code (e.g., USD, CAD)",
+                  "key": "Currency",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The type of payment (e.g., debit, credit)",
+                  "key": "PaymentType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The payment rail to use for the transaction",
+                  "key": "PaymentRail",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The start date and time for the scheduled payment",
+                  "key": "StartDateTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "(Required) The payment token for the transaction",
+                  "key": "Token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The recurrence frequency. Omit for a one-time payment. Accepted values: daily, weekly, bi-weekly, monthly, semi-monthly (15th and last day of month), quarterly, semi-annually, annually, weekdays (Mon\u2013Fri).",
+                  "key": "Repeats",
+                  "value": "monthly"
+                },
+                {
+                  "description": "How many units to advance per period. For example, Repeats=weekly with Interval=2 fires every other week. Only applies to daily, weekly, monthly, and annually. Defaults to 1.",
+                  "key": "Interval",
+                  "value": "1"
+                },
+                {
+                  "description": "Pins payments to a specific weekday. Only applies to weekly and monthly. For weekly, use a two-letter abbreviation: MO, TU, WE, TH, FR, SA, SU. For monthly, prefix with an ordinal (1\u20134) or -1 for last: 1MO, 3FR, -1FR. Example: Repeats=monthly with ByDay=3FR fires on the 3rd Friday of each month.",
+                  "key": "ByDay",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The number of payments to process (required if Repeats is specified)",
+                  "key": "NumberOfPayments",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Client reference number for the transaction",
+                  "key": "ClientReferenceNumber",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Additional notes for the scheduled payment",
+                  "key": "Notes",
+                  "value": "<string>"
+                },
+                {
+                  "description": "General ledger code for accounting purposes",
+                  "key": "GLCode",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The client account ID for the transaction",
+                  "key": "ClientAccountID",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/scheduled-payment",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "scheduled-payment"
+              ]
+            },
+            "description": "Create a new scheduled transaction to be processed on a particular time depending on the frequency."
+          },
+          "response": [
+            {
+              "id": "3600dbee-085a-466c-857f-20e2cdf386a6",
+              "name": "Scheduled payment created successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The transaction amount",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) The currency code (e.g., USD, CAD)",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The type of payment (e.g., debit, credit)",
+                      "key": "PaymentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The payment rail to use for the transaction",
+                      "key": "PaymentRail",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The start date and time for the scheduled payment",
+                      "key": "StartDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) The payment token for the transaction",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The recurrence frequency. Omit for a one-time payment. Accepted values: daily, weekly, bi-weekly, monthly, semi-monthly (15th and last day of month), quarterly, semi-annually, annually, weekdays (Mon\u2013Fri).",
+                      "key": "Repeats",
+                      "value": "monthly"
+                    },
+                    {
+                      "description": "How many units to advance per period. For example, Repeats=weekly with Interval=2 fires every other week. Only applies to daily, weekly, monthly, and annually. Defaults to 1.",
+                      "key": "Interval",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Pins payments to a specific weekday. Only applies to weekly and monthly. For weekly, use a two-letter abbreviation: MO, TU, WE, TH, FR, SA, SU. For monthly, prefix with an ordinal (1\u20134) or -1 for last: 1MO, 3FR, -1FR. Example: Repeats=monthly with ByDay=3FR fires on the 3rd Friday of each month.",
+                      "key": "ByDay",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The number of payments to process (required if Repeats is specified)",
+                      "key": "NumberOfPayments",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Client reference number for the transaction",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Additional notes for the scheduled payment",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "General ledger code for accounting purposes",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The client account ID for the transaction",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/scheduled-payment",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scheduled-payment"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Amount\": \"<number>\",\n  \"ScheduledPaymentsID\": \"<integer>\",\n  \"Repeats\": \"<string>\",\n  \"Interval\": \"<integer>\",\n  \"ByDay\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"StartDateTime\": \"<dateTime>\"\n}",
+              "createdAt": "2026-10-22T02:56:10.000Z",
+              "updatedAt": "2026-10-22T02:56:10.000Z",
+              "uid": "35240-3600dbee-085a-466c-857f-20e2cdf386a6"
+            }
+          ],
+          "createdAt": "2026-10-22T02:56:10.000Z",
+          "updatedAt": "2026-10-22T02:56:10.000Z",
+          "uid": "35240-1fea9010-43ca-44de-b297-c9e7bf843486"
+        },
+        {
+          "name": "Get Scheduled Payments",
+          "id": "8e2c8f32-1948-4239-ac0e-03e58fb8ec72",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/scheduled-payment?AccountID=<string>&Key=<string>&Signature=<string>&ScheduledPaymentsID=<integer>&Limit=<integer>&Offset=<integer>&Repeats=<string>&PaymentType=<string>&Currency=<string>&PaymentRail=<string>&Token=<string>&GLCode=<string>&ClientAccountID=<string>&StartDate=<date>&EndDate=<date>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "scheduled-payment"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of a specific scheduled payment to retrieve. If omitted, returns all scheduled payments.",
+                  "key": "ScheduledPaymentsID",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Maximum number of results to return",
+                  "key": "Limit",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Pagination offset",
+                  "key": "Offset",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by repeat frequency",
+                  "key": "Repeats",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by payment type",
+                  "key": "PaymentType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by currency code",
+                  "key": "Currency",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by payment rail",
+                  "key": "PaymentRail",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by payment token",
+                  "key": "Token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by general ledger code",
+                  "key": "GLCode",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by client account ID",
+                  "key": "ClientAccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by start date (inclusive)",
+                  "key": "StartDate",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Filter by end date (inclusive)",
+                  "key": "EndDate",
+                  "value": "<date>"
+                }
+              ]
+            },
+            "description": "Retrieve details of a single scheduled payment or all scheduled payments for the account."
+          },
+          "response": [
+            {
+              "id": "b98802c9-28aa-41d2-ae14-4f8cce31a8f9",
+              "name": "Scheduled payments retrieved successfully",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/scheduled-payment?AccountID=<string>&Key=<string>&Signature=<string>&ScheduledPaymentsID=<integer>&Limit=<integer>&Offset=<integer>&Repeats=<string>&PaymentType=<string>&Currency=<string>&PaymentRail=<string>&Token=<string>&GLCode=<string>&ClientAccountID=<string>&StartDate=<date>&EndDate=<date>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scheduled-payment"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of a specific scheduled payment to retrieve. If omitted, returns all scheduled payments.",
+                      "key": "ScheduledPaymentsID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "Limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Pagination offset",
+                      "key": "Offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by repeat frequency",
+                      "key": "Repeats",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by payment type",
+                      "key": "PaymentType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by currency code",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by payment rail",
+                      "key": "PaymentRail",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by payment token",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by general ledger code",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by client account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by start date (inclusive)",
+                      "key": "StartDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Filter by end date (inclusive)",
+                      "key": "EndDate",
+                      "value": "<date>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"PaginationMetaData\": {\n    \"TotalRecords\": \"<integer>\",\n    \"Offset\": \"<integer>\",\n    \"Limit\": \"<integer>\"\n  },\n  \"ScheduledPayment\": {\n    \"magnaf6\": {\n      \"ID\": \"<string>\",\n      \"ClientAccountID\": \"<string>\",\n      \"Amount\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"PaymentType\": \"<string>\",\n      \"TransactionType\": \"<string>\",\n      \"Token\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"StartDateTime\": \"<string>\",\n      \"NumberOfPayments\": \"<string>\",\n      \"Repeats\": \"<string>\",\n      \"Interval\": 1,\n      \"ByDay\": \"<string>\",\n      \"GLCode\": \"<string>\",\n      \"UpcomingTransactions\": {\n        \"culpa1\": {\n          \"ID\": \"<string>\",\n          \"TransactionID\": \"<string>\",\n          \"ScheduledDate\": \"<string>\",\n          \"LastModified\": \"<string>\",\n          \"Status\": \"<string>\",\n          \"Amount\": \"<string>\"\n        },\n        \"magna_f\": {\n          \"ID\": \"<string>\",\n          \"TransactionID\": \"<string>\",\n          \"ScheduledDate\": \"<string>\",\n          \"LastModified\": \"<string>\",\n          \"Status\": \"<string>\",\n          \"Amount\": \"<string>\"\n        },\n        \"ea_2\": {\n          \"ID\": \"<string>\",\n          \"TransactionID\": \"<string>\",\n          \"ScheduledDate\": \"<string>\",\n          \"LastModified\": \"<string>\",\n          \"Status\": \"<string>\",\n          \"Amount\": \"<string>\"\n        },\n        \"amet798\": {\n          \"ID\": \"<string>\",\n          \"TransactionID\": \"<string>\",\n          \"ScheduledDate\": \"<string>\",\n          \"LastModified\": \"<string>\",\n          \"Status\": \"<string>\",\n          \"Amount\": \"<string>\"\n        }\n      },\n      \"CompletedTransactions\": {}\n    },\n    \"cillume6\": {\n      \"ID\": \"<string>\",\n      \"ClientAccountID\": \"<string>\",\n      \"Amount\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"PaymentType\": \"<string>\",\n      \"TransactionType\": \"<string>\",\n      \"Token\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"StartDateTime\": \"<string>\",\n      \"NumberOfPayments\": \"<string>\",\n      \"Repeats\": \"<string>\",\n      \"Interval\": 1,\n      \"ByDay\": \"<string>\",\n      \"GLCode\": \"<string>\",\n      \"UpcomingTransactions\": {\n        \"irure_d6e\": {\n          \"ID\": \"<string>\",\n          \"TransactionID\": \"<string>\",\n          \"ScheduledDate\": \"<string>\",\n          \"LastModified\": \"<string>\",\n          \"Status\": \"<string>\",\n          \"Amount\": \"<string>\"\n        },\n        \"do_07\": {\n          \"ID\": \"<string>\",\n          \"TransactionID\": \"<string>\",\n          \"ScheduledDate\": \"<string>\",\n          \"LastModified\": \"<string>\",\n          \"Status\": \"<string>\",\n          \"Amount\": \"<string>\"\n        }\n      },\n      \"CompletedTransactions\": {}\n    }\n  }\n}",
+              "createdAt": "2026-10-22T02:56:10.000Z",
+              "updatedAt": "2026-10-22T02:56:10.000Z",
+              "uid": "35240-b98802c9-28aa-41d2-ae14-4f8cce31a8f9"
+            }
+          ],
+          "createdAt": "2026-10-22T02:56:10.000Z",
+          "updatedAt": "2026-10-22T02:56:10.000Z",
+          "uid": "35240-8e2c8f32-1948-4239-ac0e-03e58fb8ec72"
+        }
+      ],
+      "id": "9dd3df4d-47df-4456-bd60-c6aafffeff13",
+      "createdAt": "2026-10-22T02:56:10.000Z",
+      "updatedAt": "2026-10-22T02:56:10.000Z",
+      "uid": "35240-9dd3df4d-47df-4456-bd60-c6aafffeff13"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

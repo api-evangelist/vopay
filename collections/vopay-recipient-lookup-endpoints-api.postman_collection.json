@@ -1,0 +1,654 @@
+{
+  "info": {
+    "_postman_id": "df4b60d1-7659-4b15-b640-ddafa576835a",
+    "name": "Global Cash Management Recipient Lookup Endpoints API",
+    "description": "The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:55:54.000Z",
+    "updatedAt": "2026-10-22T02:55:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-df4b60d1-7659-4b15-b640-ddafa576835a"
+  },
+  "item": [
+    {
+      "name": "gcm",
+      "item": [
+        {
+          "name": "banks",
+          "item": [
+            {
+              "name": "names",
+              "item": [
+                {
+                  "name": "gcm/banks/names",
+                  "id": "fb5268fc-ec5c-459f-b345-ec4a51159bc3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The country code for the bank names to be fetched.",
+                          "key": "Country",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/banks/names",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "banks",
+                        "names"
+                      ]
+                    },
+                    "description": "Get a list of supported bank names."
+                  },
+                  "response": [
+                    {
+                      "id": "219e4e09-190d-4f54-914a-399162c44124",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The country code for the bank names to be fetched.",
+                              "key": "Country",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/banks/names",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "banks",
+                            "names"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BankNames\": {\n    \"0\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:55:55.000Z",
+                      "updatedAt": "2026-10-22T02:55:55.000Z",
+                      "uid": "35240-219e4e09-190d-4f54-914a-399162c44124"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:55.000Z",
+                  "updatedAt": "2026-10-22T02:55:55.000Z",
+                  "uid": "35240-fb5268fc-ec5c-459f-b345-ec4a51159bc3"
+                }
+              ],
+              "id": "267284b2-802a-46c0-905b-6dd3cb0e4d27",
+              "createdAt": "2026-10-22T02:55:55.000Z",
+              "updatedAt": "2026-10-22T02:55:55.000Z",
+              "uid": "35240-267284b2-802a-46c0-905b-6dd3cb0e4d27"
+            },
+            {
+              "name": "cities",
+              "item": [
+                {
+                  "name": "gcm/banks/cities",
+                  "id": "7dc5ef29-f411-4808-be89-ac601d8f17f9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The country used to filter the list of banks.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The bank name used to filter the list of banks.",
+                          "key": "BankName",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/banks/cities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "banks",
+                        "cities"
+                      ]
+                    },
+                    "description": "Get a list of supported bank cities."
+                  },
+                  "response": [
+                    {
+                      "id": "caee9ea9-986a-4404-ad36-66d1757d7932",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The country used to filter the list of banks.",
+                              "key": "Country",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The bank name used to filter the list of banks.",
+                              "key": "BankName",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/banks/cities",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "banks",
+                            "cities"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BankCities\": {\n    \"0\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:55:55.000Z",
+                      "updatedAt": "2026-10-22T02:55:55.000Z",
+                      "uid": "35240-caee9ea9-986a-4404-ad36-66d1757d7932"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:55.000Z",
+                  "updatedAt": "2026-10-22T02:55:55.000Z",
+                  "uid": "35240-7dc5ef29-f411-4808-be89-ac601d8f17f9"
+                }
+              ],
+              "id": "a6ada40b-a832-4824-890c-a09b467fa727",
+              "createdAt": "2026-10-22T02:55:55.000Z",
+              "updatedAt": "2026-10-22T02:55:55.000Z",
+              "uid": "35240-a6ada40b-a832-4824-890c-a09b467fa727"
+            },
+            {
+              "name": "branches",
+              "item": [
+                {
+                  "name": "gcm/banks/branches",
+                  "id": "19eb1ff5-6e75-4230-8c04-397557cc7183",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The country used to filter the list of banks.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The bank name used to filter the list of banks.",
+                          "key": "BankName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The city used to filter the list of banks.",
+                          "key": "City",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/banks/branches",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "banks",
+                        "branches"
+                      ]
+                    },
+                    "description": "Get a list of supported bank branches."
+                  },
+                  "response": [
+                    {
+                      "id": "fd17fb5d-585c-4210-ba09-f3940811462e",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The country used to filter the list of banks.",
+                              "key": "Country",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The bank name used to filter the list of banks.",
+                              "key": "BankName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The city used to filter the list of banks.",
+                              "key": "City",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/banks/branches",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "banks",
+                            "branches"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BankBranches\": {\n    \"0\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:55:55.000Z",
+                      "updatedAt": "2026-10-22T02:55:55.000Z",
+                      "uid": "35240-fd17fb5d-585c-4210-ba09-f3940811462e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:55.000Z",
+                  "updatedAt": "2026-10-22T02:55:55.000Z",
+                  "uid": "35240-19eb1ff5-6e75-4230-8c04-397557cc7183"
+                }
+              ],
+              "id": "bc075847-8e19-434a-8480-9f90f5e5ce5e",
+              "createdAt": "2026-10-22T02:55:55.000Z",
+              "updatedAt": "2026-10-22T02:55:55.000Z",
+              "uid": "35240-bc075847-8e19-434a-8480-9f90f5e5ce5e"
+            },
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "gcm/banks/locations",
+                  "id": "b4b308f8-612d-4a9a-be0d-d061082c9bbb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The country used to filter the list of banks.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The bank name used to filter the list of banks.",
+                          "key": "BankName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The city used to filter the list of banks.",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The branch name used to filter the list of banks.",
+                          "key": "BranchName",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/banks/locations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "banks",
+                        "locations"
+                      ]
+                    },
+                    "description": "Get a list of supported bank locations."
+                  },
+                  "response": [
+                    {
+                      "id": "f4c5186d-407b-49b7-8533-d021e3e9383e",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The country used to filter the list of banks.",
+                              "key": "Country",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The bank name used to filter the list of banks.",
+                              "key": "BankName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The city used to filter the list of banks.",
+                              "key": "City",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The branch name used to filter the list of banks.",
+                              "key": "BranchName",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/banks/locations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "banks",
+                            "locations"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"BankLocations\": {\n    \"0\": {\n      \"BicCode\": \"<string>\",\n      \"BankName\": \"<string>\",\n      \"BranchName\": \"<string>\",\n      \"Address\": \"<string>\",\n      \"City\": \"<string>\",\n      \"State\": \"<string>\",\n      \"Phone\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:55:55.000Z",
+                      "updatedAt": "2026-10-22T02:55:55.000Z",
+                      "uid": "35240-f4c5186d-407b-49b7-8533-d021e3e9383e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:55.000Z",
+                  "updatedAt": "2026-10-22T02:55:55.000Z",
+                  "uid": "35240-b4b308f8-612d-4a9a-be0d-d061082c9bbb"
+                }
+              ],
+              "id": "fec434f4-8530-48c8-9c4e-e04893a2e3c1",
+              "createdAt": "2026-10-22T02:55:55.000Z",
+              "updatedAt": "2026-10-22T02:55:55.000Z",
+              "uid": "35240-fec434f4-8530-48c8-9c4e-e04893a2e3c1"
+            }
+          ],
+          "id": "154cdf69-bd98-4f11-a317-c53ec86b39c8",
+          "createdAt": "2026-10-22T02:55:55.000Z",
+          "updatedAt": "2026-10-22T02:55:55.000Z",
+          "uid": "35240-154cdf69-bd98-4f11-a317-c53ec86b39c8"
+        }
+      ],
+      "id": "b386e2f0-216c-43c1-af78-abb2b3c2c815",
+      "createdAt": "2026-10-22T02:55:55.000Z",
+      "updatedAt": "2026-10-22T02:55:55.000Z",
+      "uid": "35240-b386e2f0-216c-43c1-af78-abb2b3c2c815"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

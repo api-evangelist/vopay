@@ -1,0 +1,945 @@
+{
+  "info": {
+    "_postman_id": "90e6cbd0-6f31-4ead-9dc5-cd13b5829dc4",
+    "name": "Payment Methods Zelle Endpoints API",
+    "description": "The Payment Methods API allows you to manage your payment methods. You can add, delete, and set default payment methods.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:57:32.000Z",
+    "updatedAt": "2026-10-22T02:57:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-90e6cbd0-6f31-4ead-9dc5-cd13b5829dc4"
+  },
+  "item": [
+    {
+      "name": "zelle",
+      "item": [
+        {
+          "name": "withdraw",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "zelle/withdraw/transaction",
+                  "id": "eaad0642-9831-42ab-bb6c-113caa4fc3a0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/zelle/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "zelle",
+                        "withdraw",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the Zelle transaction to retrieve",
+                          "key": "TransactionID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve details of a specific Zelle withdrawal transaction."
+                  },
+                  "response": [
+                    {
+                      "id": "91c93be6-84bc-4f40-bbe1-96afe6cc10e0",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/zelle/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "zelle",
+                            "withdraw",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the Zelle transaction to retrieve",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<string>\",\n  \"TransactionDate\": \"<string>\",\n  \"TransactionStatus\": \"<string>\",\n  \"Amount\": \"<string>\",\n  \"RecipientName\": \"<string>\",\n  \"RecipientEmail\": \"<string>\",\n  \"RecipientPhone\": \"<string>\",\n  \"PriorityType\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"LastModified\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:57:33.000Z",
+                      "updatedAt": "2026-10-22T02:57:33.000Z",
+                      "uid": "35240-91c93be6-84bc-4f40-bbe1-96afe6cc10e0"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:33.000Z",
+                  "updatedAt": "2026-10-22T02:57:33.000Z",
+                  "uid": "35240-eaad0642-9831-42ab-bb6c-113caa4fc3a0"
+                }
+              ],
+              "id": "b6f6e0aa-f19b-4274-a8c8-3ade1b827c9c",
+              "createdAt": "2026-10-22T02:57:33.000Z",
+              "updatedAt": "2026-10-22T02:57:33.000Z",
+              "uid": "35240-b6f6e0aa-f19b-4274-a8c8-3ade1b827c9c"
+            },
+            {
+              "name": "transactions",
+              "item": [
+                {
+                  "name": "zelle/withdraw/transactions",
+                  "id": "bf58f8bb-97e2-46ec-a0d9-b1155977c4f7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/zelle/withdraw/transactions?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<string>&EndDateTime=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "zelle",
+                        "withdraw",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Start of the date range to filter transactions (e.g. 2024-01-01 or 2024-01-01 00:00:00)",
+                          "key": "StartDateTime",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) End of the date range to filter transactions (e.g. 2024-01-31 or 2024-01-31 23:59:59)",
+                          "key": "EndDateTime",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "List Zelle withdrawal transactions for the account within a specified date range."
+                  },
+                  "response": [
+                    {
+                      "id": "513857ea-97c4-42c8-914a-5bd9fa6cb015",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/zelle/withdraw/transactions?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<string>&EndDateTime=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "zelle",
+                            "withdraw",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Start of the date range to filter transactions (e.g. 2024-01-01 or 2024-01-01 00:00:00)",
+                              "key": "StartDateTime",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) End of the date range to filter transactions (e.g. 2024-01-31 or 2024-01-31 23:59:59)",
+                              "key": "EndDateTime",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NumberOfRecords\": \"<integer>\",\n  \"ZelleTransactions\": {\n    \"0\": {\n      \"TransactionID\": \"<string>\",\n      \"TransactionDateTime\": \"<string>\",\n      \"Amount\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"RecipientName\": \"<string>\",\n      \"RecipientEmail\": \"<string,null>\",\n      \"RecipientPhone\": \"<string,null>\",\n      \"PriorityType\": \"<string,null>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"LastModified\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:57:33.000Z",
+                      "updatedAt": "2026-10-22T02:57:33.000Z",
+                      "uid": "35240-513857ea-97c4-42c8-914a-5bd9fa6cb015"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:33.000Z",
+                  "updatedAt": "2026-10-22T02:57:33.000Z",
+                  "uid": "35240-bf58f8bb-97e2-46ec-a0d9-b1155977c4f7"
+                }
+              ],
+              "id": "6126c942-fe31-4103-9c8a-07955cfb7a14",
+              "createdAt": "2026-10-22T02:57:33.000Z",
+              "updatedAt": "2026-10-22T02:57:33.000Z",
+              "uid": "35240-6126c942-fe31-4103-9c8a-07955cfb7a14"
+            },
+            {
+              "name": "name-match",
+              "item": [
+                {
+                  "name": "zelle/withdraw/name-match",
+                  "id": "d3bfe2d1-e6d8-4363-ae17-3a8938ddc5de",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the Zelle transaction pending name match verification",
+                          "key": "TransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name match decision. Accepted values: APPROVE, REJECT",
+                          "key": "Decision",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/zelle/withdraw/name-match",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "zelle",
+                        "withdraw",
+                        "name-match"
+                      ]
+                    },
+                    "description": "Approve or reject a Zelle payment that is pending name match verification. When the recipient's registered name does not match the name provided, the payment is held for manual review."
+                  },
+                  "response": [
+                    {
+                      "id": "3abd566e-5f84-4d87-8fb1-9a8da466c696",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the Zelle transaction pending name match verification",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name match decision. Accepted values: APPROVE, REJECT",
+                              "key": "Decision",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/zelle/withdraw/name-match",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "zelle",
+                            "withdraw",
+                            "name-match"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<string>\",\n  \"Decision\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:57:33.000Z",
+                      "updatedAt": "2026-10-22T02:57:33.000Z",
+                      "uid": "35240-3abd566e-5f84-4d87-8fb1-9a8da466c696"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:33.000Z",
+                  "updatedAt": "2026-10-22T02:57:33.000Z",
+                  "uid": "35240-d3bfe2d1-e6d8-4363-ae17-3a8938ddc5de"
+                }
+              ],
+              "id": "4853fe79-b94c-4f3c-add7-a43f7d7f76f7",
+              "createdAt": "2026-10-22T02:57:33.000Z",
+              "updatedAt": "2026-10-22T02:57:33.000Z",
+              "uid": "35240-4853fe79-b94c-4f3c-add7-a43f7d7f76f7"
+            },
+            {
+              "name": "zelle/withdraw",
+              "id": "49c6b594-13d3-4930-abfa-53936e247d4e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's first name",
+                      "key": "FirstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's last name",
+                      "key": "LastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Payment amount in USD",
+                      "key": "Amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Recipient's email address used as their Zelle alias. Either EmailAddress or PhoneNumber must be provided.",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Recipient's mobile phone number used as their Zelle alias. Either EmailAddress or PhoneNumber must be provided.",
+                      "key": "PhoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Payment priority. Accepted values: STANDARD, INSTANT. Defaults to the account's configured priority type.",
+                      "key": "PriorityType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional memo or note for the payment",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID to associate with this transaction",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with this transaction",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key to prevent duplicate transactions",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "General ledger code for the transaction",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Custom transaction type code",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of a parent pre-funding transaction to link to this payment",
+                      "key": "ParentTransactionID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/zelle/withdraw",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "zelle",
+                    "withdraw"
+                  ]
+                },
+                "description": "Initiate a Zelle B2C payment to a recipient identified by email address or mobile phone number."
+              },
+              "response": [
+                {
+                  "id": "8edf6dfe-a798-4471-a254-b7e3d7b3b5d3",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's first name",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's last name",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Payment amount in USD",
+                          "key": "Amount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's email address used as their Zelle alias. Either EmailAddress or PhoneNumber must be provided.",
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's mobile phone number used as their Zelle alias. Either EmailAddress or PhoneNumber must be provided.",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Payment priority. Accepted values: STANDARD, INSTANT. Defaults to the account's configured priority type.",
+                          "key": "PriorityType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional memo or note for the payment",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID to associate with this transaction",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with this transaction",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key to prevent duplicate transactions",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "General ledger code for the transaction",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Custom transaction type code",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ID of a parent pre-funding transaction to link to this payment",
+                          "key": "ParentTransactionID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/zelle/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "zelle",
+                        "withdraw"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:57:33.000Z",
+                  "updatedAt": "2026-10-22T02:57:33.000Z",
+                  "uid": "35240-8edf6dfe-a798-4471-a254-b7e3d7b3b5d3"
+                }
+              ],
+              "createdAt": "2026-10-22T02:57:33.000Z",
+              "updatedAt": "2026-10-22T02:57:33.000Z",
+              "uid": "35240-49c6b594-13d3-4930-abfa-53936e247d4e"
+            }
+          ],
+          "id": "2668c651-3ebc-4427-aa8b-58bbc8195c43",
+          "createdAt": "2026-10-22T02:57:33.000Z",
+          "updatedAt": "2026-10-22T02:57:33.000Z",
+          "uid": "35240-2668c651-3ebc-4427-aa8b-58bbc8195c43"
+        },
+        {
+          "name": "cancel",
+          "item": [
+            {
+              "name": "zelle/cancel",
+              "id": "bced29ce-305c-4f45-824a-caaeb55f52f3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID of the Zelle transaction to cancel",
+                      "key": "TransactionID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/zelle/cancel",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "zelle",
+                    "cancel"
+                  ]
+                },
+                "description": "Cancel a pending Zelle withdrawal transaction. If the transaction has already been submitted to the processor, a cancellation request will be sent."
+              },
+              "response": [
+                {
+                  "id": "106ca5a0-0f06-48a5-8153-bc6badfbc427",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the Zelle transaction to cancel",
+                          "key": "TransactionID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/zelle/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "zelle",
+                        "cancel"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<string>\",\n  \"TransactionStatus\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:57:33.000Z",
+                  "updatedAt": "2026-10-22T02:57:33.000Z",
+                  "uid": "35240-106ca5a0-0f06-48a5-8153-bc6badfbc427"
+                }
+              ],
+              "createdAt": "2026-10-22T02:57:33.000Z",
+              "updatedAt": "2026-10-22T02:57:33.000Z",
+              "uid": "35240-bced29ce-305c-4f45-824a-caaeb55f52f3"
+            }
+          ],
+          "id": "6fce62b4-b14a-4578-af98-3fe058593913",
+          "createdAt": "2026-10-22T02:57:33.000Z",
+          "updatedAt": "2026-10-22T02:57:33.000Z",
+          "uid": "35240-6fce62b4-b14a-4578-af98-3fe058593913"
+        },
+        {
+          "name": "recipients",
+          "item": [
+            {
+              "name": "zelle/recipients",
+              "id": "5159da36-6797-4d95-85b9-309b9feb9f0c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/zelle/recipients?AccountID=<string>&Key=<string>&Signature=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "zelle",
+                    "recipients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "List saved Zelle recipients for the account. Recipients are automatically saved when a Zelle payment is submitted."
+              },
+              "response": [
+                {
+                  "id": "b7affc49-f09c-4436-9295-a60ad39d4948",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/zelle/recipients?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "zelle",
+                        "recipients"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NumberOfRecords\": \"<integer>\",\n  \"Recipients\": {\n    \"0\": {\n      \"RecipientName\": \"<string>\",\n      \"AliasType\": \"<string>\",\n      \"AliasValue\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:57:33.000Z",
+                  "updatedAt": "2026-10-22T02:57:33.000Z",
+                  "uid": "35240-b7affc49-f09c-4436-9295-a60ad39d4948"
+                }
+              ],
+              "createdAt": "2026-10-22T02:57:33.000Z",
+              "updatedAt": "2026-10-22T02:57:33.000Z",
+              "uid": "35240-5159da36-6797-4d95-85b9-309b9feb9f0c"
+            }
+          ],
+          "id": "d18a00b1-7202-44fd-8fbe-de0868e8d8d5",
+          "createdAt": "2026-10-22T02:57:33.000Z",
+          "updatedAt": "2026-10-22T02:57:33.000Z",
+          "uid": "35240-d18a00b1-7202-44fd-8fbe-de0868e8d8d5"
+        }
+      ],
+      "id": "0bc7e68c-1056-45aa-9504-d2e170d3c8f8",
+      "createdAt": "2026-10-22T02:57:33.000Z",
+      "updatedAt": "2026-10-22T02:57:33.000Z",
+      "uid": "35240-0bc7e68c-1056-45aa-9504-d2e170d3c8f8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

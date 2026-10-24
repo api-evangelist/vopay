@@ -1,0 +1,1284 @@
+{
+  "info": {
+    "_postman_id": "9a91d55e-1021-4515-866a-6e508f51ad37",
+    "name": "Vopay Credit Card Endpoints API",
+    "description": "Operations tagged Credit Card Endpoints across 2 of this provider's published API definitions: vopay-payment-method-api-reference.json, vopay-payment-rails-api-reference.json. Each path carries the servers of the definition it was published in.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:53:33.000Z",
+    "updatedAt": "2026-10-22T02:53:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9a91d55e-1021-4515-866a-6e508f51ad37"
+  },
+  "item": [
+    {
+      "name": "credit-card",
+      "item": [
+        {
+          "name": "generate-embed-url",
+          "item": [
+            {
+              "name": "credit-card/generate-embed-url",
+              "id": "c2c21032-122d-4f44-ac8c-607c2089e301",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) URL to redirect the user to after a credit card is added.",
+                      "key": "RedirectURL",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, the credit card added will be attached to the Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                      "key": "RedirectMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, the credit card added will be linked to your VoPay account. Default is false.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "When set to true, the card type will be validated to ensure the entered information represents a credit card. Default is false.",
+                      "key": "CardTypeValidation",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "When set to true, 3DS authentication will be triggered during the card addition process. Default is false.",
+                      "key": "Trigger3DS",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/credit-card/generate-embed-url",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "credit-card",
+                    "generate-embed-url"
+                  ]
+                },
+                "description": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to provide their credit card information, which can be used in the /credit-card/charge endpoint."
+              },
+              "response": [
+                {
+                  "id": "0bd758ea-0814-45cf-8979-23e241d6b721",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) URL to redirect the user to after a credit card is added.",
+                          "key": "RedirectURL",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, the credit card added will be attached to the Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                          "key": "RedirectMethod",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the credit card added will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "When set to true, the card type will be validated to ensure the entered information represents a credit card. Default is false.",
+                          "key": "CardTypeValidation",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "When set to true, 3DS authentication will be triggered during the card addition process. Default is false.",
+                          "key": "Trigger3DS",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit-card/generate-embed-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit-card",
+                        "generate-embed-url"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"EmbedURL\": \"<string>\",\n  \"IframeKey\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:33.000Z",
+                  "updatedAt": "2026-10-22T02:53:33.000Z",
+                  "uid": "35240-0bd758ea-0814-45cf-8979-23e241d6b721"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:33.000Z",
+              "updatedAt": "2026-10-22T02:53:33.000Z",
+              "uid": "35240-c2c21032-122d-4f44-ac8c-607c2089e301"
+            }
+          ],
+          "id": "d3243cd1-1482-4501-9cc2-727f095b9daa",
+          "createdAt": "2026-10-22T02:53:33.000Z",
+          "updatedAt": "2026-10-22T02:53:33.000Z",
+          "uid": "35240-d3243cd1-1482-4501-9cc2-727f095b9daa"
+        },
+        {
+          "name": "delete",
+          "item": [
+            {
+              "name": "credit-card/delete",
+              "id": "9afa20b6-b0db-453b-8779-ac786c49b179",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Credit card token",
+                      "key": "CreditCardToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/credit-card/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "credit-card",
+                    "delete"
+                  ]
+                },
+                "description": "This endpoint allows you to delete a credit card associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "f1bbf71b-525c-4ba7-8b6f-7487dfd2329e",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Credit card token",
+                          "key": "CreditCardToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit-card/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit-card",
+                        "delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:33.000Z",
+                  "updatedAt": "2026-10-22T02:53:33.000Z",
+                  "uid": "35240-f1bbf71b-525c-4ba7-8b6f-7487dfd2329e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:33.000Z",
+              "updatedAt": "2026-10-22T02:53:33.000Z",
+              "uid": "35240-9afa20b6-b0db-453b-8779-ac786c49b179"
+            }
+          ],
+          "id": "1ebbee81-cdda-4e7f-b447-863d5f4d9155",
+          "createdAt": "2026-10-22T02:53:33.000Z",
+          "updatedAt": "2026-10-22T02:53:33.000Z",
+          "uid": "35240-1ebbee81-cdda-4e7f-b447-863d5f4d9155"
+        },
+        {
+          "name": "set-my-credit-card",
+          "item": [
+            {
+              "name": "credit-card/set-my-credit-card",
+              "id": "13c77189-7f54-4017-b23c-7f3138d26683",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Credit Card token",
+                      "key": "CreditCardToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Identify credit card as default crdit card",
+                      "key": "SetAsDefault",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/credit-card/set-my-credit-card",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "credit-card",
+                    "set-my-credit-card"
+                  ]
+                },
+                "description": "This endpoint allows you to identify a credit card as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a credit card as being the VoPay account holder's default credit card. Note, a VoPay account can only have one default credit card."
+              },
+              "response": [
+                {
+                  "id": "57d70cb3-e671-4f6d-8d6b-a2d07551ab2a",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Credit Card token",
+                          "key": "CreditCardToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Identify credit card as default crdit card",
+                          "key": "SetAsDefault",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit-card/set-my-credit-card",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit-card",
+                        "set-my-credit-card"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"CreditCardToken\": \"<string>\",\n  \"IsDefault\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:53:33.000Z",
+                  "updatedAt": "2026-10-22T02:53:33.000Z",
+                  "uid": "35240-57d70cb3-e671-4f6d-8d6b-a2d07551ab2a"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:33.000Z",
+              "updatedAt": "2026-10-22T02:53:33.000Z",
+              "uid": "35240-13c77189-7f54-4017-b23c-7f3138d26683"
+            }
+          ],
+          "id": "5ffc1aa6-8eda-415d-a5ea-19d435997e41",
+          "createdAt": "2026-10-22T02:53:33.000Z",
+          "updatedAt": "2026-10-22T02:53:33.000Z",
+          "uid": "35240-5ffc1aa6-8eda-415d-a5ea-19d435997e41"
+        },
+        {
+          "name": "default-credit-card",
+          "item": [
+            {
+              "name": "credit-card/default-credit-card",
+              "id": "b2d736c8-73d5-407e-bb66-a8cb927e3f0a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/credit-card/default-credit-card?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "credit-card",
+                    "default-credit-card"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will return the default credit card associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint retrieves the default credit card associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "3db80be1-55ed-4d72-8527-4a9f3820c957",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/credit-card/default-credit-card?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit-card",
+                        "default-credit-card"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, this endpoint will return the default credit card associated with this Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DefaultCreditCard\": {\n    \"0\": {\n      \"CreditCardToken\": \"<string>\",\n      \"CreditCardHolderName\": \"<string>\",\n      \"CreditCardNumber\": \"<string>\",\n      \"CreditCardExpiryYear\": \"<string>\",\n      \"CreditCardExpiryMonth\": \"<string>\",\n      \"CreditCardBrand\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:53:33.000Z",
+                  "updatedAt": "2026-10-22T02:53:33.000Z",
+                  "uid": "35240-3db80be1-55ed-4d72-8527-4a9f3820c957"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:33.000Z",
+              "updatedAt": "2026-10-22T02:53:33.000Z",
+              "uid": "35240-b2d736c8-73d5-407e-bb66-a8cb927e3f0a"
+            }
+          ],
+          "id": "8e31768a-1b24-459d-b3b2-d74119e0eec6",
+          "createdAt": "2026-10-22T02:53:33.000Z",
+          "updatedAt": "2026-10-22T02:53:33.000Z",
+          "uid": "35240-8e31768a-1b24-459d-b3b2-d74119e0eec6"
+        },
+        {
+          "name": "charge",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "credit-card/charge/transaction",
+                  "id": "190c6423-6568-4ed4-8a42-acf6fe9d98c7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/credit-card/charge/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit-card",
+                        "charge",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Account transaction ID",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This method is used to look up and return the full details on a single credit card transaction. Credit card transactions take money out of the customer's credit card and deposit them into your VoPay account."
+                  },
+                  "response": [
+                    {
+                      "id": "2b3f3b4d-48f8-42d0-b1bf-92dbbf4c1cb5",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/credit-card/charge/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit-card",
+                            "charge",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Account transaction ID",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"CreditCardToken\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"LastModified\": \"<dateTime>\",\n  \"TransactionTypeCode\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:53:33.000Z",
+                      "updatedAt": "2026-10-22T02:53:33.000Z",
+                      "uid": "35240-2b3f3b4d-48f8-42d0-b1bf-92dbbf4c1cb5"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:33.000Z",
+                  "updatedAt": "2026-10-22T02:53:33.000Z",
+                  "uid": "35240-190c6423-6568-4ed4-8a42-acf6fe9d98c7"
+                }
+              ],
+              "id": "a8cdb461-e049-4274-b4af-603aaf4fbc3b",
+              "createdAt": "2026-10-22T02:53:33.000Z",
+              "updatedAt": "2026-10-22T02:53:33.000Z",
+              "uid": "35240-a8cdb461-e049-4274-b4af-603aaf4fbc3b"
+            },
+            {
+              "name": "credit-card/charge",
+              "id": "19e14ef0-ae11-416f-b544-ed9293c21701",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The token identifying the credit card to charge (returned from /credit-card/generate-embed-url).",
+                      "key": "CreditCardToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount to charge from the customer's credit card.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to be charged into the customer credit card. If this is not specified the transaction will use the account's local currency (CAD).",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's country specified using full country name or ISO 3166-1 alpha-2 code. If this is not specified the transaction will use the local country (CA).",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional reference number for the transaction.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Statement descriptor. Max 25 chars.",
+                      "key": "TransactionLabel",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/credit-card/charge",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "credit-card",
+                    "charge"
+                  ]
+                },
+                "description": "This endpoint is to create a credit card transaction to fund your VoPay account, charging the amount specified to the credit card linked to the provided CreditCardToken.\n\nIf a ClientAccountID is provided, the client account's default credit card will be used for the transaction.\n\nNote: You must first generate a CreditCardToken using the /credit-card/generate-embed-url endpoint."
+              },
+              "response": [
+                {
+                  "id": "114eb2d4-9105-46d6-897e-393a0402b786",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The token identifying the credit card to charge (returned from /credit-card/generate-embed-url).",
+                          "key": "CreditCardToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to charge from the customer's credit card.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to be charged into the customer credit card. If this is not specified the transaction will use the account's local currency (CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's country specified using full country name or ISO 3166-1 alpha-2 code. If this is not specified the transaction will use the local country (CA).",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional reference number for the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Statement descriptor. Max 25 chars.",
+                          "key": "TransactionLabel",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit-card/charge",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit-card",
+                        "charge"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:53:33.000Z",
+                  "updatedAt": "2026-10-22T02:53:33.000Z",
+                  "uid": "35240-114eb2d4-9105-46d6-897e-393a0402b786"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:33.000Z",
+              "updatedAt": "2026-10-22T02:53:33.000Z",
+              "uid": "35240-19e14ef0-ae11-416f-b544-ed9293c21701"
+            }
+          ],
+          "id": "32bae039-e822-4a59-bdfd-9a6b17933070",
+          "createdAt": "2026-10-22T02:53:33.000Z",
+          "updatedAt": "2026-10-22T02:53:33.000Z",
+          "uid": "35240-32bae039-e822-4a59-bdfd-9a6b17933070"
+        },
+        {
+          "name": "void",
+          "item": [
+            {
+              "name": "credit-card/void",
+              "id": "2de68d2e-f681-471c-9beb-38288858ac4b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The unique ID for the transaction you want to void",
+                      "key": "TransactionID",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/credit-card/void",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "credit-card",
+                    "void"
+                  ]
+                },
+                "description": "This endpoint allows you to void a completed credit card transaction."
+              },
+              "response": [
+                {
+                  "id": "59a2b741-f391-4e61-8af5-3c9e4c6ea024",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique ID for the transaction you want to void",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit-card/void",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit-card",
+                        "void"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:53:33.000Z",
+                  "updatedAt": "2026-10-22T02:53:33.000Z",
+                  "uid": "35240-59a2b741-f391-4e61-8af5-3c9e4c6ea024"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:33.000Z",
+              "updatedAt": "2026-10-22T02:53:33.000Z",
+              "uid": "35240-2de68d2e-f681-471c-9beb-38288858ac4b"
+            }
+          ],
+          "id": "9b7e8f62-e2a8-4c5a-b6dd-8246b74062ff",
+          "createdAt": "2026-10-22T02:53:33.000Z",
+          "updatedAt": "2026-10-22T02:53:33.000Z",
+          "uid": "35240-9b7e8f62-e2a8-4c5a-b6dd-8246b74062ff"
+        },
+        {
+          "name": "credit-card",
+          "id": "3b58841f-daf9-4b36-9c5e-3d952e3c45ea",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/credit-card?AccountID=<string>&Key=<string>&Signature=<string>&CreditCardToken=<string>&ClientAccountID=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "credit-card"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When provided, this endpoint will only return the credit card associated with this token",
+                  "key": "CreditCardToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When provided, this endpoint will only return credit cards associated with this Client Account ID",
+                  "key": "ClientAccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "When set to true, this endpoint will only return credit cards linked to your VoPay account. When set to false, it will return a list of your customer's credit cards.",
+                  "key": "ClientControlled",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Limit the number of records that are returned.",
+                  "key": "Limit ",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Use this parameter to set the starting point in the dataset.",
+                  "key": "Offset ",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "This endpoint retrieves a list of credit cards associated with your VoPay account"
+          },
+          "response": [
+            {
+              "id": "773be7fc-eebf-4f55-b737-f49194ff1059",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/credit-card?AccountID=<string>&Key=<string>&Signature=<string>&CreditCardToken=<string>&ClientAccountID=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "credit-card"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will only return the credit card associated with this token",
+                      "key": "CreditCardToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will only return credit cards associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, this endpoint will only return credit cards linked to your VoPay account. When set to false, it will return a list of your customer's credit cards.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"CreditCards\": {\n    \"0\": {\n      \"CreditCardHolderName\": \"<string>\",\n      \"CreditCardNumber\": \"<string>\",\n      \"CreditCardExpiryYear\": \"<string>\",\n      \"CreditCardExpiryMonth\": \"<string>\",\n      \"CreditCardBrand\": \"<string>\",\n      \"CreditCardToken\": \"<string>\",\n      \"IsDefault\": \"<boolean>\",\n      \"ClientAccountID\": \"<string>\",\n      \"SendingEligibility\": \"<string>\",\n      \"ReceivingEligibility\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Brand\": \"<string>\",\n      \"FundsAvailability\": \"<string>\",\n      \"InstitutionName\": \"<string>\",\n      \"InstitutionCountry\": \"<string>\",\n      \"AccountStatementCurrency\": \"<string>\",\n      \"AcceptanceBrand\": \"<string>\",\n      \"ProductType\": \"<string>\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:53:33.000Z",
+              "updatedAt": "2026-10-22T02:53:33.000Z",
+              "uid": "35240-773be7fc-eebf-4f55-b737-f49194ff1059"
+            }
+          ],
+          "createdAt": "2026-10-22T02:53:33.000Z",
+          "updatedAt": "2026-10-22T02:53:33.000Z",
+          "uid": "35240-3b58841f-daf9-4b36-9c5e-3d952e3c45ea"
+        }
+      ],
+      "id": "accef9fe-52d9-48de-b1a2-402ed2005e4f",
+      "createdAt": "2026-10-22T02:53:33.000Z",
+      "updatedAt": "2026-10-22T02:53:33.000Z",
+      "uid": "35240-accef9fe-52d9-48de-b1a2-402ed2005e4f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

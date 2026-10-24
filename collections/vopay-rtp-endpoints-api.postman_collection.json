@@ -1,0 +1,411 @@
+{
+  "info": {
+    "_postman_id": "a7394acd-ea54-4b58-98f5-15229aa1c338",
+    "name": "Payment Rails RTP Endpoints API",
+    "description": "The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:56:04.000Z",
+    "updatedAt": "2026-10-22T02:56:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a7394acd-ea54-4b58-98f5-15229aa1c338"
+  },
+  "item": [
+    {
+      "name": "rtp",
+      "item": [
+        {
+          "name": "withdraw",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "rtp/withdraw/transaction",
+                  "id": "4d72d750-2718-456a-ae65-f0a15c5db36a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rtp/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rtp",
+                        "withdraw",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Unique ID of the RTP withdraw transaction.",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up details on a single RTP withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's account."
+                  },
+                  "response": [
+                    {
+                      "id": "b1383e16-1b99-4254-8df0-e03eafadbd53",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/rtp/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "rtp",
+                            "withdraw",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Unique ID of the RTP withdraw transaction.",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"RecipientName\": \"<string>\",\n  \"ABARoutingNumber\": \"<string>\",\n  \"AccountNumber\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"LastModified\": \"<dateTime>\",\n  \"TransactionTypeCode\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:56:04.000Z",
+                      "updatedAt": "2026-10-22T02:56:04.000Z",
+                      "uid": "35240-b1383e16-1b99-4254-8df0-e03eafadbd53"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:04.000Z",
+                  "updatedAt": "2026-10-22T02:56:04.000Z",
+                  "uid": "35240-4d72d750-2718-456a-ae65-f0a15c5db36a"
+                }
+              ],
+              "id": "58f4be18-f65d-47c2-a525-3d1b2d925e25",
+              "createdAt": "2026-10-22T02:56:04.000Z",
+              "updatedAt": "2026-10-22T02:56:04.000Z",
+              "uid": "35240-58f4be18-f65d-47c2-a525-3d1b2d925e25"
+            },
+            {
+              "name": "rtp/withdraw",
+              "id": "c1896c6a-b1ac-494c-a817-cca954bfbd86",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's full name",
+                      "key": "RecipientName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's bank account number. This is the account that funds will be deposited into.",
+                      "key": "AccountNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ABA Routing number of the recipient's bank account.",
+                      "key": "ABARoutingNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount in the specified currency to deposit into the recipient's bank account.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the transaction.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                      "key": "ParentTransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/rtp/withdraw",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rtp",
+                    "withdraw"
+                  ]
+                },
+                "description": "This endpoint is used to instantly send funds out of your VoPay account and deposit them to the specified recipient's bank account.\n\nEither an iq11 Token or ABARoutingNumber/AccountNumber is required.\n\nIf a ClientAccountID is provided, the client account's first/last name and default bank account will be used for the transaction."
+              },
+              "response": [
+                {
+                  "id": "7f63c70a-534d-4a14-a3e9-c57e4ffa4041",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's full name",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's bank account number. This is the account that funds will be deposited into.",
+                          "key": "AccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ABA Routing number of the recipient's bank account.",
+                          "key": "ABARoutingNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount in the specified currency to deposit into the recipient's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                          "key": "ParentTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/rtp/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rtp",
+                        "withdraw"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:56:04.000Z",
+                  "updatedAt": "2026-10-22T02:56:04.000Z",
+                  "uid": "35240-7f63c70a-534d-4a14-a3e9-c57e4ffa4041"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:04.000Z",
+              "updatedAt": "2026-10-22T02:56:04.000Z",
+              "uid": "35240-c1896c6a-b1ac-494c-a817-cca954bfbd86"
+            }
+          ],
+          "id": "adc4a021-a405-496d-ab97-c41dde280899",
+          "createdAt": "2026-10-22T02:56:04.000Z",
+          "updatedAt": "2026-10-22T02:56:04.000Z",
+          "uid": "35240-adc4a021-a405-496d-ab97-c41dde280899"
+        }
+      ],
+      "id": "1cd9d983-7375-4886-b264-d38612a9be83",
+      "createdAt": "2026-10-22T02:56:04.000Z",
+      "updatedAt": "2026-10-22T02:56:04.000Z",
+      "uid": "35240-1cd9d983-7375-4886-b264-d38612a9be83"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

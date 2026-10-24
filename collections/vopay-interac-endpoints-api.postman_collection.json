@@ -1,0 +1,2666 @@
+{
+  "info": {
+    "_postman_id": "c3a9fa79-fa3e-4fbf-b36e-ba4d6216646f",
+    "name": "Vopay Interac Endpoints API",
+    "description": "Operations tagged Interac Endpoints across 2 of this provider's published API definitions: vopay-payment-method-api-reference.json, vopay-payment-rails-api-reference.json. Each path carries the servers of the definition it was published in.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:55:03.000Z",
+    "updatedAt": "2026-10-22T02:55:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c3a9fa79-fa3e-4fbf-b36e-ba4d6216646f"
+  },
+  "item": [
+    {
+      "name": "interac",
+      "item": [
+        {
+          "name": "email",
+          "item": [
+            {
+              "name": "add",
+              "item": [
+                {
+                  "name": "interac/email/add",
+                  "id": "475ea7b5-32af-4675-887c-4434b9f89499",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The name of the recipient associated with this email",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The Email address to be associated with the account.",
+                          "key": "RecipientEmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The Phone number to be associated with the account.",
+                          "key": "RecipientPhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code. If this is not specified the email will use the account's local currency (CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Security question for this email address.",
+                          "key": "Question",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Answer to the security question. This can be either a plain text answer or a hashed answer. Hashed answers must have leading and trailing whitespace trimmed, be SHA2 hashed and Base64 encoded. If a hashed answer is provided, the HashSalt input is mandatory.",
+                          "key": "Answer",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional message to associate with the email address.",
+                          "key": "Message",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's language preference. Accepted values: en (English as the default) or fr (French).",
+                          "key": "Language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transactions",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the connected email will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/email/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "email",
+                        "add"
+                      ]
+                    },
+                    "description": "This endpoint allows you to add an Interac email to your VoPay account. Optionally, you can use this enpoint to also set the email as default for the VoPay account."
+                  },
+                  "response": [
+                    {
+                      "id": "2adcc829-d4a5-4791-9e2d-b5f6af49770a",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The name of the recipient associated with this email",
+                              "key": "RecipientName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The Email address to be associated with the account.",
+                              "key": "RecipientEmailAddress",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The Phone number to be associated with the account.",
+                              "key": "RecipientPhoneNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "3 character currency code. If this is not specified the email will use the account's local currency (CAD).",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Security question for this email address.",
+                              "key": "Question",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Answer to the security question. This can be either a plain text answer or a hashed answer. Hashed answers must have leading and trailing whitespace trimmed, be SHA2 hashed and Base64 encoded. If a hashed answer is provided, the HashSalt input is mandatory.",
+                              "key": "Answer",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional message to associate with the email address.",
+                              "key": "Message",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Recipient's language preference. Accepted values: en (English as the default) or fr (French).",
+                              "key": "Language",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transactions",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "When set to true, the connected email will be linked to your VoPay account. Default is false.",
+                              "key": "ClientControlled",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/interac/email/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "interac",
+                            "email",
+                            "add"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Token\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:55:03.000Z",
+                      "updatedAt": "2026-10-22T02:55:03.000Z",
+                      "uid": "35240-2adcc829-d4a5-4791-9e2d-b5f6af49770a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-475ea7b5-32af-4675-887c-4434b9f89499"
+                }
+              ],
+              "id": "ac62524c-9e58-4f1d-8989-a8b8497924a3",
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-ac62524c-9e58-4f1d-8989-a8b8497924a3"
+            },
+            {
+              "name": "edit",
+              "item": [
+                {
+                  "name": "interac/email/edit",
+                  "id": "312d5ad9-3924-4e1f-831d-0e73aa428b46",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Token associated with the email record you wish to update.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The Email address to be associated with the account.",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The Email address to be associated with the account.",
+                          "key": "RecipientEmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The Phone number to be associated with the account.",
+                          "key": "RecipientPhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Security question for this email address.",
+                          "key": "Question",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Answer to the security question. This can be either a plain text answer or a hashed answer. Hashed answers must have leading and trailing whitespace trimmed, be SHA2 hashed and Base64 encoded. If a hashed answer is provided, the HashSalt input is mandatory.",
+                          "key": "Answer",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional message to associate with the email address.",
+                          "key": "Message",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's language preference. Accepted values: en (English as the default) or fr (French).",
+                          "key": "Language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transactions",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the connected email will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/email/edit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "email",
+                        "edit"
+                      ]
+                    },
+                    "description": "This endpoint allows you to update an Interac email associated with your VoPay account."
+                  },
+                  "response": [
+                    {
+                      "id": "28778c81-bc57-4c47-a36a-853c3cf41e97",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Token associated with the email record you wish to update.",
+                              "key": "Token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The Email address to be associated with the account.",
+                              "key": "RecipientName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The Email address to be associated with the account.",
+                              "key": "RecipientEmailAddress",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The Phone number to be associated with the account.",
+                              "key": "RecipientPhoneNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Security question for this email address.",
+                              "key": "Question",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Answer to the security question. This can be either a plain text answer or a hashed answer. Hashed answers must have leading and trailing whitespace trimmed, be SHA2 hashed and Base64 encoded. If a hashed answer is provided, the HashSalt input is mandatory.",
+                              "key": "Answer",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional message to associate with the email address.",
+                              "key": "Message",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Recipient's language preference. Accepted values: en (English as the default) or fr (French).",
+                              "key": "Language",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transactions",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "When set to true, the connected email will be linked to your VoPay account. Default is false.",
+                              "key": "ClientControlled",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/interac/email/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "interac",
+                            "email",
+                            "edit"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Token\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:55:03.000Z",
+                      "updatedAt": "2026-10-22T02:55:03.000Z",
+                      "uid": "35240-28778c81-bc57-4c47-a36a-853c3cf41e97"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-312d5ad9-3924-4e1f-831d-0e73aa428b46"
+                }
+              ],
+              "id": "96888391-4f38-48e8-ac62-9ea90a7fc651",
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-96888391-4f38-48e8-ac62-9ea90a7fc651"
+            },
+            {
+              "name": "delete",
+              "item": [
+                {
+                  "name": "interac/email/delete",
+                  "id": "3e5f1bba-cb5e-4685-8b3c-cc408756cbea",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The Token associated with the email record you wish to update.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/email/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "email",
+                        "delete"
+                      ]
+                    },
+                    "description": "This endpoint allows you to delete an Interac email associated with your VoPay account."
+                  },
+                  "response": [
+                    {
+                      "id": "071692bd-24f6-468b-9472-06192a426dee",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The Token associated with the email record you wish to update.",
+                              "key": "Token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/interac/email/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "interac",
+                            "email",
+                            "delete"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:55:03.000Z",
+                      "updatedAt": "2026-10-22T02:55:03.000Z",
+                      "uid": "35240-071692bd-24f6-468b-9472-06192a426dee"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-3e5f1bba-cb5e-4685-8b3c-cc408756cbea"
+                }
+              ],
+              "id": "7a6f42b0-788b-4e4c-9078-6fb8e5a6b4bb",
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-7a6f42b0-788b-4e4c-9078-6fb8e5a6b4bb"
+            },
+            {
+              "name": "set-my-email",
+              "item": [
+                {
+                  "name": "interac/email/set-my-email",
+                  "id": "f1a26d5b-8213-445e-b42a-ddd3e2c2cf67",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The Token associated with the email record you wish to update.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set the email record as default for this account.",
+                          "key": "SetAsDefault",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/email/set-my-email",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "email",
+                        "set-my-email"
+                      ]
+                    },
+                    "description": "This endpoint allows you to identify an Interac email as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify an Interac email as being the VoPay account holder's default email. Note, a VoPay account can only have one default Interac email."
+                  },
+                  "response": [
+                    {
+                      "id": "05ce0e7e-3127-48c9-9680-019dc8de1e91",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The Token associated with the email record you wish to update.",
+                              "key": "Token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Set the email record as default for this account.",
+                              "key": "SetAsDefault",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/interac/email/set-my-email",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "interac",
+                            "email",
+                            "set-my-email"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Token\": \"<string>\",\n  \"IsDefault\": \"<boolean>\"\n}",
+                      "createdAt": "2026-10-22T02:55:03.000Z",
+                      "updatedAt": "2026-10-22T02:55:03.000Z",
+                      "uid": "35240-05ce0e7e-3127-48c9-9680-019dc8de1e91"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-f1a26d5b-8213-445e-b42a-ddd3e2c2cf67"
+                }
+              ],
+              "id": "eb51c73a-a3c4-4493-8e58-c68e89c78a58",
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-eb51c73a-a3c4-4493-8e58-c68e89c78a58"
+            },
+            {
+              "name": "default-email",
+              "item": [
+                {
+                  "name": "interac/email/default-email",
+                  "id": "5bc17138-d9c6-4c3e-95fa-9a8a90fd0bc0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/email/default-email?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "email",
+                        "default-email"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, this endpoint will return the default email associated with this Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint retrieves the default Interac email associated with your VoPay account."
+                  },
+                  "response": [
+                    {
+                      "id": "e495193b-9061-424c-86b9-ac2825819dd0",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/interac/email/default-email?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "interac",
+                            "email",
+                            "default-email"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "When provided, this endpoint will return the default email associated with this Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DefaultEmail\": {\n    \"0\": {\n      \"Currency\": \"<string>\",\n      \"ClientControlledEmail\": \"<string>\",\n      \"RecipientName\": \"<string>\",\n      \"RecipientPaymentDetails\": \"<string>\",\n      \"Type\": \"<string>\",\n      \"Question\": \"<string>\",\n      \"Answer\": \"<string>\",\n      \"Language\": \"<string>\",\n      \"Message\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"IsDefault\": \"<string>\",\n      \"Token\": \"<string>\",\n      \"DateAdded\": \"<dateTime>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:55:03.000Z",
+                      "updatedAt": "2026-10-22T02:55:03.000Z",
+                      "uid": "35240-e495193b-9061-424c-86b9-ac2825819dd0"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-5bc17138-d9c6-4c3e-95fa-9a8a90fd0bc0"
+                }
+              ],
+              "id": "3204ea05-3c4f-4ae7-9807-b021427d5b23",
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-3204ea05-3c4f-4ae7-9807-b021427d5b23"
+            },
+            {
+              "name": "interac/email",
+              "id": "618a5ad2-d949-4b43-9561-8777ac355cf9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/interac/email?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&SearchText=<string>&RecipientName=<string>&RecipientEmailAddress=<string>&RecipientPhoneNumber=<string>&ClientReferenceNumber=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interac",
+                    "email"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A text string to search for in the email addresses",
+                      "key": "SearchText",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the recipient associated with this email",
+                      "key": "RecipientName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The Email address to be associated with the account.",
+                      "key": "RecipientEmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The Phone number to be associated with the account.",
+                      "key": "RecipientPhoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the transactions",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, the connected email will be linked to your VoPay account. Default is false.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "This endpoint retrieves a list of Interac emails associated with your VoPay account."
+              },
+              "response": [
+                {
+                  "id": "6f70da03-943d-46b5-9510-ef01b1dbbd91",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/email?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&SearchText=<string>&RecipientName=<string>&RecipientEmailAddress=<string>&RecipientPhoneNumber=<string>&ClientReferenceNumber=<string>&ClientControlled=<boolean>&Limit =<integer>&Offset =<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "email"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A text string to search for in the email addresses",
+                          "key": "SearchText",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The name of the recipient associated with this email",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The Email address to be associated with the account.",
+                          "key": "RecipientEmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The Phone number to be associated with the account.",
+                          "key": "RecipientPhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transactions",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the connected email will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Limit the number of records that are returned.",
+                          "key": "Limit ",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Use this parameter to set the starting point in the dataset.",
+                          "key": "Offset ",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"InteracEmails\": {\n    \"0\": {\n      \"ClientAccountID\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"ClientControlledEmail\": \"<string>\",\n      \"RecipientName\": \"<string>\",\n      \"RecipientEmailAddress\": \"<string>\",\n      \"RecipientPhoneNumber\": \"<string>\",\n      \"Question\": \"<string>\",\n      \"Answer\": \"<string>\",\n      \"Language\": \"<string>\",\n      \"Message\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"RegisteredName\": \"<string>\",\n      \"Alias\": \"<string>\",\n      \"AutoDepositEnabled\": \"<boolean>\",\n      \"CustomerType\": \"<string>\",\n      \"TransactionLimit\": \"<number>\",\n      \"IsActive\": \"<string>\",\n      \"IsDefault\": \"<string>\",\n      \"Token\": \"<string>\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-6f70da03-943d-46b5-9510-ef01b1dbbd91"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-618a5ad2-d949-4b43-9561-8777ac355cf9"
+            }
+          ],
+          "id": "378ed779-e43c-4171-b132-28d2f9f24760",
+          "createdAt": "2026-10-22T02:55:03.000Z",
+          "updatedAt": "2026-10-22T02:55:03.000Z",
+          "uid": "35240-378ed779-e43c-4171-b132-28d2f9f24760"
+        },
+        {
+          "name": "auto-deposit",
+          "item": [
+            {
+              "name": "interac/auto-deposit",
+              "id": "e9b6333f-84ad-4d35-860d-d0fb193d00cc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/interac/auto-deposit?AccountID=<string>&Key=<string>&Signature=<string>&EmailAddress=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interac",
+                    "auto-deposit"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The email address to fetch Interac auto-deposit status for.",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to fetch Interac auto-deposit status."
+              },
+              "response": [
+                {
+                  "id": "26644baf-d6c7-47a3-bce7-f37cf09af97e",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/auto-deposit?AccountID=<string>&Key=<string>&Signature=<string>&EmailAddress=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "auto-deposit"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The email address to fetch Interac auto-deposit status for.",
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"AutoDepositEnabled\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-26644baf-d6c7-47a3-bce7-f37cf09af97e"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-e9b6333f-84ad-4d35-860d-d0fb193d00cc"
+            }
+          ],
+          "id": "dd49940c-5acf-4033-9172-e94eeb1c60d2",
+          "createdAt": "2026-10-22T02:55:03.000Z",
+          "updatedAt": "2026-10-22T02:55:03.000Z",
+          "uid": "35240-dd49940c-5acf-4033-9172-e94eeb1c60d2"
+        },
+        {
+          "name": "money-request",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "request-cancellation",
+                  "item": [
+                    {
+                      "name": "interac/money-request/transaction/request-cancellation",
+                      "id": "5ff4d73c-d24a-471f-82bc-0c7701a3e416",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The unique ID for the transaction",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/interac/money-request/transaction/request-cancellation",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "interac",
+                            "money-request",
+                            "transaction",
+                            "request-cancellation"
+                          ]
+                        },
+                        "description": "This endpoint allows you to attempt to cancel an in progress money request transaction. Note that the cancellation request will fail if the recipient has already fulfilled the request. A successful cancellation using this endpoint will incur an Interac network cancellation fee."
+                      },
+                      "response": [
+                        {
+                          "id": "8edae85f-2ca3-4f55-9a43-fd472b71f11c",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The unique ID for the transaction",
+                                  "key": "TransactionID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/interac/money-request/transaction/request-cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "interac",
+                                "money-request",
+                                "transaction",
+                                "request-cancellation"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"Timestamp\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-22T02:55:03.000Z",
+                          "updatedAt": "2026-10-22T02:55:03.000Z",
+                          "uid": "35240-8edae85f-2ca3-4f55-9a43-fd472b71f11c"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:55:03.000Z",
+                      "updatedAt": "2026-10-22T02:55:03.000Z",
+                      "uid": "35240-5ff4d73c-d24a-471f-82bc-0c7701a3e416"
+                    }
+                  ],
+                  "id": "21ca5b1e-6247-49f4-93e0-eaca9e7dc1e9",
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-21ca5b1e-6247-49f4-93e0-eaca9e7dc1e9"
+                },
+                {
+                  "name": "interac/money-request/transaction",
+                  "id": "baff8436-84e4-4d1d-9a79-1ba4875e92a9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/money-request/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "money-request",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Unique ID of the withdraw transaction. Either this or ClientReferenceNumber is required.",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "An optional reference number which was associated with the transaction. This can only be used to look up the transaction if it was a unique ID.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up details on a single Interac money request transaction. This endpoint can be used to return transactions created with the API, or transactions submitted via SFTP batch file."
+                  },
+                  "response": [
+                    {
+                      "id": "06b587da-0b8f-457e-b60f-1c7be1a2988e",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/interac/money-request/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "interac",
+                            "money-request",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Unique ID of the withdraw transaction. Either this or ClientReferenceNumber is required.",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "An optional reference number which was associated with the transaction. This can only be used to look up the transaction if it was a unique ID.",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"FailureReason\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"HoldAmount\": \"<number>\",\n  \"LastModified\": \"<dateTime>\",\n  \"BatchFileName\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"PhoneNumber\": \"<string>\",\n  \"RecipientName\": \"<string>\",\n  \"MessageForRecipient\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"ConfirmationNumber\": \"<string>\",\n  \"ProcessingDate\": \"<dateTime>\",\n  \"GLCode\": \"<string>\",\n  \"TransactionTypeCode\": \"<string>\",\n  \"MoneyRequestURL\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:55:03.000Z",
+                      "updatedAt": "2026-10-22T02:55:03.000Z",
+                      "uid": "35240-06b587da-0b8f-457e-b60f-1c7be1a2988e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-baff8436-84e4-4d1d-9a79-1ba4875e92a9"
+                }
+              ],
+              "id": "97465689-bc6f-4b6e-837b-6125f2335d56",
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-97465689-bc6f-4b6e-837b-6125f2335d56"
+            },
+            {
+              "name": "interac/money-request",
+              "id": "a82cdf22-c60a-4677-aa4b-8c7b1979f5bd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount to debit from the customer's bank account.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency (generally CAD).  NOTE: Currently the eft/fund API endpoint only supports CAD transactions.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Email address the interac money request transaction was sent to.",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The money transfer recipient's name",
+                      "key": "RecipientName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's phone number. (Digits only - no parentheses or dashes allowed.)",
+                      "key": "PhoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's address line 1",
+                      "key": "Address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's address line 2",
+                      "key": "Address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's city",
+                      "key": "City",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's province specified using two character abbreviations (eg. BC, AB)",
+                      "key": "Province",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's postal code.",
+                      "key": "PostalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional message set by client for the recipient",
+                      "key": "MessageForRecipient",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number which was associated with the transaction. This can only be used to look up the transaction if it was a unique ID.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Generate a URL for the money request instead of sending an e-mail.",
+                      "key": "GenerateURL",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interac/money-request",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interac",
+                    "money-request"
+                  ]
+                },
+                "description": "This API endpoint is used to create a new Interac money request transaction.\n\nIf a ClientAccountID is provided, the client account's first/last name, and email address will be used for the transaction."
+              },
+              "response": [
+                {
+                  "id": "ba8caf0f-9162-4d3e-b0bc-e46ea2d4eaff",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to debit from the customer's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency (generally CAD).  NOTE: Currently the eft/fund API endpoint only supports CAD transactions.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Email address the interac money request transaction was sent to.",
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The money transfer recipient's name",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's phone number. (Digits only - no parentheses or dashes allowed.)",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's address line 1",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's address line 2",
+                          "key": "Address2",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's city",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's province specified using two character abbreviations (eg. BC, AB)",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's postal code.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional message set by client for the recipient",
+                          "key": "MessageForRecipient",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number which was associated with the transaction. This can only be used to look up the transaction if it was a unique ID.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Generate a URL for the money request instead of sending an e-mail.",
+                          "key": "GenerateURL",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/money-request",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "money-request"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"Flagged\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-ba8caf0f-9162-4d3e-b0bc-e46ea2d4eaff"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-a82cdf22-c60a-4677-aa4b-8c7b1979f5bd"
+            }
+          ],
+          "id": "e3c99d10-2718-4616-9b92-4f6cdd0a7da5",
+          "createdAt": "2026-10-22T02:55:03.000Z",
+          "updatedAt": "2026-10-22T02:55:03.000Z",
+          "uid": "35240-e3c99d10-2718-4616-9b92-4f6cdd0a7da5"
+        },
+        {
+          "name": "bulk-payout",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "request-cancellation",
+                  "item": [
+                    {
+                      "name": "interac/bulk-payout/transaction/request-cancellation",
+                      "id": "f5ff3a52-7bbe-46d4-9eb4-9672ff42962f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The unique ID for the transaction",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/interac/bulk-payout/transaction/request-cancellation",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "interac",
+                            "bulk-payout",
+                            "transaction",
+                            "request-cancellation"
+                          ]
+                        },
+                        "description": "This endpoint allows you to attempt to cancel an in progress bulk payout transaction. Note that the cancellation request will fail if the recipient has already deposited the funds, and successful cancellation using this endpoint will incur an Interac network cancellation fee."
+                      },
+                      "response": [
+                        {
+                          "id": "500ca2d0-d0bd-43db-ab27-ad5af3a6a833",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The unique ID for the transaction",
+                                  "key": "TransactionID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/interac/bulk-payout/transaction/request-cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "interac",
+                                "bulk-payout",
+                                "transaction",
+                                "request-cancellation"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"Timestamp\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-22T02:55:03.000Z",
+                          "updatedAt": "2026-10-22T02:55:03.000Z",
+                          "uid": "35240-500ca2d0-d0bd-43db-ab27-ad5af3a6a833"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:55:03.000Z",
+                      "updatedAt": "2026-10-22T02:55:03.000Z",
+                      "uid": "35240-f5ff3a52-7bbe-46d4-9eb4-9672ff42962f"
+                    }
+                  ],
+                  "id": "17168191-df4f-4dcc-bb1d-32b727a37a73",
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-17168191-df4f-4dcc-bb1d-32b727a37a73"
+                },
+                {
+                  "name": "interac/bulk-payout/transaction",
+                  "id": "699f1211-a3ad-46fa-ba80-1534db1e1e56",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/bulk-payout/transaction?AccountID=<string>&Key=<string>&Signature=<string>&ClientReferenceNumber=<string>&TransactionID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "bulk-payout",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the e-transfer",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number which was associated with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Unique ID of the fund transaction. Either this or ClientReferenceNumber is required.",
+                          "key": "TransactionID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up details on an Interac e-Transfer bulk payout transaction."
+                  },
+                  "response": [
+                    {
+                      "id": "76354635-9e8d-4551-aa65-d56f1ff73b4b",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/interac/bulk-payout/transaction?AccountID=<string>&Key=<string>&Signature=<string>&ClientReferenceNumber=<string>&TransactionID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "interac",
+                            "bulk-payout",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the e-transfer",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional reference number which was associated with the transaction.",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Unique ID of the fund transaction. Either this or ClientReferenceNumber is required.",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"FailureReason\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"HoldAmount\": \"<number>\",\n  \"LastModified\": \"<dateTime>\",\n  \"SenderName\": \"<string>\",\n  \"RecipientName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Memo\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"ConfirmationNumber\": \"<string>\",\n  \"ProcessingDate\": \"<dateTime>\",\n  \"CancellationPeriod\": \"<integer>\",\n  \"GLCode\": \"<string>\",\n  \"TransactionTypeCode\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:55:03.000Z",
+                      "updatedAt": "2026-10-22T02:55:03.000Z",
+                      "uid": "35240-76354635-9e8d-4551-aa65-d56f1ff73b4b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-699f1211-a3ad-46fa-ba80-1534db1e1e56"
+                }
+              ],
+              "id": "03be31f6-06a9-477d-94fc-2124c1e3d7bd",
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-03be31f6-06a9-477d-94fc-2124c1e3d7bd"
+            },
+            {
+              "name": "interac/bulk-payout",
+              "id": "df182705-343e-48fe-a745-a93acac46b28",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the e-transfer",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount to debit from the customer's bank account.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) Recipient's name, as known by the sender.",
+                      "key": "RecipientName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Security question for the transaction.",
+                      "key": "Question",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Answer to the security question. This can be either a plain text answer or a hashed answer. Hashed answers must have leading and trailing whitespace trimmed, be SHA2 hashed and Base64 encoded. If a hashed answer is provided, the HashSalt input is mandatory.",
+                      "key": "Answer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency (generally CAD).  NOTE: Currently the eft/fund API endpoint only supports CAD transactions.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Recipient's email address. Either EmailAddress or PhoneNumber must be provided",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Recipient's mobile phone number. (Digits only - no parentheses or dashes allowed.). Either EmailAddress or PhoneNumber must be provided",
+                      "key": "PhoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sender's full name. This is the name that will be used as the sender's name in the notifications to the recipient. If not provided, your VoPay account name will be used.",
+                      "key": "SenderName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Recipient's address line 1",
+                      "key": "Address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Recipient's address line 2",
+                      "key": "Address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Recipient's city",
+                      "key": "City",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Recipient's province specified using two character abbreviations (eg. BC, AB)",
+                      "key": "Province",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Recipient's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Recipient's postal code.",
+                      "key": "PostalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Recipient's language preference. Accepted values: en (English as the default) or fr (French).",
+                      "key": "Language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "1-30 , number of days after which the transfer will be marked as cancelled.",
+                      "key": "CancellationPeriod",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Message to recipient. Set by client for the recipient.",
+                      "key": "Memo",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number which was associated with the transaction.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The salt used to hash the answer. This input is mandatory if a hashed answer is provided.",
+                      "key": "HashSalt",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                      "key": "ParentTransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/interac/bulk-payout",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "interac",
+                    "bulk-payout"
+                  ]
+                },
+                "description": "This endpoint is used to create an Interac e-Transfer bulk payout transaction for sending funds.\n\nIf a ClientAccountID is provided, the client account's first/last name, and email address will be used for the transaction."
+              },
+              "response": [
+                {
+                  "id": "c5f55d68-dbb8-4108-96d8-b8e692fb229d",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the e-transfer",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to debit from the customer's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) Recipient's name, as known by the sender.",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Security question for the transaction.",
+                          "key": "Question",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Answer to the security question. This can be either a plain text answer or a hashed answer. Hashed answers must have leading and trailing whitespace trimmed, be SHA2 hashed and Base64 encoded. If a hashed answer is provided, the HashSalt input is mandatory.",
+                          "key": "Answer",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency (generally CAD).  NOTE: Currently the eft/fund API endpoint only supports CAD transactions.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's email address. Either EmailAddress or PhoneNumber must be provided",
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's mobile phone number. (Digits only - no parentheses or dashes allowed.). Either EmailAddress or PhoneNumber must be provided",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sender's full name. This is the name that will be used as the sender's name in the notifications to the recipient. If not provided, your VoPay account name will be used.",
+                          "key": "SenderName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's address line 1",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's address line 2",
+                          "key": "Address2",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's city",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's province specified using two character abbreviations (eg. BC, AB)",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's postal code.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Recipient's language preference. Accepted values: en (English as the default) or fr (French).",
+                          "key": "Language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "1-30 , number of days after which the transfer will be marked as cancelled.",
+                          "key": "CancellationPeriod",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Message to recipient. Set by client for the recipient.",
+                          "key": "Memo",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number which was associated with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The salt used to hash the answer. This input is mandatory if a hashed answer is provided.",
+                          "key": "HashSalt",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                          "key": "ParentTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/bulk-payout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "bulk-payout"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"Flagged\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-c5f55d68-dbb8-4108-96d8-b8e692fb229d"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-df182705-343e-48fe-a745-a93acac46b28"
+            }
+          ],
+          "id": "8c78ea9f-8763-4309-b651-4778e163c035",
+          "createdAt": "2026-10-22T02:55:03.000Z",
+          "updatedAt": "2026-10-22T02:55:03.000Z",
+          "uid": "35240-8c78ea9f-8763-4309-b651-4778e163c035"
+        },
+        {
+          "name": "inbound",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "interac/inbound/transaction",
+                  "id": "4e62b63b-494c-4dd9-bf1d-7960948f04e9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/interac/inbound/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "interac",
+                        "inbound",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Unique ID of the Inbound E transaction.",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up details of Inbound ETransfer transactions."
+                  },
+                  "response": [
+                    {
+                      "id": "ba4503a9-40d1-40b7-ab88-95a8e6567b6f",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/interac/inbound/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "interac",
+                            "inbound",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Unique ID of the Inbound E transaction.",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Transactions\": {\n    \"0\": {\n      \"ID\": \"<integer>\",\n      \"MessageID\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Amount\": \"<number>\",\n      \"Status\": \"<string>\",\n      \"Message\": \"<string>\",\n      \"DateReceived\": \"<dateTime>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:55:03.000Z",
+                      "updatedAt": "2026-10-22T02:55:03.000Z",
+                      "uid": "35240-ba4503a9-40d1-40b7-ab88-95a8e6567b6f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:03.000Z",
+                  "updatedAt": "2026-10-22T02:55:03.000Z",
+                  "uid": "35240-4e62b63b-494c-4dd9-bf1d-7960948f04e9"
+                }
+              ],
+              "id": "13e0d6d7-5353-4fe8-b688-4f6164930bb0",
+              "createdAt": "2026-10-22T02:55:03.000Z",
+              "updatedAt": "2026-10-22T02:55:03.000Z",
+              "uid": "35240-13e0d6d7-5353-4fe8-b688-4f6164930bb0"
+            }
+          ],
+          "id": "38b1e3b1-0843-470a-8db9-9e30c1f7c710",
+          "createdAt": "2026-10-22T02:55:03.000Z",
+          "updatedAt": "2026-10-22T02:55:03.000Z",
+          "uid": "35240-38b1e3b1-0843-470a-8db9-9e30c1f7c710"
+        }
+      ],
+      "id": "3d32b16a-8f34-4da6-b92c-78d662b905b7",
+      "createdAt": "2026-10-22T02:55:03.000Z",
+      "updatedAt": "2026-10-22T02:55:03.000Z",
+      "uid": "35240-3d32b16a-8f34-4da6-b92c-78d662b905b7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

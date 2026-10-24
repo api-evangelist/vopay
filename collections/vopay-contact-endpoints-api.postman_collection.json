@@ -1,0 +1,1542 @@
+{
+  "info": {
+    "_postman_id": "467552e9-06b3-4dfd-bd96-3992aa6f4d09",
+    "name": "Contact Endpoints API",
+    "description": "The Contact API allows you to manage contacts associated with your VoPay account.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:53:07.000Z",
+    "updatedAt": "2026-10-22T02:53:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-467552e9-06b3-4dfd-bd96-3992aa6f4d09"
+  },
+  "item": [
+    {
+      "name": "contacts",
+      "item": [
+        {
+          "name": "add",
+          "item": [
+            {
+              "name": "contacts/add",
+              "id": "50e230e8-9a02-4205-85f9-22257419c65b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The email address to be associated with this contact",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The phone number to be associated with this contact",
+                      "key": "PhoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The first name to be associated with this contact",
+                      "key": "FirstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The last name to be associated with this contact",
+                      "key": "LastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Custom ID of the contact you want to create",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client's business name",
+                      "key": "BusinessName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's address line 1",
+                      "key": "Address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's city",
+                      "key": "City",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's province specified using two character abbreviations (eg. BC, AB)",
+                      "key": "Province",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's country specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                      "key": "Nationality",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's postal code.",
+                      "key": "PostalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An iQ11 Token that has been generated using Custom Iframe.",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated user and bank account details from Flinks.",
+                      "key": "FlinksLoginID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Plaid Processor Token. VoPay will fetch the associated user bank account details from Plaid.",
+                      "key": "PlaidProcessorToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Mx Processor Token. VoPay will fetch the associated user bank account details from Mx.",
+                      "key": "MxProcessorToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts/add",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "add"
+                  ]
+                },
+                "description": "This endpoint is used to add a new contact record for the given account. If Flinks, Plaid or Mx credentials are provided, we will fetch all personal and bank account details from those providers."
+              },
+              "response": [
+                {
+                  "id": "827148c2-e707-4c58-8110-15969e71ea86",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The email address to be associated with this contact",
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The phone number to be associated with this contact",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The first name to be associated with this contact",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The last name to be associated with this contact",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Custom ID of the contact you want to create",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's business name",
+                          "key": "BusinessName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's address line 1",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's city",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's province specified using two character abbreviations (eg. BC, AB)",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's country specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                          "key": "Nationality",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's postal code.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An iQ11 Token that has been generated using Custom Iframe.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Flinks Login ID. Must be accompanied by a FlinksAccountID. VoPay will fetch the associated user and bank account details from Flinks.",
+                          "key": "FlinksLoginID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Plaid Processor Token. VoPay will fetch the associated user bank account details from Plaid.",
+                          "key": "PlaidProcessorToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Mx Processor Token. VoPay will fetch the associated user bank account details from Mx.",
+                          "key": "MxProcessorToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "add"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ContactID\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:08.000Z",
+                  "updatedAt": "2026-10-22T02:53:08.000Z",
+                  "uid": "35240-827148c2-e707-4c58-8110-15969e71ea86"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:08.000Z",
+              "updatedAt": "2026-10-22T02:53:08.000Z",
+              "uid": "35240-50e230e8-9a02-4205-85f9-22257419c65b"
+            }
+          ],
+          "id": "11c8b29a-2c07-48d8-a25a-92b7346c6310",
+          "createdAt": "2026-10-22T02:53:08.000Z",
+          "updatedAt": "2026-10-22T02:53:08.000Z",
+          "uid": "35240-11c8b29a-2c07-48d8-a25a-92b7346c6310"
+        },
+        {
+          "name": "edit",
+          "item": [
+            {
+              "name": "contacts/edit",
+              "id": "ebc406d4-adf8-4932-85ca-e765a78e3ab0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID for the contact you wish to edit",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The email address to be associated with this contact",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The phone number to be associated with this contact",
+                      "key": "PhoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The first name to be associated with this contact",
+                      "key": "FirstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The last name to be associated with this contact",
+                      "key": "LastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's address line 1",
+                      "key": "Address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's city",
+                      "key": "City",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's province specified using two character abbreviations (eg. BC, AB)",
+                      "key": "Province",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's country specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                      "key": "Nationality",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Contact's postal code.",
+                      "key": "PostalCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts/edit",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "edit"
+                  ]
+                },
+                "description": "This endpoint is used to add a new contact record for the given account."
+              },
+              "response": [
+                {
+                  "id": "6af7f482-1deb-4096-b014-2908dc8fd436",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID for the contact you wish to edit",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The email address to be associated with this contact",
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The phone number to be associated with this contact",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The first name to be associated with this contact",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The last name to be associated with this contact",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's address line 1",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's city",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's province specified using two character abbreviations (eg. BC, AB)",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's country specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                          "key": "Nationality",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Contact's postal code.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/edit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "edit"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ContactID\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:08.000Z",
+                  "updatedAt": "2026-10-22T02:53:08.000Z",
+                  "uid": "35240-6af7f482-1deb-4096-b014-2908dc8fd436"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:08.000Z",
+              "updatedAt": "2026-10-22T02:53:08.000Z",
+              "uid": "35240-ebc406d4-adf8-4932-85ca-e765a78e3ab0"
+            }
+          ],
+          "id": "4a11c6aa-1f2a-4a8d-98df-a3107aafe3da",
+          "createdAt": "2026-10-22T02:53:08.000Z",
+          "updatedAt": "2026-10-22T02:53:08.000Z",
+          "uid": "35240-4a11c6aa-1f2a-4a8d-98df-a3107aafe3da"
+        },
+        {
+          "name": "deactivate",
+          "item": [
+            {
+              "name": "contacts/deactivate",
+              "id": "795b6ed4-6a78-4070-9a1a-d4f4267f6b60",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID for the contact you wish to deactivate",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts/deactivate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "deactivate"
+                  ]
+                },
+                "description": "This endpoint is used to deactivate a contact"
+              },
+              "response": [
+                {
+                  "id": "3821bb91-4fef-4200-bdd4-d53c39f7937b",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID for the contact you wish to deactivate",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/deactivate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "deactivate"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ContactID\": \"<string>\",\n  \"IsActive\": \"<string>\",\n  \"DateDeactivated\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:08.000Z",
+                  "updatedAt": "2026-10-22T02:53:08.000Z",
+                  "uid": "35240-3821bb91-4fef-4200-bdd4-d53c39f7937b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:08.000Z",
+              "updatedAt": "2026-10-22T02:53:08.000Z",
+              "uid": "35240-795b6ed4-6a78-4070-9a1a-d4f4267f6b60"
+            }
+          ],
+          "id": "7676223c-ddfb-413a-b0c1-603eac9380d9",
+          "createdAt": "2026-10-22T02:53:08.000Z",
+          "updatedAt": "2026-10-22T02:53:08.000Z",
+          "uid": "35240-7676223c-ddfb-413a-b0c1-603eac9380d9"
+        },
+        {
+          "name": "activate",
+          "item": [
+            {
+              "name": "contacts/activate",
+              "id": "0e326bb9-0365-4003-a092-1a7e0984200e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID for the contact you wish to activate",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts/activate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "activate"
+                  ]
+                },
+                "description": "This endpoint is used to activate a contact"
+              },
+              "response": [
+                {
+                  "id": "aa2876aa-ffc8-4c37-b03d-731e3e73c8a4",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID for the contact you wish to activate",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/activate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "activate"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ContactID\": \"<string>\",\n  \"IsActive\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:53:08.000Z",
+                  "updatedAt": "2026-10-22T02:53:08.000Z",
+                  "uid": "35240-aa2876aa-ffc8-4c37-b03d-731e3e73c8a4"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:08.000Z",
+              "updatedAt": "2026-10-22T02:53:08.000Z",
+              "uid": "35240-0e326bb9-0365-4003-a092-1a7e0984200e"
+            }
+          ],
+          "id": "562b2e20-7f36-4716-b3f0-0d164a6c4462",
+          "createdAt": "2026-10-22T02:53:08.000Z",
+          "updatedAt": "2026-10-22T02:53:08.000Z",
+          "uid": "35240-562b2e20-7f36-4716-b3f0-0d164a6c4462"
+        },
+        {
+          "name": "payment-methods",
+          "item": [
+            {
+              "name": "contacts/payment-methods",
+              "id": "23a5cc42-b49e-432c-8503-b0449d116ee4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts/payment-methods?AccountID=<string>&Key=<string>&Signature=<string>&ContactID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "payment-methods"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The Contact ID that the payment methods belong to.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to look up all the payment methods for the given contact."
+              },
+              "response": [
+                {
+                  "id": "ad8463ea-5a25-4731-8e96-bfe721240545",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/payment-methods?AccountID=<string>&Key=<string>&Signature=<string>&ContactID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "payment-methods"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Contact ID that the payment methods belong to.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"PaymentMethods\": {\n    \"0\": {\n      \"PaymentMethod\": \"<string>\",\n      \"PaymentDetails\": \"<string>\",\n      \"IsDefault\": \"<boolean>\",\n      \"Token\": \"<string>\",\n      \"AddedOn\": \"<string>\",\n      \"ExtraFields\": {}\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:53:08.000Z",
+                  "updatedAt": "2026-10-22T02:53:08.000Z",
+                  "uid": "35240-ad8463ea-5a25-4731-8e96-bfe721240545"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:08.000Z",
+              "updatedAt": "2026-10-22T02:53:08.000Z",
+              "uid": "35240-23a5cc42-b49e-432c-8503-b0449d116ee4"
+            }
+          ],
+          "id": "a99d0207-6503-4ffd-a380-bd9f24ed0faf",
+          "createdAt": "2026-10-22T02:53:08.000Z",
+          "updatedAt": "2026-10-22T02:53:08.000Z",
+          "uid": "35240-a99d0207-6503-4ffd-a380-bd9f24ed0faf"
+        },
+        {
+          "name": "transactions",
+          "item": [
+            {
+              "name": "contacts/transactions",
+              "id": "721e058b-7a2b-4095-a586-1768b9a262fc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts/transactions?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&ContactID=<string>&Currency=<string>&TransactionType=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>&ScheduledTransactionID=<string>&IsFlagged=<boolean>&IsRefunded=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                      "key": "StartDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                      "key": "EndDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter transactions by Contact ID",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'.",
+                      "key": "TransactionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.",
+                      "key": "TransactionID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Searches for transactions with the specified client reference number.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Id of the schedule transaction to search",
+                      "key": "ScheduledTransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.",
+                      "key": "IsFlagged",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter the list of transactions to only include transactions that have been refunded.",
+                      "key": "IsRefunded",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to get a list of transactions associated with a contact."
+              },
+              "response": [
+                {
+                  "id": "845061eb-0e9c-44eb-8eef-6ee5c2a743b0",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/transactions?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>&ContactID=<string>&Currency=<string>&TransactionType=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>&ScheduledTransactionID=<string>&IsFlagged=<boolean>&IsRefunded=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Return transactions that occurred on or after this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                          "key": "StartDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) Return transactions that occurred on or before this date/time. Can be specified in either YYYY-MM-DD HH:MM:SS or YYYY-MM-DD format.",
+                          "key": "EndDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter transactions by Contact ID",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to fetch transactions for. If this is not specified it will be defaulted to the account's local currency (generally CAD).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Specifies the type of transaction to return. Accepted values are: 'EFT Funding', 'EFT Withdrawal', 'Interac Money Request', 'Interac Bulk Payout', 'Credit Card', 'Fee', 'Reversal'.",
+                          "key": "TransactionType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Searches for a transaction with the specified transaction ID, including any related child transactions which may exist.",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Searches for transactions with the specified client reference number.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Id of the schedule transaction to search",
+                          "key": "ScheduledTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter the list of transactions to only include transactions that have a flag status and have not been confirmed by the client.",
+                          "key": "IsFlagged",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter the list of transactions to only include transactions that have been refunded.",
+                          "key": "IsRefunded",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NumberOfRecords\": \"<integer>\",\n  \"Transactions\": {\n    \"0\": {\n      \"TransactionID\": \"<integer>\",\n      \"AccountName\": \"<string>\",\n      \"TransactionDateTime\": \"<dateTime>\",\n      \"TransactionType\": \"<string>\",\n      \"TransactionStatus\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"DebitAmount\": \"<number>\",\n      \"CreditAmount\": \"<number>\",\n      \"Currency\": \"<string>\",\n      \"HoldAmount\": \"<number>\",\n      \"LastModified\": \"<dateTime>\",\n      \"ParentTransactionID\": \"<string>\",\n      \"ChildTransactionIDs\": \"<integer>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"ScheduledTransactionID\": \"<integer>\",\n      \"ContactID\": \"<string>\",\n      \"TransactionErrorCode\": \"<string>\",\n      \"TransactionFailureReason\": \"<string>\",\n      \"TransactionFlag\": \"<string>\",\n      \"ELinxRequestID\": \"<integer>\",\n      \"IsRefunded\": \"<boolean>\",\n      \"IsRefund\": \"<boolean>\",\n      \"FullName\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:53:08.000Z",
+                  "updatedAt": "2026-10-22T02:53:08.000Z",
+                  "uid": "35240-845061eb-0e9c-44eb-8eef-6ee5c2a743b0"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:08.000Z",
+              "updatedAt": "2026-10-22T02:53:08.000Z",
+              "uid": "35240-721e058b-7a2b-4095-a586-1768b9a262fc"
+            }
+          ],
+          "id": "9ae71f1c-85ae-48ee-b9e2-47f437de8dc5",
+          "createdAt": "2026-10-22T02:53:08.000Z",
+          "updatedAt": "2026-10-22T02:53:08.000Z",
+          "uid": "35240-9ae71f1c-85ae-48ee-b9e2-47f437de8dc5"
+        },
+        {
+          "name": "contacts",
+          "id": "3598d45e-5d8f-47fd-94d6-bfb9b6d006c9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/contacts?AccountID=<string>&Key=<string>&Signature=<string>&ContactID=<string>&Limit =<integer>&Offset =<integer>&SearchText=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "contacts"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of the contact to retrieve. If this is not provided, all contacts will be returned.",
+                  "key": "ContactID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Limit the number of records that are returned.",
+                  "key": "Limit ",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Use this parameter to set the starting point in the dataset.",
+                  "key": "Offset ",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "A text string to search for in the email addresses, names and business number.",
+                  "key": "SearchText",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "This endpoint is used to get a list of contacts associated with the account."
+          },
+          "response": [
+            {
+              "id": "86e03c87-64a9-4d08-91e0-53652eb3d4a2",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts?AccountID=<string>&Key=<string>&Signature=<string>&ContactID=<string>&Limit =<integer>&Offset =<integer>&SearchText=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to retrieve. If this is not provided, all contacts will be returned.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "A text string to search for in the email addresses, names and business number.",
+                      "key": "SearchText",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Contacts\": {\n    \"0\": {\n      \"ContactID\": \"<number>\",\n      \"ContactName\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"PhoneNumber\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"Nationality\": \"<string>\",\n      \"Currency\": \"<string>\"\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:53:08.000Z",
+              "updatedAt": "2026-10-22T02:53:08.000Z",
+              "uid": "35240-86e03c87-64a9-4d08-91e0-53652eb3d4a2"
+            }
+          ],
+          "createdAt": "2026-10-22T02:53:08.000Z",
+          "updatedAt": "2026-10-22T02:53:08.000Z",
+          "uid": "35240-3598d45e-5d8f-47fd-94d6-bfb9b6d006c9"
+        }
+      ],
+      "id": "a2c4a664-df04-4d5f-b7a0-7fd477afc56f",
+      "createdAt": "2026-10-22T02:53:08.000Z",
+      "updatedAt": "2026-10-22T02:53:08.000Z",
+      "uid": "35240-a2c4a664-df04-4d5f-b7a0-7fd477afc56f"
+    },
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "contact",
+          "item": [
+            {
+              "name": "generate-embed-url",
+              "item": [
+                {
+                  "name": "account/contact/generate-embed-url",
+                  "id": "723b7f11-3ab6-421d-87ae-c120c4d77ba4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's first name. Required if BusinessName is not provided.",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's last name. Required if BusinessName is not provided.",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client's business name. Required if FirstName and LastName are not provided.",
+                          "key": "BusinessName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This option is used to send the onboarding link through email. If you wish to send an email, then provide true. The default value is false.",
+                          "key": "SendEmail",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Recipient's email address. Required if SendEmail = true.",
+                          "key": "ReceiverEmailAddress",
+                          "value": "<email>"
+                        },
+                        {
+                          "description": "This option is used to send the onboarding link through SMS. If you wish to send an SMS, then provide true. The default value is false.",
+                          "key": "SendSMS",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Recipient's phone number. Required if SendSMS = true.",
+                          "key": "ReceiverPhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of payment methods.",
+                          "key": "RequiredPaymentMethods",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This option will add a Label to the contact. If the Label doesn't exist it will be created and applied.",
+                          "key": "Label",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/contact/generate-embed-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "contact",
+                        "generate-embed-url"
+                      ]
+                    },
+                    "description": "Use this endpoint to generate a unique URL to onboard a new contact. To send an email containing the URL to the recipient, set SendEmail = true, and provide both the email address and full name of the recipient."
+                  },
+                  "response": [
+                    {
+                      "id": "669d8db1-9749-42d9-8640-04cd1f784fd9",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's first name. Required if BusinessName is not provided.",
+                              "key": "FirstName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's last name. Required if BusinessName is not provided.",
+                              "key": "LastName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client's business name. Required if FirstName and LastName are not provided.",
+                              "key": "BusinessName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This option is used to send the onboarding link through email. If you wish to send an email, then provide true. The default value is false.",
+                              "key": "SendEmail",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Recipient's email address. Required if SendEmail = true.",
+                              "key": "ReceiverEmailAddress",
+                              "value": "<email>"
+                            },
+                            {
+                              "description": "This option is used to send the onboarding link through SMS. If you wish to send an SMS, then provide true. The default value is false.",
+                              "key": "SendSMS",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Recipient's phone number. Required if SendSMS = true.",
+                              "key": "ReceiverPhoneNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of payment methods.",
+                              "key": "RequiredPaymentMethods",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This option will add a Label to the contact. If the Label doesn't exist it will be created and applied.",
+                              "key": "Label",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/contact/generate-embed-url",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "contact",
+                            "generate-embed-url"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"OnboardingLink\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:53:08.000Z",
+                      "updatedAt": "2026-10-22T02:53:08.000Z",
+                      "uid": "35240-669d8db1-9749-42d9-8640-04cd1f784fd9"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:08.000Z",
+                  "updatedAt": "2026-10-22T02:53:08.000Z",
+                  "uid": "35240-723b7f11-3ab6-421d-87ae-c120c4d77ba4"
+                }
+              ],
+              "id": "363d2e38-bd76-4437-b34f-66cf758f4ca4",
+              "createdAt": "2026-10-22T02:53:08.000Z",
+              "updatedAt": "2026-10-22T02:53:08.000Z",
+              "uid": "35240-363d2e38-bd76-4437-b34f-66cf758f4ca4"
+            }
+          ],
+          "id": "53f76404-0207-4245-a0a6-e7f43798ced4",
+          "createdAt": "2026-10-22T02:53:08.000Z",
+          "updatedAt": "2026-10-22T02:53:08.000Z",
+          "uid": "35240-53f76404-0207-4245-a0a6-e7f43798ced4"
+        }
+      ],
+      "id": "90fd4f7f-0952-4658-98f6-07d887e96f13",
+      "createdAt": "2026-10-22T02:53:08.000Z",
+      "updatedAt": "2026-10-22T02:53:08.000Z",
+      "uid": "35240-90fd4f7f-0952-4658-98f6-07d887e96f13"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

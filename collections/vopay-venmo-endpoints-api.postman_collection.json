@@ -1,0 +1,1307 @@
+{
+  "info": {
+    "_postman_id": "094339e1-2b1b-4166-b7a2-a97a11bf84d8",
+    "name": "Vopay Venmo Endpoints API",
+    "description": "Operations tagged Venmo Endpoints across 2 of this provider's published API definitions: vopay-payment-method-api-reference.json, vopay-payment-rails-api-reference.json. Each path carries the servers of the definition it was published in.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:56:48.000Z",
+    "updatedAt": "2026-10-22T02:56:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-094339e1-2b1b-4166-b7a2-a97a11bf84d8"
+  },
+  "item": [
+    {
+      "name": "venmo",
+      "item": [
+        {
+          "name": "add",
+          "item": [
+            {
+              "name": "venmo/add",
+              "id": "3ebc24ad-f719-4e42-ba1e-ce6d242ebd25",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The type of the Venmo account identifier. Valid values are 'EMAIL', 'PHONE', 'USER_HANDLE'.",
+                      "key": "VenmoRecipientType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The recipient ID (email address, phone number, or Venmo user handle) of the Venmo account. This value corresponds with the VenmoRecipientType value in the request.",
+                      "key": "RecipientID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The full name of the Venmo account holder.",
+                      "key": "RecipientName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this Venmo account.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/venmo/add",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "venmo",
+                    "add"
+                  ]
+                },
+                "description": "This endpoint allows you to add a Venmo account to your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "c73574a1-73dd-42aa-8c5c-ac627cb4d6b2",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The type of the Venmo account identifier. Valid values are 'EMAIL', 'PHONE', 'USER_HANDLE'.",
+                          "key": "VenmoRecipientType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The recipient ID (email address, phone number, or Venmo user handle) of the Venmo account. This value corresponds with the VenmoRecipientType value in the request.",
+                          "key": "RecipientID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The full name of the Venmo account holder.",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this Venmo account.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/venmo/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "venmo",
+                        "add"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:56:48.000Z",
+                  "updatedAt": "2026-10-22T02:56:48.000Z",
+                  "uid": "35240-c73574a1-73dd-42aa-8c5c-ac627cb4d6b2"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:48.000Z",
+              "updatedAt": "2026-10-22T02:56:48.000Z",
+              "uid": "35240-3ebc24ad-f719-4e42-ba1e-ce6d242ebd25"
+            }
+          ],
+          "id": "235292d6-3253-4704-af12-e982c7c4f251",
+          "createdAt": "2026-10-22T02:56:48.000Z",
+          "updatedAt": "2026-10-22T02:56:48.000Z",
+          "uid": "35240-235292d6-3253-4704-af12-e982c7c4f251"
+        },
+        {
+          "name": "delete",
+          "item": [
+            {
+              "name": "venmo/delete",
+              "id": "5483d6d6-d5a9-4fd6-a151-12032541c8f7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The Token associated with the Venmo account you wish to delete.",
+                      "key": "VenmoToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/venmo/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "venmo",
+                    "delete"
+                  ]
+                },
+                "description": "This endpoint allows you to delete a Venmo account from your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "cbffb696-9eb4-4eea-a9e5-d545eabfeb2f",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Token associated with the Venmo account you wish to delete.",
+                          "key": "VenmoToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/venmo/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "venmo",
+                        "delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:56:48.000Z",
+                  "updatedAt": "2026-10-22T02:56:48.000Z",
+                  "uid": "35240-cbffb696-9eb4-4eea-a9e5-d545eabfeb2f"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:48.000Z",
+              "updatedAt": "2026-10-22T02:56:48.000Z",
+              "uid": "35240-5483d6d6-d5a9-4fd6-a151-12032541c8f7"
+            }
+          ],
+          "id": "6228a9fb-c876-46ee-91c9-f9e9d624785d",
+          "createdAt": "2026-10-22T02:56:48.000Z",
+          "updatedAt": "2026-10-22T02:56:48.000Z",
+          "uid": "35240-6228a9fb-c876-46ee-91c9-f9e9d624785d"
+        },
+        {
+          "name": "recipients",
+          "item": [
+            {
+              "name": "venmo/recipients",
+              "id": "1a7bc321-36d3-40c6-9adb-6f99bd303cb3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/venmo/recipients?AccountID=<string>&Key=<string>&Signature=<string>&ClientControlled=<boolean>&Limit=<integer>&Offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "venmo",
+                    "recipients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, this endpoint will only return Venmo accounts linked to your VoPay account. When set to false, it will return a list of your customer's Venmo accounts.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "This endpoint allows you fetch a list all of your Venmo recipients"
+              },
+              "response": [
+                {
+                  "id": "087e1076-57cb-431c-a005-6b5ad1697773",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/venmo/recipients?AccountID=<string>&Key=<string>&Signature=<string>&ClientControlled=<boolean>&Limit=<integer>&Offset=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "venmo",
+                        "recipients"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, this endpoint will only return Venmo accounts linked to your VoPay account. When set to false, it will return a list of your customer's Venmo accounts.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Limit the number of records that are returned.",
+                          "key": "Limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Use this parameter to set the starting point in the dataset.",
+                          "key": "Offset",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"VenmoRecipients\": {\n    \"0\": {\n      \"RecipientName\": \"<string>\",\n      \"RecipientID\": \"<string>\",\n      \"VenmoRecipientType\": \"<string>\",\n      \"VenmoToken\": \"<string>\",\n      \"ClientControlledPayPalAccount\": \"<string>\",\n      \"IsDefault\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:56:48.000Z",
+                  "updatedAt": "2026-10-22T02:56:48.000Z",
+                  "uid": "35240-087e1076-57cb-431c-a005-6b5ad1697773"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:48.000Z",
+              "updatedAt": "2026-10-22T02:56:48.000Z",
+              "uid": "35240-1a7bc321-36d3-40c6-9adb-6f99bd303cb3"
+            }
+          ],
+          "id": "7d784118-1531-463d-9c4e-dc9a96b2f28f",
+          "createdAt": "2026-10-22T02:56:48.000Z",
+          "updatedAt": "2026-10-22T02:56:48.000Z",
+          "uid": "35240-7d784118-1531-463d-9c4e-dc9a96b2f28f"
+        },
+        {
+          "name": "set-my-recipient",
+          "item": [
+            {
+              "name": "venmo/set-my-recipient",
+              "id": "1761ccfd-dc61-4a8a-952b-bd71f5e1dd12",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The token identifying the Venmo wallet to send funds to.",
+                      "key": "VenmoToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Identify credit card as default Venmo recipient",
+                      "key": "SetAsDefault",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/venmo/set-my-recipient",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "venmo",
+                    "set-my-recipient"
+                  ]
+                },
+                "description": "This endpoint allows you to identify a Venmo recipient as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a Venmo recipient as being the VoPay account holder's default Venmo recipient. Note, a VoPay account can only have one default Venmo recipient."
+              },
+              "response": [
+                {
+                  "id": "2a20ba39-3e0e-401c-9082-ff1f1a557cae",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The token identifying the Venmo wallet to send funds to.",
+                          "key": "VenmoToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Identify credit card as default Venmo recipient",
+                          "key": "SetAsDefault",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/venmo/set-my-recipient",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "venmo",
+                        "set-my-recipient"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"VenmoToken\": \"<string>\",\n  \"IsDefault\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:56:48.000Z",
+                  "updatedAt": "2026-10-22T02:56:48.000Z",
+                  "uid": "35240-2a20ba39-3e0e-401c-9082-ff1f1a557cae"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:48.000Z",
+              "updatedAt": "2026-10-22T02:56:48.000Z",
+              "uid": "35240-1761ccfd-dc61-4a8a-952b-bd71f5e1dd12"
+            }
+          ],
+          "id": "7e588617-eeed-444d-bd97-4805fed1c7b3",
+          "createdAt": "2026-10-22T02:56:48.000Z",
+          "updatedAt": "2026-10-22T02:56:48.000Z",
+          "uid": "35240-7e588617-eeed-444d-bd97-4805fed1c7b3"
+        },
+        {
+          "name": "default-recipient",
+          "item": [
+            {
+              "name": "venmo/default-recipient",
+              "id": "e16b890a-e1f5-4092-9b58-493a52a8a285",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/venmo/default-recipient?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "venmo",
+                    "default-recipient"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will return the default Venmo recipient associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint retrieves the default Venmo recipient associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "037b1e78-9f74-4f5f-b302-55352ccb4a8f",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/venmo/default-recipient?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "venmo",
+                        "default-recipient"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, this endpoint will return the default Venmo recipient associated with this Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DefaultVenmoRecipient\": {\n    \"0\": {\n      \"ClientControlledVenmoAccount\": \"<string>\",\n      \"RecipientName\": \"<string>\",\n      \"RecipientID\": \"<string>\",\n      \"VenmoRecipientType\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"IsDefault\": \"<string>\",\n      \"VenmoToken\": \"<string>\",\n      \"DateAdded\": \"<dateTime>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:56:48.000Z",
+                  "updatedAt": "2026-10-22T02:56:48.000Z",
+                  "uid": "35240-037b1e78-9f74-4f5f-b302-55352ccb4a8f"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:48.000Z",
+              "updatedAt": "2026-10-22T02:56:48.000Z",
+              "uid": "35240-e16b890a-e1f5-4092-9b58-493a52a8a285"
+            }
+          ],
+          "id": "eca6d71b-1703-4a9e-9e84-f5c9c62033f8",
+          "createdAt": "2026-10-22T02:56:48.000Z",
+          "updatedAt": "2026-10-22T02:56:48.000Z",
+          "uid": "35240-eca6d71b-1703-4a9e-9e84-f5c9c62033f8"
+        },
+        {
+          "name": "withdraw",
+          "item": [
+            {
+              "name": "generate-embed-url",
+              "item": [
+                {
+                  "name": "venmo/withdraw/generate-embed-url",
+                  "id": "268a800d-cb30-4302-a68b-e39ca4202dd8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) URL to redirect the user to after the Venmo account is connected.",
+                          "key": "RedirectURL",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, the Venmo token generated will be attached to the Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                          "key": "RedirectMethod",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the Venmo token added will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/venmo/withdraw/generate-embed-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "venmo",
+                        "withdraw",
+                        "generate-embed-url"
+                      ]
+                    },
+                    "description": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their Venmo account and generate a token, which can be used in the /venmo/withdraw endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "026cb954-20fc-4b76-9891-99d32c5df4c1",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) URL to redirect the user to after the Venmo account is connected.",
+                              "key": "RedirectURL",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "When provided, the Venmo token generated will be attached to the Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                              "key": "RedirectMethod",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "When set to true, the Venmo token added will be linked to your VoPay account. Default is false.",
+                              "key": "ClientControlled",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/venmo/withdraw/generate-embed-url",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "venmo",
+                            "withdraw",
+                            "generate-embed-url"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"EmbedURL\": \"<string>\",\n  \"IframeKey\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:56:48.000Z",
+                      "updatedAt": "2026-10-22T02:56:48.000Z",
+                      "uid": "35240-026cb954-20fc-4b76-9891-99d32c5df4c1"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:48.000Z",
+                  "updatedAt": "2026-10-22T02:56:48.000Z",
+                  "uid": "35240-268a800d-cb30-4302-a68b-e39ca4202dd8"
+                }
+              ],
+              "id": "5b4c7fad-f457-4327-ac00-bf039a406a93",
+              "createdAt": "2026-10-22T02:56:48.000Z",
+              "updatedAt": "2026-10-22T02:56:48.000Z",
+              "uid": "35240-5b4c7fad-f457-4327-ac00-bf039a406a93"
+            },
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "venmo/withdraw/transaction",
+                  "id": "77aa9e6d-809d-4835-a378-016be8856c37",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/venmo/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "venmo",
+                        "withdraw",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Account transaction ID",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up and return the full details on a single Venmo withdraw transaction. Venmo withdraw send funds from your VoPay account to the customer's Venmo account."
+                  },
+                  "response": [
+                    {
+                      "id": "078fb5aa-21d0-4027-a0a2-0f66b9e35cec",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/venmo/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "venmo",
+                            "withdraw",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Account transaction ID",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"VenmoToken\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"TransactionTypeCode\": \"<string>\",\n  \"LastModified\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-22T02:56:48.000Z",
+                      "updatedAt": "2026-10-22T02:56:48.000Z",
+                      "uid": "35240-078fb5aa-21d0-4027-a0a2-0f66b9e35cec"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:48.000Z",
+                  "updatedAt": "2026-10-22T02:56:48.000Z",
+                  "uid": "35240-77aa9e6d-809d-4835-a378-016be8856c37"
+                }
+              ],
+              "id": "97fd0205-2cef-43f4-b951-3e86c35d4ca0",
+              "createdAt": "2026-10-22T02:56:48.000Z",
+              "updatedAt": "2026-10-22T02:56:48.000Z",
+              "uid": "35240-97fd0205-2cef-43f4-b951-3e86c35d4ca0"
+            },
+            {
+              "name": "venmo/withdraw",
+              "id": "9d58db09-12e6-4af4-8355-3088d680b45c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The full name of the recipient receiving the funds.",
+                      "key": "RecipientName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount to send to the customers Venmo wallet.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token identifying the Venmo wallet to send funds to.",
+                      "key": "VenmoToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The type of the Venmo wallet you are sending funds to. Valid values are 'EMAIL', 'PHONE', 'USER_HANDLE'.",
+                      "key": "VenmoRecipientType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The recipient ID (email address, phone number, or Venmo user handle) of the Venmo wallet you are sending funds to. This value corresponds with the VenmoRecipientType value in the request.",
+                      "key": "RecipientID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional notes for the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional client reference number for the transaction.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/venmo/withdraw",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "venmo",
+                    "withdraw"
+                  ]
+                },
+                "description": "This endpoint is used to send funds from your VoPay account to a Venmo account.\n\nIf a ClientAccountID is provided, the client account's default Venmo wallet will be used for the transaction."
+              },
+              "response": [
+                {
+                  "id": "3b36bbb0-b348-4ff3-b864-d215362bf8f4",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The full name of the recipient receiving the funds.",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to send to the customers Venmo wallet.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The token identifying the Venmo wallet to send funds to.",
+                          "key": "VenmoToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The type of the Venmo wallet you are sending funds to. Valid values are 'EMAIL', 'PHONE', 'USER_HANDLE'.",
+                          "key": "VenmoRecipientType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The recipient ID (email address, phone number, or Venmo user handle) of the Venmo wallet you are sending funds to. This value corresponds with the VenmoRecipientType value in the request.",
+                          "key": "RecipientID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional notes for the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional client reference number for the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/venmo/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "venmo",
+                        "withdraw"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:56:48.000Z",
+                  "updatedAt": "2026-10-22T02:56:48.000Z",
+                  "uid": "35240-3b36bbb0-b348-4ff3-b864-d215362bf8f4"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:48.000Z",
+              "updatedAt": "2026-10-22T02:56:48.000Z",
+              "uid": "35240-9d58db09-12e6-4af4-8355-3088d680b45c"
+            }
+          ],
+          "id": "9422b533-3cb5-4f90-90a9-22588c7f74b4",
+          "createdAt": "2026-10-22T02:56:48.000Z",
+          "updatedAt": "2026-10-22T02:56:48.000Z",
+          "uid": "35240-9422b533-3cb5-4f90-90a9-22588c7f74b4"
+        }
+      ],
+      "id": "c8623b42-f443-4963-a2ea-05ad8f9c6007",
+      "createdAt": "2026-10-22T02:56:48.000Z",
+      "updatedAt": "2026-10-22T02:56:48.000Z",
+      "uid": "35240-c8623b42-f443-4963-a2ea-05ad8f9c6007"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

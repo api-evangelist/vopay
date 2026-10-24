@@ -1,0 +1,1173 @@
+{
+  "info": {
+    "_postman_id": "e26779ec-7e1b-4f19-8c83-1d2443614f37",
+    "name": "Client Accounts Client Account Wallets Endpoints API",
+    "description": "The Client Accounts API allows you to create, manage and retrieve information about client accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:53:03.000Z",
+    "updatedAt": "2026-10-22T02:53:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e26779ec-7e1b-4f19-8c83-1d2443614f37"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "client-accounts",
+          "item": [
+            {
+              "name": "wallets",
+              "item": [
+                {
+                  "name": "create",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/wallets/create",
+                      "id": "7138154e-0108-4ad8-be1d-fb3e3b2aec65",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID that the new wallet is for",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The name for your new wallet",
+                              "key": "WalletName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) 3-character currency code defined by the ISO-4217 standard (e.g. CAD, USD). Used to set the default currency for the wallet being created",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Custom ID of the wallet you want to create. If one is not provided, we will auto-generate one for you.",
+                              "key": "WalletID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "If set to true, the wallet will be created as an offbook wallet. Offbook wallets cannot contain real funds. They can only contain journal entries. If set to false, the wallet will be created as a standard wallet. Default is false.",
+                              "key": "IsOffbook",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/wallets/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "wallets",
+                            "create"
+                          ]
+                        },
+                        "description": "This endpoint allows you to create a new wallet for your client account."
+                      },
+                      "response": [
+                        {
+                          "id": "5703bab4-6f5c-4370-b159-a51add3be744",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The Client Account ID that the new wallet is for",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The name for your new wallet",
+                                  "key": "WalletName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) 3-character currency code defined by the ISO-4217 standard (e.g. CAD, USD). Used to set the default currency for the wallet being created",
+                                  "key": "Currency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Custom ID of the wallet you want to create. If one is not provided, we will auto-generate one for you.",
+                                  "key": "WalletID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "If set to true, the wallet will be created as an offbook wallet. Offbook wallets cannot contain real funds. They can only contain journal entries. If set to false, the wallet will be created as a standard wallet. Default is false.",
+                                  "key": "IsOffbook",
+                                  "value": "<boolean>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/wallets/create",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "wallets",
+                                "create"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"WalletID\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:53:03.000Z",
+                          "updatedAt": "2026-10-22T02:53:03.000Z",
+                          "uid": "35240-5703bab4-6f5c-4370-b159-a51add3be744"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:53:03.000Z",
+                      "updatedAt": "2026-10-22T02:53:03.000Z",
+                      "uid": "35240-7138154e-0108-4ad8-be1d-fb3e3b2aec65"
+                    }
+                  ],
+                  "id": "2b7cfa5c-af25-4c0e-b27c-0f272e3129f4",
+                  "createdAt": "2026-10-22T02:53:03.000Z",
+                  "updatedAt": "2026-10-22T02:53:03.000Z",
+                  "uid": "35240-2b7cfa5c-af25-4c0e-b27c-0f272e3129f4"
+                },
+                {
+                  "name": "transfer",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/wallets/transfer",
+                      "id": "2eb3a09b-1adf-44c6-bf88-45ee6c9670d7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID that both wallets belong to",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account wallet transferring the funds",
+                              "key": "DebitorWalletID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the client account wallet receiving the funds",
+                              "key": "RecipientWalletID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to transfer from the debitor wallet to the recipient wallet",
+                              "key": "Amount",
+                              "value": "<number>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/wallets/transfer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "wallets",
+                            "transfer"
+                          ]
+                        },
+                        "description": "This endpoint allows you to transfer funds between two wallets. Both wallet IDs must belong to the provided client account."
+                      },
+                      "response": [
+                        {
+                          "id": "1e5e3028-ce8b-4eef-af01-c3ba9cd13391",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The Client Account ID that both wallets belong to",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the client account wallet transferring the funds",
+                                  "key": "DebitorWalletID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the client account wallet receiving the funds",
+                                  "key": "RecipientWalletID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The amount to transfer from the debitor wallet to the recipient wallet",
+                                  "key": "Amount",
+                                  "value": "<number>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/wallets/transfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "wallets",
+                                "transfer"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-22T02:53:03.000Z",
+                          "updatedAt": "2026-10-22T02:53:03.000Z",
+                          "uid": "35240-1e5e3028-ce8b-4eef-af01-c3ba9cd13391"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:53:03.000Z",
+                      "updatedAt": "2026-10-22T02:53:03.000Z",
+                      "uid": "35240-2eb3a09b-1adf-44c6-bf88-45ee6c9670d7"
+                    }
+                  ],
+                  "id": "b97573b0-ba11-4881-9fbb-736d5e0d0127",
+                  "createdAt": "2026-10-22T02:53:03.000Z",
+                  "updatedAt": "2026-10-22T02:53:03.000Z",
+                  "uid": "35240-b97573b0-ba11-4881-9fbb-736d5e0d0127"
+                },
+                {
+                  "name": "delete",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/wallets/delete",
+                      "id": "6d86eb8e-bc6a-4395-b304-5318387cf5b9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID that the wallet belongs to",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the wallet that is being deleted",
+                              "key": "WalletID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/wallets/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "wallets",
+                            "delete"
+                          ]
+                        },
+                        "description": "This endpoint allows you to delete a wallet if the wallet balance is 0."
+                      },
+                      "response": [
+                        {
+                          "id": "1c53d396-80c0-47c2-b65f-232c96d6690c",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The Client Account ID that the wallet belongs to",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The ID of the wallet that is being deleted",
+                                  "key": "WalletID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/wallets/delete",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "wallets",
+                                "delete"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:53:03.000Z",
+                          "updatedAt": "2026-10-22T02:53:03.000Z",
+                          "uid": "35240-1c53d396-80c0-47c2-b65f-232c96d6690c"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:53:03.000Z",
+                      "updatedAt": "2026-10-22T02:53:03.000Z",
+                      "uid": "35240-6d86eb8e-bc6a-4395-b304-5318387cf5b9"
+                    }
+                  ],
+                  "id": "57d8caf3-d5f3-4b01-b7e8-0845dec85be1",
+                  "createdAt": "2026-10-22T02:53:03.000Z",
+                  "updatedAt": "2026-10-22T02:53:03.000Z",
+                  "uid": "35240-57d8caf3-d5f3-4b01-b7e8-0845dec85be1"
+                },
+                {
+                  "name": "edit",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/wallets/edit",
+                      "id": "b967ce08-a964-4b25-ad6d-1dea28dd1110",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID to which the wallet belongs",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the wallet that is being edited",
+                              "key": "WalletID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The new name for your wallet",
+                              "key": "WalletName",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/wallets/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "wallets",
+                            "edit"
+                          ]
+                        },
+                        "description": "This endpoint allows you to edit a wallet for your client account."
+                      },
+                      "response": [
+                        {
+                          "id": "e61b91e3-0c5e-473c-80ef-0af03b1a9c04",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The Client Account ID to which the wallet belongs",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The ID of the wallet that is being edited",
+                                  "key": "WalletID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The new name for your wallet",
+                                  "key": "WalletName",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/wallets/edit",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "wallets",
+                                "edit"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:53:03.000Z",
+                          "updatedAt": "2026-10-22T02:53:03.000Z",
+                          "uid": "35240-e61b91e3-0c5e-473c-80ef-0af03b1a9c04"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:53:03.000Z",
+                      "updatedAt": "2026-10-22T02:53:03.000Z",
+                      "uid": "35240-b967ce08-a964-4b25-ad6d-1dea28dd1110"
+                    }
+                  ],
+                  "id": "111a73cb-87f6-4694-9b44-b8ab8ac7e5e5",
+                  "createdAt": "2026-10-22T02:53:03.000Z",
+                  "updatedAt": "2026-10-22T02:53:03.000Z",
+                  "uid": "35240-111a73cb-87f6-4694-9b44-b8ab8ac7e5e5"
+                },
+                {
+                  "name": "deactivate",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/wallets/deactivate",
+                      "id": "b5827bfb-ada4-4764-acb7-af2cd925f100",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID to which the wallet belongs",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the wallet that is being edited",
+                              "key": "WalletID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/wallets/deactivate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "wallets",
+                            "deactivate"
+                          ]
+                        },
+                        "description": "This endpoint allows you to deactivate a wallet for your client account."
+                      },
+                      "response": [
+                        {
+                          "id": "e020a98c-db0e-472c-951d-f0308b712981",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The Client Account ID to which the wallet belongs",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The ID of the wallet that is being edited",
+                                  "key": "WalletID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/wallets/deactivate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "wallets",
+                                "deactivate"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:53:03.000Z",
+                          "updatedAt": "2026-10-22T02:53:03.000Z",
+                          "uid": "35240-e020a98c-db0e-472c-951d-f0308b712981"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:53:03.000Z",
+                      "updatedAt": "2026-10-22T02:53:03.000Z",
+                      "uid": "35240-b5827bfb-ada4-4764-acb7-af2cd925f100"
+                    }
+                  ],
+                  "id": "5e8d7852-df88-40e3-aae1-d4e30c7f030e",
+                  "createdAt": "2026-10-22T02:53:03.000Z",
+                  "updatedAt": "2026-10-22T02:53:03.000Z",
+                  "uid": "35240-5e8d7852-df88-40e3-aae1-d4e30c7f030e"
+                },
+                {
+                  "name": "activate",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/wallets/activate",
+                      "id": "25386d8d-70af-4d96-b047-cc2fdab86ed7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID to which the wallet belongs",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the wallet that is being edited",
+                              "key": "WalletID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/wallets/activate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "wallets",
+                            "activate"
+                          ]
+                        },
+                        "description": "This endpoint allows you to activate a wallet for your client account."
+                      },
+                      "response": [
+                        {
+                          "id": "b8af79b3-b56a-4901-9a26-6b162898c13c",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The Client Account ID to which the wallet belongs",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The ID of the wallet that is being edited",
+                                  "key": "WalletID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/wallets/activate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "wallets",
+                                "activate"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:53:03.000Z",
+                          "updatedAt": "2026-10-22T02:53:03.000Z",
+                          "uid": "35240-b8af79b3-b56a-4901-9a26-6b162898c13c"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:53:03.000Z",
+                      "updatedAt": "2026-10-22T02:53:03.000Z",
+                      "uid": "35240-25386d8d-70af-4d96-b047-cc2fdab86ed7"
+                    }
+                  ],
+                  "id": "c4b57fc6-a3b0-4ffd-89a5-0b835b6fd672",
+                  "createdAt": "2026-10-22T02:53:03.000Z",
+                  "updatedAt": "2026-10-22T02:53:03.000Z",
+                  "uid": "35240-c4b57fc6-a3b0-4ffd-89a5-0b835b6fd672"
+                },
+                {
+                  "name": "account/client-accounts/wallets",
+                  "id": "05546cc5-99c3-4cb5-b594-29df8c7926dd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Client Account ID that the list of wallets belong to",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A optional Wallet ID can be passed to return a single Wallet",
+                          "key": "WalletID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3-character currency code defined by the ISO-4217 standard (e.g. CAD, USD). This will filter the list of wallets by currency",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by offbook wallets",
+                          "key": "IsOffbook",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/wallets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "wallets"
+                      ]
+                    },
+                    "description": "This endpoint allows you to retrieve a list of wallets belong to a client account."
+                  },
+                  "response": [
+                    {
+                      "id": "a6623eec-f092-470b-8965-4ed4f8cd2641",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID that the list of wallets belong to",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A optional Wallet ID can be passed to return a single Wallet",
+                              "key": "WalletID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "3-character currency code defined by the ISO-4217 standard (e.g. CAD, USD). This will filter the list of wallets by currency",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by offbook wallets",
+                              "key": "IsOffbook",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/wallets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "wallets"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Wallets\": {\n    \"0\": {\n      \"WalletID\": \"<integer>\",\n      \"WalletName\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"IsPrimary\": \"<integer>\",\n      \"IsOffbook\": \"<integer>\",\n      \"WalletBalance\": \"<number>\",\n      \"WalletPendingBalance\": \"<number>\",\n      \"WalletOffbookBalance\": \"<number>\",\n      \"Reserve\": \"<number>\",\n      \"RollingReserveNSF\": \"<number>\",\n      \"RollingReserveReturns\": \"<number>\",\n      \"WalletColor\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:53:03.000Z",
+                      "updatedAt": "2026-10-22T02:53:03.000Z",
+                      "uid": "35240-a6623eec-f092-470b-8965-4ed4f8cd2641"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:03.000Z",
+                  "updatedAt": "2026-10-22T02:53:03.000Z",
+                  "uid": "35240-05546cc5-99c3-4cb5-b594-29df8c7926dd"
+                }
+              ],
+              "id": "68721181-7dca-4c62-9233-4da3a348fe21",
+              "createdAt": "2026-10-22T02:53:03.000Z",
+              "updatedAt": "2026-10-22T02:53:03.000Z",
+              "uid": "35240-68721181-7dca-4c62-9233-4da3a348fe21"
+            }
+          ],
+          "id": "47775882-d854-467a-84c6-ce07403ece10",
+          "createdAt": "2026-10-22T02:53:03.000Z",
+          "updatedAt": "2026-10-22T02:53:03.000Z",
+          "uid": "35240-47775882-d854-467a-84c6-ce07403ece10"
+        }
+      ],
+      "id": "bfa8bac9-4471-4fba-9fc0-2881b01c9cc7",
+      "createdAt": "2026-10-22T02:53:03.000Z",
+      "updatedAt": "2026-10-22T02:53:03.000Z",
+      "uid": "35240-bfa8bac9-4471-4fba-9fc0-2881b01c9cc7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

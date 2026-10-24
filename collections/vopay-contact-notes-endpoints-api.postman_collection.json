@@ -1,0 +1,619 @@
+{
+  "info": {
+    "_postman_id": "270aaa34-b2c3-4601-bbfd-fb5cd0f1b702",
+    "name": "Contact Notes Endpoints API",
+    "description": "The Contact API allows you to manage contacts associated with your VoPay account.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:53:17.000Z",
+    "updatedAt": "2026-10-22T02:53:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-270aaa34-b2c3-4601-bbfd-fb5cd0f1b702"
+  },
+  "item": [
+    {
+      "name": "contacts",
+      "item": [
+        {
+          "name": "notes",
+          "item": [
+            {
+              "name": "add",
+              "item": [
+                {
+                  "name": "contacts/notes/add",
+                  "id": "f4c71300-5bdb-4a36-bd85-8f0c72e84224",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Contact ID",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The note you want to add to the new record",
+                          "key": "Notes",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/notes/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "notes",
+                        "add"
+                      ]
+                    },
+                    "description": "This endpoint is used to add a note to your contact."
+                  },
+                  "response": [
+                    {
+                      "id": "e6694201-0a22-4d8f-b65c-98e788846ecb",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Contact ID",
+                              "key": "ContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The note you want to add to the new record",
+                              "key": "Notes",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contacts/notes/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contacts",
+                            "notes",
+                            "add"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NoteID\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:53:17.000Z",
+                      "updatedAt": "2026-10-22T02:53:17.000Z",
+                      "uid": "35240-e6694201-0a22-4d8f-b65c-98e788846ecb"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:17.000Z",
+                  "updatedAt": "2026-10-22T02:53:17.000Z",
+                  "uid": "35240-f4c71300-5bdb-4a36-bd85-8f0c72e84224"
+                }
+              ],
+              "id": "0c791d0b-f84a-40f9-88e0-4450c4f4c47d",
+              "createdAt": "2026-10-22T02:53:17.000Z",
+              "updatedAt": "2026-10-22T02:53:17.000Z",
+              "uid": "35240-0c791d0b-f84a-40f9-88e0-4450c4f4c47d"
+            },
+            {
+              "name": "edit",
+              "item": [
+                {
+                  "name": "contacts/notes/edit",
+                  "id": "2fc0e82a-3ad6-43b4-bb20-abedf32af6b7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Contact ID",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The note you want to update the record to",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the note record you want to update",
+                          "key": "NoteID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/notes/edit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "notes",
+                        "edit"
+                      ]
+                    },
+                    "description": "This endpoint is used to edit a note associated with your contact."
+                  },
+                  "response": [
+                    {
+                      "id": "3c279f38-e556-4f14-8dd2-214fa700fc4c",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Contact ID",
+                              "key": "ContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The note you want to update the record to",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the note record you want to update",
+                              "key": "NoteID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contacts/notes/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contacts",
+                            "notes",
+                            "edit"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NoteID\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:53:17.000Z",
+                      "updatedAt": "2026-10-22T02:53:17.000Z",
+                      "uid": "35240-3c279f38-e556-4f14-8dd2-214fa700fc4c"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:17.000Z",
+                  "updatedAt": "2026-10-22T02:53:17.000Z",
+                  "uid": "35240-2fc0e82a-3ad6-43b4-bb20-abedf32af6b7"
+                }
+              ],
+              "id": "741f4d7d-351a-47a7-a8ff-1d1c3292ce69",
+              "createdAt": "2026-10-22T02:53:17.000Z",
+              "updatedAt": "2026-10-22T02:53:17.000Z",
+              "uid": "35240-741f4d7d-351a-47a7-a8ff-1d1c3292ce69"
+            },
+            {
+              "name": "delete",
+              "item": [
+                {
+                  "name": "contacts/notes/delete",
+                  "id": "c7469b7e-56cf-4dfb-a25e-be5a972a84d9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Contact ID",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the note record you want to delete",
+                          "key": "NoteID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/notes/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "notes",
+                        "delete"
+                      ]
+                    },
+                    "description": "This endpoint is used to delete a note record from you contact."
+                  },
+                  "response": [
+                    {
+                      "id": "b636bff5-1983-496e-a4a9-18d4f0d92639",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Contact ID",
+                              "key": "ContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the note record you want to delete",
+                              "key": "NoteID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/contacts/notes/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "contacts",
+                            "notes",
+                            "delete"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:53:17.000Z",
+                      "updatedAt": "2026-10-22T02:53:17.000Z",
+                      "uid": "35240-b636bff5-1983-496e-a4a9-18d4f0d92639"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:17.000Z",
+                  "updatedAt": "2026-10-22T02:53:17.000Z",
+                  "uid": "35240-c7469b7e-56cf-4dfb-a25e-be5a972a84d9"
+                }
+              ],
+              "id": "c02d00c5-7a89-4f35-b336-5af5a80b05be",
+              "createdAt": "2026-10-22T02:53:17.000Z",
+              "updatedAt": "2026-10-22T02:53:17.000Z",
+              "uid": "35240-c02d00c5-7a89-4f35-b336-5af5a80b05be"
+            },
+            {
+              "name": "contacts/notes",
+              "id": "d42fbb5d-b135-49db-b621-61e8bcb96e39",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts/notes?AccountID=<string>&Key=<string>&Signature=<string>&ContactID=<string>&NoteID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "notes"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Contact ID",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID for a specific getting a specific note",
+                      "key": "NoteID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to look up all the notes associated with the given contact."
+              },
+              "response": [
+                {
+                  "id": "5513945c-e862-4fe5-ad86-7c234579e36b",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contacts/notes?AccountID=<string>&Key=<string>&Signature=<string>&ContactID=<string>&NoteID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contacts",
+                        "notes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Contact ID",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID for a specific getting a specific note",
+                          "key": "NoteID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Notes\": {\n    \"0\": {\n      \"NoteID\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"DateAdded\": \"<dateTime>\",\n      \"LastModified\": \"<dateTime>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:53:17.000Z",
+                  "updatedAt": "2026-10-22T02:53:17.000Z",
+                  "uid": "35240-5513945c-e862-4fe5-ad86-7c234579e36b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:17.000Z",
+              "updatedAt": "2026-10-22T02:53:17.000Z",
+              "uid": "35240-d42fbb5d-b135-49db-b621-61e8bcb96e39"
+            }
+          ],
+          "id": "75b70aa7-edf8-4d71-9814-159992e0dd69",
+          "createdAt": "2026-10-22T02:53:17.000Z",
+          "updatedAt": "2026-10-22T02:53:17.000Z",
+          "uid": "35240-75b70aa7-edf8-4d71-9814-159992e0dd69"
+        }
+      ],
+      "id": "b4f66d6e-e93c-42e4-9f74-3696df817ced",
+      "createdAt": "2026-10-22T02:53:17.000Z",
+      "updatedAt": "2026-10-22T02:53:17.000Z",
+      "uid": "35240-b4f66d6e-e93c-42e4-9f74-3696df817ced"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

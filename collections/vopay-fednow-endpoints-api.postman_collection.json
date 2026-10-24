@@ -1,0 +1,411 @@
+{
+  "info": {
+    "_postman_id": "8fbfc397-624b-4325-8810-c9dfeb40bf08",
+    "name": "Payment Rails Fednow Endpoints API",
+    "description": "The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:54:27.000Z",
+    "updatedAt": "2026-10-22T02:54:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8fbfc397-624b-4325-8810-c9dfeb40bf08"
+  },
+  "item": [
+    {
+      "name": "fednow",
+      "item": [
+        {
+          "name": "withdraw",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "fednow/withdraw/transaction",
+                  "id": "216f4d51-dd48-40c2-9288-a900ae46fb98",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fednow/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fednow",
+                        "withdraw",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Unique ID of the Fednow withdraw transaction.",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up details on a single Fednow withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's account."
+                  },
+                  "response": [
+                    {
+                      "id": "49101518-788f-49ff-8127-a2e18f9fc157",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/fednow/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "fednow",
+                            "withdraw",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Unique ID of the Fednow withdraw transaction.",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"RecipientName\": \"<string>\",\n  \"ABARoutingNumber\": \"<string>\",\n  \"AccountNumber\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"LastModified\": \"<dateTime>\",\n  \"TransactionTypeCode\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:54:28.000Z",
+                      "updatedAt": "2026-10-22T02:54:28.000Z",
+                      "uid": "35240-49101518-788f-49ff-8127-a2e18f9fc157"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:28.000Z",
+                  "updatedAt": "2026-10-22T02:54:28.000Z",
+                  "uid": "35240-216f4d51-dd48-40c2-9288-a900ae46fb98"
+                }
+              ],
+              "id": "03d626fd-e72e-4d92-a594-3acb83c8bee0",
+              "createdAt": "2026-10-22T02:54:28.000Z",
+              "updatedAt": "2026-10-22T02:54:28.000Z",
+              "uid": "35240-03d626fd-e72e-4d92-a594-3acb83c8bee0"
+            },
+            {
+              "name": "fednow/withdraw",
+              "id": "2a0f87a2-a4e4-44c0-9b91-5185c3241782",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's full name",
+                      "key": "RecipientName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's bank account number. This is the account that funds will be deposited into.",
+                      "key": "AccountNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ABA Routing number of the recipient's bank account.",
+                      "key": "ABARoutingNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount in the specified currency to deposit into the recipient's bank account.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the transaction.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                      "key": "ParentTransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/fednow/withdraw",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fednow",
+                    "withdraw"
+                  ]
+                },
+                "description": "This endpoint is used to instantly send funds out of your VoPay account and deposit them to the specified recipient's bank account.\n\nEither an iq11 Token or ABARoutingNumber/AccountNumber is required.\n\nIf a ClientAccountID is provided, the client account's first/last name and default bank account will be used for the transaction."
+              },
+              "response": [
+                {
+                  "id": "4c696efa-c000-4e9c-b4b4-a380bf749eaf",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's full name",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's bank account number. This is the account that funds will be deposited into.",
+                          "key": "AccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ABA Routing number of the recipient's bank account.",
+                          "key": "ABARoutingNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount in the specified currency to deposit into the recipient's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                          "key": "ParentTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fednow/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fednow",
+                        "withdraw"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:54:28.000Z",
+                  "updatedAt": "2026-10-22T02:54:28.000Z",
+                  "uid": "35240-4c696efa-c000-4e9c-b4b4-a380bf749eaf"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:28.000Z",
+              "updatedAt": "2026-10-22T02:54:28.000Z",
+              "uid": "35240-2a0f87a2-a4e4-44c0-9b91-5185c3241782"
+            }
+          ],
+          "id": "49c962d0-fcb7-414f-97a2-0e8c2d39d3a8",
+          "createdAt": "2026-10-22T02:54:28.000Z",
+          "updatedAt": "2026-10-22T02:54:28.000Z",
+          "uid": "35240-49c962d0-fcb7-414f-97a2-0e8c2d39d3a8"
+        }
+      ],
+      "id": "e027242b-8f32-4045-829c-5c82364c2ad2",
+      "createdAt": "2026-10-22T02:54:28.000Z",
+      "updatedAt": "2026-10-22T02:54:28.000Z",
+      "uid": "35240-e027242b-8f32-4045-829c-5c82364c2ad2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

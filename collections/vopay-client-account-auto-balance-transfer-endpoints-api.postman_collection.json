@@ -1,0 +1,736 @@
+{
+  "info": {
+    "_postman_id": "fd97bb2a-e76a-4497-8b0d-d5fdb6eeac2b",
+    "name": "Client Accounts Client Account Auto Balance Transfer\u2026",
+    "description": "The Client Accounts API allows you to create, manage and retrieve information about client accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:52:20.000Z",
+    "updatedAt": "2026-10-22T02:52:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fd97bb2a-e76a-4497-8b0d-d5fdb6eeac2b"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "client-accounts",
+          "item": [
+            {
+              "name": "auto-balance-transfer",
+              "item": [
+                {
+                  "name": "cancel",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/auto-balance-transfer/cancel",
+                      "id": "0c067436-5cef-4af8-ac20-e7f78e0e2527",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID to which the wallet belongs",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/auto-balance-transfer/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "auto-balance-transfer",
+                            "cancel"
+                          ]
+                        },
+                        "description": "This endpoint allows you to cancel an auto balance transfer.\n\nThis option requires special permissions."
+                      },
+                      "response": [
+                        {
+                          "id": "9eef34c2-ab7d-41c7-9f95-c16c26afb8f1",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The Client Account ID to which the wallet belongs",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/auto-balance-transfer/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "auto-balance-transfer",
+                                "cancel"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Status\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:52:21.000Z",
+                          "updatedAt": "2026-10-22T02:52:21.000Z",
+                          "uid": "35240-9eef34c2-ab7d-41c7-9f95-c16c26afb8f1"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:52:21.000Z",
+                      "updatedAt": "2026-10-22T02:52:21.000Z",
+                      "uid": "35240-0c067436-5cef-4af8-ac20-e7f78e0e2527"
+                    }
+                  ],
+                  "id": "d28671c6-190d-446f-a266-9e7c83165202",
+                  "createdAt": "2026-10-22T02:52:21.000Z",
+                  "updatedAt": "2026-10-22T02:52:21.000Z",
+                  "uid": "35240-d28671c6-190d-446f-a266-9e7c83165202"
+                },
+                {
+                  "name": "report",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/auto-balance-transfer/report",
+                      "id": "f4eb8b63-6649-4113-baec-8e60c081f29b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/auto-balance-transfer/report?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&TransactionID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "auto-balance-transfer",
+                            "report"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID to which the wallet belongs",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Transaction ID of the auto-balance transfer transaction",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "This endpoint returns the list of transactions associated with an auto balance transfer.\n\nThe sum of all debits/credits should match the amount on the auto-balance transfer."
+                      },
+                      "response": [
+                        {
+                          "id": "1d2d80d1-9e73-4830-99d4-31ff7bc22244",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/auto-balance-transfer/report?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&TransactionID=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "auto-balance-transfer",
+                                "report"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The Client Account ID to which the wallet belongs",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Transaction ID of the auto-balance transfer transaction",
+                                  "key": "TransactionID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Transactions\": {\n    \"0\": {\n      \"TransactionID\": \"<integer>\",\n      \"TransactionType\": \"<string>\",\n      \"TransactionDate\": \"<dateTime>\",\n      \"CreditAmount\": \"<number>\",\n      \"DebitAmount\": \"<number>\",\n      \"FullName\": \"<string>\",\n      \"ReferenceNo\": \"<string>\"\n    }\n  }\n}",
+                          "createdAt": "2026-10-22T02:52:21.000Z",
+                          "updatedAt": "2026-10-22T02:52:21.000Z",
+                          "uid": "35240-1d2d80d1-9e73-4830-99d4-31ff7bc22244"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:52:21.000Z",
+                      "updatedAt": "2026-10-22T02:52:21.000Z",
+                      "uid": "35240-f4eb8b63-6649-4113-baec-8e60c081f29b"
+                    }
+                  ],
+                  "id": "7bcef3a3-0f38-4ad5-8fda-03527786071a",
+                  "createdAt": "2026-10-22T02:52:21.000Z",
+                  "updatedAt": "2026-10-22T02:52:21.000Z",
+                  "uid": "35240-7bcef3a3-0f38-4ad5-8fda-03527786071a"
+                },
+                {
+                  "name": "account/client-accounts/auto-balance-transfer",
+                  "id": "988874f1-aca6-4307-8581-3d62fe158da3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Client Account ID to which the wallet belongs",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date from which the schedule will be started",
+                          "key": "ScheduleStartDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Type of frequency that you which to receive the deposit, the posibles values are: daily, weekly, biweekly, monthly",
+                          "key": "TypeOfFrequency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The minumum amount to have in your VoPay account to initiate this scheduled transfer, if not provided, the default amount will be 0.01.",
+                          "key": "AutoBalanceTransferAmount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The currency of the funds you want to trasnfer to your bank account. If not currency is provdied, your VoPay account's default currency will be used.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/auto-balance-transfer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "auto-balance-transfer"
+                      ]
+                    },
+                    "description": "This endpoint allows you to set up an auto-balance transfer from your VoPay account to your default operational bank account. The frequency available to set the auto-transfer can be daily, weekly, bi-weekly or monthly.\n\nThis option requires special permission."
+                  },
+                  "response": [
+                    {
+                      "id": "c68dfa84-9a29-4f47-9275-f0c83ff5df67",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID to which the wallet belongs",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date from which the schedule will be started",
+                              "key": "ScheduleStartDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Type of frequency that you which to receive the deposit, the posibles values are: daily, weekly, biweekly, monthly",
+                              "key": "TypeOfFrequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The minumum amount to have in your VoPay account to initiate this scheduled transfer, if not provided, the default amount will be 0.01.",
+                              "key": "AutoBalanceTransferAmount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The currency of the funds you want to trasnfer to your bank account. If not currency is provdied, your VoPay account's default currency will be used.",
+                              "key": "Currency",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/auto-balance-transfer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "auto-balance-transfer"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:52:21.000Z",
+                      "updatedAt": "2026-10-22T02:52:21.000Z",
+                      "uid": "35240-c68dfa84-9a29-4f47-9275-f0c83ff5df67"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:21.000Z",
+                  "updatedAt": "2026-10-22T02:52:21.000Z",
+                  "uid": "35240-988874f1-aca6-4307-8581-3d62fe158da3"
+                },
+                {
+                  "name": "account/client-accounts/auto-balance-transfer",
+                  "id": "d6fe82e2-7afd-4a78-a841-a770bc5c1365",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/auto-balance-transfer?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "auto-balance-transfer"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Client Account ID to which the wallet belongs",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to retrieve the information of your auto balance transfer.\n\nThis option requires special permissions."
+                  },
+                  "response": [
+                    {
+                      "id": "56065b15-05cf-4323-b03b-e9f2fb508b14",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/auto-balance-transfer?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "auto-balance-transfer"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID to which the wallet belongs",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ScheduleStartDate\": \"<date>\",\n  \"Description\": \"<string>\",\n  \"NameOfFrequency\": \"<string>\",\n  \"AutoBalanceTransferAmount\": \"<number>\",\n  \"Status\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"AccountHolderName\": \"<string>\",\n  \"AccountNumber\": \"<string>\",\n  \"FinancialInstitutionNumber\": \"<string>\",\n  \"BranchTransitNumber\": \"<string>\",\n  \"ABARoutingNumber\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:52:21.000Z",
+                      "updatedAt": "2026-10-22T02:52:21.000Z",
+                      "uid": "35240-56065b15-05cf-4323-b03b-e9f2fb508b14"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:21.000Z",
+                  "updatedAt": "2026-10-22T02:52:21.000Z",
+                  "uid": "35240-d6fe82e2-7afd-4a78-a841-a770bc5c1365"
+                }
+              ],
+              "id": "2f032eb1-f803-41fe-a2da-ce3d3bff7875",
+              "createdAt": "2026-10-22T02:52:21.000Z",
+              "updatedAt": "2026-10-22T02:52:21.000Z",
+              "uid": "35240-2f032eb1-f803-41fe-a2da-ce3d3bff7875"
+            },
+            {
+              "name": "auto-balance-transfer-list",
+              "item": [
+                {
+                  "name": "account/client-accounts/auto-balance-transfer-list",
+                  "id": "e7745038-4351-4999-8f3e-448ae95e30b1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/auto-balance-transfer-list?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "auto-balance-transfer-list"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Client Account ID to which the wallet belongs",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to retrieve a list of all your auto balance transfers.\n\nThis option requires special permissions."
+                  },
+                  "response": [
+                    {
+                      "id": "02ff2f66-60a0-4c80-85ef-491adef8a3f6",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/auto-balance-transfer-list?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "auto-balance-transfer-list"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The Client Account ID to which the wallet belongs",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Wallets\": {\n    \"0\": {\n      \"AutoBalanceTransferID\": \"<integer>\",\n      \"ScheduleStartDate\": \"<date>\",\n      \"Description\": \"<string>\",\n      \"NameOfFrequency\": \"<string>\",\n      \"AutoBalanceTransferAmount\": \"<number>\",\n      \"Status\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"ClientAccountID\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:52:21.000Z",
+                      "updatedAt": "2026-10-22T02:52:21.000Z",
+                      "uid": "35240-02ff2f66-60a0-4c80-85ef-491adef8a3f6"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:21.000Z",
+                  "updatedAt": "2026-10-22T02:52:21.000Z",
+                  "uid": "35240-e7745038-4351-4999-8f3e-448ae95e30b1"
+                }
+              ],
+              "id": "ad9530f8-03c1-46f4-bbaa-2c1656144318",
+              "createdAt": "2026-10-22T02:52:21.000Z",
+              "updatedAt": "2026-10-22T02:52:21.000Z",
+              "uid": "35240-ad9530f8-03c1-46f4-bbaa-2c1656144318"
+            }
+          ],
+          "id": "7c0f9b0e-0a25-43f5-966f-b067715dd007",
+          "createdAt": "2026-10-22T02:52:21.000Z",
+          "updatedAt": "2026-10-22T02:52:21.000Z",
+          "uid": "35240-7c0f9b0e-0a25-43f5-966f-b067715dd007"
+        }
+      ],
+      "id": "f72f8dae-b60c-46c1-a3c5-c30f0d91d470",
+      "createdAt": "2026-10-22T02:52:21.000Z",
+      "updatedAt": "2026-10-22T02:52:21.000Z",
+      "uid": "35240-f72f8dae-b60c-46c1-a3c5-c30f0d91d470"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+{
+  "info": {
+    "_postman_id": "fa96d68a-c8f5-4f1f-9a28-02efa0493437",
+    "name": "Ping Endpoints API",
+    "description": "The Ping API allows you to validate the connectivity between your application and the VoPay platform.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:55:45.000Z",
+    "updatedAt": "2026-10-22T02:55:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fa96d68a-c8f5-4f1f-9a28-02efa0493437"
+  },
+  "item": [
+    {
+      "name": "ping",
+      "item": [
+        {
+          "name": "ping",
+          "id": "cdb23b84-d22b-45e4-a1ac-b94d4cf960f9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ping",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ping"
+              ]
+            },
+            "description": "This endpoint allows you to validate the connectivity between your application and the VoPay platform."
+          },
+          "response": [
+            {
+              "id": "e49ddaf8-36fc-47a3-a46d-3d5bf1c45603",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ping",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ping"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:55:45.000Z",
+              "updatedAt": "2026-10-22T02:55:45.000Z",
+              "uid": "35240-e49ddaf8-36fc-47a3-a46d-3d5bf1c45603"
+            }
+          ],
+          "createdAt": "2026-10-22T02:55:45.000Z",
+          "updatedAt": "2026-10-22T02:55:45.000Z",
+          "uid": "35240-cdb23b84-d22b-45e4-a1ac-b94d4cf960f9"
+        }
+      ],
+      "id": "78aae261-beda-49a9-bd56-f5132056a20f",
+      "createdAt": "2026-10-22T02:55:45.000Z",
+      "updatedAt": "2026-10-22T02:55:45.000Z",
+      "uid": "35240-78aae261-beda-49a9-bd56-f5132056a20f"
+    },
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "ping",
+          "item": [
+            {
+              "name": "auth/ping",
+              "id": "4637e4da-3ef7-4087-9b51-66ccc4be8e5e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/ping",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "ping"
+                  ]
+                },
+                "description": "This endpoint allows you to ping our server and validate your credentials on VoPay platform."
+              },
+              "response": [
+                {
+                  "id": "d7420fdc-6e47-4ead-92ba-8173e4dfa79b",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/ping",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "ping"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:55:45.000Z",
+                  "updatedAt": "2026-10-22T02:55:45.000Z",
+                  "uid": "35240-d7420fdc-6e47-4ead-92ba-8173e4dfa79b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:45.000Z",
+              "updatedAt": "2026-10-22T02:55:45.000Z",
+              "uid": "35240-4637e4da-3ef7-4087-9b51-66ccc4be8e5e"
+            }
+          ],
+          "id": "7b79cb9d-4cdc-478a-8ceb-4a9fbfd4730f",
+          "createdAt": "2026-10-22T02:55:45.000Z",
+          "updatedAt": "2026-10-22T02:55:45.000Z",
+          "uid": "35240-7b79cb9d-4cdc-478a-8ceb-4a9fbfd4730f"
+        }
+      ],
+      "id": "409f3119-89a1-45ad-a86a-9616c7438615",
+      "createdAt": "2026-10-22T02:55:45.000Z",
+      "updatedAt": "2026-10-22T02:55:45.000Z",
+      "uid": "35240-409f3119-89a1-45ad-a86a-9616c7438615"
+    },
+    {
+      "name": "partner",
+      "item": [
+        {
+          "name": "auth",
+          "item": [
+            {
+              "name": "ping",
+              "item": [
+                {
+                  "name": "partner/auth/ping",
+                  "id": "36b482cf-d950-4a0b-9d24-a30f4b3f0a3e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/auth/ping",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "auth",
+                        "ping"
+                      ]
+                    },
+                    "description": "This endpoint allows you to ping our server and validate your partner credentials on VoPay platform."
+                  },
+                  "response": [
+                    {
+                      "id": "00cd418e-262c-4348-bc36-ab9622eafdee",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/auth/ping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "auth",
+                            "ping"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:55:45.000Z",
+                      "updatedAt": "2026-10-22T02:55:45.000Z",
+                      "uid": "35240-00cd418e-262c-4348-bc36-ab9622eafdee"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:45.000Z",
+                  "updatedAt": "2026-10-22T02:55:45.000Z",
+                  "uid": "35240-36b482cf-d950-4a0b-9d24-a30f4b3f0a3e"
+                }
+              ],
+              "id": "8b74e5be-b2ab-4b49-9d75-632bda8cf001",
+              "createdAt": "2026-10-22T02:55:45.000Z",
+              "updatedAt": "2026-10-22T02:55:45.000Z",
+              "uid": "35240-8b74e5be-b2ab-4b49-9d75-632bda8cf001"
+            }
+          ],
+          "id": "0ba0a5ef-5793-47c4-92f7-778ad454d713",
+          "createdAt": "2026-10-22T02:55:45.000Z",
+          "updatedAt": "2026-10-22T02:55:45.000Z",
+          "uid": "35240-0ba0a5ef-5793-47c4-92f7-778ad454d713"
+        }
+      ],
+      "id": "713f213b-7de3-4889-8c56-35c4437684b3",
+      "createdAt": "2026-10-22T02:55:45.000Z",
+      "updatedAt": "2026-10-22T02:55:45.000Z",
+      "uid": "35240-713f213b-7de3-4889-8c56-35c4437684b3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

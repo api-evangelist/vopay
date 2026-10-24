@@ -1,0 +1,592 @@
+{
+  "info": {
+    "_postman_id": "82daab8a-5954-4192-b1e3-235179099740",
+    "name": "Payment Rails Vopay Instant Endpoints API",
+    "description": "The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:56:58.000Z",
+    "updatedAt": "2026-10-22T02:56:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-82daab8a-5954-4192-b1e3-235179099740"
+  },
+  "item": [
+    {
+      "name": "rtr",
+      "item": [
+        {
+          "name": "withdraw",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "request-cancellation",
+                  "item": [
+                    {
+                      "name": "rtr/withdraw/transaction/request-cancellation",
+                      "id": "dcb970d9-9155-4a13-be54-931556071990",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The unique ID for the transaction",
+                              "key": "TransactionID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/rtr/withdraw/transaction/request-cancellation",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "rtr",
+                            "withdraw",
+                            "transaction",
+                            "request-cancellation"
+                          ]
+                        },
+                        "description": "This endpoint allows you to attempt to cancel an in progress Vopay Instant transaction. Note that the cancellation request will fail if the recipient has already deposited the funds."
+                      },
+                      "response": [
+                        {
+                          "id": "bd4f6c27-28b7-44fb-8e2c-c26f4283418d",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The unique ID for the transaction",
+                                  "key": "TransactionID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/rtr/withdraw/transaction/request-cancellation",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "rtr",
+                                "withdraw",
+                                "transaction",
+                                "request-cancellation"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"Timestamp\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-22T02:56:59.000Z",
+                          "updatedAt": "2026-10-22T02:56:59.000Z",
+                          "uid": "35240-bd4f6c27-28b7-44fb-8e2c-c26f4283418d"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:56:59.000Z",
+                      "updatedAt": "2026-10-22T02:56:59.000Z",
+                      "uid": "35240-dcb970d9-9155-4a13-be54-931556071990"
+                    }
+                  ],
+                  "id": "831a833d-ff5e-4d41-acbc-d5401aae42c1",
+                  "createdAt": "2026-10-22T02:56:59.000Z",
+                  "updatedAt": "2026-10-22T02:56:59.000Z",
+                  "uid": "35240-831a833d-ff5e-4d41-acbc-d5401aae42c1"
+                },
+                {
+                  "name": "rtr/withdraw/transaction",
+                  "id": "3946a0a9-c8f7-4f16-8cba-7acf49a331d8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rtr/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rtr",
+                        "withdraw",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Unique ID of the withdraw transaction. Must provide either a TransactionID or ClientReferenceNumber.",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "A reference number to use to search the transaction. Must provide either a TransactionID or ClientReferenceNumber.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up details on a single VoPay Instant withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's account."
+                  },
+                  "response": [
+                    {
+                      "id": "038b0f43-05a4-4489-b4cd-c498b3a3a77d",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/rtr/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>&ClientReferenceNumber=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "rtr",
+                            "withdraw",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Unique ID of the withdraw transaction. Must provide either a TransactionID or ClientReferenceNumber.",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "A reference number to use to search the transaction. Must provide either a TransactionID or ClientReferenceNumber.",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"RecipientName\": \"<string>\",\n  \"FinancialInstitutionNumber\": \"<string>\",\n  \"BranchTransitNumber\": \"<string>\",\n  \"AccountNumber\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"ProcessingDate\": \"<dateTime>\",\n  \"GLCode\": \"<string>\",\n  \"LastModified\": \"<dateTime>\",\n  \"TransactionTypeCode\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:56:59.000Z",
+                      "updatedAt": "2026-10-22T02:56:59.000Z",
+                      "uid": "35240-038b0f43-05a4-4489-b4cd-c498b3a3a77d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:59.000Z",
+                  "updatedAt": "2026-10-22T02:56:59.000Z",
+                  "uid": "35240-3946a0a9-c8f7-4f16-8cba-7acf49a331d8"
+                }
+              ],
+              "id": "1eac132a-00e6-4705-b517-b0f646f90535",
+              "createdAt": "2026-10-22T02:56:59.000Z",
+              "updatedAt": "2026-10-22T02:56:59.000Z",
+              "uid": "35240-1eac132a-00e6-4705-b517-b0f646f90535"
+            },
+            {
+              "name": "rtr/withdraw",
+              "id": "5cbd38c7-0d75-4766-a14b-439684d8c87a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's first name",
+                      "key": "FirstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's last name",
+                      "key": "LastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's bank account number. This is the account that funds will be deposited into.",
+                      "key": "AccountNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Canadian banks. Three digit institution number.",
+                      "key": "FinancialInstitutionNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Canadian banks. Transit number for the Recipient's account.",
+                      "key": "BranchTransitNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount in the specified currency to deposit into the recipient's bank account.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Company's name",
+                      "key": "CompanyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the transaction.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                      "key": "ParentTransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/rtr/withdraw",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rtr",
+                    "withdraw"
+                  ]
+                },
+                "description": "This endpoint is used to instantly send funds out of your VoPay account and deposit them to the specified recipient's bank account.\n\nEither an iq11 Token or FinancialInstitutionNumber/BranchTransitNumber/AccountNumber is required.\n\nIf a ClientAccountID is provided, the client account's first/last name and default bank account will be used for the transaction."
+              },
+              "response": [
+                {
+                  "id": "3d4d2255-0b5f-41a0-ae77-fd7f60696296",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's first name",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's last name",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's bank account number. This is the account that funds will be deposited into.",
+                          "key": "AccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Canadian banks. Three digit institution number.",
+                          "key": "FinancialInstitutionNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Canadian banks. Transit number for the Recipient's account.",
+                          "key": "BranchTransitNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount in the specified currency to deposit into the recipient's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Company's name",
+                          "key": "CompanyName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                          "key": "ParentTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/rtr/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rtr",
+                        "withdraw"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"Flagged\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:56:59.000Z",
+                  "updatedAt": "2026-10-22T02:56:59.000Z",
+                  "uid": "35240-3d4d2255-0b5f-41a0-ae77-fd7f60696296"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:59.000Z",
+              "updatedAt": "2026-10-22T02:56:59.000Z",
+              "uid": "35240-5cbd38c7-0d75-4766-a14b-439684d8c87a"
+            }
+          ],
+          "id": "bb075bff-be62-42c7-9f90-33584e8ca595",
+          "createdAt": "2026-10-22T02:56:59.000Z",
+          "updatedAt": "2026-10-22T02:56:59.000Z",
+          "uid": "35240-bb075bff-be62-42c7-9f90-33584e8ca595"
+        }
+      ],
+      "id": "bb295673-67e1-4d27-9e95-711bc773f6c4",
+      "createdAt": "2026-10-22T02:56:59.000Z",
+      "updatedAt": "2026-10-22T02:56:59.000Z",
+      "uid": "35240-bb295673-67e1-4d27-9e95-711bc773f6c4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

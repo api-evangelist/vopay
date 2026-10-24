@@ -1,0 +1,434 @@
+{
+  "info": {
+    "_postman_id": "0e16664c-7a70-4b53-b40b-5afb784e07eb",
+    "name": "Global Cash Management Delivery Channel Endpoints API",
+    "description": "The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:53:43.000Z",
+    "updatedAt": "2026-10-22T02:53:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0e16664c-7a70-4b53-b40b-5afb784e07eb"
+  },
+  "item": [
+    {
+      "name": "gcm",
+      "item": [
+        {
+          "name": "delivery-channels",
+          "item": [
+            {
+              "name": "fields",
+              "item": [
+                {
+                  "name": "data",
+                  "item": [
+                    {
+                      "name": "gcm/delivery-channels/fields/data",
+                      "id": "985963db-f216-4dd3-a950-f39b48e131e6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/delivery-channels/fields/data?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&RecipientContactID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "delivery-channels",
+                            "fields",
+                            "data"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The client account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The recipient contact ID",
+                              "key": "RecipientContactID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Get a list of all the data currently stored against a client account, contact, or recipient contact."
+                      },
+                      "response": [
+                        {
+                          "id": "bc28441c-fafa-46f0-99e3-27354fd700db",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/gcm/delivery-channels/fields/data?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&RecipientContactID=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcm",
+                                "delivery-channels",
+                                "fields",
+                                "data"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The client account ID",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The recipient contact ID",
+                                  "key": "RecipientContactID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DeliveryChannelFieldsData\": {\n    \"RelationshipWithBeneficiary\": \"<string>\",\n    \"PurposeOfPayment\": \"<string>\",\n    \"BusinessName\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"LastName\": \"<string>\",\n    \"Address1\": \"<string>\",\n    \"Address2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"PostalCode\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"Province\": \"<string>\",\n    \"PhoneNumber\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"Nationality\": \"<string>\",\n    \"Occupation\": \"<string>\",\n    \"SourceOfIncome\": \"<string>\",\n    \"DateOfBirth\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-10-22T02:53:44.000Z",
+                          "updatedAt": "2026-10-22T02:53:44.000Z",
+                          "uid": "35240-bc28441c-fafa-46f0-99e3-27354fd700db"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:53:44.000Z",
+                      "updatedAt": "2026-10-22T02:53:44.000Z",
+                      "uid": "35240-985963db-f216-4dd3-a950-f39b48e131e6"
+                    }
+                  ],
+                  "id": "da3afa21-261f-4d55-8387-6eff8b9e6bbb",
+                  "createdAt": "2026-10-22T02:53:44.000Z",
+                  "updatedAt": "2026-10-22T02:53:44.000Z",
+                  "uid": "35240-da3afa21-261f-4d55-8387-6eff8b9e6bbb"
+                },
+                {
+                  "name": "gcm/delivery-channels/fields",
+                  "id": "824e9656-c1e3-4087-b530-da0ebcc2bee8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/delivery-channels/fields?AccountID=<string>&Key=<string>&Signature=<string>&DeliveryChannelID=<string>&FieldFor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "delivery-channels",
+                        "fields"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The delivery channel ID",
+                          "key": "DeliveryChannelID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The field for which the details are required",
+                          "key": "FieldFor",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Get a list of all the fields required for a certain delivery method."
+                  },
+                  "response": [
+                    {
+                      "id": "50b78739-83fe-482e-8483-8717e7eb980d",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/delivery-channels/fields?AccountID=<string>&Key=<string>&Signature=<string>&DeliveryChannelID=<string>&FieldFor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "delivery-channels",
+                            "fields"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The delivery channel ID",
+                              "key": "DeliveryChannelID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The field for which the details are required",
+                              "key": "FieldFor",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DeliveryChannelFields\": {\n    \"0\": {\n      \"Label\": \"<string>\",\n      \"FieldID\": \"<string>\",\n      \"InputType\": \"<string>\",\n      \"RequirementStatus\": \"<string>\",\n      \"FieldFor\": \"<string>\",\n      \"Group\": \"<string>\",\n      \"GroupOrder\": \"<string>\",\n      \"Options\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:53:44.000Z",
+                      "updatedAt": "2026-10-22T02:53:44.000Z",
+                      "uid": "35240-50b78739-83fe-482e-8483-8717e7eb980d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:53:44.000Z",
+                  "updatedAt": "2026-10-22T02:53:44.000Z",
+                  "uid": "35240-824e9656-c1e3-4087-b530-da0ebcc2bee8"
+                }
+              ],
+              "id": "cc7a1118-9af8-4c75-83ab-9518d633dcc7",
+              "createdAt": "2026-10-22T02:53:44.000Z",
+              "updatedAt": "2026-10-22T02:53:44.000Z",
+              "uid": "35240-cc7a1118-9af8-4c75-83ab-9518d633dcc7"
+            },
+            {
+              "name": "gcm/delivery-channels",
+              "id": "99f02815-ff9c-4628-8824-ae855547f4c5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/gcm/delivery-channels?AccountID=<string>&Key=<string>&Signature=<string>&CorridorID=<string>&UseCase=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "gcm",
+                    "delivery-channels"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The corridor ID",
+                      "key": "CorridorID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Valid values are B2B, B2P, P2B, P2P",
+                      "key": "UseCase",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get a list of all the available delivery methods available for a certain corridor and use case."
+              },
+              "response": [
+                {
+                  "id": "07dddcb5-a28c-42e2-8e67-e40110e00b98",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/delivery-channels?AccountID=<string>&Key=<string>&Signature=<string>&CorridorID=<string>&UseCase=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "delivery-channels"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The corridor ID",
+                          "key": "CorridorID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Valid values are B2B, B2P, P2B, P2P",
+                          "key": "UseCase",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DeliveryChannels\": {\n    \"0\": {\n      \"DeliveryChannelID\": \"<string>\",\n      \"DeliveryMethodType\": \"<string>\",\n      \"UseCase\": \"<string>\",\n      \"DeliveryFee\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"ShortForm\": \"<string>\",\n      \"DeliveryMethodTypeDetails\": \"<string>\",\n      \"Notes\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:53:44.000Z",
+                  "updatedAt": "2026-10-22T02:53:44.000Z",
+                  "uid": "35240-07dddcb5-a28c-42e2-8e67-e40110e00b98"
+                }
+              ],
+              "createdAt": "2026-10-22T02:53:44.000Z",
+              "updatedAt": "2026-10-22T02:53:44.000Z",
+              "uid": "35240-99f02815-ff9c-4628-8824-ae855547f4c5"
+            }
+          ],
+          "id": "99c250dd-02f7-4a81-a4f4-c43032adbc95",
+          "createdAt": "2026-10-22T02:53:44.000Z",
+          "updatedAt": "2026-10-22T02:53:44.000Z",
+          "uid": "35240-99c250dd-02f7-4a81-a4f4-c43032adbc95"
+        }
+      ],
+      "id": "141d6c8c-63a8-4094-b27d-abdc385e3b02",
+      "createdAt": "2026-10-22T02:53:44.000Z",
+      "updatedAt": "2026-10-22T02:53:44.000Z",
+      "uid": "35240-141d6c8c-63a8-4094-b27d-abdc385e3b02"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

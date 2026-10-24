@@ -1,0 +1,1577 @@
+{
+  "info": {
+    "_postman_id": "83273808-63c1-4b7f-93fa-eda9f5ce67ed",
+    "name": "Dispute Management Endpoints API",
+    "description": "The Dispute management API allows you to manage all disputes and chargebacks.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:54:01.000Z",
+    "updatedAt": "2026-10-22T02:54:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-83273808-63c1-4b7f-93fa-eda9f5ce67ed"
+  },
+  "item": [
+    {
+      "name": "dispute-management",
+      "item": [
+        {
+          "name": "generate-embed-url",
+          "item": [
+            {
+              "name": "dispute-management/generate-embed-url",
+              "id": "1a1aa22e-b085-4618-a5ea-cd8ca41a683e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Stylesheet URL for the iframe",
+                      "key": "StylesheetUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The language for the iframe. 'en' for English, 'fr' for French. Defaults to 'en'.",
+                      "key": "Language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether to use dark mode for the iframe. Defaults to false.",
+                      "key": "DarkMode",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dispute-management/generate-embed-url",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute-management",
+                    "generate-embed-url"
+                  ]
+                },
+                "description": "This endpoint generates a unique URL to embed into your application using an iFrame."
+              },
+              "response": [
+                {
+                  "id": "ce1b5f43-bfbf-48e2-9111-321826bd1089",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Stylesheet URL for the iframe",
+                          "key": "StylesheetUrl",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The language for the iframe. 'en' for English, 'fr' for French. Defaults to 'en'.",
+                          "key": "Language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Whether to use dark mode for the iframe. Defaults to false.",
+                          "key": "DarkMode",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute-management/generate-embed-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute-management",
+                        "generate-embed-url"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Link\": \"<string>\",\n  \"IframeKey\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:02.000Z",
+                  "updatedAt": "2026-10-22T02:54:02.000Z",
+                  "uid": "35240-ce1b5f43-bfbf-48e2-9111-321826bd1089"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:02.000Z",
+              "updatedAt": "2026-10-22T02:54:02.000Z",
+              "uid": "35240-1a1aa22e-b085-4618-a5ea-cd8ca41a683e"
+            }
+          ],
+          "id": "560fee50-d2ee-46fa-8d98-812ef0d744ee",
+          "createdAt": "2026-10-22T02:54:02.000Z",
+          "updatedAt": "2026-10-22T02:54:02.000Z",
+          "uid": "35240-560fee50-d2ee-46fa-8d98-812ef0d744ee"
+        },
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "dispute-management/list",
+              "id": "9bd1fb79-fe5d-4cfb-b22f-074621d1aaec",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dispute-management/list?AccountID=<string>&Key=<string>&Signature=<string>&DisputeStatus=<string>&DisputeStage=<string>&DisputeID=<string>&Currency=<string>&CardBrand=<string>&FromDate=<string>&ToDate=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute-management",
+                    "list"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results by status: UnderReview, WitMerchant, or Closed. Default is null (i.e., all disputes are returned).",
+                      "key": "DisputeStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results by stage. Default is null (i.e., all disputes are returned).",
+                      "key": "DisputeStage",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results by dispute ID",
+                      "key": "DisputeID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results by currency. Default is null (i.e., all disputes are returned).",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results by card brand: visa, mastercard, amex, discover. Default is null (i.e., all disputes are returned).",
+                      "key": "CardBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results that occurred on or after this date/time. Must be specified in YYYY-MM-DD format. Default is 30 days ago.",
+                      "key": "FromDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results that occurred on or before this date/time. Must be specified in either YYYY-MM-DD format. Default is the current date/time.",
+                      "key": "ToDate",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint allows you to fetch a list of your disputes and chargebacks."
+              },
+              "response": [
+                {
+                  "id": "2561680a-00a8-466a-a060-86226f2a49ed",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute-management/list?AccountID=<string>&Key=<string>&Signature=<string>&DisputeStatus=<string>&DisputeStage=<string>&DisputeID=<string>&Currency=<string>&CardBrand=<string>&FromDate=<string>&ToDate=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute-management",
+                        "list"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filters results by status: UnderReview, WitMerchant, or Closed. Default is null (i.e., all disputes are returned).",
+                          "key": "DisputeStatus",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filters results by stage. Default is null (i.e., all disputes are returned).",
+                          "key": "DisputeStage",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filters results by dispute ID",
+                          "key": "DisputeID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filters results by currency. Default is null (i.e., all disputes are returned).",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filters results by card brand: visa, mastercard, amex, discover. Default is null (i.e., all disputes are returned).",
+                          "key": "CardBrand",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filters results that occurred on or after this date/time. Must be specified in YYYY-MM-DD format. Default is 30 days ago.",
+                          "key": "FromDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filters results that occurred on or before this date/time. Must be specified in either YYYY-MM-DD format. Default is the current date/time.",
+                          "key": "ToDate",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Disputes\": {\n    \"0\": {\n      \"DisputeID\": \"<string>\",\n      \"DisputeCreatedOn\": \"<string>\",\n      \"DisputeStatus\": \"<string>\",\n      \"DisputeStage\": \"<string>\",\n      \"DisputeAmount\": \"<number>\",\n      \"DisputeCurrency\": \"<string>\",\n      \"DisputeReason\": \"<string>\",\n      \"DisputeReasonCode\": \"<string>\",\n      \"DisputeResult\": \"<string>\",\n      \"DisputeReplyByDate\": \"<string>\",\n      \"DaysLeftToRespond\": \"<number>\",\n      \"DisputeCardBrand\": \"<string>\",\n      \"DisputeCardLast4\": \"<string>\",\n      \"DisputeARN\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:02.000Z",
+                  "updatedAt": "2026-10-22T02:54:02.000Z",
+                  "uid": "35240-2561680a-00a8-466a-a060-86226f2a49ed"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:02.000Z",
+              "updatedAt": "2026-10-22T02:54:02.000Z",
+              "uid": "35240-9bd1fb79-fe5d-4cfb-b22f-074621d1aaec"
+            }
+          ],
+          "id": "bafa21f7-5797-4a05-8b9e-76bca2cd808f",
+          "createdAt": "2026-10-22T02:54:02.000Z",
+          "updatedAt": "2026-10-22T02:54:02.000Z",
+          "uid": "35240-bafa21f7-5797-4a05-8b9e-76bca2cd808f"
+        },
+        {
+          "name": "detail",
+          "item": [
+            {
+              "name": "dispute-management/detail",
+              "id": "fb0818ea-17b2-40a0-a0c8-f98f4c163c27",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dispute-management/detail?AccountID=<string>&Key=<string>&Signature=<string>&DisputeID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute-management",
+                    "detail"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID associated with the dispute",
+                      "key": "DisputeID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint allows you to fetch details for a dispute."
+              },
+              "response": [
+                {
+                  "id": "d52a2e5c-7e6e-4741-aac1-7cffb4f5796a",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute-management/detail?AccountID=<string>&Key=<string>&Signature=<string>&DisputeID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute-management",
+                        "detail"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID associated with the dispute",
+                          "key": "DisputeID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Dispute\": {\n    \"0\": {\n      \"DisputeID\": \"<string>\",\n      \"DisputeCreatedOn\": \"<string>\",\n      \"DisputeStatus\": \"<string>\",\n      \"DisputeStage\": \"<string>\",\n      \"DisputeAmount\": \"<number>\",\n      \"DisputeCurrency\": \"<string>\",\n      \"DisputeReason\": \"<string>\",\n      \"DisputeReasonCode\": \"<string>\",\n      \"DisputeResult\": \"<string>\",\n      \"DisputeReplyByDate\": \"<string>\",\n      \"DaysLeftToRespond\": \"<number>\",\n      \"DisputeCardDetails\": {\n        \"DisputeCardBrand\": \"<string>\",\n        \"DisputeCardLast4\": \"<string>\",\n        \"AccountHolderName\": \"<string>\"\n      },\n      \"TransactionDetails\": {\n        \"TransactionID\": \"<string>\",\n        \"TransactionAmount\": \"<number>\",\n        \"TransactionCurrency\": \"<string>\",\n        \"TransactionDate\": \"<string>\"\n      },\n      \"DisputeARN\": \"<string>\",\n      \"LastUpdatedDate\": \"<string>\",\n      \"Notes\": {\n        \"0\": {\n          \"Note\": \"<string>\",\n          \"NoteDate\": \"<string>\"\n        }\n      },\n      \"Documents\": {\n        \"0\": {\n          \"DocumentID\": \"<string>\",\n          \"DocumentType\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:02.000Z",
+                  "updatedAt": "2026-10-22T02:54:02.000Z",
+                  "uid": "35240-d52a2e5c-7e6e-4741-aac1-7cffb4f5796a"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:02.000Z",
+              "updatedAt": "2026-10-22T02:54:02.000Z",
+              "uid": "35240-fb0818ea-17b2-40a0-a0c8-f98f4c163c27"
+            }
+          ],
+          "id": "dfbf5cef-682e-4365-b430-398e7a7cf3d7",
+          "createdAt": "2026-10-22T02:54:02.000Z",
+          "updatedAt": "2026-10-22T02:54:02.000Z",
+          "uid": "35240-dfbf5cef-682e-4365-b430-398e7a7cf3d7"
+        },
+        {
+          "name": "document",
+          "item": [
+            {
+              "name": "dispute-management/document",
+              "id": "4faa5d27-c98c-4be7-944c-f466effc4735",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dispute-management/document?AccountID=<string>&Key=<string>&Signature=<string>&DisputeID=<string>&DocumentID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute-management",
+                    "document"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID associated with the dispute",
+                      "key": "DisputeID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID associated with the document",
+                      "key": "DocumentID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint allows you to fetch the document for a dispute."
+              },
+              "response": [
+                {
+                  "id": "c4c22f13-c425-4bcd-a8e7-af51097f5892",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute-management/document?AccountID=<string>&Key=<string>&Signature=<string>&DisputeID=<string>&DocumentID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute-management",
+                        "document"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID associated with the dispute",
+                          "key": "DisputeID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID associated with the document",
+                          "key": "DocumentID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Document\": {\n    \"0\": {\n      \"DocumentID\": \"<string>\",\n      \"Document\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:02.000Z",
+                  "updatedAt": "2026-10-22T02:54:02.000Z",
+                  "uid": "35240-c4c22f13-c425-4bcd-a8e7-af51097f5892"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:02.000Z",
+              "updatedAt": "2026-10-22T02:54:02.000Z",
+              "uid": "35240-4faa5d27-c98c-4be7-944c-f466effc4735"
+            }
+          ],
+          "id": "ab4f5765-1de7-47b3-888b-9e99d20db446",
+          "createdAt": "2026-10-22T02:54:02.000Z",
+          "updatedAt": "2026-10-22T02:54:02.000Z",
+          "uid": "35240-ab4f5765-1de7-47b3-888b-9e99d20db446"
+        },
+        {
+          "name": "accept",
+          "item": [
+            {
+              "name": "dispute-management/accept",
+              "id": "67dfe796-5b9c-46b9-a357-56adb77dc852",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID associated with the dispute",
+                      "key": "DisputeID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dispute-management/accept",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute-management",
+                    "accept"
+                  ]
+                },
+                "description": "This endpoint allows you to accept a dispute."
+              },
+              "response": [
+                {
+                  "id": "0dcff72b-16a0-4c21-8e58-438ebb334da3",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID associated with the dispute",
+                          "key": "DisputeID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute-management/accept",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute-management",
+                        "accept"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Dispute\": {\n    \"0\": {\n      \"DisputeID\": \"<string>\",\n      \"DisputeCreatedOn\": \"<string>\",\n      \"DisputeStatus\": \"<string>\",\n      \"DisputeStage\": \"<string>\",\n      \"DisputeAmount\": \"<number>\",\n      \"DisputeCurrency\": \"<string>\",\n      \"DisputeReason\": \"<string>\",\n      \"DisputeReasonCode\": \"<string>\",\n      \"DisputeResult\": \"<string>\",\n      \"DisputeReplyByDate\": \"<string>\",\n      \"DaysLeftToRespond\": \"<number>\",\n      \"DisputeCardDetails\": {\n        \"DisputeCardBrand\": \"<string>\",\n        \"DisputeCardLast4\": \"<string>\",\n        \"AccountHolderName\": \"<string>\"\n      },\n      \"TransactionDetails\": {\n        \"TransactionID\": \"<string>\",\n        \"TransactionAmount\": \"<number>\",\n        \"TransactionCurrency\": \"<string>\",\n        \"TransactionDate\": \"<string>\"\n      },\n      \"DisputeARN\": \"<string>\",\n      \"LastUpdatedDate\": \"<string>\",\n      \"Notes\": {\n        \"0\": {\n          \"Note\": \"<string>\",\n          \"NoteDate\": \"<string>\"\n        }\n      },\n      \"Documents\": {\n        \"0\": {\n          \"DocumentID\": \"<string>\",\n          \"DocumentType\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:02.000Z",
+                  "updatedAt": "2026-10-22T02:54:02.000Z",
+                  "uid": "35240-0dcff72b-16a0-4c21-8e58-438ebb334da3"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:02.000Z",
+              "updatedAt": "2026-10-22T02:54:02.000Z",
+              "uid": "35240-67dfe796-5b9c-46b9-a357-56adb77dc852"
+            }
+          ],
+          "id": "9a4bc05b-7bfb-418e-8bc1-9484a643d056",
+          "createdAt": "2026-10-22T02:54:02.000Z",
+          "updatedAt": "2026-10-22T02:54:02.000Z",
+          "uid": "35240-9a4bc05b-7bfb-418e-8bc1-9484a643d056"
+        },
+        {
+          "name": "challenge",
+          "item": [
+            {
+              "name": "dispute-management/challenge",
+              "id": "f63e683b-58e2-433d-978a-605460ea437d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The token associated with the dispute",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID associated with the dispute",
+                      "key": "DisputeID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Base 64 encoded document associated with the dispute",
+                      "key": "Document",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dispute-management/challenge",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute-management",
+                    "challenge"
+                  ]
+                },
+                "description": "This endpoint allows you to challenge a dispute."
+              },
+              "response": [
+                {
+                  "id": "d67d299b-64f1-4094-9ba9-3468c1e60336",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The token associated with the dispute",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID associated with the dispute",
+                          "key": "DisputeID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Base 64 encoded document associated with the dispute",
+                          "key": "Document",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute-management/challenge",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute-management",
+                        "challenge"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Dispute\": {\n    \"0\": {\n      \"DisputeID\": \"<string>\",\n      \"DisputeCreatedOn\": \"<string>\",\n      \"DisputeStatus\": \"<string>\",\n      \"DisputeStage\": \"<string>\",\n      \"DisputeAmount\": \"<number>\",\n      \"DisputeCurrency\": \"<string>\",\n      \"DisputeReason\": \"<string>\",\n      \"DisputeReasonCode\": \"<string>\",\n      \"DisputeResult\": \"<string>\",\n      \"DisputeReplyByDate\": \"<string>\",\n      \"DaysLeftToRespond\": \"<number>\",\n      \"DisputeCardDetails\": {\n        \"DisputeCardBrand\": \"<string>\",\n        \"DisputeCardLast4\": \"<string>\",\n        \"AccountHolderName\": \"<string>\"\n      },\n      \"TransactionDetails\": {\n        \"TransactionID\": \"<string>\",\n        \"TransactionAmount\": \"<number>\",\n        \"TransactionCurrency\": \"<string>\",\n        \"TransactionDate\": \"<string>\"\n      },\n      \"DisputeARN\": \"<string>\",\n      \"LastUpdatedDate\": \"<string>\",\n      \"Notes\": {\n        \"0\": {\n          \"Note\": \"<string>\",\n          \"NoteDate\": \"<string>\"\n        }\n      },\n      \"Documents\": {\n        \"0\": {\n          \"DocumentID\": \"<string>\",\n          \"DocumentType\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:02.000Z",
+                  "updatedAt": "2026-10-22T02:54:02.000Z",
+                  "uid": "35240-d67d299b-64f1-4094-9ba9-3468c1e60336"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:02.000Z",
+              "updatedAt": "2026-10-22T02:54:02.000Z",
+              "uid": "35240-f63e683b-58e2-433d-978a-605460ea437d"
+            }
+          ],
+          "id": "3dc0eb7c-b304-482d-bc7e-64840f16a7ef",
+          "createdAt": "2026-10-22T02:54:02.000Z",
+          "updatedAt": "2026-10-22T02:54:02.000Z",
+          "uid": "35240-3dc0eb7c-b304-482d-bc7e-64840f16a7ef"
+        },
+        {
+          "name": "respond",
+          "item": [
+            {
+              "name": "dispute-management/respond",
+              "id": "9adca6c0-be5b-4a0b-85da-7f8a76b8dafd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The token associated with the dispute",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID associated with the dispute",
+                      "key": "DisputeID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Base 64 encoded document associated with the retrieval request",
+                      "key": "Document",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dispute-management/respond",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute-management",
+                    "respond"
+                  ]
+                },
+                "description": "This endpoint allows you to respond to a retrieval request."
+              },
+              "response": [
+                {
+                  "id": "1abc08fa-f710-458f-8b35-0ab9bef4e42c",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The token associated with the dispute",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID associated with the dispute",
+                          "key": "DisputeID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Base 64 encoded document associated with the retrieval request",
+                          "key": "Document",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute-management/respond",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute-management",
+                        "respond"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Dispute\": {\n    \"0\": {\n      \"DisputeID\": \"<string>\",\n      \"DisputeCreatedOn\": \"<string>\",\n      \"DisputeStatus\": \"<string>\",\n      \"DisputeStage\": \"<string>\",\n      \"DisputeAmount\": \"<number>\",\n      \"DisputeCurrency\": \"<string>\",\n      \"DisputeReason\": \"<string>\",\n      \"DisputeReasonCode\": \"<string>\",\n      \"DisputeResult\": \"<string>\",\n      \"DisputeReplyByDate\": \"<string>\",\n      \"DaysLeftToRespond\": \"<number>\",\n      \"DisputeCardDetails\": {\n        \"DisputeCardBrand\": \"<string>\",\n        \"DisputeCardLast4\": \"<string>\",\n        \"AccountHolderName\": \"<string>\"\n      },\n      \"TransactionDetails\": {\n        \"TransactionID\": \"<string>\",\n        \"TransactionAmount\": \"<number>\",\n        \"TransactionCurrency\": \"<string>\",\n        \"TransactionDate\": \"<string>\"\n      },\n      \"DisputeARN\": \"<string>\",\n      \"LastUpdatedDate\": \"<string>\",\n      \"Notes\": {\n        \"0\": {\n          \"Note\": \"<string>\",\n          \"NoteDate\": \"<string>\"\n        }\n      },\n      \"Documents\": {\n        \"0\": {\n          \"DocumentID\": \"<string>\",\n          \"DocumentType\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:02.000Z",
+                  "updatedAt": "2026-10-22T02:54:02.000Z",
+                  "uid": "35240-1abc08fa-f710-458f-8b35-0ab9bef4e42c"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:02.000Z",
+              "updatedAt": "2026-10-22T02:54:02.000Z",
+              "uid": "35240-9adca6c0-be5b-4a0b-85da-7f8a76b8dafd"
+            }
+          ],
+          "id": "8ea8345a-c44c-4daa-b09e-55b9b2fcb2dd",
+          "createdAt": "2026-10-22T02:54:02.000Z",
+          "updatedAt": "2026-10-22T02:54:02.000Z",
+          "uid": "35240-8ea8345a-c44c-4daa-b09e-55b9b2fcb2dd"
+        },
+        {
+          "name": "add-note",
+          "item": [
+            {
+              "name": "dispute-management/add-note",
+              "id": "4de26a11-c07c-4e56-abc2-a6c902c6e4e7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The ID associated with the dispute",
+                      "key": "DisputeID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The note to add to the dispute",
+                      "key": "Note",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dispute-management/add-note",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute-management",
+                    "add-note"
+                  ]
+                },
+                "description": "This endpoint allows you to add a note to a dispute."
+              },
+              "response": [
+                {
+                  "id": "1d98bd93-506d-4b04-aae3-6ed29e46919b",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID associated with the dispute",
+                          "key": "DisputeID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The note to add to the dispute",
+                          "key": "Note",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute-management/add-note",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute-management",
+                        "add-note"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Dispute\": {\n    \"0\": {\n      \"DisputeID\": \"<string>\",\n      \"DisputeCreatedOn\": \"<string>\",\n      \"DisputeStatus\": \"<string>\",\n      \"DisputeStage\": \"<string>\",\n      \"DisputeAmount\": \"<number>\",\n      \"DisputeCurrency\": \"<string>\",\n      \"DisputeReason\": \"<string>\",\n      \"DisputeReasonCode\": \"<string>\",\n      \"DisputeResult\": \"<string>\",\n      \"DisputeReplyByDate\": \"<string>\",\n      \"DaysLeftToRespond\": \"<number>\",\n      \"DisputeCardDetails\": {\n        \"DisputeCardBrand\": \"<string>\",\n        \"DisputeCardLast4\": \"<string>\",\n        \"AccountHolderName\": \"<string>\"\n      },\n      \"TransactionDetails\": {\n        \"TransactionID\": \"<string>\",\n        \"TransactionAmount\": \"<number>\",\n        \"TransactionCurrency\": \"<string>\",\n        \"TransactionDate\": \"<string>\"\n      },\n      \"DisputeARN\": \"<string>\",\n      \"LastUpdatedDate\": \"<string>\",\n      \"Notes\": {\n        \"0\": {\n          \"Note\": \"<string>\",\n          \"NoteDate\": \"<string>\"\n        }\n      },\n      \"Documents\": {\n        \"0\": {\n          \"DocumentID\": \"<string>\",\n          \"DocumentType\": \"<string>\"\n        }\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:02.000Z",
+                  "updatedAt": "2026-10-22T02:54:02.000Z",
+                  "uid": "35240-1d98bd93-506d-4b04-aae3-6ed29e46919b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:02.000Z",
+              "updatedAt": "2026-10-22T02:54:02.000Z",
+              "uid": "35240-4de26a11-c07c-4e56-abc2-a6c902c6e4e7"
+            }
+          ],
+          "id": "907967f8-84fa-4a75-b830-ebb9be05d1b6",
+          "createdAt": "2026-10-22T02:54:02.000Z",
+          "updatedAt": "2026-10-22T02:54:02.000Z",
+          "uid": "35240-907967f8-84fa-4a75-b830-ebb9be05d1b6"
+        },
+        {
+          "name": "report",
+          "item": [
+            {
+              "name": "dispute-overview",
+              "item": [
+                {
+                  "name": "dispute-management/report/dispute-overview",
+                  "id": "94cbce0c-127a-4114-a0c7-89a25bede236",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute-management/report/dispute-overview?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute-management",
+                        "report",
+                        "dispute-overview"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API signature for the account",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint returns a summary overview of all disputes and chargebacks."
+                  },
+                  "response": [
+                    {
+                      "id": "b8ee4e44-ebf5-4469-824f-36e356651bef",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute-management/report/dispute-overview?AccountID=<string>&Key=<string>&Signature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute-management",
+                            "report",
+                            "dispute-overview"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API signature for the account",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DisputeOverview\": {\n    \"NeedsResponse\": \"<number>\",\n    \"UnderReview\": \"<number>\",\n    \"Won\": \"<number>\",\n    \"Lost\": \"<number>\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:54:02.000Z",
+                      "updatedAt": "2026-10-22T02:54:02.000Z",
+                      "uid": "35240-b8ee4e44-ebf5-4469-824f-36e356651bef"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:02.000Z",
+                  "updatedAt": "2026-10-22T02:54:02.000Z",
+                  "uid": "35240-94cbce0c-127a-4114-a0c7-89a25bede236"
+                }
+              ],
+              "id": "0720bbad-3d1f-424d-bb13-830bd3e3a556",
+              "createdAt": "2026-10-22T02:54:02.000Z",
+              "updatedAt": "2026-10-22T02:54:02.000Z",
+              "uid": "35240-0720bbad-3d1f-424d-bb13-830bd3e3a556"
+            },
+            {
+              "name": "dispute-reasons",
+              "item": [
+                {
+                  "name": "dispute-management/report/dispute-reasons",
+                  "id": "03bdaab9-ab4a-4a2f-b9ad-5909213cca5d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute-management/report/dispute-reasons?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute-management",
+                        "report",
+                        "dispute-reasons"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API signature for the account",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint returns a summary of all current dispute reasons."
+                  },
+                  "response": [
+                    {
+                      "id": "cb5a782e-aa57-4b0f-9b31-23695778bf7d",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute-management/report/dispute-reasons?AccountID=<string>&Key=<string>&Signature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute-management",
+                            "report",
+                            "dispute-reasons"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API signature for the account",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DisputeReasons\": {}\n}",
+                      "createdAt": "2026-10-22T02:54:02.000Z",
+                      "updatedAt": "2026-10-22T02:54:02.000Z",
+                      "uid": "35240-cb5a782e-aa57-4b0f-9b31-23695778bf7d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:02.000Z",
+                  "updatedAt": "2026-10-22T02:54:02.000Z",
+                  "uid": "35240-03bdaab9-ab4a-4a2f-b9ad-5909213cca5d"
+                }
+              ],
+              "id": "33567e13-f07f-4c40-8343-6b22f0efa4ba",
+              "createdAt": "2026-10-22T02:54:02.000Z",
+              "updatedAt": "2026-10-22T02:54:02.000Z",
+              "uid": "35240-33567e13-f07f-4c40-8343-6b22f0efa4ba"
+            },
+            {
+              "name": "dispute-stages",
+              "item": [
+                {
+                  "name": "dispute-management/report/dispute-stages",
+                  "id": "83f9708e-6aac-46ac-9156-b527cf5bcc3c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute-management/report/dispute-stages?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute-management",
+                        "report",
+                        "dispute-stages"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API signature for the account",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint returns a summary of all current dispute stages."
+                  },
+                  "response": [
+                    {
+                      "id": "04c82847-413e-4302-afc7-50c4729147f3",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute-management/report/dispute-stages?AccountID=<string>&Key=<string>&Signature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute-management",
+                            "report",
+                            "dispute-stages"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API signature for the account",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DisputeStages\": [\n    {\n      \"StageID\": \"<string>\",\n      \"StageName\": \"<string>\"\n    },\n    {\n      \"StageID\": \"<string>\",\n      \"StageName\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:54:02.000Z",
+                      "updatedAt": "2026-10-22T02:54:02.000Z",
+                      "uid": "35240-04c82847-413e-4302-afc7-50c4729147f3"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:02.000Z",
+                  "updatedAt": "2026-10-22T02:54:02.000Z",
+                  "uid": "35240-83f9708e-6aac-46ac-9156-b527cf5bcc3c"
+                }
+              ],
+              "id": "8bf60501-85b5-4086-a0f7-df5921f687f0",
+              "createdAt": "2026-10-22T02:54:02.000Z",
+              "updatedAt": "2026-10-22T02:54:02.000Z",
+              "uid": "35240-8bf60501-85b5-4086-a0f7-df5921f687f0"
+            }
+          ],
+          "id": "033a88bd-dd66-4a25-8157-92a8f87c3d8a",
+          "createdAt": "2026-10-22T02:54:02.000Z",
+          "updatedAt": "2026-10-22T02:54:02.000Z",
+          "uid": "35240-033a88bd-dd66-4a25-8157-92a8f87c3d8a"
+        }
+      ],
+      "id": "5e1d3659-5f39-4360-aa43-8abade76e334",
+      "createdAt": "2026-10-22T02:54:02.000Z",
+      "updatedAt": "2026-10-22T02:54:02.000Z",
+      "uid": "35240-5e1d3659-5f39-4360-aa43-8abade76e334"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

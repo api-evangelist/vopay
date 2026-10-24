@@ -1,0 +1,391 @@
+{
+  "info": {
+    "_postman_id": "976d22aa-615c-4ff1-956b-29c4a504d658",
+    "name": "Payment Rails SEPA Endpoints API",
+    "description": "The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:56:20.000Z",
+    "updatedAt": "2026-10-22T02:56:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-976d22aa-615c-4ff1-956b-29c4a504d658"
+  },
+  "item": [
+    {
+      "name": "sepa",
+      "item": [
+        {
+          "name": "withdraw",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "sepa/withdraw/transaction",
+                  "id": "90df2a97-5ca3-4d74-af83-fcf6eed211ed",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sepa/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sepa",
+                        "withdraw",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique ID of the SEPA withdrawal transaction to retrieve",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint retrieves full details for a single SEPA Instant withdrawal transaction. Requires SEPAInstantWithdrawEnabled permission."
+                  },
+                  "response": [
+                    {
+                      "id": "176e7d8e-4fc7-4d64-9a37-7706a49f4550",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sepa/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sepa",
+                            "withdraw",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The unique ID of the SEPA withdrawal transaction to retrieve",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"RecipientName\": \"<string>\",\n  \"IBAN\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"TransactionTypeCode\": \"<string>\",\n  \"LastModified\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-22T02:56:21.000Z",
+                      "updatedAt": "2026-10-22T02:56:21.000Z",
+                      "uid": "35240-176e7d8e-4fc7-4d64-9a37-7706a49f4550"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:56:20.000Z",
+                  "updatedAt": "2026-10-22T02:56:20.000Z",
+                  "uid": "35240-90df2a97-5ca3-4d74-af83-fcf6eed211ed"
+                }
+              ],
+              "id": "34f5a738-95aa-4a96-ba36-b859ed8a43c1",
+              "createdAt": "2026-10-22T02:56:20.000Z",
+              "updatedAt": "2026-10-22T02:56:20.000Z",
+              "uid": "35240-34f5a738-95aa-4a96-ba36-b859ed8a43c1"
+            },
+            {
+              "name": "sepa/withdraw",
+              "id": "c96a177a-2d39-4f53-8b6f-97093e4525ca",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount to send via SEPA Instant payment",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) The full name of the recipient (creditor)",
+                      "key": "RecipientName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The recipient's International Bank Account Number (IBAN)",
+                      "key": "IBAN",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The currency for the transaction. Must be EUR",
+                      "key": "Currency",
+                      "value": "EUR"
+                    },
+                    {
+                      "description": "The ID of the client account to associate with this transaction",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number for your own records",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key to ensure idempotent request processing",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional notes to attach to the transaction",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of a parent transaction to link this transaction to",
+                      "key": "ParentTransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "General ledger code for accounting purposes",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A custom transaction type code for categorization",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sepa/withdraw",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sepa",
+                    "withdraw"
+                  ]
+                },
+                "description": "This endpoint debits your account by sending a SEPA Instant payment to a creditor's IBAN. Only EUR currency is supported. Requires SEPAInstantWithdrawEnabled permission and an active EUR virtual account."
+              },
+              "response": [
+                {
+                  "id": "330e96dc-15f3-4ab3-b3ea-1b46708b1a85",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to send via SEPA Instant payment",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) The full name of the recipient (creditor)",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The recipient's International Bank Account Number (IBAN)",
+                          "key": "IBAN",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The currency for the transaction. Must be EUR",
+                          "key": "Currency",
+                          "value": "EUR"
+                        },
+                        {
+                          "description": "The ID of the client account to associate with this transaction",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number for your own records",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key to ensure idempotent request processing",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional notes to attach to the transaction",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of a parent transaction to link this transaction to",
+                          "key": "ParentTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "General ledger code for accounting purposes",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A custom transaction type code for categorization",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sepa/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sepa",
+                        "withdraw"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"Flagged\": \"<string>\",\n  \"Notice\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:56:21.000Z",
+                  "updatedAt": "2026-10-22T02:56:21.000Z",
+                  "uid": "35240-330e96dc-15f3-4ab3-b3ea-1b46708b1a85"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:20.000Z",
+              "updatedAt": "2026-10-22T02:56:20.000Z",
+              "uid": "35240-c96a177a-2d39-4f53-8b6f-97093e4525ca"
+            }
+          ],
+          "id": "11fe707f-572d-4a58-a96d-67830c5b9e90",
+          "createdAt": "2026-10-22T02:56:20.000Z",
+          "updatedAt": "2026-10-22T02:56:20.000Z",
+          "uid": "35240-11fe707f-572d-4a58-a96d-67830c5b9e90"
+        }
+      ],
+      "id": "5cef1417-7967-48b9-ac8e-cba22248ef00",
+      "createdAt": "2026-10-22T02:56:20.000Z",
+      "updatedAt": "2026-10-22T02:56:20.000Z",
+      "uid": "35240-5cef1417-7967-48b9-ac8e-cba22248ef00"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "info": {
+    "_postman_id": "311f3b7a-7603-434f-9c64-c36b7b3bd793",
+    "name": "Remittance Endpoints API",
+    "description": "The Remittance API allows you to create tax remittance transactions.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:56:00.000Z",
+    "updatedAt": "2026-10-22T02:56:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-311f3b7a-7603-434f-9c64-c36b7b3bd793"
+  },
+  "item": [
+    {
+      "name": "remittance",
+      "item": [
+        {
+          "name": "create",
+          "item": [
+            {
+              "name": "remittance/create",
+              "id": "65fcf3a4-a6cb-4d01-892f-cb3e40c0a7f3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The type of tax remittance to perform. Valid options: FED_PAYROLL_THRESHOLD_1, FED_PAYROLL_THRESHOLD_2, FED_PAYROLL_REGULAR_OR_QUARTERLY, FED_CORPORATE_TAX, FED_GST_HST_RETURN, ON_EMPLOYER_HEALTH_TAX, QC_PAYROLL_TWICE_MONTHLY, QC_PAYROLL_WEEKLY, QC_PAYROLL_MONTHLY, QC_GST_HST_QST_COMBINED_RETURN, QC_CORP_INCOME_TAX_REMITTANCE, QC_SUPPORT_PAYMENTS_COLLECTION, QC_PAYROLL_QUARTERLY, ON_FAMILY_RESPONSIBILITY_OFFICE, or WCB_NOVA_SCOTIA_PREMIUM.",
+                      "key": "TaxRemittanceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The total amount of the remittance payment.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) The tax account number for the remittance.",
+                      "key": "TaxAccountNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The legal name of the payer.",
+                      "key": "PayerName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the tax period (YYYY-MM-DD).",
+                      "key": "TaxPeriodEndDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number which was associated with the transaction.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A JSON formatted string specifying additional data that is required for certain remittance types. Please contact your integration specialist for specifics.",
+                      "key": "Details",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/remittance/create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "remittance",
+                    "create"
+                  ]
+                },
+                "description": "This endpoint is used to create a tax remittance transaction."
+              },
+              "response": [
+                {
+                  "id": "b6940000-962a-44cf-a188-5b61ab7c0ff6",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The type of tax remittance to perform. Valid options: FED_PAYROLL_THRESHOLD_1, FED_PAYROLL_THRESHOLD_2, FED_PAYROLL_REGULAR_OR_QUARTERLY, FED_CORPORATE_TAX, FED_GST_HST_RETURN, ON_EMPLOYER_HEALTH_TAX, QC_PAYROLL_TWICE_MONTHLY, QC_PAYROLL_WEEKLY, QC_PAYROLL_MONTHLY, QC_GST_HST_QST_COMBINED_RETURN, QC_CORP_INCOME_TAX_REMITTANCE, QC_SUPPORT_PAYMENTS_COLLECTION, QC_PAYROLL_QUARTERLY, ON_FAMILY_RESPONSIBILITY_OFFICE, or WCB_NOVA_SCOTIA_PREMIUM.",
+                          "key": "TaxRemittanceType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The total amount of the remittance payment.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) The tax account number for the remittance.",
+                          "key": "TaxAccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The legal name of the payer.",
+                          "key": "PayerName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The end date of the tax period (YYYY-MM-DD).",
+                          "key": "TaxPeriodEndDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number which was associated with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A JSON formatted string specifying additional data that is required for certain remittance types. Please contact your integration specialist for specifics.",
+                          "key": "Details",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/remittance/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "remittance",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:56:00.000Z",
+                  "updatedAt": "2026-10-22T02:56:00.000Z",
+                  "uid": "35240-b6940000-962a-44cf-a188-5b61ab7c0ff6"
+                }
+              ],
+              "createdAt": "2026-10-22T02:56:00.000Z",
+              "updatedAt": "2026-10-22T02:56:00.000Z",
+              "uid": "35240-65fcf3a4-a6cb-4d01-892f-cb3e40c0a7f3"
+            }
+          ],
+          "id": "d597bf98-15de-422a-8cf7-5a24f1d1fb45",
+          "createdAt": "2026-10-22T02:56:00.000Z",
+          "updatedAt": "2026-10-22T02:56:00.000Z",
+          "uid": "35240-d597bf98-15de-422a-8cf7-5a24f1d1fb45"
+        }
+      ],
+      "id": "74a3a680-677a-4aaa-a3a7-112162c7ac7a",
+      "createdAt": "2026-10-22T02:56:00.000Z",
+      "updatedAt": "2026-10-22T02:56:00.000Z",
+      "uid": "35240-74a3a680-677a-4aaa-a3a7-112162c7ac7a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

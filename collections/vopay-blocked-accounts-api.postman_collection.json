@@ -1,0 +1,475 @@
+{
+  "info": {
+    "_postman_id": "2f9d0dab-e812-489f-92db-2aa59940104a",
+    "name": "Blocked Accounts API",
+    "description": "The Blocked Accounts API provides endpoints for managing blocked sub-accounts under a secured VoPay account. These endpoints allow partners to block accounts (optionally transferring available funds), unblock accounts, and configure auto-unblock thresholds.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:52:09.000Z",
+    "updatedAt": "2026-10-22T02:52:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2f9d0dab-e812-489f-92db-2aa59940104a"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "blocked-account",
+          "item": [
+            {
+              "name": "block",
+              "item": [
+                {
+                  "name": "Block account(s)",
+                  "id": "19249884-2678-4d16-b1e7-43809c7ce391",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The VoPay sub-account ID to block. If omitted, all sub-accounts under the authenticated account will be blocked.",
+                          "key": "VopayAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "If true, any available funds in the blocked account(s) will be transferred out before blocking. Defaults to false.",
+                          "key": "TransferAvailableFunds",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/blocked-account/block",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "blocked-account",
+                        "block"
+                      ]
+                    },
+                    "description": "Blocks one or all sub-accounts under the authenticated secured account. Optionally transfers any available funds out of the blocked account(s). Requires the ManageBlockedAccounts permission."
+                  },
+                  "response": [
+                    {
+                      "id": "50554e84-cc10-4df3-9b34-109e0fee6ca5",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The VoPay sub-account ID to block. If omitted, all sub-accounts under the authenticated account will be blocked.",
+                              "key": "VopayAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "If true, any available funds in the blocked account(s) will be transferred out before blocking. Defaults to false.",
+                              "key": "TransferAvailableFunds",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/blocked-account/block",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "blocked-account",
+                            "block"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:52:10.000Z",
+                      "updatedAt": "2026-10-22T02:52:10.000Z",
+                      "uid": "35240-50554e84-cc10-4df3-9b34-109e0fee6ca5"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:10.000Z",
+                  "updatedAt": "2026-10-22T02:52:10.000Z",
+                  "uid": "35240-19249884-2678-4d16-b1e7-43809c7ce391"
+                }
+              ],
+              "id": "b0dd1743-782b-4f01-9da8-238db5a543c2",
+              "createdAt": "2026-10-22T02:52:10.000Z",
+              "updatedAt": "2026-10-22T02:52:10.000Z",
+              "uid": "35240-b0dd1743-782b-4f01-9da8-238db5a543c2"
+            },
+            {
+              "name": "unblock",
+              "item": [
+                {
+                  "name": "Unblock account(s)",
+                  "id": "8b427c9a-fef0-47c4-b588-70e42b47e07b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The VoPay sub-account ID to unblock. If omitted, all blocked sub-accounts under the authenticated account will be unblocked.",
+                          "key": "VopayAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/blocked-account/unblock",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "blocked-account",
+                        "unblock"
+                      ]
+                    },
+                    "description": "Unblocks one or all previously blocked sub-accounts under the authenticated secured account. Requires the ManageBlockedAccounts permission."
+                  },
+                  "response": [
+                    {
+                      "id": "6df5b78e-a7e4-47a1-8a1f-87dff8909959",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The VoPay sub-account ID to unblock. If omitted, all blocked sub-accounts under the authenticated account will be unblocked.",
+                              "key": "VopayAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/blocked-account/unblock",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "blocked-account",
+                            "unblock"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:52:10.000Z",
+                      "updatedAt": "2026-10-22T02:52:10.000Z",
+                      "uid": "35240-6df5b78e-a7e4-47a1-8a1f-87dff8909959"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:10.000Z",
+                  "updatedAt": "2026-10-22T02:52:10.000Z",
+                  "uid": "35240-8b427c9a-fef0-47c4-b588-70e42b47e07b"
+                }
+              ],
+              "id": "aedfae7b-9a86-40b8-ac19-2f1e2fdb0228",
+              "createdAt": "2026-10-22T02:52:10.000Z",
+              "updatedAt": "2026-10-22T02:52:10.000Z",
+              "uid": "35240-aedfae7b-9a86-40b8-ac19-2f1e2fdb0228"
+            },
+            {
+              "name": "set-autounblock-threshold",
+              "item": [
+                {
+                  "name": "Set auto-unblock threshold",
+                  "id": "0a644696-a3f7-481f-bf5d-e66b8573bb8d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The VoPay sub-account ID to configure. Must belong to the authenticated account.",
+                          "key": "VopayAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The balance threshold at which the sub-account will be automatically unblocked. Pass an empty value to clear the threshold.",
+                          "key": "AutoUnblockThreshold",
+                          "value": "<float>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/blocked-account/set-autounblock-threshold",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "blocked-account",
+                        "set-autounblock-threshold"
+                      ]
+                    },
+                    "description": "Sets the AutoUnblockThreshold on a sub-account's blocked account settings. When the sub-account's balance reaches this threshold, it will be automatically unblocked. Pass an empty value to clear the threshold. Requires the ManageBlockedAccounts permission."
+                  },
+                  "response": [
+                    {
+                      "id": "8347171f-4281-4479-bd3b-f100d9210dc8",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The VoPay sub-account ID to configure. Must belong to the authenticated account.",
+                              "key": "VopayAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The balance threshold at which the sub-account will be automatically unblocked. Pass an empty value to clear the threshold.",
+                              "key": "AutoUnblockThreshold",
+                              "value": "<float>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/blocked-account/set-autounblock-threshold",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "blocked-account",
+                            "set-autounblock-threshold"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:52:10.000Z",
+                      "updatedAt": "2026-10-22T02:52:10.000Z",
+                      "uid": "35240-8347171f-4281-4479-bd3b-f100d9210dc8"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:10.000Z",
+                  "updatedAt": "2026-10-22T02:52:10.000Z",
+                  "uid": "35240-0a644696-a3f7-481f-bf5d-e66b8573bb8d"
+                }
+              ],
+              "id": "349771a1-6083-4a2d-9f2e-964b1171b7a0",
+              "createdAt": "2026-10-22T02:52:10.000Z",
+              "updatedAt": "2026-10-22T02:52:10.000Z",
+              "uid": "35240-349771a1-6083-4a2d-9f2e-964b1171b7a0"
+            }
+          ],
+          "id": "70acf68a-1582-49bc-b2c2-5d57767dc4b1",
+          "createdAt": "2026-10-22T02:52:10.000Z",
+          "updatedAt": "2026-10-22T02:52:10.000Z",
+          "uid": "35240-70acf68a-1582-49bc-b2c2-5d57767dc4b1"
+        }
+      ],
+      "id": "14e7cd64-8d7c-4f4c-bbfb-773b01e2cd75",
+      "createdAt": "2026-10-22T02:52:10.000Z",
+      "updatedAt": "2026-10-22T02:52:10.000Z",
+      "uid": "35240-14e7cd64-8d7c-4f4c-bbfb-773b01e2cd75"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

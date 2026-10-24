@@ -1,0 +1,1327 @@
+{
+  "info": {
+    "_postman_id": "1c531fa8-63d2-425f-869d-185dd14537bd",
+    "name": "Vopay PayPal Endpoints API",
+    "description": "Operations tagged PayPal Endpoints across 2 of this provider's published API definitions: vopay-payment-method-api-reference.json, vopay-payment-rails-api-reference.json. Each path carries the servers of the definition it was published in.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:55:38.000Z",
+    "updatedAt": "2026-10-22T02:55:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1c531fa8-63d2-425f-869d-185dd14537bd"
+  },
+  "item": [
+    {
+      "name": "paypal",
+      "item": [
+        {
+          "name": "add",
+          "item": [
+            {
+              "name": "paypal/add",
+              "id": "e361fbd3-ee20-49c2-a386-c96e7408dfe0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The type of the PayPal account identifier. Valid values are 'EMAIL', 'PHONE', 'PAYPAL_ID'.",
+                      "key": "PayPalRecipientType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The recipient ID (email address, phone number, or PayPal ID) of the PayPal account. This value corresponds with the PayPalRecipientType value in the request.",
+                      "key": "RecipientID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The full name of the PayPal account holder.",
+                      "key": "RecipientName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this PayPal account.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to be charged to the customer's PayPal wallet. If this is not specified the transaction will use the account's local currency.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/paypal/add",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paypal",
+                    "add"
+                  ]
+                },
+                "description": "This endpoint allows you to add a PayPal account to your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "b9b6e4bb-6035-44bb-bb25-e9e359b97c0d",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The type of the PayPal account identifier. Valid values are 'EMAIL', 'PHONE', 'PAYPAL_ID'.",
+                          "key": "PayPalRecipientType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The recipient ID (email address, phone number, or PayPal ID) of the PayPal account. This value corresponds with the PayPalRecipientType value in the request.",
+                          "key": "RecipientID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The full name of the PayPal account holder.",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this PayPal account.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to be charged to the customer's PayPal wallet. If this is not specified the transaction will use the account's local currency.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/paypal/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paypal",
+                        "add"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:55:39.000Z",
+                  "updatedAt": "2026-10-22T02:55:39.000Z",
+                  "uid": "35240-b9b6e4bb-6035-44bb-bb25-e9e359b97c0d"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:39.000Z",
+              "updatedAt": "2026-10-22T02:55:39.000Z",
+              "uid": "35240-e361fbd3-ee20-49c2-a386-c96e7408dfe0"
+            }
+          ],
+          "id": "e6dee589-8d20-4746-9fa6-3526c0965357",
+          "createdAt": "2026-10-22T02:55:39.000Z",
+          "updatedAt": "2026-10-22T02:55:39.000Z",
+          "uid": "35240-e6dee589-8d20-4746-9fa6-3526c0965357"
+        },
+        {
+          "name": "delete",
+          "item": [
+            {
+              "name": "paypal/delete",
+              "id": "2dec1c55-f850-426d-8800-6977205708bc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The Token associated with the PayPal account you wish to delete.",
+                      "key": "PayPalToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/paypal/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paypal",
+                    "delete"
+                  ]
+                },
+                "description": "This endpoint allows you to delete a PayPal account from your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "815d7ab4-dfa0-4275-97d0-6f101b238d45",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The Token associated with the PayPal account you wish to delete.",
+                          "key": "PayPalToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/paypal/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paypal",
+                        "delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:55:39.000Z",
+                  "updatedAt": "2026-10-22T02:55:39.000Z",
+                  "uid": "35240-815d7ab4-dfa0-4275-97d0-6f101b238d45"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:39.000Z",
+              "updatedAt": "2026-10-22T02:55:39.000Z",
+              "uid": "35240-2dec1c55-f850-426d-8800-6977205708bc"
+            }
+          ],
+          "id": "e45a6151-0d3f-4346-94db-46f02111d684",
+          "createdAt": "2026-10-22T02:55:39.000Z",
+          "updatedAt": "2026-10-22T02:55:39.000Z",
+          "uid": "35240-e45a6151-0d3f-4346-94db-46f02111d684"
+        },
+        {
+          "name": "recipients",
+          "item": [
+            {
+              "name": "paypal/recipients",
+              "id": "bf6bcd27-0b78-4d44-a10c-bb18735fbea5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/paypal/recipients?AccountID=<string>&Key=<string>&Signature=<string>&ClientControlled=<boolean>&Limit=<integer>&Offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paypal",
+                    "recipients"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When set to true, this endpoint will only return PayPal accounts linked to your VoPay account. When set to false, it will return a list of your customer's PayPal accounts.",
+                      "key": "ClientControlled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "This endpoint allows you fetch a list all of your PayPal recipients"
+              },
+              "response": [
+                {
+                  "id": "753bb7b0-ce72-4268-81a1-f83ecdeb96c1",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paypal/recipients?AccountID=<string>&Key=<string>&Signature=<string>&ClientControlled=<boolean>&Limit=<integer>&Offset=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paypal",
+                        "recipients"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, this endpoint will only return PayPal accounts linked to your VoPay account. When set to false, it will return a list of your customer's PayPal accounts.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Limit the number of records that are returned.",
+                          "key": "Limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Use this parameter to set the starting point in the dataset.",
+                          "key": "Offset",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"PaypalRecipients\": {\n    \"0\": {\n      \"RecipientName\": \"<string>\",\n      \"RecipientID\": \"<string>\",\n      \"PayPalRecipientType\": \"<string>\",\n      \"PayPalToken\": \"<string>\",\n      \"ClientControlledPayPalAccount\": \"<string>\",\n      \"IsDefault\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:55:39.000Z",
+                  "updatedAt": "2026-10-22T02:55:39.000Z",
+                  "uid": "35240-753bb7b0-ce72-4268-81a1-f83ecdeb96c1"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:39.000Z",
+              "updatedAt": "2026-10-22T02:55:39.000Z",
+              "uid": "35240-bf6bcd27-0b78-4d44-a10c-bb18735fbea5"
+            }
+          ],
+          "id": "af3a242a-647c-47b3-be5d-e7bc42e64f2c",
+          "createdAt": "2026-10-22T02:55:39.000Z",
+          "updatedAt": "2026-10-22T02:55:39.000Z",
+          "uid": "35240-af3a242a-647c-47b3-be5d-e7bc42e64f2c"
+        },
+        {
+          "name": "set-my-recipient",
+          "item": [
+            {
+              "name": "paypal/set-my-recipient",
+              "id": "91a4fca4-73c3-4221-85fb-cd6f3d96c95a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The token identifying the PayPal wallet to send funds to.",
+                      "key": "PayPalToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Identify credit card as default PayPal recipient",
+                      "key": "SetAsDefault",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/paypal/set-my-recipient",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paypal",
+                    "set-my-recipient"
+                  ]
+                },
+                "description": "This endpoint allows you to identify a PayPal recipient as belonging to the VoPay account holder. Optionally, you can use this endpoint to identify a PayPal recipient as being the VoPay account holder's default PayPal recipient. Note, a VoPay account can only have one default PayPal recipient."
+              },
+              "response": [
+                {
+                  "id": "072823a1-7d69-48f1-83aa-2e4aa462b657",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The token identifying the PayPal wallet to send funds to.",
+                          "key": "PayPalToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Identify credit card as default PayPal recipient",
+                          "key": "SetAsDefault",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/paypal/set-my-recipient",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paypal",
+                        "set-my-recipient"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"PayPalToken\": \"<string>\",\n  \"IsDefault\": \"<boolean>\"\n}",
+                  "createdAt": "2026-10-22T02:55:39.000Z",
+                  "updatedAt": "2026-10-22T02:55:39.000Z",
+                  "uid": "35240-072823a1-7d69-48f1-83aa-2e4aa462b657"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:39.000Z",
+              "updatedAt": "2026-10-22T02:55:39.000Z",
+              "uid": "35240-91a4fca4-73c3-4221-85fb-cd6f3d96c95a"
+            }
+          ],
+          "id": "86a7ed89-44ef-4911-8340-2e7a61bc9b6c",
+          "createdAt": "2026-10-22T02:55:39.000Z",
+          "updatedAt": "2026-10-22T02:55:39.000Z",
+          "uid": "35240-86a7ed89-44ef-4911-8340-2e7a61bc9b6c"
+        },
+        {
+          "name": "default-recipient",
+          "item": [
+            {
+              "name": "paypal/default-recipient",
+              "id": "6d2614df-9c43-45de-b2a7-fe8d0c9c8564",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/paypal/default-recipient?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paypal",
+                    "default-recipient"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When provided, this endpoint will return the default PayPal recipient associated with this Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint retrieves the default PayPal recipient associated with your VoPay account"
+              },
+              "response": [
+                {
+                  "id": "8fe3e4a0-cea7-41ca-8d8d-f7e26981bbcc",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paypal/default-recipient?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paypal",
+                        "default-recipient"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, this endpoint will return the default PayPal recipient associated with this Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"DefaultPayPalRecipient\": {\n    \"0\": {\n      \"ClientControlledPayPalAccount\": \"<string>\",\n      \"RecipientName\": \"<string>\",\n      \"RecipientID\": \"<string>\",\n      \"PayPalRecipientType\": \"<string>\",\n      \"IsActive\": \"<string>\",\n      \"IsDefault\": \"<string>\",\n      \"PayPalToken\": \"<string>\",\n      \"DateAdded\": \"<dateTime>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:55:39.000Z",
+                  "updatedAt": "2026-10-22T02:55:39.000Z",
+                  "uid": "35240-8fe3e4a0-cea7-41ca-8d8d-f7e26981bbcc"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:39.000Z",
+              "updatedAt": "2026-10-22T02:55:39.000Z",
+              "uid": "35240-6d2614df-9c43-45de-b2a7-fe8d0c9c8564"
+            }
+          ],
+          "id": "f440904b-1aeb-41e0-ae03-a876409eb650",
+          "createdAt": "2026-10-22T02:55:39.000Z",
+          "updatedAt": "2026-10-22T02:55:39.000Z",
+          "uid": "35240-f440904b-1aeb-41e0-ae03-a876409eb650"
+        },
+        {
+          "name": "withdraw",
+          "item": [
+            {
+              "name": "generate-embed-url",
+              "item": [
+                {
+                  "name": "paypal/withdraw/generate-embed-url",
+                  "id": "5bd0416c-d240-49ef-ab58-7d664e2c7e36",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) URL to redirect the user to after the Apple account is connected.",
+                          "key": "RedirectURL",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When provided, the Apple Pay token generated will be attached to the Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                          "key": "RedirectMethod",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When set to true, the Apple Pay token added will be linked to your VoPay account. Default is false.",
+                          "key": "ClientControlled",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/paypal/withdraw/generate-embed-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paypal",
+                        "withdraw",
+                        "generate-embed-url"
+                      ]
+                    },
+                    "description": "This endpoint is used to generate a unique URL to embed into your application using an iFrame. End users will use this to login to their PayPal account and generate a token, which can be used in the /paypal/withdraw endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "b9c48dd1-a48d-44d2-a53a-60923e6a02b8",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) URL to redirect the user to after the Apple account is connected.",
+                              "key": "RedirectURL",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "When provided, the Apple Pay token generated will be attached to the Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "This parameter accepts InnerRedirect, OuterRedirect, and JavascriptMessage as parameter values.",
+                              "key": "RedirectMethod",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "When set to true, the Apple Pay token added will be linked to your VoPay account. Default is false.",
+                              "key": "ClientControlled",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/paypal/withdraw/generate-embed-url",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paypal",
+                            "withdraw",
+                            "generate-embed-url"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"EmbedURL\": \"<string>\",\n  \"IframeKey\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:55:39.000Z",
+                      "updatedAt": "2026-10-22T02:55:39.000Z",
+                      "uid": "35240-b9c48dd1-a48d-44d2-a53a-60923e6a02b8"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:39.000Z",
+                  "updatedAt": "2026-10-22T02:55:39.000Z",
+                  "uid": "35240-5bd0416c-d240-49ef-ab58-7d664e2c7e36"
+                }
+              ],
+              "id": "e862fa55-cc66-450f-9268-0c76e68bc0ca",
+              "createdAt": "2026-10-22T02:55:39.000Z",
+              "updatedAt": "2026-10-22T02:55:39.000Z",
+              "uid": "35240-e862fa55-cc66-450f-9268-0c76e68bc0ca"
+            },
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "paypal/withdraw/transaction",
+                  "id": "8c14265d-b4df-494a-8ceb-9fe2044fb1f1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paypal/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paypal",
+                        "withdraw",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Account transaction ID",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up and return the full details on a single PayPal withdraw transaction. PayPal withdraw send funds from your VoPay account to the customer's PayPal account."
+                  },
+                  "response": [
+                    {
+                      "id": "856037d6-f732-407d-ae7e-7d5133343fd4",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paypal/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paypal",
+                            "withdraw",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Account transaction ID",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"PayPalToken\": \"<string>\",\n  \"GLCode\": \"<string>\",\n  \"TransactionTypeCode\": \"<string>\",\n  \"LastModified\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-22T02:55:39.000Z",
+                      "updatedAt": "2026-10-22T02:55:39.000Z",
+                      "uid": "35240-856037d6-f732-407d-ae7e-7d5133343fd4"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:39.000Z",
+                  "updatedAt": "2026-10-22T02:55:39.000Z",
+                  "uid": "35240-8c14265d-b4df-494a-8ceb-9fe2044fb1f1"
+                }
+              ],
+              "id": "fe5037fa-1bba-4528-958f-aadacb185615",
+              "createdAt": "2026-10-22T02:55:39.000Z",
+              "updatedAt": "2026-10-22T02:55:39.000Z",
+              "uid": "35240-fe5037fa-1bba-4528-958f-aadacb185615"
+            },
+            {
+              "name": "paypal/withdraw",
+              "id": "e675965d-9fb8-4d83-8c41-ab515bbafeed",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The full name of the recipient receiving the funds.",
+                      "key": "RecipientName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount to send to the customers PayPal wallet.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The token identifying the PayPal wallet to send funds to.",
+                      "key": "PayPalToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The type of the PayPal wallet you are sending funds to. Valid values are 'EMAIL', 'PHONE', 'PAYPAL_ID'.",
+                      "key": "PayPalRecipientType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The recipient ID (email address, phone number, or PayPal ID) of the PayPal wallet you are sending funds to. This value corresponds with the PayPalRecipientType value in the request.",
+                      "key": "RecipientID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to be charged to the customer's PayPal wallet. If this is not specified the transaction will use the account's local currency.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional notes for the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Optional client reference number for the transaction.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/paypal/withdraw",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paypal",
+                    "withdraw"
+                  ]
+                },
+                "description": "This endpoint is used to send funds from your VoPay account to a PayPal account.\n\nIf a ClientAccountID is provided, the client account's default PayPal wallet will be used for the transaction."
+              },
+              "response": [
+                {
+                  "id": "7f8da2f8-ab0d-47d3-b02b-603f94c1e17d",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The full name of the recipient receiving the funds.",
+                          "key": "RecipientName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to send to the customers PayPal wallet.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transaction. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The token identifying the PayPal wallet to send funds to.",
+                          "key": "PayPalToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The type of the PayPal wallet you are sending funds to. Valid values are 'EMAIL', 'PHONE', 'PAYPAL_ID'.",
+                          "key": "PayPalRecipientType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The recipient ID (email address, phone number, or PayPal ID) of the PayPal wallet you are sending funds to. This value corresponds with the PayPalRecipientType value in the request.",
+                          "key": "RecipientID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to be charged to the customer's PayPal wallet. If this is not specified the transaction will use the account's local currency.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional notes for the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional client reference number for the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/paypal/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paypal",
+                        "withdraw"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:55:39.000Z",
+                  "updatedAt": "2026-10-22T02:55:39.000Z",
+                  "uid": "35240-7f8da2f8-ab0d-47d3-b02b-603f94c1e17d"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:39.000Z",
+              "updatedAt": "2026-10-22T02:55:39.000Z",
+              "uid": "35240-e675965d-9fb8-4d83-8c41-ab515bbafeed"
+            }
+          ],
+          "id": "4fc6b02c-dfbf-4a95-a118-3827018ce36e",
+          "createdAt": "2026-10-22T02:55:39.000Z",
+          "updatedAt": "2026-10-22T02:55:39.000Z",
+          "uid": "35240-4fc6b02c-dfbf-4a95-a118-3827018ce36e"
+        }
+      ],
+      "id": "be8310b4-b475-4f33-b7e1-a4757c7cdeac",
+      "createdAt": "2026-10-22T02:55:39.000Z",
+      "updatedAt": "2026-10-22T02:55:39.000Z",
+      "uid": "35240-be8310b4-b475-4f33-b7e1-a4757c7cdeac"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

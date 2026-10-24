@@ -1,0 +1,1111 @@
+{
+  "info": {
+    "_postman_id": "5d9acb85-59d7-4bc3-804d-d04028f78050",
+    "name": "Global Cash Management Recipient Contact Endpoints API",
+    "description": "The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:55:49.000Z",
+    "updatedAt": "2026-10-22T02:55:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5d9acb85-59d7-4bc3-804d-d04028f78050"
+  },
+  "item": [
+    {
+      "name": "gcm",
+      "item": [
+        {
+          "name": "recipient-contacts",
+          "item": [
+            {
+              "name": "add",
+              "item": [
+                {
+                  "name": "gcm/recipient-contacts/add",
+                  "id": "c41798f5-3cf9-4703-a1d8-221125259c02",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The email address of the recipient contact",
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) If the contact is an individual or business",
+                          "key": "ContactClientType",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Phone number of the recipient. Digits only, 9-15 characters. No spaces or hyphens (e.g. 19998887777).",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Street address of the recipient. Must include a street name (e.g. 20 Longleat Drive). Numbers only are not accepted.",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) City of the recipient's address.",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The client account ID the recipient belongs to",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID for the recipient contact",
+                          "key": "RecipientContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Full legal business name of the recipient. Required if FirstName and LastName are not provided. Must be 2-60 characters and contain at least one letter. No abbreviations except standard suffixes (e.g. LLC, Ltd.).",
+                          "key": "BusinessName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "First name of the individual recipient. Required if BusinessName is not provided. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Last name of the individual recipient. Required if BusinessName is not provided. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The second address line of the recipient contact",
+                          "key": "Address2",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The province of the address",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The postal code of the address",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Country of the recipient's address. Accepts full country name or ISO 3166-1 alpha-2 or alpha-3 code. Sanctioned countries are not accepted.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Date of birth of the recipient in YYYY-MM-DD format (e.g. 1990-01-31).",
+                          "key": "DateOfBirth",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                          "key": "Nationality",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The language preference",
+                          "key": "Language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The source of income of the recipient contact",
+                          "key": "SourceOfIncome",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The occupation of the recipient contact",
+                          "key": "Occupation",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The sender's relationship to the recipient contact",
+                          "key": "RelationshipWithBeneficiary",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/recipient-contacts/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "recipient-contacts",
+                        "add"
+                      ]
+                    },
+                    "description": "Add a recipient contact. All name, address, and phone fields must comply with Mastercard Cross-Border Services Data Quality Standards (effective April 20, 2026)."
+                  },
+                  "response": [
+                    {
+                      "id": "4f8e0f17-400f-4300-ae92-e1846d6a27b1",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The email address of the recipient contact",
+                              "key": "EmailAddress",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) If the contact is an individual or business",
+                              "key": "ContactClientType",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Phone number of the recipient. Digits only, 9-15 characters. No spaces or hyphens (e.g. 19998887777).",
+                              "key": "PhoneNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Street address of the recipient. Must include a street name (e.g. 20 Longleat Drive). Numbers only are not accepted.",
+                              "key": "Address1",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) City of the recipient's address.",
+                              "key": "City",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The client account ID the recipient belongs to",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID for the recipient contact",
+                              "key": "RecipientContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Full legal business name of the recipient. Required if FirstName and LastName are not provided. Must be 2-60 characters and contain at least one letter. No abbreviations except standard suffixes (e.g. LLC, Ltd.).",
+                              "key": "BusinessName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "First name of the individual recipient. Required if BusinessName is not provided. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.",
+                              "key": "FirstName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Last name of the individual recipient. Required if BusinessName is not provided. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.",
+                              "key": "LastName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The second address line of the recipient contact",
+                              "key": "Address2",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The province of the address",
+                              "key": "Province",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The postal code of the address",
+                              "key": "PostalCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Country of the recipient's address. Accepts full country name or ISO 3166-1 alpha-2 or alpha-3 code. Sanctioned countries are not accepted.",
+                              "key": "Country",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Date of birth of the recipient in YYYY-MM-DD format (e.g. 1990-01-31).",
+                              "key": "DateOfBirth",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                              "key": "Nationality",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The language preference",
+                              "key": "Language",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The source of income of the recipient contact",
+                              "key": "SourceOfIncome",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The occupation of the recipient contact",
+                              "key": "Occupation",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The sender's relationship to the recipient contact",
+                              "key": "RelationshipWithBeneficiary",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/recipient-contacts/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "recipient-contacts",
+                            "add"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"RecipientContactID\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:55:50.000Z",
+                      "updatedAt": "2026-10-22T02:55:50.000Z",
+                      "uid": "35240-4f8e0f17-400f-4300-ae92-e1846d6a27b1"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:50.000Z",
+                  "updatedAt": "2026-10-22T02:55:50.000Z",
+                  "uid": "35240-c41798f5-3cf9-4703-a1d8-221125259c02"
+                }
+              ],
+              "id": "76be61ed-f0fe-4bce-b1ea-abf5393606d9",
+              "createdAt": "2026-10-22T02:55:50.000Z",
+              "updatedAt": "2026-10-22T02:55:50.000Z",
+              "uid": "35240-76be61ed-f0fe-4bce-b1ea-abf5393606d9"
+            },
+            {
+              "name": "edit",
+              "item": [
+                {
+                  "name": "gcm/recipient-contacts/edit",
+                  "id": "bcfd3549-24e0-44c4-8865-b4b8452309fe",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The recipient contact ID to edit",
+                          "key": "RecipientContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The email address of the recipient contact",
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Full legal business name of the recipient. Must be 2-60 characters and contain at least one letter. No abbreviations except standard suffixes (e.g. LLC, Ltd.).",
+                          "key": "BusinessName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "First name of the individual recipient. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Last name of the individual recipient. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Phone number of the recipient. Digits only, 9-15 characters. No spaces or hyphens (e.g. 19998887777).",
+                          "key": "PhoneNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Street address of the recipient. Must include a street name (e.g. 20 Longleat Drive). Numbers only are not accepted.",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The second address line of the recipient contact",
+                          "key": "Address2",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "City of the recipient's address.",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The province of the address",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The postal code of the address",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Country of the recipient's address. Accepts full country name or ISO 3166-1 alpha-2 or alpha-3 code. Sanctioned countries are not accepted.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Date of birth of the recipient in YYYY-MM-DD format (e.g. 1990-01-31).",
+                          "key": "DateOfBirth",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                          "key": "Nationality",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The source of income of the recipient contact",
+                          "key": "SourceOfIncome",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The occupation of the recipient contact",
+                          "key": "Occupation",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The sender's relationship to the recipient contact",
+                          "key": "RelationshipWithBeneficiary",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/recipient-contacts/edit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "recipient-contacts",
+                        "edit"
+                      ]
+                    },
+                    "description": "Edit a recipient contact. Any fields provided must comply with Mastercard Cross-Border Services Data Quality Standards (effective April 20, 2026)."
+                  },
+                  "response": [
+                    {
+                      "id": "1f1ad937-3311-4c13-95d7-7b3c262ba70b",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The recipient contact ID to edit",
+                              "key": "RecipientContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The email address of the recipient contact",
+                              "key": "EmailAddress",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Full legal business name of the recipient. Must be 2-60 characters and contain at least one letter. No abbreviations except standard suffixes (e.g. LLC, Ltd.).",
+                              "key": "BusinessName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "First name of the individual recipient. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.",
+                              "key": "FirstName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Last name of the individual recipient. Must be 2-60 characters using only letters, spaces, commas, apostrophes, hyphens, and dots. No initials, acronyms, or company identifiers.",
+                              "key": "LastName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Phone number of the recipient. Digits only, 9-15 characters. No spaces or hyphens (e.g. 19998887777).",
+                              "key": "PhoneNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Street address of the recipient. Must include a street name (e.g. 20 Longleat Drive). Numbers only are not accepted.",
+                              "key": "Address1",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The second address line of the recipient contact",
+                              "key": "Address2",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "City of the recipient's address.",
+                              "key": "City",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The province of the address",
+                              "key": "Province",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The postal code of the address",
+                              "key": "PostalCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Country of the recipient's address. Accepts full country name or ISO 3166-1 alpha-2 or alpha-3 code. Sanctioned countries are not accepted.",
+                              "key": "Country",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Date of birth of the recipient in YYYY-MM-DD format (e.g. 1990-01-31).",
+                              "key": "DateOfBirth",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The nationality specified using full country name or ISO 3166-1 alpha-2 or ISO 3166-1 alpha-3 code.",
+                              "key": "Nationality",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The source of income of the recipient contact",
+                              "key": "SourceOfIncome",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The occupation of the recipient contact",
+                              "key": "Occupation",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The sender's relationship to the recipient contact",
+                              "key": "RelationshipWithBeneficiary",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/recipient-contacts/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "recipient-contacts",
+                            "edit"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"RecipientContactID\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:55:50.000Z",
+                      "updatedAt": "2026-10-22T02:55:50.000Z",
+                      "uid": "35240-1f1ad937-3311-4c13-95d7-7b3c262ba70b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:50.000Z",
+                  "updatedAt": "2026-10-22T02:55:50.000Z",
+                  "uid": "35240-bcfd3549-24e0-44c4-8865-b4b8452309fe"
+                }
+              ],
+              "id": "4cbf8837-624e-40da-ab3a-117bdd161091",
+              "createdAt": "2026-10-22T02:55:50.000Z",
+              "updatedAt": "2026-10-22T02:55:50.000Z",
+              "uid": "35240-4cbf8837-624e-40da-ab3a-117bdd161091"
+            },
+            {
+              "name": "favorites",
+              "item": [
+                {
+                  "name": "add",
+                  "item": [
+                    {
+                      "name": "gcm/recipient-contacts/favorites/add",
+                      "id": "c6de3d8e-14d4-460e-a39f-36a0577a90d3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The recipient that will be favorited",
+                              "key": "RecipientContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The client account the favorite will be added to",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/recipient-contacts/favorites/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "recipient-contacts",
+                            "favorites",
+                            "add"
+                          ]
+                        },
+                        "description": "Add a recipient to your favorites."
+                      },
+                      "response": [
+                        {
+                          "id": "3e3aeb15-20dc-41b7-be9d-c7f30d88c184",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The recipient that will be favorited",
+                                  "key": "RecipientContactID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The client account the favorite will be added to",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gcm/recipient-contacts/favorites/add",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcm",
+                                "recipient-contacts",
+                                "favorites",
+                                "add"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"RecipientContactID\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-22T02:55:50.000Z",
+                          "updatedAt": "2026-10-22T02:55:50.000Z",
+                          "uid": "35240-3e3aeb15-20dc-41b7-be9d-c7f30d88c184"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:55:50.000Z",
+                      "updatedAt": "2026-10-22T02:55:50.000Z",
+                      "uid": "35240-c6de3d8e-14d4-460e-a39f-36a0577a90d3"
+                    }
+                  ],
+                  "id": "aa306cb8-5922-466e-8e84-a3d21f3d0af4",
+                  "createdAt": "2026-10-22T02:55:50.000Z",
+                  "updatedAt": "2026-10-22T02:55:50.000Z",
+                  "uid": "35240-aa306cb8-5922-466e-8e84-a3d21f3d0af4"
+                },
+                {
+                  "name": "delete",
+                  "item": [
+                    {
+                      "name": "gcm/recipient-contacts/favorites/delete",
+                      "id": "a6147488-c7d0-473e-88ec-e6e27c15285f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The recipient that will be removed from favorites",
+                              "key": "RecipientContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The client account the favorite will be removed from",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/recipient-contacts/favorites/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "recipient-contacts",
+                            "favorites",
+                            "delete"
+                          ]
+                        },
+                        "description": "Delete a recipient from your favorites."
+                      },
+                      "response": [
+                        {
+                          "id": "be03a2b6-24be-4a33-b4a2-842a406700e6",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The recipient that will be removed from favorites",
+                                  "key": "RecipientContactID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The client account the favorite will be removed from",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/gcm/recipient-contacts/favorites/delete",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "gcm",
+                                "recipient-contacts",
+                                "favorites",
+                                "delete"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"RecipientContactID\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-22T02:55:50.000Z",
+                          "updatedAt": "2026-10-22T02:55:50.000Z",
+                          "uid": "35240-be03a2b6-24be-4a33-b4a2-842a406700e6"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:55:50.000Z",
+                      "updatedAt": "2026-10-22T02:55:50.000Z",
+                      "uid": "35240-a6147488-c7d0-473e-88ec-e6e27c15285f"
+                    }
+                  ],
+                  "id": "49ea2fbe-8282-4935-9e4c-e87462d21f99",
+                  "createdAt": "2026-10-22T02:55:50.000Z",
+                  "updatedAt": "2026-10-22T02:55:50.000Z",
+                  "uid": "35240-49ea2fbe-8282-4935-9e4c-e87462d21f99"
+                }
+              ],
+              "id": "bcd58624-c312-4d09-bb0a-dd5c4eb64811",
+              "createdAt": "2026-10-22T02:55:50.000Z",
+              "updatedAt": "2026-10-22T02:55:50.000Z",
+              "uid": "35240-bcd58624-c312-4d09-bb0a-dd5c4eb64811"
+            },
+            {
+              "name": "gcm/recipient-contacts",
+              "id": "62f46496-af5b-4c47-a23d-e45e496496b9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/gcm/recipient-contacts?AccountID=<string>&Key=<string>&Signature=<string>&Limit=<string>&AccountStatus=<boolean>&ClientAccountID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "gcm",
+                    "recipient-contacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit of how many recipient contacts to return",
+                      "key": "Limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If the account status is active or not",
+                      "key": "AccountStatus",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The client account ID that the recipients belong to",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get a list of recipient contacts for the account."
+              },
+              "response": [
+                {
+                  "id": "3d85d66b-49d9-4ae6-9a9b-e612b65ed794",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/recipient-contacts?AccountID=<string>&Key=<string>&Signature=<string>&Limit=<string>&AccountStatus=<boolean>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "recipient-contacts"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit of how many recipient contacts to return",
+                          "key": "Limit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "If the account status is active or not",
+                          "key": "AccountStatus",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The client account ID that the recipients belong to",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"ContactClientType\": \"<string>\",\n  \"RecipientContactID\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"BusinessName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"PhoneNumber\": \"<string>\",\n  \"IsFavorite\": \"<boolean>\",\n  \"Address\": \"<string>\",\n  \"City\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"Province\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"Nationality\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:55:50.000Z",
+                  "updatedAt": "2026-10-22T02:55:50.000Z",
+                  "uid": "35240-3d85d66b-49d9-4ae6-9a9b-e612b65ed794"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:50.000Z",
+              "updatedAt": "2026-10-22T02:55:50.000Z",
+              "uid": "35240-62f46496-af5b-4c47-a23d-e45e496496b9"
+            }
+          ],
+          "id": "db6ac22a-137a-4169-8579-924b20bb3c93",
+          "createdAt": "2026-10-22T02:55:50.000Z",
+          "updatedAt": "2026-10-22T02:55:50.000Z",
+          "uid": "35240-db6ac22a-137a-4169-8579-924b20bb3c93"
+        }
+      ],
+      "id": "3ea045a4-5f33-4e3f-b7ee-8b72c75430d8",
+      "createdAt": "2026-10-22T02:55:50.000Z",
+      "updatedAt": "2026-10-22T02:55:50.000Z",
+      "uid": "35240-3ea045a4-5f33-4e3f-b7ee-8b72c75430d8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

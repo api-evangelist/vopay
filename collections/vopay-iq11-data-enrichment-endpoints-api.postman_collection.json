@@ -1,0 +1,401 @@
+{
+  "info": {
+    "_postman_id": "1ba166d8-e4c2-4b5b-a7b5-c98786a4237e",
+    "name": "IQ11 Data Enrichment Endpoints API",
+    "description": "The iQ11 API allows you to generate a unique URL to embed into your application using an iFrame. End users will use this to log in to their online banking and select a bank account to make a payment from.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:55:09.000Z",
+    "updatedAt": "2026-10-22T02:55:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1ba166d8-e4c2-4b5b-a7b5-c98786a4237e"
+  },
+  "item": [
+    {
+      "name": "iq11",
+      "item": [
+        {
+          "name": "enrich-data",
+          "item": [
+            {
+              "name": "status",
+              "item": [
+                {
+                  "name": "iq11/enrich-data/status",
+                  "id": "3bf75bd9-b285-4a4d-b2d4-4aeea3174eb5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/x-yaml"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/iq11/enrich-data/status?AccountID=<string>&Key=<string>&Signature=<string>&RequestID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "iq11",
+                        "enrich-data",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique identifier returned from the /iq11/enrich-data POST call",
+                          "key": "RequestID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to check the status of a data enrichment request."
+                  },
+                  "response": [
+                    {
+                      "id": "3f5240b8-56c8-49a8-9a74-b2333a8cc167",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/x-yaml"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/iq11/enrich-data/status?AccountID=<string>&Key=<string>&Signature=<string>&RequestID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "iq11",
+                            "enrich-data",
+                            "status"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The unique identifier returned from the /iq11/enrich-data POST call",
+                              "key": "RequestID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/x-yaml"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Status\": \"Complete\",\n  \"PercentComplete\": \"<string>\",\n  \"EnrichedCount\": \"<integer>\",\n  \"TotalCount\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T02:55:10.000Z",
+                      "updatedAt": "2026-10-22T02:55:10.000Z",
+                      "uid": "35240-3f5240b8-56c8-49a8-9a74-b2333a8cc167"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:55:10.000Z",
+                  "updatedAt": "2026-10-22T02:55:10.000Z",
+                  "uid": "35240-3bf75bd9-b285-4a4d-b2d4-4aeea3174eb5"
+                }
+              ],
+              "id": "86014ff4-9a35-40b0-bf86-0d2bd90b40f0",
+              "createdAt": "2026-10-22T02:55:10.000Z",
+              "updatedAt": "2026-10-22T02:55:10.000Z",
+              "uid": "35240-86014ff4-9a35-40b0-bf86-0d2bd90b40f0"
+            },
+            {
+              "name": "iq11/enrich-data",
+              "id": "d23de5e5-36fa-4fad-8f46-1311537d8ed0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/x-yaml"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/iq11/enrich-data?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "iq11",
+                    "enrich-data"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Your iQ11 Token that has associated transactions to be enriched.",
+                      "key": "Token",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to enrich transaction data associated with a iQ11 Token."
+              },
+              "response": [
+                {
+                  "id": "1a6a8bc9-9f71-4d2d-b43e-f716f3e2602c",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/x-yaml"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/iq11/enrich-data?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "iq11",
+                        "enrich-data"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Your iQ11 Token that has associated transactions to be enriched.",
+                          "key": "Token",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/x-yaml"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"RequestID\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:55:10.000Z",
+                  "updatedAt": "2026-10-22T02:55:10.000Z",
+                  "uid": "35240-1a6a8bc9-9f71-4d2d-b43e-f716f3e2602c"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:10.000Z",
+              "updatedAt": "2026-10-22T02:55:10.000Z",
+              "uid": "35240-d23de5e5-36fa-4fad-8f46-1311537d8ed0"
+            },
+            {
+              "name": "iq11/enrich-data",
+              "id": "de1527ab-c769-4a9b-a5a9-9fbd4fa4ed9f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/x-yaml"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/iq11/enrich-data?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>&EnrichedDataType=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "iq11",
+                    "enrich-data"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Your iQ11 Token that has enriched data associated with it.",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The type of report you want to generate, valid types are: credit-transactions, employment-credit-transactions, government-credit-transactions, tax-credit-transactions, debit-transactions, rent-debit-transactions, utility-debit-transactions, telecom-debit-transactions, loan-debit-transactions, insurance-debit-transactions, bank-fee-transactions, subscription-debit-transactions, nsf-fee-transactions, transaction-report, risk-report.",
+                      "key": "EnrichedDataType",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to fetch transaction reports generated from the enriched data."
+              },
+              "response": [
+                {
+                  "id": "397be74a-9c4a-48a5-9b08-346eaa90be70",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/x-yaml"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/iq11/enrich-data?AccountID=<string>&Key=<string>&Signature=<string>&Token=<string>&EnrichedDataType=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "iq11",
+                        "enrich-data"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Your iQ11 Token that has enriched data associated with it.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The type of report you want to generate, valid types are: credit-transactions, employment-credit-transactions, government-credit-transactions, tax-credit-transactions, debit-transactions, rent-debit-transactions, utility-debit-transactions, telecom-debit-transactions, loan-debit-transactions, insurance-debit-transactions, bank-fee-transactions, subscription-debit-transactions, nsf-fee-transactions, transaction-report, risk-report.",
+                          "key": "EnrichedDataType",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/x-yaml"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"EnrichedData\": {\n    \"DateOfFirstTransaction\": \"<date>\",\n    \"DateOfLastTransaction\": \"<date>\",\n    \"TotalNumberOfTransactions\": \"<integer>\",\n    \"AveragePayment\": \"<float>\",\n    \"AverageDaysBetweenPayments\": \"<float>\",\n    \"LastTwoPaymentDates\": {},\n    \"TotalAmount\": \"<float>\",\n    \"SumPerMonth\": {},\n    \"CountPerMonth\": {}\n  }\n}",
+                  "createdAt": "2026-10-22T02:55:10.000Z",
+                  "updatedAt": "2026-10-22T02:55:10.000Z",
+                  "uid": "35240-397be74a-9c4a-48a5-9b08-346eaa90be70"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:10.000Z",
+              "updatedAt": "2026-10-22T02:55:10.000Z",
+              "uid": "35240-de1527ab-c769-4a9b-a5a9-9fbd4fa4ed9f"
+            }
+          ],
+          "id": "bad2a7c0-4ec6-43c9-a0b1-eb40d6f9f58e",
+          "createdAt": "2026-10-22T02:55:10.000Z",
+          "updatedAt": "2026-10-22T02:55:10.000Z",
+          "uid": "35240-bad2a7c0-4ec6-43c9-a0b1-eb40d6f9f58e"
+        }
+      ],
+      "id": "45b2fb09-59c0-4259-ae67-a2a7bdc47b37",
+      "createdAt": "2026-10-22T02:55:10.000Z",
+      "updatedAt": "2026-10-22T02:55:10.000Z",
+      "uid": "35240-45b2fb09-59c0-4259-ae67-a2a7bdc47b37"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

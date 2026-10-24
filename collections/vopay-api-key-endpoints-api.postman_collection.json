@@ -1,0 +1,1424 @@
+{
+  "info": {
+    "_postman_id": "843defcf-c6ec-46f4-937a-227263d71de8",
+    "name": "Integrations and Support API Key Endpoints API",
+    "description": "The Integrations and Support API defines endpoints for configuring integrations with Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for account and partner accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:51:44.000Z",
+    "updatedAt": "2026-10-22T02:51:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-843defcf-c6ec-46f4-937a-227263d71de8"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "keys",
+          "item": [
+            {
+              "name": "retrieve",
+              "item": [
+                {
+                  "name": "account/keys/retrieve",
+                  "id": "b5c3522c-c993-4d29-b40f-972203760887",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                          "key": "KeyID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/keys/retrieve",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "keys",
+                        "retrieve"
+                      ]
+                    },
+                    "description": "This endpoint allows the user to fetch a particular API key associated with their account including sensitive information."
+                  },
+                  "response": [
+                    {
+                      "id": "013fb317-6aa3-48ea-a7ab-dd1ddb7906ec",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                              "key": "KeyID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/keys/retrieve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "keys",
+                            "retrieve"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": \"<integer>\",\n      \"Label\": \"<string>\",\n      \"Key\": \"<string>\",\n      \"Secret\": \"<string>\",\n      \"AccessScope\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:44.000Z",
+                      "updatedAt": "2026-10-22T02:51:44.000Z",
+                      "uid": "35240-013fb317-6aa3-48ea-a7ab-dd1ddb7906ec"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:44.000Z",
+                  "updatedAt": "2026-10-22T02:51:44.000Z",
+                  "uid": "35240-b5c3522c-c993-4d29-b40f-972203760887"
+                }
+              ],
+              "id": "048534eb-688b-4daa-a793-269c94c04060",
+              "createdAt": "2026-10-22T02:51:44.000Z",
+              "updatedAt": "2026-10-22T02:51:44.000Z",
+              "uid": "35240-048534eb-688b-4daa-a793-269c94c04060"
+            },
+            {
+              "name": "add",
+              "item": [
+                {
+                  "name": "account/keys/add",
+                  "id": "4e48df34-5fc9-405d-83ec-a11974db6354",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The label you want associated with the key",
+                          "key": "Label",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/keys/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "keys",
+                        "add"
+                      ]
+                    },
+                    "description": "This endpoint allows the user to add an API key associated to their account"
+                  },
+                  "response": [
+                    {
+                      "id": "9e1e0698-4813-495a-990d-bcaeeb66d63d",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The label you want associated with the key",
+                              "key": "Label",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/keys/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "keys",
+                            "add"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": \"<integer>\",\n      \"Label\": \"<string>\",\n      \"Key\": \"<string>\",\n      \"Secret\": \"<string>\",\n      \"AccessScope\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:44.000Z",
+                      "updatedAt": "2026-10-22T02:51:44.000Z",
+                      "uid": "35240-9e1e0698-4813-495a-990d-bcaeeb66d63d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:44.000Z",
+                  "updatedAt": "2026-10-22T02:51:44.000Z",
+                  "uid": "35240-4e48df34-5fc9-405d-83ec-a11974db6354"
+                }
+              ],
+              "id": "e1af249a-1745-43ba-be7c-5b4246d13c0f",
+              "createdAt": "2026-10-22T02:51:44.000Z",
+              "updatedAt": "2026-10-22T02:51:44.000Z",
+              "uid": "35240-e1af249a-1745-43ba-be7c-5b4246d13c0f"
+            },
+            {
+              "name": "edit",
+              "item": [
+                {
+                  "name": "account/keys/edit",
+                  "id": "2c2d8fa4-00f4-4275-9dec-6bab6c941dd4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                          "key": "KeyID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) The label you want associated with the key",
+                          "key": "Label",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/keys/edit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "keys",
+                        "edit"
+                      ]
+                    },
+                    "description": "This endpoint allows the user to edit an API key's label associated to their account"
+                  },
+                  "response": [
+                    {
+                      "id": "1685cfe1-9300-45ee-b302-ae030c38a923",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                              "key": "KeyID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) The label you want associated with the key",
+                              "key": "Label",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/keys/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "keys",
+                            "edit"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": \"<integer>\",\n      \"Label\": \"<string>\",\n      \"Key\": \"<string>\",\n      \"Secret\": \"<string>\",\n      \"AccessScope\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:44.000Z",
+                      "updatedAt": "2026-10-22T02:51:44.000Z",
+                      "uid": "35240-1685cfe1-9300-45ee-b302-ae030c38a923"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:44.000Z",
+                  "updatedAt": "2026-10-22T02:51:44.000Z",
+                  "uid": "35240-2c2d8fa4-00f4-4275-9dec-6bab6c941dd4"
+                }
+              ],
+              "id": "72e98b5a-77b4-414a-899b-f1cc9f0730bb",
+              "createdAt": "2026-10-22T02:51:44.000Z",
+              "updatedAt": "2026-10-22T02:51:44.000Z",
+              "uid": "35240-72e98b5a-77b4-414a-899b-f1cc9f0730bb"
+            },
+            {
+              "name": "delete",
+              "item": [
+                {
+                  "name": "account/keys/delete",
+                  "id": "cd5b3031-e2d3-41e0-a9ef-c6c60acd1c6a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                          "key": "KeyID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/keys/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "keys",
+                        "delete"
+                      ]
+                    },
+                    "description": "This endpoint allows the user to delete a particular API key associated with their account"
+                  },
+                  "response": [
+                    {
+                      "id": "6c366f87-36a7-45dd-9e9b-8782b85ff2dc",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                              "key": "KeyID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/keys/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "keys",
+                            "delete"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:44.000Z",
+                      "updatedAt": "2026-10-22T02:51:44.000Z",
+                      "uid": "35240-6c366f87-36a7-45dd-9e9b-8782b85ff2dc"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:44.000Z",
+                  "updatedAt": "2026-10-22T02:51:44.000Z",
+                  "uid": "35240-cd5b3031-e2d3-41e0-a9ef-c6c60acd1c6a"
+                }
+              ],
+              "id": "59410357-5db5-47b5-897b-461ced4b4308",
+              "createdAt": "2026-10-22T02:51:44.000Z",
+              "updatedAt": "2026-10-22T02:51:44.000Z",
+              "uid": "35240-59410357-5db5-47b5-897b-461ced4b4308"
+            },
+            {
+              "name": "account/keys",
+              "id": "07dffea0-e461-48a6-a0da-cb0f3a842dbf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "keys"
+                  ]
+                },
+                "description": "This endpoint allows the user to fetch the API key IDs associated with their account."
+              },
+              "response": [
+                {
+                  "id": "66731060-df07-41fd-94d8-629823190951",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/keys",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "keys"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Keys\": {\n    \"0\": {\n      \"KeyID\": \"<integer>\",\n      \"Label\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:51:44.000Z",
+                  "updatedAt": "2026-10-22T02:51:44.000Z",
+                  "uid": "35240-66731060-df07-41fd-94d8-629823190951"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:44.000Z",
+              "updatedAt": "2026-10-22T02:51:44.000Z",
+              "uid": "35240-07dffea0-e461-48a6-a0da-cb0f3a842dbf"
+            }
+          ],
+          "id": "b250f442-0230-4763-ad4f-9cce268c1a9c",
+          "createdAt": "2026-10-22T02:51:44.000Z",
+          "updatedAt": "2026-10-22T02:51:44.000Z",
+          "uid": "35240-b250f442-0230-4763-ad4f-9cce268c1a9c"
+        }
+      ],
+      "id": "196a0454-4dfa-4dc0-8bf3-3572ca3c994c",
+      "createdAt": "2026-10-22T02:51:44.000Z",
+      "updatedAt": "2026-10-22T02:51:44.000Z",
+      "uid": "35240-196a0454-4dfa-4dc0-8bf3-3572ca3c994c"
+    },
+    {
+      "name": "partner",
+      "item": [
+        {
+          "name": "keys",
+          "item": [
+            {
+              "name": "retrieve",
+              "item": [
+                {
+                  "name": "partner/keys/retrieve",
+                  "id": "b3293abc-5ec7-42df-9006-65a951aa9597",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                          "key": "KeyID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/keys/retrieve",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "keys",
+                        "retrieve"
+                      ]
+                    },
+                    "description": "This endpoint allows the user to fetch a particular API key associated with their partner account including sensitive information."
+                  },
+                  "response": [
+                    {
+                      "id": "0f6e12d5-7b76-47cf-84d6-edc478de274c",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                              "key": "KeyID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/keys/retrieve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "keys",
+                            "retrieve"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": \"<integer>\",\n      \"Label\": \"<string>\",\n      \"Key\": \"<string>\",\n      \"Secret\": \"<string>\",\n      \"AccessScope\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:44.000Z",
+                      "updatedAt": "2026-10-22T02:51:44.000Z",
+                      "uid": "35240-0f6e12d5-7b76-47cf-84d6-edc478de274c"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:44.000Z",
+                  "updatedAt": "2026-10-22T02:51:44.000Z",
+                  "uid": "35240-b3293abc-5ec7-42df-9006-65a951aa9597"
+                }
+              ],
+              "id": "f003757f-f82a-4c7b-a5dc-1a9788d2dcf2",
+              "createdAt": "2026-10-22T02:51:44.000Z",
+              "updatedAt": "2026-10-22T02:51:44.000Z",
+              "uid": "35240-f003757f-f82a-4c7b-a5dc-1a9788d2dcf2"
+            },
+            {
+              "name": "add",
+              "item": [
+                {
+                  "name": "partner/keys/add",
+                  "id": "b8f87aa6-ea8f-4421-9e94-03475aec6919",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The label you want associated with the key",
+                          "key": "Label",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/keys/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "keys",
+                        "add"
+                      ]
+                    },
+                    "description": "This endpoint allows the user to add an API key associated to their partner account"
+                  },
+                  "response": [
+                    {
+                      "id": "1e707f01-7538-407d-bb02-2f4e00950c2c",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The label you want associated with the key",
+                              "key": "Label",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/keys/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "keys",
+                            "add"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": \"<integer>\",\n      \"Label\": \"<string>\",\n      \"Key\": \"<string>\",\n      \"Secret\": \"<string>\",\n      \"AccessScope\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:44.000Z",
+                      "updatedAt": "2026-10-22T02:51:44.000Z",
+                      "uid": "35240-1e707f01-7538-407d-bb02-2f4e00950c2c"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:44.000Z",
+                  "updatedAt": "2026-10-22T02:51:44.000Z",
+                  "uid": "35240-b8f87aa6-ea8f-4421-9e94-03475aec6919"
+                }
+              ],
+              "id": "fdf58a82-1f61-4469-9e82-63bd400922a6",
+              "createdAt": "2026-10-22T02:51:44.000Z",
+              "updatedAt": "2026-10-22T02:51:44.000Z",
+              "uid": "35240-fdf58a82-1f61-4469-9e82-63bd400922a6"
+            },
+            {
+              "name": "edit",
+              "item": [
+                {
+                  "name": "partner/keys/edit",
+                  "id": "3bb7d550-a67a-477f-bd53-11883ee328d3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                          "key": "KeyID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) The label you want associated with the key",
+                          "key": "Label",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/keys/edit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "keys",
+                        "edit"
+                      ]
+                    },
+                    "description": "This endpoint allows the user to edit an API key's label associated to their partner account"
+                  },
+                  "response": [
+                    {
+                      "id": "a56c8124-8b2f-4350-815e-2b9ad2010d30",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                              "key": "KeyID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) The label you want associated with the key",
+                              "key": "Label",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/keys/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "keys",
+                            "edit"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Key\": {\n    \"0\": {\n      \"KeyID\": \"<integer>\",\n      \"Label\": \"<string>\",\n      \"Key\": \"<string>\",\n      \"Secret\": \"<string>\",\n      \"AccessScope\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:51:44.000Z",
+                      "updatedAt": "2026-10-22T02:51:44.000Z",
+                      "uid": "35240-a56c8124-8b2f-4350-815e-2b9ad2010d30"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:44.000Z",
+                  "updatedAt": "2026-10-22T02:51:44.000Z",
+                  "uid": "35240-3bb7d550-a67a-477f-bd53-11883ee328d3"
+                }
+              ],
+              "id": "4e8f45ae-ce58-4eab-8e74-adf2f439d046",
+              "createdAt": "2026-10-22T02:51:44.000Z",
+              "updatedAt": "2026-10-22T02:51:44.000Z",
+              "uid": "35240-4e8f45ae-ce58-4eab-8e74-adf2f439d046"
+            },
+            {
+              "name": "delete",
+              "item": [
+                {
+                  "name": "partner/keys/delete",
+                  "id": "e89ddaca-08f3-4ed5-97f8-35c637b797cf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                          "key": "KeyID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/keys/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "keys",
+                        "delete"
+                      ]
+                    },
+                    "description": "This endpoint allows the user to delete a particular API key associated with their partner account"
+                  },
+                  "response": [
+                    {
+                      "id": "69f66542-bb2f-4029-9480-210fb7f3b8c3",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the key. Can be fetched through the /keys endpoint",
+                              "key": "KeyID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/keys/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "keys",
+                            "delete"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:51:44.000Z",
+                      "updatedAt": "2026-10-22T02:51:44.000Z",
+                      "uid": "35240-69f66542-bb2f-4029-9480-210fb7f3b8c3"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:51:44.000Z",
+                  "updatedAt": "2026-10-22T02:51:44.000Z",
+                  "uid": "35240-e89ddaca-08f3-4ed5-97f8-35c637b797cf"
+                }
+              ],
+              "id": "048930a6-a4f4-4f3b-9081-0a0c0f801c10",
+              "createdAt": "2026-10-22T02:51:44.000Z",
+              "updatedAt": "2026-10-22T02:51:44.000Z",
+              "uid": "35240-048930a6-a4f4-4f3b-9081-0a0c0f801c10"
+            },
+            {
+              "name": "partner/keys",
+              "id": "f911cdb4-4566-4583-abf4-addd1e6b5730",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/partner/keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner",
+                    "keys"
+                  ]
+                },
+                "description": "This endpoint allows the user to fetch the API key IDs associated with their partner account."
+              },
+              "response": [
+                {
+                  "id": "3885707d-d06b-451d-b775-b1b908685336",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/keys",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "keys"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Keys\": {\n    \"0\": {\n      \"KeyID\": \"<integer>\",\n      \"Label\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:51:44.000Z",
+                  "updatedAt": "2026-10-22T02:51:44.000Z",
+                  "uid": "35240-3885707d-d06b-451d-b775-b1b908685336"
+                }
+              ],
+              "createdAt": "2026-10-22T02:51:44.000Z",
+              "updatedAt": "2026-10-22T02:51:44.000Z",
+              "uid": "35240-f911cdb4-4566-4583-abf4-addd1e6b5730"
+            }
+          ],
+          "id": "df2ed518-ff6e-4bbf-b8f0-c6e2c1e736fa",
+          "createdAt": "2026-10-22T02:51:44.000Z",
+          "updatedAt": "2026-10-22T02:51:44.000Z",
+          "uid": "35240-df2ed518-ff6e-4bbf-b8f0-c6e2c1e736fa"
+        }
+      ],
+      "id": "c956eee9-81c7-4229-8118-78daf95aba81",
+      "createdAt": "2026-10-22T02:51:44.000Z",
+      "updatedAt": "2026-10-22T02:51:44.000Z",
+      "uid": "35240-c956eee9-81c7-4229-8118-78daf95aba81"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

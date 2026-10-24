@@ -1,0 +1,617 @@
+{
+  "info": {
+    "_postman_id": "521fadd0-2000-4f1d-9a29-b0ae2a224b67",
+    "name": "Integrations and Support Integration Endpoints API",
+    "description": "The Integrations and Support API defines endpoints for configuring integrations with Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for account and partner accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:54:56.000Z",
+    "updatedAt": "2026-10-22T02:54:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-521fadd0-2000-4f1d-9a29-b0ae2a224b67"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "set-plaid-credentials",
+          "item": [
+            {
+              "name": "account/set-plaid-credentials",
+              "id": "b3af2fcf-e61d-4b88-ae2f-10b126701388",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The unique client ID from Plaid",
+                      "key": "PlaidClientID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The unique secret key from Plaid",
+                      "key": "PlaidSecretKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The URL defines the Plaid environment. For example https://sandbox.plaid.com for sandbox, https://development.plaid.com for development, and https://production.plaid.com for production.",
+                      "key": "PlaidUrl",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/set-plaid-credentials",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "set-plaid-credentials"
+                  ]
+                },
+                "description": "This endpoint is used to configure the optional integration with a Plaid account. For more information please visit our integration section."
+              },
+              "response": [
+                {
+                  "id": "13f34f50-02af-4807-b4c2-a41171ca877d",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique client ID from Plaid",
+                          "key": "PlaidClientID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique secret key from Plaid",
+                          "key": "PlaidSecretKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The URL defines the Plaid environment. For example https://sandbox.plaid.com for sandbox, https://development.plaid.com for development, and https://production.plaid.com for production.",
+                          "key": "PlaidUrl",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/set-plaid-credentials",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "set-plaid-credentials"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"PlaidClientID\": \"<string>\",\n  \"PlaidSecretKey\": \"<string>\",\n  \"PlaidUrl\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:56.000Z",
+                  "updatedAt": "2026-10-22T02:54:56.000Z",
+                  "uid": "35240-13f34f50-02af-4807-b4c2-a41171ca877d"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:56.000Z",
+              "updatedAt": "2026-10-22T02:54:56.000Z",
+              "uid": "35240-b3af2fcf-e61d-4b88-ae2f-10b126701388"
+            }
+          ],
+          "id": "dbc5204a-7321-4dcb-ad38-dc3e458407c3",
+          "createdAt": "2026-10-22T02:54:56.000Z",
+          "updatedAt": "2026-10-22T02:54:56.000Z",
+          "uid": "35240-dbc5204a-7321-4dcb-ad38-dc3e458407c3"
+        },
+        {
+          "name": "set-flinks-credentials",
+          "item": [
+            {
+              "name": "account/set-flinks-credentials",
+              "id": "f69eb648-e059-4d9c-975f-187f04218ad9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The unique API URL from Flinks",
+                      "key": "FlinksUrl",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/set-flinks-credentials",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "set-flinks-credentials"
+                  ]
+                },
+                "description": "This endpoint is used to configure the optional integration with a Flinks account. For more information please visit our integration section."
+              },
+              "response": [
+                {
+                  "id": "07bb00b5-8329-4629-bea6-01c8d2714a99",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique API URL from Flinks",
+                          "key": "FlinksUrl",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/set-flinks-credentials",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "set-flinks-credentials"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"FlinksUrl\": \"<string>\",\n  \"Status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:56.000Z",
+                  "updatedAt": "2026-10-22T02:54:56.000Z",
+                  "uid": "35240-07bb00b5-8329-4629-bea6-01c8d2714a99"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:56.000Z",
+              "updatedAt": "2026-10-22T02:54:56.000Z",
+              "uid": "35240-f69eb648-e059-4d9c-975f-187f04218ad9"
+            }
+          ],
+          "id": "05ca3fd6-36d7-4e17-85d4-fa676e68b2cb",
+          "createdAt": "2026-10-22T02:54:56.000Z",
+          "updatedAt": "2026-10-22T02:54:56.000Z",
+          "uid": "35240-05ca3fd6-36d7-4e17-85d4-fa676e68b2cb"
+        },
+        {
+          "name": "set-inverite-credentials",
+          "item": [
+            {
+              "name": "account/set-inverite-credentials",
+              "id": "fdf74800-2593-4cbc-9ac2-bc19e29b927e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The unique API Key from Inverite",
+                      "key": "InveriteAPIKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The unique API URL from Inverite (Sandbox or Production)",
+                      "key": "InveriteUrl",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/set-inverite-credentials",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "set-inverite-credentials"
+                  ]
+                },
+                "description": "This endpoint is used to configure the optional integration with a Inverite account. For more information please visit our integration section."
+              },
+              "response": [
+                {
+                  "id": "ca369bf8-7eda-45ec-87d5-90cb86123028",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique API Key from Inverite",
+                          "key": "InveriteAPIKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique API URL from Inverite (Sandbox or Production)",
+                          "key": "InveriteUrl",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/set-inverite-credentials",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "set-inverite-credentials"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"InveriteAPIKey\": \"<string>\",\n  \"InveriteUrl\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:56.000Z",
+                  "updatedAt": "2026-10-22T02:54:56.000Z",
+                  "uid": "35240-ca369bf8-7eda-45ec-87d5-90cb86123028"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:56.000Z",
+              "updatedAt": "2026-10-22T02:54:56.000Z",
+              "uid": "35240-fdf74800-2593-4cbc-9ac2-bc19e29b927e"
+            }
+          ],
+          "id": "851597bb-d2ab-405f-892f-e5a9e3504863",
+          "createdAt": "2026-10-22T02:54:56.000Z",
+          "updatedAt": "2026-10-22T02:54:56.000Z",
+          "uid": "35240-851597bb-d2ab-405f-892f-e5a9e3504863"
+        },
+        {
+          "name": "set-global-pay-credentials",
+          "item": [
+            {
+              "name": "account/set-global-pay-credentials",
+              "id": "e2643007-8f72-449a-9f9a-0310ad0e084b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Your unique Global Pay app ID",
+                      "key": "GlobalPayAppID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Your unique Global Pay shared secret",
+                      "key": "GlobalPaySharedSecret",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/set-global-pay-credentials",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "set-global-pay-credentials"
+                  ]
+                },
+                "description": "This endpoint is used to configure the optional integration with a Global Pay account. For more information please visit our integration section."
+              },
+              "response": [
+                {
+                  "id": "bc7aa47f-ef10-41bb-981b-6e24dba2e74c",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Your unique Global Pay app ID",
+                          "key": "GlobalPayAppID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Your unique Global Pay shared secret",
+                          "key": "GlobalPaySharedSecret",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/set-global-pay-credentials",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "set-global-pay-credentials"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"GlobalPayAppID\": \"<string>\",\n  \"GlobalPaySharedSecret\": \"<string>\",\n  \"Status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:56.000Z",
+                  "updatedAt": "2026-10-22T02:54:56.000Z",
+                  "uid": "35240-bc7aa47f-ef10-41bb-981b-6e24dba2e74c"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:56.000Z",
+              "updatedAt": "2026-10-22T02:54:56.000Z",
+              "uid": "35240-e2643007-8f72-449a-9f9a-0310ad0e084b"
+            }
+          ],
+          "id": "7fe1bb96-58fd-470b-ba20-f4a3a66e0955",
+          "createdAt": "2026-10-22T02:54:56.000Z",
+          "updatedAt": "2026-10-22T02:54:56.000Z",
+          "uid": "35240-7fe1bb96-58fd-470b-ba20-f4a3a66e0955"
+        }
+      ],
+      "id": "883dafdb-49a6-4d05-a205-c9283e6eb588",
+      "createdAt": "2026-10-22T02:54:56.000Z",
+      "updatedAt": "2026-10-22T02:54:56.000Z",
+      "uid": "35240-883dafdb-49a6-4d05-a205-c9283e6eb588"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

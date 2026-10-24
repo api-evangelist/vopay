@@ -1,0 +1,1448 @@
+{
+  "info": {
+    "_postman_id": "74fdd997-0ca6-40d9-8971-011b52f7d56b",
+    "name": "Integrations and Support Webhook Endpoints API",
+    "description": "The Integrations and Support API defines endpoints for configuring integrations with Plaid, Flinks, Inverite, and Global Pay, managing API keys, and handling support tickets. It also includes endpoints for setting and testing webhook URLs, and fetching webhook notifications for account and partner accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:57:15.000Z",
+    "updatedAt": "2026-10-22T02:57:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-74fdd997-0ca6-40d9-8971-011b52f7d56b"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "webhook-url",
+          "item": [
+            {
+              "name": "info",
+              "item": [
+                {
+                  "name": "account/webhook-url/info",
+                  "id": "11ca61f8-18ac-4929-951c-c71bb8aee25d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/webhook-url/info?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "webhook-url",
+                        "info"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint will retrieve your webhook URL."
+                  },
+                  "response": [
+                    {
+                      "id": "fa46f42a-c994-4514-8489-0ae824eb0d1a",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/webhook-url/info?AccountID=<string>&Key=<string>&Signature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "webhook-url",
+                            "info"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Webhooks\": {\n    \"0\": {\n      \"Event\": \"<string>\",\n      \"Url\": \"<string>\"\n    }\n  },\n  \"WebHookURL\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:57:16.000Z",
+                      "updatedAt": "2026-10-22T02:57:16.000Z",
+                      "uid": "35240-fa46f42a-c994-4514-8489-0ae824eb0d1a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:16.000Z",
+                  "updatedAt": "2026-10-22T02:57:16.000Z",
+                  "uid": "35240-11ca61f8-18ac-4929-951c-c71bb8aee25d"
+                }
+              ],
+              "id": "ed2a32df-b9da-4f51-8d41-a8dc790dd24b",
+              "createdAt": "2026-10-22T02:57:16.000Z",
+              "updatedAt": "2026-10-22T02:57:16.000Z",
+              "uid": "35240-ed2a32df-b9da-4f51-8d41-a8dc790dd24b"
+            },
+            {
+              "name": "test",
+              "item": [
+                {
+                  "name": "account/webhook-url/test",
+                  "id": "652cb6f8-a635-4d37-94f5-d9d012b51592",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The type of webhook notification you wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction. Default is transaction.",
+                          "key": "Type",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A custom JSON payload to send to the webhook URL. If not provided, a sample payload will be generated based on the Type parameter.",
+                          "key": "Payload",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/webhook-url/test",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "webhook-url",
+                        "test"
+                      ]
+                    },
+                    "description": "In this endpoint, you will be able to test your webhook URL. We will send you an example of the payload that you will receive."
+                  },
+                  "response": [
+                    {
+                      "id": "61a455eb-2339-4bb4-a3f8-ea4a73a120fa",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The type of webhook notification you wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction. Default is transaction.",
+                              "key": "Type",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A custom JSON payload to send to the webhook URL. If not provided, a sample payload will be generated based on the Type parameter.",
+                              "key": "Payload",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/webhook-url/test",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "webhook-url",
+                            "test"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:57:16.000Z",
+                      "updatedAt": "2026-10-22T02:57:16.000Z",
+                      "uid": "35240-61a455eb-2339-4bb4-a3f8-ea4a73a120fa"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:16.000Z",
+                  "updatedAt": "2026-10-22T02:57:16.000Z",
+                  "uid": "35240-652cb6f8-a635-4d37-94f5-d9d012b51592"
+                }
+              ],
+              "id": "cf0a2253-681d-4597-b562-2106dd7a756b",
+              "createdAt": "2026-10-22T02:57:16.000Z",
+              "updatedAt": "2026-10-22T02:57:16.000Z",
+              "uid": "35240-cf0a2253-681d-4597-b562-2106dd7a756b"
+            },
+            {
+              "name": "account/webhook-url",
+              "id": "07eb3d33-8906-4c86-81b0-6c2535b54e8a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "URL where the users want us to send their notifications. This parameter has to be a valid URL. If the field Disabled is added, this field can be optional; otherwise, it will consider as mandatory",
+                      "key": "WebHookUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction, virtualaccountcreated. If left blank changes will be applied to all webhook types.",
+                      "key": "Type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If this parameter is present WebHookUrl is not mandatory.",
+                      "key": "Disabled",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account/webhook-url",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "webhook-url"
+                  ]
+                },
+                "description": "This endpoint will allow the user to add or modify a webhook URL.\n\nThe purpose of the webhook URL is to notify users of any changes in transaction status, paylink status, account status, account verification status, as well as bank account creation, scheduled transaction creation, batch request processed, and batch request failed."
+              },
+              "response": [
+                {
+                  "id": "b23e7baa-ae87-40a0-943f-9d1186f96760",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "URL where the users want us to send their notifications. This parameter has to be a valid URL. If the field Disabled is added, this field can be optional; otherwise, it will consider as mandatory",
+                          "key": "WebHookUrl",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction, virtualaccountcreated. If left blank changes will be applied to all webhook types.",
+                          "key": "Type",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "If this parameter is present WebHookUrl is not mandatory.",
+                          "key": "Disabled",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/webhook-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "webhook-url"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:57:16.000Z",
+                  "updatedAt": "2026-10-22T02:57:16.000Z",
+                  "uid": "35240-b23e7baa-ae87-40a0-943f-9d1186f96760"
+                }
+              ],
+              "createdAt": "2026-10-22T02:57:16.000Z",
+              "updatedAt": "2026-10-22T02:57:16.000Z",
+              "uid": "35240-07eb3d33-8906-4c86-81b0-6c2535b54e8a"
+            }
+          ],
+          "id": "db36de1a-1d51-426c-b31c-a8bc2f5b4353",
+          "createdAt": "2026-10-22T02:57:16.000Z",
+          "updatedAt": "2026-10-22T02:57:16.000Z",
+          "uid": "35240-db36de1a-1d51-426c-b31c-a8bc2f5b4353"
+        },
+        {
+          "name": "webhooks",
+          "item": [
+            {
+              "name": "account/webhooks",
+              "id": "1874fe10-0f9d-4dd5-b7d4-6b0d4567909d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account/webhooks?AccountID=<string>&Key=<string>&Signature=<string>&Type=<string>&WebhookID=<string>&NotificationStatus=<string>&StartDate=<string>&EndDate=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account",
+                    "webhooks"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The type of webhook notification you wish to fetch. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction.",
+                      "key": "Type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of webhook notifications you wish to fetch.",
+                      "key": "WebhookID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter webhook notification by status. Possible values are: new, processed, failed, deprecated.",
+                      "key": "NotificationStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                      "key": "StartDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                      "key": "EndDate",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint can be used to fetch a list of sent webhook notifications. Maximum date range is 1 month. If no date range is provided, it will default to the past 30 days."
+              },
+              "response": [
+                {
+                  "id": "672c68f9-8937-4da3-998b-e40f3fcb57f1",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/webhooks?AccountID=<string>&Key=<string>&Signature=<string>&Type=<string>&WebhookID=<string>&NotificationStatus=<string>&StartDate=<string>&EndDate=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "webhooks"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The type of webhook notification you wish to fetch. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction.",
+                          "key": "Type",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of webhook notifications you wish to fetch.",
+                          "key": "WebhookID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter webhook notification by status. Possible values are: new, processed, failed, deprecated.",
+                          "key": "NotificationStatus",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                          "key": "StartDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                          "key": "EndDate",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Webhooks\": {\n    \"0\": {\n      \"EventID\": \"<integer>\",\n      \"Event\": \"<string>\",\n      \"Module\": \"<string>\",\n      \"WebhookID\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"NotificationStatus\": \"<string>\",\n      \"DateSent\": \"<dateTime>\",\n      \"WebhookUrl\": \"<string>\",\n      \"ResponseText\": \"<string>\",\n      \"ResponseStatusCode\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:57:16.000Z",
+                  "updatedAt": "2026-10-22T02:57:16.000Z",
+                  "uid": "35240-672c68f9-8937-4da3-998b-e40f3fcb57f1"
+                }
+              ],
+              "createdAt": "2026-10-22T02:57:16.000Z",
+              "updatedAt": "2026-10-22T02:57:16.000Z",
+              "uid": "35240-1874fe10-0f9d-4dd5-b7d4-6b0d4567909d"
+            }
+          ],
+          "id": "4840c88d-d3d0-49d9-8e53-3923e10cccca",
+          "createdAt": "2026-10-22T02:57:16.000Z",
+          "updatedAt": "2026-10-22T02:57:16.000Z",
+          "uid": "35240-4840c88d-d3d0-49d9-8e53-3923e10cccca"
+        },
+        {
+          "name": "webhook",
+          "item": [
+            {
+              "name": "resend",
+              "item": [
+                {
+                  "name": "account/webhook/resend",
+                  "id": "f07a3361-0105-4a8a-aa49-04bc32c16b6a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The event ID of the webhook notification you wish to resend. This ID can be fetched using the GET /account/webhooks endpoint.",
+                          "key": "EventID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account/webhook/resend",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "webhook",
+                        "resend"
+                      ]
+                    },
+                    "description": "This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.\n\nThe event ID can be fetched using the GET /account/webhooks endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "7c99956c-e377-48c4-9bc4-00e844c0d8e6",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The event ID of the webhook notification you wish to resend. This ID can be fetched using the GET /account/webhooks endpoint.",
+                              "key": "EventID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/webhook/resend",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "webhook",
+                            "resend"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:57:16.000Z",
+                      "updatedAt": "2026-10-22T02:57:16.000Z",
+                      "uid": "35240-7c99956c-e377-48c4-9bc4-00e844c0d8e6"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:16.000Z",
+                  "updatedAt": "2026-10-22T02:57:16.000Z",
+                  "uid": "35240-f07a3361-0105-4a8a-aa49-04bc32c16b6a"
+                }
+              ],
+              "id": "ced80435-4d23-4b8c-b27e-dfb99dd669a2",
+              "createdAt": "2026-10-22T02:57:16.000Z",
+              "updatedAt": "2026-10-22T02:57:16.000Z",
+              "uid": "35240-ced80435-4d23-4b8c-b27e-dfb99dd669a2"
+            }
+          ],
+          "id": "14b2d3de-de7a-4a00-8904-3f1b65171d58",
+          "createdAt": "2026-10-22T02:57:16.000Z",
+          "updatedAt": "2026-10-22T02:57:16.000Z",
+          "uid": "35240-14b2d3de-de7a-4a00-8904-3f1b65171d58"
+        }
+      ],
+      "id": "5a30a6ab-bc08-4625-b0cb-fab23616dea2",
+      "createdAt": "2026-10-22T02:57:16.000Z",
+      "updatedAt": "2026-10-22T02:57:16.000Z",
+      "uid": "35240-5a30a6ab-bc08-4625-b0cb-fab23616dea2"
+    },
+    {
+      "name": "partner",
+      "item": [
+        {
+          "name": "webhook-url",
+          "item": [
+            {
+              "name": "info",
+              "item": [
+                {
+                  "name": "partner/webhook-url/info",
+                  "id": "d3c201c1-3768-48ae-91b6-0f2710dc309a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/webhook-url/info?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "webhook-url",
+                        "info"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint will retrieve your webhook URL."
+                  },
+                  "response": [
+                    {
+                      "id": "42fd04de-d728-415c-9724-6faad994ed1d",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/webhook-url/info?AccountID=<string>&Key=<string>&Signature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "webhook-url",
+                            "info"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"WebHookURL\": \"<string>\",\n  \"Webhooks\": {\n    \"0\": {\n      \"Event\": \"<string>\",\n      \"Url\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:57:16.000Z",
+                      "updatedAt": "2026-10-22T02:57:16.000Z",
+                      "uid": "35240-42fd04de-d728-415c-9724-6faad994ed1d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:16.000Z",
+                  "updatedAt": "2026-10-22T02:57:16.000Z",
+                  "uid": "35240-d3c201c1-3768-48ae-91b6-0f2710dc309a"
+                }
+              ],
+              "id": "25a98a72-4efa-484d-b9ca-bb0dea598f62",
+              "createdAt": "2026-10-22T02:57:16.000Z",
+              "updatedAt": "2026-10-22T02:57:16.000Z",
+              "uid": "35240-25a98a72-4efa-484d-b9ca-bb0dea598f62"
+            },
+            {
+              "name": "test",
+              "item": [
+                {
+                  "name": "partner/webhook-url/test",
+                  "id": "38c7bf04-9a86-4bc1-9207-b4d33a2edeb2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/webhook-url/test?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "webhook-url",
+                        "test"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "In this endpoint, you will be able to test your webhook URL. We will send you an example of the payload that you will receive."
+                  },
+                  "response": [
+                    {
+                      "id": "fe8ad144-da81-4b39-b462-2974eda55ad5",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/webhook-url/test?AccountID=<string>&Key=<string>&Signature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "webhook-url",
+                            "test"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:57:16.000Z",
+                      "updatedAt": "2026-10-22T02:57:16.000Z",
+                      "uid": "35240-fe8ad144-da81-4b39-b462-2974eda55ad5"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:16.000Z",
+                  "updatedAt": "2026-10-22T02:57:16.000Z",
+                  "uid": "35240-38c7bf04-9a86-4bc1-9207-b4d33a2edeb2"
+                }
+              ],
+              "id": "16178c28-12d8-4e64-8bd7-506e69a2ecea",
+              "createdAt": "2026-10-22T02:57:16.000Z",
+              "updatedAt": "2026-10-22T02:57:16.000Z",
+              "uid": "35240-16178c28-12d8-4e64-8bd7-506e69a2ecea"
+            },
+            {
+              "name": "partner/webhook-url",
+              "id": "c5da388c-186b-4cab-ae05-a03b6bc80bf1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "URL where the users want us to send their notifications. This parameter has to be a valid URL. If the field Disabled is added, this field can be optional; otherwise, it will consider as mandatory",
+                      "key": "WebHookUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction. If left blank it will apply to all types.",
+                      "key": "Type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If this parameter is present WebHookUrl is not mandatory.",
+                      "key": "Disabled",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/partner/webhook-url",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner",
+                    "webhook-url"
+                  ]
+                },
+                "description": "This endpoint will allow the user to modify the webhook URL.\n\nThe purpose of the webhook URL is to notify users of any changes in the status of the accounts you create."
+              },
+              "response": [
+                {
+                  "id": "351a421e-eb52-4970-84c9-8281c0d9aaed",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "URL where the users want us to send their notifications. This parameter has to be a valid URL. If the field Disabled is added, this field can be optional; otherwise, it will consider as mandatory",
+                          "key": "WebHookUrl",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The type of webhook notification the users wish to receive. Options are: transaction, paylink, bankaccount, debitcard, creditcard, batchrequest, batchdetail, accountonboarding, accountonboardingapplication, scheduledtransactions, accountverifications, virtualtransaction. If left blank it will apply to all types.",
+                          "key": "Type",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "If this parameter is present WebHookUrl is not mandatory.",
+                          "key": "Disabled",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/webhook-url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "webhook-url"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:57:16.000Z",
+                  "updatedAt": "2026-10-22T02:57:16.000Z",
+                  "uid": "35240-351a421e-eb52-4970-84c9-8281c0d9aaed"
+                }
+              ],
+              "createdAt": "2026-10-22T02:57:16.000Z",
+              "updatedAt": "2026-10-22T02:57:16.000Z",
+              "uid": "35240-c5da388c-186b-4cab-ae05-a03b6bc80bf1"
+            }
+          ],
+          "id": "167586e5-637d-4569-94d2-396602f84745",
+          "createdAt": "2026-10-22T02:57:16.000Z",
+          "updatedAt": "2026-10-22T02:57:16.000Z",
+          "uid": "35240-167586e5-637d-4569-94d2-396602f84745"
+        },
+        {
+          "name": "webhooks",
+          "item": [
+            {
+              "name": "partner/webhooks",
+              "id": "b91d1846-ef4a-4438-a79b-ec7c59799b79",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/partner/webhooks?AccountID=<string>&Key=<string>&Signature=<string>&WebhookID=<string>&StartDate=<string>&EndDate=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner",
+                    "webhooks"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of webhook notifications you wish to fetch.",
+                      "key": "WebhookID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                      "key": "StartDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                      "key": "EndDate",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint can be used to fetch a list of sent webhook notifications. Maximum date range is 1 month. If no date range is provided, it will default to the past 30 days."
+              },
+              "response": [
+                {
+                  "id": "8fad5401-66c7-424f-86fc-f76ddcd33f61",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/webhooks?AccountID=<string>&Key=<string>&Signature=<string>&WebhookID=<string>&StartDate=<string>&EndDate=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "webhooks"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of webhook notifications you wish to fetch.",
+                          "key": "WebhookID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The start date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                          "key": "StartDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The end date of the date range you wish to fetch. Format: YYYY-MM-DD",
+                          "key": "EndDate",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Webhooks\": {\n    \"0\": {\n      \"EventID\": \"<integer>\",\n      \"Event\": \"<string>\",\n      \"Module\": \"<string>\",\n      \"WebhookID\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"DateSent\": \"<dateTime>\",\n      \"WebhookUrl\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:57:16.000Z",
+                  "updatedAt": "2026-10-22T02:57:16.000Z",
+                  "uid": "35240-8fad5401-66c7-424f-86fc-f76ddcd33f61"
+                }
+              ],
+              "createdAt": "2026-10-22T02:57:16.000Z",
+              "updatedAt": "2026-10-22T02:57:16.000Z",
+              "uid": "35240-b91d1846-ef4a-4438-a79b-ec7c59799b79"
+            }
+          ],
+          "id": "f81e9bcf-5c5f-4bb2-9e89-a6dba269b73e",
+          "createdAt": "2026-10-22T02:57:16.000Z",
+          "updatedAt": "2026-10-22T02:57:16.000Z",
+          "uid": "35240-f81e9bcf-5c5f-4bb2-9e89-a6dba269b73e"
+        },
+        {
+          "name": "webhook",
+          "item": [
+            {
+              "name": "resend",
+              "item": [
+                {
+                  "name": "partner/webhook/resend",
+                  "id": "6d24942f-5462-426b-b63b-854ed3ab6f21",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The event ID of the webhook notification you wish to resend. This ID can be fetched using the GET /partner/webhooks endpoint.",
+                          "key": "EventID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/webhook/resend",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "webhook",
+                        "resend"
+                      ]
+                    },
+                    "description": "This endpoint will resend the webhook notification associated with the provided event ID. This is useful if you missed a webhook or if you need to reprocess a webhook.\n\nThe event ID can be fetched using the GET /partner/webhooks endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "b03c85c6-f58d-45a6-abdd-b2e7c5b57346",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The event ID of the webhook notification you wish to resend. This ID can be fetched using the GET /partner/webhooks endpoint.",
+                              "key": "EventID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/webhook/resend",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "webhook",
+                            "resend"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:57:16.000Z",
+                      "updatedAt": "2026-10-22T02:57:16.000Z",
+                      "uid": "35240-b03c85c6-f58d-45a6-abdd-b2e7c5b57346"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:57:16.000Z",
+                  "updatedAt": "2026-10-22T02:57:16.000Z",
+                  "uid": "35240-6d24942f-5462-426b-b63b-854ed3ab6f21"
+                }
+              ],
+              "id": "29a1360b-1dde-4c8f-bcdc-ee4caad7b7ac",
+              "createdAt": "2026-10-22T02:57:16.000Z",
+              "updatedAt": "2026-10-22T02:57:16.000Z",
+              "uid": "35240-29a1360b-1dde-4c8f-bcdc-ee4caad7b7ac"
+            }
+          ],
+          "id": "6d19b1bf-eca7-4558-bfc7-405ebaa4eb47",
+          "createdAt": "2026-10-22T02:57:16.000Z",
+          "updatedAt": "2026-10-22T02:57:16.000Z",
+          "uid": "35240-6d19b1bf-eca7-4558-bfc7-405ebaa4eb47"
+        }
+      ],
+      "id": "c0a035b9-2de8-4b16-a6c9-ea7ceec6babb",
+      "createdAt": "2026-10-22T02:57:16.000Z",
+      "updatedAt": "2026-10-22T02:57:16.000Z",
+      "uid": "35240-c0a035b9-2de8-4b16-a6c9-ea7ceec6babb"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

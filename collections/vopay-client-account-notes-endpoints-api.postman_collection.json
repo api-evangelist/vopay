@@ -1,0 +1,636 @@
+{
+  "info": {
+    "_postman_id": "4ccec023-bdee-4186-8508-2f1a149f3d0a",
+    "name": "Client Accounts Client Account Notes Endpoints API",
+    "description": "The Client Accounts API allows you to create, manage and retrieve information about client accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:52:50.000Z",
+    "updatedAt": "2026-10-22T02:52:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4ccec023-bdee-4186-8508-2f1a149f3d0a"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "client-accounts",
+          "item": [
+            {
+              "name": "notes",
+              "item": [
+                {
+                  "name": "add",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/notes/add",
+                      "id": "2544ffa3-9588-4375-ab35-5738e3687dd7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The note you want to add to the new record",
+                              "key": "Notes",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/notes/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "notes",
+                            "add"
+                          ]
+                        },
+                        "description": "This endpoint is used to add a note to your client account."
+                      },
+                      "response": [
+                        {
+                          "id": "05068e22-57ed-48fe-8c46-8ed1b18a08b0",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Client Account ID",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The note you want to add to the new record",
+                                  "key": "Notes",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/notes/add",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "notes",
+                                "add"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NoteID\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:52:51.000Z",
+                          "updatedAt": "2026-10-22T02:52:51.000Z",
+                          "uid": "35240-05068e22-57ed-48fe-8c46-8ed1b18a08b0"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:52:51.000Z",
+                      "updatedAt": "2026-10-22T02:52:51.000Z",
+                      "uid": "35240-2544ffa3-9588-4375-ab35-5738e3687dd7"
+                    }
+                  ],
+                  "id": "41a8dd30-9b83-411e-8164-bb75ed562ab8",
+                  "createdAt": "2026-10-22T02:52:51.000Z",
+                  "updatedAt": "2026-10-22T02:52:51.000Z",
+                  "uid": "35240-41a8dd30-9b83-411e-8164-bb75ed562ab8"
+                },
+                {
+                  "name": "edit",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/notes/edit",
+                      "id": "c1dd7543-5613-43a9-bdf7-a7916a2e01a8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The note you want to update the record to",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the note record you want to update",
+                              "key": "NoteID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/notes/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "notes",
+                            "edit"
+                          ]
+                        },
+                        "description": "This endpoint is used to edit a note associated with your client account."
+                      },
+                      "response": [
+                        {
+                          "id": "312d8857-d3ef-474b-b3d7-a999e0c004b2",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Client Account ID",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The note you want to update the record to",
+                                  "key": "Notes",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The ID of the note record you want to update",
+                                  "key": "NoteID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/notes/edit",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "notes",
+                                "edit"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NoteID\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:52:51.000Z",
+                          "updatedAt": "2026-10-22T02:52:51.000Z",
+                          "uid": "35240-312d8857-d3ef-474b-b3d7-a999e0c004b2"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:52:51.000Z",
+                      "updatedAt": "2026-10-22T02:52:51.000Z",
+                      "uid": "35240-c1dd7543-5613-43a9-bdf7-a7916a2e01a8"
+                    }
+                  ],
+                  "id": "5eaada56-c907-4a92-a0f3-0a80628a3a94",
+                  "createdAt": "2026-10-22T02:52:51.000Z",
+                  "updatedAt": "2026-10-22T02:52:51.000Z",
+                  "uid": "35240-5eaada56-c907-4a92-a0f3-0a80628a3a94"
+                },
+                {
+                  "name": "delete",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/notes/delete",
+                      "id": "b7d62272-4a46-4c8e-8afa-811890394202",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID of the note record you want to delete",
+                              "key": "NoteID",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/notes/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "notes",
+                            "delete"
+                          ]
+                        },
+                        "description": "This endpoint is used to delete a note record from you client account."
+                      },
+                      "response": [
+                        {
+                          "id": "e8fd57c3-e021-46e1-b26c-4880d5c8f155",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Client Account ID",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The ID of the note record you want to delete",
+                                  "key": "NoteID",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/notes/delete",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "notes",
+                                "delete"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:52:51.000Z",
+                          "updatedAt": "2026-10-22T02:52:51.000Z",
+                          "uid": "35240-e8fd57c3-e021-46e1-b26c-4880d5c8f155"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:52:51.000Z",
+                      "updatedAt": "2026-10-22T02:52:51.000Z",
+                      "uid": "35240-b7d62272-4a46-4c8e-8afa-811890394202"
+                    }
+                  ],
+                  "id": "ac60e700-9926-441f-8fb2-f31854c04c27",
+                  "createdAt": "2026-10-22T02:52:51.000Z",
+                  "updatedAt": "2026-10-22T02:52:51.000Z",
+                  "uid": "35240-ac60e700-9926-441f-8fb2-f31854c04c27"
+                },
+                {
+                  "name": "account/client-accounts/notes",
+                  "id": "97cf5fd8-51c4-4e85-9cb7-5fe8a6fd3633",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/notes?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&NoteID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "notes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID for a specific getting a specific note",
+                          "key": "NoteID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up all the notes associated with the given client account."
+                  },
+                  "response": [
+                    {
+                      "id": "b0c5fa75-551d-48a3-a067-084549dbc9b2",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/notes?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&NoteID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "notes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The ID for a specific getting a specific note",
+                              "key": "NoteID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Notes\": {\n    \"0\": {\n      \"NoteID\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"DateAdded\": \"<dateTime>\",\n      \"LastModified\": \"<dateTime>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:52:51.000Z",
+                      "updatedAt": "2026-10-22T02:52:51.000Z",
+                      "uid": "35240-b0c5fa75-551d-48a3-a067-084549dbc9b2"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:51.000Z",
+                  "updatedAt": "2026-10-22T02:52:51.000Z",
+                  "uid": "35240-97cf5fd8-51c4-4e85-9cb7-5fe8a6fd3633"
+                }
+              ],
+              "id": "66b030cb-11dc-460e-ae89-531be321b718",
+              "createdAt": "2026-10-22T02:52:51.000Z",
+              "updatedAt": "2026-10-22T02:52:51.000Z",
+              "uid": "35240-66b030cb-11dc-460e-ae89-531be321b718"
+            }
+          ],
+          "id": "037f4ad5-14d1-421d-ba0d-7f04fc0fa481",
+          "createdAt": "2026-10-22T02:52:51.000Z",
+          "updatedAt": "2026-10-22T02:52:51.000Z",
+          "uid": "35240-037f4ad5-14d1-421d-ba0d-7f04fc0fa481"
+        }
+      ],
+      "id": "a9281ffb-57bf-4bba-b8e2-b41d60e98b7d",
+      "createdAt": "2026-10-22T02:52:51.000Z",
+      "updatedAt": "2026-10-22T02:52:51.000Z",
+      "uid": "35240-a9281ffb-57bf-4bba-b8e2-b41d60e98b7d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

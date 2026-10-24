@@ -1,0 +1,627 @@
+{
+  "info": {
+    "_postman_id": "60cceb0f-27ab-4417-aad0-8cbb8122fd5f",
+    "name": "Global Cash Management Government Identifier Endpoints API",
+    "description": "The Global Cash Management API allows you to manage your recipient contacts, delivery channels, and delivery methods.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:54:49.000Z",
+    "updatedAt": "2026-10-22T02:54:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-60cceb0f-27ab-4417-aad0-8cbb8122fd5f"
+  },
+  "item": [
+    {
+      "name": "gcm",
+      "item": [
+        {
+          "name": "government-identifier",
+          "item": [
+            {
+              "name": "schemas",
+              "item": [
+                {
+                  "name": "gcm/government-identifier/schemas",
+                  "id": "edd18188-4f25-4277-bd76-8d5341621ea3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/government-identifier/schemas?AccountID=<string>&Key=<string>&Signature=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "government-identifier",
+                        "schemas"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Get a list of all the available government identifier schemas."
+                  },
+                  "response": [
+                    {
+                      "id": "057b1aef-b4ec-47ac-a93f-2dfb82f19c4f",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/government-identifier/schemas?AccountID=<string>&Key=<string>&Signature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "government-identifier",
+                            "schemas"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"GovernmentIdentifierSchemaValues\": {\n    \"ppn\": \"<string>\",\n    \"ssn\": \"<string>\",\n    \"ein\": \"<string>\",\n    \"tin\": \"<string>\",\n    \"aln\": \"<string>\",\n    \"cus\": \"<string>\",\n    \"idc\": \"<string>\",\n    \"dln\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:54:50.000Z",
+                      "updatedAt": "2026-10-22T02:54:50.000Z",
+                      "uid": "35240-057b1aef-b4ec-47ac-a93f-2dfb82f19c4f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:49.000Z",
+                  "updatedAt": "2026-10-22T02:54:49.000Z",
+                  "uid": "35240-edd18188-4f25-4277-bd76-8d5341621ea3"
+                }
+              ],
+              "id": "d2cb7979-25e5-4ff0-860a-b099869d62ce",
+              "createdAt": "2026-10-22T02:54:49.000Z",
+              "updatedAt": "2026-10-22T02:54:49.000Z",
+              "uid": "35240-d2cb7979-25e5-4ff0-860a-b099869d62ce"
+            },
+            {
+              "name": "add",
+              "item": [
+                {
+                  "name": "gcm/government-identifier/add",
+                  "id": "a626e00e-83cb-4a19-aa47-d103a3570d66",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/government-identifier/add?AccountID=<string>&Key=<string>&Signature=<string>&CorridorID=<string>&GovernmentIdentifierSchema=<string>&IDNumber=<string>&ClientAccountID=<string>&RecipientContactID=<string>&Country=<string>&ExpirationDate=<string>&IssueDate=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "government-identifier",
+                        "add"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The corridor ID",
+                          "key": "CorridorID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The government identifier schema",
+                          "key": "GovernmentIdentifierSchema",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The ID number",
+                          "key": "IDNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The recipient contact ID",
+                          "key": "RecipientContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The country",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The expiration date",
+                          "key": "ExpirationDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The issue date",
+                          "key": "IssueDate",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Add a new government identifier for a certain client account and corridor."
+                  },
+                  "response": [
+                    {
+                      "id": "2233998f-c3cd-4470-8e57-706d854b306c",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/government-identifier/add?AccountID=<string>&Key=<string>&Signature=<string>&CorridorID=<string>&GovernmentIdentifierSchema=<string>&IDNumber=<string>&ClientAccountID=<string>&RecipientContactID=<string>&Country=<string>&ExpirationDate=<string>&IssueDate=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "government-identifier",
+                            "add"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The corridor ID",
+                              "key": "CorridorID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The government identifier schema",
+                              "key": "GovernmentIdentifierSchema",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The ID number",
+                              "key": "IDNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The client account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The recipient contact ID",
+                              "key": "RecipientContactID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The country",
+                              "key": "Country",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The expiration date",
+                              "key": "ExpirationDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The issue date",
+                              "key": "IssueDate",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"GovernmentIdentifierToken\": \"<string>\",\n  \"ClientAccountID\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:54:50.000Z",
+                      "updatedAt": "2026-10-22T02:54:50.000Z",
+                      "uid": "35240-2233998f-c3cd-4470-8e57-706d854b306c"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:49.000Z",
+                  "updatedAt": "2026-10-22T02:54:49.000Z",
+                  "uid": "35240-a626e00e-83cb-4a19-aa47-d103a3570d66"
+                }
+              ],
+              "id": "4f5f76c9-ea79-4d4c-8029-e3d14353aade",
+              "createdAt": "2026-10-22T02:54:49.000Z",
+              "updatedAt": "2026-10-22T02:54:49.000Z",
+              "uid": "35240-4f5f76c9-ea79-4d4c-8029-e3d14353aade"
+            },
+            {
+              "name": "delete",
+              "item": [
+                {
+                  "name": "gcm/government-identifier/delete",
+                  "id": "75cd64d6-b326-4a72-b24d-f4cac1c8fbd1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/government-identifier/delete?AccountID=<string>&Key=<string>&Signature=<string>&GovernmentIdentifierToken=<string>&ClientAccountID=<string>&RecipientContactID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "government-identifier",
+                        "delete"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The token of the government identifier to be deleted",
+                          "key": "GovernmentIdentifierToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The recipient contact ID",
+                          "key": "RecipientContactID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Delete a government identifier for a certain client account."
+                  },
+                  "response": [
+                    {
+                      "id": "7e0ad6dd-4c58-41d3-ade5-05b4dc5cfeba",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/gcm/government-identifier/delete?AccountID=<string>&Key=<string>&Signature=<string>&GovernmentIdentifierToken=<string>&ClientAccountID=<string>&RecipientContactID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "gcm",
+                            "government-identifier",
+                            "delete"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The token of the government identifier to be deleted",
+                              "key": "GovernmentIdentifierToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The client account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The recipient contact ID",
+                              "key": "RecipientContactID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:54:50.000Z",
+                      "updatedAt": "2026-10-22T02:54:50.000Z",
+                      "uid": "35240-7e0ad6dd-4c58-41d3-ade5-05b4dc5cfeba"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:49.000Z",
+                  "updatedAt": "2026-10-22T02:54:49.000Z",
+                  "uid": "35240-75cd64d6-b326-4a72-b24d-f4cac1c8fbd1"
+                }
+              ],
+              "id": "117cdfef-33b9-4689-959d-456f9cbf290f",
+              "createdAt": "2026-10-22T02:54:49.000Z",
+              "updatedAt": "2026-10-22T02:54:49.000Z",
+              "uid": "35240-117cdfef-33b9-4689-959d-456f9cbf290f"
+            },
+            {
+              "name": "gcm/government-identifier",
+              "id": "74bef3f1-1120-4d84-accf-8678ab84ee45",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/gcm/government-identifier?AccountID=<string>&Key=<string>&Signature=<string>&CorridorID=<string>&ClientAccountID=<string>&RecipientContactID=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "gcm",
+                    "government-identifier"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The corridor ID",
+                      "key": "CorridorID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The client account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The recipient contact ID",
+                      "key": "RecipientContactID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get a list of all the stored government identifiers for a certain client account and corridor."
+              },
+              "response": [
+                {
+                  "id": "fd254036-ee05-4679-b187-82f5062b69ab",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gcm/government-identifier?AccountID=<string>&Key=<string>&Signature=<string>&CorridorID=<string>&ClientAccountID=<string>&RecipientContactID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gcm",
+                        "government-identifier"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The corridor ID",
+                          "key": "CorridorID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The client account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The recipient contact ID",
+                          "key": "RecipientContactID",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"GovernmentIdentifiers\": {\n    \"0\": {\n      \"CorridorID\": \"<string>\",\n      \"GovernmentIdentifierToken\": \"<string>\",\n      \"GovernmentIdentifierType\": \"<string>\",\n      \"IDNumber\": \"<string>\",\n      \"ExpirationDate\": \"<string>\",\n      \"IssueDate\": \"<string>\",\n      \"IssuingCountry\": \"<string>\",\n      \"IssuingAbbreviation\": \"<string>\",\n      \"IssuingCountryCode\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:50.000Z",
+                  "updatedAt": "2026-10-22T02:54:50.000Z",
+                  "uid": "35240-fd254036-ee05-4679-b187-82f5062b69ab"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:49.000Z",
+              "updatedAt": "2026-10-22T02:54:49.000Z",
+              "uid": "35240-74bef3f1-1120-4d84-accf-8678ab84ee45"
+            }
+          ],
+          "id": "eb09c9cb-98da-43be-9dfd-c3414281ac89",
+          "createdAt": "2026-10-22T02:54:49.000Z",
+          "updatedAt": "2026-10-22T02:54:49.000Z",
+          "uid": "35240-eb09c9cb-98da-43be-9dfd-c3414281ac89"
+        }
+      ],
+      "id": "b7dbb840-d363-43d2-ab2d-3cdf1f7802ad",
+      "createdAt": "2026-10-22T02:54:49.000Z",
+      "updatedAt": "2026-10-22T02:54:49.000Z",
+      "uid": "35240-b7dbb840-d363-43d2-ab2d-3cdf1f7802ad"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

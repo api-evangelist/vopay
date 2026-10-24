@@ -1,0 +1,465 @@
+{
+  "info": {
+    "_postman_id": "0ac44f91-8009-4e17-abb6-5599778ecee7",
+    "name": "Client Accounts Client Account Labels Endpoints API",
+    "description": "The Client Accounts API allows you to create, manage and retrieve information about client accounts.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:52:39.000Z",
+    "updatedAt": "2026-10-22T02:52:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0ac44f91-8009-4e17-abb6-5599778ecee7"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "client-accounts",
+          "item": [
+            {
+              "name": "label",
+              "item": [
+                {
+                  "name": "add",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/label/add",
+                      "id": "e4693dfa-ee22-402c-a3cc-0e4c6ef3a048",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Client account ID of customer who's account we want to add the label to",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) New Label",
+                              "key": "Label",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/label/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "label",
+                            "add"
+                          ]
+                        },
+                        "description": "This endpoint allows you to create a Label."
+                      },
+                      "response": [
+                        {
+                          "id": "dc77cc7e-4562-45a8-8155-aaf554565b56",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Client account ID of customer who's account we want to add the label to",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) New Label",
+                                  "key": "Label",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/label/add",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "label",
+                                "add"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Label\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:52:40.000Z",
+                          "updatedAt": "2026-10-22T02:52:40.000Z",
+                          "uid": "35240-dc77cc7e-4562-45a8-8155-aaf554565b56"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:52:40.000Z",
+                      "updatedAt": "2026-10-22T02:52:40.000Z",
+                      "uid": "35240-e4693dfa-ee22-402c-a3cc-0e4c6ef3a048"
+                    }
+                  ],
+                  "id": "85def407-6a37-4020-87cd-72a328f15206",
+                  "createdAt": "2026-10-22T02:52:40.000Z",
+                  "updatedAt": "2026-10-22T02:52:40.000Z",
+                  "uid": "35240-85def407-6a37-4020-87cd-72a328f15206"
+                },
+                {
+                  "name": "delete",
+                  "item": [
+                    {
+                      "name": "account/client-accounts/label/delete",
+                      "id": "d5a8ed8b-5bbe-4a73-8595-6e7acaec34d2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Client account ID of customer who's account we want to delete the label from",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The label you want to delete",
+                              "key": "Label",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/label/delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "label",
+                            "delete"
+                          ]
+                        },
+                        "description": "This endpoint allows you to delete a Label."
+                      },
+                      "response": [
+                        {
+                          "id": "59b0a6c2-1f85-46f8-8436-957392f960e9",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Client account ID of customer who's account we want to delete the label from",
+                                  "key": "ClientAccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The label you want to delete",
+                                  "key": "Label",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/account/client-accounts/label/delete",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "account",
+                                "client-accounts",
+                                "label",
+                                "delete"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:52:40.000Z",
+                          "updatedAt": "2026-10-22T02:52:40.000Z",
+                          "uid": "35240-59b0a6c2-1f85-46f8-8436-957392f960e9"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:52:40.000Z",
+                      "updatedAt": "2026-10-22T02:52:40.000Z",
+                      "uid": "35240-d5a8ed8b-5bbe-4a73-8595-6e7acaec34d2"
+                    }
+                  ],
+                  "id": "979a3314-f5d8-41b0-9be2-be2564408a7a",
+                  "createdAt": "2026-10-22T02:52:40.000Z",
+                  "updatedAt": "2026-10-22T02:52:40.000Z",
+                  "uid": "35240-979a3314-f5d8-41b0-9be2-be2564408a7a"
+                },
+                {
+                  "name": "account/client-accounts/label",
+                  "id": "37e32a73-7b65-4aa9-9365-30496aed72ab",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account/client-accounts/label?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account",
+                        "client-accounts",
+                        "label"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client account ID of customer who's labels you want to retrieve",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint returns all the created Labels for the given Client account."
+                  },
+                  "response": [
+                    {
+                      "id": "3a50e3aa-9e20-40c8-9cda-ac8247ce40fb",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account/client-accounts/label?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account",
+                            "client-accounts",
+                            "label"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client account ID of customer who's labels you want to retrieve",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Labels\": {\n    \"0\": {\n      \"Label\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:52:40.000Z",
+                      "updatedAt": "2026-10-22T02:52:40.000Z",
+                      "uid": "35240-3a50e3aa-9e20-40c8-9cda-ac8247ce40fb"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:52:40.000Z",
+                  "updatedAt": "2026-10-22T02:52:40.000Z",
+                  "uid": "35240-37e32a73-7b65-4aa9-9365-30496aed72ab"
+                }
+              ],
+              "id": "0406d714-ac28-496a-9468-ceed29922f03",
+              "createdAt": "2026-10-22T02:52:40.000Z",
+              "updatedAt": "2026-10-22T02:52:40.000Z",
+              "uid": "35240-0406d714-ac28-496a-9468-ceed29922f03"
+            }
+          ],
+          "id": "12616913-b61e-4a03-ae41-71cfb87c88d7",
+          "createdAt": "2026-10-22T02:52:40.000Z",
+          "updatedAt": "2026-10-22T02:52:40.000Z",
+          "uid": "35240-12616913-b61e-4a03-ae41-71cfb87c88d7"
+        }
+      ],
+      "id": "04ac4721-b05c-4120-8b81-67f27a43d8f7",
+      "createdAt": "2026-10-22T02:52:40.000Z",
+      "updatedAt": "2026-10-22T02:52:40.000Z",
+      "uid": "35240-04ac4721-b05c-4120-8b81-67f27a43d8f7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

@@ -1,0 +1,933 @@
+{
+  "info": {
+    "_postman_id": "f6d66b05-cebb-476e-b92e-8395ddb13378",
+    "name": "Payment Rails Journal Entry Endpoints API",
+    "description": "The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:55:23.000Z",
+    "updatedAt": "2026-10-22T02:55:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f6d66b05-cebb-476e-b92e-8395ddb13378"
+  },
+  "item": [
+    {
+      "name": "journal-entry",
+      "item": [
+        {
+          "name": "add",
+          "item": [
+            {
+              "name": "journal-entry/add",
+              "id": "275bab71-c10f-4554-8881-968a78c92157",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) 3 character currency code for the currency to mark the currency that was used for the journal entry.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The credit amount for the journal entry. Either one of CreditAmount or DebitAmount must be provided.",
+                      "key": "CreditAmount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The debit amount for the journal entry. Either one of CreditAmount or DebitAmount must be provided.",
+                      "key": "DebitAmount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The transaction date for the journal entry. Must be specified in YYYY-MM-DD format.",
+                      "key": "TransactionDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) Full name of the indivdual or business for whom the journal entry is being created.",
+                      "key": "FullName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The transaction status for the journal entry.",
+                      "key": "Status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the journal entry.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the journal entry.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The Client Account ID that the journal entry belong to.",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/journal-entry/add",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "journal-entry",
+                    "add"
+                  ]
+                },
+                "description": "This endpoint allows you to add journal entry into the VoPay platform. Journals do not represent real funds. They are considered offbook funds, and are designed to represent transactions that have occured outside the VoPay platform."
+              },
+              "response": [
+                {
+                  "id": "aeac3f84-46b1-4c16-98aa-d3087f6aeb9c",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) 3 character currency code for the currency to mark the currency that was used for the journal entry.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The credit amount for the journal entry. Either one of CreditAmount or DebitAmount must be provided.",
+                          "key": "CreditAmount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The debit amount for the journal entry. Either one of CreditAmount or DebitAmount must be provided.",
+                          "key": "DebitAmount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The transaction date for the journal entry. Must be specified in YYYY-MM-DD format.",
+                          "key": "TransactionDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "(Required) Full name of the indivdual or business for whom the journal entry is being created.",
+                          "key": "FullName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The transaction status for the journal entry.",
+                          "key": "Status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the journal entry.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the journal entry.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The Client Account ID that the journal entry belong to.",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/journal-entry/add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "journal-entry",
+                        "add"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"JournalEntryID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:55:23.000Z",
+                  "updatedAt": "2026-10-22T02:55:23.000Z",
+                  "uid": "35240-aeac3f84-46b1-4c16-98aa-d3087f6aeb9c"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:23.000Z",
+              "updatedAt": "2026-10-22T02:55:23.000Z",
+              "uid": "35240-275bab71-c10f-4554-8881-968a78c92157"
+            }
+          ],
+          "id": "b0195e03-7163-4f0e-9635-cb4becdb752c",
+          "createdAt": "2026-10-22T02:55:23.000Z",
+          "updatedAt": "2026-10-22T02:55:23.000Z",
+          "uid": "35240-b0195e03-7163-4f0e-9635-cb4becdb752c"
+        },
+        {
+          "name": "edit",
+          "item": [
+            {
+              "name": "journal-entry/edit",
+              "id": "c564a64a-b677-4dd5-9b95-464739df5621",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Searches for a journal entry transaction with the specified journal entry ID. If the journal entry ID is not found in our system, an error will be thrown.",
+                      "key": "JournalEntryID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "3 character currency code for the currency to mark the currency that was used for the journal entry. If specified, the specified journal entry will be updated with the new value.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The credit amount for the journal entry. Only one of the CreditAmount or DebitAmount can be non-zero.",
+                      "key": "CreditAmount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The debit amount for the journal entry. Only one of the CreditAmount or DebitAmount can be non-zero.",
+                      "key": "DebitAmount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The transaction date for the journal entry. Should be specified in YYYY-MM-DD format. If specified, the specified journal entry will be updated with the new value.",
+                      "key": "TransactionDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Full name of the indivdual or business for whom the journal entry is being created. If specified, the specified journal entry will be updated with the new value.",
+                      "key": "FullName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The transaction status for the journal entry. If specified, the specified journal entry will be updated with the new value.",
+                      "key": "Status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the journal entry transaction. If specified, the specified journal entry will be updated with the new value.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the journal entry transaction. If specified, the specified journal entry will be updated with the new value.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The Client Account ID that the journal entry belongs to. If specified, the specified journal entry will be updated with the new value.",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/journal-entry/edit",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "journal-entry",
+                    "edit"
+                  ]
+                },
+                "description": "This endpoint allows you to edit journal entry that was previously saved the VoPay platform."
+              },
+              "response": [
+                {
+                  "id": "0276cd65-1432-4cf2-916d-b20313b2f5ad",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Searches for a journal entry transaction with the specified journal entry ID. If the journal entry ID is not found in our system, an error will be thrown.",
+                          "key": "JournalEntryID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "3 character currency code for the currency to mark the currency that was used for the journal entry. If specified, the specified journal entry will be updated with the new value.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The credit amount for the journal entry. Only one of the CreditAmount or DebitAmount can be non-zero.",
+                          "key": "CreditAmount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The debit amount for the journal entry. Only one of the CreditAmount or DebitAmount can be non-zero.",
+                          "key": "DebitAmount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The transaction date for the journal entry. Should be specified in YYYY-MM-DD format. If specified, the specified journal entry will be updated with the new value.",
+                          "key": "TransactionDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Full name of the indivdual or business for whom the journal entry is being created. If specified, the specified journal entry will be updated with the new value.",
+                          "key": "FullName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The transaction status for the journal entry. If specified, the specified journal entry will be updated with the new value.",
+                          "key": "Status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the journal entry transaction. If specified, the specified journal entry will be updated with the new value.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the journal entry transaction. If specified, the specified journal entry will be updated with the new value.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The Client Account ID that the journal entry belongs to. If specified, the specified journal entry will be updated with the new value.",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/journal-entry/edit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "journal-entry",
+                        "edit"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"JournalEntryID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:55:23.000Z",
+                  "updatedAt": "2026-10-22T02:55:23.000Z",
+                  "uid": "35240-0276cd65-1432-4cf2-916d-b20313b2f5ad"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:23.000Z",
+              "updatedAt": "2026-10-22T02:55:23.000Z",
+              "uid": "35240-c564a64a-b677-4dd5-9b95-464739df5621"
+            }
+          ],
+          "id": "16da712c-2872-4ce4-a7cd-05a31f3913a6",
+          "createdAt": "2026-10-22T02:55:23.000Z",
+          "updatedAt": "2026-10-22T02:55:23.000Z",
+          "uid": "35240-16da712c-2872-4ce4-a7cd-05a31f3913a6"
+        },
+        {
+          "name": "delete",
+          "item": [
+            {
+              "name": "journal-entry/delete",
+              "id": "018df630-2550-43fc-b8fe-82b8ac6acda3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Searches for a journal entry with the specified journal entry ID. If the journal entry ID is not found in our system, an error will be thrown.",
+                      "key": "JournalEntryID",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/journal-entry/delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "journal-entry",
+                    "delete"
+                  ]
+                },
+                "description": "This endpoint allows you to delete journal entry that was previously saved the VoPay platform."
+              },
+              "response": [
+                {
+                  "id": "09c1f608-23dc-46d1-bb0d-b6dcfd7bb1d9",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Searches for a journal entry with the specified journal entry ID. If the journal entry ID is not found in our system, an error will be thrown.",
+                          "key": "JournalEntryID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/journal-entry/delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "journal-entry",
+                        "delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"JournalEntryID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:55:23.000Z",
+                  "updatedAt": "2026-10-22T02:55:23.000Z",
+                  "uid": "35240-09c1f608-23dc-46d1-bb0d-b6dcfd7bb1d9"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:23.000Z",
+              "updatedAt": "2026-10-22T02:55:23.000Z",
+              "uid": "35240-018df630-2550-43fc-b8fe-82b8ac6acda3"
+            }
+          ],
+          "id": "5b912252-6584-4768-a323-3eb2990439bc",
+          "createdAt": "2026-10-22T02:55:23.000Z",
+          "updatedAt": "2026-10-22T02:55:23.000Z",
+          "uid": "35240-5b912252-6584-4768-a323-3eb2990439bc"
+        },
+        {
+          "name": "transfer",
+          "item": [
+            {
+              "name": "journal-entry/transfer",
+              "id": "e13857c5-6bc6-497f-a164-8f0370226b03",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The transfer amount.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) 3 character currency code for the currency to mark the currency of the transfered funds.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Account ID of the account for which you want to transfer funds to. If you are transfering funds between client accounts, this field should be empty.",
+                      "key": "RecipientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of the client account transferring the funds",
+                      "key": "DebitorClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of the client account receiving the funds",
+                      "key": "RecipientClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the transfer",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/journal-entry/transfer",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "journal-entry",
+                    "transfer"
+                  ]
+                },
+                "description": "This endpoint allows you to transfer offbook funds between VoPay accounts and/or Client accounts. This endpoint will create two journal entries, one to debit the source account and one to credit the destination account."
+              },
+              "response": [
+                {
+                  "id": "5686de69-a717-4350-827c-a9874285792b",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The transfer amount.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) 3 character currency code for the currency to mark the currency of the transfered funds.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Account ID of the account for which you want to transfer funds to. If you are transfering funds between client accounts, this field should be empty.",
+                          "key": "RecipientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ID of the client account transferring the funds",
+                          "key": "DebitorClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ID of the client account receiving the funds",
+                          "key": "RecipientClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transfer",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/journal-entry/transfer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "journal-entry",
+                        "transfer"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"JournalEntryID\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T02:55:23.000Z",
+                  "updatedAt": "2026-10-22T02:55:23.000Z",
+                  "uid": "35240-5686de69-a717-4350-827c-a9874285792b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:55:23.000Z",
+              "updatedAt": "2026-10-22T02:55:23.000Z",
+              "uid": "35240-e13857c5-6bc6-497f-a164-8f0370226b03"
+            }
+          ],
+          "id": "4a5b190c-0757-4133-b618-1dc577fa7b39",
+          "createdAt": "2026-10-22T02:55:23.000Z",
+          "updatedAt": "2026-10-22T02:55:23.000Z",
+          "uid": "35240-4a5b190c-0757-4133-b618-1dc577fa7b39"
+        },
+        {
+          "name": "journal-entry",
+          "id": "dfacbb8b-78d4-4d16-aed8-d7fd12629965",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Your account ID",
+                  "key": "AccountID",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for the account",
+                  "key": "Key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Hashed signature for the request",
+                  "key": "Signature",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Searches for a journal entry transaction with the specified journal entry ID. If the journal entry ID is not found in our system, an error will be thrown. If a journal entry ID is not passed then it will return all the journal entry for the account.",
+                  "key": "JournalEntryID",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/journal-entry",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "journal-entry"
+              ]
+            },
+            "description": "This endpoint allows you to get the journal entry that was previously saved the VoPay platform."
+          },
+          "response": [
+            {
+              "id": "3ce71f9f-a664-4e55-bf7c-b35c2c2cae7a",
+              "name": "New Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Searches for a journal entry transaction with the specified journal entry ID. If the journal entry ID is not found in our system, an error will be thrown. If a journal entry ID is not passed then it will return all the journal entry for the account.",
+                      "key": "JournalEntryID",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/journal-entry",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "journal-entry"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Journals\": {\n    \"0\": {\n      \"TransactionID\": \"<integer>\",\n      \"ClientAccountID\": \"<string>\",\n      \"WalletID\": \"<string>\",\n      \"FullName\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"CreditAmount\": \"<number>\",\n      \"DebitAmount\": \"<string>\",\n      \"TransactionDate\": \"<date>\",\n      \"Status\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\",\n      \"DateAdded\": \"<date>\",\n      \"LastModified\": \"<dateTime>\"\n    }\n  }\n}",
+              "createdAt": "2026-10-22T02:55:23.000Z",
+              "updatedAt": "2026-10-22T02:55:23.000Z",
+              "uid": "35240-3ce71f9f-a664-4e55-bf7c-b35c2c2cae7a"
+            }
+          ],
+          "createdAt": "2026-10-22T02:55:23.000Z",
+          "updatedAt": "2026-10-22T02:55:23.000Z",
+          "uid": "35240-dfacbb8b-78d4-4d16-aed8-d7fd12629965"
+        }
+      ],
+      "id": "7981a730-7c96-4856-816d-0f35d09e1313",
+      "createdAt": "2026-10-22T02:55:23.000Z",
+      "updatedAt": "2026-10-22T02:55:23.000Z",
+      "uid": "35240-7981a730-7c96-4856-816d-0f35d09e1313"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}

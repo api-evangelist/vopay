@@ -1,0 +1,3231 @@
+{
+  "info": {
+    "_postman_id": "ce765b08-aa08-4864-99ba-c875566edb7d",
+    "name": "Payment Rails EFT Endpoint API",
+    "description": "The Payment Rails API allows you to manage transactions in your account. You can cancel transactions, refund transactions, and confirm flagged transactions.\n\nContact Support:\n Name: API Support\n Email: help@vopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:54:12.000Z",
+    "updatedAt": "2026-10-22T02:54:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ce765b08-aa08-4864-99ba-c875566edb7d"
+  },
+  "item": [
+    {
+      "name": "eft",
+      "item": [
+        {
+          "name": "fund",
+          "item": [
+            {
+              "name": "status",
+              "item": [
+                {
+                  "name": "eft/fund/status",
+                  "id": "c55fb2c1-2e47-4f57-b64c-76f077013ed1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eft/fund/status?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eft",
+                        "fund",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique ID of the transaction",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up the status of a fund transaction."
+                  },
+                  "response": [
+                    {
+                      "id": "45e3a15f-67ce-4e0d-8beb-425e8360f21a",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eft/fund/status?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eft",
+                            "fund",
+                            "status"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The unique ID of the transaction",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"Timestamp\": \"<dateTime>\",\n  \"SubTransactions\": {\n    \"0\": {\n      \"TransactionID\": \"<integer>\",\n      \"TransactionStatus\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:54:13.000Z",
+                      "updatedAt": "2026-10-22T02:54:13.000Z",
+                      "uid": "35240-45e3a15f-67ce-4e0d-8beb-425e8360f21a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-c55fb2c1-2e47-4f57-b64c-76f077013ed1"
+                }
+              ],
+              "id": "3162438d-12c3-48bd-8ac0-44b6fbc1859c",
+              "createdAt": "2026-10-22T02:54:13.000Z",
+              "updatedAt": "2026-10-22T02:54:13.000Z",
+              "uid": "35240-3162438d-12c3-48bd-8ac0-44b6fbc1859c"
+            },
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "eft/fund/transaction",
+                  "id": "5abf5aaa-de05-4949-97fa-566e392725fa",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eft/fund/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eft",
+                        "fund",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique ID of the fund transaction",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up and return the full details on a single fund transaction. Fund transactions take money out of the customer's bank account and deposit them into your account."
+                  },
+                  "response": [
+                    {
+                      "id": "1ed24751-2405-4af6-a75a-61403d4b1e41",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eft/fund/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eft",
+                            "fund",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The unique ID of the fund transaction",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"HoldAmount\": \"<number>\",\n  \"LastModified\": \"<dateTime>\",\n  \"CompanyName*\": \"<string>\",\n  \"FirstName*\": \"<string>\",\n  \"LastName*\": \"<string>\",\n  \"Address1\": \"<string>\",\n  \"Address2\": \"<string>\",\n  \"City\": \"<string>\",\n  \"Province/State\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"PostalCode/Zipcode\": \"<string>\",\n  \"FinancialInstitutionNumber\": \"<string>\",\n  \"BranchTransitNumber\": \"<string>\",\n  \"AccountNumber\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"ScheduledTransactionID\": \"<integer>\",\n  \"TransactionTypeCode\": \"<string>\",\n  \"HoldReleaseDateTime\": \"<dateTime>\",\n  \"PayLinkDetails\": {\n    \"0\": {\n      \"FirstName\": \"<string>\",\n      \"LastName\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"Note\": \"<string>\",\n      \"SenderName\": \"<string>\",\n      \"PayLinkStatus\": \"<string>\",\n      \"FailureReason\": \"<string>\",\n      \"PayLinkCreated\": \"<date>\"\n    }\n  },\n  \"GLCode\": \"<string>\",\n  \"SubTransactions\": {\n    \"0\": {\n      \"TransactionID\": \"<integer>\",\n      \"TransactionStatus\": \"<string>\",\n      \"TransactionDateTime\": \"<dateTime>\",\n      \"Amount\": \"<number>\",\n      \"Currency\": \"<string>\",\n      \"HoldAmount\": \"<number>\",\n      \"LastModified\": \"<dateTime>\",\n      \"CompanyName*\": \"<string>\",\n      \"FirstName*\": \"<string>\",\n      \"LastName*\": \"<string>\",\n      \"Address1\": \"<string>\",\n      \"Address2\": \"<string>\",\n      \"City\": \"<string>\",\n      \"Province\": \"<string>\",\n      \"Country\": \"<string>\",\n      \"PostalCode\": \"<string>\",\n      \"FinancialInstitutionNumber\": \"<string>\",\n      \"BranchTransitNumber\": \"<string>\",\n      \"AccountNumber\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-10-22T02:54:13.000Z",
+                      "updatedAt": "2026-10-22T02:54:13.000Z",
+                      "uid": "35240-1ed24751-2405-4af6-a75a-61403d4b1e41"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-5abf5aaa-de05-4949-97fa-566e392725fa"
+                }
+              ],
+              "id": "e6501ebe-ef68-4d29-8fef-7b7f254dc755",
+              "createdAt": "2026-10-22T02:54:13.000Z",
+              "updatedAt": "2026-10-22T02:54:13.000Z",
+              "uid": "35240-e6501ebe-ef68-4d29-8fef-7b7f254dc755"
+            },
+            {
+              "name": "schedule",
+              "item": [
+                {
+                  "name": "cancel",
+                  "item": [
+                    {
+                      "name": "eft/fund/schedule/cancel",
+                      "id": "26ed23d0-290b-4f24-bebb-5d60b2840adc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the schedule transaction to cancel",
+                              "key": "ScheduledTransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eft/fund/schedule/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eft",
+                            "fund",
+                            "schedule",
+                            "cancel"
+                          ]
+                        },
+                        "description": "This endpoint is used to cancel a scheduled transaction and all remaining payments belonging to that scheduled tranaction. Only scheduled transactions with the status in progress can be cancelled.\n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+                      },
+                      "response": [
+                        {
+                          "id": "e2bb0cd0-fa77-4052-a27c-f868c2c8430e",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the schedule transaction to cancel",
+                                  "key": "ScheduledTransactionID",
+                                  "value": "<integer>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eft/fund/schedule/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eft",
+                                "fund",
+                                "schedule",
+                                "cancel"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Status\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:54:13.000Z",
+                          "updatedAt": "2026-10-22T02:54:13.000Z",
+                          "uid": "35240-e2bb0cd0-fa77-4052-a27c-f868c2c8430e"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:54:13.000Z",
+                      "updatedAt": "2026-10-22T02:54:13.000Z",
+                      "uid": "35240-26ed23d0-290b-4f24-bebb-5d60b2840adc"
+                    }
+                  ],
+                  "id": "c8d5fb7c-f25b-44be-9557-9f5864bcf971",
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-c8d5fb7c-f25b-44be-9557-9f5864bcf971"
+                },
+                {
+                  "name": "edit",
+                  "item": [
+                    {
+                      "name": "eft/fund/schedule/edit",
+                      "id": "a527deeb-ecc4-4f0d-b389-60ccb44bc794",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the schedule transaction to edit",
+                              "key": "ScheduledTransactionID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) The date of the upcoming payment. This payment has to belong to the list of upcoming payments of the scheduled transaction to edit.",
+                              "key": "UpcomingPayment",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "The new amount of the upcoming payment to edit, If this value is 0 we consider that upcoming payment as cancelled",
+                              "key": "Amount",
+                              "value": "<number>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eft/fund/schedule/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eft",
+                            "fund",
+                            "schedule",
+                            "edit"
+                          ]
+                        },
+                        "description": "This endpoint is used to edit or cancel an upcoming payment (only the amount can be edited).\n\nNotes. If the field amount is set as 0 or it is not provided, we consider the upcoming payment as cancelled.\n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+                      },
+                      "response": [
+                        {
+                          "id": "4f69749d-dc64-4aeb-af1e-637a4cddbe2f",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the schedule transaction to edit",
+                                  "key": "ScheduledTransactionID",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "(Required) The date of the upcoming payment. This payment has to belong to the list of upcoming payments of the scheduled transaction to edit.",
+                                  "key": "UpcomingPayment",
+                                  "value": "<date>"
+                                },
+                                {
+                                  "description": "The new amount of the upcoming payment to edit, If this value is 0 we consider that upcoming payment as cancelled",
+                                  "key": "Amount",
+                                  "value": "<number>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eft/fund/schedule/edit",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eft",
+                                "fund",
+                                "schedule",
+                                "edit"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:54:13.000Z",
+                          "updatedAt": "2026-10-22T02:54:13.000Z",
+                          "uid": "35240-4f69749d-dc64-4aeb-af1e-637a4cddbe2f"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:54:13.000Z",
+                      "updatedAt": "2026-10-22T02:54:13.000Z",
+                      "uid": "35240-a527deeb-ecc4-4f0d-b389-60ccb44bc794"
+                    }
+                  ],
+                  "id": "c817e5c0-37b2-4476-b803-ad9d4778e567",
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-c817e5c0-37b2-4476-b803-ad9d4778e567"
+                },
+                {
+                  "name": "eft/fund/schedule",
+                  "id": "cd325f8e-7032-44e6-a100-af14b43ca568",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to schedule in the transactions",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) The frequency of the scheduled transaction: single or recurring.",
+                          "key": "Frequency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: weekly, biweekly, semi-monthly, monthly, bimonthly, 3 months, 6 months, yearly.",
+                          "key": "NameOfFrequency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date from which the schedule will be started",
+                          "key": "ScheduleStartDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date when the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                          "key": "ScheduleEndDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Number of payments after which the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                          "key": "EndingAfterPayments",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) Description of the schedule transaction",
+                          "key": "Description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's first name",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's last name",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Company's name",
+                          "key": "CompanyName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's address line 1",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's city",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's province specified using two character abbreviations (eg. BC, AB)",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's postal code.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's bank account number for funds to be debited from.",
+                          "key": "AccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Three digit institution number for a Canadian bank.",
+                          "key": "FinancialInstitutionNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Transit number for the customer's account.",
+                          "key": "BranchTransitNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                          "key": "SemiMonthlyFrequencyType",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Flinks account",
+                          "key": "FlinksAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Flinks account",
+                          "key": "FlinksLoginID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidPublicToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidAccessToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account. If you use this field PlaidPublicToken, PlaidAccessToken, and PlaidAccountID are not neccesary",
+                          "key": "PlaidProcessorToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with an MX account.",
+                          "key": "MxAuthorizationCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with an Inverite account",
+                          "key": "InveriteRequestGUID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/eft/fund/schedule",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eft",
+                        "fund",
+                        "schedule"
+                      ]
+                    },
+                    "description": "This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment.\n\nEither CompanyName OR FirstName and LastName must be provided.\n\nIf either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required.\n\nIf the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.\n\nIf a ClientAccountID is provided, the client account's first/last name, address, and default bank account will be used for the transaction.\n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment."
+                  },
+                  "response": [
+                    {
+                      "id": "b9b5934f-d57c-4ffa-935e-7a2d05112e5f",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to schedule in the transactions",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) The frequency of the scheduled transaction: single or recurring.",
+                              "key": "Frequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: weekly, biweekly, semi-monthly, monthly, bimonthly, 3 months, 6 months, yearly.",
+                              "key": "NameOfFrequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date from which the schedule will be started",
+                              "key": "ScheduleStartDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date when the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "ScheduleEndDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Number of payments after which the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "EndingAfterPayments",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) Description of the schedule transaction",
+                              "key": "Description",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's first name",
+                              "key": "FirstName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's last name",
+                              "key": "LastName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Company's name",
+                              "key": "CompanyName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's address line 1",
+                              "key": "Address1",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's city",
+                              "key": "City",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's province specified using two character abbreviations (eg. BC, AB)",
+                              "key": "Province",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                              "key": "Country",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's postal code.",
+                              "key": "PostalCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's bank account number for funds to be debited from.",
+                              "key": "AccountNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Three digit institution number for a Canadian bank.",
+                              "key": "FinancialInstitutionNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Transit number for the customer's account.",
+                              "key": "BranchTransitNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency.",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                              "key": "SemiMonthlyFrequencyType",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transaction.",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional note to associate with the transaction.",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Flinks account",
+                              "key": "FlinksAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Flinks account",
+                              "key": "FlinksLoginID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                              "key": "Token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Plaid account",
+                              "key": "PlaidPublicToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Plaid account",
+                              "key": "PlaidAccessToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Plaid account",
+                              "key": "PlaidAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Plaid account. If you use this field PlaidPublicToken, PlaidAccessToken, and PlaidAccountID are not neccesary",
+                              "key": "PlaidProcessorToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with an MX account.",
+                              "key": "MxAuthorizationCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with an Inverite account",
+                              "key": "InveriteRequestGUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                              "key": "IdempotencyKey",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eft/fund/schedule",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eft",
+                            "fund",
+                            "schedule"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Amount\": \"<number>\",\n  \"ScheduledTransactionID\": \"<integer>\",\n  \"Frequency\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ScheduleStartDate\": \"<date>\",\n  \"Status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:54:13.000Z",
+                      "updatedAt": "2026-10-22T02:54:13.000Z",
+                      "uid": "35240-b9b5934f-d57c-4ffa-935e-7a2d05112e5f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-cd325f8e-7032-44e6-a100-af14b43ca568"
+                }
+              ],
+              "id": "a7f24a6e-d281-46e2-9357-c104d6b619a8",
+              "createdAt": "2026-10-22T02:54:13.000Z",
+              "updatedAt": "2026-10-22T02:54:13.000Z",
+              "uid": "35240-a7f24a6e-d281-46e2-9357-c104d6b619a8"
+            },
+            {
+              "name": "eft/fund",
+              "id": "1a33ba89-9e6e-4759-9397-8fcbb9d1496a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's first name",
+                      "key": "FirstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's last name",
+                      "key": "LastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Company's name",
+                      "key": "CompanyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's address line 1",
+                      "key": "Address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's city",
+                      "key": "City",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's province specified using two character abbreviations (eg. BC, AB)",
+                      "key": "Province",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's postal code.",
+                      "key": "PostalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's bank account number for funds to be debited from.",
+                      "key": "AccountNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Three digit institution number for a Canadian bank.",
+                      "key": "FinancialInstitutionNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Transit number for the customer's account.",
+                      "key": "BranchTransitNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount to debit from the customer's bank account.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency.  NOTE: Currently the eft/fund API endpoint only supports CAD and USD transactions.",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Iq11 verification level ID. Accepted values are: 1 (no NSF check), 2 (NSF check done at time of transaction), 3 (NSF check done prior to processing the transaction), and 4 (NSF check done at the time of transaction and prior to processing the transaction). Value is defaulted to the default value set on the account.",
+                      "key": "Iq11VerificationLevelID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the transaction.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Flinks account",
+                      "key": "FlinksAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Flinks account",
+                      "key": "FlinksLoginID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Plaid account",
+                      "key": "PlaidPublicToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Plaid account",
+                      "key": "PlaidAccessToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Plaid account",
+                      "key": "PlaidAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Plaid account. If you use this field PlaidPublicToken, PlaidAccessToken, and PlaidAccountID are not neccesary",
+                      "key": "PlaidProcessorToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with an MX account.",
+                      "key": "MxAuthorizationCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with an Inverite account",
+                      "key": "InveriteRequestGUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "TransactionLabel overrides originator short name",
+                      "key": "TransactionLabel",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the wallet to associate with the transaction. Requires ClientAccountID to be provided.",
+                      "key": "WalletID",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/eft/fund",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "eft",
+                    "fund"
+                  ]
+                },
+                "description": "This endpoint is used to fund your VoPay account by debiting funds from the specified customer's bank account. In the endpoint below, either CompanyName OR FirstName and LastName must be provided.\n\nIf either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required.\n\nIf the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.\n\nIf a ClientAccountID is provided, the client account's first/last name, address, and default bank account will be used for the transaction."
+              },
+              "response": [
+                {
+                  "id": "e1630657-f7f4-4d53-be30-16e43d94fc12",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's first name",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's last name",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Company's name",
+                          "key": "CompanyName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's address line 1",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's city",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's province specified using two character abbreviations (eg. BC, AB)",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's postal code.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's bank account number for funds to be debited from.",
+                          "key": "AccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Three digit institution number for a Canadian bank.",
+                          "key": "FinancialInstitutionNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Transit number for the customer's account.",
+                          "key": "BranchTransitNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to debit from the customer's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency.  NOTE: Currently the eft/fund API endpoint only supports CAD and USD transactions.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Iq11 verification level ID. Accepted values are: 1 (no NSF check), 2 (NSF check done at time of transaction), 3 (NSF check done prior to processing the transaction), and 4 (NSF check done at the time of transaction and prior to processing the transaction). Value is defaulted to the default value set on the account.",
+                          "key": "Iq11VerificationLevelID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Flinks account",
+                          "key": "FlinksAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Flinks account",
+                          "key": "FlinksLoginID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidPublicToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidAccessToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account. If you use this field PlaidPublicToken, PlaidAccessToken, and PlaidAccountID are not neccesary",
+                          "key": "PlaidProcessorToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with an MX account.",
+                          "key": "MxAuthorizationCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with an Inverite account",
+                          "key": "InveriteRequestGUID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "TransactionLabel overrides originator short name",
+                          "key": "TransactionLabel",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the wallet to associate with the transaction. Requires ClientAccountID to be provided.",
+                          "key": "WalletID",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/eft/fund",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eft",
+                        "fund"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"Iq11\": \"<boolean>\",\n  \"Flagged\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-e1630657-f7f4-4d53-be30-16e43d94fc12"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:13.000Z",
+              "updatedAt": "2026-10-22T02:54:13.000Z",
+              "uid": "35240-1a33ba89-9e6e-4759-9397-8fcbb9d1496a"
+            }
+          ],
+          "id": "61763e05-fbe2-4dd2-b3c6-38e9536fa6a3",
+          "createdAt": "2026-10-22T02:54:13.000Z",
+          "updatedAt": "2026-10-22T02:54:13.000Z",
+          "uid": "35240-61763e05-fbe2-4dd2-b3c6-38e9536fa6a3"
+        },
+        {
+          "name": "withdraw",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "eft/withdraw/transaction",
+                  "id": "6312c69f-3ebd-411b-bc6b-c6bfc2d5149a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eft/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eft",
+                        "withdraw",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Unique ID of the withdraw transaction",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up details on a single withdraw transaction. Withdraw transactions debit funds from your account and deposit them into the customer's account."
+                  },
+                  "response": [
+                    {
+                      "id": "c07b365e-576c-421d-a59e-05f58d8f719f",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eft/withdraw/transaction?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eft",
+                            "withdraw",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Unique ID of the withdraw transaction",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"TransactionDateTime\": \"<dateTime>\",\n  \"Amount\": \"<number>\",\n  \"Currency\": \"<string>\",\n  \"HoldAmount\": \"<number>\",\n  \"LastModified\": \"<dateTime>\",\n  \"CompanyName*\": \"<string>\",\n  \"FirstName*\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"Address1\": \"<string>\",\n  \"Address2\": \"<string>\",\n  \"City\": \"<string>\",\n  \"Province\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"PostalCode\": \"<string>\",\n  \"FinancialInstitutionNumber\": \"<string>\",\n  \"BranchTransitNumber\": \"<string>\",\n  \"AccountNumber\": \"<string>\",\n  \"ClientReferenceNumber\": \"<string>\",\n  \"TransactionTypeCode\": \"<string>\",\n  \"PayLinkDetails\": {\n    \"0\": {\n      \"FirstName\": \"<string>\",\n      \"LastName\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"Note\": \"<string>\",\n      \"SenderName\": \"<string>\",\n      \"PayLinkStatus\": \"<string>\",\n      \"FailureReason\": \"<string>\",\n      \"PayLinkCreated\": \"<date>\"\n    }\n  },\n  \"GLCode\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:54:13.000Z",
+                      "updatedAt": "2026-10-22T02:54:13.000Z",
+                      "uid": "35240-c07b365e-576c-421d-a59e-05f58d8f719f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-6312c69f-3ebd-411b-bc6b-c6bfc2d5149a"
+                }
+              ],
+              "id": "606506ab-1c56-4402-947c-7fa9f6c76f1e",
+              "createdAt": "2026-10-22T02:54:13.000Z",
+              "updatedAt": "2026-10-22T02:54:13.000Z",
+              "uid": "35240-606506ab-1c56-4402-947c-7fa9f6c76f1e"
+            },
+            {
+              "name": "status",
+              "item": [
+                {
+                  "name": "eft/withdraw/status",
+                  "id": "34ae07a7-eba0-4199-9309-b73440997f65",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eft/withdraw/status?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eft",
+                        "withdraw",
+                        "status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The unique ID of the withdraw transaction",
+                          "key": "TransactionID",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint is used to look up the status of a withdraw transaction."
+                  },
+                  "response": [
+                    {
+                      "id": "cd6aa508-ffab-4840-aef1-4c0fdf0a1ef1",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/eft/withdraw/status?AccountID=<string>&Key=<string>&Signature=<string>&TransactionID=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eft",
+                            "withdraw",
+                            "status"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The unique ID of the withdraw transaction",
+                              "key": "TransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"TransactionStatus\": \"<string>\",\n  \"Timestamp\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-22T02:54:13.000Z",
+                      "updatedAt": "2026-10-22T02:54:13.000Z",
+                      "uid": "35240-cd6aa508-ffab-4840-aef1-4c0fdf0a1ef1"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-34ae07a7-eba0-4199-9309-b73440997f65"
+                }
+              ],
+              "id": "06b7a1f6-12f8-447f-9612-43af1cdf7285",
+              "createdAt": "2026-10-22T02:54:13.000Z",
+              "updatedAt": "2026-10-22T02:54:13.000Z",
+              "uid": "35240-06b7a1f6-12f8-447f-9612-43af1cdf7285"
+            },
+            {
+              "name": "schedule",
+              "item": [
+                {
+                  "name": "cancel",
+                  "item": [
+                    {
+                      "name": "eft/withdraw/schedule/cancel",
+                      "id": "a6b61d9b-4652-4dd8-8615-9edfeb3df3cc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the schedule transaction to cancel",
+                              "key": "ScheduledTransactionID",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eft/withdraw/schedule/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eft",
+                            "withdraw",
+                            "schedule",
+                            "cancel"
+                          ]
+                        },
+                        "description": "This endpoint is used to cancel a scheduled transaction and all remaining payments belonging to that scheduled tranaction. Only scheduled transactions with the status in progress can be cancelled.\n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+                      },
+                      "response": [
+                        {
+                          "id": "c7df4e5e-7710-4095-a22e-94808101ddd3",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the schedule transaction to cancel",
+                                  "key": "ScheduledTransactionID",
+                                  "value": "<integer>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eft/withdraw/schedule/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eft",
+                                "withdraw",
+                                "schedule",
+                                "cancel"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Status\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:54:13.000Z",
+                          "updatedAt": "2026-10-22T02:54:13.000Z",
+                          "uid": "35240-c7df4e5e-7710-4095-a22e-94808101ddd3"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:54:13.000Z",
+                      "updatedAt": "2026-10-22T02:54:13.000Z",
+                      "uid": "35240-a6b61d9b-4652-4dd8-8615-9edfeb3df3cc"
+                    }
+                  ],
+                  "id": "752e97f8-ef29-4530-97b8-792d74426928",
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-752e97f8-ef29-4530-97b8-792d74426928"
+                },
+                {
+                  "name": "edit",
+                  "item": [
+                    {
+                      "name": "eft/withdraw/schedule/edit",
+                      "id": "4ace6e1b-a305-4555-b00c-81068e9f8510",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ID of the schedule transaction to edit",
+                              "key": "ScheduledTransactionID",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) The date of the upcoming payment. This payment has to belong to the list of upcoming payments of the scheduled transaction to edit.",
+                              "key": "UpcomingPayment",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "(Required) The new date of the upcoming payment. This will update the UpcomingPayment date for this particular payment. Note that the UpcomingPayment date for all other payments, that belongs to the same scheduled transaction, will not be affected.",
+                              "key": "NewDate",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "The new amount of the upcoming payment to edit, If this value is 0 we consider that upcoming payment as cancelled",
+                              "key": "Amount",
+                              "value": "<number>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eft/withdraw/schedule/edit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eft",
+                            "withdraw",
+                            "schedule",
+                            "edit"
+                          ]
+                        },
+                        "description": "This endpoint is used to edit or cancel an upcoming payment (only the amount can be edited).\n\nNotes. If the field amount is set as 0 or it is not provided, we consider the upcoming payment as cancelled.\n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment"
+                      },
+                      "response": [
+                        {
+                          "id": "be634460-7f94-4d44-9272-140c043b4aeb",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "(Required) Your account ID",
+                                  "key": "AccountID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) API key for the account",
+                                  "key": "Key",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) Hashed signature for the request",
+                                  "key": "Signature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ID of the schedule transaction to edit",
+                                  "key": "ScheduledTransactionID",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "(Required) The date of the upcoming payment. This payment has to belong to the list of upcoming payments of the scheduled transaction to edit.",
+                                  "key": "UpcomingPayment",
+                                  "value": "<date>"
+                                },
+                                {
+                                  "description": "(Required) The new date of the upcoming payment. This will update the UpcomingPayment date for this particular payment. Note that the UpcomingPayment date for all other payments, that belongs to the same scheduled transaction, will not be affected.",
+                                  "key": "NewDate",
+                                  "value": "<date>"
+                                },
+                                {
+                                  "description": "The new amount of the upcoming payment to edit, If this value is 0 we consider that upcoming payment as cancelled",
+                                  "key": "Amount",
+                                  "value": "<number>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/eft/withdraw/schedule/edit",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "eft",
+                                "withdraw",
+                                "schedule",
+                                "edit"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:54:13.000Z",
+                          "updatedAt": "2026-10-22T02:54:13.000Z",
+                          "uid": "35240-be634460-7f94-4d44-9272-140c043b4aeb"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:54:13.000Z",
+                      "updatedAt": "2026-10-22T02:54:13.000Z",
+                      "uid": "35240-4ace6e1b-a305-4555-b00c-81068e9f8510"
+                    }
+                  ],
+                  "id": "10b77069-91ac-4daf-8c33-e9ac8a76458e",
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-10b77069-91ac-4daf-8c33-e9ac8a76458e"
+                },
+                {
+                  "name": "eft/withdraw/schedule",
+                  "id": "72d04ef7-e8e7-46f6-9bc5-87a510d4e063",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to schedule in the transactions",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) The frequency of the scheduled: single or recurring.",
+                          "key": "Frequency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: weekly, biweekly, semi-monthly, monthly, bimonthly, 3 months, 6 months, yearly.",
+                          "key": "NameOfFrequency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date from which the schedule will be started",
+                          "key": "ScheduleStartDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date when the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                          "key": "ScheduleEndDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Number of payments after which the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                          "key": "EndingAfterPayments",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) Description of the schedule transaction",
+                          "key": "Description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's first name",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's last name",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Company's name",
+                          "key": "CompanyName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's address line 1",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's city",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's province specified using two character abbreviations (eg. BC, AB)",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's postal code.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer's bank account number for funds to be debited from.",
+                          "key": "AccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Three digit institution number for a Canadian bank.",
+                          "key": "FinancialInstitutionNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Transit number for the customer's account.",
+                          "key": "BranchTransitNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency.",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                          "key": "SemiMonthlyFrequencyType",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Flinks account",
+                          "key": "FlinksAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Flinks account",
+                          "key": "FlinksLoginID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidPublicToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidAccessToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account. If you use this field PlaidPublicToken, PlaidAccessToken, and PlaidAccountID are not neccesary",
+                          "key": "PlaidProcessorToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with an MX account.",
+                          "key": "MxAuthorizationCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with an Inverite account",
+                          "key": "InveriteRequestGUID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/eft/withdraw/schedule",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eft",
+                        "withdraw",
+                        "schedule"
+                      ]
+                    },
+                    "description": "This endpoint is used to create a scheduled transaction ahead of time that can be a single or recurring payment.\n\nEither CompanyName OR FirstName and LastName must be provided.\n\nIf either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required.\n\nIf the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Country, and PostalCode and Province are required.\n\nIf a ClientAccountID is provided, the client account's first/last name, address, and default bank account will be used for the transaction.\n\nFor additional details of the scheduled transactions, please visit https://docs.vopay.com/docs/schedule-a-payment."
+                  },
+                  "response": [
+                    {
+                      "id": "a01b9ba3-a8fd-46d9-a78b-a38958a794d9",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Your account ID",
+                              "key": "AccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) API key for the account",
+                              "key": "Key",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Hashed signature for the request",
+                              "key": "Signature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to schedule in the transactions",
+                              "key": "Amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) The frequency of the scheduled: single or recurring.",
+                              "key": "Frequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Name of frequency of the scheduled transaction (Only for recurring option), the posibles values are: weekly, biweekly, semi-monthly, monthly, bimonthly, 3 months, 6 months, yearly.",
+                              "key": "NameOfFrequency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date from which the schedule will be started",
+                              "key": "ScheduleStartDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Date when the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "ScheduleEndDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Number of payments after which the transaction processing will end (Only for recurring option), Either provide ScheduleEndDate or EndingAfterPayments",
+                              "key": "EndingAfterPayments",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "(Required) Description of the schedule transaction",
+                              "key": "Description",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's first name",
+                              "key": "FirstName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's last name",
+                              "key": "LastName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Company's name",
+                              "key": "CompanyName",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's address line 1",
+                              "key": "Address1",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's city",
+                              "key": "City",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's province specified using two character abbreviations (eg. BC, AB)",
+                              "key": "Province",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                              "key": "Country",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's postal code.",
+                              "key": "PostalCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer's bank account number for funds to be debited from.",
+                              "key": "AccountNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Three digit institution number for a Canadian bank.",
+                              "key": "FinancialInstitutionNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Transit number for the customer's account.",
+                              "key": "BranchTransitNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency.",
+                              "key": "Currency",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Client Account ID",
+                              "key": "ClientAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Type of semi-monthly frequency. This field is only required when NameOfFrequency is set to semi-monthly. The possible values are: SemiMonthFirstAndFifteenth, SemiMonthFifteenthAndLast",
+                              "key": "SemiMonthlyFrequencyType",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "An optional note to associate with the transaction.",
+                              "key": "Notes",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "An optional reference number to associate with the transaction.",
+                              "key": "ClientReferenceNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Flinks account",
+                              "key": "FlinksAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Flinks account",
+                              "key": "FlinksLoginID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                              "key": "Token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Plaid account",
+                              "key": "PlaidPublicToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Plaid account",
+                              "key": "PlaidAccessToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Plaid account",
+                              "key": "PlaidAccountID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with a Plaid account. If you use this field PlaidPublicToken, PlaidAccessToken, and PlaidAccountID are not neccesary",
+                              "key": "PlaidProcessorToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with an MX account.",
+                              "key": "MxAuthorizationCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Used by clients with an Inverite account",
+                              "key": "InveriteRequestGUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                              "key": "IdempotencyKey",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/eft/withdraw/schedule",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "eft",
+                            "withdraw",
+                            "schedule"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"Amount\": \"<number>\",\n  \"ScheduledTransactionID\": \"<integer>\",\n  \"Frequency\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ScheduleStartDate\": \"<date>\",\n  \"Status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:54:13.000Z",
+                      "updatedAt": "2026-10-22T02:54:13.000Z",
+                      "uid": "35240-a01b9ba3-a8fd-46d9-a78b-a38958a794d9"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-72d04ef7-e8e7-46f6-9bc5-87a510d4e063"
+                }
+              ],
+              "id": "4bcf41bd-a3d6-4016-b5b1-55f3bc030f93",
+              "createdAt": "2026-10-22T02:54:13.000Z",
+              "updatedAt": "2026-10-22T02:54:13.000Z",
+              "uid": "35240-4bcf41bd-a3d6-4016-b5b1-55f3bc030f93"
+            },
+            {
+              "name": "eft/withdraw",
+              "id": "936b8ad6-a021-4995-81e1-858ea8c1d744",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's first name",
+                      "key": "FirstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's last name",
+                      "key": "LastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Company's name",
+                      "key": "CompanyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's address line 1",
+                      "key": "Address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's city",
+                      "key": "City",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's province specified using two character abbreviation (eg. BC, AB)",
+                      "key": "Province",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                      "key": "Country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's postal code.",
+                      "key": "PostalCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Recipient's bank account number. This is the account that funds will be deposited into.",
+                      "key": "AccountNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Canadian banks. Three digit institution number.",
+                      "key": "FinancialInstitutionNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Canadian banks. Transit number for the Recipient's account.",
+                      "key": "BranchTransitNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The amount in the specified currency to deposit into the recipient's bank account.",
+                      "key": "Amount",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency. NOTE: Currently the eft/withdraw API endpoint only supports CAD and USD transactions",
+                      "key": "Currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                      "key": "ContactID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional reference number to associate with the transaction.",
+                      "key": "ClientReferenceNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Flinks account",
+                      "key": "FlinksAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Flinks account",
+                      "key": "FlinksLoginID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                      "key": "Token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Plaid account",
+                      "key": "PlaidPublicToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Plaid account",
+                      "key": "PlaidAccessToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Plaid account",
+                      "key": "PlaidAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with a Plaid account. If you use this field PlaidPublicToken, PlaidAccessToken, and PlaidAccountID are not neccesary",
+                      "key": "PlaidProcessorToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with an MX account.",
+                      "key": "MxAuthorizationCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used by clients with an Inverite account",
+                      "key": "InveriteRequestGUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                      "key": "ParentTransactionID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                      "key": "TransactionTypeCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "TransactionLabel overrides originator short name",
+                      "key": "TransactionLabel",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional note to associate with the transaction.",
+                      "key": "Notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                      "key": "IdempotencyKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An optional unique identification general ledger code.",
+                      "key": "GLCode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/eft/withdraw",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "eft",
+                    "withdraw"
+                  ]
+                },
+                "description": "This endpoint is used to take funds out of your VoPay account, and deposit them to the specified recipient's bank account. In the below endpoint, either CompanyName OR FirstName and LastName must be provided.\n\nIf either Token, Flinks (FlinksAccountID, FlinksLoginID), Inverite (InveriteRequestGUID), or Plaid (PlaidPublicToken/PlaidAccessToken, PlaidAccountID) is provided, then the FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber will not be required.\n\nIf the bank information is provided (FinancialInstitutionNumber, BranchTransitNumber, and AccountNumber), then the Address1, City, Province, Country, and PostalCode are required.\n\nIf a ClientAccountID is provided, the client account's first/last name, address, and default bank account will be used for the transaction."
+              },
+              "response": [
+                {
+                  "id": "56f5c721-228f-4ff5-8c57-3490b2bd697c",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's first name",
+                          "key": "FirstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's last name",
+                          "key": "LastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Company's name",
+                          "key": "CompanyName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's address line 1",
+                          "key": "Address1",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's city",
+                          "key": "City",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's province specified using two character abbreviation (eg. BC, AB)",
+                          "key": "Province",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's country specified using full country name or ISO 3166-1 alpha-2 code.",
+                          "key": "Country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's postal code.",
+                          "key": "PostalCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Recipient's bank account number. This is the account that funds will be deposited into.",
+                          "key": "AccountNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Canadian banks. Three digit institution number.",
+                          "key": "FinancialInstitutionNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Canadian banks. Transit number for the Recipient's account.",
+                          "key": "BranchTransitNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount in the specified currency to deposit into the recipient's bank account.",
+                          "key": "Amount",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) 3 character currency code for the currency to fetch transactions for. If this is not specified the transaction will use the account's local currency. NOTE: Currently the eft/withdraw API endpoint only supports CAD and USD transactions",
+                          "key": "Currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The ID of the contact to use for this transactions. The contacts payment method associated with this transaction type will be used.",
+                          "key": "ContactID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional reference number to associate with the transaction.",
+                          "key": "ClientReferenceNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Flinks account",
+                          "key": "FlinksAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Flinks account",
+                          "key": "FlinksLoginID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Your iQ11 Token that has been generated using Custom Iframe. See iQ11 API Endpoints.",
+                          "key": "Token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidPublicToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidAccessToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account",
+                          "key": "PlaidAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with a Plaid account. If you use this field PlaidPublicToken, PlaidAccessToken, and PlaidAccountID are not neccesary",
+                          "key": "PlaidProcessorToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with an MX account.",
+                          "key": "MxAuthorizationCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Used by clients with an Inverite account",
+                          "key": "InveriteRequestGUID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The parent transaction where the withdrawal will be linked to, can become a split payment with multiple withdrawals. When funds of the parent transaction have been released the system will generate the distributions of these funds automatically.",
+                          "key": "ParentTransactionID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CPA transaction code. Use the /api/v2/account/transactions/codes endpoint to retrieve a list of valid transaction codes. If not specified, the transaction will be created using code 450 (miscellaneous).",
+                          "key": "TransactionTypeCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "TransactionLabel overrides originator short name",
+                          "key": "TransactionLabel",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional note to associate with the transaction.",
+                          "key": "Notes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A unique key which the server can use to recognize and reject subsequent retries of the same request.",
+                          "key": "IdempotencyKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An optional unique identification general ledger code.",
+                          "key": "GLCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/eft/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eft",
+                        "withdraw"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"TransactionID\": \"<integer>\",\n  \"Flagged\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-56f5c721-228f-4ff5-8c57-3490b2bd697c"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:13.000Z",
+              "updatedAt": "2026-10-22T02:54:13.000Z",
+              "uid": "35240-936b8ad6-a021-4995-81e1-858ea8c1d744"
+            }
+          ],
+          "id": "32873dd2-8290-4bc1-80c6-e8a23f9a3e61",
+          "createdAt": "2026-10-22T02:54:13.000Z",
+          "updatedAt": "2026-10-22T02:54:13.000Z",
+          "uid": "35240-32873dd2-8290-4bc1-80c6-e8a23f9a3e61"
+        },
+        {
+          "name": "scheduled-transactions",
+          "item": [
+            {
+              "name": "eft/scheduled-transactions",
+              "id": "31e816e1-5bd8-4d63-b9a4-2a17aefb4ad0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/eft/scheduled-transactions?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&ScheduledTransactionID=<integer>&Limit =<integer>&Offset =<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "eft",
+                    "scheduled-transactions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Client Account ID",
+                      "key": "ClientAccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ID of the schedule Transaction (If this value is present, we list the details of the scheduled transactions)",
+                      "key": "ScheduledTransactionID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Limit the number of records that are returned.",
+                      "key": "Limit ",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Use this parameter to set the starting point in the dataset.",
+                      "key": "Offset ",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to look up the list of all scheduled transactions, or you can list the details of a single scheduled transaction.\n\nIf the value ScheduledTransactionID is present, we only list the details of that scheduled transaction.\n\n* Either the response will be Company name or First name and Last name"
+              },
+              "response": [
+                {
+                  "id": "df036680-d912-417a-aabd-4ad8b4218f3c",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eft/scheduled-transactions?AccountID=<string>&Key=<string>&Signature=<string>&ClientAccountID=<string>&ScheduledTransactionID=<integer>&Limit =<integer>&Offset =<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eft",
+                        "scheduled-transactions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Client Account ID",
+                          "key": "ClientAccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ID of the schedule Transaction (If this value is present, we list the details of the scheduled transactions)",
+                          "key": "ScheduledTransactionID",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Limit the number of records that are returned.",
+                          "key": "Limit ",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Use this parameter to set the starting point in the dataset.",
+                          "key": "Offset ",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NumberOfRecords\": \"<number>\",\n  \"ScheduledTransactions\": {\n    \"0\": {\n      \"ID\": \"<integer>\",\n      \"Type\": \"<string>\",\n      \"Amount\": \"<number>\",\n      \"Frequency\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"Notes\": \"<string>\",\n      \"NameOfFrequency\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"StartDate\": \"<date>\",\n      \"EndDate\": \"<date>\",\n      \"EndingAfterPayments\": \"<integer>\",\n      \"ScheduledDetails\": {\n        \"0\": {\n          \"FlinksAccountID\": \"<string>\",\n          \"FlinksLoginID\": \"<string>\",\n          \"Token\": \"<string>\",\n          \"PlaidAccessToken\": \"<string>\",\n          \"PlaidAccountID\": \"<string>\",\n          \"PlaidPublicToken\": \"<string>\",\n          \"PlaidProcessorToken\": \"<string>\",\n          \"AccountNumber\": \"<string>\",\n          \"FinancialInstitutionNumber\": \"<string>\",\n          \"BranchTransitNumber\": \"<string>\",\n          \"CompanyName*\": \"<string>\",\n          \"FirstName*\": \"<string>\",\n          \"LastName*\": \"<string>\",\n          \"Address1\": \"<string>\",\n          \"City\": \"<string>\",\n          \"PostalCode\": \"<string>\",\n          \"Province\": \"<string>\",\n          \"Country\": \"<string>\",\n          \"ClientReferenceNumber\": \"<string>\",\n          \"ErrorMessage\": {\n            \"0\": {\n              \"Success\": \"<boolean>\",\n              \"ErrorMessage\": \"<string>\"\n            }\n          }\n        }\n      },\n      \"UpcomingTransactions\": {\n        \"0\": {\n          \"TransactionID\": \"<integer>\",\n          \"ScheduledDate\": \"<date>\",\n          \"ProcessingDate\": \"<date>\",\n          \"LastModified\": \"<date>\",\n          \"Status\": \"<string>\",\n          \"Amount\": \"<number>\"\n        }\n      },\n      \"CompletedTransactions\": {\n        \"0\": {\n          \"TransactionID\": \"<integer>\",\n          \"ScheduledDate\": \"<date>\",\n          \"ProcessingDate\": \"<date>\",\n          \"LastModified\": \"<date>\",\n          \"Status\": \"<string>\",\n          \"Amount\": \"<number>\"\n        }\n      }\n    }\n  },\n  \"Pagination\": {\n    \"TotalRecords\": \"<string>\",\n    \"Offset\": \"<string>\",\n    \"Limit\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-df036680-d912-417a-aabd-4ad8b4218f3c"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:13.000Z",
+              "updatedAt": "2026-10-22T02:54:13.000Z",
+              "uid": "35240-31e816e1-5bd8-4d63-b9a4-2a17aefb4ad0"
+            }
+          ],
+          "id": "637ce5d1-60e1-4686-bfe9-fe655569b01d",
+          "createdAt": "2026-10-22T02:54:13.000Z",
+          "updatedAt": "2026-10-22T02:54:13.000Z",
+          "uid": "35240-637ce5d1-60e1-4686-bfe9-fe655569b01d"
+        },
+        {
+          "name": "failures",
+          "item": [
+            {
+              "name": "eft/failures",
+              "id": "48dd7101-cf18-4040-827a-a68f8fcffea7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/eft/failures?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "eft",
+                    "failures"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your account ID",
+                      "key": "AccountID",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for the account",
+                      "key": "Key",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Hashed signature for the request",
+                      "key": "Signature",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Start of date range to query for any failed transactions",
+                      "key": "StartDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) End of date range to query for any failed transactions",
+                      "key": "EndDateTime",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                },
+                "description": "This endpoint is used to retrieve a list of transactions which failed during a specific date range. This endpoint is queried based on the date that a failure occurred on, not on the date when the transaction originally occurred."
+              },
+              "response": [
+                {
+                  "id": "a798b6ac-5d14-4490-a6a5-a1374337d944",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eft/failures?AccountID=<string>&Key=<string>&Signature=<string>&StartDateTime=<dateTime>&EndDateTime=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eft",
+                        "failures"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your account ID",
+                          "key": "AccountID",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API key for the account",
+                          "key": "Key",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Hashed signature for the request",
+                          "key": "Signature",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Start of date range to query for any failed transactions",
+                          "key": "StartDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) End of date range to query for any failed transactions",
+                          "key": "EndDateTime",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Success\": \"<boolean>\",\n  \"ErrorMessage\": \"<string>\",\n  \"NumberOfRecords\": \"<number>\",\n  \"FailedTransactions\": {\n    \"0\": {\n      \"TransactionID\": \"<integer>\",\n      \"TransactionDateTime\": \"<dateTime>\",\n      \"TransactionType\": \"<string>\",\n      \"DollarAmount\": \"<number>\",\n      \"ErrorCode\": \"<string>\",\n      \"FailureReason\": \"<string>\",\n      \"ClientReferenceNumber\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T02:54:13.000Z",
+                  "updatedAt": "2026-10-22T02:54:13.000Z",
+                  "uid": "35240-a798b6ac-5d14-4490-a6a5-a1374337d944"
+                }
+              ],
+              "createdAt": "2026-10-22T02:54:13.000Z",
+              "updatedAt": "2026-10-22T02:54:13.000Z",
+              "uid": "35240-48dd7101-cf18-4040-827a-a68f8fcffea7"
+            }
+          ],
+          "id": "754778c9-4339-4f60-8d78-5bb9c2d2206b",
+          "createdAt": "2026-10-22T02:54:13.000Z",
+          "updatedAt": "2026-10-22T02:54:13.000Z",
+          "uid": "35240-754778c9-4339-4f60-8d78-5bb9c2d2206b"
+        }
+      ],
+      "id": "5572e91f-39e3-4358-8ee2-ae7d8004cca2",
+      "createdAt": "2026-10-22T02:54:13.000Z",
+      "updatedAt": "2026-10-22T02:54:13.000Z",
+      "uid": "35240-5572e91f-39e3-4358-8ee2-ae7d8004cca2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://earthnode-dev.vopay.com/api/v2"
+    }
+  ]
+}
